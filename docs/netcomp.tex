@@ -1,0 +1,959 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage{graphicx,url}
+\usepackage[brazil]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{listings}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage[parfill]{parskip}
+
+\lstset{
+         basicstyle=\footnotesize\ttfamily, % Standardschrift
+         numbersep=5pt,              % Abstand der Nummern zum Text
+         tabsize=2,                  % Groesse von Tabs
+         stringstyle=\color{white}\ttfamily, % Farbe der String
+         showspaces=false,           % Leerzeichen anzeigen ?
+         showtabs=false,             % Tabs anzeigen ?
+         xleftmargin=17pt,
+         framexleftmargin=17pt,
+         framexrightmargin=5pt,
+         framexbottommargin=4pt,
+         %backgroundcolor=\color{lightgray},
+         showstringspaces=false      % Leerzeichen in Strings anzeigen ?        
+}
+
+
+
+% Title Page
+\title{NETCOMP: Uma documenta\c{c}\~{a}o.}
+\author{Victor Nascimento Neves\and Filipe Wall Mutz\and Lauro Jos\'e Lyrio Junior.}
+
+
+\begin{document}
+\maketitle
+
+\tableofcontents
+
+\section{A Linguagem de Descri\c{c}\~{a}o da Arquitetura de Redes Neurais (NADL)}
+A \textbf{Network Architecture Description Language} \'e a linguagem por meio da qual se especifica a arquitetura da rede neural a ser gerada pela M\'aquina Associadora de Eventos (MAE). A extens\~{a}o padr\~{a}o de arquivos da NADL \'e \textit{.con}.
+
+Esta linguagem \'e utilizada para a cria\c{c}\~{a}o de estruturas de entrada e sa\'ida. Fun\c{c}\~{o}es escritas pelo usu\'ario em C para manipula\c{c}\~{a} e controle de E/S podem ser associadas \`{a} estas estruturas.
+
+Tamb\'em s\~ao definidas no arquivo .con as camadas neurais de uma Rede Neural Sem Peso (RNSP), bem como para detalhes de conex\~oes entre camadas neurais e estruturas de sa\'ida, especificando detalhes do treinamento da rede neural. \'E poss\'ivel tamb\'em aplicar filtros em camadas neurais, sendo esses filtros pr\'e-definidos pela MAE ou escritos pelo pr\'oprio usu\'ario na linguagem C.
+
+O l\'exico e a sintaxe da NADL foram desenvolvidos com as ferramentas Flex e Bison.
+
+\section{Estrutura L\'exica}
+Um programa em NADL consiste em um arquivo .con, no qual \'e descrita a Arquitetura da Rede Neural a ser gerada. Este arquivo dever\'a ser composto dos s\'imbolos (tokens) especificados na linguagem l\'exica da NADL como descritos abaixo.
+
+	\subsection{Terminadores de Linha}
+	Terminadores de linha dividem os caracteres de um arquivo .con em linhas:
+	\begin{center}
+	 \begin{tabular}{| l | c | r |}
+	  \hline
+	  nova linha & \textbackslash n & (Line Feed - ASC 10)\\
+	  \hline
+	 \end{tabular}
+	\end{center}
+
+	\subsection{Coment\'arios}
+	A forma de coment\'ario de codigo suportada pela NADL n\~ao segue o padr\~ao de coment\'arios do C (coment\'ario de linha e de bloco utilizando \textbackslash * * \textbackslash  ou //). Somente utilizando o car\'actere \# (tralha) seguido de texto ate um final de linha (\textbackslash n) para comentario de linha.
+
+	\begin{center}
+	 \begin{tabular}{| l | c | r |}
+	  \hline
+	  comentario de linha & \# & (Sharp - ASC 35)\\
+	  \hline
+	 \end{tabular}
+	\end{center}
+
+	\subsection{Espa\c{c}os em Branco}
+	Espa\c{c}os em branco s\~{a}o definidos com algum dos seguintes caracteres que incluem um espa\c{c}o na tabela ASC.
+	\begin{center}
+	 \begin{tabular}{| l | c | r |}
+	  \hline
+	  espa\c{c}o em branco & [] & (Blank Space - ASC 32) \\
+	  tabula\c{c}\~{a}o & \textbackslash t & (Horizontal Tab - ASC 09) \\
+	  \hline
+	 \end{tabular}
+	\end{center}
+
+	\subsection{Tipos de Vari\'aveis}
+	Os tipos poss\'iveis para vari\'aveis s\~ao: inteiro e float, permitindo-se tamb\'em a defini\c{c}\~ao de vari\'aveis constantes.
+	\begin{center}
+	 \begin{tabular}{| l | r |}
+	  \hline
+	  inteiro & int \\
+	  ponto flutuante & float\\
+	  constante & const \\
+	  \hline
+	 \end{tabular}
+	\end{center}
+
+	\subsection{Operadores e Pontuadores}
+Existem v\'arios tipos de operadores e pontuadores. Operadores s\~ao usados em express\~oes para descrever opera\c{c}\~{o}es que envolvam um ou mais operandos. Pontuadores s\~{a}o usados para agrupamento e separa\c{c}\~{a}o de c\'{o}digo.
+		\subsubsection{Operadores}
+		A tabela abaixo cont\'em os operadores aritim\'eticos e de compara\c{c}\~ao. S\~ao descritos seus nomes, s\'imbolos terminais e valores na tabela ASCII.
+		\begin{center}
+		\begin{tabular}{| l | l | c | r |}
+		  \hline
+			Atribui\c{c}\~ao & Atribui\c{c}\~{a}o & = & ASC 61 \\
+			\hline
+			Compara\c{c}\~oes & Igual & == & [ASC 61 ASC 61]\\
+			& Menor & $<$ & ASC 60 \\
+			& Maior & $<$ & ASC 62 \\
+			& Menor ou Igual & $<=$ & [ASC 60 ASC 61] \\
+			& Maior ou Igual & $>=$ & [ASC 62 ASC 61] \\
+			& Diferente & $=!$ & [ASC 61 ASC 33] \\
+			\hline
+			At & At & @ & ASC 64 \\
+			\hline
+			Aritim\'eticos& Resto da Divis\~ao & \% & ASC 37 \\
+			& Mais & $+$ & ASC 43 \\
+			& Menos & $-$ & ASC 45 \\
+			& Vezes & $*$ & ASC 42 \\
+			& Dividido & $/$ & ASC 47 \\
+		  \hline
+		\end{tabular}
+		\end{center}
+		
+		\subsubsection{Pontuadores}
+		A tabela abaixo cont\'em os s\'imbolos de pontua\c{c}\~ao e agrupamento da linguagem, com o seu nome, s\'imbolo terminal e valor na tabela ASCII.
+		\begin{center}
+		 \begin{tabular}{| l | c | r |}
+		  \hline
+			Abre Par\^enteses & ( & ASC 40\\
+			Fecha Par\^enteses & ) & ASC 41\\
+			Abre Chaves & \{ & ASC 124\\
+			Fecha Chaves & \} & ASC 125\\
+			Abre Colchetes & [ & ASC 91\\
+			Fecha Colchetes & ] & ASC 93\\
+			Ponto e V\'irgula & ; & ASC 59\\
+			V\'irgula & , & ASC 44 \\
+		  \hline
+		 \end{tabular}
+		\end{center}
+
+		\subsubsection{Preced\^encia de Operadores}
+		A tabela abaixo lista a a preced\^encia e associatividade dos operadores. Operadores s\~ao listados de cima para baixo, em ordem decrescente de preced\^encia. Operadores com o mesmo valor de preced\^encia
+		s\~ao avaliados na dire\c{c}\~ao da associatividade.
+		\begin{center}
+		\begin{tabular}{| l | l | c | r |}
+		  \hline
+			{\bf Preced\^encia} & {\bf Operador} & {\bf Descri\c{c}\~ao} & {\bf Associatividade} \\
+			\hline
+			{\bf 1} & $-$ & Menos un\'ario & Esquerda-Direita \\
+			\hline
+			{\bf 2} & $*$ & Multiplica\c{c}\~ao & Esquerda-Direita \\
+				& $/$ & Divis\~ao & Esquerda-Direita \\
+			\hline
+			{\bf 3} & $+$ & Soma & Esquerda-Direita \\
+				& $-$ & Subtra\c{c}\~ao & Esquerda-Direita \\
+		  \hline
+		\end{tabular}
+		\end{center}
+
+	\subsection{Strings, Vari\'aveis e Literal D\'igito}
+	Na NADL String, Vari\'aveis e D\'igitos s\~ao representados seguindo o padr\~ao de express\~oes regulares, como exemplificado abaixo:
+
+	\begin{center}
+	 \begin{tabular}{| l | r |}
+	  \hline
+		string & \begin{lstlisting} 
+	\"(\\.|\\\n|[^\\"])*\"
+	\end{lstlisting}\\
+	  \hline
+	 \end{tabular}
+	\end{center}
+	Exemplos:
+	\begin{lstlisting}
+	 "c:/cygwin/home/img/ARDataBase/ARPhotoDataBase/"
+	 " " 
+	\end{lstlisting}
+
+	\begin{center}
+	 \begin{tabular}{| l | r |}
+	  \hline
+		variable & \begin{lstlisting} 
+	[&a-zA-Z][_a-zA-Z0-9]*
+	\end{lstlisting}\\
+	  \hline
+	 \end{tabular}
+	\end{center}
+	Exemplos:
+	\begin{lstlisting}
+	input_height, _kernel_SIZE, &gaUSIan98
+	\end{lstlisting}
+
+	\begin{center}
+	 \begin{tabular}{| l | r |}
+	  \hline
+		constant & \begin{lstlisting} 
+	[0-9]*\.?[0-9]+	
+	\end{lstlisting}\\
+	  \hline
+	 \end{tabular}
+	\end{center}
+	Exemplos:
+	\begin{lstlisting}
+	239, 239.0987, 003.004, .007
+	\end{lstlisting}
+
+	\subsection{Palavras Reservadas}
+Essas s\~ao as palavras reservadas pelo compilador da NADL:
+\begin{center}
+ \begin{tabular}{| l | c | c | r |}
+  \hline
+	linear	& radius & size & square \\
+	distribution & gaussian & laplacian & regular \\
+	and & input & output & outputs \\
+	neuronlayer & of & neurons & filter \\
+	with & randon & inputs & per \\
+	neuron & associate & connect & within \\
+	fullconnect & outputconnect & to & while \\
+	for & set & color & sensitive \\
+	greyscale & greyscale\_float & b\&w & produced\\
+	producing & controled & handled & by \\
+	pyramid & copies & show & int \\
+	float & const &  & \\
+  \hline
+ \end{tabular}
+\end{center}
+
+\section{Estrutura Sint\'atica}
+	\subsection{Tokens Conhecidos}
+O Analisador l\'exico examina o fluxo de entrada e converte sequ\^encias de caracteres em elementos terminais. Estes s\~ao os operadores, pontuadores, strings, vari\'aveis, d\'igitos e palavras reservadas, como descritos anteriormente.
+
+	\subsection{Comandos reconhecidos}
+A seguir descrevemos brevemente o significado de cada uma das declara\c{c}\~{o}es e comandos reconhecidos pelo analisador sint\'atico do compilador da NADL. Cada sub-se\c{c}\~{a}o abaixo descreve o nome do comando, sua declara\c{c}\~{a}o de acordo com o \textit{yacc} e a sua estrutura sint\'atica.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\subsubsection{program}
+		\begin{lstlisting}
+		program -> series
+		\end{lstlisting}
+Esta regra gera o arquivo fonte e o header (nome\_do\_exemplo.c e nome\_do\_exemplo.h).
+\vspace{10mm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
+	\subsubsection{series}
+		\begin{lstlisting}
+		series	->	command 
+		series	->	series command
+		\end{lstlisting}
+\vspace{10mm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\subsubsection{command}
+		\begin{lstlisting}
+		command	->	statement SEMI_COLON
+		command	->	definite_loop 
+		\end{lstlisting}
+\vspace{10mm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\subsubsection{statement}
+		\begin{lstlisting}
+		statement	->	input_st
+		statement	->	output_st
+		statement	->	neuronlayer_st
+		statement	->	filter_st
+		statement	->	association_st
+		statement	->	connection_st
+		statement	->	full_connection_st
+		statement	->	output_connection_st
+		statement	->	assignment_st
+		statement	->	indefinite_loop
+		statement	->	set_st
+		statement	->	function_st
+		\end{lstlisting}
+\vspace{10mm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\subsubsection{definite\_loop}
+		\begin{lstlisting}
+definite_loop	->	FOR OPEN_PARENTESIS statement SEMI_COLON comparison 
+				SEMI_COLON statement CLOSE_PARENTESIS 	OPEN_CHAVES series CLOSE_CHAVES
+		\end{lstlisting}
+O loop \textit{for}, o mesmo para C.\newline
+\vspace{10mm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\subsubsection{input\_st}
+		\begin{lstlisting}	
+input_st	->	INPUT VARIABLE dimentions output_type pyramid_type 
+				PRODUCED BY function params CONTROLED
+				
+input_st	->	INPUT VARIABLE dimentions output_type pyramid_type
+				PRODUCED BY function params
+
+input_st	->	INPUT VARIABLE dimentions output_type pyramid_type
+				CONTROLED BY function params
+					PRODUCED BY function params
+				
+input_st	->	INPUT VARIABLE dimentions output_type pyramid_type
+				CONTROLED BY function params
+
+input_st	->	INPUT VARIABLE dimentions output_type pyramid_type
+		\end{lstlisting}
+O comando \texttt{input} cria uma nova estrutura de input. Devem ser fornecidos um nome da input, dimens\~{o}es, tipo de input e o tipo de pir\^{a}mide da imagem.
+
+Opcionalmente podem ser fornecidas a fun\c{c}\~ao controladora e e geradora de input, a serem associadas a esta estrutura.
+
+
+Os poss\'iveis tipos de pir\^amide s\~ao:
+	\begin{enumerate}
+	 \item[-] REGULAR\_PYRAMID
+	 \item[-] GAUSSIAN\_PYRAMID
+	 \item[-] LAPLACIAN\_PYRAMID
+	\end{enumerate}
+
+
+Os poss\'iveis tipos de input s\~ao:
+	\begin{enumerate}
+	 \item[-] COLOR
+	 \item[-] GREYSCALE
+	 \item[-] GREYSCALE\_FLOAT
+	 \item[-] BLACK\_WHITE
+	\end{enumerate}
+
+Exemplo:
+\begin{lstlisting}
+input face_recog[INPUT_WIDTH][INPUT_HEIGHT] with COLOR outputs
+	produced by input_generator() controled by input_controler()	
+\end{lstlisting}
+\vspace{10mm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\subsubsection{output\_st}
+		\begin{lstlisting}
+output_st	->	OUTPUT VARIABLE dimentions HANDLED BY function params
+output_st	->	OUTPUT VARIABLE dimentions 
+		\end{lstlisting}
+Declara uma output, com o seu nome, dimens\~oes e, opcionalmente a fun\c{c}\~ao de manipula\c{c}\~ao.
+
+Exemplos:
+\begin{lstlisting}
+output out_face_recog_filtered[NL_WIDTH][NL_HEIGHT]
+output out_landmark[OUT_WIDTH][OUT_HEIGHT] handled by output_handler()
+\end{lstlisting}
+
+\vspace{10mm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\subsubsection{neuronlayer\_st}
+		\begin{lstlisting}
+neuronlayer_st	->	NEURON_LAYER_TOKEN VARIABLE dimentions OF
+				VARIABLE NEURONS sensitivity output_type memory_type_st COMA SHOW
+				
+neuronlayer_st	->	NEURON_LAYER_TOKEN VARIABLE dimentions OF
+				VARIABLE NEURONS sensitivity output_type memory_type_st
+				
+neuronlayer_st	->	NEURON_LAYER_TOKEN VARIABLE dimentions OF
+				VARIABLE NEURONS output_type memory_type_st COMA SHOW
+				
+neuronlayer_st	->	NEURON_LAYER_TOKEN VARIABLE dimentions OF
+				VARIABLE NEURONS output_type memory_type_st
+				
+neuronlayer_st	->	NEURON_LAYER_TOKEN VARIABLE dimentions sensitivity 
+				output_type memory_type_st COMA SHOW
+				
+neuronlayer_st	->	NEURON_LAYER_TOKEN VARIABLE dimentions sensitivity
+				output_type memory_type_st
+				
+neuronlayer_st	->	NEURON_LAYER_TOKEN VARIABLE dimentions
+				output_type memory_type_st COMA SHOW
+				
+neuronlayer_st	->	NEURON_LAYER_TOKEN VARIABLE dimentions
+				output_type memory_type_st
+		\end{lstlisting}
+Cria uma camada neural com seu nome e dimens\~oes. Opcionalmente podem ser declarados a sensitividade (color, greyscale, greyscale\_float ou black\_white) e o tipo de neur\^onio.
+
+Os poss\'iveis tipos de neur\^onios sao: default\_type, mem\_overwrite, rnd\_mem\_type, logiredu, minchinton, correlate e minchinton\_kcorrelate.
+
+Se for declarado \emph{", show"} no fim da senten\c{c}a, tambem sera criada uma output de nome \emph{"[nome-da-camada-neural]\_out"} com as mesmas dimens\~oes, alem de uma conex\~ao entre a camada neural e esta output.
+
+Exemplo:
+\begin{lstlisting}
+neuronlayer nl_face_recog_lp_f [NL_WIDTH][NL_HEIGHT] with color outputs, show
+neuronlayer nl_landmark [OUT_WIDTH][OUT_HEIGHT] of minchinton neurons color
+			sensitive with greyscale outputs
+\end{lstlisting}
+\vspace{10mm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\subsubsection{filter\_st}
+		\begin{lstlisting}
+filter_st	->	FILTER layers WITH function params PRODUCING VARIABLE
+		\end{lstlisting}
+
+Aplica um filtro definido por uma fun\c{c}\~{a}o \`{a} uma camada neural, produzindo o resultado em outra camada neural.
+
+E poss\'ivel passar diretamente uma output ou input como estrutura a ser filtrada, neste caso sera o filtro sera aplicado a camada neural relacionada a ela.
+
+Exemplos:
+\begin{lstlisting}
+filter input_face_recog with rotate_filter ("%f", 45.0) producing nl_face_recog
+filter nl_frecog with gaussian_filter ("%d %f", 5, 1.0) producing nl_frecog_filtered
+\end{lstlisting}
+\vspace{10mm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
+	\subsubsection{association\_st}
+		\begin{lstlisting}
+association_st	->	ASSOCIATE VARIABLE WITH VARIABLE
+		\end{lstlisting}
+Estabelece uma associa\c{c}\~{a}o de neur\^onios entre duas camadas neurais. Ambas devem ter o mesmo tipo de neur\^onios (michinton, correlate, etc.) e as mesmas dimens\~oes.
+
+O primeiro termo VARIABLE pode ser uma input ou output, neste caso sera associada a camada neural relacionada a ela.
+
+Exemplo:
+\begin{lstlisting}
+associate nl_landmark with nl_landmark
+\end{lstlisting}
+\vspace{10mm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
+	\subsubsection{connection\_st}
+		\begin{lstlisting}
+connection_st	->	CONNECT VARIABLE ranges TO VARIABLE ranges
+
+connection_st	->	CONNECT VARIABLE ranges TO VARIABLE ranges
+				WITH expression RANDOM INPUTS PER NEURON_TOKEN
+
+connection_st	->	CONNECT VARIABLE ranges TO VARIABLE ranges
+				WITH expression RANDOM INPUTS
+					PER NEURON_TOKEN AND GAUSSIAN_TOKEN DISTRIBUTION WITH
+						RADIUS expression interconnection_pattern
+
+connection_st	->	CONNECT VARIABLE ranges TO VARIABLE ranges
+				WITH expression RANDOM INPUTS
+					PER NEURON_TOKEN AND LINEAR DISTRIBUTION WITH SIZE
+						expression SQUARED interconnection_pattern
+
+connection_st	->	CONNECT VARIABLE ranges TO VARIABLE ranges
+				WITH expression RANDOM INPUTS
+					PER NEURON_TOKEN AND LOG_POLAR_TOKEN DISTRIBUTION WITH RADIUS
+						expression AND LOG_FACTOR expression
+
+		\end{lstlisting}
+O comando \texttt{connect} estabelece uma conex\~{a}o entre duas camadas neurais.
+
+O primeiro valor \texttt{ranges} define a \'area de interesse (ponto mais baixo e ponto mais alto do ret\^angulo) da camada de destino, o segundo valor \texttt{ranges} \'e a \'area de interesse da camada de origem. Se um valor da \'area de interesse nao for especificado, a camada inteira e usada para conex\~ao.
+
+Os poss\'iveis tipos de conex\~{a}o s\~{a}o:
+	\begin{enumerate}
+	 \item conex\~{a}o direta (1 para 1). Definido pela primeira regra.
+	 \item conex\~{a}o aleat\'oria.
+	 \item conex\~{a}o aleat\'oria, com distribui\c{c}\~{a}o linear. Neste caso deve ser passado tamanho da distribui\c{c}\~{a}o.
+	 \item conex\~{a}o aleat\'oria, com distribui\c{c}\~{a}o gaussiana. Neste caso deve ser passado o raio da gaussiana.
+	 \item conex\~{a}o aleat\'oria, com distribui\c{c}\~{a}o log-polar. Neste caso deve ser passado o raio e o fator da distribui\c{c}\~{a}o.
+	\end{enumerate}
+
+Exemplo:
+\begin{lstlisting}
+connect nl_face_recog to nl_landmark with SYNAPSES random inputs per neuron
+	and gaussian distribution with radius 10.0
+\end{lstlisting}
+\vspace{10mm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\subsubsection{full\_connection\_st}
+		\begin{lstlisting}
+full_connection_st	->	FULL_CONNECT VARIABLE ranges TO VARIABLE ranges
+		\end{lstlisting}
+Similar ao \texttt{connect}, mas \'e estabelecida uma conex\~ao total entre os neur\^onios das duas camadas (1 pra todos).
+
+\vspace{10mm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\subsubsection{output\_connection\_st}
+		\begin{lstlisting}
+output_st	->	OUTPUT VARIABLE dimentions HANDLED BY function params
+output_st	->	OUTPUT VARIABLE dimentions 
+		\end{lstlisting}
+Declara uma output, com o seu nome, dimens\~oes e opcionalmente, a fun\c{c}\~ao de manipula\c{c}\~ao.
+
+Exemplos:
+\begin{lstlisting}
+output out_face_recog_filtered[NL_WIDTH][NL_HEIGHT]
+output out_landmark[OUT_WIDTH][OUT_HEIGHT] handled by output_handler()
+\end{lstlisting}
+\vspace{10mm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\subsubsection{assignment\_st}
+		\begin{lstlisting}
+assignment_st	->	INT VARIABLE EQUAL expression
+assignment_st	->	FLOAT VARIABLE EQUAL expression
+assignment_st	->	CONST VARIABLE EQUAL CONSTANT
+assignment_st	->	CONST VARIABLE EQUAL STRING
+assignment_st	->	CONST VARIABLE EQUAL VARIABLE
+assignment_st	->	CONST VARIABLE EQUAL expression
+		\end{lstlisting}
+Atribui\c{c}\~{a}o de valores para variaveis e constantes.
+
+Exemplos:
+\begin{lstlisting}
+const INPUT_WIDTH 	= 384
+const INPUT_HEIGHT	= 288
+\end{lstlisting}
+\vspace{10mm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\subsubsection{indefinite\_loop}
+		\begin{lstlisting}
+indefinite_loop	->	WHILE OPEN_PARENTESIS comparison
+				CLOSE_PARENTESIS OPEN_CHAVES series CLOSE_CHAVES
+		\end{lstlisting}
+O loop \textit{while}, o mesmo para C.
+
+\vspace{10mm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\subsubsection{set\_st}
+		\begin{lstlisting}
+set_st	->	SET VARIABLE EQUAL expression
+		\end{lstlisting}
+Atribuicao de uma vari\'avel global.
+
+Exemplo:
+\begin{lstlisting}
+set NEURON_MEMORY_SIZE = 700
+\end{lstlisting}
+\vspace{10mm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\subsubsection{function\_st}
+		\begin{lstlisting}
+function_st	->	INT VARIABLE OPEN_PARENTESIS string CLOSE_PARENTESIS 
+function_st	->	FLOAT VARIABLE OPEN_PARENTESIS string CLOSE_PARENTESIS 
+		\end{lstlisting}
+Declara\c{c}\~{a}o de prot\'otipos de fun\c{c}\~oes do usu\'ario (user functions) que ser\~{a}o usadas pela aplica\c{c}\~ao.
+
+Exemplos:
+\begin{lstlisting}
+int ShowStatistics ("%d")
+int ResetStatistics ("%d")
+int SetNetworkStatus ("%d")
+\end{lstlisting}
+\vspace{10mm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\subsubsection{function}
+		\begin{lstlisting}
+function	->	VARIABLE 
+		\end{lstlisting}
+Retorna o token VARIABLE.
+\vspace{10mm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\subsubsection{params}
+		\begin{lstlisting}
+params	->	OPEN_PARENTESIS params_list CLOSE_PARENTESIS 
+		\end{lstlisting}
+
+Lista de par\^ametros.
+\vspace{10mm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\subsubsection{params\_list}
+		\begin{lstlisting}
+params_list	->	
+params_list	->	param
+params_list	->	params_list COMA param
+		\end{lstlisting}
+\vspace{10mm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\subsubsection{param}
+		\begin{lstlisting}
+param	->	string
+param	->	expression
+		\end{lstlisting}
+\vspace{10mm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\subsubsection{string}
+		\begin{lstlisting}
+string	->	STRING
+		\end{lstlisting}
+Retorna o token STRING.
+\vspace{10mm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\subsubsection{expression}
+		\begin{lstlisting}
+expression	->	expression PLUS expression      
+expression	->	expression MINUS expression   	     
+expression	->	expression TIMES expression   	  
+expression	->	expression DIVIDIDED expression	 
+expression	->	VARIABLE
+expression	->	CONSTANT 
+expression	->	OPEN_PARENTESIS expression CLOSE_PARENTESIS
+expression	->	MINUS expression %prec UMINUS
+expression	->	OPEN_PARENTESIS INT CLOSE_PARENTESIS expression   	     
+expression	->	OPEN_PARENTESIS FLOAT CLOSE_PARENTESIS expression  
+		\end{lstlisting}
+Esta regra define as express\~oes aritm\'eticas feitas pelas opera\c{c}\~oes b\'asicas (+,-,/,*), vari\'aveis, constantes, bem como opera\c{c}\~oes de \textit{type cast} para os tipos int e float.
+\vspace{10mm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\subsubsection{comparison}
+		\begin{lstlisting}
+comparison	->	expression GREATER expression
+comparison	->	expression LESS expression
+comparison	->	expression LESS_EQUAL expression
+comparison	->	expression GREATER_EQUAL expression
+comparison	->	expression EQUAL expression
+comparison	->	expression DIFERENT expression
+		\end{lstlisting}
+
+Compara\c{c}\~oes entre express\~oes.
+\vspace{10mm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\subsubsection{ranges}
+		\begin{lstlisting}
+ranges	->	
+ranges	->	COMA WITHIN dimentions AND dimentions COMA
+ranges	->	COMA WITHIN dimentions AND dimentions
+		\end{lstlisting}
+Esta regra captura o valor de duas dimens\~oes. Caso vazio, retorna as dimens\~oes [-1,-1] e [-1,-1].
+\vspace{10mm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\subsubsection{dimentions}
+		\begin{lstlisting}
+dimentions	->	OPEN_COLCHETES expression CLOSE_COLCHETES
+				OPEN_COLCHETES expression CLOSE_COLCHETES
+dimentions	->	OPEN_COLCHETES expression COMA expression CLOSE_COLCHETES
+		\end{lstlisting}
+
+Esta regra captura o valor de uma dimens\~ao.
+
+Exemplo:
+\begin{lstlisting}
+[100][100], [100,100]
+\end{lstlisting}
+\vspace{10mm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\subsubsection{pyramid\_type}
+		\begin{lstlisting}
+pyramid_type	->	
+pyramid_type	->	AND expression REGULAR_TOKEN PYRAMID_TOKEN COPIES
+pyramid_type	->	AND expression GAUSSIAN_TOKEN PYRAMID_TOKEN COPIES
+pyramid_type	->	AND expression LAPLACIAN_TOKEN PYRAMID_TOKEN COPIES
+pyramid_type	->	AND expression PYRAMID_TOKEN COPIES
+		\end{lstlisting}
+
+Se vazio, ent\~ao esta regra retorna 0 como valor de \texttt{expression} e \texttt{REGULAR\_PYRAMID} como tipo de pir\^amide.
+
+\vspace{10mm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\subsubsection{sensitivity}
+		\begin{lstlisting}
+sensitivity	->	o_type SENSITIVE
+		\end{lstlisting}
+
+Esta regra captura o valor \texttt{o\_type} para ser usado com indentificador do tipo de sensitividade dos neur\^onios.
+
+\vspace{10mm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\subsubsection{output\_type}
+		\begin{lstlisting}
+output_type	->	WITH o_type OUTPUTS
+		\end{lstlisting}
+
+Esta regra captura o valor \texttt{o\_type} para ser usado com indentificador do tipo de output.
+
+\vspace{10mm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\subsubsection{o\_type}
+		\begin{lstlisting}
+o_type	->	COLOR_TOKEN
+		\end{lstlisting}
+Os tipos de output podem ser: \texttt{COLOR}, \texttt{GREYSCALE}, \texttt{GREYSCALE\_FLOAT} OU \texttt{BLACK\_WHITE}.
+\vspace{10mm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\subsubsection{layers}
+		\begin{lstlisting}
+layers	->	layer
+layers	->	layers COMA layer      
+		\end{lstlisting}
+
+Retorna os nomes de uma ou mais camadas neurais, e o n\'umero total de camadas.
+\vspace{10mm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\subsubsection{layer}
+		\begin{lstlisting}
+layer	->	VARIABLE 
+		\end{lstlisting}
+Retorna uma camada neural. Se \texttt{VARIABLE} for o nome de uma input ou input, retorna a camada neural associada.
+\vspace{10mm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\subsubsection{memory\_type\_st}
+		\begin{lstlisting}
+memory_type_st	->	
+memory_type_st	->	USING SHARED MEMORY
+		\end{lstlisting}
+
+Define o tipo de mem\'oria usada: compartilhada ou distribu\'ida. Caso n\~ao especificada, e assumido o uso de mem\'oria distribu\'ida.
+\vspace{10mm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\subsubsection{interconnection\_pattern}
+		\begin{lstlisting}
+interconnection_pattern		->	
+interconnection_pattern		->	COMA SAME INTERCONNECTION PATTERN_TOKEN
+		\end{lstlisting}
+
+Define o padr\~ao de conex\~ao usado com as distribui\c{c}\~oes dos tipos gaussiana, linear ou log polar. Cada neur\^onio estabelece um certo n\'umero de conex\~oes que podem ser iguais ou diferentes umas das outras. Se n\~ao for especificado, o padr\~ao adotado e o de conex\~oes diferentes.
+
+\vspace{10mm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Observa\c{c}\~oes}
+  \subsection{Conflitos de Shift-Reduce}
+      \subsubsection{I}
+      Conflito: No estado com as seguintes regras h\'a uma ambiguidade ao tratar a express\~ao antes do token \emph{PLUS}.
+      \begin{lstlisting}
+      (91) expression	->	expression PLUS expression
+      (92) expression	->	expression MINUS expression
+      (93) expression	->	expression TIMES expression
+      (94) expression	->	expression DIVIDIDED expression
+      (99) expression	->	OPEN_PARENTESIS INT CLOSE_PARENTESIS expression
+      \end{lstlisting}
+      Pode acontecer um shift para o estado com a regra:
+      \begin{lstlisting}
+      (91) expression	->	expression PLUS expression
+      \end{lstlisting}
+      Ou um reduce para a regra:
+      \begin{lstlisting}
+      (99) expression	->	OPEN_PARENTESIS INT CLOSE_PARENTESIS expression
+      \end{lstlisting}
+      O analisador sint\'atico escolhe o shift.
+      \vspace{5mm}
+      
+    \subsubsection{II}
+      Conflito: No estado com as seguintes regras h\'a uma ambiguidade ao tratar a express\~ao antes do token \emph{MINUS}.
+      \begin{lstlisting}
+      (91) expression	->	expression PLUS expression
+      (92) expression	->	expression MINUS expression
+      (93) expression	->	expression TIMES expression
+      (94) expression	->	expression DIVIDIDED expression
+      (99) expression	->	OPEN_PARENTESIS INT CLOSE_PARENTESIS expression
+      \end{lstlisting}
+      Pode acontecer um shift para o estado com as regras:
+      \begin{lstlisting}
+      (92) expression	->	expression MINUS expression
+      \end{lstlisting}
+      Ou um reduce para a regra:
+      \begin{lstlisting}
+      (99) expression	->	OPEN_PARENTESIS INT CLOSE_PARENTESIS expression
+      \end{lstlisting}
+      O analisador sint\'atico escolhe o shift.
+      \vspace{5mm}
+
+    \subsubsection{III}
+      Conflito: No estado com as seguintes regras h\'a uma ambiguidade ao tratar a express\~ao antes do token \emph{TIMES}.
+      \begin{lstlisting}
+      (91) expression	->	expression PLUS expression
+      (92) expression	->	expression MINUS expression
+      (93) expression	->	expression TIMES expression
+      (94) expression	->	expression DIVIDIDED expression
+      (99) expression	->	OPEN_PARENTESIS INT CLOSE_PARENTESIS expressionn
+      \end{lstlisting}
+      Pode acontecer um shift para o estado com a regra:
+      \begin{lstlisting}
+      (93) expression	->	expression TIMES expression
+      \end{lstlisting}
+      Ou um reduce para a regra:
+      \begin{lstlisting}
+      (99) expression	->	OPEN_PARENTESIS INT CLOSE_PARENTESIS expression
+      \end{lstlisting}
+      O analisador sint\'atico escolhe o shift.
+      \vspace{5mm}
+      
+    \subsubsection{IV}
+      Conflito: No estado com as seguintes regras h\'a uma ambiguidade ao tratar a express\~ao antes do token \emph{DIVIDED}.
+      \begin{lstlisting}
+      (91) expression	->	expression PLUS expression
+      (92) expression	->	expression MINUS expression
+      (93) expression	->	expression TIMES expression
+      (94) expression	->	expression DIVIDIDED expression
+      (99) expression	->	OPEN_PARENTESIS INT CLOSE_PARENTESIS expressionn
+      \end{lstlisting}
+      Pode acontecer um shift para o estado com as regras:
+      \begin{lstlisting}
+      (94) expression	->	expression DIVIDED expression
+      \end{lstlisting}
+      Ou um reduce para a regra:
+      \begin{lstlisting}
+      (99) expression	->	OPEN_PARENTESIS INT CLOSE_PARENTESIS expression
+      \end{lstlisting}
+      O analisador sint\'atico escolhe o shift.
+      \vspace{5mm}
+
+    \subsubsection{V}
+      Conflito: No estado com as seguintes regras h\'a uma ambiguidade ao tratar a express\~ao antes do token \emph{PLUS}.
+      \begin{lstlisting}
+      (91) expression	->	expression PLUS expression
+      (92) expression	->	expression MINUS expression
+      (93) expression	->	expression TIMES expression
+      (94) expression	->	expression DIVIDIDED expression
+      (100) expression	->	OPEN_PARENTESIS FLOAT CLOSE_PARENTESIS expression
+      \end{lstlisting}
+      Pode acontecer um shift para o estado com a regra:
+      \begin{lstlisting}
+      (91) expression	->	expression PLUS expression
+      \end{lstlisting}
+      Ou um reduce para a regra:
+      \begin{lstlisting}
+      (100) expression	->	OPEN_PARENTESIS FLOAT CLOSE_PARENTESIS expression
+      \end{lstlisting}
+      O analisador sint\'atico escolhe o shift.
+      \vspace{5mm}
+      
+    \subsubsection{VI}
+      Conflito: No estado com as seguintes regras h\'a uma ambiguidade ao tratar a express\~ao antes do token \emph{MINUS}.
+      \begin{lstlisting}
+      (91) expression	->	expression PLUS expression
+      (92) expression	->	expression MINUS expression
+      (93) expression	->	expression TIMES expression
+      (94) expression	->	expression DIVIDIDED expression
+      (100) expression	->	OPEN_PARENTESIS FLOAT CLOSE_PARENTESIS expression
+      \end{lstlisting}
+      Pode acontecer um shift para o estado com as regras:
+      \begin{lstlisting}
+      (92) expression	->	expression MINUS expression
+      \end{lstlisting}
+      Ou um reduce para a regra:
+      \begin{lstlisting}
+      (100) expression	->	OPEN_PARENTESIS FLOAT CLOSE_PARENTESIS expression
+      \end{lstlisting}
+      O analisador sint\'atico escolhe o shift.
+      \vspace{5mm}
+
+    \subsubsection{VII}
+      Conflito: No estado com as seguintes regras h\'a uma ambiguidade ao tratar a express\~ao antes do token \emph{TIMES}.
+      \begin{lstlisting}
+      (91) expression	->	expression PLUS expression
+      (92) expression	->	expression MINUS expression
+      (93) expression	->	expression TIMES expression
+      (94) expression	->	expression DIVIDIDED expression
+      (100) expression	->	OPEN_PARENTESIS FLOAT CLOSE_PARENTESIS expression
+      \end{lstlisting}
+      Pode acontecer um shift para o estado com a regra:
+      \begin{lstlisting}
+      (93) expression	->	expression TIMES expression
+      \end{lstlisting}
+      Ou um reduce para a regra:
+      \begin{lstlisting}
+      (100) expression	->	OPEN_PARENTESIS FLOAT CLOSE_PARENTESIS expression
+      \end{lstlisting}
+      O analisador sint\'atico escolhe o shift.
+      \vspace{5mm}
+      
+    \subsubsection{VIII}
+      Conflito: No estado com as seguintes regras h\'a uma ambiguidade ao tratar a express\~ao antes do token \emph{DIVIDED}.
+      \begin{lstlisting}
+      (91) expression	->	expression PLUS expression
+      (92) expression	->	expression MINUS expression
+      (93) expression	->	expression TIMES expression
+      (94) expression	->	expression DIVIDIDED expression
+      (100) expression	->	OPEN_PARENTESIS FLOAT CLOSE_PARENTESIS expression
+      \end{lstlisting}
+      Pode acontecer um shift para o estado com as regras:
+      \begin{lstlisting}
+      (94) expression	->	expression DIVIDIDED expression
+      \end{lstlisting}
+      Ou um reduce para a regra:
+      \begin{lstlisting}
+      (100) expression	->	OPEN_PARENTESIS FLOAT CLOSE_PARENTESIS expression
+      \end{lstlisting}
+      O analisador sint\'atico escolhe o shift.
+      \vspace{5mm}
+
+
+
+
+
+  \subsection{Conflitos de Reduce-Reduce}
+    \subsubsection{I}
+    Conflito: H\'a uma ambiguidade ap\'os ler o token \emph{CONSTANT} e econtrar o token \emph{CLOSE\_PARENTESIS} no estado com a regra:
+    \begin{lstlisting}
+    (50) assignment_st	->	CONST VARIABLE EQUAL CONSTANT
+    \end{lstlisting}
+    Pode ocorrer um reduce para a regra:
+    \begin{lstlisting}
+    (50) assignment_st	->	CONST VARIABLE EQUAL CONSTANT
+    \end{lstlisting}
+    Ou um reduce para a regra:
+    \begin{lstlisting}
+    (96) expression	->	CONSTANT
+    \end{lstlisting}
+    O analisador sint\'atico escolhe o reduce para a regra (50).
+    \vspace{5mm}
+
+    \subsubsection{II}
+    Conflito: H\'a uma ambiguidade ap\'os ler o token \emph{CONSTANT} e econtrar o token \emph{SEMI\_COLON} no estado com as regras:
+    \begin{lstlisting}
+    (50) assignment_st	->	CONST VARIABLE EQUAL CONSTANT
+    \end{lstlisting}
+    Pode ocorrer um reduce para a regra:
+    \begin{lstlisting}
+    (50) assignment_st	->	CONST VARIABLE EQUAL CONSTANT
+    \end{lstlisting}
+    Ou um reduce para a regra:
+    \begin{lstlisting}
+    (96) expression	->	CONSTANT
+    \end{lstlisting}
+    O analisador sint\'atico escolhe o reduce para a regra (50).
+    \vspace{5mm}
+
+    \subsubsection{III}
+    Conflito: H\'a uma ambiguidade ap\'os ler o token \emph{VARIABLE} e econtrar o token \emph{CLOSE\_PARENTESIS} no estado com a regra:
+    \begin{lstlisting}
+    (52) assignment_st	->	CONST VARIABLE EQUAL VARIABLE
+    \end{lstlisting}
+    Pode ocorrer um reduce para a regra:
+    \begin{lstlisting}
+    (52) assignment_st	->	CONST VARIABLE EQUAL VARIABLE
+    \end{lstlisting}
+    Ou um reduce para a regra:
+    \begin{lstlisting}
+    (95) expression	->	 VARIABLE
+    \end{lstlisting}
+    \vspace{5mm}
+
+    \subsubsection{IV}
+    Conflito: H\'a uma ambiguidade ap\'os ler o token \emph{VARIABLE} e econtrar o token \emph{SEMI\_COLON} no estado com a regra:
+    \begin{lstlisting}
+    (52) assignment_st	->	CONST VARIABLE EQUAL VARIABLE
+    \end{lstlisting}
+    Pode ocorrer um reduce para a regra:
+    \begin{lstlisting}
+    (52) assignment_st	->	CONST VARIABLE EQUAL VARIABLE
+    \end{lstlisting}
+    Ou um reduce para a regra:
+    \begin{lstlisting}
+    (95) expression	->	 VARIABLE
+    \end{lstlisting}
+    \vspace{5mm}
+
+\end{document}

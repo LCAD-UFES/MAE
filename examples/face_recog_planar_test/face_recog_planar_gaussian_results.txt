@@ -1,0 +1,8 @@
+smile 99.26
+anger 99.26
+scream 93.33
+glasses 85.19
+scarf 98.52
+left_light 99.26
+right_light 98.52
+all_side_lights 99.26

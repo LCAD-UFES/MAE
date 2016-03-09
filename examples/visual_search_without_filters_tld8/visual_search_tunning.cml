@@ -1,0 +1,46 @@
+/* Counters */
+int i;
+int num_frames;
+float confidence1;
+float confidence2;
+float detection1;
+float detection2;
+
+
+i = 0;
+confidence1 = 0.0;
+confidence2 = 0.0;
+
+num_frames = GetNumFrames(0);
+
+detection1 = 0.0;
+detection2 = 0.0;
+
+
+while (i < num_frames)
+{
+/* Trainning */
+GetImage(i);
+MoveToTargetCenter(0);
+key o;
+
+/* Perto */
+MoveCloseToObject(0);
+key s;
+detection1 = CheckDetection(0);
+confidence1 = GetConfidence(0);
+
+/* Longe */	
+MoveFarWayFromObject(0);
+#key s;
+detection2 = CheckDetection(0);
+confidence2 = GetConfidence(0);
+
+/*Esquecendo*/
+key f;
+
+PrintEvalution(confidence1, confidence2, detection1, detection2); 	
+i = i + 1;
+}
+
+quit;

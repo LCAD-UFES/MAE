@@ -1,0 +1,62 @@
+/* Counters */
+int i;
+int FIRST_TRAFFIC_SIGN_TYPE;
+int NUM_PROHIBITORY_TRAFFIC_SIGN_TYPES;
+int NUM_IMAGES;
+int NUM_OFFSET;
+int NUM_MAQUINAS;
+int TOTAL_IMAGES_OFFSET;
+int inicio_offset;
+int x;
+int y;
+int delta_move;
+float scale_factor;
+
+/* Trainning */
+FIRST_TRAFFIC_SIGN_TYPE = 0;
+NUM_PROHIBITORY_TRAFFIC_SIGN_TYPES = 12;
+i = FIRST_TRAFFIC_SIGN_TYPE;
+while (i < (FIRST_TRAFFIC_SIGN_TYPE + NUM_PROHIBITORY_TRAFFIC_SIGN_TYPES))
+{
+	GetBestProhibitoryTrafficSign(i, 0, 299);
+	TrainTrafficSign(0);
+	i = i + 1;
+}
+
+
+/* Testing */
+SetCriterion(-1); /* NONE */
+NUM_OFFSET = 2;
+NUM_IMAGES = GetNumImages(0);
+NUM_MAQUINAS = 4;
+TOTAL_IMAGES_OFFSET = (NUM_IMAGES)/NUM_MAQUINAS;
+inicio_offset = NUM_IMAGES /2 + (NUM_OFFSET * TOTAL_IMAGES_OFFSET)+1;
+i = inicio_offset;
+while (i < inicio_offset + 75)
+{
+	GetImage(i);
+	scale_factor = 40.0 / 128.0;
+	while (scale_factor < (30.0 / 16.0)) /* 1.875 */
+	{
+		SetScaleFactor(scale_factor);
+		delta_move = GetDeltaMove(0);
+		y = delta_move;
+		while (y < 800)
+		{
+			x = delta_move;
+			while (x < 1360)
+			{
+				MoveToPoint(x, y);
+				key s;
+				CheckTrafficSignDetection(0);
+				x = x + delta_move;
+			}
+			y = y + delta_move;
+		}
+		scale_factor = scale_factor * 1.565;
+	}
+	ReportParcialResults(0);
+	i = i + 1;
+	SaveState(0);
+}
+quit;

@@ -1,0 +1,6 @@
+Para conectar o trading_system_control com a Peixe Piloto
+- em um terminal digite:
+  ssh -L 1381:192.168.254.151:1381 alberto@peixepiloto.dyndns.org {192.168.254.151 ee o IP da maquina que roda o central na Peixe Piloto}
+- em outro terminal digite:
+  ./trading_system_control localhost:1381 {por alguma razao, nao funciona se nao passar o parametro}
+  

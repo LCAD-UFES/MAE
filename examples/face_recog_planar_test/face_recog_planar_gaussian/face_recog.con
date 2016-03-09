@@ -1,0 +1,76 @@
+################################################ Set Global Variables #################################################
+set NEURON_MEMORY_SIZE = 350;
+#set NEURON_MEMORY_SIZE = 1;
+set TYPE_SHOW = SHOW_FRAME;
+set TYPE_MOVING_FRAME = STOP;
+
+######################################################## Constants ####################################################
+const INPUT_WIDTH 	= 384;
+const INPUT_HEIGHT	= 288;
+
+const OUT_WIDTH		= 32;
+const OUT_HEIGHT	= 32;
+
+const SYNAPSES		= 128;
+
+# Reshaping filter's parameters
+const NL_WIDTH 		= 128;
+const NL_HEIGHT		= 200;
+
+#const NL_WIDTH 		= INPUT_WIDTH;
+#const NL_HEIGHT		= INPUT_HEIGHT;
+
+const BASELINE_FACTOR	= 0.45; # ratio between the desired eye baseline and the output width
+const X_OFFSET		= 0.0;
+const Y_OFFSET		= 15.0;
+const GAUSSIAN_SIGMA	= 3.0;
+
+const INPUT_PATH	= "/home/hallysson/img/ARDataBase/ARPhotoDataBase/";
+#const INPUT_PATH	= "/home/stiven/ARDataBase/ARPhotoDataBase/";
+
+############################################### Neuron Layers #########################################################
+neuronlayer	nl_face_recog_lp[NL_WIDTH][NL_HEIGHT]	with color outputs;
+neuronlayer	nl_face_recog_lp_f[NL_WIDTH][NL_HEIGHT]	with color outputs;
+neuronlayer	nl_landmark[OUT_WIDTH][OUT_HEIGHT]	of minchinton neurons color sensitive with greyscale outputs;
+
+############################################### Outputs #########################################################
+output		out_face_recog_lp[NL_WIDTH][NL_HEIGHT];
+output		out_face_recog_lp_f[NL_WIDTH][NL_HEIGHT];
+output		out_landmark[OUT_WIDTH][OUT_HEIGHT] 	handled by output_handler();
+
+################################################## Inputs #############################################################
+input 		face_recog[INPUT_WIDTH][INPUT_HEIGHT]	with color outputs produced by input_generator() controled by input_controler();
+
+############################################### Filters #########################################################
+#filter		face_recog 		with face_reshape_filter ("%f %f %f", BASELINE_FACTOR, X_OFFSET, Y_OFFSET) producing nl_face_recog_lp;
+filter		face_recog 		with face_reshape_filter2 ("%f %f %f %f", BASELINE_FACTOR, X_OFFSET, Y_OFFSET, GAUSSIAN_SIGMA) producing nl_face_recog_lp;
+#filter		face_recog 		with scale_nl_filter ("%f", 1.0) producing nl_face_recog_lp;
+#filter		face_recog 		with rotate_nl_filter ("%f", 45.0) producing nl_face_recog_lp;
+#filter		face_recog 		with translate_nl_filter ("%f %f", -NL_WIDTH/2.0, -NL_HEIGHT/2.0) producing nl_face_recog_lp;
+
+filter		nl_face_recog_lp 	with gaussian_filter ("%d %f", 5, 1.0) producing nl_face_recog_lp_f;
+
+################################## Connect Neuron Layers to Outputs #############################################
+outputconnect	nl_face_recog_lp 	to out_face_recog_lp;
+outputconnect	nl_face_recog_lp_f 	to out_face_recog_lp_f;
+outputconnect	nl_landmark		to out_landmark;
+
+############################################### Associations ####################################################
+associate	nl_landmark		with	nl_landmark;
+
+################################################ Connections ####################################################
+#connect		nl_face_recog_lp	to nl_landmark 	with SYNAPSES random inputs per neuron and gaussian distribution with radius 10.0;
+#connect		nl_landmark		to nl_landmark 	with SYNAPSES random inputs per neuron;
+connect		nl_face_recog_lp_f	to nl_landmark 	with SYNAPSES random inputs per neuron and gaussian distribution with radius 10.0;
+
+################################################ User Functions #################################################
+int GetFace("%d %d %d");
+int GetRandomFace("%d");
+int Move2Eye ("%d");
+int Move2Nose ("%d");
+int Move2Nose2 ("%d %d");
+int Move2Mouth ("%d");
+int ShowStatistics ("%d");
+int ResetStatistics ("%d");
+int SetNetworkStatus ("%d");
+int SetNetworkStatus2 ("%d %d");

@@ -1,0 +1,11 @@
+move in_pattern to 192, 144;
+toggle move_active;
+toggle draw_active;
+move in_pattern to 196, 117;
+key t;
+move in_pattern to 230, 89;
+key s;
+move in_pattern to 155, 102;
+key s;
+move in_pattern to 149, 85;
+key s;

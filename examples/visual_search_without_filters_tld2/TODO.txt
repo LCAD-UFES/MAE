@@ -1,0 +1,7 @@
+Coisas a fazer:
+1- Treinar com uma regiao neural advinda de um retangulo, e nao de um circulo, como esta sendo feito no momento
+2- Precisa retreinar
+3- Revisar o mecanismo de confiancca
+4- Criar um mecanismo de predicao de para onde o objeto foi e com qual scale_factor
+5- Criar um mecanismo para determinar o scale_factor automaticamente
+6- Criar um mecanismo de exploraccao (em diferentes escalas)

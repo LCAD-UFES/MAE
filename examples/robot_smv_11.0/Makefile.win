@@ -1,0 +1,123 @@
+##########################################################
+# Makefile parameters
+##########################################################
+
+CC=gcc
+CCC=g++
+DEL=del /F /Q 
+LIBS=-lnet_conn -lGA -llibstereo -lgsl -lgw32c -lole32 -luuid -lglut32 -lglu32 -lopengl32 -lm -lfl
+LIBPATH=-L..\..\lib -L"C:\MingW\lib" -L"C:\GnuWin32\lib" -L./
+INCPATH=-I. -I".\robot_user_functions" -I".\robot_user_functions\matlab_scripts" -I".\util" \
+        -I"C:\GnuWin32\include" -I..\..\include -I".\robot_user_functions\segment"
+LIB_DIR = ..\..\lib
+
+#CCFLAGS= -Wall -03 -D WINDOWS -D IMPORTING
+CCFLAGS= -Wall -g -D WINDOWS -D IMPORTING
+
+
+LIBSTEREO=libstereo.dll
+DLLWRAP=dllwrap.exe
+DEFFILE=smv.def
+STATICLIB=smv.a
+EXECUTABLE = robot.exe
+DLL = smv.dll
+##########################################################
+
+MODULES_C = \
+	robot_user_functions/circle_packing.c \
+	robot_user_functions/cylinder.c \
+	robot_user_functions/cylinder_list.c \
+	robot_user_functions/estimate_volume.c \
+	robot_user_functions/fitting.c \
+	robot_user_functions/gabor_guess_cylinder.c \
+	robot_user_functions/geometric_operations.c \
+	robot_user_functions/line.c \
+	robot_user_functions/robot_filters.c \
+	robot_user_functions/robot_io.c \
+	robot_user_functions/robot_nl_functions.c \
+	robot_user_functions/robot_user_functions.c \
+	robot_user_functions/smv_api.c \
+	robot_user_functions/solver.c \
+	robot_user_functions/stereo_volume.c \
+	robot_user_functions/subpixel_disparity.c
+
+MODULES_CPP = \
+	robot_user_functions/convert.cpp \
+	robot_user_functions/map.cpp \
+	robot_user_functions/maplist.cpp \
+	robot_user_functions/model_3d.cpp \
+	robot_user_functions/model_3d_io.cpp \
+	robot_user_functions/view.cpp \
+	robot_user_functions/viewer.cpp \
+	robot_user_functions/segment/segment.cpp \
+	util/config.cpp \
+	util/config_default.cpp \
+	util/cconfig.cpp
+
+OBJECTS = robot.o $(MODULES_C:.c=.o) $(MODULES_CPP:.cpp=.o)
+	  
+LIBSTEREO_FILES = \
+	robot_user_functions/matlab_scripts/makelibstereo.m \
+	robot_user_functions/matlab_scripts/LoadStereoParameters.m \
+	robot_user_functions/matlab_scripts/StereoTriangulation.m \
+	robot_user_functions/matlab_scripts/LoadRectificationIndexes.m \
+	robot_user_functions/matlab_scripts/RectifyStereoPair.m \
+	robot_user_functions/matlab_scripts/RectifyLeftImage.m \
+	robot_user_functions/matlab_scripts/RectifyRightImage.m \
+	robot_user_functions/matlab_scripts/CameraProjection.m \
+	robot_user_functions/matlab_scripts/GetWorldPointAtDistance.m \
+	robot_user_functions/matlab_scripts/stereo_api.c \
+	robot_user_functions/matlab_scripts/stereo_api.h 
+	
+##########################################################
+# Top-level rules
+##########################################################
+
+build: $(EXECUTABLE) $(DLL)
+	@echo OK
+
+$(EXECUTABLE): $(OBJECTS)
+	$(CCC) $(CCFLAGS) -o $(EXECUTABLE) $(OBJECTS) $(LIBPATH) $(LIBS)
+
+$(DLL): $(OBJECTS)
+	$(DLLWRAP) --driver-name=c++ --output-def $(LIB_DIR)\$(DEFFILE) $(OBJECTS) $(LIBPATH) $(LIBS) -o $(LIB_DIR)\$(DLL)
+
+#include $(MODULES_C:.c=.d) $(MODULES_CPP:.cpp=.d)
+
+##########################################################
+# Wildcard rules
+##########################################################
+
+.c.o:
+	$(CC) $(CCFLAGS) -c $(INCPATH) -o $@ $*.c
+
+.cpp.o:	
+	$(CCC) $(CCFLAGS) -c $(INCPATH) -o $@ $*.cpp
+	
+%.d: %.c
+	$(CC) -c $(INCPATH) -MM -MG $< -MT $(<:.c=.o) > $@
+
+%.d: %.cpp
+	$(CC) -c $(INCPATH) -MM -MG $< -MT $(<:.cpp=.o) > $@
+
+##########################################################
+# Exceptions to the wildcard rules
+##########################################################
+
+robot.o: $(LIBSTEREO) robot.con
+	netcomp -o $* < $*.con
+	$(CC) $(CCFLAGS) -c $(INCPATH) -o $@ $*.c
+
+$(LIBSTEREO): $(LIBSTEREO_FILES)
+	$(MAKE) -C robot_user_functions/matlab_scripts
+
+robot_user_functions/segment/segment.o:
+	$(MAKE) -C robot_user_functions/segment
+
+clean:
+	$(DEL) robot.exe
+	$(DEL) robot.c
+	$(DEL) robot.h
+	$(DEL) *.o
+	$(DEL) *.out
+	$(DEL) robot_user_functions\*.o

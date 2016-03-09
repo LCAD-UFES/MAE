@@ -1,0 +1,98 @@
+################################################ Set Global Variables #################################################
+# Global Variables
+set NEURON_MEMORY_SIZE = 1;
+set TYPE_SHOW = SHOW_FRAME;
+set TYPE_MOVING_FRAME = STOP;
+
+# Camera Parameters
+set CAMERA_DISTANCE = 6.9;
+set FOCAL_DISTANCE  = 400.0;
+
+######################################################## Constants ####################################################
+# INPUT Dimentions
+int INPUT_WIDTH		= 320;
+int INPUT_HEIGHT	= 240;
+
+# NL Dimentions
+#int NL_WIDTH		= 48;
+#int NL_HEIGHT		= 24;
+#int NL_MT_WIDTH	= 48;
+#int NL_MT_HEIGTH	= 1536;
+int NL_WIDTH		= 128;
+int NL_HEIGHT		= 64;
+int NL_MT_WIDTH		= 128;
+int NL_MT_HEIGTH	= 4096;
+
+################################################# Inputs #######################################################
+input			image_left[INPUT_WIDTH][INPUT_HEIGHT]	with color outputs produced by input_generator() controled by input_controler();
+input			image_right[INPUT_WIDTH][INPUT_HEIGHT]	with color outputs produced by input_generator() controled by input_controler();
+
+############################################### Neuron Layers ##################################################
+#neuronlayer		nl_lp_image_left[NL_WIDTH][NL_HEIGHT]	with	greyscale_float outputs;
+#neuronlayer		nl_lp_image_right[NL_WIDTH][NL_HEIGHT]	with	greyscale_float outputs;
+
+neuronlayer		nl_gabor_085_right[NL_WIDTH][NL_HEIGHT]	with	greyscale_float outputs;
+neuronlayer		nl_gabor_085_f90_right[NL_WIDTH][NL_HEIGHT]		with	greyscale_float outputs;
+neuronlayer		nl_gabor_085_left[NL_WIDTH][NL_HEIGHT]	with	greyscale_float outputs;
+neuronlayer		nl_gabor_085_f90_left[NL_WIDTH][NL_HEIGHT]		with	greyscale_float outputs;
+
+neuronlayer		nl_minus_085[NL_WIDTH][NL_HEIGHT]	with	greyscale_float outputs;
+
+neuronlayer		nl_gaussian_minus_085[NL_WIDTH][NL_HEIGHT]	with	greyscale_float outputs;
+
+neuronlayer		nl_mt[NL_MT_WIDTH][NL_MT_HEIGTH]	with	greyscale_float outputs;
+
+neuronlayer		nl_gaussian_mt[NL_MT_WIDTH][NL_MT_HEIGTH]	with	greyscale_float outputs;
+
+neuronlayer		nl_disparity_map[NL_WIDTH][NL_HEIGHT]	with	greyscale_float outputs;
+
+############################################### Outputs ########################################################
+#output		out_lp_image_left[NL_WIDTH][NL_HEIGHT];
+#output		out_lp_image_right[NL_WIDTH][NL_HEIGHT];
+
+#output		out_gabor_085_right[NL_WIDTH][NL_HEIGHT];
+#output		out_gabor_085_f90_right[NL_WIDTH][NL_HEIGHT];
+#output		out_gabor_085_left[NL_WIDTH][NL_HEIGHT];
+#output		out_gabor_085_f90_left[NL_WIDTH][NL_HEIGHT];
+
+output		out_minus_085[NL_WIDTH][NL_HEIGHT];
+
+output		out_gaussian_minus_085[NL_WIDTH][NL_HEIGHT];
+
+#output		out_mt[NL_MT_WIDTH][NL_MT_HEIGTH];
+#output		out_gaussian_mt[NL_MT_WIDTH][NL_MT_HEIGTH];
+
+output		out_disparity_map[NL_WIDTH][NL_HEIGHT];
+
+################################## Connect Neuron Layers to Outputs #############################################
+#outputconnect	nl_lp_image_left to out_lp_image_left;
+#outputconnect	nl_lp_image_right to out_lp_image_right;
+
+#outputconnect	nl_gabor_085_right to out_gabor_085_right;
+#outputconnect	nl_gabor_085_f90_right to out_gabor_085_f90_right;
+#outputconnect	nl_gabor_085_left to out_gabor_085_left;
+#outputconnect	nl_gabor_085_f90_left to out_gabor_085_f90_left;
+
+outputconnect	nl_minus_085 to out_minus_085;
+
+outputconnect	nl_gaussian_minus_085 to out_gaussian_minus_085;
+
+#outputconnect	nl_mt to out_mt;
+#outputconnect	nl_gaussian_mt to out_gaussian_mt;
+
+outputconnect	nl_disparity_map to out_disparity_map;
+
+############################################### Filters #########################################################
+#filter		image_left  with log_polar_filter("%f", 2.0) producing nl_lp_image_left;
+#filter		image_right  with log_polar_filter("%f", 2.0) producing nl_lp_image_right;
+
+#biological_gabor_filter("%f %f %f %f %f %f %d %d %f", camera_opening_degree, cycles_per_degree, band_width, aspect_ratio, orientation, phase, shift, mapping, log_factor)
+
+filter	image_right	with biological_gabor_filter ("%f %f %f %f %f %f %d %d %f", 47.05, 0.85, 2.0, 1.0, 0.0, -pi/4.0, 0, MAP_LOG_POLAR, 2.0)	producing nl_gabor_085_right;
+filter	image_right	with biological_gabor_filter ("%f %f %f %f %f %f %d %d %f", 47.05, 0.85, 2.0, 1.0, 0.0,  pi/4.0, 0, MAP_LOG_POLAR, 2.0)	producing nl_gabor_085_f90_right;
+filter	image_left	with biological_gabor_filter ("%f %f %f %f %f %f %d %d %f", 47.05, 0.85, 2.0, 1.0, 0.0, -pi/4.0, 0, MAP_LOG_POLAR, 2.0)	producing nl_gabor_085_left;
+filter	image_left	with biological_gabor_filter ("%f %f %f %f %f %f %d %d %f", 47.05, 0.85, 2.0, 1.0, 0.0,  pi/4.0, 0, MAP_LOG_POLAR, 2.0)	producing nl_gabor_085_f90_left;
+
+filter	nl_gabor_085_right, nl_gabor_085_f90_right, nl_gabor_085_left, nl_gabor_085_f90_left with gabor_minus_filter ("")	producing	nl_minus_085;
+
+filter	nl_minus_085 with robot_gaussian_filter("%d %f", 9, 2.0) producing nl_gaussian_minus_085;

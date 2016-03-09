@@ -1,0 +1,45 @@
+--------------------------------------------------------------------------------
+Experimento: Analise da funcao de gabor
+
+--------------------------------------------------------------------------------
+Objetivo: Encontrar uma nova forma de computar disparidade alternativa ao 
+modelo proposto por Qian.
+
+--------------------------------------------------------------------------------
+Motivacao: Celulas simples presentes no cortex visual primario possuem os seus 
+campos receptivos modelados por funcoes de Gabor e por meio delas as celulas
+complexas sao capazes de computar disparidade.
+
+--------------------------------------------------------------------------------
+Metodologia: Neste experimento sao utilizados 3 tamanhos de kernel para modelar 
+os campos receptivos das celulas simples (BIG_KERNEL, MEDIUM_KERNEL e SMALL_KERNEL).
+Para cada tamanho de kernel existem 5 variedades de kernel, com parametros de 
+fase de -pi/2.0, -pi/4.0, 0.0, pi/4.0 e pi/2.0. 
+
+Combinamos kernels de um determinado tamanho dois a dois para produzir os campos 
+receptivos de uma populacao de celulas simples. Tais celulas respondem melhor a 
+estimulos com uma frequencia espacial proxima a frequencia espacial do seu 
+campo receptivo. O objetivo eh utilizar essa diversidade de celulas simples para
+detectar disparidades positivas, negativas e nulas.
+
+Tambem apresentamos a resposta do modelo de Qian para efeito de comparacao. 
+Neste modelo, a resposta de uma celula complexa eh a soma dos quadrados das 
+respostas de duas celulas simples em quadratura de fase. Por sua vez, cada 
+celula simples possui um campo receptivo esquerdo e direito, modelados por 
+funcoes de Gabor, e a sua resposta eh calculada como a soma da convolucao dos 
+seus campos receptivos com os estimulos direito e esquerdo, respectivamente.
+
+O proximo passo eh combinar as respostas de uma populacao de celulas de 
+diferentes tamanhos e diferencas de fase para obter a disparidade num ponto.
+
+Os estimulos utilizados sao gradientes de tres diferentes tipos:
+- cossenoide
+- onda quadrada
+- triangular
+
+Cada um pode aparecer em tres frequencias espaciais.
+
+--------------------------------------------------------------------------------
+Conclusao:
+
+

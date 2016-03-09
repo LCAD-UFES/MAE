@@ -1,0 +1,4 @@
+workspace.x0 = 132
+workspace.xn = 844
+workspace.y0 = 148
+workspace.yn = 472

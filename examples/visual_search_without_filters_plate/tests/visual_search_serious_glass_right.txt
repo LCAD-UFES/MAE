@@ -1,0 +1,751 @@
+# Please wait, building network...
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-001-1.raw
+Eyes:[166,150][219,150] - Nose:[197,116] - Mouth:[197,087]
+# 0.018 # 0.082 # 0.135 # 0.082 # 0.018 
+# 0.082 # 0.368 # 0.607 # 0.368 # 0.082 
+# 0.135 # 0.607 # 1.000 # 0.607 # 0.135 
+# 0.082 # 0.368 # 0.607 # 0.368 # 0.082 
+# 0.018 # 0.082 # 0.135 # 0.082 # 0.018 
+# 0.000 # 0.000 # 0.000 # 0.000 # 0.000 # 0.000 # 0.000 # 0.000 # 0.000 
+# 0.000 # 0.000 # 0.002 # 0.007 # 0.011 # 0.007 # 0.002 # 0.000 # 0.000 
+# 0.000 # 0.002 # 0.018 # 0.082 # 0.135 # 0.082 # 0.018 # 0.002 # 0.000 
+# 0.000 # 0.007 # 0.082 # 0.368 # 0.607 # 0.368 # 0.082 # 0.007 # 0.000 
+# 0.000 # 0.011 # 0.135 # 0.607 # 1.000 # 0.607 # 0.135 # 0.011 # 0.000 
+# 0.000 # 0.007 # 0.082 # 0.368 # 0.607 # 0.368 # 0.082 # 0.007 # 0.000 
+# 0.000 # 0.002 # 0.018 # 0.082 # 0.135 # 0.082 # 0.018 # 0.002 # 0.000 
+# 0.000 # 0.000 # 0.002 # 0.007 # 0.011 # 0.007 # 0.002 # 0.000 # 0.000 
+# 0.000 # 0.000 # 0.000 # 0.000 # 0.000 # 0.000 # 0.000 # 0.000 # 0.000 
+Locale set to C.
+''''''''''FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-001-1.raw
+Eyes:[166,150][219,150] - Nose:[197,116] - Mouth:[197,087]
+g_nPersonID = 1, g_cSexID = 109, g_nPersonUniqueID = 1
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-001-9.raw
+Eyes:[151,151][215,152] - Nose:[185,127] - Mouth:[184,092]
+g_nPersonID = 1, g_cSexID = 109, g_nPersonUniqueID = 1
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-001-2.raw
+Eyes:[158,152][212,153] - Nose:[190,121] - Mouth:[190,089]
+Sample: 1	Match: Yes	Rightness: 100.0%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-001-15.raw
+Eyes:[146,154][200,156] - Nose:[177,124] - Mouth:[176,096]
+Sample: 2	Match: Yes	Rightness: 100.0%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-002-2.raw
+Eyes:[144,160][200,161] - Nose:[174,134] - Mouth:[173,104]
+Sample: 3	Match: Yes	Rightness: 100.0%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-002-15.raw
+Eyes:[159,160][215,162] - Nose:[188,134] - Mouth:[187,108]
+Sample: 4	Match: Yes	Rightness: 100.0%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-003-2.raw
+Eyes:[167,160][224,158] - Nose:[195,127] - Mouth:[194,099]
+Sample: 5	Match: Yes	Rightness: 100.0%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-003-15.raw
+Eyes:[158,161][216,159] - Nose:[186,126] - Mouth:[185,098]
+Sample: 6	Match: Yes	Rightness: 100.0%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-004-2.raw
+Eyes:[156,147][224,146] - Nose:[190,104] - Mouth:[191,071]
+Sample: 7	Match: No	Rightness: 85.7%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-004-15.raw
+Eyes:[154,143][218,141] - Nose:[186,104] - Mouth:[187,068]
+Sample: 8	Match: Yes	Rightness: 87.5%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-005-2.raw
+Eyes:[151,148][214,150] - Nose:[184,112] - Mouth:[185,083]
+Sample: 9	Match: Yes	Rightness: 88.9%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-005-15.raw
+Eyes:[149,154][210,152] - Nose:[181,121] - Mouth:[180,092]
+Sample: 10	Match: Yes	Rightness: 90.0%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-006-2.raw
+Eyes:[162,160][216,159] - Nose:[191,129] - Mouth:[190,103]
+Sample: 11	Match: Yes	Rightness: 90.9%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-006-15.raw
+Eyes:[156,162][212,160] - Nose:[186,127] - Mouth:[184,101]
+Sample: 12	Match: Yes	Rightness: 91.7%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-007-2.raw
+Eyes:[170,163][228,158] - Nose:[198,135] - Mouth:[194,104]
+Sample: 13	Match: Yes	Rightness: 92.3%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-007-15.raw
+Eyes:[154,160][211,160] - Nose:[180,133] - Mouth:[180,103]
+Sample: 14	Match: Yes	Rightness: 92.9%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-008-2.raw
+Eyes:[159,152][216,159] - Nose:[192,121] - Mouth:[195,095]
+Sample: 15	Match: Yes	Rightness: 93.3%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-008-15.raw
+Eyes:[160,156][218,159] - Nose:[190,124] - Mouth:[190,096]
+Sample: 16	Match: Yes	Rightness: 93.8%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-009-2.raw
+Eyes:[166,155][223,158] - Nose:[196,125] - Mouth:[194,094]
+Sample: 17	Match: No	Rightness: 88.2%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-009-15.raw
+Eyes:[154,154][209,158] - Nose:[180,128] - Mouth:[182,096]
+Sample: 18	Match: Yes	Rightness: 88.9%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-010-2.raw
+Eyes:[148,164][206,161] - Nose:[177,124] - Mouth:[174,095]
+Sample: 19	Match: Yes	Rightness: 89.5%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-010-15.raw
+Eyes:[166,155][223,152] - Nose:[195,121] - Mouth:[192,089]
+Sample: 20	Match: Yes	Rightness: 90.0%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-012-2.raw
+Eyes:[168,163][224,160] - Nose:[193,130] - Mouth:[191,098]
+Sample: 21	Match: Yes	Rightness: 90.5%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-012-15.raw
+Eyes:[162,151][215,151] - Nose:[188,123] - Mouth:[189,090]
+Sample: 22	Match: Yes	Rightness: 90.9%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-013-2.raw
+Eyes:[170,165][228,162] - Nose:[199,127] - Mouth:[197,103]
+Sample: 23	Match: No	Rightness: 87.0%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-013-15.raw
+Eyes:[170,159][227,158] - Nose:[199,122] - Mouth:[198,100]
+Sample: 24	Match: No	Rightness: 83.3%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-014-2.raw
+Eyes:[158,157][222,159] - Nose:[190,125] - Mouth:[192,097]
+Sample: 25	Match: Yes	Rightness: 84.0%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-014-15.raw
+Eyes:[168,163][228,160] - Nose:[199,130] - Mouth:[199,098]
+Sample: 26	Match: Yes	Rightness: 84.6%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-015-2.raw
+Eyes:[160,155][221,156] - Nose:[192,119] - Mouth:[191,091]
+Sample: 27	Match: Yes	Rightness: 85.2%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-015-15.raw
+Eyes:[156,158][215,158] - Nose:[186,124] - Mouth:[186,095]
+Sample: 28	Match: Yes	Rightness: 85.7%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-016-2.raw
+Eyes:[169,161][229,158] - Nose:[197,127] - Mouth:[197,102]
+Sample: 29	Match: Yes	Rightness: 86.2%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-016-15.raw
+Eyes:[171,168][226,165] - Nose:[197,139] - Mouth:[195,105]
+Sample: 30	Match: Yes	Rightness: 86.7%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-017-2.raw
+Eyes:[152,157][211,154] - Nose:[182,129] - Mouth:[181,100]
+Sample: 31	Match: Yes	Rightness: 87.1%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-017-15.raw
+Eyes:[155,162][217,158] - Nose:[184,132] - Mouth:[184,106]
+Sample: 32	Match: Yes	Rightness: 87.5%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-018-2.raw
+Eyes:[167,152][223,149] - Nose:[191,118] - Mouth:[191,088]
+Sample: 33	Match: No	Rightness: 84.8%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-018-15.raw
+Eyes:[165,152][220,150] - Nose:[188,118] - Mouth:[190,091]
+Sample: 34	Match: No	Rightness: 82.4%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-019-2.raw
+Eyes:[167,167][229,166] - Nose:[194,143] - Mouth:[193,112]
+Sample: 35	Match: No	Rightness: 80.0%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-019-15.raw
+Eyes:[168,160][231,159] - Nose:[196,137] - Mouth:[195,102]
+Sample: 36	Match: No	Rightness: 77.8%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-020-2.raw
+Eyes:[158,156][211,156] - Nose:[184,117] - Mouth:[185,091]
+Sample: 37	Match: No	Rightness: 75.7%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-020-15.raw
+Eyes:[144,162][200,163] - Nose:[173,123] - Mouth:[172,095]
+Sample: 38	Match: No	Rightness: 73.7%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-021-2.raw
+Eyes:[150,156][206,157] - Nose:[182,123] - Mouth:[178,094]
+Sample: 39	Match: Yes	Rightness: 74.4%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-021-15.raw
+Eyes:[166,152][224,150] - Nose:[196,116] - Mouth:[192,082]
+Sample: 40	Match: Yes	Rightness: 75.0%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-022-2.raw
+Eyes:[177,156][228,159] - Nose:[208,132] - Mouth:[207,104]
+Sample: 41	Match: Yes	Rightness: 75.6%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-022-15.raw
+Eyes:[176,159][228,159] - Nose:[206,128] - Mouth:[204,102]
+Sample: 42	Match: Yes	Rightness: 76.2%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-023-2.raw
+Eyes:[172,159][232,156] - Nose:[202,133] - Mouth:[197,099]
+Sample: 43	Match: Yes	Rightness: 76.7%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-023-15.raw
+Eyes:[148,161][212,164] - Nose:[182,138] - Mouth:[180,101]
+Sample: 44	Match: Yes	Rightness: 77.3%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-025-2.raw
+Eyes:[166,156][218,154] - Nose:[194,122] - Mouth:[192,094]
+Sample: 45	Match: Yes	Rightness: 77.8%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-025-15.raw
+Eyes:[174,152][226,150] - Nose:[200,116] - Mouth:[198,089]
+Sample: 46	Match: Yes	Rightness: 78.3%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-026-2.raw
+Eyes:[160,164][217,160] - Nose:[186,132] - Mouth:[183,106]
+Sample: 47	Match: No	Rightness: 76.6%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-026-15.raw
+Eyes:[161,157][218,155] - Nose:[191,125] - Mouth:[191,100]
+Sample: 48	Match: No	Rightness: 75.0%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-027-2.raw
+Eyes:[166,155][215,152] - Nose:[191,120] - Mouth:[189,092]
+Sample: 49	Match: No	Rightness: 73.5%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-027-15.raw
+Eyes:[171,158][221,155] - Nose:[198,126] - Mouth:[195,091]
+Sample: 50	Match: Yes	Rightness: 74.0%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-030-2.raw
+Eyes:[155,164][215,158] - Nose:[182,132] - Mouth:[181,091]
+Sample: 51	Match: Yes	Rightness: 74.5%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-030-15.raw
+Eyes:[168,160][227,157] - Nose:[196,128] - Mouth:[189,086]
+Sample: 52	Match: Yes	Rightness: 75.0%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-031-2.raw
+Eyes:[162,152][226,152] - Nose:[198,112] - Mouth:[195,079]
+Sample: 53	Match: Yes	Rightness: 75.5%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-031-15.raw
+Eyes:[166,149][226,152] - Nose:[202,117] - Mouth:[200,079]
+Sample: 54	Match: Yes	Rightness: 75.9%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-032-2.raw
+Eyes:[179,170][236,169] - Nose:[205,143] - Mouth:[207,114]
+Sample: 55	Match: Yes	Rightness: 76.4%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-032-15.raw
+Eyes:[150,164][207,165] - Nose:[177,131] - Mouth:[179,104]
+Sample: 56	Match: No	Rightness: 75.0%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-033-2.raw
+Eyes:[184,157][239,155] - Nose:[210,112] - Mouth:[208,091]
+Sample: 57	Match: Yes	Rightness: 75.4%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-033-15.raw
+Eyes:[165,158][219,161] - Nose:[195,119] - Mouth:[197,098]
+Sample: 58	Match: No	Rightness: 74.1%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-034-2.raw
+Eyes:[176,175][233,172] - Nose:[205,148] - Mouth:[203,106]
+Sample: 59	Match: Yes	Rightness: 74.6%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-034-15.raw
+Eyes:[164,169][219,166] - Nose:[189,142] - Mouth:[192,105]
+Sample: 60	Match: Yes	Rightness: 75.0%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-036-2.raw
+Eyes:[168,165][223,163] - Nose:[207,128] - Mouth:[198,106]
+Sample: 61	Match: Yes	Rightness: 75.4%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-036-15.raw
+Eyes:[169,155][227,152] - Nose:[206,122] - Mouth:[201,092]
+Sample: 62	Match: Yes	Rightness: 75.8%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-037-2.raw
+Eyes:[159,170][213,166] - Nose:[188,142] - Mouth:[185,111]
+Sample: 63	Match: Yes	Rightness: 76.2%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-037-15.raw
+Eyes:[173,169][232,165] - Nose:[202,139] - Mouth:[205,106]
+Sample: 64	Match: Yes	Rightness: 76.6%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-038-2.raw
+Eyes:[145,161][196,164] - Nose:[172,140] - Mouth:[172,106]
+Sample: 65	Match: Yes	Rightness: 76.9%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-038-15.raw
+Eyes:[171,164][225,164] - Nose:[197,137] - Mouth:[196,105]
+Sample: 66	Match: Yes	Rightness: 77.3%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-039-2.raw
+Eyes:[162,153][212,154] - Nose:[185,125] - Mouth:[188,100]
+Sample: 67	Match: Yes	Rightness: 77.6%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-039-15.raw
+Eyes:[179,151][232,150] - Nose:[206,118] - Mouth:[207,093]
+Sample: 68	Match: Yes	Rightness: 77.9%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-040-2.raw
+Eyes:[163,156][224,154] - Nose:[191,107] - Mouth:[191,085]
+Sample: 69	Match: No	Rightness: 76.8%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-040-15.raw
+Eyes:[168,164][229,164] - Nose:[198,120] - Mouth:[198,096]
+Sample: 70	Match: Yes	Rightness: 77.1%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-041-2.raw
+Eyes:[168,164][227,159] - Nose:[198,132] - Mouth:[196,099]
+Sample: 71	Match: Yes	Rightness: 77.5%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-041-15.raw
+Eyes:[157,158][218,157] - Nose:[192,123] - Mouth:[187,094]
+Sample: 72	Match: Yes	Rightness: 77.8%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-042-2.raw
+Eyes:[164,161][222,159] - Nose:[191,128] - Mouth:[193,098]
+Sample: 73	Match: Yes	Rightness: 78.1%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-042-15.raw
+Eyes:[166,156][226,156] - Nose:[195,125] - Mouth:[194,095]
+Sample: 74	Match: Yes	Rightness: 78.4%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-043-2.raw
+Eyes:[163,173][218,171] - Nose:[192,148] - Mouth:[190,121]
+Sample: 75	Match: Yes	Rightness: 78.7%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-043-15.raw
+Eyes:[148,170][210,167] - Nose:[181,145] - Mouth:[181,110]
+Sample: 76	Match: No	Rightness: 77.6%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-044-2.raw
+Eyes:[174,156][226,158] - Nose:[209,127] - Mouth:[209,094]
+Sample: 77	Match: Yes	Rightness: 77.9%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-044-15.raw
+Eyes:[168,147][220,147] - Nose:[199,116] - Mouth:[199,084]
+Sample: 78	Match: Yes	Rightness: 78.2%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-045-2.raw
+Eyes:[139,162][197,164] - Nose:[168,134] - Mouth:[172,109]
+Sample: 79	Match: Yes	Rightness: 78.5%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-045-15.raw
+Eyes:[157,144][217,147] - Nose:[190,114] - Mouth:[191,091]
+Sample: 80	Match: Yes	Rightness: 78.8%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-046-2.raw
+Eyes:[162,154][217,151] - Nose:[188,116] - Mouth:[188,090]
+Sample: 81	Match: No	Rightness: 77.8%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-046-15.raw
+Eyes:[162,159][217,159] - Nose:[192,127] - Mouth:[190,101]
+Sample: 82	Match: Yes	Rightness: 78.0%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-047-2.raw
+Eyes:[174,164][230,163] - Nose:[199,132] - Mouth:[201,106]
+Sample: 83	Match: Yes	Rightness: 78.3%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-047-15.raw
+Eyes:[159,151][216,151] - Nose:[185,117] - Mouth:[189,092]
+Sample: 84	Match: Yes	Rightness: 78.6%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-048-2.raw
+Eyes:[164,157][220,156] - Nose:[195,119] - Mouth:[191,093]
+Sample: 85	Match: Yes	Rightness: 78.8%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-048-15.raw
+Eyes:[154,146][210,143] - Nose:[185,109] - Mouth:[181,081]
+Sample: 86	Match: Yes	Rightness: 79.1%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-049-2.raw
+Eyes:[158,159][220,161] - Nose:[189,129] - Mouth:[190,102]
+Sample: 87	Match: Yes	Rightness: 79.3%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-049-15.raw
+Eyes:[175,156][238,156] - Nose:[206,121] - Mouth:[205,094]
+Sample: 88	Match: No	Rightness: 78.4%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-051-2.raw
+Eyes:[166,161][222,159] - Nose:[193,131] - Mouth:[193,097]
+Sample: 89	Match: Yes	Rightness: 78.7%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-051-15.raw
+Eyes:[148,160][211,160] - Nose:[183,128] - Mouth:[181,093]
+Sample: 90	Match: Yes	Rightness: 78.9%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-052-2.raw
+Eyes:[162,160][218,162] - Nose:[187,127] - Mouth:[191,099]
+Sample: 91	Match: Yes	Rightness: 79.1%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-052-15.raw
+Eyes:[149,153][206,153] - Nose:[174,121] - Mouth:[181,089]
+Sample: 92	Match: Yes	Rightness: 79.3%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-053-2.raw
+Eyes:[138,156][195,156] - Nose:[163,129] - Mouth:[168,096]
+Sample: 93	Match: Yes	Rightness: 79.6%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-053-15.raw
+Eyes:[150,161][207,163] - Nose:[175,135] - Mouth:[181,102]
+Sample: 94	Match: Yes	Rightness: 79.8%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-054-2.raw
+Eyes:[149,157][205,159] - Nose:[175,127] - Mouth:[178,096]
+Sample: 95	Match: No	Rightness: 78.9%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-054-15.raw
+Eyes:[143,163][198,162] - Nose:[169,132] - Mouth:[172,101]
+Sample: 96	Match: Yes	Rightness: 79.2%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-055-2.raw
+Eyes:[163,154][221,158] - Nose:[193,116] - Mouth:[192,091]
+Sample: 97	Match: No	Rightness: 78.4%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-055-15.raw
+Eyes:[150,155][209,155] - Nose:[178,123] - Mouth:[178,090]
+Sample: 98	Match: Yes	Rightness: 78.6%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-056-2.raw
+Eyes:[162,160][218,154] - Nose:[192,126] - Mouth:[190,100]
+Sample: 99	Match: Yes	Rightness: 78.8%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-056-15.raw
+Eyes:[166,151][219,145] - Nose:[193,118] - Mouth:[191,093]
+Sample: 100	Match: Yes	Rightness: 79.0%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-058-2.raw
+Eyes:[171,148][227,145] - Nose:[203,109] - Mouth:[199,082]
+Sample: 101	Match: Yes	Rightness: 79.2%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-058-15.raw
+Eyes:[191,150][247,148] - Nose:[220,113] - Mouth:[217,078]
+Sample: 102	Match: Yes	Rightness: 79.4%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-059-2.raw
+Eyes:[159,154][214,154] - Nose:[182,123] - Mouth:[183,096]
+Sample: 103	Match: Yes	Rightness: 79.6%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-059-15.raw
+Eyes:[155,155][210,152] - Nose:[181,122] - Mouth:[180,093]
+Sample: 104	Match: Yes	Rightness: 79.8%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-060-2.raw
+Eyes:[163,143][225,144] - Nose:[194,101] - Mouth:[196,076]
+Sample: 105	Match: Yes	Rightness: 80.0%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-060-15.raw
+Eyes:[153,145][214,143] - Nose:[184,106] - Mouth:[184,078]
+Sample: 106	Match: Yes	Rightness: 80.2%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-061-2.raw
+Eyes:[158,158][216,154] - Nose:[187,123] - Mouth:[188,097]
+Sample: 107	Match: Yes	Rightness: 80.4%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-061-15.raw
+Eyes:[162,157][218,154] - Nose:[190,125] - Mouth:[191,100]
+Sample: 108	Match: Yes	Rightness: 80.6%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-065-2.raw
+Eyes:[164,165][223,159] - Nose:[192,134] - Mouth:[190,101]
+Sample: 109	Match: Yes	Rightness: 80.7%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-065-15.raw
+Eyes:[165,157][224,154] - Nose:[195,126] - Mouth:[194,093]
+Sample: 110	Match: Yes	Rightness: 80.9%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-066-2.raw
+Eyes:[156,163][218,162] - Nose:[190,134] - Mouth:[190,100]
+Sample: 111	Match: Yes	Rightness: 81.1%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-066-15.raw
+Eyes:[157,157][218,155] - Nose:[187,129] - Mouth:[188,096]
+Sample: 112	Match: Yes	Rightness: 81.2%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-067-2.raw
+Eyes:[164,152][221,152] - Nose:[195,120] - Mouth:[196,089]
+Sample: 113	Match: Yes	Rightness: 81.4%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-067-15.raw
+Eyes:[155,149][212,152] - Nose:[188,120] - Mouth:[187,083]
+Sample: 114	Match: Yes	Rightness: 81.6%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-069-2.raw
+Eyes:[167,166][224,161] - Nose:[196,129] - Mouth:[189,102]
+Sample: 115	Match: Yes	Rightness: 81.7%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-069-15.raw
+Eyes:[157,151][213,151] - Nose:[185,115] - Mouth:[182,089]
+Sample: 116	Match: Yes	Rightness: 81.9%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-070-2.raw
+Eyes:[166,162][221,156] - Nose:[190,132] - Mouth:[190,100]
+Sample: 117	Match: Yes	Rightness: 82.1%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-070-15.raw
+Eyes:[162,160][217,158] - Nose:[189,133] - Mouth:[186,102]
+Sample: 118	Match: Yes	Rightness: 82.2%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-071-2.raw
+Eyes:[165,152][229,148] - Nose:[196,121] - Mouth:[195,085]
+Sample: 119	Match: Yes	Rightness: 82.4%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-071-15.raw
+Eyes:[164,147][227,147] - Nose:[196,117] - Mouth:[196,081]
+Sample: 120	Match: Yes	Rightness: 82.5%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-072-2.raw
+Eyes:[157,157][214,153] - Nose:[185,122] - Mouth:[183,096]
+Sample: 121	Match: Yes	Rightness: 82.6%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-072-15.raw
+Eyes:[164,152][223,150] - Nose:[194,116] - Mouth:[191,086]
+Sample: 122	Match: Yes	Rightness: 82.8%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-073-2.raw
+Eyes:[157,165][221,165] - Nose:[190,134] - Mouth:[191,091]
+Sample: 123	Match: Yes	Rightness: 82.9%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-073-15.raw
+Eyes:[168,161][230,159] - Nose:[203,134] - Mouth:[201,098]
+Sample: 124	Match: Yes	Rightness: 83.1%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-074-2.raw
+Eyes:[157,148][218,145] - Nose:[185,103] - Mouth:[184,079]
+Sample: 125	Match: No	Rightness: 82.4%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-074-15.raw
+Eyes:[153,147][209,147] - Nose:[179,107] - Mouth:[180,087]
+Sample: 126	Match: No	Rightness: 81.7%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-075-2.raw
+Eyes:[174,166][224,162] - Nose:[196,138] - Mouth:[197,104]
+Sample: 127	Match: Yes	Rightness: 81.9%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-075-15.raw
+Eyes:[164,151][216,147] - Nose:[187,119] - Mouth:[187,090]
+Sample: 128	Match: Yes	Rightness: 82.0%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-076-2.raw
+Eyes:[174,160][231,157] - Nose:[201,134] - Mouth:[200,099]
+Sample: 129	Match: Yes	Rightness: 82.2%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-076-15.raw
+Eyes:[162,151][220,150] - Nose:[193,120] - Mouth:[192,092]
+Sample: 130	Match: Yes	Rightness: 82.3%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-002-2.raw
+Eyes:[166,161][218,163] - Nose:[194,139] - Mouth:[195,107]
+Sample: 131	Match: Yes	Rightness: 82.4%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-002-15.raw
+Eyes:[167,156][222,157] - Nose:[197,131] - Mouth:[196,110]
+Sample: 132	Match: Yes	Rightness: 82.6%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-003-2.raw
+Eyes:[167,157][220,151] - Nose:[191,123] - Mouth:[190,097]
+Sample: 133	Match: Yes	Rightness: 82.7%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-003-15.raw
+Eyes:[164,166][220,162] - Nose:[190,134] - Mouth:[189,107]
+Sample: 134	Match: Yes	Rightness: 82.8%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-004-2.raw
+Eyes:[169,156][224,156] - Nose:[198,126] - Mouth:[196,100]
+Sample: 135	Match: Yes	Rightness: 83.0%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-004-15.raw
+Eyes:[169,152][224,157] - Nose:[200,127] - Mouth:[201,097]
+Sample: 136	Match: No	Rightness: 82.4%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-005-2.raw
+Eyes:[161,156][216,153] - Nose:[187,118] - Mouth:[185,088]
+Sample: 137	Match: No	Rightness: 81.8%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-005-15.raw
+Eyes:[166,146][223,144] - Nose:[193,106] - Mouth:[193,077]
+Sample: 138	Match: Yes	Rightness: 81.9%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-007-2.raw
+Eyes:[159,164][210,161] - Nose:[183,137] - Mouth:[180,105]
+Sample: 139	Match: Yes	Rightness: 82.0%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-007-15.raw
+Eyes:[171,161][224,159] - Nose:[194,130] - Mouth:[194,102]
+Sample: 140	Match: Yes	Rightness: 82.1%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-008-2.raw
+Eyes:[168,144][223,151] - Nose:[199,113] - Mouth:[202,083]
+Sample: 141	Match: Yes	Rightness: 82.3%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-008-15.raw
+Eyes:[178,169][231,167] - Nose:[202,136] - Mouth:[201,100]
+Sample: 142	Match: Yes	Rightness: 82.4%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-009-2.raw
+Eyes:[171,130][226,131] - Nose:[200,100] - Mouth:[197,070]
+Sample: 143	Match: Yes	Rightness: 82.5%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-009-15.raw
+Eyes:[169,149][225,150] - Nose:[198,119] - Mouth:[197,089]
+Sample: 144	Match: Yes	Rightness: 82.6%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-011-2.raw
+Eyes:[156,153][209,155] - Nose:[184,122] - Mouth:[185,090]
+Sample: 145	Match: Yes	Rightness: 82.8%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-011-15.raw
+Eyes:[166,158][213,159] - Nose:[190,130] - Mouth:[191,102]
+Sample: 146	Match: No	Rightness: 82.2%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-012-2.raw
+Eyes:[175,147][225,149] - Nose:[202,117] - Mouth:[203,089]
+Sample: 147	Match: No	Rightness: 81.6%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-012-15.raw
+Eyes:[169,159][221,156] - Nose:[195,127] - Mouth:[191,099]
+Sample: 148	Match: No	Rightness: 81.1%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-013-2.raw
+Eyes:[168,161][217,156] - Nose:[192,131] - Mouth:[189,108]
+Sample: 149	Match: Yes	Rightness: 81.2%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-013-15.raw
+Eyes:[163,153][212,148] - Nose:[186,121] - Mouth:[186,100]
+Sample: 150	Match: Yes	Rightness: 81.3%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-014-2.raw
+Eyes:[169,163][219,164] - Nose:[197,132] - Mouth:[197,106]
+Sample: 151	Match: Yes	Rightness: 81.5%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-014-15.raw
+Eyes:[153,162][204,164] - Nose:[182,130] - Mouth:[181,107]
+Sample: 152	Match: Yes	Rightness: 81.6%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-015-2.raw
+Eyes:[147,152][210,147] - Nose:[178,117] - Mouth:[179,085]
+Sample: 153	Match: Yes	Rightness: 81.7%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-015-15.raw
+Eyes:[153,152][217,151] - Nose:[187,119] - Mouth:[187,086]
+Sample: 154	Match: Yes	Rightness: 81.8%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-016-2.raw
+Eyes:[153,164][210,161] - Nose:[177,135] - Mouth:[179,102]
+Sample: 155	Match: Yes	Rightness: 81.9%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-016-15.raw
+Eyes:[158,158][214,162] - Nose:[184,135] - Mouth:[188,102]
+Sample: 156	Match: Yes	Rightness: 82.1%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-017-2.raw
+Eyes:[164,155][221,155] - Nose:[190,119] - Mouth:[190,092]
+Sample: 157	Match: No	Rightness: 81.5%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-017-15.raw
+Eyes:[163,148][217,147] - Nose:[190,115] - Mouth:[188,087]
+Sample: 158	Match: Yes	Rightness: 81.6%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-018-2.raw
+Eyes:[156,157][206,154] - Nose:[177,127] - Mouth:[178,100]
+Sample: 159	Match: Yes	Rightness: 81.8%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-018-15.raw
+Eyes:[163,156][215,153] - Nose:[186,129] - Mouth:[185,101]
+Sample: 160	Match: Yes	Rightness: 81.9%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-019-2.raw
+Eyes:[167,149][216,153] - Nose:[193,124] - Mouth:[192,101]
+Sample: 161	Match: No	Rightness: 81.4%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-019-15.raw
+Eyes:[165,140][218,144] - Nose:[192,113] - Mouth:[194,091]
+Sample: 162	Match: Yes	Rightness: 81.5%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-020-2.raw
+Eyes:[175,163][223,163] - Nose:[203,133] - Mouth:[199,108]
+Sample: 163	Match: Yes	Rightness: 81.6%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-020-15.raw
+Eyes:[186,142][233,145] - Nose:[213,111] - Mouth:[213,081]
+Sample: 164	Match: Yes	Rightness: 81.7%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-021-2.raw
+Eyes:[156,159][204,158] - Nose:[179,122] - Mouth:[179,098]
+Sample: 165	Match: Yes	Rightness: 81.8%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-021-15.raw
+Eyes:[170,158][218,151] - Nose:[191,119] - Mouth:[191,095]
+Sample: 166	Match: Yes	Rightness: 81.9%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-022-2.raw
+Eyes:[164,169][215,164] - Nose:[187,139] - Mouth:[184,113]
+Sample: 167	Match: Yes	Rightness: 82.0%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-022-15.raw
+Eyes:[168,158][219,153] - Nose:[194,131] - Mouth:[189,103]
+Sample: 168	Match: Yes	Rightness: 82.1%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-023-2.raw
+Eyes:[155,158][207,157] - Nose:[180,130] - Mouth:[180,100]
+Sample: 169	Match: Yes	Rightness: 82.2%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-023-15.raw
+Eyes:[162,155][217,156] - Nose:[185,127] - Mouth:[188,097]
+Sample: 170	Match: No	Rightness: 81.8%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-024-2.raw
+Eyes:[162,151][216,148] - Nose:[191,121] - Mouth:[186,091]
+Sample: 171	Match: Yes	Rightness: 81.9%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-024-15.raw
+Eyes:[166,160][219,160] - Nose:[193,135] - Mouth:[195,108]
+Sample: 172	Match: Yes	Rightness: 82.0%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-025-2.raw
+Eyes:[175,150][232,152] - Nose:[205,119] - Mouth:[206,095]
+Sample: 173	Match: Yes	Rightness: 82.1%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-025-15.raw
+Eyes:[160,153][217,159] - Nose:[190,122] - Mouth:[196,100]
+Sample: 174	Match: Yes	Rightness: 82.2%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-026-2.raw
+Eyes:[156,121][214,124] - Nose:[188,089] - Mouth:[184,068]
+Sample: 175	Match: Yes	Rightness: 82.3%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-026-15.raw
+Eyes:[178,136][236,139] - Nose:[208,103] - Mouth:[209,079]
+Sample: 176	Match: Yes	Rightness: 82.4%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-028-2.raw
+Eyes:[161,143][217,149] - Nose:[195,108] - Mouth:[194,082]
+Sample: 177	Match: No	Rightness: 81.9%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-028-15.raw
+Eyes:[172,156][227,157] - Nose:[202,121] - Mouth:[200,097]
+Sample: 178	Match: Yes	Rightness: 82.0%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-029-2.raw
+Eyes:[168,163][225,168] - Nose:[198,134] - Mouth:[198,107]
+Sample: 179	Match: No	Rightness: 81.6%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-029-15.raw
+Eyes:[161,157][221,153] - Nose:[190,124] - Mouth:[186,095]
+Sample: 180	Match: Yes	Rightness: 81.7%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-030-2.raw
+Eyes:[159,161][218,160] - Nose:[194,123] - Mouth:[191,099]
+Sample: 181	Match: No	Rightness: 81.2%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-030-15.raw
+Eyes:[167,153][226,152] - Nose:[201,114] - Mouth:[196,092]
+Sample: 182	Match: No	Rightness: 80.8%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-031-2.raw
+Eyes:[164,159][215,158] - Nose:[189,127] - Mouth:[189,103]
+Sample: 183	Match: Yes	Rightness: 80.9%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-031-15.raw
+Eyes:[171,168][221,168] - Nose:[197,139] - Mouth:[197,117]
+Sample: 184	Match: Yes	Rightness: 81.0%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-032-2.raw
+Eyes:[170,170][223,163] - Nose:[197,133] - Mouth:[194,108]
+Sample: 185	Match: Yes	Rightness: 81.1%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-032-15.raw
+Eyes:[168,161][221,157] - Nose:[196,128] - Mouth:[191,099]
+Sample: 186	Match: Yes	Rightness: 81.2%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-033-2.raw
+Eyes:[161,159][213,156] - Nose:[185,129] - Mouth:[185,105]
+Sample: 187	Match: Yes	Rightness: 81.3%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-033-15.raw
+Eyes:[151,167][208,166] - Nose:[177,137] - Mouth:[178,111]
+Sample: 188	Match: Yes	Rightness: 81.4%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-034-2.raw
+Eyes:[163,151][213,152] - Nose:[188,123] - Mouth:[189,098]
+Sample: 189	Match: Yes	Rightness: 81.5%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-034-15.raw
+Eyes:[164,162][210,162] - Nose:[190,133] - Mouth:[188,111]
+Sample: 190	Match: Yes	Rightness: 81.6%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-035-2.raw
+Eyes:[176,162][229,163] - Nose:[201,131] - Mouth:[204,101]
+Sample: 191	Match: Yes	Rightness: 81.7%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-035-15.raw
+Eyes:[168,148][221,148] - Nose:[194,117] - Mouth:[192,087]
+Sample: 192	Match: Yes	Rightness: 81.8%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-036-2.raw
+Eyes:[165,124][218,123] - Nose:[193,088] - Mouth:[192,061]
+Sample: 193	Match: Yes	Rightness: 81.9%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-036-15.raw
+Eyes:[164,146][216,149] - Nose:[192,115] - Mouth:[192,090]
+Sample: 194	Match: Yes	Rightness: 82.0%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-037-2.raw
+Eyes:[164,134][220,137] - Nose:[192,102] - Mouth:[195,071]
+Sample: 195	Match: Yes	Rightness: 82.1%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-037-15.raw
+Eyes:[160,150][215,149] - Nose:[188,119] - Mouth:[186,086]
+Sample: 196	Match: Yes	Rightness: 82.1%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-038-2.raw
+Eyes:[147,159][205,158] - Nose:[177,125] - Mouth:[175,090]
+Sample: 197	Match: Yes	Rightness: 82.2%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-038-15.raw
+Eyes:[154,169][209,167] - Nose:[181,135] - Mouth:[183,110]
+Sample: 198	Match: Yes	Rightness: 82.3%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-039-2.raw
+Eyes:[160,149][215,144] - Nose:[187,115] - Mouth:[184,088]
+Sample: 199	Match: Yes	Rightness: 82.4%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-039-15.raw
+Eyes:[152,162][208,159] - Nose:[179,131] - Mouth:[177,103]
+Sample: 200	Match: Yes	Rightness: 82.5%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-040-2.raw
+Eyes:[167,154][221,152] - Nose:[195,119] - Mouth:[195,096]
+Sample: 201	Match: No	Rightness: 82.1%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-040-15.raw
+Eyes:[170,151][224,151] - Nose:[199,121] - Mouth:[199,092]
+Sample: 202	Match: No	Rightness: 81.7%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-041-2.raw
+Eyes:[160,160][214,161] - Nose:[195,127] - Mouth:[192,103]
+Sample: 203	Match: Yes	Rightness: 81.8%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-041-15.raw
+Eyes:[157,166][214,167] - Nose:[193,136] - Mouth:[188,111]
+Sample: 204	Match: Yes	Rightness: 81.9%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-042-2.raw
+Eyes:[173,153][228,158] - Nose:[198,122] - Mouth:[206,098]
+Sample: 205	Match: Yes	Rightness: 82.0%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-042-15.raw
+Eyes:[158,156][214,158] - Nose:[186,123] - Mouth:[188,093]
+Sample: 206	Match: Yes	Rightness: 82.0%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-043-2.raw
+Eyes:[164,155][220,154] - Nose:[192,122] - Mouth:[194,095]
+Sample: 207	Match: Yes	Rightness: 82.1%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-043-15.raw
+Eyes:[168,153][224,155] - Nose:[198,122] - Mouth:[199,092]
+Sample: 208	Match: Yes	Rightness: 82.2%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-044-2.raw
+Eyes:[160,161][215,166] - Nose:[188,127] - Mouth:[194,102]
+Sample: 209	Match: Yes	Rightness: 82.3%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-044-15.raw
+Eyes:[151,145][208,142] - Nose:[177,105] - Mouth:[176,083]
+Sample: 210	Match: Yes	Rightness: 82.4%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-045-2.raw
+Eyes:[157,152][219,152] - Nose:[189,120] - Mouth:[190,090]
+Sample: 211	Match: Yes	Rightness: 82.5%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-045-15.raw
+Eyes:[164,154][221,150] - Nose:[194,123] - Mouth:[191,095]
+Sample: 212	Match: No	Rightness: 82.1%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-046-2.raw
+Eyes:[157,152][208,150] - Nose:[180,115] - Mouth:[179,092]
+Sample: 213	Match: Yes	Rightness: 82.2%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-046-15.raw
+Eyes:[162,150][212,152] - Nose:[186,116] - Mouth:[188,097]
+Sample: 214	Match: Yes	Rightness: 82.2%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-048-2.raw
+Eyes:[163,162][220,162] - Nose:[195,134] - Mouth:[194,101]
+Sample: 215	Match: Yes	Rightness: 82.3%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-048-15.raw
+Eyes:[166,152][218,152] - Nose:[197,126] - Mouth:[196,094]
+Sample: 216	Match: Yes	Rightness: 82.4%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-050-2.raw
+Eyes:[171,154][227,152] - Nose:[200,119] - Mouth:[196,093]
+Sample: 217	Match: Yes	Rightness: 82.5%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-050-15.raw
+Eyes:[160,150][217,150] - Nose:[187,116] - Mouth:[187,090]
+Sample: 218	Match: Yes	Rightness: 82.6%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-051-2.raw
+Eyes:[170,158][224,159] - Nose:[195,126] - Mouth:[197,102]
+Sample: 219	Match: Yes	Rightness: 82.6%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-051-15.raw
+Eyes:[156,157][209,155] - Nose:[179,126] - Mouth:[178,099]
+Sample: 220	Match: Yes	Rightness: 82.7%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-052-2.raw
+Eyes:[185,154][236,150] - Nose:[209,126] - Mouth:[209,093]
+Sample: 221	Match: Yes	Rightness: 82.8%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-052-15.raw
+Eyes:[170,164][219,162] - Nose:[197,137] - Mouth:[191,101]
+Sample: 222	Match: Yes	Rightness: 82.9%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-053-2.raw
+Eyes:[152,148][208,152] - Nose:[181,121] - Mouth:[184,091]
+Sample: 223	Match: Yes	Rightness: 83.0%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-053-15.raw
+Eyes:[160,147][213,150] - Nose:[188,121] - Mouth:[189,091]
+Sample: 224	Match: No	Rightness: 82.6%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-054-2.raw
+Eyes:[165,133][219,133] - Nose:[192,106] - Mouth:[188,082]
+Sample: 225	Match: Yes	Rightness: 82.7%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-054-15.raw
+Eyes:[159,141][213,141] - Nose:[183,116] - Mouth:[186,091]
+Sample: 226	Match: Yes	Rightness: 82.7%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-055-2.raw
+Eyes:[160,148][223,149] - Nose:[190,111] - Mouth:[192,082]
+Sample: 227	Match: Yes	Rightness: 82.8%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-055-15.raw
+Eyes:[166,155][225,153] - Nose:[194,118] - Mouth:[196,089]
+Sample: 228	Match: Yes	Rightness: 82.9%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-057-2.raw
+Eyes:[165,152][218,151] - Nose:[191,123] - Mouth:[190,092]
+Sample: 229	Match: Yes	Rightness: 83.0%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-057-15.raw
+Eyes:[176,155][232,155] - Nose:[205,127] - Mouth:[203,093]
+Sample: 230	Match: Yes	Rightness: 83.0%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-058-2.raw
+Eyes:[171,151][229,150] - Nose:[197,123] - Mouth:[196,092]
+Sample: 231	Match: Yes	Rightness: 83.1%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-058-15.raw
+Eyes:[178,157][233,155] - Nose:[207,131] - Mouth:[197,102]
+Sample: 232	Match: Yes	Rightness: 83.2%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-059-2.raw
+Eyes:[154,147][211,148] - Nose:[184,116] - Mouth:[184,089]
+Sample: 233	Match: Yes	Rightness: 83.3%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-059-15.raw
+Eyes:[168,156][225,155] - Nose:[196,122] - Mouth:[194,097]
+Sample: 234	Match: Yes	Rightness: 83.3%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-060-2.raw
+Eyes:[166,152][215,149] - Nose:[190,121] - Mouth:[189,093]
+Sample: 235	Match: Yes	Rightness: 83.4%
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-060-15.raw
+Eyes:[173,154][225,151] - Nose:[200,121] - Mouth:[201,095]
+Sample: 236	Match: Yes	Rightness: 83.5%
+*************************************************
+*            Final Statistics                   *
+*************************************************
+Face Type			Rightness
+ 1) Normal			89.5%
+ 2) Smiling			100.0%
+ 3) Serious			83.3%
+ 4) Open Mouth			66.7%
+ 5) Left Light			88.9%
+ 6) Right Light			77.8%
+ 7) Both Sides Light		77.8%
+ 8) Sunglasses			77.8%
+ 9) Left Light and Sunglasses	83.3%
+10) Right Light and Sunglasses	72.2%
+11) Cap				83.3%
+12) Left Light and Cap		88.9%
+13) Right Light and Cap		94.4%
+
+Total Rightness: 83.5

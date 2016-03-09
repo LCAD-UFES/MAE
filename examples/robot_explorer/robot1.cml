@@ -1,0 +1,17 @@
+int i;
+int j;
+
+i = 0;
+while (i < 8)
+{
+	print ("@ Rodada ", i);
+	forward network;
+	Verge (0);
+	Reconstruct3DWorld (0);
+	TurnRobot (45.0);
+	TransformMap (-45.0, 0.0);
+	i = i + 1;
+}
+UpdateEvidenceMap (30.0);
+
+

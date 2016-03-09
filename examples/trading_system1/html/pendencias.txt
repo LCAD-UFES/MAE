@@ -1,0 +1,7 @@
+. O "capital" não é atualizado automaticamente... Tem que clicar na aba "Financeiro" via AutoHotkey.
+. Fazer funcao que receba os dados de uma ordem de compra ou venda e escreva na interface.
+. Fazer funcao que receba os dados de uma ordem de compra ou venda e escreva no $home_broker_info.
+. Fazer uma funcao que escreve o $home_broker_info em um diretório toda vez que receber um post - tem que fazer isso no final para pegar as ordens.
+. Fazer código php que consiga ler os arquivos mencionados acima.
+
+. Esta quase tudo pronto. Falta testar as excecoes.

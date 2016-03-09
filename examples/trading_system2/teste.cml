@@ -1,0 +1,5 @@
+destroy network;
+reload from "netmem2";
+unload to "netmem2";
+
+quit;

@@ -1,0 +1,56 @@
+CC=gcc
+CCFLAGS=-Wall -g -D WINDOWS
+DEL=del /F /Q 
+LIBRARYS=-L../../lib -L"C:\Arquivos de Programas\GnuWin32\lib" -lnet_conn -lGA -lTsai -lgw32c -lole32 -luuid -lglut32 -lglu32 -lopengl32 -lm -lfl
+INCLUDES=-I../../include -I./
+LIB_DIR = ..\..\lib
+DLLWRAP=dllwrap.exe
+DEFFILE=smv.def
+
+##########################################################
+
+EXECUTABLE = smv.exe
+DLL = smv.dll
+OBJECTS = smv.o \
+	  smv_user_functions/smv_user_functions.o \
+	  smv_user_functions/mapping.o \
+	  smv_user_functions/list.o \
+	  smv_user_functions/smv_api.o \
+	  smv_user_functions/smv_filters.o
+
+##########################################################
+
+.c.o:
+	$(CC) $(CCFLAGS) -c $(INCLUDES) -o $@ $*.c
+	
+##########################################################
+
+all: $(EXECUTABLE) $(DLL)
+	@echo OK
+	
+$(EXECUTABLE): $(OBJECTS)
+	$(CC) $(CCFLAGS) -o $(EXECUTABLE) $(INCLUDES) $(OBJECTS) $(LIBRARYS)
+
+
+$(DLL): $(OBJECTS)
+	$(DLLWRAP) --output-def $(LIB_DIR)\$(DEFFILE) $(OBJECTS) $(LIBRARYS) -o $(LIB_DIR)\$(DLL)
+
+##########################################################
+
+smv.o:
+	netcomp -o $* < $*.con
+	$(CC) $(CCFLAGS) -c $(INCLUDES) -o $@ $*.c
+smv_user_functions/smv_user_functions.o: smv_user_functions/smv_user_functions.h
+smv_user_functions/mapping.o: smv_user_functions/mapping.h
+smv_user_functions/list.o: smv_user_functions/list.h
+smv_user_functions/smv_api.o: smv_user_functions/smv_api.h
+smv_user_functions/smv_filters.o: ../../include/filter.h
+
+##########################################################
+
+clean:
+	$(DEL) smv.exe
+	$(DEL) smv.c
+	$(DEL) smv.h
+	$(DEL) *.o
+	$(DEL) smv_user_functions\*.o

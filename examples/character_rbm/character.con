@@ -1,0 +1,57 @@
+################################################ Set Global Variables #################################################
+
+set NEURON_MEMORY_SIZE = 60000;
+
+######################################################## Constants ####################################################
+
+const INPUT_WIDTH 	= 28;
+const INPUT_HEIGHT	= 28;
+
+const NL_WIDTH 		= 25;
+const NL_HEIGHT		= 40;
+
+const SIGMOID	= 1;
+const LINEAR	= 2;
+
+int	g_rbm_state1 = 0;
+int	g_rbm_state2 = 0;
+int	g_rbm_state3 = 0;
+int	g_rbm_state4 = 0;
+
+############################################### Neuron Layers #########################################################
+
+neuronlayer	character_rbm1[25][20] 	with greyscale_float outputs, show;
+neuronlayer	character_rbm2[25][20] 	with greyscale_float outputs, show;
+neuronlayer	character_rbm3[50][40] 	with greyscale_float outputs, show;
+neuronlayer	character_rbm4[ 5][ 2] 	with greyscale_float outputs, show;
+
+############################################### Outputs #########################################################
+
+################################################## Inputs #############################################################
+
+input 		character[INPUT_WIDTH][INPUT_HEIGHT]	with greyscale outputs produced by input_generator() controled by input_controler();
+
+############################################### Filters ###############################################################   
+
+filter 		character		with rbm_filter("%p %d", &g_rbm_state1, SIGMOID) producing character_rbm1;
+filter 		character_rbm1	with rbm_filter("%p %d", &g_rbm_state2, SIGMOID) producing character_rbm2;
+filter 		character_rbm2	with rbm_filter("%p %d", &g_rbm_state3, SIGMOID) producing character_rbm3;
+filter 		character_rbm3	with rbm_filter("%p %d", &g_rbm_state4, SIGMOID) producing character_rbm4;
+
+################################## Connect Neuron Layers to Outputs #############################################
+
+
+############################################### Associations ####################################################
+
+
+################################################ Connections ####################################################
+
+
+################################################# User Functions ################################################
+
+int SetNetworkStatus("%d");
+int GetCharOrderN("%d");
+int GetCharN("%d");
+int GetNextChar("");
+int RewindCharInput("");
+

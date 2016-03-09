@@ -1,0 +1,56 @@
+int SIGNS2TRAINING; 		
+SIGNS2TRAINING = 285;
+
+/*442*/
+int SIGNS2TESTING;	
+SIGNS2TESTING = 143;
+
+
+/* Network Status */
+int MOVING;
+MOVING = 0;
+int TRAINING;
+TRAINING = 1;
+int TESTING;
+TESTING = 2;
+
+/* Iterators */
+int i;
+
+/* Training Phase */
+SetNetworkStatus (TRAINING);
+i = 1;
+while (i <= SIGNS2TRAINING)
+{
+	GetNthSignParam (i);
+	/*print("i = ", i);*/
+
+	/*draw out_landmark based on traffic_sign move;*/
+	draw out_landmark based on out_traffic_sign move;
+
+	forward outputs;
+	train network;
+	
+	i = i + 1;
+}
+
+	
+/* Testing phase */
+SetNetworkStatus (TESTING);
+i = 1;
+while (i <= SIGNS2TESTING)
+{
+	GetNthSignParam (i);
+	
+	/* Updates the log-polar output */
+	/*Move2Nose (0);*/
+	/*MoveInput(0);/*
+	
+	/*forward neural_layers;*/
+	/*forward neural_layers;*/
+	forward neural_layers;
+	forward outputs;
+
+	i = i + 1;
+}
+

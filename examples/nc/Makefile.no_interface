@@ -1,0 +1,41 @@
+LIBMAE =-L$(MAEHOME)/lib
+LIBPATH =-L/usr/local/lib -L/usr/X11R6/lib $(LIBMAE)
+CC=gcc
+CCFLAGS= -O4 -D NO_INTERFACE -Wall
+LIBRARYS=-lnet_conn -lforms -lGA -lTsai -lX11 -lglut -lGLU -lGL -lm -lfl
+ 
+##########################################################
+
+EXECUTABLE = nc
+OBJECTS = nc.o \
+	  nc_user_functions/nc_user_functions.o \
+	  nc_user_functions/nc_input_output.o
+
+##########################################################
+
+.c.o:
+	@echo OK
+	$(CC) $(CCFLAGS) -c -I$(MAEHOME)/include -o $@ $*.c
+
+##########################################################
+
+build: $(EXECUTABLE)
+$(EXECUTABLE): $(OBJECTS) nc.con TRADING_SYSTEM/trading_system.c
+	netcomp -o nc < nc.con
+	$(CC) $(CCFLAGS) -o $(EXECUTABLE) $(OBJECTS) $(LIBPATH) $(LIBRARYS)
+
+##########################################################
+
+nc_user_functions.o : ../nc.h
+
+##########################################################
+
+nc.o:
+	$(MAEHOME)/bin/netcomp -o $* < $*.con	
+	$(CC) $(CCFLAGS) -c -I$(MAEHOME)/include -o $@ $*.c
+
+##########################################################
+clean:
+	rm -f *.o nc_user_functions/*.o
+	rm -f nc nc.c nc.h
+	rm -f *.out

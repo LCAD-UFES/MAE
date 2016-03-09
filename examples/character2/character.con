@@ -1,0 +1,63 @@
+################################################ Set Global Variables #################################################
+
+set NEURON_MEMORY_SIZE = 60000;
+
+######################################################## Constants ####################################################
+
+const INPUT_WIDTH 	= 28;
+const INPUT_HEIGHT	= 28;
+
+const NL_UNIDIM_SIZE = 32;
+
+const NL_WIDTH 		= NL_UNIDIM_SIZE;
+const NL_HEIGHT 	= NL_UNIDIM_SIZE;
+
+const SYNAPSES = 128;
+const GAUSS_RAD = 10.0;
+const LOG_FACTOR = 2.0;
+
+############################################### Neuron Layers #########################################################
+
+neuronlayer	char_discr[NL_WIDTH][NL_HEIGHT]			of minchinton neurons greyscale sensitive with greyscale outputs;
+neuronlayer	character_scaled[NL_WIDTH*2][NL_HEIGHT*2] 	with greyscale outputs;
+neuronlayer	character_gaussian[NL_WIDTH*2][NL_HEIGHT*2] with greyscale outputs;
+#neuronlayer character_logpolar[NL_WIDTH][NL_HEIGHT] 	with greyscale outputs;
+
+############################################### Outputs #########################################################
+
+output		char_discr_out[NL_WIDTH][NL_HEIGHT]		handled by output_handler();
+output		character_gaussian_out[NL_WIDTH*2][NL_HEIGHT*2];
+#output		character_logpolar_out[NL_WIDTH][NL_HEIGHT];
+
+################################################## Inputs #############################################################
+
+input 		character[INPUT_WIDTH][INPUT_HEIGHT]	with greyscale outputs produced by input_generator("%p", char_discr_out)
+									       controled by input_controler("%p", char_discr_out);
+
+############################################### Filters ###############################################################   
+filter 		character 			with scale_and_translate_filter() producing character_scaled;
+filter 		character_scaled	with gaussian_filter("%d %f", 5, 1.0) producing character_gaussian;
+#filter		character_gaussian	with map_image_v1("%s %f","character_gaussian", LOG_FACTOR) producing character_logpolar;
+
+################################## Connect Neuron Layers to Outputs #############################################
+
+outputconnect	char_discr			to char_discr_out;
+outputconnect	character_gaussian	to character_gaussian_out;
+#outputconnect	character_logpolar 	to character_logpolar_out;
+
+############################################### Associations ####################################################
+
+associate	char_discr 		with char_discr;
+
+################################################ Connections ####################################################
+
+connect 	character_gaussian 	to char_discr with SYNAPSES random inputs per neuron and gaussian distribution with radius GAUSS_RAD;
+#connect 	character_gaussian 	to char_discr with SYNAPSES random inputs per neuron and log_polar distribution with radius GAUSS_RAD and logfactor LOG_FACTOR ;
+
+################################################# User Functions ################################################
+
+int SetNetworkStatus("%d");
+int EvaluateChar("%f");
+float UpdateStats("");
+int EvaluateCharInRangePixels("%d");
+int WriteTestResultToCSV("");

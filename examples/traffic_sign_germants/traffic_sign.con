@@ -1,0 +1,67 @@
+################################################ Set Global Variables #################################################
+#set NEURON_MEMORY_SIZE = 26641;
+set NEURON_MEMORY_SIZE = 2664;
+set TYPE_SHOW = SHOW_FRAME;
+set TYPE_MOVING_FRAME = STOP;
+
+######################################################## Constants ####################################################
+const INPUT_WIDTH 	= 204;
+const INPUT_HEIGHT	= 204;
+
+const OUT_WIDTH		= 16;
+const OUT_HEIGHT	= 16;
+
+const SYNAPSES		= 128;
+
+# Filter's parameters
+const NL_WIDTH 		= 50;
+const NL_HEIGHT		= 50;
+
+
+const TRAINING_INPUT_PATH = "/home/vneves/GTSRB/_scripts/training_set_raw/";
+const TRAINING_INPUT_FILES = "/home/vneves/GTSRB/_scripts/training_set_raw/desc_training_set";
+
+const TESTING_INPUT_PATH = "/home/vneves/GTSRB/_scripts/testing_set_raw/";
+const TESTING_INPUT_FILES = "/home/vneves/GTSRB/_scripts/testing_set_raw/desc_testing_set";
+
+
+#const TRAINING_INPUT_FILES = "/home/vneves/GTSRB/_scripts/reduced_training_set";
+
+
+############################################### Neuron Layers #########################################################
+neuronlayer	nl_traffic_sign[NL_WIDTH][NL_HEIGHT]	with color outputs;
+neuronlayer nl_traffic_sign_f[NL_WIDTH][NL_HEIGHT]    with color outputs;
+
+neuronlayer	nl_landmark[OUT_WIDTH][OUT_HEIGHT]	of minchinton neurons color sensitive with greyscale outputs;
+
+############################################### Outputs #########################################################
+output		out_traffic_sign[NL_WIDTH][NL_HEIGHT];
+output      out_traffic_sign_f[NL_WIDTH][NL_HEIGHT];
+
+output		out_landmark[OUT_WIDTH][OUT_HEIGHT] 	handled by output_handler();
+
+################################################## Inputs #############################################################
+input 		traffic_sign[INPUT_WIDTH][INPUT_HEIGHT]	with color outputs produced by input_generator() controled by input_controler();
+
+############################################### Filters #########################################################
+filter		traffic_sign 		with traffic_sign_resize_bilinear () producing nl_traffic_sign;
+filter      nl_traffic_sign        with gaussian_filter ("%d %f", 7, 1.0) producing nl_traffic_sign_f;
+
+################################## Connect Neuron Layers to Outputs #############################################
+outputconnect	nl_traffic_sign		to out_traffic_sign;
+outputconnect   nl_traffic_sign_f     to out_traffic_sign_f;
+outputconnect	nl_landmark			to out_landmark;
+
+############################################### Associations ####################################################
+associate	nl_landmark		with	nl_landmark;
+
+################################################ Connections ####################################################
+connect		nl_traffic_sign	to nl_landmark 	with SYNAPSES random inputs per neuron and gaussian distribution with radius 1.0;
+#connect		nl_traffic_sign	to nl_landmark 	with SYNAPSES random inputs per neuron;
+
+################################################ User Functions #################################################
+
+int SetNetworkStatus ("%d");
+int get_sign_by_index ("%d");
+int get_sign_by_index2 ("%d");
+int wait_key ("%d");

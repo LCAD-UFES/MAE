@@ -1,0 +1,85 @@
+################################################ Set Global Variables #################################################
+# Global Variables
+set NEURON_MEMORY_SIZE = 100; # >= DISPARITY_RANGE;
+set TYPE_SHOW = SHOW_FRAME;
+set TYPE_MOVING_FRAME = STOP;
+
+# Camera Parameters
+set CAMERA_DISTANCE = 6.9; # [cm]
+
+######################################################## Constants ####################################################
+# INPUT & Neuron Layer Dimentions
+const INPUT_WIDTH  = 320;
+const INPUT_HEIGHT = 240;
+const NL_WIDTH  = 128;
+const NL_HEIGHT = 64;
+
+# Camera Constants
+const FOV_HORIZONTAL = 47.05;
+const FOV_VERTICAL   = 35.71;
+
+# Input data file name
+const CAMERA_LEFT_PARAMETERS_FILE_NAME  = "CameraLeftParameters.dat";
+const CAMERA_RIGHT_PARAMETERS_FILE_NAME = "CameraRightParameters.dat";
+const FILE_RBT_IMAGE_LEFT  = "img_left.rbt";
+const FILE_RBT_IMAGE_RIGHT = "img_right.rbt";
+
+# Application constants
+const GET_IMAGE_FROM_RBT = 0;
+const GET_IMAGE_FROM_PNM = 1;
+const IMAGE_SOURCE = GET_IMAGE_FROM_PNM;
+
+# Application constants
+const LOG_FACTOR      = 2.0;  # Log factor
+const SYNAPSES        = 256;  # Synapses number
+const GAUSSIAN_RADIUS = 10.0; # Gaussian synaptic pattern radius
+const DISPARITY_RANGE = 70;   # Vergence scanning range
+const VISION_STEREO   = TRUE;
+const BAND            = 0.25; # Vergence decision band
+const THRESHOLD       = 0.0;  # Noise threshold
+
+# Network status conventions
+const TRAINNING	= 0;
+const RUNNING	= 1;
+
+# Viewer parameters
+const FOVY = 47.05; # [deg]
+const FAR = 100.0; # [cm]
+const NEAR = 0.1; # [cm]
+const FOCUS = 400.0; # [pix]
+
+################################################# Inputs #######################################################
+input		image_left[INPUT_WIDTH][INPUT_HEIGHT]	with color outputs produced by input_generator("%d", IMAGE_SOURCE) controled by input_controler();
+input		image_right[INPUT_WIDTH][INPUT_HEIGHT]	with color outputs produced by input_generator("%d", IMAGE_SOURCE) controled by input_controler();
+
+############################################### Neuron Layers ##################################################
+neuronlayer	nl_lp_image_left[NL_WIDTH][NL_HEIGHT]	color sensitive with greyscale_float outputs;
+neuronlayer	nl_lp_image_right[NL_WIDTH][NL_HEIGHT]	color sensitive with greyscale_float outputs;
+neuronlayer	nl_disparity_map[NL_WIDTH][NL_HEIGHT]	of minchinton neurons color sensitive with greyscale_float outputs;
+neuronlayer	nl_aux[INPUT_WIDTH][INPUT_HEIGHT]	color sensitive with greyscale_float outputs;
+
+############################################### Outputs ########################################################
+output		out_lp_image_left[NL_WIDTH][NL_HEIGHT];
+output		out_lp_image_right[NL_WIDTH][NL_HEIGHT];
+output		out_disparity_map[NL_WIDTH][NL_HEIGHT];
+output		out_aux[INPUT_WIDTH][INPUT_HEIGHT];
+
+################################## Connect Neuron Layers to Outputs #############################################
+outputconnect	nl_lp_image_left  to out_lp_image_left;
+outputconnect	nl_lp_image_right to out_lp_image_right;
+outputconnect	nl_disparity_map  to out_disparity_map;
+outputconnect	nl_aux  	  to out_aux;
+
+########################################### Interconnect Neuron Layers  ##############################################
+
+connect 	nl_disparity_map  to nl_disparity_map with 64 random inputs per neuron and gaussian distribution with radius 1.0;
+#connect 	nl_disparity_map  to nl_disparity_map with 64 random inputs per neuron;
+
+############################################### Associations ####################################################
+
+associate	nl_disparity_map  with	nl_disparity_map;
+
+############################################### Filters #########################################################
+#filter		image_left  with log_polar_filter("%f", LOG_FACTOR) producing nl_lp_image_left;
+#filter		image_right with log_polar_filter("%f", LOG_FACTOR) producing nl_lp_image_right;
+filter		image_left, image_right, nl_aux   with mt_filter("%d %f %f", SYNAPSES, GAUSSIAN_RADIUS, LOG_FACTOR) producing nl_disparity_map;

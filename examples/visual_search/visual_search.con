@@ -1,0 +1,169 @@
+################################################ Set Global Variables #################################################
+
+set NEURON_MEMORY_SIZE = 256; 
+set TYPE_SHOW = SHOW_FRAME;
+set TYPE_MOVING_FRAME = STOP;
+
+######################################################## Constants ####################################################
+
+int IMAGE_WIDTH	 = 128;
+int IMAGE_HEIGHT = 96;
+
+int NL_WIDTH 	= 30;
+int NL_HEIGHT	= 30;
+
+############################################### Neuron Layers #########################################################
+
+neuronlayer    	nl_gabor_small_h_00[NL_WIDTH][NL_HEIGHT]      	with    greyscale_float outputs, show;
+neuronlayer    	nl_gabor_small_h_90[NL_WIDTH][NL_HEIGHT]     	with    greyscale_float outputs, show;
+neuronlayer    	nl_gabor_small_v_00[NL_WIDTH][NL_HEIGHT]      	with    greyscale_float outputs, show;
+neuronlayer    	nl_gabor_small_v_90[NL_WIDTH][NL_HEIGHT]     	with    greyscale_float outputs, show;
+
+neuronlayer    	nl_gabor_medium_h_00[NL_WIDTH][NL_HEIGHT]	with	greyscale_float outputs, show;
+neuronlayer    	nl_gabor_medium_h_90[NL_WIDTH][NL_HEIGHT]    	with    greyscale_float outputs, show;
+neuronlayer    	nl_gabor_medium_v_00[NL_WIDTH][NL_HEIGHT]	with	greyscale_float outputs, show;
+neuronlayer    	nl_gabor_medium_v_90[NL_WIDTH][NL_HEIGHT]    	with    greyscale_float outputs, show;
+
+neuronlayer     nl_gabor_big_h_00[NL_WIDTH][NL_HEIGHT]  	with	greyscale_float outputs, show;
+neuronlayer    	nl_gabor_big_h_90[NL_WIDTH][NL_HEIGHT] 		with	greyscale_float outputs, show;
+neuronlayer     nl_gabor_big_v_00[NL_WIDTH][NL_HEIGHT]  	with	greyscale_float outputs, show;
+neuronlayer    	nl_gabor_big_v_90[NL_WIDTH][NL_HEIGHT] 		with	greyscale_float outputs, show;
+
+neuronlayer    	nl_gaussian[IMAGE_WIDTH][IMAGE_HEIGHT]	       	with 	greyscale_float outputs;
+
+neuronlayer    	nl_gaussian_v1[NL_WIDTH][NL_HEIGHT]	       	with 	greyscale_float outputs;
+
+neuronlayer    	nl_activation_map[NL_WIDTH][NL_HEIGHT]	       	with 	greyscale_float outputs;
+
+neuronlayer    	nl_pattern_v1[NL_WIDTH][NL_HEIGHT]	       	with 	color outputs;
+
+neuronlayer    	nl_target_coordinates_gaussian[2][1]	       	with 	greyscale_float outputs;
+neuronlayer    	nl_target_coordinates[2][1]	       		with 	greyscale_float outputs;
+
+############################################### Outputs #########################################################
+
+#output		out_gabor_small_h_00[NL_WIDTH][NL_HEIGHT];
+#output		out_gabor_small_h_90[NL_WIDTH][NL_HEIGHT];
+#output		out_gabor_small_v_00[NL_WIDTH][NL_HEIGHT];
+#output		out_gabor_small_v_90[NL_WIDTH][NL_HEIGHT];
+
+#output 	out_gabor_medium_h_00[NL_WIDTH][NL_HEIGHT];
+#output 	out_gabor_medium_h_90[NL_WIDTH][NL_HEIGHT];
+#output 	out_gabor_medium_v_00[NL_WIDTH][NL_HEIGHT];
+#output 	out_gabor_medium_v_90[NL_WIDTH][NL_HEIGHT];
+
+#output 	out_gabor_big_h_00[NL_WIDTH][NL_HEIGHT];
+#output 	out_gabor_big_h_90[NL_WIDTH][NL_HEIGHT];
+#output 	out_gabor_big_v_00[NL_WIDTH][NL_HEIGHT];
+#output 	out_gabor_big_v_90[NL_WIDTH][NL_HEIGHT];
+
+output         	out_gaussian[IMAGE_WIDTH][IMAGE_HEIGHT]	       	handled	by output_handler("%f", 2.5);
+
+#parameters:	output_handler_max_value_position ("%s %f", <nl_target_coordinates_name>, <log_factor>)
+#output		out_gaussian_v1[NL_WIDTH][NL_HEIGHT] 		handled by output_handler_max_value_position ("%s %f", "nl_target_coordinates_gaussian", 2.0);
+#output		out_activation_map[NL_WIDTH][NL_HEIGHT] 	handled by output_handler_max_value_position ("%s %f", "nl_target_coordinates",   2.0);
+
+#parameters:	output_handler_mean_position ("%s %f %f", <nl_target_name_coordinates>, <log_factor>, <cut_point>)
+output		out_gaussian_v1[NL_WIDTH][NL_HEIGHT] 		handled by output_handler_mean_position ("%s %f %f", "nl_target_coordinates_gaussian", 2.0, 0.0);
+output		out_activation_map[NL_WIDTH][NL_HEIGHT] 	handled by output_handler_mean_position ("%s %f %f", "nl_target_coordinates",	       2.0, 0.0);
+
+output         	out_pattern_v1[NL_WIDTH][NL_HEIGHT];
+
+output         	out_target_coordinates_gaussian[2][1];
+output         	out_target_coordinates[2][1];
+
+################################################## Inputs #############################################################
+
+input 		in_pattern[IMAGE_WIDTH][IMAGE_HEIGHT]			with color outputs produced by input_generator() controled by input_controler();
+
+############################################### Filters #########################################################
+
+#parameters: 	gabor_filter ("%f %f %f %f %f %d %d %f", <harmonic>, <band_width>, <aspect_ratio>, <orientation>, <phase>, <shift>, <mapping>, <log_factor>)
+#filter         in_pattern	       with gabor_filter ("%f %f %f %f %f %d %d %f", 80.0, 1.0, 1.0, pi/2.0,	0.0, 0, MAP_LOG_POLAR, 2.0)  producing  nl_gabor_small_h_00;
+#filter         in_pattern	       with gabor_filter ("%f %f %f %f %f %d %d %f", 80.0, 1.0, 1.0, pi/2.0, pi/2.0, 0, MAP_LOG_POLAR, 2.0)  producing  nl_gabor_small_h_90;
+#filter         in_pattern	       with gabor_filter ("%f %f %f %f %f %d %d %f", 80.0, 1.0, 1.0,	0.0,	0.0, 0, MAP_LOG_POLAR, 2.0)  producing  nl_gabor_small_v_00;
+#filter         in_pattern	       with gabor_filter ("%f %f %f %f %f %d %d %f", 80.0, 1.0, 1.0,	0.0, pi/2.0, 0, MAP_LOG_POLAR, 2.0)  producing  nl_gabor_small_v_90;
+
+#filter         in_pattern	       with gabor_filter ("%f %f %f %f %f %d %d %f", 40.0, 1.0, 1.0, pi/2.0,	0.0, 0, MAP_LOG_POLAR, 2.0)  producing  nl_gabor_medium_h_00;
+#filter         in_pattern	       with gabor_filter ("%f %f %f %f %f %d %d %f", 40.0, 1.0, 1.0, pi/2.0, pi/2.0, 0, MAP_LOG_POLAR, 2.0)  producing  nl_gabor_medium_h_90;
+#filter         in_pattern	       with gabor_filter ("%f %f %f %f %f %d %d %f", 40.0, 1.0, 1.0,	0.0,	0.0, 0, MAP_LOG_POLAR, 2.0)  producing  nl_gabor_medium_v_00;
+#filter         in_pattern	       with gabor_filter ("%f %f %f %f %f %d %d %f", 40.0, 1.0, 1.0,	0.0, pi/2.0, 0, MAP_LOG_POLAR, 2.0)  producing  nl_gabor_medium_v_90;
+
+#filter         in_pattern	       with gabor_filter ("%f %f %f %f %f %d %d %f", 20.0, 1.0, 1.0, pi/2.0,	0.0, 0, MAP_LOG_POLAR, 2.0)  producing  nl_gabor_big_h_00;
+#filter         in_pattern	       with gabor_filter ("%f %f %f %f %f %d %d %f", 20.0, 1.0, 1.0, pi/2.0, pi/2.0, 0, MAP_LOG_POLAR, 2.0)  producing  nl_gabor_big_h_90;
+#filter         in_pattern	       with gabor_filter ("%f %f %f %f %f %d %d %f", 20.0, 1.0, 1.0,	0.0,	0.0, 0, MAP_LOG_POLAR, 2.0)  producing  nl_gabor_big_v_00;
+#filter         in_pattern	       with gabor_filter ("%f %f %f %f %f %d %d %f", 20.0, 1.0, 1.0,	0.0, pi/2.0, 0, MAP_LOG_POLAR, 2.0)  producing  nl_gabor_big_v_90;
+
+#parameters: 	biological_gabor_filter("%f %f %f %f %f %f %d %d %f %d", camera_opening_degree, cycles_per_degree, band_width, aspect_ratio, orientation, phase, shift, mapping, log_factor, kernel_type)
+filter         in_pattern	       with biological_gabor_filter ("%f %f %f %f %f %f %d %d %f %d", 48.0, 0.08, 2.0, 1.0,    0.0,    0.0, 0, MAP_LOG_POLAR, 2.0, KERNEL_2D)  producing  nl_gabor_big_h_00;
+filter         in_pattern	       with biological_gabor_filter ("%f %f %f %f %f %f %d %d %f %d", 48.0, 0.08, 2.0, 1.0,    0.0, pi/2.0, 0, MAP_LOG_POLAR, 2.0, KERNEL_2D)  producing  nl_gabor_big_h_90;
+filter         in_pattern	       with biological_gabor_filter ("%f %f %f %f %f %f %d %d %f %d", 48.0, 0.08, 2.0, 1.0, pi/2.0,    0.0, 0, MAP_LOG_POLAR, 2.0, KERNEL_2D)  producing  nl_gabor_big_v_00;
+filter         in_pattern	       with biological_gabor_filter ("%f %f %f %f %f %f %d %d %f %d", 48.0, 0.08, 2.0, 1.0, pi/2.0, pi/2.0, 0, MAP_LOG_POLAR, 2.0, KERNEL_2D)  producing  nl_gabor_big_v_90;
+
+filter         in_pattern	       with biological_gabor_filter ("%f %f %f %f %f %f %d %d %f %d", 48.0, 0.16, 2.0, 1.0,    0.0,    0.0, 0, MAP_LOG_POLAR, 2.0, KERNEL_2D)  producing  nl_gabor_medium_h_00;
+filter         in_pattern	       with biological_gabor_filter ("%f %f %f %f %f %f %d %d %f %d", 48.0, 0.16, 2.0, 1.0,    0.0, pi/2.0, 0, MAP_LOG_POLAR, 2.0, KERNEL_2D)  producing  nl_gabor_medium_h_90;
+filter         in_pattern	       with biological_gabor_filter ("%f %f %f %f %f %f %d %d %f %d", 48.0, 0.16, 2.0, 1.0, pi/2.0,    0.0, 0, MAP_LOG_POLAR, 2.0, KERNEL_2D)  producing  nl_gabor_medium_v_00;
+filter         in_pattern	       with biological_gabor_filter ("%f %f %f %f %f %f %d %d %f %d", 48.0, 0.16, 2.0, 1.0, pi/2.0, pi/2.0, 0, MAP_LOG_POLAR, 2.0, KERNEL_2D)  producing  nl_gabor_medium_v_90;
+
+filter         in_pattern	       with biological_gabor_filter ("%f %f %f %f %f %f %d %d %f %d", 48.0, 0.32, 2.0, 1.0,    0.0,    0.0, 0, MAP_LOG_POLAR, 2.0, KERNEL_2D)  producing  nl_gabor_small_h_00;
+filter         in_pattern	       with biological_gabor_filter ("%f %f %f %f %f %f %d %d %f %d", 48.0, 0.32, 2.0, 1.0,    0.0, pi/2.0, 0, MAP_LOG_POLAR, 2.0, KERNEL_2D)  producing  nl_gabor_small_h_90;
+filter         in_pattern	       with biological_gabor_filter ("%f %f %f %f %f %f %d %d %f %d", 48.0, 0.32, 2.0, 1.0, pi/2.0,    0.0, 0, MAP_LOG_POLAR, 2.0, KERNEL_2D)  producing  nl_gabor_small_v_00;
+filter         in_pattern	       with biological_gabor_filter ("%f %f %f %f %f %f %d %d %f %d", 48.0, 0.32, 2.0, 1.0, pi/2.0, pi/2.0, 0, MAP_LOG_POLAR, 2.0, KERNEL_2D)  producing  nl_gabor_small_v_90;
+
+#parameters: 	map_image_v1 ("%s", <input_name>)
+filter		nl_gaussian  		with map_image_v1 ("%s %f", "in_pattern", 2.0) 	producing nl_gaussian_v1;
+filter		in_pattern  		with map_image_v1 ("%s %f", "in_pattern", 2.0) 	producing nl_pattern_v1;
+
+################################## Connect Neuron Layers to Outputs #############################################
+
+#outputconnect  nl_gabor_small_h_00	     	to out_gabor_small_h_00;
+#outputconnect  nl_gabor_small_h_90	     	to out_gabor_small_h_90;
+#outputconnect  nl_gabor_small_v_00	     	to out_gabor_small_v_00;
+#outputconnect  nl_gabor_small_v_90	     	to out_gabor_small_v_90;
+
+#outputconnect  nl_gabor_medium_h_00	     	to out_gabor_medium_h_00;
+#outputconnect 	nl_gabor_medium_h_90	     	to out_gabor_medium_h_90;
+#outputconnect  nl_gabor_medium_v_00	     	to out_gabor_medium_v_00;
+#outputconnect  nl_gabor_medium_v_90	     	to out_gabor_medium_v_90;
+
+#outputconnect  nl_gabor_big_h_00	     	to out_gabor_big_h_00;
+#outputconnect  nl_gabor_big_h_90	     	to out_gabor_big_h_90;
+#outputconnect  nl_gabor_big_v_00	     	to out_gabor_big_v_00;
+#outputconnect	nl_gabor_big_v_90	     	to out_gabor_big_v_90;
+
+outputconnect  	nl_gaussian			to out_gaussian;
+
+outputconnect  	nl_gaussian_v1 			to out_gaussian_v1;
+
+outputconnect  	nl_activation_map 		to out_activation_map;
+
+outputconnect  	nl_pattern_v1 			to out_pattern_v1;
+
+outputconnect  	nl_target_coordinates_gaussian 	to out_target_coordinates_gaussian;
+outputconnect  	nl_target_coordinates 		to out_target_coordinates;
+
+############################################### Associations ####################################################
+
+associate	nl_gaussian_v1		with 	nl_activation_map;
+
+################################################ Connections ####################################################
+
+#connect	nl_pattern_v1		to nl_activation_map with 128 random inputs per neuron and gaussian distribution with radius 50.0;
+
+connect	        nl_gabor_small_h_00	to nl_activation_map with 32 random inputs per neuron and gaussian distribution with radius 7.0;
+connect	        nl_gabor_small_h_90	to nl_activation_map with 32 random inputs per neuron and gaussian distribution with radius 7.0;
+connect	        nl_gabor_small_v_00	to nl_activation_map with 32 random inputs per neuron and gaussian distribution with radius 7.0;
+connect	        nl_gabor_small_v_90	to nl_activation_map with 32 random inputs per neuron and gaussian distribution with radius 7.0;
+connect	        nl_gabor_medium_h_00	to nl_activation_map with 32 random inputs per neuron and gaussian distribution with radius 7.0;
+connect	        nl_gabor_medium_h_90	to nl_activation_map with 32 random inputs per neuron and gaussian distribution with radius 7.0;
+connect	        nl_gabor_medium_v_00	to nl_activation_map with 32 random inputs per neuron and gaussian distribution with radius 7.0;
+connect	        nl_gabor_medium_v_90	to nl_activation_map with 32 random inputs per neuron and gaussian distribution with radius 7.0;
+connect	        nl_gabor_big_h_00    	to nl_activation_map with 32 random inputs per neuron and gaussian distribution with radius 7.0;
+connect	        nl_gabor_big_h_90    	to nl_activation_map with 32 random inputs per neuron and gaussian distribution with radius 7.0;
+connect	        nl_gabor_big_v_00    	to nl_activation_map with 32 random inputs per neuron and gaussian distribution with radius 7.0;
+connect	        nl_gabor_big_v_90    	to nl_activation_map with 32 random inputs per neuron and gaussian distribution with radius 7.0;
+
+################################################# User Functions ################################################
+
+int v1_to_image_mapping ("%p %p %d %d %d %d %d %d");	
+int calculate_random_position ("%d %d %d %d"); 

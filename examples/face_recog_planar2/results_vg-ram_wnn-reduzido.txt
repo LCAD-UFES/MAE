@@ -1,0 +1,8 @@
+99.26%  faces_te_anger
+99.26%  faces_te_smile
+99.26%  faces_te_left_light
+97.04%  faces_te_right_light
+97.04%  faces_te_all_side_lights
+96.30%  faces_te_scarf
+90.37%  faces_te_scream
+78.52%  faces_te_glasses

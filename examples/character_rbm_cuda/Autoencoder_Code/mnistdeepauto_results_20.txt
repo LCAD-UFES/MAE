@@ -1,0 +1,1272 @@
+>> mnistdeepauto
+Converting Raw files into Matlab format 
+You first need to download files:
+ train-images-idx3-ubyte.gz
+ train-labels-idx1-ubyte.gz
+ t10k-images-idx3-ubyte.gz
+ t10k-labels-idx1-ubyte.gz
+ from http://yann.lecun.com/exdb/mnist/
+ and gunzip them 
+Starting to convert Test MNIST images (prints 10 dots) 
+..........
+  980 Digits of class 0
+ 1135 Digits of class 1
+ 1032 Digits of class 2
+ 1010 Digits of class 3
+  982 Digits of class 4
+  892 Digits of class 5
+  958 Digits of class 6
+ 1028 Digits of class 7
+  974 Digits of class 8
+ 1009 Digits of class 9
+Starting to convert Training MNIST images (prints 60 dots)
+............................................................
+ 5923 Digits of class 0
+ 6742 Digits of class 1
+ 5958 Digits of class 2
+ 6131 Digits of class 3
+ 5842 Digits of class 4
+ 5421 Digits of class 5
+ 5918 Digits of class 6
+ 6265 Digits of class 7
+ 5851 Digits of class 8
+ 5949 Digits of class 9
+Resizing dataset 
+Resizing test dataset for first 10000 rows
+  980 Digits of class 0 from test dataset.
+ 1135 Digits of class 1 from test dataset.
+ 1032 Digits of class 2 from test dataset.
+ 1010 Digits of class 3 from test dataset.
+  982 Digits of class 4 from test dataset.
+  892 Digits of class 5 from test dataset.
+  958 Digits of class 6 from test dataset.
+ 1028 Digits of class 7 from test dataset.
+  974 Digits of class 8 from test dataset.
+ 1009 Digits of class 9 from test dataset.
+Resizing training dataset for first 20 rows
+   20 Digits of class 0 from training dataset.
+   20 Digits of class 1 from training dataset.
+   20 Digits of class 2 from training dataset.
+   20 Digits of class 3 from training dataset.
+   20 Digits of class 4 from training dataset.
+   20 Digits of class 5 from training dataset.
+   20 Digits of class 6 from training dataset.
+   20 Digits of class 7 from training dataset.
+   20 Digits of class 8 from training dataset.
+   20 Digits of class 9 from training dataset.
+Pretraining a deep autoencoder. 
+The Science paper used 50 epochs. This uses  50 
+Size of the training dataset=   200 
+Size of the test dataset= 10000 
+Pretraining Layer 1 with RBM: 784-1000 
+epoch 1
+epoch 1 batch 1
+epoch 1 batch 2
+epoch    1 error 31784.1  
+epoch 2
+epoch 2 batch 1
+epoch 2 batch 2
+epoch    2 error 9437.2  
+epoch 3
+epoch 3 batch 1
+epoch 3 batch 2
+epoch    3 error 8234.3  
+epoch 4
+epoch 4 batch 1
+epoch 4 batch 2
+epoch    4 error 7374.7  
+epoch 5
+epoch 5 batch 1
+epoch 5 batch 2
+epoch    5 error 6641.5  
+epoch 6
+epoch 6 batch 1
+epoch 6 batch 2
+epoch    6 error 6046.7  
+epoch 7
+epoch 7 batch 1
+epoch 7 batch 2
+epoch    7 error 5342.5  
+epoch 8
+epoch 8 batch 1
+epoch 8 batch 2
+epoch    8 error 4726.2  
+epoch 9
+epoch 9 batch 1
+epoch 9 batch 2
+epoch    9 error 4238.8  
+epoch 10
+epoch 10 batch 1
+epoch 10 batch 2
+epoch   10 error 3867.2  
+epoch 11
+epoch 11 batch 1
+epoch 11 batch 2
+epoch   11 error 3479.9  
+epoch 12
+epoch 12 batch 1
+epoch 12 batch 2
+epoch   12 error 3184.5  
+epoch 13
+epoch 13 batch 1
+epoch 13 batch 2
+epoch   13 error 2937.1  
+epoch 14
+epoch 14 batch 1
+epoch 14 batch 2
+epoch   14 error 2727.3  
+epoch 15
+epoch 15 batch 1
+epoch 15 batch 2
+epoch   15 error 2568.8  
+epoch 16
+epoch 16 batch 1
+epoch 16 batch 2
+epoch   16 error 2367.3  
+epoch 17
+epoch 17 batch 1
+epoch 17 batch 2
+epoch   17 error 2220.9  
+epoch 18
+epoch 18 batch 1
+epoch 18 batch 2
+epoch   18 error 2057.4  
+epoch 19
+epoch 19 batch 1
+epoch 19 batch 2
+epoch   19 error 1980.2  
+epoch 20
+epoch 20 batch 1
+epoch 20 batch 2
+epoch   20 error 1864.7  
+epoch 21
+epoch 21 batch 1
+epoch 21 batch 2
+epoch   21 error 1765.9  
+epoch 22
+epoch 22 batch 1
+epoch 22 batch 2
+epoch   22 error 1675.0  
+epoch 23
+epoch 23 batch 1
+epoch 23 batch 2
+epoch   23 error 1601.5  
+epoch 24
+epoch 24 batch 1
+epoch 24 batch 2
+epoch   24 error 1513.3  
+epoch 25
+epoch 25 batch 1
+epoch 25 batch 2
+epoch   25 error 1456.7  
+epoch 26
+epoch 26 batch 1
+epoch 26 batch 2
+epoch   26 error 1386.8  
+epoch 27
+epoch 27 batch 1
+epoch 27 batch 2
+epoch   27 error 1349.7  
+epoch 28
+epoch 28 batch 1
+epoch 28 batch 2
+epoch   28 error 1298.3  
+epoch 29
+epoch 29 batch 1
+epoch 29 batch 2
+epoch   29 error 1232.4  
+epoch 30
+epoch 30 batch 1
+epoch 30 batch 2
+epoch   30 error 1207.6  
+epoch 31
+epoch 31 batch 1
+epoch 31 batch 2
+epoch   31 error 1162.1  
+epoch 32
+epoch 32 batch 1
+epoch 32 batch 2
+epoch   32 error 1168.4  
+epoch 33
+epoch 33 batch 1
+epoch 33 batch 2
+epoch   33 error 1108.6  
+epoch 34
+epoch 34 batch 1
+epoch 34 batch 2
+epoch   34 error 1108.7  
+epoch 35
+epoch 35 batch 1
+epoch 35 batch 2
+epoch   35 error 1071.1  
+epoch 36
+epoch 36 batch 1
+epoch 36 batch 2
+epoch   36 error 1042.6  
+epoch 37
+epoch 37 batch 1
+epoch 37 batch 2
+epoch   37 error 1026.3  
+epoch 38
+epoch 38 batch 1
+epoch 38 batch 2
+epoch   38 error 1009.3  
+epoch 39
+epoch 39 batch 1
+epoch 39 batch 2
+epoch   39 error  993.8  
+epoch 40
+epoch 40 batch 1
+epoch 40 batch 2
+epoch   40 error  967.6  
+epoch 41
+epoch 41 batch 1
+epoch 41 batch 2
+epoch   41 error  950.5  
+epoch 42
+epoch 42 batch 1
+epoch 42 batch 2
+epoch   42 error  960.3  
+epoch 43
+epoch 43 batch 1
+epoch 43 batch 2
+epoch   43 error  956.1  
+epoch 44
+epoch 44 batch 1
+epoch 44 batch 2
+epoch   44 error  932.3  
+epoch 45
+epoch 45 batch 1
+epoch 45 batch 2
+epoch   45 error  907.7  
+epoch 46
+epoch 46 batch 1
+epoch 46 batch 2
+epoch   46 error  871.5  
+epoch 47
+epoch 47 batch 1
+epoch 47 batch 2
+epoch   47 error  867.8  
+epoch 48
+epoch 48 batch 1
+epoch 48 batch 2
+epoch   48 error  880.0  
+epoch 49
+epoch 49 batch 1
+epoch 49 batch 2
+epoch   49 error  853.9  
+epoch 50
+epoch 50 batch 1
+epoch 50 batch 2
+epoch   50 error  817.7  
+
+Pretraining Layer 2 with RBM: 1000-500 
+epoch 1
+epoch 1 batch 1
+epoch 1 batch 2
+epoch    1 error 35171.0  
+epoch 2
+epoch 2 batch 1
+epoch 2 batch 2
+epoch    2 error 14327.4  
+epoch 3
+epoch 3 batch 1
+epoch 3 batch 2
+epoch    3 error 12702.8  
+epoch 4
+epoch 4 batch 1
+epoch 4 batch 2
+epoch    4 error 11161.2  
+epoch 5
+epoch 5 batch 1
+epoch 5 batch 2
+epoch    5 error 10053.3  
+epoch 6
+epoch 6 batch 1
+epoch 6 batch 2
+epoch    6 error 8937.4  
+epoch 7
+epoch 7 batch 1
+epoch 7 batch 2
+epoch    7 error 7805.6  
+epoch 8
+epoch 8 batch 1
+epoch 8 batch 2
+epoch    8 error 6767.2  
+epoch 9
+epoch 9 batch 1
+epoch 9 batch 2
+epoch    9 error 6016.1  
+epoch 10
+epoch 10 batch 1
+epoch 10 batch 2
+epoch   10 error 5412.2  
+epoch 11
+epoch 11 batch 1
+epoch 11 batch 2
+epoch   11 error 4871.8  
+epoch 12
+epoch 12 batch 1
+epoch 12 batch 2
+epoch   12 error 4481.9  
+epoch 13
+epoch 13 batch 1
+epoch 13 batch 2
+epoch   13 error 4171.7  
+epoch 14
+epoch 14 batch 1
+epoch 14 batch 2
+epoch   14 error 3838.2  
+epoch 15
+epoch 15 batch 1
+epoch 15 batch 2
+epoch   15 error 3514.3  
+epoch 16
+epoch 16 batch 1
+epoch 16 batch 2
+epoch   16 error 3287.2  
+epoch 17
+epoch 17 batch 1
+epoch 17 batch 2
+epoch   17 error 3076.7  
+epoch 18
+epoch 18 batch 1
+epoch 18 batch 2
+epoch   18 error 2893.4  
+epoch 19
+epoch 19 batch 1
+epoch 19 batch 2
+epoch   19 error 2707.0  
+epoch 20
+epoch 20 batch 1
+epoch 20 batch 2
+epoch   20 error 2518.8  
+epoch 21
+epoch 21 batch 1
+epoch 21 batch 2
+epoch   21 error 2386.0  
+epoch 22
+epoch 22 batch 1
+epoch 22 batch 2
+epoch   22 error 2230.4  
+epoch 23
+epoch 23 batch 1
+epoch 23 batch 2
+epoch   23 error 2135.6  
+epoch 24
+epoch 24 batch 1
+epoch 24 batch 2
+epoch   24 error 2018.0  
+epoch 25
+epoch 25 batch 1
+epoch 25 batch 2
+epoch   25 error 1918.5  
+epoch 26
+epoch 26 batch 1
+epoch 26 batch 2
+epoch   26 error 1846.4  
+epoch 27
+epoch 27 batch 1
+epoch 27 batch 2
+epoch   27 error 1740.0  
+epoch 28
+epoch 28 batch 1
+epoch 28 batch 2
+epoch   28 error 1679.2  
+epoch 29
+epoch 29 batch 1
+epoch 29 batch 2
+epoch   29 error 1649.6  
+epoch 30
+epoch 30 batch 1
+epoch 30 batch 2
+epoch   30 error 1582.0  
+epoch 31
+epoch 31 batch 1
+epoch 31 batch 2
+epoch   31 error 1547.7  
+epoch 32
+epoch 32 batch 1
+epoch 32 batch 2
+epoch   32 error 1494.2  
+epoch 33
+epoch 33 batch 1
+epoch 33 batch 2
+epoch   33 error 1427.9  
+epoch 34
+epoch 34 batch 1
+epoch 34 batch 2
+epoch   34 error 1390.8  
+epoch 35
+epoch 35 batch 1
+epoch 35 batch 2
+epoch   35 error 1371.6  
+epoch 36
+epoch 36 batch 1
+epoch 36 batch 2
+epoch   36 error 1314.2  
+epoch 37
+epoch 37 batch 1
+epoch 37 batch 2
+epoch   37 error 1280.8  
+epoch 38
+epoch 38 batch 1
+epoch 38 batch 2
+epoch   38 error 1260.8  
+epoch 39
+epoch 39 batch 1
+epoch 39 batch 2
+epoch   39 error 1233.2  
+epoch 40
+epoch 40 batch 1
+epoch 40 batch 2
+epoch   40 error 1189.1  
+epoch 41
+epoch 41 batch 1
+epoch 41 batch 2
+epoch   41 error 1184.3  
+epoch 42
+epoch 42 batch 1
+epoch 42 batch 2
+epoch   42 error 1155.8  
+epoch 43
+epoch 43 batch 1
+epoch 43 batch 2
+epoch   43 error 1121.3  
+epoch 44
+epoch 44 batch 1
+epoch 44 batch 2
+epoch   44 error 1111.5  
+epoch 45
+epoch 45 batch 1
+epoch 45 batch 2
+epoch   45 error 1067.8  
+epoch 46
+epoch 46 batch 1
+epoch 46 batch 2
+epoch   46 error 1083.0  
+epoch 47
+epoch 47 batch 1
+epoch 47 batch 2
+epoch   47 error 1085.4  
+epoch 48
+epoch 48 batch 1
+epoch 48 batch 2
+epoch   48 error 1051.6  
+epoch 49
+epoch 49 batch 1
+epoch 49 batch 2
+epoch   49 error 1030.6  
+epoch 50
+epoch 50 batch 1
+epoch 50 batch 2
+epoch   50 error 1001.7  
+
+Pretraining Layer 3 with RBM: 500-250 
+epoch 1
+epoch 1 batch 1
+epoch 1 batch 2
+epoch    1 error 17617.9  
+epoch 2
+epoch 2 batch 1
+epoch 2 batch 2
+epoch    2 error 8331.3  
+epoch 3
+epoch 3 batch 1
+epoch 3 batch 2
+epoch    3 error 7548.3  
+epoch 4
+epoch 4 batch 1
+epoch 4 batch 2
+epoch    4 error 6983.9  
+epoch 5
+epoch 5 batch 1
+epoch 5 batch 2
+epoch    5 error 6510.3  
+epoch 6
+epoch 6 batch 1
+epoch 6 batch 2
+epoch    6 error 5969.3  
+epoch 7
+epoch 7 batch 1
+epoch 7 batch 2
+epoch    7 error 5334.7  
+epoch 8
+epoch 8 batch 1
+epoch 8 batch 2
+epoch    8 error 4640.9  
+epoch 9
+epoch 9 batch 1
+epoch 9 batch 2
+epoch    9 error 4188.6  
+epoch 10
+epoch 10 batch 1
+epoch 10 batch 2
+epoch   10 error 3821.5  
+epoch 11
+epoch 11 batch 1
+epoch 11 batch 2
+epoch   11 error 3455.0  
+epoch 12
+epoch 12 batch 1
+epoch 12 batch 2
+epoch   12 error 3135.6  
+epoch 13
+epoch 13 batch 1
+epoch 13 batch 2
+epoch   13 error 2928.7  
+epoch 14
+epoch 14 batch 1
+epoch 14 batch 2
+epoch   14 error 2673.2  
+epoch 15
+epoch 15 batch 1
+epoch 15 batch 2
+epoch   15 error 2514.7  
+epoch 16
+epoch 16 batch 1
+epoch 16 batch 2
+epoch   16 error 2304.7  
+epoch 17
+epoch 17 batch 1
+epoch 17 batch 2
+epoch   17 error 2162.2  
+epoch 18
+epoch 18 batch 1
+epoch 18 batch 2
+epoch   18 error 1985.4  
+epoch 19
+epoch 19 batch 1
+epoch 19 batch 2
+epoch   19 error 1887.7  
+epoch 20
+epoch 20 batch 1
+epoch 20 batch 2
+epoch   20 error 1780.1  
+epoch 21
+epoch 21 batch 1
+epoch 21 batch 2
+epoch   21 error 1660.0  
+epoch 22
+epoch 22 batch 1
+epoch 22 batch 2
+epoch   22 error 1586.9  
+epoch 23
+epoch 23 batch 1
+epoch 23 batch 2
+epoch   23 error 1478.3  
+epoch 24
+epoch 24 batch 1
+epoch 24 batch 2
+epoch   24 error 1401.5  
+epoch 25
+epoch 25 batch 1
+epoch 25 batch 2
+epoch   25 error 1315.2  
+epoch 26
+epoch 26 batch 1
+epoch 26 batch 2
+epoch   26 error 1290.9  
+epoch 27
+epoch 27 batch 1
+epoch 27 batch 2
+epoch   27 error 1238.1  
+epoch 28
+epoch 28 batch 1
+epoch 28 batch 2
+epoch   28 error 1174.7  
+epoch 29
+epoch 29 batch 1
+epoch 29 batch 2
+epoch   29 error 1126.7  
+epoch 30
+epoch 30 batch 1
+epoch 30 batch 2
+epoch   30 error 1084.6  
+epoch 31
+epoch 31 batch 1
+epoch 31 batch 2
+epoch   31 error 1036.9  
+epoch 32
+epoch 32 batch 1
+epoch 32 batch 2
+epoch   32 error 1021.3  
+epoch 33
+epoch 33 batch 1
+epoch 33 batch 2
+epoch   33 error  979.5  
+epoch 34
+epoch 34 batch 1
+epoch 34 batch 2
+epoch   34 error  947.6  
+epoch 35
+epoch 35 batch 1
+epoch 35 batch 2
+epoch   35 error  911.1  
+epoch 36
+epoch 36 batch 1
+epoch 36 batch 2
+epoch   36 error  885.4  
+epoch 37
+epoch 37 batch 1
+epoch 37 batch 2
+epoch   37 error  850.5  
+epoch 38
+epoch 38 batch 1
+epoch 38 batch 2
+epoch   38 error  829.3  
+epoch 39
+epoch 39 batch 1
+epoch 39 batch 2
+epoch   39 error  799.5  
+epoch 40
+epoch 40 batch 1
+epoch 40 batch 2
+epoch   40 error  793.3  
+epoch 41
+epoch 41 batch 1
+epoch 41 batch 2
+epoch   41 error  768.0  
+epoch 42
+epoch 42 batch 1
+epoch 42 batch 2
+epoch   42 error  730.9  
+epoch 43
+epoch 43 batch 1
+epoch 43 batch 2
+epoch   43 error  718.3  
+epoch 44
+epoch 44 batch 1
+epoch 44 batch 2
+epoch   44 error  704.9  
+epoch 45
+epoch 45 batch 1
+epoch 45 batch 2
+epoch   45 error  692.8  
+epoch 46
+epoch 46 batch 1
+epoch 46 batch 2
+epoch   46 error  680.8  
+epoch 47
+epoch 47 batch 1
+epoch 47 batch 2
+epoch   47 error  661.2  
+epoch 48
+epoch 48 batch 1
+epoch 48 batch 2
+epoch   48 error  637.5  
+epoch 49
+epoch 49 batch 1
+epoch 49 batch 2
+epoch   49 error  647.3  
+epoch 50
+epoch 50 batch 1
+epoch 50 batch 2
+epoch   50 error  621.9  
+
+Pretraining Layer 4 with RBM: 250-30 
+epoch 1
+epoch 1 batch 1
+epoch 1 batch 2
+epoch    1 error 9882.739092 
+epoch 2
+epoch 2 batch 1
+epoch 2 batch 2
+epoch    2 error 9758.115428 
+epoch 3
+epoch 3 batch 1
+epoch 3 batch 2
+epoch    3 error 9634.561993 
+epoch 4
+epoch 4 batch 1
+epoch 4 batch 2
+epoch    4 error 9527.444545 
+epoch 5
+epoch 5 batch 1
+epoch 5 batch 2
+epoch    5 error 9489.844949 
+epoch 6
+epoch 6 batch 1
+epoch 6 batch 2
+epoch    6 error 9478.508030 
+epoch 7
+epoch 7 batch 1
+epoch 7 batch 2
+epoch    7 error 9384.450167 
+epoch 8
+epoch 8 batch 1
+epoch 8 batch 2
+epoch    8 error 9354.109521 
+epoch 9
+epoch 9 batch 1
+epoch 9 batch 2
+epoch    9 error 9270.210479 
+epoch 10
+epoch 10 batch 1
+epoch 10 batch 2
+epoch   10 error 9239.115337 
+epoch 11
+epoch 11 batch 1
+epoch 11 batch 2
+epoch   11 error 9145.478795 
+epoch 12
+epoch 12 batch 1
+epoch 12 batch 2
+epoch   12 error 9064.023928 
+epoch 13
+epoch 13 batch 1
+epoch 13 batch 2
+epoch   13 error 8967.362707 
+epoch 14
+epoch 14 batch 1
+epoch 14 batch 2
+epoch   14 error 8877.188557 
+epoch 15
+epoch 15 batch 1
+epoch 15 batch 2
+epoch   15 error 8696.906357 
+epoch 16
+epoch 16 batch 1
+epoch 16 batch 2
+epoch   16 error 8613.308400 
+epoch 17
+epoch 17 batch 1
+epoch 17 batch 2
+epoch   17 error 8521.260008 
+epoch 18
+epoch 18 batch 1
+epoch 18 batch 2
+epoch   18 error 8331.544724 
+epoch 19
+epoch 19 batch 1
+epoch 19 batch 2
+epoch   19 error 8229.577506 
+epoch 20
+epoch 20 batch 1
+epoch 20 batch 2
+epoch   20 error 8073.171409 
+epoch 21
+epoch 21 batch 1
+epoch 21 batch 2
+epoch   21 error 7914.409769 
+epoch 22
+epoch 22 batch 1
+epoch 22 batch 2
+epoch   22 error 7749.056937 
+epoch 23
+epoch 23 batch 1
+epoch 23 batch 2
+epoch   23 error 7594.631195 
+epoch 24
+epoch 24 batch 1
+epoch 24 batch 2
+epoch   24 error 7428.054490 
+epoch 25
+epoch 25 batch 1
+epoch 25 batch 2
+epoch   25 error 7282.388582 
+epoch 26
+epoch 26 batch 1
+epoch 26 batch 2
+epoch   26 error 7144.961445 
+epoch 27
+epoch 27 batch 1
+epoch 27 batch 2
+epoch   27 error 6972.650674 
+epoch 28
+epoch 28 batch 1
+epoch 28 batch 2
+epoch   28 error 6877.553038 
+epoch 29
+epoch 29 batch 1
+epoch 29 batch 2
+epoch   29 error 6697.678217 
+epoch 30
+epoch 30 batch 1
+epoch 30 batch 2
+epoch   30 error 6558.084833 
+epoch 31
+epoch 31 batch 1
+epoch 31 batch 2
+epoch   31 error 6394.847087 
+epoch 32
+epoch 32 batch 1
+epoch 32 batch 2
+epoch   32 error 6306.519566 
+epoch 33
+epoch 33 batch 1
+epoch 33 batch 2
+epoch   33 error 6166.501402 
+epoch 34
+epoch 34 batch 1
+epoch 34 batch 2
+epoch   34 error 6057.663512 
+epoch 35
+epoch 35 batch 1
+epoch 35 batch 2
+epoch   35 error 5951.671339 
+epoch 36
+epoch 36 batch 1
+epoch 36 batch 2
+epoch   36 error 5809.914882 
+epoch 37
+epoch 37 batch 1
+epoch 37 batch 2
+epoch   37 error 5754.463055 
+epoch 38
+epoch 38 batch 1
+epoch 38 batch 2
+epoch   38 error 5636.463139 
+epoch 39
+epoch 39 batch 1
+epoch 39 batch 2
+epoch   39 error 5552.764882 
+epoch 40
+epoch 40 batch 1
+epoch 40 batch 2
+epoch   40 error 5450.707549 
+epoch 41
+epoch 41 batch 1
+epoch 41 batch 2
+epoch   41 error 5375.838809 
+epoch 42
+epoch 42 batch 1
+epoch 42 batch 2
+epoch   42 error 5287.382187 
+epoch 43
+epoch 43 batch 1
+epoch 43 batch 2
+epoch   43 error 5215.415294 
+epoch 44
+epoch 44 batch 1
+epoch 44 batch 2
+epoch   44 error 5136.332274 
+epoch 45
+epoch 45 batch 1
+epoch 45 batch 2
+epoch   45 error 5058.033153 
+epoch 46
+epoch 46 batch 1
+epoch 46 batch 2
+epoch   46 error 4984.079726 
+epoch 47
+epoch 47 batch 1
+epoch 47 batch 2
+epoch   47 error 4899.835313 
+epoch 48
+epoch 48 batch 1
+epoch 48 batch 2
+epoch   48 error 4860.519195 
+epoch 49
+epoch 49 batch 1
+epoch 49 batch 2
+epoch   49 error 4770.491994 
+epoch 50
+epoch 50 batch 1
+epoch 50 batch 2
+epoch   50 error 4715.318077 
+
+Fine-tuning deep autoencoder by minimizing cross entropy error. 
+60 batches of 1000 cases each. 
+Size of the training dataset=   200 
+Size of the test dataset= 10000 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 1 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 2 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 3 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 4 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 5 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 6 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 7 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 8 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 9 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 10 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 11 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 12 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 13 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 14 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 15 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 16 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 17 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 18 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 19 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 20 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 21 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 22 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 23 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 24 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 25 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 26 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 27 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 28 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 29 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 30 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 31 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 32 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 33 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 34 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 35 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 36 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 37 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 38 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 39 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 40 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 41 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 42 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 43 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 44 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 45 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 46 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 47 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 48 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 49 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 50 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 51 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 52 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 53 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 54 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 55 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 56 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 57 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 58 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 59 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 60 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 61 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 62 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 63 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 64 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 65 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 66 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 67 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 68 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 69 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 70 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 71 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 72 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 73 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 74 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 75 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 76 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 77 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 78 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 79 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 80 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 81 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 82 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 83 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 84 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 85 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 86 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 87 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 88 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 89 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 90 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 91 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 92 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 93 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 94 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 95 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 96 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 97 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 98 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 99 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 100 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 101 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 102 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 103 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 104 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 105 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 106 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 107 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 108 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 109 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 110 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 111 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 112 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 113 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 114 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 115 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 116 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 117 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 118 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 119 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 120 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 121 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 122 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 123 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 124 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 125 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 126 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 127 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 128 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 129 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 130 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 131 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 132 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 133 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 134 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 135 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 136 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 137 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 138 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 139 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 140 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 141 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 142 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 143 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 144 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 145 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 146 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 147 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 148 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 149 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 150 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 151 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 152 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 153 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 154 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 155 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 156 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 157 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 158 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 159 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 160 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 161 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 162 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 163 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 164 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 165 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 166 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 167 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 168 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 169 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 170 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 171 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 172 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 173 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 174 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 175 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 176 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 177 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 178 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 179 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 180 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 181 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 182 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 183 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 184 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 185 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 186 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 187 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 188 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 189 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 190 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 191 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 192 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 193 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 194 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 195 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 196 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 197 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 198 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 199 Train squared error: 29.749 Test squared error: 41.839 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 200 Train squared error: 29.749 Test squared error: 41.839 	

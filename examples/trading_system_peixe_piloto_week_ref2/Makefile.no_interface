@@ -1,0 +1,46 @@
+LIBMAE =-L$(MAEHOME)/lib
+LIBPATH =-L/usr/local/lib -L/usr/X11R6/lib $(LIBMAE)
+CC=gcc
+CCFLAGS= -g -fopenmp -U _OPENMP -D NO_INTERFACE -Wall 
+LIBRARYS=-lnet_conn -lGA -lm -lfl
+ 
+##########################################################
+
+EXECUTABLE = wnn_pred
+OBJECTS = wnn_pred_user_functions/wnn_pred_user_functions.o \
+	  wnn_pred_user_functions/wnn_input_output.o \
+	  wnn_pred_user_functions/wnn_data_set_management.o \
+	  wnn_pred_user_functions/timeutil.o
+
+##########################################################
+
+.c.o:
+	@echo OK
+	$(CC) $(CCFLAGS) -c -I$(MAEHOME)/include -o $@ $*.c
+
+##########################################################
+
+build: $(EXECUTABLE)
+$(EXECUTABLE): wnn_pred.o $(OBJECTS) wnn_pred.con
+	netcomp -o wnn_pred < wnn_pred.con
+	$(CC) $(CCFLAGS) -o $(EXECUTABLE) wnn_pred.o $(OBJECTS) $(LIBPATH) $(LIBRARYS)
+
+##########################################################
+
+wnn_pred.o:
+	$(MAEHOME)/bin/netcomp -o $* < $*.con	
+	$(CC) $(CCFLAGS) -c -I$(MAEHOME)/include -o $@ $*.c
+
+##########################################################
+
+wnn_pred_user_functions.o: ../wnn_pred.h
+wnn_input_output.o: ../wnn_pred.h
+wnn_data_set_management.o: ../wnn_pred.h
+
+##########################################################
+
+clean: 
+	rm -f *.o wnn_pred_user_functions/*.o
+	rm -f wnn_pred wnn_pred.c wnn_pred.h 
+	rm -f temp/*
+	rm -f GRAFICOS/*

@@ -1,0 +1,66 @@
+CC=gcc
+CCFLAGS= -Wall -g -O3 -D WINDOWS
+#CFLAGS = -g -pg -Wall -O3 -D WINDOWS -D GLUT_NO_LIB_PRAGMA
+DEL=del /F /Q 
+LIBRARYS=-L../../lib -L"C:\Arquivos de Programas\GnuWin32\lib" -lnet_conn -lGA -lStereo -lTsai -lgw32c -lole32 -luuid -lglut32 -lglu32 -lopengl32 -lm -lfl
+INCLUDES=-I../../include -I./ -I../../src/libstereo/include
+LIB_DIR = ..\..\lib
+
+DLLWRAP=dllwrap.exe
+DEFFILE=smv.def
+STATICLIB=smv.a
+
+##########################################################
+
+EXECUTABLE = robot.exe
+DLL = smv.dll
+OBJECTS = robot.o \
+	  robot_user_functions/robot_user_functions.o \
+	  robot_user_functions/robot_filters.o \
+	  robot_user_functions/smv_api.o \
+	  robot_user_functions/viewer.o \
+	  robot_user_functions/map.o \
+	  robot_user_functions/convert.o \
+	  robot_user_functions/view.o	  
+
+##########################################################
+
+.c.o:
+	$(CC) $(CCFLAGS) -c $(INCLUDES) -o $@ $*.c
+
+.cpp.o:	
+	g++ $(CCFLAGS) -c -I$(INCLUDES) -o $@ $*.cpp
+	
+##########################################################
+
+build: $(EXECUTABLE) $(DLL)
+	@echo OK
+
+$(EXECUTABLE): $(OBJECTS)
+	g++ $(CCFLAGS) -o $(EXECUTABLE) $(INCLUDES) $(OBJECTS) $(LIBRARYS)
+
+$(DLL): $(OBJECTS)
+	$(DLLWRAP) --driver-name=c++ --output-def $(LIB_DIR)\$(DEFFILE) $(OBJECTS) $(LIBRARYS) -o $(LIB_DIR)\$(DLL)
+
+##########################################################
+
+robot.o:
+	netcomp -o $* < $*.con
+	$(CC) $(CCFLAGS) -c $(INCLUDES) -o $@ $*.c
+robot_user_functions/robot_user_functions.o: robot_user_functions/robot_user_functions.h
+robot_user_functions/smv_api.o: robot_user_functions/smv_api.h
+robot_user_functions/robot_filters.o: ../../include/filter.h
+robot_user_functions/viewer.o: robot_user_functions/viewer.hpp
+robot_user_functions/map.o: robot_user_functions/map.hpp
+robot_user_functions/convert.o: robot_user_functions/convert.hpp
+robot_user_functions/view.o: robot_user_functions/view.hpp	  
+
+##########################################################
+
+clean:
+	$(DEL) robot.exe
+	$(DEL) robot.c
+	$(DEL) robot.h
+	$(DEL) *.o
+	$(DEL) *.out
+	$(DEL) robot_user_functions\*.o

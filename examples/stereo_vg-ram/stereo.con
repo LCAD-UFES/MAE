@@ -1,0 +1,166 @@
+################################################ Set Global Variables #################################################
+
+set TYPE_SHOW = SHOW_FRAME;
+set TYPE_MOVING_FRAME = STOP;
+set NEURON_MEMORY_SIZE = 60;  
+
+
+######################################################## Constants ####################################################
+# IMAGE & Neuron Layer Dimentions
+#const IMAGE_WIDTH  = 384; #tsukuba
+#const IMAGE_HEIGHT = 288; #tsukuba
+#const IMAGE_WIDTH  = 450; #cones
+#const IMAGE_HEIGHT = 375; #cones
+#const IMAGE_WIDTH  = 434; #cones
+#const IMAGE_HEIGHT = 383; #cones
+const IMAGE_WIDTH  = 450; #teddy
+const IMAGE_HEIGHT = 375; #teddy
+const scale_factor = 0.7;
+
+const number_of_iterations = 10;
+
+const MAX_DISP_NUM = NEURON_MEMORY_SIZE;
+
+const NL_WIDTH_LEVEL0 = IMAGE_WIDTH;
+const NL_HEIGHT_LEVEL0 = IMAGE_HEIGHT;
+
+const NL_WIDTH_LEVEL1 = scale_factor * IMAGE_WIDTH;
+const NL_HEIGHT_LEVEL1 = scale_factor * IMAGE_HEIGHT;
+
+const NL_WIDTH_LEVEL2 = scale_factor * NL_WIDTH_LEVEL1;
+const NL_HEIGHT_LEVEL2 = scale_factor * NL_HEIGHT_LEVEL1;
+
+const NL_WIDTH_LEVEL3 = scale_factor * NL_WIDTH_LEVEL2;
+const NL_HEIGHT_LEVEL3 = scale_factor * NL_HEIGHT_LEVEL2;
+
+const NL_WIDTH_LEVEL4 = scale_factor * NL_WIDTH_LEVEL3;
+const NL_HEIGHT_LEVEL4 = scale_factor * NL_HEIGHT_LEVEL3;
+
+const SYNAPSES        = 256;  # Synapses number
+const GAUSSIAN_RADIUS = 2.0; # Gaussian synaptic pattern radius
+
+# Translation filter deltaX & delataY
+int	shift_filter_deltaX = 0;
+
+int forward_image_left = 0;
+
+#const RIGHT_IMAGE_FILE_NAME  = "./stereo-pairs/venus/imR.ppm";
+#const LEFT_IMAGE_FILE_NAME  = "./stereo-pairs/venus/imL.ppm";
+
+#const RIGHT_IMAGE_FILE_NAME  = "./stereo-pairs/cones/imR.ppm";
+#const LEFT_IMAGE_FILE_NAME  = "./stereo-pairs/cones/imL.ppm";
+
+#const RIGHT_IMAGE_FILE_NAME  = "./stereo-pairs/tsukuba/imR.ppm";
+#const LEFT_IMAGE_FILE_NAME  = "./stereo-pairs/tsukuba/imL.ppm";
+
+const RIGHT_IMAGE_FILE_NAME  = "./stereo-pairs/teddy/imR.ppm";
+const LEFT_IMAGE_FILE_NAME  = "./stereo-pairs/teddy/imL.ppm";
+
+
+############################################### Neuron Layers ##################################################
+neuronlayer	nl_disparity_map_level0[NL_WIDTH_LEVEL0][NL_HEIGHT_LEVEL0]	of minchinton neurons greyscale sensitive with greyscale outputs;
+neuronlayer	nl_shift[NL_WIDTH_LEVEL0][NL_HEIGHT_LEVEL0] with greyscale outputs;
+neuronlayer	nl_selected_img[NL_WIDTH_LEVEL0][NL_HEIGHT_LEVEL0]  with greyscale outputs;
+neuronlayer	nl_img_filtered_level0[NL_WIDTH_LEVEL0][NL_HEIGHT_LEVEL0] with greyscale outputs;
+
+neuronlayer	nl_disparity_map_level1[NL_WIDTH_LEVEL1][NL_HEIGHT_LEVEL1]	of minchinton neurons greyscale sensitive with greyscale outputs;
+neuronlayer	nl_img_resize_level1[NL_WIDTH_LEVEL1][NL_HEIGHT_LEVEL1] with greyscale outputs;
+neuronlayer	nl_img_filtered_level1[NL_WIDTH_LEVEL1][NL_HEIGHT_LEVEL1] with greyscale outputs;
+
+neuronlayer	nl_disparity_map_level2[NL_WIDTH_LEVEL2][NL_HEIGHT_LEVEL2]	of minchinton neurons greyscale sensitive with greyscale outputs;
+neuronlayer	nl_img_resize_level2[NL_WIDTH_LEVEL2][NL_HEIGHT_LEVEL2] with greyscale outputs;
+neuronlayer	nl_img_filtered_level2[NL_WIDTH_LEVEL2][NL_HEIGHT_LEVEL2] with greyscale outputs;
+
+neuronlayer	nl_disparity_map_level3[NL_WIDTH_LEVEL3][NL_HEIGHT_LEVEL3]	of minchinton neurons greyscale sensitive with greyscale outputs;
+neuronlayer	nl_img_resize_level3[NL_WIDTH_LEVEL3][NL_HEIGHT_LEVEL3]  with greyscale outputs;
+neuronlayer	nl_img_filtered_level3[NL_WIDTH_LEVEL3][NL_HEIGHT_LEVEL3]  with greyscale outputs;
+
+neuronlayer	nl_disparity_map_level4[NL_WIDTH_LEVEL4][NL_HEIGHT_LEVEL4]	of minchinton neurons greyscale sensitive with greyscale outputs;
+neuronlayer	nl_img_resize_level4[NL_WIDTH_LEVEL4][NL_HEIGHT_LEVEL4] with greyscale outputs;
+neuronlayer	nl_img_filtered_level4[NL_WIDTH_LEVEL4][NL_HEIGHT_LEVEL4] with greyscale outputs;
+
+neuronlayer	nl_disparity_map[NL_WIDTH_LEVEL0][NL_HEIGHT_LEVEL0]	with greyscale outputs;
+
+############################################### Outputs ########################################################
+output		out_disparity_map_level0[NL_WIDTH_LEVEL0][NL_HEIGHT_LEVEL0];
+#output		out_shift[NL_WIDTH_LEVEL0][NL_HEIGHT_LEVEL0];
+#output		out_selected_img[NL_WIDTH_LEVEL0][NL_HEIGHT_LEVEL0];
+output		out_img_filtered_level0[NL_WIDTH_LEVEL0][NL_HEIGHT_LEVEL0];
+
+output		out_img_filtered_level1[NL_WIDTH_LEVEL1][NL_HEIGHT_LEVEL1];
+output		out_disparity_map_level1[NL_WIDTH_LEVEL1][NL_HEIGHT_LEVEL1];
+
+output		out_img_filtered_level2[NL_WIDTH_LEVEL2][NL_HEIGHT_LEVEL2];
+output		out_disparity_map_level2[NL_WIDTH_LEVEL2][NL_HEIGHT_LEVEL2];
+
+output		out_img_filtered_level3[NL_WIDTH_LEVEL3][NL_HEIGHT_LEVEL3];
+output		out_disparity_map_level3[NL_WIDTH_LEVEL3][NL_HEIGHT_LEVEL3];
+
+output		out_img_filtered_level4[NL_WIDTH_LEVEL4][NL_HEIGHT_LEVEL4];
+output		out_disparity_map_level4[NL_WIDTH_LEVEL4][NL_HEIGHT_LEVEL4];
+
+output		out_disparity_map[NL_WIDTH_LEVEL0][NL_HEIGHT_LEVEL0];
+
+################################################# Inputs #######################################################
+input		image_left[IMAGE_WIDTH][IMAGE_HEIGHT]	with greyscale outputs produced by input_generator() controled by input_controler();
+input		image_right[IMAGE_WIDTH][IMAGE_HEIGHT]	with greyscale outputs produced by input_generator() controled by input_controler();
+
+############################################### Filters ###############################################################   
+filter		image_right 			with shift_nl_filter("%p", &shift_filter_deltaX) producing nl_shift;
+filter		image_left, nl_shift		with selector_nl_filter() producing nl_selected_img;
+
+filter		nl_selected_img			with gaussian_filter("%d %f", 1, 1.0) producing nl_img_filtered_level0;
+
+filter		nl_selected_img			with resize_nl_filter("%d", 1) producing nl_img_resize_level1;
+filter		nl_img_resize_level1		with gaussian_filter("%d %f", 1, 1.0) producing nl_img_filtered_level1;
+
+filter		nl_selected_img			with resize_nl_filter("%d", 2) producing nl_img_resize_level2;
+filter		nl_img_resize_level2		with gaussian_filter("%d %f", 1, 1.0) producing nl_img_filtered_level2;
+
+filter		nl_selected_img			with resize_nl_filter("%d", 3) producing nl_img_resize_level3;
+filter		nl_img_resize_level3		with gaussian_filter("%d %f", 1, 1.0) producing nl_img_filtered_level3;
+
+filter		nl_selected_img			with resize_nl_filter("%d", 4) producing nl_img_resize_level4;
+filter		nl_img_resize_level4		with gaussian_filter("%d %f", 1, 1.0) producing nl_img_filtered_level4;
+
+filter		nl_disparity_map_level0, nl_disparity_map_level1, nl_disparity_map_level2, nl_disparity_map_level3, nl_disparity_map_level4 with combining_nl_filter() producing nl_disparity_map; 
+#filter		nl_disparity_map_level0 with combining_nl_filter() producing nl_disparity_map; 
+
+
+################################## Connect Neuron Layers to Outputs #############################################
+outputconnect	nl_disparity_map_level0  to out_disparity_map_level0;
+#outputconnect	nl_shift to out_shift;
+#outputconnect	nl_selected_img  to out_selected_img;
+outputconnect	nl_img_filtered_level0  to out_img_filtered_level0;
+
+outputconnect	nl_img_filtered_level1  to out_img_filtered_level1;
+outputconnect	nl_disparity_map_level1  to out_disparity_map_level1;
+
+outputconnect	nl_img_filtered_level2  to out_img_filtered_level2;
+outputconnect	nl_disparity_map_level2  to out_disparity_map_level2;
+
+outputconnect	nl_img_filtered_level3  to out_img_filtered_level3;
+outputconnect	nl_disparity_map_level3  to out_disparity_map_level3;
+
+outputconnect	nl_img_filtered_level4  to out_img_filtered_level4;
+outputconnect	nl_disparity_map_level4  to out_disparity_map_level4;
+
+outputconnect	nl_disparity_map  to out_disparity_map;
+
+########################################### Interconnect Neuron Layers  ##############################################
+connect 	nl_img_filtered_level0  to nl_disparity_map_level0 with SYNAPSES random inputs per neuron and gaussian distribution with radius GAUSSIAN_RADIUS;
+connect 	nl_img_filtered_level1  to nl_disparity_map_level1 with SYNAPSES random inputs per neuron and gaussian distribution with radius GAUSSIAN_RADIUS;
+connect 	nl_img_filtered_level2  to nl_disparity_map_level2 with SYNAPSES random inputs per neuron and gaussian distribution with radius GAUSSIAN_RADIUS;
+connect 	nl_img_filtered_level3  to nl_disparity_map_level3 with SYNAPSES random inputs per neuron and gaussian distribution with radius GAUSSIAN_RADIUS;
+connect 	nl_img_filtered_level4  to nl_disparity_map_level4 with SYNAPSES random inputs per neuron and gaussian distribution with radius GAUSSIAN_RADIUS;
+
+############################################### Associations ####################################################
+associate	nl_disparity_map_level0  with	nl_disparity_map_level0;
+associate	nl_disparity_map_level1  with	nl_disparity_map_level1;
+associate	nl_disparity_map_level2  with	nl_disparity_map_level2;
+associate	nl_disparity_map_level3  with	nl_disparity_map_level3;
+associate	nl_disparity_map_level4  with	nl_disparity_map_level4;
+
+############################################### cml User Functions ####################################################
+int PropagateDisparitiesToTheLeft("%d");
+int TrainNetwork("%d");

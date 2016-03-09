@@ -1,0 +1,73 @@
+##############################################################
+
+BIN_PATH = ..\bin
+INC_PATH = ..\include
+LIB_PATH = ..\lib
+DOC_PATH = ..\doc
+
+##############################################################
+
+CC = g++
+CFLAGS = -g -O3 -Wall
+LIBS = -L..\lib -lTsai -lglut32 -lglu32 -lopengl32 -lm
+DLLWRAP=dllwrap.exe
+DEFFILE=smv.def
+AR = ar
+ARFLAGS = -rc
+
+##############################################################
+
+EXECUTABLE = stereo.exe
+DLL = stereo.dll
+DEFFILE=ssm.def
+OBJECTS = stereo_system.o \
+	    stereo_api.o \
+	    camera.o
+	    	
+##############################################################
+
+.c.o:	
+	gcc $(CFLAGS) -c -I$(INC_PATH) -o $@ $*.c
+
+.cpp.o:	
+	$(CC) $(CFLAGS) -c -I$(INC_PATH) -o $@ $*.cpp
+
+##############################################################
+
+build: libTsai.a $(DLL) libStereo.a
+	@echo OK
+
+test: $(EXECUTABLE)
+	@echo OK
+
+libTsai.a:
+	$(MAKE) -C libtsai -f Makefile.win
+	copy  libtsai\libTsai.a $(LIB_PATH)
+	
+$(EXECUTABLE): $(OBJECTS) libTsai.a 
+	$(CC) $(CFLAGS) -o $(BIN_PATH)\$(EXECUTABLE) $(OBJECTS) $(LIBS)
+
+$(DLL): $(OBJECTS) libTsai.a 
+	$(DLLWRAP) --driver-name=c++ --output-def $(LIB_PATH)\$(DEFFILE) $(OBJECTS) $(LIBS) -o $(LIB_PATH)\$(DLL)
+
+libStereo.a: $(OBJECTS) libTsai.a
+	$(AR) $(ARFLAGS) $(LIB_PATH)\libStereo.a $(OBJECTS)
+	ranlib $(LIB_PATH)\libStereo.a 
+
+##############################################################
+
+stereo_system.o: $(INC_PATH)\stereo_system.hpp
+stereo_api.o: $(INC_PATH)\stereo_api.hpp
+camera.o: $(INC_PATH)\camera.hpp
+
+##############################################################
+
+clean:
+	$(MAKE) -C libtsai -f Makefile.win clean
+	del *.o
+	del $(BIN_PATH)\$(EXECUTABLE)
+	del $(LIB_PATH)\$(DLL)
+	del $(LIB_PATH)\$(DEFFILE)
+	del $(LIB_PATH)\*.a
+
+##############################################################

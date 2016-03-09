@@ -1,0 +1,6 @@
+image_left 65 24
+image_right 454 24
+out_disparity_map_level0 906 343
+out_img_filtered_level0 906 343
+out_disparity_map 845 348
+mae_control_window 842 24

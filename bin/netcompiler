@@ -1,0 +1,41 @@
+#!/bin/csh
+
+set LIBMAE = ( -L{$MAEHOME}/lib )
+set LIBPATH = (  -L/usr/local/lib -L/usr/X11R6/lib  {$LIBMAE} )
+
+if ((-e $1.con) && (-r $1.con)) then
+	echo $MAEHOME/bin/netcomp -o $1 < $1.con
+	$MAEHOME/bin/netcomp -o $1 < $1.con
+	if ($status) exit 1
+	echo gcc $2 $3 -O4  -Wall -c -I{$MAEHOME}/include $1.c
+	gcc $2 $3 -O4  -Wall -c -I{$MAEHOME}/include $1.c
+	if ($status) exit 1
+
+	if ((-d $1_user_functions) && (-r $1_user_functions)) then
+		cd $1_user_functions
+		foreach ARQ ( `ls  *.c` )
+				echo gcc $2 $3 -O4  -Wall -c -I{$MAEHOME}/include $ARQ
+				gcc $2 $3  -O4  -Wall -c -I{$MAEHOME}/include $ARQ
+			if ($status) exit 1
+		end
+#		foreach ARQ ( `ls  *.cpp >& /dev/null` )
+		foreach ARQ ( `ls  *.cpp` )
+				echo g++ -O4  -Wall -c -I{$MAEHOME}/include $ARQ
+				g++ -O4  -Wall -c -I{$MAEHOME}/include $ARQ
+			if ($status) exit 1
+		end
+		cd ..
+			echo gcc $2 $3 -O4  -Wall -o $1 -I{$MAEHOME}/include $1.o $1_user_functions/*.o $LIBPATH -lnet_conn -lforms -lGA  -lTsai -lStereo -lXmu -lXext -lX11 -ltiff -lglut -lGLU -lGL -lXi -lm -lfl -fopenmp
+			gcc $2 $3 -O4  -Wall -o $1 -I{$MAEHOME}/include $1.o $1_user_functions/*.o $LIBPATH -lnet_conn -lforms -lGA -lTsai -lStereo -lXmu -lXext -lX11 -ltiff -lglut -lGLU -lGL -lXi -lm -lfl -fopenmp 
+		endif
+		echo OK.
+	else
+			echo gcc $2 $3 -O4  -Wall -o $1 -I{$MAEHOME}/include $1.o $LIBPATH -lnet_conn -lforms -lGA -lTsai -lStereo -lXmu -lXext -lX11 -ltiff -lglut -lGLU -lGL -lXi -lm -lfl -fopenmp
+			gcc $2 $3 -O4  -Wall -o $1 -I{$MAEHOME}/include $1.o $LIBPATH -lnet_conn -lforms -lGA -lTsai -lStereo -lXmu -lXext -lX11 -ltiff -lglut -lGLU -lGL -lXi -lm -lfl -fopenmp
+		if ($status) exit 1
+		echo OK.
+	endif
+else
+	echo erro: file $1.con not found or without read permition
+	exit 1
+endif

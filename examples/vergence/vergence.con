@@ -1,0 +1,51 @@
+################################################ Set Global Variables #################################################
+
+set NEURON_MEMORY_SIZE = 32;
+
+# Camera Parameters			
+set CAMERA_DISTANCE = 0.05125;
+set FOCAL_DISTANCE  = 1736.2735855834960148;
+
+######################################################## Constants #############################################
+
+############################################### Neuron Layers ##################################################
+
+neuronlayer	logpolar_righteye[128][32] 	with greyscale_float outputs;
+neuronlayer	logpolar_lefteye[128][32]	with greyscale_float outputs;
+neuronlayer	right_minus_left[128][32] 	with greyscale_float outputs;
+neuronlayer	disparity_map[128][32] 		with greyscale_float outputs;
+
+############################################### Outputs ########################################################
+
+output  logpolar_righteye_out[128][32]  handled by output_handler_logpolar_righteye();
+output  logpolar_lefteye_out[128][32]	handled by output_handler_get_current_output();
+output  right_minus_left_out[128][32]	handled by output_handler_get_current_output();
+output  disparity_map_out[128][32];
+
+################################################## Inputs #######################################################
+
+input 	image_right[256][256]	with color outputs produced by input_generator("%d",MOVING_CENTER) controled by input_controler();
+input 	image_left[256][256]	with color outputs produced by input_generator("%d",STOP         ) controled by input_controler();
+
+############################################### Filters #########################################################
+
+filter 		image_right with v1_filter("%d %d %d", MCELLS, ONCENTER, RGB) producing logpolar_righteye;
+filter 		image_left  with v1_filter("%d %d %d", MCELLS, ONCENTER, RGB) producing logpolar_lefteye;
+filter 		logpolar_righteye, logpolar_lefteye with minus_filter() producing right_minus_left;
+
+######################################### Connect Neuron Layers #################################################
+
+################################## Connect Neuron Layers to Outputs #############################################
+
+outputconnect	logpolar_righteye	to logpolar_righteye_out;
+outputconnect	logpolar_lefteye	to logpolar_lefteye_out;
+outputconnect	right_minus_left 	to right_minus_left_out;
+outputconnect	disparity_map 		to disparity_map_out;
+
+############################################### Associate ########################################################
+
+################################################# User Functions ################################################
+
+int v1_to_image_mapping ("%p %p %d %d %d %d %d %d");			      
+int verge_left_to_right_image_point ("%d %d");
+int map_disparity ("%d %d %d");   

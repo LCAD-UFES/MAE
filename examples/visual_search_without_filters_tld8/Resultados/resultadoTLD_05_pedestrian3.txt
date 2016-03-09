@@ -1,0 +1,186 @@
+HIT-Jaccard=1.000000;00001.jpg.ppm;best_x=166;best_y=111;my_leftcol=154;my_toprow=102;my_rightcol=178;my_bottomrow=154;my_scale_factor=0.851676, my_confidence=1.000000, used_for_training=1
+HIT-Jaccard=0.981132;00002.jpg.ppm;best_x=164;best_y=110;my_leftcol=152;my_toprow=103;my_rightcol=176;my_bottomrow=155;my_scale_factor=0.851676, my_confidence=206.783737, used_for_training=-1
+HIT-Jaccard=1.000000;00003.jpg.ppm;best_x=162;best_y=110;my_leftcol=150;my_toprow=103;my_rightcol=174;my_bottomrow=155;my_scale_factor=0.851676, my_confidence=219.442963, used_for_training=-1
+HIT-Jaccard=0.923077;00004.jpg.ppm;best_x=161;best_y=109;my_leftcol=149;my_toprow=104;my_rightcol=173;my_bottomrow=156;my_scale_factor=0.851676, my_confidence=201.646606, used_for_training=-1
+HIT-Jaccard=0.923077;00005.jpg.ppm;best_x=159;best_y=108;my_leftcol=147;my_toprow=105;my_rightcol=171;my_bottomrow=157;my_scale_factor=0.851676, my_confidence=201.652100, used_for_training=-1
+HIT-Jaccard=1.000000;00006.jpg.ppm;best_x=157;best_y=108;my_leftcol=145;my_toprow=105;my_rightcol=169;my_bottomrow=157;my_scale_factor=0.851676, my_confidence=194.092285, used_for_training=-1
+HIT-Jaccard=0.923077;00007.jpg.ppm;best_x=156;best_y=107;my_leftcol=144;my_toprow=106;my_rightcol=168;my_bottomrow=158;my_scale_factor=0.851676, my_confidence=165.147690, used_for_training=-1
+HIT-Jaccard=0.960000;00008.jpg.ppm;best_x=154;best_y=107;my_leftcol=142;my_toprow=106;my_rightcol=166;my_bottomrow=158;my_scale_factor=0.851676, my_confidence=122.088158, used_for_training=-1
+HIT-Jaccard=1.000000;00009.jpg.ppm;best_x=152;best_y=106;my_leftcol=140;my_toprow=107;my_rightcol=164;my_bottomrow=159;my_scale_factor=0.851676, my_confidence=99.745193, used_for_training=-1
+HIT-Jaccard=0.981132;00010.jpg.ppm;best_x=151;best_y=106;my_leftcol=139;my_toprow=107;my_rightcol=163;my_bottomrow=159;my_scale_factor=0.851676, my_confidence=142.968719, used_for_training=-1
+HIT-Jaccard=1.000000;00011.jpg.ppm;best_x=149;best_y=105;my_leftcol=137;my_toprow=108;my_rightcol=161;my_bottomrow=160;my_scale_factor=0.851676, my_confidence=95.905685, used_for_training=-1
+HIT-Jaccard=0.906318;00012.jpg.ppm;best_x=148;best_y=104;my_leftcol=136;my_toprow=109;my_rightcol=160;my_bottomrow=161;my_scale_factor=0.851676, my_confidence=88.601860, used_for_training=-1
+HIT-Jaccard=0.941887;00013.jpg.ppm;best_x=146;best_y=104;my_leftcol=134;my_toprow=109;my_rightcol=158;my_bottomrow=161;my_scale_factor=0.851676, my_confidence=92.100998, used_for_training=-1
+HIT-Jaccard=0.981132;00014.jpg.ppm;best_x=144;best_y=104;my_leftcol=132;my_toprow=109;my_rightcol=156;my_bottomrow=161;my_scale_factor=0.851676, my_confidence=119.194794, used_for_training=1
+HIT-Jaccard=0.923774;00015.jpg.ppm;best_x=142;best_y=103;my_leftcol=130;my_toprow=110;my_rightcol=154;my_bottomrow=162;my_scale_factor=0.851676, my_confidence=118.590065, used_for_training=-1
+HIT-Jaccard=0.941887;00016.jpg.ppm;best_x=141;best_y=102;my_leftcol=129;my_toprow=111;my_rightcol=153;my_bottomrow=163;my_scale_factor=0.851676, my_confidence=77.525620, used_for_training=-1
+HIT-Jaccard=0.907339;00017.jpg.ppm;best_x=138;best_y=103;my_leftcol=126;my_toprow=110;my_rightcol=150;my_bottomrow=162;my_scale_factor=0.851676, my_confidence=153.690750, used_for_training=-1
+HIT-Jaccard=0.907339;00018.jpg.ppm;best_x=136;best_y=102;my_leftcol=124;my_toprow=111;my_rightcol=148;my_bottomrow=163;my_scale_factor=0.851676, my_confidence=130.277344, used_for_training=-1
+HIT-Jaccard=0.907339;00019.jpg.ppm;best_x=134;best_y=102;my_leftcol=122;my_toprow=111;my_rightcol=146;my_bottomrow=163;my_scale_factor=0.851676, my_confidence=151.209198, used_for_training=-1
+HIT-Jaccard=0.944444;00020.jpg.ppm;best_x=132;best_y=101;my_leftcol=120;my_toprow=112;my_rightcol=144;my_bottomrow=164;my_scale_factor=0.851676, my_confidence=128.639206, used_for_training=-1
+HIT-Jaccard=0.907339;00021.jpg.ppm;best_x=129;best_y=100;my_leftcol=117;my_toprow=113;my_rightcol=141;my_bottomrow=165;my_scale_factor=0.851676, my_confidence=111.945557, used_for_training=-1
+HIT-Jaccard=0.837857;00022.jpg.ppm;best_x=126;best_y=99;my_leftcol=114;my_toprow=114;my_rightcol=138;my_bottomrow=166;my_scale_factor=0.851676, my_confidence=105.438721, used_for_training=-1
+HIT-Jaccard=0.873662;00023.jpg.ppm;best_x=124;best_y=98;my_leftcol=112;my_toprow=115;my_rightcol=136;my_bottomrow=167;my_scale_factor=0.851676, my_confidence=118.716827, used_for_training=-1
+HIT-Jaccard=0.837857;00024.jpg.ppm;best_x=121;best_y=97;my_leftcol=109;my_toprow=116;my_rightcol=133;my_bottomrow=168;my_scale_factor=0.851676, my_confidence=127.908829, used_for_training=-1
+HIT-Jaccard=0.873662;00025.jpg.ppm;best_x=119;best_y=96;my_leftcol=107;my_toprow=117;my_rightcol=131;my_bottomrow=169;my_scale_factor=0.851676, my_confidence=87.916458, used_for_training=-1
+HIT-Jaccard=0.822016;00026.jpg.ppm;best_x=116;best_y=95;my_leftcol=104;my_toprow=118;my_rightcol=128;my_bottomrow=170;my_scale_factor=0.851676, my_confidence=121.352242, used_for_training=-1
+HIT-Jaccard=0.786265;00027.jpg.ppm;best_x=112;best_y=94;my_leftcol=100;my_toprow=119;my_rightcol=124;my_bottomrow=171;my_scale_factor=0.851676, my_confidence=107.253830, used_for_training=-1
+HIT-Jaccard=0.852471;00028.jpg.ppm;best_x=110;best_y=93;my_leftcol=98;my_toprow=120;my_rightcol=122;my_bottomrow=172;my_scale_factor=0.851676, my_confidence=120.751389, used_for_training=-1
+HIT-Jaccard=0.786265;00029.jpg.ppm;best_x=107;best_y=92;my_leftcol=95;my_toprow=121;my_rightcol=119;my_bottomrow=173;my_scale_factor=0.851676, my_confidence=148.217484, used_for_training=-1
+HIT-Jaccard=0.800000;00030.jpg.ppm;best_x=105;best_y=93;my_leftcol=93;my_toprow=120;my_rightcol=117;my_bottomrow=172;my_scale_factor=0.851676, my_confidence=109.202377, used_for_training=-1
+HIT-Jaccard=0.852471;00031.jpg.ppm;best_x=103;best_y=92;my_leftcol=91;my_toprow=121;my_rightcol=115;my_bottomrow=173;my_scale_factor=0.851676, my_confidence=163.294876, used_for_training=1
+HIT-Jaccard=0.852471;00032.jpg.ppm;best_x=97;best_y=92;my_leftcol=85;my_toprow=121;my_rightcol=109;my_bottomrow=173;my_scale_factor=0.851676, my_confidence=98.180260, used_for_training=-1
+HIT-Jaccard=0.836364;00033.jpg.ppm;best_x=93;best_y=91;my_leftcol=81;my_toprow=122;my_rightcol=105;my_bottomrow=174;my_scale_factor=0.851676, my_confidence=93.922897, used_for_training=-1
+HIT-Jaccard=0.852471;00034.jpg.ppm;best_x=88;best_y=92;my_leftcol=76;my_toprow=121;my_rightcol=100;my_bottomrow=173;my_scale_factor=0.851676, my_confidence=192.676392, used_for_training=-1
+HIT-Jaccard=0.836364;00035.jpg.ppm;best_x=84;best_y=93;my_leftcol=72;my_toprow=120;my_rightcol=96;my_bottomrow=172;my_scale_factor=0.851676, my_confidence=150.391129, used_for_training=-1
+HIT-Jaccard=0.807851;00036.jpg.ppm;best_x=79;best_y=92;my_leftcol=67;my_toprow=121;my_rightcol=91;my_bottomrow=173;my_scale_factor=0.851676, my_confidence=115.905479, used_for_training=-1
+HIT-Jaccard=0.923774;00037.jpg.ppm;best_x=74;best_y=94;my_leftcol=62;my_toprow=119;my_rightcol=86;my_bottomrow=171;my_scale_factor=0.851676, my_confidence=97.932487, used_for_training=-1
+HIT-Jaccard=0.873999;00038.jpg.ppm;best_x=71;best_y=92;my_leftcol=59;my_toprow=121;my_rightcol=83;my_bottomrow=173;my_scale_factor=0.851676, my_confidence=93.381012, used_for_training=-1
+HIT-Jaccard=0.941887;00039.jpg.ppm;best_x=65;best_y=95;my_leftcol=53;my_toprow=118;my_rightcol=77;my_bottomrow=170;my_scale_factor=0.851676, my_confidence=130.196518, used_for_training=-1
+HIT-Jaccard=0.873662;00040.jpg.ppm;best_x=61;best_y=95;my_leftcol=49;my_toprow=118;my_rightcol=73;my_bottomrow=170;my_scale_factor=0.851676, my_confidence=147.265091, used_for_training=-1
+HIT-Jaccard=0.907339;00041.jpg.ppm;best_x=56;best_y=96;my_leftcol=44;my_toprow=117;my_rightcol=68;my_bottomrow=169;my_scale_factor=0.851676, my_confidence=146.815933, used_for_training=-1
+HIT-Jaccard=0.923774;00042.jpg.ppm;best_x=51;best_y=98;my_leftcol=39;my_toprow=115;my_rightcol=63;my_bottomrow=167;my_scale_factor=0.851676, my_confidence=129.911392, used_for_training=-1
+HIT-Jaccard=0.962264;00043.jpg.ppm;best_x=48;best_y=99;my_leftcol=36;my_toprow=114;my_rightcol=60;my_bottomrow=166;my_scale_factor=0.851676, my_confidence=92.069099, used_for_training=-1
+HIT-Jaccard=0.907339;00044.jpg.ppm;best_x=42;best_y=100;my_leftcol=30;my_toprow=113;my_rightcol=54;my_bottomrow=165;my_scale_factor=0.851676, my_confidence=170.117096, used_for_training=-1
+HIT-Jaccard=0.923774;00045.jpg.ppm;best_x=38;best_y=101;my_leftcol=26;my_toprow=112;my_rightcol=50;my_bottomrow=164;my_scale_factor=0.851676, my_confidence=94.728691, used_for_training=-1
+HIT-Jaccard=0.889548;00046.jpg.ppm;best_x=33;best_y=103;my_leftcol=21;my_toprow=110;my_rightcol=45;my_bottomrow=162;my_scale_factor=0.851676, my_confidence=140.265182, used_for_training=-1
+HIT-Jaccard=0.923774;00047.jpg.ppm;best_x=29;best_y=105;my_leftcol=17;my_toprow=108;my_rightcol=41;my_bottomrow=160;my_scale_factor=0.851676, my_confidence=127.298698, used_for_training=-1
+HIT-Jaccard=0.905660;00048.jpg.ppm;best_x=24;best_y=106;my_leftcol=12;my_toprow=107;my_rightcol=36;my_bottomrow=159;my_scale_factor=0.851676, my_confidence=99.589249, used_for_training=-1
+HIT-Jaccard=0.905660;00049.jpg.ppm;best_x=20;best_y=108;my_leftcol=8;my_toprow=105;my_rightcol=32;my_bottomrow=157;my_scale_factor=0.851676, my_confidence=114.536392, used_for_training=-1
+HIT-Jaccard=0.852471;00050.jpg.ppm;best_x=15;best_y=110;my_leftcol=3;my_toprow=103;my_rightcol=27;my_bottomrow=155;my_scale_factor=0.851676, my_confidence=124.707413, used_for_training=-1
+HIT-Jaccard=0.905660;00051.jpg.ppm;best_x=11;best_y=112;my_leftcol=0;my_toprow=101;my_rightcol=24;my_bottomrow=153;my_scale_factor=0.851676, my_confidence=169.086105, used_for_training=-1
+HIT-Jaccard=0.815407;00052.jpg.ppm;best_x=9;best_y=115;my_leftcol=-2;my_toprow=98;my_rightcol=22;my_bottomrow=150;my_scale_factor=0.851676, my_confidence=76.483116, used_for_training=-1
+HIT-00053.jpg.ppm;best_x=-1;best_y=-1;0.851676
+HIT-00054.jpg.ppm;best_x=-1;best_y=-1;1.000000
+HIT-00055.jpg.ppm;best_x=-1;best_y=-1;1.000000
+HIT-00056.jpg.ppm;best_x=-1;best_y=-1;1.000000
+HIT-00057.jpg.ppm;best_x=-1;best_y=-1;1.000000
+HIT-00058.jpg.ppm;best_x=-1;best_y=-1;1.000000
+HIT-00059.jpg.ppm;best_x=-1;best_y=-1;1.000000
+HIT-00060.jpg.ppm;best_x=-1;best_y=-1;1.000000
+HIT-00061.jpg.ppm;best_x=-1;best_y=-1;1.000000
+HIT-00062.jpg.ppm;best_x=-1;best_y=-1;1.000000
+HIT-00063.jpg.ppm;best_x=-1;best_y=-1;1.000000
+HIT-00064.jpg.ppm;best_x=-1;best_y=-1;1.000000
+HIT-00065.jpg.ppm;best_x=-1;best_y=-1;1.000000
+HIT-00066.jpg.ppm;best_x=-1;best_y=-1;1.000000
+HIT-00067.jpg.ppm;best_x=-1;best_y=-1;1.000000
+HIT-00068.jpg.ppm;best_x=-1;best_y=-1;1.000000
+HIT-00069.jpg.ppm;best_x=-1;best_y=-1;1.000000
+HIT-00070.jpg.ppm;best_x=-1;best_y=-1;1.000000
+HIT-00071.jpg.ppm;best_x=-1;best_y=-1;1.000000
+HIT-00072.jpg.ppm;best_x=-1;best_y=-1;1.000000
+HIT-00073.jpg.ppm;best_x=-1;best_y=-1;1.000000
+HIT-00074.jpg.ppm;best_x=-1;best_y=-1;1.000000
+HIT-00075.jpg.ppm;best_x=-1;best_y=-1;1.000000
+HIT-00076.jpg.ppm;best_x=-1;best_y=-1;1.000000
+HIT-00077.jpg.ppm;best_x=-1;best_y=-1;1.000000
+HIT-00078.jpg.ppm;best_x=-1;best_y=-1;1.000000
+HIT-00079.jpg.ppm;best_x=-1;best_y=-1;1.000000
+HIT-00080.jpg.ppm;best_x=-1;best_y=-1;1.000000
+MISS-Jaccard=0.000000;00081.jpg.ppm;best_x=-1;best_y=-1;my_leftcol=-11;my_toprow=217;my_rightcol=10;my_bottomrow=262;my_scale_factor=0.980718, my_confidence=68.399200, used_for_training=-1
+HIT-Jaccard=0.723776;00082.jpg.ppm;best_x=30;best_y=174;my_leftcol=20;my_toprow=42;my_rightcol=41;my_bottomrow=87;my_scale_factor=0.992462, my_confidence=75.936607, used_for_training=-1
+HIT-Jaccard=0.768802;00083.jpg.ppm;best_x=43;best_y=177;my_leftcol=33;my_toprow=39;my_rightcol=54;my_bottomrow=84;my_scale_factor=0.992462, my_confidence=79.121597, used_for_training=-1
+HIT-Jaccard=0.723776;00084.jpg.ppm;best_x=56;best_y=178;my_leftcol=46;my_toprow=38;my_rightcol=67;my_bottomrow=83;my_scale_factor=0.992462, my_confidence=93.997932, used_for_training=-1
+HIT-Jaccard=0.723776;00085.jpg.ppm;best_x=68;best_y=180;my_leftcol=58;my_toprow=36;my_rightcol=79;my_bottomrow=81;my_scale_factor=0.992462, my_confidence=77.517235, used_for_training=-1
+HIT-Jaccard=0.779398;00086.jpg.ppm;best_x=80;best_y=181;my_leftcol=70;my_toprow=35;my_rightcol=91;my_bottomrow=80;my_scale_factor=0.992462, my_confidence=79.431511, used_for_training=-1
+HIT-Jaccard=0.779398;00087.jpg.ppm;best_x=92;best_y=182;my_leftcol=82;my_toprow=34;my_rightcol=103;my_bottomrow=79;my_scale_factor=0.992462, my_confidence=90.214706, used_for_training=1
+HIT-Jaccard=0.874525;00088.jpg.ppm;best_x=105;best_y=182;my_leftcol=95;my_toprow=34;my_rightcol=116;my_bottomrow=79;my_scale_factor=0.992462, my_confidence=209.220108, used_for_training=-1
+HIT-Jaccard=0.839552;00089.jpg.ppm;best_x=114;best_y=183;my_leftcol=104;my_toprow=33;my_rightcol=125;my_bottomrow=78;my_scale_factor=0.992462, my_confidence=135.941025, used_for_training=-1
+HIT-Jaccard=0.874525;00090.jpg.ppm;best_x=124;best_y=183;my_leftcol=114;my_toprow=33;my_rightcol=135;my_bottomrow=78;my_scale_factor=0.992462, my_confidence=151.233643, used_for_training=-1
+HIT-Jaccard=0.805861;00091.jpg.ppm;best_x=129;best_y=183;my_leftcol=119;my_toprow=33;my_rightcol=140;my_bottomrow=78;my_scale_factor=0.992462, my_confidence=190.594513, used_for_training=-1
+HIT-Jaccard=0.723183;00092.jpg.ppm;best_x=131;best_y=183;my_leftcol=121;my_toprow=33;my_rightcol=142;my_bottomrow=78;my_scale_factor=0.992462, my_confidence=139.287292, used_for_training=-1
+HIT-Jaccard=0.824176;00093.jpg.ppm;best_x=128;best_y=182;my_leftcol=118;my_toprow=34;my_rightcol=139;my_bottomrow=79;my_scale_factor=0.992462, my_confidence=84.796928, used_for_training=-1
+HIT-Jaccard=0.843066;00094.jpg.ppm;best_x=123;best_y=182;my_leftcol=113;my_toprow=34;my_rightcol=134;my_bottomrow=79;my_scale_factor=0.992462, my_confidence=109.651154, used_for_training=-1
+HIT-Jaccard=0.805861;00095.jpg.ppm;best_x=115;best_y=182;my_leftcol=105;my_toprow=34;my_rightcol=126;my_bottomrow=79;my_scale_factor=0.992462, my_confidence=97.696930, used_for_training=-1
+HIT-Jaccard=0.773381;00096.jpg.ppm;best_x=108;best_y=182;my_leftcol=98;my_toprow=34;my_rightcol=119;my_bottomrow=79;my_scale_factor=0.992462, my_confidence=100.885033, used_for_training=-1
+HIT-Jaccard=0.805861;00097.jpg.ppm;best_x=102;best_y=181;my_leftcol=92;my_toprow=35;my_rightcol=113;my_bottomrow=80;my_scale_factor=0.992462, my_confidence=81.647118, used_for_training=-1
+HIT-Jaccard=0.805861;00098.jpg.ppm;best_x=94;best_y=181;my_leftcol=84;my_toprow=35;my_rightcol=105;my_bottomrow=80;my_scale_factor=0.992462, my_confidence=126.393578, used_for_training=-1
+HIT-Jaccard=0.805861;00099.jpg.ppm;best_x=87;best_y=180;my_leftcol=77;my_toprow=36;my_rightcol=98;my_bottomrow=81;my_scale_factor=0.992462, my_confidence=139.156219, used_for_training=-1
+HIT-Jaccard=0.791367;00100.jpg.ppm;best_x=80;best_y=180;my_leftcol=70;my_toprow=36;my_rightcol=91;my_bottomrow=81;my_scale_factor=0.992462, my_confidence=145.476746, used_for_training=-1
+HIT-Jaccard=0.805861;00101.jpg.ppm;best_x=72;best_y=179;my_leftcol=62;my_toprow=37;my_rightcol=83;my_bottomrow=82;my_scale_factor=0.992462, my_confidence=131.533173, used_for_training=-1
+HIT-Jaccard=0.805861;00102.jpg.ppm;best_x=65;best_y=179;my_leftcol=55;my_toprow=37;my_rightcol=76;my_bottomrow=82;my_scale_factor=0.992462, my_confidence=112.000526, used_for_training=-1
+HIT-Jaccard=0.787546;00103.jpg.ppm;best_x=58;best_y=179;my_leftcol=48;my_toprow=37;my_rightcol=69;my_bottomrow=82;my_scale_factor=0.992462, my_confidence=105.600212, used_for_training=-1
+HIT-Jaccard=0.805861;00104.jpg.ppm;best_x=49;best_y=177;my_leftcol=39;my_toprow=39;my_rightcol=60;my_bottomrow=84;my_scale_factor=0.992462, my_confidence=119.850380, used_for_training=-1
+HIT-Jaccard=0.805861;00105.jpg.ppm;best_x=43;best_y=178;my_leftcol=33;my_toprow=38;my_rightcol=54;my_bottomrow=83;my_scale_factor=0.992462, my_confidence=156.312805, used_for_training=-1
+HIT-Jaccard=0.750919;00106.jpg.ppm;best_x=37;best_y=178;my_leftcol=27;my_toprow=38;my_rightcol=48;my_bottomrow=83;my_scale_factor=0.992462, my_confidence=155.572556, used_for_training=-1
+HIT-Jaccard=0.805861;00107.jpg.ppm;best_x=35;best_y=178;my_leftcol=25;my_toprow=38;my_rightcol=46;my_bottomrow=83;my_scale_factor=0.992462, my_confidence=101.443367, used_for_training=-1
+HIT-Jaccard=0.768382;00108.jpg.ppm;best_x=33;best_y=178;my_leftcol=23;my_toprow=38;my_rightcol=44;my_bottomrow=83;my_scale_factor=0.992462, my_confidence=85.810905, used_for_training=-1
+HIT-Jaccard=0.839552;00109.jpg.ppm;best_x=30;best_y=176;my_leftcol=20;my_toprow=40;my_rightcol=41;my_bottomrow=85;my_scale_factor=0.992462, my_confidence=83.373123, used_for_training=-1
+HIT-Jaccard=0.805861;00110.jpg.ppm;best_x=27;best_y=179;my_leftcol=17;my_toprow=37;my_rightcol=38;my_bottomrow=82;my_scale_factor=0.992462, my_confidence=77.344032, used_for_training=-1
+HIT-Jaccard=0.735915;00111.jpg.ppm;best_x=24;best_y=177;my_leftcol=14;my_toprow=39;my_rightcol=35;my_bottomrow=84;my_scale_factor=0.992462, my_confidence=145.808441, used_for_training=1
+HIT-Jaccard=0.723183;00112.jpg.ppm;best_x=20;best_y=179;my_leftcol=10;my_toprow=37;my_rightcol=31;my_bottomrow=82;my_scale_factor=0.992462, my_confidence=142.304291, used_for_training=-1
+HIT-Jaccard=0.735915;00113.jpg.ppm;best_x=18;best_y=178;my_leftcol=8;my_toprow=38;my_rightcol=29;my_bottomrow=83;my_scale_factor=0.992462, my_confidence=130.319611, used_for_training=-1
+HIT-Jaccard=0.723183;00114.jpg.ppm;best_x=14;best_y=178;my_leftcol=4;my_toprow=38;my_rightcol=25;my_bottomrow=83;my_scale_factor=0.992462, my_confidence=97.526001, used_for_training=-1
+HIT-Jaccard=0.839552;00115.jpg.ppm;best_x=14;best_y=178;my_leftcol=4;my_toprow=38;my_rightcol=25;my_bottomrow=83;my_scale_factor=0.992462, my_confidence=101.848564, used_for_training=-1
+HIT-Jaccard=0.805861;00116.jpg.ppm;best_x=11;best_y=178;my_leftcol=1;my_toprow=38;my_rightcol=22;my_bottomrow=83;my_scale_factor=0.992462, my_confidence=84.840630, used_for_training=-1
+HIT-Jaccard=0.805861;00117.jpg.ppm;best_x=9;best_y=179;my_leftcol=-1;my_toprow=37;my_rightcol=20;my_bottomrow=82;my_scale_factor=0.992462, my_confidence=105.014977, used_for_training=-1
+HIT-Jaccard=0.768382;00118.jpg.ppm;best_x=8;best_y=178;my_leftcol=-2;my_toprow=38;my_rightcol=19;my_bottomrow=83;my_scale_factor=0.992462, my_confidence=57.231640, used_for_training=-1
+HIT-Jaccard=0.660052;00119.jpg.ppm;best_x=8;best_y=178;my_leftcol=-2;my_toprow=38;my_rightcol=19;my_bottomrow=83;my_scale_factor=0.992462, my_confidence=31.389042, used_for_training=-1
+HIT-Jaccard=0.727109;00120.jpg.ppm;best_x=8;best_y=178;my_leftcol=-2;my_toprow=38;my_rightcol=19;my_bottomrow=83;my_scale_factor=0.992462, my_confidence=38.633976, used_for_training=-1
+HIT-Jaccard=0.832381;00121.jpg.ppm;best_x=7;best_y=177;my_leftcol=-3;my_toprow=39;my_rightcol=18;my_bottomrow=84;my_scale_factor=0.992462, my_confidence=13.396261, used_for_training=-1
+HIT-Jaccard=0.768382;00122.jpg.ppm;best_x=8;best_y=179;my_leftcol=-2;my_toprow=37;my_rightcol=19;my_bottomrow=82;my_scale_factor=0.992462, my_confidence=79.681519, used_for_training=-1
+HIT-Jaccard=0.820895;00123.jpg.ppm;best_x=11;best_y=179;my_leftcol=1;my_toprow=37;my_rightcol=22;my_bottomrow=82;my_scale_factor=0.992462, my_confidence=50.153675, used_for_training=-1
+HIT-Jaccard=0.787546;00124.jpg.ppm;best_x=18;best_y=181;my_leftcol=8;my_toprow=35;my_rightcol=29;my_bottomrow=80;my_scale_factor=0.992462, my_confidence=69.490555, used_for_training=-1
+HIT-Jaccard=0.719824;00125.jpg.ppm;best_x=37;best_y=182;my_leftcol=27;my_toprow=34;my_rightcol=48;my_bottomrow=79;my_scale_factor=0.992462, my_confidence=65.322083, used_for_training=-1
+HIT-Jaccard=0.805861;00126.jpg.ppm;best_x=48;best_y=182;my_leftcol=38;my_toprow=34;my_rightcol=59;my_bottomrow=79;my_scale_factor=0.992462, my_confidence=76.864670, used_for_training=-1
+HIT-Jaccard=0.805861;00127.jpg.ppm;best_x=58;best_y=182;my_leftcol=48;my_toprow=34;my_rightcol=69;my_bottomrow=79;my_scale_factor=0.992462, my_confidence=128.643448, used_for_training=-1
+HIT-Jaccard=0.820895;00128.jpg.ppm;best_x=66;best_y=184;my_leftcol=56;my_toprow=32;my_rightcol=77;my_bottomrow=77;my_scale_factor=0.992462, my_confidence=123.429672, used_for_training=-1
+HIT-Jaccard=0.820895;00129.jpg.ppm;best_x=78;best_y=183;my_leftcol=68;my_toprow=33;my_rightcol=89;my_bottomrow=78;my_scale_factor=0.992462, my_confidence=118.685097, used_for_training=-1
+HIT-Jaccard=0.814286;00130.jpg.ppm;best_x=85;best_y=185;my_leftcol=75;my_toprow=31;my_rightcol=96;my_bottomrow=76;my_scale_factor=0.992462, my_confidence=90.658829, used_for_training=-1
+HIT-Jaccard=0.814286;00131.jpg.ppm;best_x=98;best_y=185;my_leftcol=88;my_toprow=31;my_rightcol=109;my_bottomrow=76;my_scale_factor=0.992462, my_confidence=80.481445, used_for_training=-1
+HIT-Jaccard=0.820895;00132.jpg.ppm;best_x=105;best_y=187;my_leftcol=95;my_toprow=29;my_rightcol=116;my_bottomrow=74;my_scale_factor=0.992462, my_confidence=100.718674, used_for_training=-1
+HIT-Jaccard=0.805861;00133.jpg.ppm;best_x=114;best_y=189;my_leftcol=104;my_toprow=27;my_rightcol=125;my_bottomrow=72;my_scale_factor=0.992462, my_confidence=88.533577, used_for_training=-1
+HIT-Jaccard=0.805861;00134.jpg.ppm;best_x=121;best_y=189;my_leftcol=111;my_toprow=27;my_rightcol=132;my_bottomrow=72;my_scale_factor=0.992462, my_confidence=155.596863, used_for_training=1
+HIT-Jaccard=0.805861;00135.jpg.ppm;best_x=127;best_y=190;my_leftcol=117;my_toprow=26;my_rightcol=138;my_bottomrow=71;my_scale_factor=0.992462, my_confidence=207.986679, used_for_training=-1
+HIT-Jaccard=0.805861;00136.jpg.ppm;best_x=130;best_y=190;my_leftcol=120;my_toprow=26;my_rightcol=141;my_bottomrow=71;my_scale_factor=0.992462, my_confidence=202.658875, used_for_training=-1
+HIT-Jaccard=0.738031;00137.jpg.ppm;best_x=133;best_y=191;my_leftcol=123;my_toprow=25;my_rightcol=144;my_bottomrow=70;my_scale_factor=0.992462, my_confidence=125.257271, used_for_training=-1
+HIT-Jaccard=0.805861;00138.jpg.ppm;best_x=135;best_y=191;my_leftcol=125;my_toprow=25;my_rightcol=146;my_bottomrow=70;my_scale_factor=0.992462, my_confidence=194.788940, used_for_training=-1
+HIT-Jaccard=0.773381;00139.jpg.ppm;best_x=138;best_y=192;my_leftcol=128;my_toprow=24;my_rightcol=149;my_bottomrow=69;my_scale_factor=0.992462, my_confidence=172.175735, used_for_training=-1
+HIT-Jaccard=0.805861;00140.jpg.ppm;best_x=139;best_y=191;my_leftcol=129;my_toprow=25;my_rightcol=150;my_bottomrow=70;my_scale_factor=0.992462, my_confidence=179.982407, used_for_training=-1
+HIT-Jaccard=0.820895;00141.jpg.ppm;best_x=142;best_y=192;my_leftcol=132;my_toprow=24;my_rightcol=153;my_bottomrow=69;my_scale_factor=0.992462, my_confidence=171.500610, used_for_training=-1
+HIT-Jaccard=0.768382;00142.jpg.ppm;best_x=145;best_y=193;my_leftcol=135;my_toprow=23;my_rightcol=156;my_bottomrow=68;my_scale_factor=0.992462, my_confidence=195.122787, used_for_training=-1
+HIT-Jaccard=0.805861;00143.jpg.ppm;best_x=147;best_y=194;my_leftcol=137;my_toprow=22;my_rightcol=158;my_bottomrow=67;my_scale_factor=0.992462, my_confidence=139.096664, used_for_training=-1
+HIT-Jaccard=0.787546;00144.jpg.ppm;best_x=149;best_y=195;my_leftcol=139;my_toprow=21;my_rightcol=160;my_bottomrow=66;my_scale_factor=0.992462, my_confidence=173.729431, used_for_training=-1
+HIT-Jaccard=0.805861;00145.jpg.ppm;best_x=149;best_y=195;my_leftcol=139;my_toprow=21;my_rightcol=160;my_bottomrow=66;my_scale_factor=0.992462, my_confidence=187.488998, used_for_training=-1
+HIT-Jaccard=0.839552;00146.jpg.ppm;best_x=149;best_y=195;my_leftcol=139;my_toprow=21;my_rightcol=160;my_bottomrow=66;my_scale_factor=0.992462, my_confidence=146.712509, used_for_training=-1
+HIT-Jaccard=0.824176;00147.jpg.ppm;best_x=150;best_y=196;my_leftcol=140;my_toprow=20;my_rightcol=161;my_bottomrow=65;my_scale_factor=0.992462, my_confidence=145.266632, used_for_training=-1
+HIT-Jaccard=0.824176;00148.jpg.ppm;best_x=150;best_y=197;my_leftcol=140;my_toprow=19;my_rightcol=161;my_bottomrow=64;my_scale_factor=0.992462, my_confidence=92.186356, used_for_training=-1
+HIT-Jaccard=0.862226;00149.jpg.ppm;best_x=151;best_y=198;my_leftcol=141;my_toprow=18;my_rightcol=162;my_bottomrow=63;my_scale_factor=0.992462, my_confidence=102.186630, used_for_training=-1
+HIT-Jaccard=0.809353;00150.jpg.ppm;best_x=150;best_y=199;my_leftcol=140;my_toprow=17;my_rightcol=161;my_bottomrow=62;my_scale_factor=0.992462, my_confidence=113.558083, used_for_training=-1
+HIT-Jaccard=0.805604;00151.jpg.ppm;best_x=150;best_y=199;my_leftcol=140;my_toprow=17;my_rightcol=161;my_bottomrow=62;my_scale_factor=0.992462, my_confidence=134.439804, used_for_training=-1
+HIT-Jaccard=0.751979;00152.jpg.ppm;best_x=150;best_y=200;my_leftcol=140;my_toprow=16;my_rightcol=161;my_bottomrow=61;my_scale_factor=0.992462, my_confidence=112.707222, used_for_training=-1
+HIT-Jaccard=0.774527;00153.jpg.ppm;best_x=152;best_y=201;my_leftcol=142;my_toprow=15;my_rightcol=163;my_bottomrow=60;my_scale_factor=0.992462, my_confidence=171.013321, used_for_training=-1
+HIT-Jaccard=0.805604;00154.jpg.ppm;best_x=152;best_y=201;my_leftcol=142;my_toprow=15;my_rightcol=163;my_bottomrow=60;my_scale_factor=0.992462, my_confidence=128.911819, used_for_training=-1
+HIT-Jaccard=0.805604;00155.jpg.ppm;best_x=152;best_y=201;my_leftcol=142;my_toprow=15;my_rightcol=163;my_bottomrow=60;my_scale_factor=0.992462, my_confidence=149.395477, used_for_training=-1
+HIT-Jaccard=0.805604;00156.jpg.ppm;best_x=152;best_y=201;my_leftcol=142;my_toprow=15;my_rightcol=163;my_bottomrow=60;my_scale_factor=0.992462, my_confidence=108.341423, used_for_training=-1
+HIT-Jaccard=0.722911;00157.jpg.ppm;best_x=152;best_y=201;my_leftcol=142;my_toprow=15;my_rightcol=163;my_bottomrow=60;my_scale_factor=0.992462, my_confidence=161.383423, used_for_training=-1
+HIT-Jaccard=0.757825;00158.jpg.ppm;best_x=152;best_y=202;my_leftcol=142;my_toprow=14;my_rightcol=163;my_bottomrow=59;my_scale_factor=0.992462, my_confidence=163.582214, used_for_training=-1
+HIT-Jaccard=0.722911;00159.jpg.ppm;best_x=153;best_y=202;my_leftcol=143;my_toprow=14;my_rightcol=164;my_bottomrow=59;my_scale_factor=0.992462, my_confidence=132.142853, used_for_training=-1
+HIT-Jaccard=0.791058;00160.jpg.ppm;best_x=154;best_y=203;my_leftcol=144;my_toprow=13;my_rightcol=165;my_bottomrow=58;my_scale_factor=0.992462, my_confidence=161.352173, used_for_training=-1
+HIT-Jaccard=0.722911;00161.jpg.ppm;best_x=155;best_y=203;my_leftcol=145;my_toprow=13;my_rightcol=166;my_bottomrow=58;my_scale_factor=0.992462, my_confidence=117.276100, used_for_training=-1
+HIT-Jaccard=0.757825;00162.jpg.ppm;best_x=155;best_y=203;my_leftcol=145;my_toprow=13;my_rightcol=166;my_bottomrow=58;my_scale_factor=0.992462, my_confidence=133.633926, used_for_training=-1
+HIT-Jaccard=0.791058;00163.jpg.ppm;best_x=156;best_y=204;my_leftcol=146;my_toprow=12;my_rightcol=167;my_bottomrow=57;my_scale_factor=0.992462, my_confidence=159.344849, used_for_training=-1
+HIT-Jaccard=0.791058;00164.jpg.ppm;best_x=156;best_y=204;my_leftcol=146;my_toprow=12;my_rightcol=167;my_bottomrow=57;my_scale_factor=0.992462, my_confidence=162.539368, used_for_training=1
+HIT-Jaccard=0.777027;00165.jpg.ppm;best_x=156;best_y=205;my_leftcol=146;my_toprow=11;my_rightcol=167;my_bottomrow=56;my_scale_factor=0.992462, my_confidence=154.276459, used_for_training=-1
+HIT-Jaccard=0.901961;00166.jpg.ppm;best_x=158;best_y=204;my_leftcol=148;my_toprow=12;my_rightcol=169;my_bottomrow=57;my_scale_factor=0.992462, my_confidence=86.207787, used_for_training=-1
+HIT-Jaccard=0.884615;00167.jpg.ppm;best_x=158;best_y=206;my_leftcol=148;my_toprow=10;my_rightcol=169;my_bottomrow=55;my_scale_factor=0.992462, my_confidence=205.716110, used_for_training=-1
+HIT-Jaccard=0.848858;00168.jpg.ppm;best_x=159;best_y=206;my_leftcol=149;my_toprow=10;my_rightcol=170;my_bottomrow=55;my_scale_factor=0.992462, my_confidence=157.277679, used_for_training=-1
+HIT-Jaccard=0.811765;00169.jpg.ppm;best_x=158;best_y=208;my_leftcol=148;my_toprow=8;my_rightcol=169;my_bottomrow=53;my_scale_factor=0.992462, my_confidence=110.309990, used_for_training=-1
+HIT-Jaccard=0.811765;00170.jpg.ppm;best_x=159;best_y=207;my_leftcol=149;my_toprow=9;my_rightcol=170;my_bottomrow=54;my_scale_factor=0.992462, my_confidence=102.074799, used_for_training=-1
+HIT-Jaccard=0.811765;00171.jpg.ppm;best_x=159;best_y=208;my_leftcol=149;my_toprow=8;my_rightcol=170;my_bottomrow=53;my_scale_factor=0.992462, my_confidence=128.276489, used_for_training=-1
+HIT-Jaccard=0.848858;00172.jpg.ppm;best_x=161;best_y=209;my_leftcol=151;my_toprow=7;my_rightcol=172;my_bottomrow=52;my_scale_factor=0.992462, my_confidence=201.859085, used_for_training=-1
+HIT-Jaccard=0.848858;00173.jpg.ppm;best_x=158;best_y=209;my_leftcol=148;my_toprow=7;my_rightcol=169;my_bottomrow=52;my_scale_factor=0.992462, my_confidence=193.627502, used_for_training=-1
+HIT-Jaccard=0.867925;00174.jpg.ppm;best_x=157;best_y=210;my_leftcol=147;my_toprow=6;my_rightcol=168;my_bottomrow=51;my_scale_factor=0.992462, my_confidence=190.430847, used_for_training=-1
+HIT-Jaccard=0.811765;00175.jpg.ppm;best_x=154;best_y=209;my_leftcol=144;my_toprow=7;my_rightcol=165;my_bottomrow=52;my_scale_factor=0.992462, my_confidence=192.919220, used_for_training=-1
+HIT-Jaccard=0.811765;00176.jpg.ppm;best_x=151;best_y=210;my_leftcol=141;my_toprow=6;my_rightcol=162;my_bottomrow=51;my_scale_factor=0.992462, my_confidence=133.338913, used_for_training=-1
+HIT-Jaccard=0.811765;00177.jpg.ppm;best_x=149;best_y=209;my_leftcol=139;my_toprow=7;my_rightcol=160;my_bottomrow=52;my_scale_factor=0.992462, my_confidence=191.698227, used_for_training=-1
+HIT-Jaccard=0.811765;00178.jpg.ppm;best_x=145;best_y=208;my_leftcol=135;my_toprow=8;my_rightcol=156;my_bottomrow=53;my_scale_factor=0.992462, my_confidence=175.425201, used_for_training=-1
+HIT-Jaccard=0.848858;00179.jpg.ppm;best_x=144;best_y=209;my_leftcol=134;my_toprow=7;my_rightcol=155;my_bottomrow=52;my_scale_factor=0.992462, my_confidence=181.093765, used_for_training=-1
+HIT-Jaccard=0.848858;00180.jpg.ppm;best_x=141;best_y=208;my_leftcol=131;my_toprow=8;my_rightcol=152;my_bottomrow=53;my_scale_factor=0.992462, my_confidence=177.209442, used_for_training=-1
+HIT-Jaccard=0.848858;00181.jpg.ppm;best_x=140;best_y=209;my_leftcol=130;my_toprow=7;my_rightcol=151;my_bottomrow=52;my_scale_factor=0.992462, my_confidence=166.787430, used_for_training=-1
+HIT-Jaccard=0.811765;00182.jpg.ppm;best_x=137;best_y=208;my_leftcol=127;my_toprow=8;my_rightcol=148;my_bottomrow=53;my_scale_factor=0.992462, my_confidence=147.492630, used_for_training=-1
+HIT-Jaccard=0.884615;00183.jpg.ppm;best_x=135;best_y=208;my_leftcol=125;my_toprow=8;my_rightcol=146;my_bottomrow=53;my_scale_factor=0.992462, my_confidence=124.957359, used_for_training=-1
+HIT-Jaccard=0.848858;00184.jpg.ppm;best_x=132;best_y=208;my_leftcol=122;my_toprow=8;my_rightcol=143;my_bottomrow=53;my_scale_factor=0.992462, my_confidence=173.194382, used_for_training=-1
+true_positive;false_positive;false_negative;true_negative;PRECISION;RECALL;F
+ 155.000;  0.000;  1.000;  28.000;  0.994;  0.994;  0.994

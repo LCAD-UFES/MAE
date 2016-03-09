@@ -1,0 +1,75 @@
+int SAMPLE_GROUP_SIZE;
+SAMPLE_GROUP_SIZE = GetSampleGroupSize (0);        /*=4*/
+
+int NUM_SAMPLE_GROUPS;
+NUM_SAMPLE_GROUPS = GetNumSampleGroups (0);             
+#print ("NUM_SAMPLE_GROUPS = ", NUM_SAMPLE_GROUPS);       
+
+int NUM_SAMPLES;
+NUM_SAMPLES = GetNumSamples (0);
+#print ("NUM_SAMPLES = ", NUM_SAMPLES);
+
+
+int NUM_SAMPLES_TRAIN; 		
+NUM_SAMPLES_TRAIN = GetNumSamplesTrain(0);
+#print ("NUM_SAMPLES_TRAIN = ", NUM_SAMPLES_TRAIN);
+
+OpenFileTrain (0);
+
+/* Network Status */
+int TRAINING_PHASE;
+TRAINING_PHASE = 1;
+int RECALL_PHASE;
+RECALL_PHASE = 2;
+
+/* Counters */
+int i;
+
+ResetStatistics (0);
+
+/* Training Phase */
+SetNetworkStatus (TRAINING_PHASE);
+i = 1; # Amostra 0 será utilizada como referência da primeira janela
+while (i <= NUM_SAMPLES_TRAIN )
+{
+	#print ("                   treino i = ", i);
+	
+		GetSampleFromFile (i);
+	
+		forward network;
+	
+		/* Draws nl_wnn_pred layer output */
+		draw nl_wnn_pred_out based on sample move;
+
+		train network;
+	
+	i = i + 1;
+}
+
+RewindFileTrain (0);
+
+	
+/* Testing phase */
+SetNetworkStatus (RECALL_PHASE);
+i = 1;
+while (i <= NUM_SAMPLES_TRAIN )
+{
+		#print ("                 teste i = ", i);
+	
+		GetSampleFromFile (i);
+	
+		forward network;
+	
+		/* Draws nl_wnn_pred layer output */
+		draw nl_wnn_pred_out based on sample move;
+
+		train network;
+	
+	
+	i = i + 1;
+}
+SavePredictionWnn (0);
+SaveSampleTest (0);
+ShowStatistics (0);
+
+quit; 

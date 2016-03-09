@@ -1,0 +1,100 @@
+Roteiro para execucao do robot_motion
+
+1) Atualize as definicoes em robot.con
+
+O arquivo robot.con esta' configurado com duas inputs: image_left e
+image_left_2, utilizando o metodo GET_IMAGE_FROM_JPEG, e tendo como imagens de
+entrada respectivamente as variaveis FILE_JPEG e FILE_JPEG_2.
+
+Experimento 1: movimento horizontal
+const FILE_JPEG 		= "../../images/photo_horiz_1.jpg";
+const FILE_JPEG_2 		= "../../images/photo_horiz_2.jpg";
+
+Experimento 2: movimento horizontal e vertical com perseguicao suave
+const FILE_JPEG 		= "../../images/photo_pursuit_1.jpg";
+const FILE_JPEG_2 		= "../../images/photo_pursuit_2.jpg";
+
+Experimento 3: multiplos movimentos de translacao
+const FILE_JPEG 		= "../../images/photo_multi_1.jpg";
+const FILE_JPEG_2 		= "../../images/photo_multi_2.jpg";
+
+Experimento 4: movimento de rotacao
+const FILE_JPEG 		= "../../images/photo_rotat_1.jpg";
+const FILE_JPEG_2 		= "../../images/photo_rotat_2.jpg";
+
+Outras variaveis de interesse:
+
+const THRESHOLD_0		= 0.1;
+--> Esta variavel regula o valor de limiar utilizado para definir a 
+    fronteira entre a regiao de repouso e a regiao de movimento
+
+const THRESHOLD			= 0.3;	
+--> Esta varival regula o valor de limiar utilizado para definir se um
+    ponto no mapa de velocidades possui a confiabilidade minima ou nao.
+    Se nao possuir, a flecha de velocidade nao sera' exibida. Este valor
+    pode ser alterado em tempo de execucao, com as teclas J/j
+
+const ARROW_GRID		= 8;	
+--> Esta variavel regula a largura do grid de exibicao das flechas
+    (em pixels). Todos os pontos existentes no interior de um quadrado do 
+    grid serao representados por uma unica flecha que possui a velocidade 
+    predominante entre aqueles pontos no mapa de velocidades. Este valor
+    pode ser alterado em tempo de execucao, com as teclas N/n
+    
+ 
+2) Compile a aplicacao --> make
+
+3) Execute a aplicacao --> robot
+
+4) Veja a janela out_motion_area_left
+   Ali aparece destacada a regiao de movimento, tendo como centro de atencao
+   default o centro da imagem (320,240) e valor de limiar THRESHOLD_0.
+
+5) Realize uma sacada --> tecla K
+   Na janela do shell aparecem as novas coordenadas (x,y) obtidas pela sacada.
+   As inputs são atualizadas, bem como as outpurs geradas por filtros, 
+   incluindo a out_motion_area_left.
+   Essa operacao pode ser repetida quantas vezes quiser, teclando K varias vezes
+
+6) Calcule o mapa de velocidades (set_motion_vergence) --> tecla T
+   Esse processamento leva cerca de 2 minutos.
+   Na janela do shell aparece o andamento das 65 iteracoes. Cada iteracao esta'
+   sintonizada numa velocidade especifica, indicada entre colchetes.
+   No final do processamento aparece indicada qual foi a velocidade 
+   predominante de toda a regiao de movimento.
+
+7) Veja a janela out_mt_gaussian_ll2_map
+   Ali aparecem os valores minimos de MT para cada ponto.
+   
+8) Veja as janelas out_disparity_ll2_map e out_vdisparity_ll2_map
+   Ali aparecem os mapas de velocidades horizontal e vertical para cada ponto.
+
+9) Veja a janela out_motion_area_left
+   Ali aparecem representadas todas as flechas de velocidade que respeitam o
+   valor de limiar de confiabilidade minima THRESHOLD. 
+   Neste momento ainda nao ha' agrupamento de flechas em grid.
+
+10) Agrupe as flechas em grid --> tecla G (uma vez) 
+   Ali aparecem representadas as flechas de velocidade, respeitando o valor de
+   limiar de confiabilidade minima THRESHOLD e com agrupamento dos pontos em um
+   grid de largura ARROW_GRID pixels.
+
+11) Apague todas as flechas --> tecla G (uma vez)
+
+12) Regule o valor de THRESHOLD --> tecla J ou j (quantas vezes quiser)
+    Na janela do shell aparece qual e' o novo valor.
+    
+13) Regule o valor de ARROW_GRID --> tecla N ou n (quantas vezes quiser)
+    Na janela do shell aparece qual e' o novo valor.
+    
+14) Alterne o modo de exibicao das flechas --> tecla G (quantas vezes quiser)
+
+Pode-se repetir os passos 10, 11 e 12 quantas vezes quiser, sem precisar
+recalcular o mapa de velocidades.
+
+15) Experimento de perseguicao suave: apresente o proximo frame --> tecla Y
+    A image_left_2 sera' carregada em image_left e o proximo frame sera'
+    carregado em image_left_2. Na janela do shell aparecera' o novo centro
+    de atencao previsto automaticamente pelo movimento de perseguicao suave.
+    
+Repita os passos 6 a 14.

@@ -1,0 +1,33 @@
+int disparity;
+int i;
+int x;
+int y;
+
+read_points("cones.txt", 32);
+
+i = 0;
+while (i < 32)
+{
+	x = get_point_x(i);
+	y = get_point_y(i);
+
+	load in_vergence_current from cones_imR.ppm ;
+	
+	load in_vergence_trained from cones_imR.ppm ;
+
+	move in_vergence_current to x, y;
+
+	move in_vergence_trained to x, y;
+
+	run_train(0);
+
+	load in_vergence_current from cones_imL.ppm ;
+
+	disparity = run_test(0);
+
+	print ("", disparity);
+	
+	i = i + 1;
+}
+
+/* quit; */ 

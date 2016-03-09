@@ -1,0 +1,11 @@
+in_left 0 89
+in_right 452 89
+in_disparity 904 89
+nl_left_translated_v1_out 775 493
+nl_right_translated_v1_out 972 493
+nl_left_translated_out 0 493
+nl_right_translated_out 203 494
+nl_selected_gaussian_out 406 494
+nl_disparity_out 904 89
+out_vergence_v1_activation_map 1169 493
+mae_control_window 874 438

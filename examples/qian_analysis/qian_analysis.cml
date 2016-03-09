@@ -1,0 +1,6 @@
+toggle move_active;
+toggle draw_active;
+
+/* Set the Vergence */
+move image_right to 238,189;
+move image_left  to 290,189;

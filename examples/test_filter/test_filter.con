@@ -1,0 +1,107 @@
+################################################ Set Global Variables #################################################
+
+set NEURON_MEMORY_SIZE = 1;
+set TYPE_SHOW = SHOW_FRAME;
+set TYPE_MOVING_FRAME = MOVING_CENTER;
+
+######################################################## Constants ####################################################
+
+const INPUT_WIDTH  = 1024;
+const INPUT_HEIGHT = 768;
+const NL_WIDTH  = 1024;
+const NL_HEIGHT = 768;
+
+const FOV_HORIZONTAL          = 71.21;
+const LOG_FACTOR              = 10.0;
+const CYCLES_PER_DEGREE       = 0.85;
+const PHASE_SIMPLE_RIGHT_1   = -3.0*pi/4.0;
+
+
+############################################### Neuron Layers ########################################################
+
+#neuronlayer	filter_under_test[NL_WIDTH][NL_HEIGHT] with greyscale_float outputs, show;
+#neuronlayer	filter_under_test2[NL_WIDTH][NL_HEIGHT] with greyscale_float outputs, show;
+
+# Simple Cells
+neuronlayer		simple_cell_nl_1[INPUT_WIDTH][INPUT_HEIGHT]		with greyscale_float outputs;
+neuronlayer		simple_cell_nl_2[INPUT_WIDTH][INPUT_HEIGHT]		with greyscale_float outputs;
+neuronlayer		simple_cell_nl_3[INPUT_WIDTH][INPUT_HEIGHT]		with greyscale_float outputs;
+neuronlayer		simple_cell_nl_4[INPUT_WIDTH][INPUT_HEIGHT]		with greyscale_float outputs;
+neuronlayer		simple_cell_nl_5[INPUT_WIDTH][INPUT_HEIGHT]		with greyscale_float outputs;
+neuronlayer		simple_cell_nl_6[INPUT_WIDTH][INPUT_HEIGHT]		with greyscale_float outputs;
+neuronlayer		simple_cell_nl_7[INPUT_WIDTH][INPUT_HEIGHT]		with greyscale_float outputs;
+neuronlayer		simple_cell_nl_8[INPUT_WIDTH][INPUT_HEIGHT]		with greyscale_float outputs;
+
+neuronlayer		nl_disparity_map[NL_WIDTH][NL_HEIGHT]	      		with	greyscale_float outputs, show;
+neuronlayer		nl_subpixel_disparity_map[NL_WIDTH][NL_HEIGHT]		with	greyscale_float outputs, show;
+
+neuronlayer		nl_simple_mono_right[INPUT_WIDTH][INPUT_HEIGHT]		with	greyscale_float outputs;
+neuronlayer		nl_simple_mono_left[INPUT_WIDTH][INPUT_HEIGHT]		with	greyscale_float outputs;
+neuronlayer		nl_simple_mono_right_q[INPUT_WIDTH][INPUT_HEIGHT]	with	greyscale_float outputs;
+neuronlayer		nl_simple_mono_left_q[INPUT_WIDTH][INPUT_HEIGHT]	with	greyscale_float outputs;
+
+neuronlayer		nl_mt[NL_WIDTH][NL_HEIGHT]	             	with	greyscale_float outputs;
+neuronlayer		nl_mt_gaussian[NL_WIDTH][NL_HEIGHT]      	with	greyscale_float outputs;
+
+################################################### Outputs ##########################################################
+
+################################################## Inputs ############################################################
+
+input 		image_left[INPUT_WIDTH][INPUT_HEIGHT] with color outputs produced by input_generator() controled by input_controler();
+input 		image_right[INPUT_WIDTH][INPUT_HEIGHT] with color outputs produced by input_generator() controled by input_controler();
+				
+########################################### Interconnect Neuron Layers  ##############################################
+
+################################################### Associate  #######################################################
+
+###################################### Connect Neuron Layers to Outputs ##############################################
+
+############################################### Filters #########################################################
+
+#								        wavelength, sigma, aspect_ratio, orientation,       phase, kernel_type 
+#filter 		image   with simple_cells ("%d %d %f %f %f %d",         10,     5,          1.0,         0.0,         0.0,   KERNEL_1D) producing filter_under_test;
+#filter 		image   with simple_cells ("%d %d %f %f %f %d",         20,    10,          1.0,         0.0,      pi/2.0,   KERNEL_1D) producing filter_under_test2;
+
+
+const WAVELENGTH = 30;
+
+const PHI0 = 0.0;
+
+const PHI_L1 = PHI0  -pi/2.0;
+const PHI_R1 = PHI0 + 0.0;
+const PHI_L2 = PHI0 + 0.0;
+const PHI_R2 = PHI0  -pi/2.0;
+
+# Simple Cells Filters
+filter 		image_left 	   with simple_cells ("%d %d %f %f %f %d", WAVELENGTH, WAVELENGTH/2,          1.0,         0.0,     PHI_L1	    , KERNEL_1D) producing simple_cell_nl_1;
+filter 		image_right	   with simple_cells ("%d %d %f %f %f %d", WAVELENGTH, WAVELENGTH/2,	      1.0,	   0.0,     PHI_R1 	    , KERNEL_1D) producing simple_cell_nl_2;
+filter 		image_left	   with simple_cells ("%d %d %f %f %f %d", WAVELENGTH, WAVELENGTH/2,	      1.0,	   0.0,     PHI_L1 + pi/2.0 , KERNEL_1D) producing simple_cell_nl_3;
+filter 		image_right	   with simple_cells ("%d %d %f %f %f %d", WAVELENGTH, WAVELENGTH/2,	      1.0,	   0.0,     PHI_R1 + pi/2.0 , KERNEL_1D) producing simple_cell_nl_4;
+filter 		image_left 	   with simple_cells ("%d %d %f %f %f %d", WAVELENGTH, WAVELENGTH/2,	      1.0,	   0.0,     PHI_L2 	    , KERNEL_1D) producing simple_cell_nl_5;
+filter 		image_right	   with simple_cells ("%d %d %f %f %f %d", WAVELENGTH, WAVELENGTH/2,	      1.0,	   0.0,     PHI_R2	    , KERNEL_1D) producing simple_cell_nl_6;
+filter 		image_left 	   with simple_cells ("%d %d %f %f %f %d", WAVELENGTH, WAVELENGTH/2,	      1.0,	   0.0,     PHI_L2 + pi/2.0 , KERNEL_1D) producing simple_cell_nl_7;
+filter 		image_right	   with simple_cells ("%d %d %f %f %f %d", WAVELENGTH, WAVELENGTH/2,	      1.0,	   0.0,     PHI_R2 + pi/2.0 , KERNEL_1D) producing simple_cell_nl_8;
+
+
+const FOV_HORIZONTAL          = 71.21;
+const CYCLES_PER_DEGREE       = 0.85;
+const PHASE_SIMPLE_RIGHT_1    = -3.0*pi/4.0;
+const PHASE_SIMPLE_LEFT_1     = pi/4.0;
+const PHASE_SIMPLE_RIGHT_1_Q  = -pi/4.0;
+const PHASE_SIMPLE_LEFT_1_Q   = 3.0*pi/4.0;
+const LOG_FACTOR              = 10.0;
+
+const MT_SELECTIVITY    = 0.1;
+int   DISPARITY		= 0;
+int   DISPARITY_MAP_FILTER_STATE = DISPARITY_MAP_FILTER_INIT;
+const MIN_DISP = -79;
+const MAX_DISP = 43;
+
+filter	image_right	with biological_gabor_filter ("%f %f %f %f %f %f %d %d %f %d", FOV_HORIZONTAL, CYCLES_PER_DEGREE, 2.0, 1.0, 0.0,   PHASE_SIMPLE_RIGHT_1, 0, MAP_PLAN, LOG_FACTOR, KERNEL_2D)	producing nl_simple_mono_right;
+filter	image_right	with biological_gabor_filter ("%f %f %f %f %f %f %d %d %f %d", FOV_HORIZONTAL, CYCLES_PER_DEGREE, 2.0, 1.0, 0.0, PHASE_SIMPLE_RIGHT_1_Q, 0, MAP_PLAN, LOG_FACTOR, KERNEL_2D)	producing nl_simple_mono_right_q;
+filter	image_left	with biological_gabor_filter ("%f %f %f %f %f %f %d %d %f %d", FOV_HORIZONTAL, CYCLES_PER_DEGREE, 2.0, 1.0, 0.0,    PHASE_SIMPLE_LEFT_1, 0, MAP_PLAN, LOG_FACTOR, KERNEL_2D)	producing nl_simple_mono_left;
+filter	image_left	with biological_gabor_filter ("%f %f %f %f %f %f %d %d %f %d", FOV_HORIZONTAL, CYCLES_PER_DEGREE, 2.0, 1.0, 0.0,  PHASE_SIMPLE_LEFT_1_Q, 0, MAP_PLAN, LOG_FACTOR, KERNEL_2D)	producing nl_simple_mono_left_q;
+
+filter	nl_simple_mono_right, nl_simple_mono_right_q, nl_simple_mono_left, nl_simple_mono_left_q  with mt_cell ("%f %p", MT_SELECTIVITY, &DISPARITY) producing nl_mt;
+filter	nl_mt 		with gaussian_filter ("%d %f", 9, 2.0) 						producing nl_mt_gaussian;
+filter  nl_mt_gaussian 	with disparity_map_filter ("%p %p", &DISPARITY_MAP_FILTER_STATE, &DISPARITY) 	producing nl_disparity_map;

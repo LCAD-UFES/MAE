@@ -1,0 +1,32 @@
+Author: Stiven
+Date: 05-13-2006
+
+****************************************
+Description: Face recognition experiment.
+
+****************************************
+Database:
+50 persons; 30 man and 20 woman; 14 photos per person
+	-350 photos for training (7 random choosed photos per person)
+	-350 photos for testing (7 remaining photos per person)
+
+PS.: original AR database subsets
+
+***************************************
+Features analysed:
+	-Filter outputs dimentions (64x64)
+	-New output layer type (32x32);
+	-New target choosing heuristic
+	-Target=nose
+	-64 random connections per neuron and gaussian distribution with radius
+10.0
+	-output layer with 128 random feedback connections
+****************************************
+Results:
+	Hit-rate =98,29%
+			
+****************************************
+Conclusions:
+	
+
+

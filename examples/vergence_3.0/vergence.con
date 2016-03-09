@@ -1,0 +1,116 @@
+################################################ Set Global Variables #################################################
+
+set NEURON_MEMORY_SIZE = 64; #neuron layers size
+set TYPE_SHOW = SHOW_FRAME;
+set TYPE_MOVING_FRAME = STOP;
+set CALL_UPDATE_FUNCTIONS = FALSE;	#update functions should not be invoked
+
+######################################################## Constants ####################################################
+
+# General settings
+const TARGET_NEURON_LAYER_NAME = "nl_target_coordinates";
+
+# Architecture settings ( arbitrary size )
+#for tsukuba
+#const IMAGE_WIDTH  = 384;
+#const IMAGE_HEIGHT = 288;
+#for venus
+#const IMAGE_WIDTH  = 434;
+#const IMAGE_HEIGHT = 383;
+#for cones & teddy 
+const IMAGE_WIDTH  = 450;
+const IMAGE_HEIGHT = 375;
+#for bumblebee
+#const IMAGE_WIDTH  = 320;
+#const IMAGE_HEIGHT = 240;
+
+const IMAGE_WIDTH_RESIZED  = 201;	# TEM QUE SER IMPAR
+const IMAGE_HEIGHT_RESIZED = 201;	# TEM QUE SER IMPAR
+
+# Neuron layer parameters
+const NL_WIDTH  = 16 * 4 + 1;	# TEM QUE SER IMPAR
+const NL_HEIGHT = 12 * 4;	# TEM QUE SER PAR
+const INPUTS_PER_NEURON = 256;
+const GAUSSIAN_RADIUS = 5.0;
+const LOG_FACTOR = 5.0;
+const MAX_DISP_NUM = 64;
+const DISPARITY_ERROR = 0.5;
+
+# Network status conventions
+const NOT_READY	= 0;
+const TRAINNING	= 1;
+const RUNNING	= 2;
+
+int network_state = 0;
+
+# Translation filter deltaX & delataY
+float left_eye_center_x = IMAGE_WIDTH / 2.0;
+float left_eye_center_y = IMAGE_HEIGHT / 2.0;
+float right_eye_center_x = IMAGE_WIDTH / 2.0;
+float right_eye_center_y = IMAGE_HEIGHT / 2.0;
+
+float translation_filter_scale_factor = 1.5;
+
+############################################### Neuron Layers #########################################################
+
+neuronlayer    	nl_v1_activation_map[NL_WIDTH][NL_HEIGHT] of minchinton neurons color sensitive with greyscale_float outputs;
+
+neuronlayer    	nl_target_coordinates[1][1]	with greyscale_float outputs;
+
+neuronlayer    	nl_v1_pattern[NL_WIDTH][NL_HEIGHT] with greyscale outputs;
+
+neuronlayer    	nl_left_translated_v1[NL_WIDTH][NL_HEIGHT] with color outputs, show;
+neuronlayer    	nl_right_translated_v1[NL_WIDTH][NL_HEIGHT] with color outputs, show;
+
+neuronlayer		nl_left_translated[IMAGE_WIDTH_RESIZED][IMAGE_HEIGHT_RESIZED] with color outputs, show;
+neuronlayer		nl_right_translated[IMAGE_WIDTH_RESIZED][IMAGE_HEIGHT_RESIZED] with color outputs, show;
+
+neuronlayer		nl_selected[IMAGE_WIDTH_RESIZED][IMAGE_HEIGHT_RESIZED] with color outputs;
+
+neuronlayer		nl_selected_gaussian[IMAGE_WIDTH_RESIZED][IMAGE_HEIGHT_RESIZED] with color outputs, show;
+
+neuronlayer		nl_disparity[IMAGE_WIDTH][IMAGE_HEIGHT] with greyscale_float outputs, show;
+
+############################################### Outputs #########################################################
+
+#output		out_vergence_v1_activation_map[NL_WIDTH][NL_HEIGHT] handled by output_handler_mode_value ("%s", TARGET_NEURON_LAYER_NAME);
+output		out_vergence_v1_activation_map[NL_WIDTH][NL_HEIGHT] handled by output_handler_average_value ("%s", TARGET_NEURON_LAYER_NAME);
+
+################################################## Inputs #############################################################
+
+input 		in_left[IMAGE_WIDTH][IMAGE_HEIGHT]	with color outputs produced by input_generator() controled by input_controller_left();
+input		in_right[IMAGE_WIDTH][IMAGE_HEIGHT] with color outputs produced by input_generator() controled by input_controller_right();
+input		in_disparity[IMAGE_WIDTH][IMAGE_HEIGHT] with greyscale outputs produced by input_generator() controled by input_controller();
+
+############################################### Filters ###############################################################   
+
+filter		in_left		with translate_nl_filter ("%p %p", &left_eye_center_x, &left_eye_center_y) producing nl_left_translated;
+filter		in_right	with translate_nl_filter ("%p %p", &right_eye_center_x, &right_eye_center_y) producing nl_right_translated;
+
+filter		nl_left_translated  with map_image_v1("%s %f", "", LOG_FACTOR) producing nl_left_translated_v1;
+filter		nl_right_translated  with map_image_v1("%s %f", "", LOG_FACTOR) producing nl_right_translated_v1;
+
+filter		nl_left_translated, nl_right_translated with select_nl_filter() producing nl_selected;
+
+filter		nl_selected	with gaussian_filter ("%d %f", 9, 1.5) producing nl_selected_gaussian;
+
+################################## Connect Neuron Layers to Outputs #############################################
+
+outputconnect	nl_v1_activation_map		to out_vergence_v1_activation_map;
+
+############################################### Associations ####################################################
+
+associate	nl_v1_activation_map		with	nl_v1_activation_map;
+
+################################################ Connections ####################################################
+
+connect nl_selected_gaussian to nl_v1_activation_map with INPUTS_PER_NEURON random inputs per neuron and 
+	log_polar distribution with radius GAUSSIAN_RADIUS and logfactor LOG_FACTOR;
+
+################################################# User Functions ################################################
+float get_disparity_computed("%d");
+float get_disparity_benchmark("%d %d %d");
+int set_disparity_output("%d %d %d %f");
+int run_vergence("%d");
+int move_left_eye("%d %d");
+int move_right_eye("%d %d");

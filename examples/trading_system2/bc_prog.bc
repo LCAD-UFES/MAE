@@ -1,0 +1,11 @@
+scale = 2
+retorno = 40000
+while (1)
+{
+	new_day_result = read()
+	if (new_day_result == 0) break;
+	retorno += new_day_result - 40000
+}
+print retorno
+print "\n"
+quit

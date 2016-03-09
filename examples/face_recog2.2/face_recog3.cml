@@ -1,0 +1,227 @@
+/* Persons number */
+int PERSON_MAX; 		
+PERSON_MAX = 67;
+
+int PHOTOS_PER_PERSON; 		
+PHOTOS_PER_PERSON = 13;
+
+/* Network Status */
+int MOVING_FACE;
+MOVING_FACE = 0;
+int TRAINING_FACE;
+TRAINING_FACE = 1;
+int TESTING_FACE;
+TESTING_FACE = 2;
+
+
+/* Counters */
+int i;
+int j;
+
+ResetStatistics (0);
+
+/* Training Phase */
+SetNetworkStatus (TRAINING_FACE);
+i = 1;
+while (i <= PERSON_MAX)
+{
+	/* Get face */ 
+	GetFace (i,2);
+
+	/* Updates the eye, nose and mouth filter's outputs */
+	Move2Eye (0);
+	Move2Nose (0);
+	Move2Mouth (0);
+
+	/* Draws the eye, nose and mouth neuron layer's outputs */
+	draw out_eye based on face_recog move;
+	draw out_nose based on face_recog move;
+	draw out_mouth based on face_recog move;
+
+	forward outputs;
+	train network;
+		
+	/* Get face */ 
+	GetFace (i,3);
+
+	/* Updates the eye, nose and mouth filter's outputs */
+	Move2Eye (0);
+	Move2Nose (0);
+	Move2Mouth (0);
+
+	/* Draws the eye, nose and mouth neuron layer's outputs */
+	draw out_eye based on face_recog move;
+	draw out_nose based on face_recog move;
+	draw out_mouth based on face_recog move;
+
+	forward outputs;
+	train network;
+		
+	/* Get face */ 
+	GetFace (i,4);
+
+	/* Updates the eye, nose and mouth filter's outputs */
+	Move2Eye (0);
+	Move2Nose (0);
+	Move2Mouth (0);
+
+	/* Draws the eye, nose and mouth neuron layer's outputs */
+	draw out_eye based on face_recog move;
+	draw out_nose based on face_recog move;
+	draw out_mouth based on face_recog move;
+
+	forward outputs;
+	train network;
+		
+	/* Get face */ 
+	GetFace (i,7);
+
+	/* Updates the eye, nose and mouth filter's outputs */
+	Move2Eye (0);
+	Move2Nose (0);
+	Move2Mouth (0);
+
+	/* Draws the eye, nose and mouth neuron layer's outputs */
+	draw out_eye based on face_recog move;
+	draw out_nose based on face_recog move;
+	draw out_mouth based on face_recog move;
+
+	forward outputs;
+	train network;
+		
+	/* Get face */ 
+	GetFace (i,8);
+
+	/* Updates the eye, nose and mouth filter's outputs */
+	Move2Eye (0);
+	Move2Nose (0);
+	Move2Mouth (0);
+
+	/* Draws the eye, nose and mouth neuron layer's outputs */
+	draw out_eye based on face_recog move;
+	draw out_nose based on face_recog move;
+	draw out_mouth based on face_recog move;
+
+	forward outputs;
+	train network;
+		
+	/* Get face */ 
+	GetFace (i,11);
+
+	/* Updates the eye, nose and mouth filter's outputs */
+	Move2Eye (0);
+	Move2Nose (0);
+	Move2Mouth (0);
+
+	/* Draws the eye, nose and mouth neuron layer's outputs */
+	draw out_eye based on face_recog move;
+	draw out_nose based on face_recog move;
+	draw out_mouth based on face_recog move;
+
+	forward outputs;
+	train network;
+		
+	i = i + 1;
+}
+
+	
+/* Testing phase */
+SetNetworkStatus (TESTING_FACE);
+i = 1;
+while (i <= PERSON_MAX)
+{
+	/* Get the next face */ 
+	GetFace (i,1);
+
+	/* Updates the eye, nose and mouth filter's outputs */
+	Move2Eye (0);
+	Move2Nose (0);
+	Move2Mouth (0);
+
+	forward neural_layers;
+	forward outputs;
+
+	ShowStatistics (0);
+
+	/* Get the next face */ 
+	GetFace (i,5);
+
+	/* Updates the eye, nose and mouth filter's outputs */
+	Move2Eye (0);
+	Move2Nose (0);
+	Move2Mouth (0);
+
+	forward neural_layers;
+	forward outputs;
+
+	ShowStatistics (0);
+
+	/* Get the next face */ 
+	GetFace (i,6);
+
+	/* Updates the eye, nose and mouth filter's outputs */
+	Move2Eye (0);
+	Move2Nose (0);
+	Move2Mouth (0);
+
+	forward neural_layers;
+	forward outputs;
+
+	ShowStatistics (0);
+
+	/* Get the next face */ 
+	GetFace (i,9);
+
+	/* Updates the eye, nose and mouth filter's outputs */
+	Move2Eye (0);
+	Move2Nose (0);
+	Move2Mouth (0);
+
+	forward neural_layers;
+	forward outputs;
+
+	ShowStatistics (0);
+
+	/* Get the next face */ 
+	GetFace (i,10);
+
+	/* Updates the eye, nose and mouth filter's outputs */
+	Move2Eye (0);
+	Move2Nose (0);
+	Move2Mouth (0);
+
+	forward neural_layers;
+	forward outputs;
+
+	ShowStatistics (0);
+
+	/* Get the next face */ 
+	GetFace (i,12);
+
+	/* Updates the eye, nose and mouth filter's outputs */
+	Move2Eye (0);
+	Move2Nose (0);
+	Move2Mouth (0);
+
+	forward neural_layers;
+	forward outputs;
+
+	ShowStatistics (0);
+
+	/* Get the next face */ 
+	GetFace (i,13);
+
+	/* Updates the eye, nose and mouth filter's outputs */
+	Move2Eye (0);
+	Move2Nose (0);
+	Move2Mouth (0);
+
+	forward neural_layers;
+	forward outputs;
+
+	ShowStatistics (0);
+
+	i = i + 1;
+}
+
+quit;

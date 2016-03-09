@@ -1,0 +1,99 @@
+################################################ Set Global Variables #################################################
+
+set NEURON_MEMORY_SIZE = 5000;
+
+######################################################## Constants ####################################################
+
+const GAUSSIAN_RADIUS_DISTRIBUTION = 3.0;
+const GAUSSIAN_RADIUS_FILTER 	= 5;
+const GAUSSIAN_SIGMA_FILTER  	= 1.0;
+
+############################################### Neuron Layers #########################################################
+
+neuronlayer	nl_encoding[10][10] 	of minchinton neurons greyscale sensitive with greyscale outputs;
+neuronlayer	nl_decoding[28][28] 	of minchinton neurons greyscale sensitive with greyscale outputs;
+
+neuronlayer	nl_encoding_level_1[10][10] of minchinton neurons greyscale sensitive with greyscale outputs;
+neuronlayer	nl_decoding_level_1[10][10] of minchinton neurons greyscale sensitive with greyscale outputs;
+
+neuronlayer	nl_encoding_level_2[10][10] of minchinton neurons greyscale sensitive with greyscale outputs;
+neuronlayer	nl_decoding_level_2[10][10] of minchinton neurons greyscale sensitive with greyscale outputs;
+
+neuronlayer	nl_label[10][10]		of minchinton neurons greyscale sensitive with greyscale outputs;
+neuronlayer	nl_label_decoding[10][10]		of minchinton neurons greyscale sensitive with greyscale outputs;
+
+############################################### Outputs #########################################################
+
+output		out_nl_encoding[10][10]	handled by output_handler1();
+output		out_nl_decoding[28][28]	handled by output_handler2();
+
+output		out_nl_encoding_level_1[10][10]	handled by output_handler_encoding_level_1();
+output		out_nl_decoding_level_1[10][10]	handled by output_handler_decoding_level_1();
+
+output		out_nl_encoding_level_2[10][10]	handled by output_handler_encoding_level_2();
+output		out_nl_decoding_level_2[10][10]	handled by output_handler_decoding_level_2();
+
+output		out_nl_label[10][10]	handled by output_handler_label();
+output		out_nl_label_decoding[10][10]	handled by output_handler_label_decoding();
+
+################################################## Inputs #############################################################
+
+input 		character[28][28]	with greyscale outputs produced by input_generator() controled by input_controler();
+
+############################################### Filters ###############################################################   
+
+filter	nl_label_decoding 		with copy_filter() 	producing 	nl_encoding_level_2;
+filter	nl_decoding_level_2 	with copy_filter() 	producing 	nl_encoding_level_1;
+filter	nl_decoding_level_1 	with copy_filter() 	producing 	nl_encoding;
+
+################################## Connect Neuron Layers to Outputs #############################################
+
+outputconnect	nl_encoding		to out_nl_encoding;
+outputconnect	nl_decoding		to out_nl_decoding;
+
+outputconnect	nl_encoding_level_1		to out_nl_encoding_level_1;
+outputconnect	nl_decoding_level_1		to out_nl_decoding_level_1;
+
+outputconnect	nl_encoding_level_2		to out_nl_encoding_level_2;
+outputconnect	nl_decoding_level_2		to out_nl_decoding_level_2;
+
+outputconnect	nl_label		to out_nl_label;
+outputconnect	nl_label_decoding		to out_nl_label_decoding;
+
+############################################### Associations ####################################################
+
+associate	nl_encoding 		with nl_encoding;
+associate	character 			with nl_decoding;
+
+associate	nl_encoding_level_1 		with nl_encoding_level_1;
+associate	nl_encoding 				with nl_decoding_level_1;
+
+associate	nl_encoding_level_2			with nl_encoding_level_2;
+associate	nl_encoding_level_1			with nl_decoding_level_2;
+
+associate	nl_label					with nl_label;
+associate	nl_encoding_level_2			with nl_label_decoding;
+
+################################################ Connections ####################################################
+
+#connect 	character				to nl_encoding with 256 random inputs per neuron;
+#connect 	nl_encoding				to nl_decoding with 256 random inputs per neuron;
+#connect 	nl_encoding				to nl_encoding_level_1 with 256 random inputs per neuron;
+#connect 	nl_encoding_level_1		to nl_decoding_level_1 with 256 random inputs per neuron;
+#connect 	nl_encoding_level_1		to nl_encoding_level_2 with 256 random inputs per neuron;
+#connect 	nl_encoding_level_2		to nl_decoding_level_2 with 256 random inputs per neuron;
+#connect	nl_encoding_level_2		to nl_label with 256 random inputs per neuron;
+
+connect 	character				to nl_encoding with 256 random inputs per neuron and gaussian distribution with radius GAUSSIAN_RADIUS_DISTRIBUTION;
+connect 	nl_encoding				to nl_decoding with 256 random inputs per neuron and gaussian distribution with radius GAUSSIAN_RADIUS_DISTRIBUTION;
+connect 	nl_encoding				to nl_encoding_level_1 with 256 random inputs per neuron and gaussian distribution with radius GAUSSIAN_RADIUS_DISTRIBUTION;
+connect 	nl_encoding_level_1		to nl_decoding_level_1 with 256 random inputs per neuron and gaussian distribution with radius GAUSSIAN_RADIUS_DISTRIBUTION;
+connect 	nl_encoding_level_1		to nl_encoding_level_2 with 256 random inputs per neuron and gaussian distribution with radius GAUSSIAN_RADIUS_DISTRIBUTION;
+connect 	nl_encoding_level_2		to nl_decoding_level_2 with 256 random inputs per neuron and gaussian distribution with radius GAUSSIAN_RADIUS_DISTRIBUTION;
+connect		nl_encoding_level_2		to nl_label with 256 random inputs per neuron and gaussian distribution with radius GAUSSIAN_RADIUS_DISTRIBUTION;
+connect		nl_label				to nl_label_decoding with 256 random inputs per neuron and gaussian distribution with radius GAUSSIAN_RADIUS_DISTRIBUTION;
+
+################################################# User Functions ################################################
+
+int SetNetworkStatus("%d");
+int RetrainUntilStabilization("%s");

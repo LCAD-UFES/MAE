@@ -1,0 +1,72 @@
+digraph nc{
+ rankdir = LR 
+ bgcolor = white
+
+ node [fontname=Courier]
+ edge [color=Blue] 
+ 
+############################################### Neuron Layers #########################################################
+subgraph cluster_program{
+color = invis;
+nc_program [style=filled, fontcolor=white, fillcolor=black]; 
+from_nc_program_down;
+}
+
+subgraph cluster_function{
+color = invis;
+nc_function [style=filled, fontcolor=white, fillcolor=black]; 
+from_nc_function_up;
+from_nc_function_down;
+}
+
+subgraph cluster_command{
+color = invis;
+nc_command [style=filled, fontcolor=white, fillcolor=black];
+from_nc_command_up
+}
+
+nc_sensors;
+############################################### Outputs #########################################################
+
+################################################## Inputs #############################################################
+nc_input 			[shape = box];
+nc_program_input1 	[shape = box];
+nc_program_input2 	[shape = box];
+nc_function_input1 	[shape = box];
+nc_function_input2 	[shape = box];
+nc_command_input1 	[shape = box];
+nc_command_input2 	[shape = box];
+nc_sensors_input1 	[shape = box];
+
+############################################### Filters #########################################################
+nc_program	->	from_nc_program_down	[constraint=no];
+nc_function	->	from_nc_function_down	[constraint=no];
+nc_function	->	from_nc_function_up		[constraint=no];
+nc_command	->	from_nc_command_up		[constraint=no];
+
+############################################### Associations ####################################################
+nc_program_input1	-> nc_program	[label="input_generator1"];
+nc_program_input2	-> nc_program	[label="input_controler2"];
+nc_function_input1	-> nc_function	[label="input_generator1"];
+nc_function_input2	-> nc_function	[label="input_controler2"];
+nc_command_input1	-> nc_command	[label="input_generator1"];
+nc_command_input2	-> nc_command	[label="input_controler2"];
+nc_sensors_input1	-> nc_sensors	[label="input_generator1"];
+
+################################################ Connections ####################################################
+nc_input 			-> nc_program;
+nc_program			-> nc_program	[label="random"];
+nc_program			-> nc_program	[label="random and gaussian"];
+from_nc_function_up	-> nc_program;
+
+from_nc_program_down-> nc_function;
+nc_function			-> nc_function	[label="random"];
+nc_function			-> nc_function	[label="random and gaussian"];
+from_nc_command_up	-> nc_function;
+
+from_nc_function_down-> nc_command;
+nc_command			-> nc_command	[label="random"];
+nc_command			-> nc_command	[label="random and gaussian"];
+nc_sensors			-> nc_command;
+
+}

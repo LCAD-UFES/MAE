@@ -1,0 +1,704 @@
+COSAN - ON NM [VIS]
+MyCap
+Alerta
+
+______________________________________________________________________________________________________________
+Conta Depósito
+Conta Investimento
+
+06h28 para o fechamento    |   Relogio 59:09
+Sair
+ 
+
+    * Homebroker
+    * FlexScan
+
+Poder de Compra Configurações Atendimento
+
+Vencimentos:
+
+    *
+
+	
+
+Ativo Base
+	
+
+Último
+	
+
+Série
+	
+
+Exercício
+	
+
+Custo
+	
+
+Taxa (ao ano)
+	
+
+Taxa (%CDI)
+	
+
+-->
+
+    * Suas Ordens
+    * Carteira
+    * Financeiro
+
+	
+
+C/V
+	
+
+Data
+	
+
+Série
+	
+
+Ativo Base
+	
+
+Qtd.
+	
+
+P. Estimado
+	
+
+P. Exec.
+	
+
+Resul. Estimado
+	
+
+Status
+	
+
+Procurando financiamentos...
+	
+
+Tipo Operação
+	
+
+Qtd. Total
+	
+
+Qtd. Neg.
+	
+
+Qtd. Aberta
+	
+
+Qtd. Final
+	
+
+Pr. Médio
+	
+
+Pr. Médio Finan.
+	
+
+Procurando financiamentos em carteira...
+SALDOS E LIQUIDAÇÕES 	ORDENS DIA 	LIMITE 	
+Saldo em Conta 	30.000,00 	Compras em Aberto 	0,00 	Ações - Disponível 	2.996,40 	
+Para D1 	Para D1 - 14/10/2010 	0,00 	Vendas em Aberto 	0,00 	Ações - 1ª Linha 	2.996,40 	
+Para D2 	Para D2 - 15/10/2010 	0,00 	Saldo em Aberto 	0,00 	Ações - 2ª Linha 	2.996,40 	
+Para D3 	Para D3 - 18/10/2010 	0,00 	Compras Executadas 	2.596,00 	Opções - Disponível 	2.996,40 	
+Saldo Indisponível 	0,00 	Vendas Executadas 	2.605,00 			
+Saldo Final 	30.000,00 	Saldo Líquido 	9,00 			
+						
+FINANCIAMENTOS
+
+Consiste na compra do ativo objeto e venda de opção call na mesma quantidade do ativo. O investidor busca uma remuneração programada (ou fixa) sobre o capital investido.
+
+Volatilidade
+
+Contra
+
+A Favor
+
+Tempo
+
+Contra
+
+A Favor
+
+Compra
+C/V 	Ativo 	Preço Est
+C 	VALE5 	R$ 30,00
+V 	VALEH22 	R$ 2,00
+Quantidade
+Ass. Eletrônica
+Salvar Enviar
+
+Quantidade
+
+A reversão de seu financiamento será enviada à Mesa de Operações.
+Ass. Eletrônica
+Salvar Enviar
+
+Mesa de Operações
+
+Quer financiar uma ação ou um prazo diferente?
+Financeiro Disponível
+Fechar
+Ações: 2.996,40 2.996,40 Opções:
+Crédito Ações
+Ações 1ª Linha: 2.996,40 2.996,40 Ações 2ª Linha:
+Configurações
+Fechar
+
+Cores
+
+Layout
+
+Boletas
+Flutuantes
+Fixas
+Configurar
+Atendimento
+Fechar
+
+Fale conosco - Chat Chat
+
+Esclareça aqui todas as suas dúvidas.
+
+Fale conosco - ChatSkype
+
+Fale agora pelo nosso canal
+de voz:
+mycapbrasil
+
+Fale conosco - Chat Telefone
+
+Rio|São Paulo
+2114 0500
+
+Demais Localidades
+0800 725 0500
+
+SAC
+0800 724 1579
+
+Ouvidoria
+0800 724 1479
+Fechar
+Entre com o nome da nova lista: OK
+Fechar
+Atualize o nome da lista: OK
+Fechar
+Poder de Compra
+|
+R$ 00,00
+   
+
+    * COMPRA VENDA
+    * Poder de Compra
+    *
+
+Ativo: Qtde.
+Preço Total
+Preço Disparo Limite Total
+Stop Gain Stop Loss
+Preço Limite
+Preço Stop
+Preço Stop Preço Limite
+Ajuste Inicial
+Baixa Alta Zero
+
+Assinatura Eletrônica: salvar Enviar Ordem
+
+    * Default
+
+ATIVOS 												
+IBOV	71.462,26	+0,73	0	0,00	0,00	0	70.949,95	71.531,45	597M	42.296	10:34:43
+DOLCM	1,66	-0,30	0	1,66	1,66	0	1,66	1,66	0	0	10:32:00
+ALLL11	18,31	+0,72	300	18,30	18,33	300	18,25	18,47	11M	2.148	10:34:58
+AMBV4	223,34	+1,78	300	223,35	223,52	100	220,09	229,00	4M	174	10:34:45
+BBAS3	33,93	+1,59	300	33,95	33,97	1.000	33,57	34,09	30M	2.146	10:34:57
+BBDC4	35,69	+0,54	1.400	35,69	35,70	1.300	35,57	35,87	14M	882	10:34:55
+BRAP4	41,85	+0,60	1.100	41,85	41,90	700	41,71	42,10	1M	277	10:34:53
+BRFS3	24,98	+0,32	700	24,98	25,04	2.200	24,90	25,25	4M	433	10:34:54
+BTOW3	30,88	-0,39	1.700	30,88	30,90	700	30,88	31,28	1M	151	10:34:53
+BVMF3	15,23	+1,20	14.400	15,22	15,24	8.100	15,12	15,27	27M	1.442	10:34:58
+CCRO3	47,83	+0,69	100	47,83	47,99	1.000	47,61	48,59	2M	275	10:34:58
+CESP6	29,70	+2,77	3.400	29,70	29,85	900	28,40	29,73	2M	254	10:34:58
+CMIG4	28,42	+0,42	300	28,42	28,48	700	28,08	28,55	1M	259	10:34:57
+CPLE6	41,66	+2,11	1.100	41,52	41,66	400	40,90	41,79	2M	426	10:34:58
+CSAN3	26,37	+0,46	300	26,37	26,40	6.200	26,34	26,70	2M	300	10:34:57
+CSNA3	28,92	-0,14	200	28,93	28,95	2.900	28,77	29,24	4M	408	10:34:58
+CYRE3	25,25	+1,28	2.400	25,25	25,30	300	25,02	25,30	8M	696	10:34:52
+ECOD3	0,99	+0,00	1M	0,99	1,00	2M	0,99	1,00	1M	167	10:34:57
+ELET3	24,21	+4,35	500	24,23	24,28	2.000	23,55	24,40	9M	633	10:34:56
+ELET6	28,64	+4,91	1.100	28,59	28,64	100	27,41	28,69	9M	1.102	10:34:58
+ELPL6	30,06	+0,20	1.900	30,06	30,07	5.000	30,04	30,21	3M	414	10:34:53
+EMBR3	11,97	-0,75	11.000	11,98	12,04	100	11,97	12,16	770.296	189	10:34:58
+FIBR3	29,00	-0,75	800	29,00	29,01	800	28,90	29,20	3M	194	10:34:52
+GFSA3	14,27	+1,93	2.200	14,27	14,30	2.200	14,10	14,39	6M	922	10:34:57
+GGBR4	22,20	+0,18	400	22,18	22,19	400	22,15	22,45	23M	1.643	10:34:58
+GOAU4	26,37	+0,15	3.100	26,36	26,37	400	26,29	26,60	6M	681	10:34:57
+GOLL4	29,01	+2,11	100	29,01	29,06	600	28,59	29,15	3M	297	10:34:53
+ITSA4	13,61	+0,07	4.800	13,61	13,62	2.000	13,60	13,74	12M	1.415	10:34:56
+ITUB4	42,30	+0,31	2.600	42,29	42,30	4.900	42,20	42,50	19M	1.216	10:34:57
+JBSS3	7,38	+0,68	3.200	7,37	7,38	15.900	7,33	7,39	3M	515	10:34:57
+LAME4	17,04	-0,35	4.100	17,04	17,05	300	16,98	17,35	11M	490	10:34:58
+LLXL3	9,19	+0,33	6.200	9,19	9,21	300	9,17	9,27	1M	229	10:34:53
+LREN3	64,44	+0,69	1.900	64,32	64,43	100	64,08	65,24	10M	821	10:34:58
+MMXM3	13,00	+0,62	3.700	12,98	13,00	2.900	12,95	13,12	3M	387	10:34:56
+MRVE3	17,59	+3,47	800	17,58	17,59	1.600	17,15	17,60	5M	744	10:34:56
+NATU3	48,91	+0,47	400	48,92	48,98	100	48,82	49,44	4M	471	10:34:58
+NETC4	22,84	-0,26	9.600	22,84	22,90	4.600	22,82	22,90	2M	12	10:31:03
+OGXP3	22,85	+0,75	20.900	22,85	22,86	4.100	22,76	23,09	46M	2.448	10:34:57
+PCAR5	62,28	+0,78	100	62,28	62,30	3.300	61,99	62,28	9M	378	10:34:56
+PDGR3	22,26	+4,31	5.200	22,25	22,26	400	21,51	22,28	30M	1.921	10:34:58
+PETR3	28,71	-0,10	4.900	28,71	28,73	200	28,65	28,97	7M	606	10:34:55
+PETR4	25,88	+0,12	7.100	25,86	25,88	7.000	25,82	26,09	52M	2.525	10:34:58
+RDCD3	25,73	-1,94	600	25,73	25,79	400	25,55	26,40	4M	553	10:34:57
+RSID3	17,41	+2,96	2.800	17,41	17,43	3.500	16,91	17,47	8M	540	10:34:54
+TAMM4	39,45	+3,06	1.500	39,45	39,47	2.000	38,89	39,48	4M	269	10:34:58
+TCSL4	5,58	+0,00	78.900	5,57	5,60	16.100	5,55	5,62	909.772	178	10:34:58
+TNLP4	24,88	-0,08	600	24,88	24,89	300	24,82	25,00	3M	182	10:34:53
+USIM3	24,13	-0,45	200	24,13	24,18	100	24,11	24,54	897.491	198	10:34:53
+USIM5	21,18	+0,19	5.500	21,17	21,20	1.100	21,17	21,37	9M	1.163	10:34:52
+VALE3	53,73	+0,24	100	53,71	53,72	200	53,70	53,92	14M	738	10:34:56
+VALE5	47,70	+0,63	4.500	47,70	47,72	700	47,62	47,85	93M	2.771	10:34:57
+VIVO4	49,25	-0,61	1.500	49,25	49,35	200	48,96	49,65	1M	168	10:34:53
+
+    * Suas Ordens
+    * Carteira
+    * Financeiro
+
+    * Radar
+    * Notícias
+    * Fórum
+
+	
+
+Seq
+	
+
+Ação
+	
+
+C/V
+	
+
+Tipo
+	
+
+Status
+	
+
+Qtde
+	
+
+Preço
+	
+
+R$ Total
+	
+
+Abertura
+	
+
+Validade
+	
+
+QtdeExec
+	4336976	PETR4	C	 Limitada	Pend. Canc.	100	1,00	0,00	13/10/10	13/10/10	0
+	4335629	PETR4	V	 Limitada	Executada	100	26,05	2.605,00	13/10/10	13/10/10	100
+	4335274	PETR4	C	 Limitada	Executada	100	25,96	2.596,00	13/10/10	13/10/10	100
+	4335062	ECOD3	C	 Limitada	Cancelada	100	1,00	0,00	13/10/10	13/10/10	0
+	4334982	ECOD3	C	 Limitada	Cancelada	100	1,00	0,00	13/10/10	13/10/10	0
+	
+
+Seq
+	
+
+Ação
+	
+
+C/V
+	
+
+Tipo
+	
+
+Status
+	
+
+Qtde
+	
+
+Preço
+	
+
+R$ Total
+	
+
+Abertura
+	
+
+Validade
+	
+
+QtdeExec
+	4336976	PETR4	C	 Limitada	Pend. Canc.	100	1,00	0,00	13/10/10	13/10/10	0
+	4335629	PETR4	V	 Limitada	Executada	100	26,05	2.605,00	13/10/10	13/10/10	100
+	4335274	PETR4	C	 Limitada	Executada	100	25,96	2.596,00	13/10/10	13/10/10	100
+	4335062	ALLL11	C	 Limitada	Cancelada	100	1,00	0,00	13/10/10	13/10/10	0
+	4334982	ALLL11	C	 Limitada	Cancelada	100	1,00	0,00	13/10/10	13/10/10	0
+Mês: Status: Consultar X Cancelar Ordem
+
+Ação
+	
+
+Cotação
+	
+
+Qtde. Negociável
+	
+
+Compra Exec.
+	
+
+Venda Exec.
+	
+
+Qtde. Total
+	
+
+Saldo R$
+PETR4 		0	100 	100 	0 	
+
+Ação
+	
+
+Cotação
+	
+
+Qtde. Negociável
+	
+
+Compra Exec.
+	
+
+Venda Exec.
+	
+
+Qtde. Total
+	
+
+Saldo R$
+PETR4	26,00	0	100 	100 	0	0,00
+
+SALDOS E LIQUIDAÇÕES
+	
+
+ORDENS DIA
+	
+
+LIMITE
+	
+Saldo em Conta 	30.000,00 	Compras em Aberto 	0,00 	Ações - Disponível 	2.996,40 	
+Para D1 	Para D1 - 14/10/2010 	0,00 	Vendas em Aberto 	0,00 	Ações - 1ª Linha 	2.996,40 	
+Para D2 	Para D2 - 15/10/2010 	0,00 	Saldo em Aberto 	0,00 	Ações - 2ª Linha 	2.996,40 	
+Para D3 	Para D3 - 18/10/2010 	0,00 	Compras Executadas 	2.596,00 	Opções - Disponível 	2.996,40 	
+Saldo Indisponível 	0,00 	Vendas Executadas 	2.605,00 			
+Saldo Final 	30.000,00 	Saldo Líquido 	9,00 			
+						
+Ativo: Mínima: Máxima: E-mail: Adicionar
+
+Data
+	
+
+Hora
+	
+
+Agência
+	
+
+Título
+Carregando notícias.
+
+(0) Caixa de Entrada Preferências
+
+Fórum disponível durante o pregão regular.
+
+As mensagens publicadas no FÓRUM estão sujeitas a monitoramento pela ICAP, podendo, inclusive, serem excluídas do site. Os conteúdos das mensagens serão guardados pelo período de 05 (cinco) anos e estarão à disposição da CVM e demais órgãos reguladores. Algumas das mensagens veiculadas nesta página são elaboradas por analista(s) de investimento, apenas com o objetivo de prover informações, sendo que a ICAP não se responsabiliza por qualquer decisão de investimento baseada nas informações divulgadas. As opiniões contidas em tais mensagens são baseadas em julgamento e estimativas estando, portanto, sujeitas a mudanças. O analista de investimento que veicula tais mensagens certifica: (a) que as opiniões nelas contidas refletem exclusivamente suas opiniões pessoais sobre a companhia e seus valores mobiliários e foram elaboradas de forma independente e autônoma, inclusive em relação à ICAP. (b) que não mantém vínculo com qualquer pessoa natural que atue no âmbito das companhias cujos valores mobiliários foram alvo de análise; (c) não é titular, direta ou indiretamente, de valores mobiliários de emissão da companhia objeto da análise, que representem 5% ou mais de seu patrimônio pessoal, bem como não está envolvido na aquisição, alienação e intermediação destes valores mobiliários; (d) que não recebe remuneração ou apresenta relações comerciais com qualquer das companhias cujos valores mobiliários são alvo de análise; (e) que a remuneração que recebe não está atrelada à precificação dos valores mobiliários emitidos por companhias analisadas ou às receitas provenientes dos negócios e operações financeiras realizadas pela ICAP. A ICAP não possui participação acionária direta ou indireta, igual ou superior a 1% do capital social de quaisquer das companhias cujos valores mobiliários são alvo da análise. A ICAP participou na qualidade de instituição intermediária, das ofertas públicas de ações nos últimos doze meses das seguintes companhias: BR Malls, Brasil Foods, Natura, Multiplan, Rossi, PDG Realty, Santander, Gol, Brookfield, Iguatemi, CCR, Cetip, Cyrela, Marfrig, Multiplus, Inpar,Aliansce,Fleury, Anhanguera, BNDES, Energias do Brasil, Direcional Engenharia, Tivit, Renova Energia S.A., OSX Brasil S.A., BR Properties S.A., Gafisa S.A., Ecorodovias S.A., Hypermarcas S.A., Mills S.A., FII Presidente Vargas, Julio Simões S.A., Even Construtora e Incorporadora S.A., JBS S.A., Banco Cruzeiro do Sul S.A. e Banco do Brasil S.A.. A ICAP não possui participação acionária direta ou indireta, igual ou superior a 1% do capital social de quaisquer das companhias cujos valores mobiliários são alvo da análise do relatório.
+Título: *
+Mensagem: *
+Enviar Cancelar
+Preferências
+
+1. Deseja que o fórum se atualize automaticamente?
+Sim, a cada minutos.
+Não.
+
+2. Selecione o número de mensagens a ser exibido por página:
+Exibir mensagens.
+
+Enviar Fechar
+Caixa de Entrada
+
+Ativos:
+Atualizar
+PETR4	PETROBRAS - PN
+RDCD3	REDECARD - ON NM
+RSID3	ROSSI RESID - ON NM
+SANB11	SANTANDER BR - UNT N2
+SBSP3	SABESP - ON NM
+TAMM4	TAM S/A - PN N2
+TCSL3	TIM PART S/A - ON
+TCSL4	TIM PART S/A - PN
+TLPP4	TELESP - PN EDJ
+TMAR5	TELEMAR N L - PNA
+PETR4
+
++0,12%
+Ativo em Baixa Ativo em Alta Ativo Estável
+
+R$ 25,88
+
++0,12%
+
+R$ 25,88
+Quantidade
+Ajuste Inicial Stop
+Limite
+Preço Total
+Stop Limite
+Total
+Preço Limite Preço Stop
+Stop Gain
+Stop Loss
+
+Ordem enviada com sucesso.
+
+Ass. Eletrônica
+Salvar
+Enviar
+Vol. R$ 	52M 	Abr. 	26,02
+Qtd. Últ. 	100 	Máx. 	26,09
+Fec. Ant. 	25,85 	Min. 	25,82
+Cotação 	unitária 	Lote 	100
+			
+Osc.Teó. 	0,00% 	Qtd.Teó. 	140.600
+Pre.Teó. 	26,02 	Lado 	Venda
+LeilãoAté 	10:03:30 	Qtd.Rest. 	45.600
+									
+Qtde. 	$Compra 	$Venda 	Qtde.
+500
+	
+18,00
+	
+18,45
+	
+3.100
+500
+	
+17,90
+	
+18,50
+	
+500
+200
+	
+17,80
+	
+18,53
+	
+4.400
+2.000
+	
+17,79
+	
+18,55
+	
+1.800
+200
+	
+17,74
+	
+18,58
+	
+3.500
+Qtde. 	$Compra 	$Venda 	Qtde.
+Qtde.	$Compra	$Venda	Qtde.
+2.400
+	
+25,86
+	
+25,88
+	
+1.900
+300
+	
+25,86
+	
+25,88
+	
+300
+200
+	
+25,86
+	
+25,88
+	
+800
+1.000
+	
+25,85
+	
+25,88
+	
+3.100
+20.000
+	
+25,85
+	
+25,88
+	
+1.000
+3.400
+	
+25,85
+	
+25,89
+	
+5.000
+1.000
+	
+25,84
+	
+25,89
+	
+500
+8.000
+	
+25,84
+	
+25,89
+	
+2.600
+100
+	
+25,84
+	
+25,89
+	
+1.300
+1.400
+	
+25,84
+	
+25,90
+	
+700
+100
+	
+25,84
+	
+25,90
+	
+2.000
+6.000
+	
+25,84
+	
+25,90
+	
+600
+2.800
+	
+25,83
+	
+25,90
+	
+300
+2.000
+	
+25,83
+	
+25,90
+	
+1.000
+3.000
+	
+25,82
+	
+25,90
+	
+1.300
+Indusval
+Morgan Stanley
+Corr 	Nome 	Saldo R$
+Corr	Nome	Saldo R$
+Hora 	Preço 	Qtde 	Comp 	Vend
+Hora	Preço	Qtde	Comp	Vend
+
+    * 5
+    * 15
+    * D
+    * H
+
+ordem Rápida
+Fechar
+
+Siga o exemplo:
+Para comprar 400 PETR4 a R$ 43,10 cada, digite:
+C400PETR4A43,10
+Para vender:
+V400PETR4A43,10
+
+Ordem Rápida: OK
+
+Operação:
+
+Quantidade:
+
+Ativo:
+
+Preço:
+
+Total:
+
+Validade:
+petrobras pn
+
+-1,19%
+Ativo em Baixa
+
+R$32,50
+Resumo
+petrobras pn
+
+-1,19%
+Ativo em Baixa
+
+R$32,50
+
+17:23
+Compra 	Qt. Compra 	Qt.Venda 	Venda
+32,8 	2K 	3K 	32,85
+Vol. 		Neg. 	
+Quant. 		Máx. 	
+Abr. 		Méd. 	
+Fech. Ant. 		Min. 	
+Cotação 		Lote 	
+Gráfico
+Fechar Sucesso
+
+Operação realizada com sucesso.
+OK
+Fechar Erro
+
+Transação temporariamente indisponível.
+OK
+Fechar Erro
+
+Transação temporariamente indisponível.
+Sim Não

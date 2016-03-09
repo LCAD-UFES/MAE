@@ -1,0 +1,47 @@
+################################################ Set Global Variables #################################################
+set NEURON_MEMORY_SIZE = 16500;
+set TYPE_SHOW = SHOW_FRAME;
+set TYPE_MOVING_FRAME = STOP;
+set N_SYNAPSES = SYNAPSES;
+
+######################################################## Constants ####################################################
+const NL_WIDTH 			= 14;
+const NL_HEIGHT			= 14;
+const IN_WIDTH			= 38;
+const IN_HEIGHT			= 37;
+const CNAE_TABLE_PATH		= "REPOSITORY/";
+const OBJETOS_SOCIAIS_PATH	= "REPOSITORY/";
+const CNAE_TABLE_ID		= 0;
+const OBJETOS_SOCIAIS_ID	= 1;
+const SYNAPSES			= 256;
+
+############################################### Neuron Layers #########################################################
+#neuronlayer	nl_class_cnae[NL_WIDTH][NL_HEIGHT] 	with greyscale outputs;
+neuronlayer	nl_class_cnae[NL_WIDTH][NL_HEIGHT]	of minchinton neurons with greyscale outputs;
+
+############################################### Outputs #########################################################
+output		nl_class_cnae_out[NL_WIDTH][NL_HEIGHT] handled by output_handler();
+
+################################################## Inputs #############################################################
+input 		document[IN_WIDTH][IN_HEIGHT]	with greyscale_float outputs produced by input_generator() controled by input_controler();
+
+############################################### Filters #########################################################
+
+################################## Connect Neuron Layers to Outputs #############################################
+outputconnect	nl_class_cnae 		to nl_class_cnae_out;
+
+############################################### Associations ####################################################
+associate	nl_class_cnae		with nl_class_cnae;
+
+################################################ Connections ####################################################
+#fullconnect	document		to nl_class_cnae;
+connect		document		to nl_class_cnae	with SYNAPSES random inputs per neuron;
+
+
+################################################ User Functions #################################################
+int GetDoc("%d %d %d");
+int ShowStatistics ("%d");
+int ResetStatistics ("%d");
+int SetNetworkStatus ("%d");
+int GetItem ("%d %d");
+

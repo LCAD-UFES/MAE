@@ -1,0 +1,23 @@
+int i;
+int max_disp;
+float scale;
+
+scale = 0.8;
+i = 0;
+max_disp =60;
+
+while (i < max_disp)
+{
+	forward network;
+	key w;
+	train network;
+	key s;
+	i = i + 1;
+}
+
+key c;
+forward network;
+forward nl_disparity_map_filter;
+forward outputs;
+save nl_disparity_map to cones_disparity_map.ppm;
+

@@ -1,0 +1,31 @@
+/******************************************/
+
+/* Network Status */
+int TRAINING_PHASE;
+TRAINING_PHASE = 1;
+int RECALL_PHASE;
+RECALL_PHASE = 2;
+
+/* Database identifiers */
+int CNAE_TABLE_ID;
+int OBJETOS_SOCIAIS_ID;
+CNAE_TABLE_ID = 0; 	/* Must be equal to that specified in the class_cnae.con */
+OBJETOS_SOCIAIS_ID = 1;	/* Must be equal to that specified in the class_cnae.con */
+
+/******************************************/
+
+/* Counters */
+int i;
+
+/* Testing phase */
+SetNetworkStatus (RECALL_PHASE);
+
+i = 1;
+
+GetItem (i, OBJETOS_SOCIAIS_ID);
+
+forward network;
+	
+ShowStatistics (0);
+
+

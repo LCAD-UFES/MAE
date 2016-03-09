@@ -1,0 +1,25 @@
+build:
+	$(MAKE) -f Makefile.win -C src
+
+v1:
+	$(MAKE) -f Makefile.win -C src
+	$(MAKE) -f Makefile.win -C examples/smv2.0
+
+v2:
+	$(MAKE) -f Makefile.win -C src
+	$(MAKE) -f Makefile.win -C examples/robot_smv
+	
+clean:
+	$(MAKE) -f Makefile.win clean -C src
+#	$(MAKE) -f Makefile.win clean -C docs
+
+install:
+	./configure
+	$(MAKE) -C src
+
+documentation:
+	$(MAKE) documentation -C docs
+
+cleanauto:
+	rm -f *.log *.status confdefs.h *.cache configure *~ src/Makefile bin/netcompiler
+

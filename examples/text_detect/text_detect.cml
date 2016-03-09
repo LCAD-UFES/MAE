@@ -1,0 +1,24 @@
+int i;
+i = 0;
+
+while (i < 100)
+{
+	read_input(i);
+	read_output(i);
+
+	forward outputs;
+	train network;
+	
+	i = i + 1;
+}
+
+unload to "text_detect.mem";
+destroy network;
+reload from "text_detect.mem";
+
+read_input(100);
+#forward inputs;
+forward neural_layers;
+#forward outputs;
+run 10;
+

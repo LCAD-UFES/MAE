@@ -1,0 +1,30 @@
+Author: Stiven
+Date: 05-10-2006
+
+****************************************
+Description: Face recognition experiment.
+
+****************************************
+Database:
+50 persons; 30 man and 20 woman; 14 photos per person
+	-350 photos for training (7 random choosed photos per person)
+	-350 photos for testing (7 remaining photos per person)
+
+PS.: original AR database subsets
+
+***************************************
+Features analysed:
+	-New output layer type;
+	-New target choosing heuristic;
+	-Scaling (1:5) and rotation compensation.
+	-Target=nose
+
+****************************************
+Results:
+	Hit-rate = 96,86%
+
+****************************************
+Conclusions:
+	
+
+

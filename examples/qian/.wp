@@ -1,0 +1,6 @@
+image_left 299 396
+image_right 29 397
+disparity_map_out 652 385
+nl_disparity_map_out 918 101
+nl_subpixel_disparity_map_out 652 99
+mae_control_window 50 50

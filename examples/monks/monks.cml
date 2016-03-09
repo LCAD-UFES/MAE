@@ -1,0 +1,25 @@
+int i;
+int j;
+toggle move_active;
+toggle draw_active;
+i = 0;
+while(i<124)
+{
+	move caracteristicas to 5, 1;
+	draw monks_out based on caracteristicas move;
+	train network;
+	i=i+1;
+}
+
+i = 0;
+while (i < 432)
+{
+	move caracteristicas to 5, 1;
+	j = 0;
+	while (j < 10)
+	{
+		forward network;
+		j = j + 1;
+	}
+	i = i + 1;
+}

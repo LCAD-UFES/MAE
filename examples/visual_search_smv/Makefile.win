@@ -1,0 +1,54 @@
+CC=gcc
+CFLAGS = -g -Wall -O3 -D WINDOWS -D GLUT_NO_LIB_PRAGMA
+DEL=del /F /Q 
+LIBRARYS=-L../../lib -L"C:\Arquivos de Programas\GnuWin32\lib" -lnet_conn -lGA -lTsai -lgw32c -lole32 -luuid -lglut32 -lglu32 -lopengl32 -lm -lfl
+INCLUDES=-I../../include -I./
+
+LIB_DIR = ..\..\lib
+
+DLLWRAP=dllwrap.exe
+DEFFILE=smv.def
+STATICLIB=smv.a
+
+##########################################################
+
+EXECUTABLE = visual_search.exe
+DLL = visual_search.dll
+OBJECTS = visual_search.o \
+	  visual_search_user_functions/visual_search_user_functions.o \
+	  visual_search_user_functions/visual_search_filters.o
+
+##########################################################
+
+.c.o:
+	$(CC) $(CCFLAGS) -c $(INCLUDES) -o $@ $*.c
+	
+##########################################################
+
+all: $(EXECUTABLE) $(DLL)
+	@echo OK
+	
+$(EXECUTABLE): $(OBJECTS)
+	$(CC) $(CCFLAGS) -o $(EXECUTABLE) $(INCLUDES) $(OBJECTS) $(LIBRARYS)
+
+
+$(DLL): $(OBJECTS)
+	$(DLLWRAP) --output-def $(LIB_DIR)\$(DEFFILE) $(OBJECTS) $(LIBRARYS) -o $(LIB_DIR)\$(DLL)
+
+##########################################################
+
+visual_search.o:
+	netcomp -o $* < $*.con
+	$(CC) $(CCFLAGS) -c $(INCLUDES) -o $@ $*.c
+visual_search_user_functions/robot_user_functions.o: visual_search_user_functions/robot_user_functions.h
+visual_search_user_functions/list.o: visual_search_user_functions/list.h
+
+##########################################################
+
+clean:
+	$(DEL) visual_search.exe
+	$(DEL) visual_search.c
+	$(DEL) visual_search.h
+	$(DEL) *.o
+	$(DEL) *.out
+	$(DEL) visual_search_user_functions\*.o

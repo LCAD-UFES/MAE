@@ -1,0 +1,149 @@
+################################################ Set Global Variables #################################################
+
+set TYPE_SHOW = SHOW_FRAME;
+set TYPE_MOVING_FRAME = STOP;
+
+######################################################## Constants ####################################################
+
+#Scale variation parameter
+#const i = 1;
+
+# General settings
+const FOV_HORIZONTAL = 48.0;
+const TARGET_NEURON_LAYER_NAME = "nl_target_coordinates";
+
+# Architecture settings
+const IMAGE_WIDTH  = 1360;
+const IMAGE_HEIGHT = 800;
+
+const IMAGE_WIDTH_RESIZED  = 201;
+const IMAGE_HEIGHT_RESIZED = 201;
+
+const NL_WIDTH  = 16 * 4 + 1;
+const NL_HEIGHT = 12 * 4 + 1;
+
+set NEURON_MEMORY_SIZE = 10 * 12 * NL_WIDTH * NL_HEIGHT;  
+
+const INPUTS_PER_NEURON = 256;
+const GAUSSIAN_RADIUS = 5.0;
+const LOG_FACTOR = 2.0;
+
+const BAND_WIDTH = 0.125;
+
+# Network status conventions
+const TRAINNING	= 0;
+const RUNNING	= 1;
+
+# Search heuristic parameters
+const CUT_POINT	= 0.7;
+
+# Translation filter deltaX & delataY
+float	translation_filter_deltaX = IMAGE_WIDTH/2.0 - IMAGE_WIDTH_RESIZED/2.0;
+float	translation_filter_deltaY = IMAGE_HEIGHT/2.0 - IMAGE_HEIGHT_RESIZED/2.0;
+
+# gaussian_filter_dynamic parameter
+int	g_kernel_size = 5;
+float	g_sigma = 1.0;
+
+#Neuron layer activation bandwidth
+const   ACT_BAND_WIDTH = 2*4;
+
+#Activation Bandwidth output value ( highest output )
+float   HIGHEST_OUTPUT = 1.0;
+
+const TRAINING_INPUT_PATH	= "/dados/TrainIJCNN2013/";
+const REACALL_INPUT_PATH	= "/dados/TestIJCNN2013Download/";
+
+############################################### Neuron Layers #########################################################
+
+#PS: nl_v1_activation_map is the only neural layer with actual neuron memory
+#neuronlayer	nl_v1_activation_map[NL_WIDTH][NL_HEIGHT]       of minchinton_fat_fast_rand neurons color sensitive with greyscale_float outputs using shared memory;
+
+neuronlayer	nl_v1_activation_map[NL_WIDTH][NL_HEIGHT]       of minchinton neurons color sensitive with greyscale_float outputs using shared memory;
+
+neuronlayer    	nl_v1_activation_map_f[NL_WIDTH][NL_HEIGHT] 	with greyscale_float outputs;
+
+neuronlayer    	nl_target_coordinates[2][1]			with greyscale_float outputs;
+
+neuronlayer    	nl_v1_pattern[NL_WIDTH][NL_HEIGHT]	       	with color outputs, show;
+
+neuronlayer    	in_pattern_translated[IMAGE_WIDTH_RESIZED][IMAGE_HEIGHT_RESIZED]		with color outputs;
+
+neuronlayer    	in_pattern_filtered_translated[IMAGE_WIDTH_RESIZED][IMAGE_HEIGHT_RESIZED]	with color outputs;
+
+############################################### Outputs #########################################################
+
+#parameters: 	output_handler_max_value_position("%s %f", <nl_target_coordinates_name>, <log_factor>)
+output		out_v1_activation_map[NL_WIDTH][NL_HEIGHT] handled by output_handler_max_value_position("%s %f", TARGET_NEURON_LAYER_NAME, LOG_FACTOR);
+
+output         	out_target_coordinates[2][1];
+
+output         	out_in_pattern_filtered_translated[IMAGE_WIDTH_RESIZED][IMAGE_HEIGHT_RESIZED];
+
+#Non-filtered v1 activation map - for experimental purposes
+output		out_v1_activation_map_no_filters[NL_WIDTH][NL_HEIGHT];
+
+################################################## Inputs #############################################################
+
+input 		in_pattern[IMAGE_WIDTH][IMAGE_HEIGHT]	with color outputs produced by input_generator() controled by input_controler();
+
+############################################### Filters ###############################################################   
+
+#parameters:	translate_nl_filter("%f %f",Delta_X,Delta_Y)
+filter		in_pattern	 		with translate_nl_filter("%p %p", &translation_filter_deltaX, &translation_filter_deltaY) producing in_pattern_translated;
+#filter		in_pattern 			with reshape_cv_filter ("%p %p", &translation_filter_deltaX, &translation_filter_deltaY) producing in_pattern_translated;
+
+#parameters: 	gaussian_filter("%s %d", <kernel size>, <sigma>)
+#filter		in_pattern_translated		with gaussian_dynamic_filter("%p %p", &g_kernel_size, &g_sigma) producing in_pattern_filtered_translated;
+filter		in_pattern_translated		with gaussian_filter("%d %f", 5, 1.0) producing in_pattern_filtered_translated;
+#filter		in_pattern_translated		with gaussian_cv_filter("%p %p", &g_kernel_size, &g_sigma) producing in_pattern_filtered_translated;
+
+#parameters: 	map_image_v1("%s %d", <input_name>, <log_factor>)
+filter		in_pattern_filtered_translated  with map_image_v1("%s %f", "", LOG_FACTOR) producing nl_v1_pattern;
+
+#parameters: 	gaussian_filter("%s %d", <kernel size>, <sigma>)
+filter		nl_v1_activation_map 		with gaussian_filter("%d %f", 5, 1.0) producing nl_v1_activation_map_f;
+
+################################## Connect Neuron Layers to Outputs #############################################
+
+outputconnect	nl_v1_activation_map		to out_v1_activation_map_no_filters;
+
+outputconnect	nl_v1_activation_map_f		to out_v1_activation_map;
+
+outputconnect  	nl_target_coordinates		to out_target_coordinates;
+
+outputconnect  	in_pattern_filtered_translated	to out_in_pattern_filtered_translated;
+
+############################################### Associations ####################################################
+
+associate	nl_v1_activation_map_f		with	nl_v1_activation_map;
+
+################################################ Connections ####################################################
+
+#A first experiment of a connection to a shared memory neural layer
+connect in_pattern_filtered_translated to nl_v1_activation_map with INPUTS_PER_NEURON random inputs per neuron and log_polar distribution with radius GAUSSIAN_RADIUS and logfactor LOG_FACTOR , same interconnection pattern;
+
+################################################# User Functions ################################################
+	
+int get_target_coordinates("%p %p %f");
+
+int GetImage("%d");
+int GetNumImages("");
+int GetImageByNumberImage("%d");
+int MoveToTrafficSign("");
+int MoveToPoint("%d %d");
+int GetDeltaMove("");
+int TrainTrafficSign("");
+int CheckTrafficSignDetection("");
+int CheckTrafficSignDetectionMandatory("");
+int ReportParcialResults("");
+int SetScaleFactor("%f");
+int SetCriterion("%d");
+int GetProhibitoryTrafficSign("%d");
+int SaveState("");
+int GetBestProhibitoryTrafficSign("%d %d %d");
+int GetBestProhibitoryTrafficSign_varius("%d %d %d");
+int GetBestMandatoryTrafficSign("%d %d %d");
+int GetTrafficSignOfSpecificSize("%d %d %d");
+
+int SetNetworkStatus("%d");

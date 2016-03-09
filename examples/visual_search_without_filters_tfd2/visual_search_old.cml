@@ -1,0 +1,64 @@
+/* Counters */
+int i;
+int IMAGES2TESTING;
+int NUM_IMAGES;
+int x;
+int y;
+int delta_move;
+
+/* Trainning */
+GetImage(0);
+MoveToTrafficSign(0);
+TrainTrafficSign(0);
+
+GetImage(2);
+MoveToTrafficSign(0);
+TrainTrafficSign(0);
+
+GetImage(4);
+MoveToTrafficSign(0);
+TrainTrafficSign(0);
+
+GetImage(5);
+MoveToTrafficSign(0);
+TrainTrafficSign(0);
+
+
+NUM_IMAGES = GetNumImages(0);
+IMAGES2TESTING = NUM_IMAGES / 2;
+
+delta_move = GetDeltaMove(0);
+i = 6;
+while (i < NUM_IMAGES)
+{
+	GetImage(i);
+	y = delta_move;
+	while (y < 800)
+	{
+		x = delta_move;
+		while (x < 1360)
+		{
+			MoveToPoint(x, y);
+			key 's';
+			CheckTrafficSignDetection(0);
+			x = x + delta_move;
+		}
+		y = y + delta_move;
+	}
+	ReportParcialResults(0);
+	i = i + 1;
+}
+
+quit;
+
+/*
+i = 0;
+while (i < NUM_IMAGES)
+{
+	GetImage(i);
+	MoveToTrafficSign(0);
+	CheckTrafficSignDetection(0);
+
+	i = i + 1;
+}
+*/

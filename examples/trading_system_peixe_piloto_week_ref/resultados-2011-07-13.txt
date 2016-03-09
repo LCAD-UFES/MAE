@@ -1,0 +1,113 @@
+Resultados alcancados com o preditor e trading system. Configuracao base:
+const IN_WIDTH			= 4 * SAMPLE_SIZE + 1;
+const IN_HEIGHT			= 44;
+const NL_WIDTH 			= 10;
+const NL_HEIGHT			= 15;
+const SYNAPSES			= 256;
+const STOP_GAIN  		= 0.03;
+const STOP_LOSS 		= -0.10;
+const START_BUYING_RETURN	= 0.01;
+const TRADING_SYSTEM_STOP_GAIN  		= 0.03;
+const TRADING_SYSTEM_STOP_LOSS 			= -0.10;
+const TRADING_SYSTEM_START_BUYING_RETURN	= 0.01;
+const TRADING_SYSTEM_BUY_SELL_DELTA_RETURN	= 0.0015;
+const MOVING_AVERAGE_NUM_PERIODS 		= 40;
+const POINTS				= 0;
+const TYPE_OF_WNN_INPUT		 	= 2;
+const TYPE_OF_RETURN_AND_AVERAGE	= 3;
+const RELEARN_RETURN	 		= 1; # a principio, so deve ser usado se output_handler nao for output_handler_average
+const SAMPLES2CALIBRATE		= 104;
+output		nl_wnn_pred_out[NL_WIDTH][NL_HEIGHT] handled by output_handler_average();
+filter		sample 	with gaussian_filter ("%d %f", 5, 1.0) producing sample_gaussian;
+#connect		sample		to nl_wnn_pred	with SYNAPSES random inputs per neuron;
+connect		sample_gaussian	to nl_wnn_pred	with SYNAPSES random inputs per neuron;
+connect		sample_gaussian	to nl_wnn_pred	with SYNAPSES random inputs per neuron and gaussian distribution with radius 3.0;
+
+
+
+--- Reasultado com a configuracao acima
+# **** average_target_return:  0.001511, average_wnn_error: -0.010738
+# **** standard_deviation_target_return:  0.019033, standard_deviation_wnn_error:  0.025907
+# **** hr_up: 51.92, hr_dn: 0.00, hr: 60.00
+# **** capital inicial: R$40000.00  capital final: R$47642.29  retorno acumulado: 19.11%
+
+# 2011-06-15 Wed 16:50 - traded stock TBLE3,  current capital: R$58156.28,  week return: -1.19%,  accumulated return: +45.39%
+# 2011-06-22 Wed 16:50 - traded stock LAME4,  current capital: R$57585.54,  week return: -0.98%,  accumulated return: +43.96%
+# 2011-06-27 Mon 12:24 - traded stock TCSL3,  current capital: R$59496.41,  week return: +3.32%,  accumulated return: +48.74%
+# 2011-07-06 Wed 16:50 - traded stock TCSL3,  current capital: R$58987.72,  week return: -0.86%,  accumulated return: +47.47%
+### 2011-07-13 Wed 16:59 - QUIT: Final Capital		R$58987.72	 accumulated return: 47.47%
+
+[alberto@cachoeiro trading_system_peixe_piloto_week]$ ./average_signal_match.sh 
+target_return; wnn_error; standard_deviation_target_return; standard_deviation_wnn_error; hr_up; hr_dn; hr
+-0.00132954; 0.000818974; 0.039961; 0.0486061; 42.4021%; 39.35%; 50.6231%
+
+
+
+--- Mesmo que base, mas: const NL_WIDTH 			= 8; const NL_HEIGHT			= 12;
+# **** average_target_return:  0.000266, average_wnn_error: -0.012424
+# **** standard_deviation_target_return:  0.018552, standard_deviation_wnn_error:  0.026680
+# **** hr_up: 46.15, hr_dn: 0.00, hr: 52.17
+# **** capital inicial: R$40000.00  capital final: R$39229.68  retorno acumulado: -1.93%
+
+# 2011-06-15 Wed 16:50 - traded stock TBLE3,  current capital: R$41337.97,  week return: -1.15%,  accumulated return: +3.34%
+# 2011-06-22 Wed 10:37 - traded stock TAMM4,  current capital: R$42399.10,  week return: +2.57%,  accumulated return: +6.00%
+# 2011-06-29 Wed 16:50 - traded stock TNLP4,  current capital: R$41314.42,  week return: -2.56%,  accumulated return: +3.29%
+# 2011-07-06 Wed 16:50 - traded stock TCSL3,  current capital: R$40961.97,  week return: -0.85%,  accumulated return: +2.40%
+### 2011-07-13 Wed 16:59 - QUIT: Final Capital		R$40961.97	 accumulated return: 2.40%
+
+[alberto@cachoeiro trading_system_peixe_piloto_week]$ ./average_signal_match.sh 
+target_return; wnn_error; standard_deviation_target_return; standard_deviation_wnn_error; hr_up; hr_dn; hr
+-0.00132954; 0.000734538; 0.039961; 0.0486354; 42.3369%; 39.4474%; 50.6618%
+
+
+
+--- Mesmo que base, mas: const SYNAPSES			= 200;
+# **** average_target_return: -0.000887, average_wnn_error: -0.013138
+# **** standard_deviation_target_return:  0.020011, standard_deviation_wnn_error:  0.028374
+# **** hr_up: 46.15, hr_dn: 0.00, hr: 53.33
+# **** capital inicial: R$40000.00  capital final: R$32606.93  retorno acumulado: -18.48%
+
+# 2011-06-22 Wed 12:22 - traded stock AMBV4,  current capital: R$38446.80,  week return: +2.56%,  accumulated return: -3.88%
+# 2011-06-29 Wed 16:50 - traded stock TNLP4,  current capital: R$37488.54,  week return: -2.49%,  accumulated return: -6.28%
+# 2011-07-06 Wed 16:50 - traded stock TCSL3,  current capital: R$37165.85,  week return: -0.86%,  accumulated return: -7.09%
+### 2011-07-13 Wed 16:59 - QUIT: Final Capital		R$37165.85	 accumulated return: -7.09%
+
+[alberto@cachoeiro trading_system_peixe_piloto_week]$ ./average_signal_match.sh 
+target_return; wnn_error; standard_deviation_target_return; standard_deviation_wnn_error; hr_up; hr_dn; hr
+-0.00132954; 0.000829923; 0.039961; 0.0481045; 42.7033%; 40.0972%; 51.2833%
+
+
+
+--- Mesmo que base, mas: const IN_HEIGHT			= 2*44;
+# **** average_target_return: -0.000049, average_wnn_error: -0.011126
+# **** standard_deviation_target_return:  0.017978, standard_deviation_wnn_error:  0.023409
+# **** hr_up: 48.08, hr_dn: 0.00, hr: 52.08
+# **** capital inicial: R$40000.00  capital final: R$37376.58  retorno acumulado: -6.56%
+
+# 2011-06-15 Wed 16:50 - traded stock AMBV4,  current capital: R$40281.66,  week return: -1.64%,  accumulated return: +0.70%
+# 2011-06-22 Wed 16:50 - traded stock CSNA3,  current capital: R$38672.38,  week return: -4.00%,  accumulated return: -3.32%
+# 2011-06-29 Wed 16:50 - traded stock AMBV4,  current capital: R$39303.66,  week return: +1.63%,  accumulated return: -1.74%
+# 2011-07-06 Wed 16:50 - traded stock ELET6,  current capital: R$38434.07,  week return: -2.21%,  accumulated return: -3.91%
+### 2011-07-13 Wed 16:59 - QUIT: Final Capital		R$38434.07	 accumulated return: -3.91%
+
+[alberto@cachoeiro trading_system_peixe_piloto_week]$ ./average_signal_match.sh 
+target_return; wnn_error; standard_deviation_target_return; standard_deviation_wnn_error; hr_up; hr_dn; hr
+-0.00132954; 0.000677231; 0.039961; 0.0482782; 42.5456%; 38.9864%; 50.4503%
+
+
+
+--- Mesmo que base, mas: const SAMPLE_SIZE		= 5;
+# **** average_target_return: -0.001847, average_wnn_error: -0.014303
+# **** standard_deviation_target_return:  0.016183, standard_deviation_wnn_error:  0.026787
+# **** hr_up: 28.00, hr_dn: 0.00, hr: 33.33
+# **** capital inicial: R$40000.00  capital final: R$27131.68  retorno acumulado: -32.17%
+
+# 2011-06-10 Fri 11:05 - traded stock BRFS3,  current capital: R$36263.25,  week return: +3.43%,  accumulated return: -9.34%
+# 2011-06-22 Wed 16:50 - traded stock BRKM5,  current capital: R$35396.07,  week return: -2.39%,  accumulated return: -11.51%
+# 2011-06-29 Wed 16:50 - traded stock EMBR3,  current capital: R$34237.59,  week return: -3.27%,  accumulated return: -14.41%
+# 2011-07-06 Wed 16:50 - traded stock TCSL3,  current capital: R$33944.66,  week return: -0.86%,  accumulated return: -15.14%
+### 2011-07-13 Wed 16:59 - QUIT: Final Capital		R$33944.66	 accumulated return: -15.14%
+
+[alberto@cachoeiro trading_system_peixe_piloto_week]$ ./average_signal_match.sh 
+target_return; wnn_error; standard_deviation_target_return; standard_deviation_wnn_error; hr_up; hr_dn; hr
+-0.00132954; 0.000315872; 0.039961; 0.048643; 41.9133%; 37.8144%; 49.3585%

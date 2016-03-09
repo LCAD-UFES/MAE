@@ -1,0 +1,135 @@
+################################################ Set Global Variables #################################################
+# Global Variables
+set NEURON_MEMORY_SIZE = 1;
+set TYPE_SHOW = SHOW_FRAME;
+set TYPE_MOVING_FRAME = STOP;
+set CALL_UPDATE_FUNCTIONS = 0;
+
+######################################################## Constants ####################################################
+#### INPUT & Neuron Layer Dimentions
+const INPUT_WIDTH  = 1024;
+const INPUT_HEIGHT = 768;
+const NL_WIDTH  = 512;
+const NL_HEIGHT = 384;
+const SEGMENT_WIDTH = 150;
+const SEGMENT_HEIGHT = INPUT_HEIGHT / 2;
+const IN_WIDTH		= 512;
+const IN_HEIGHT		= 512;
+
+
+#### Application parameters
+const WINNER_TAKES_IT_ALL_STEPS = 10;
+const NUMBER_ILLUMINANCE_ITERACTIONS = 20;
+
+#### Camera Constants
+const FOV_HORIZONTAL          = 71.21;
+const FOV_VERTICAL            = 32.5;
+
+#### Input data file name
+const CAMERA_LEFT_CONSTANTS_FILE_NAME = "CameraLeftConstants.dat";
+const CAMERA_RIGHT_CONSTANTS_FILE_NAME	= "CameraRightConstants.dat";
+const WINDOWS_CAPTURE_SCRIPT = "capture.bat";
+const LINUX_CAPTURE_SCRIPT = "./capture.sh";
+const CAPTURE_SCRIPT = WINDOWS_CAPTURE_SCRIPT;
+
+#### Index MT CELL (mt cell that will be ploted)
+const INDEX_MT_CELL           = (NL_WIDTH * NL_HEIGHT / 2) + (NL_WIDTH / 2);
+
+const VISION_STEREO           = TRUE;
+
+#### Application constants
+const GET_IMAGE_FROM_RBT      = 0;
+const GET_IMAGE_FROM_PNM      = 1;
+const GET_IMAGE_FROM_SMV      = 2;
+const IMAGE_SOURCE = GET_IMAGE_FROM_PNM;
+
+const LOG_FACTOR              = 10.0;
+const CYCLES_PER_DEGREE       = 0.85;
+const MT_SENSIBILITY          = 0.1;
+const SMOOTHNESS              = 1.0;
+const CONTRAST_RATIO          = 10.0;
+
+# Viewer parameters
+const FOVY = 71.21; # [deg]
+const FAR = 100000.0; # [mm]
+const NEAR = 0.1; # [mm]
+const FOCUS = 600.0; # [pix]
+
+# Camera CCD formats
+const QUARTER_INCH	= 0;
+const THIRD_INCH	= 1;
+const HALF_INCH		= 2;
+const TWO_THIRDS_INCH	= 3;
+const ONE_INCH		= 4;
+const CCD_FORMAT 	= HALF_INCH;
+
+# Distance parameters
+const NEAREST_DISTANCE	= 2500.0; # 700.0; # [mm]
+const FAREST_DISTANCE	= 7000.0; # 1300.0; # [mm]
+const INFINITY_DISTANCE	= 10000000.0; # [mm]
+
+# Phase parameters
+const PHASE_SIMPLE_RIGHT_1   = -3.0*pi/4.0;
+const PHASE_SIMPLE_LEFT_1    = pi/4.0;
+const PHASE_SIMPLE_RIGHT_1_Q = -pi/4.0;
+const PHASE_SIMPLE_LEFT_1_Q  = 3.0*pi/4.0;
+const PHASE_SIMPLE_RIGHT_2   = 0.0;
+const PHASE_SIMPLE_LEFT_2    = 0.0;
+const PHASE_SIMPLE_RIGHT_2_Q = pi/2.0;
+const PHASE_SIMPLE_LEFT_2_Q  = pi/2.0;
+
+
+const SMOOTHNESS              = 1.0;
+const CONTRAST_RATIO          = 10.0;
+
+################################################# Inputs #######################################################
+input		image_left[INPUT_WIDTH][INPUT_HEIGHT]		with color outputs produced by input_generator("%d", IMAGE_SOURCE) controled by input_controler();
+input		image_right[INPUT_WIDTH][INPUT_HEIGHT]		with color outputs produced by input_generator("%d", IMAGE_SOURCE) controled by input_controler();
+input 		circles[IN_WIDTH][IN_HEIGHT]	with color outputs produced by circles_input_generator() controled by circles_input_controler();
+
+############################################### Neuron Layers ##################################################
+neuronlayer		nl_simple_mono_right[INPUT_WIDTH][INPUT_HEIGHT]		with	greyscale_float outputs;
+neuronlayer		nl_simple_mono_left[INPUT_WIDTH][INPUT_HEIGHT]		with	greyscale_float outputs;
+neuronlayer		nl_simple_mono_right_q[INPUT_WIDTH][INPUT_HEIGHT]	with	greyscale_float outputs;
+neuronlayer		nl_simple_mono_left_q[INPUT_WIDTH][INPUT_HEIGHT]	with	greyscale_float outputs;
+
+neuronlayer		nl_mt[NL_WIDTH][NL_HEIGHT]	             	with	greyscale_float outputs;
+neuronlayer		nl_mt_gaussian[NL_WIDTH][NL_HEIGHT]      	with	greyscale_float outputs;
+
+neuronlayer		nl_mt_gaussian_map[NL_WIDTH][NL_HEIGHT]	      	with	greyscale_float outputs;
+neuronlayer		nl_disparity_map[NL_WIDTH][NL_HEIGHT]	      	with	greyscale_float outputs;
+neuronlayer		nl_cylinder_map[NL_WIDTH][NL_HEIGHT]	      	with	greyscale_float outputs;
+
+neuronlayer		nl_subpixel_disparity_map[NL_WIDTH][NL_HEIGHT]	with	greyscale_float outputs;
+
+neuronlayer		nl_trunk_segmentation_map[INPUT_WIDTH][INPUT_HEIGHT]	with	greyscale_float outputs;
+
+neuronlayer		nl_illuminance_right[INPUT_WIDTH][INPUT_HEIGHT]	with	greyscale_float outputs;
+neuronlayer		nl_reflectance_right[INPUT_WIDTH][INPUT_HEIGHT]	with	greyscale_float outputs;
+
+neuronlayer		nl_segment[SEGMENT_WIDTH][SEGMENT_HEIGHT]	with	color outputs;
+
+############################################### Outputs ########################################################
+output		out_disparity_map[NL_WIDTH][NL_HEIGHT];
+#output		out_trunk_segmentation_map[INPUT_WIDTH][INPUT_HEIGHT];
+
+################################## Connect Neuron Layers to Outputs #############################################
+outputconnect	nl_disparity_map to out_disparity_map;
+#outputconnect	nl_trunk_segmentation_map to out_trunk_segmentation_map;
+
+############################################### Filters #########################################################
+
+# === CELULAS SIMPLES MONOCULARES ===
+filter	image_right	with biological_gabor_filter ("%f %f %f %f %f %f %d %d %f %d", FOV_HORIZONTAL, CYCLES_PER_DEGREE, 2.0, 1.0, 0.0,   PHASE_SIMPLE_RIGHT_1, 0, MAP_PLAN, LOG_FACTOR, KERNEL_1D)	producing nl_simple_mono_right;
+filter	image_right	with biological_gabor_filter ("%f %f %f %f %f %f %d %d %f %d", FOV_HORIZONTAL, CYCLES_PER_DEGREE, 2.0, 1.0, 0.0, PHASE_SIMPLE_RIGHT_1_Q, 0, MAP_PLAN, LOG_FACTOR, KERNEL_1D)	producing nl_simple_mono_right_q;
+filter	image_left	with biological_gabor_filter ("%f %f %f %f %f %f %d %d %f %d", FOV_HORIZONTAL, CYCLES_PER_DEGREE, 2.0, 1.0, 0.0,    PHASE_SIMPLE_LEFT_1, 0, MAP_PLAN, LOG_FACTOR, KERNEL_1D)	producing nl_simple_mono_left;
+filter	image_left	with biological_gabor_filter ("%f %f %f %f %f %f %d %d %f %d", FOV_HORIZONTAL, CYCLES_PER_DEGREE, 2.0, 1.0, 0.0,  PHASE_SIMPLE_LEFT_1_Q, 0, MAP_PLAN, LOG_FACTOR, KERNEL_1D)	producing nl_simple_mono_left_q;
+
+filter	image_right	with	robot_illuminance_filter ("%f %f", SMOOTHNESS, CONTRAST_RATIO)	producing	nl_illuminance_right;
+filter	image_right, nl_illuminance_right	with	robot_reflectance_filter ("")	producing	nl_reflectance_right;
+
+filter	nl_reflectance_right	with gabor_filter_nl ("%f %f %f %f %f %d %d %f %d", 1.0, 1024.0/10.0, 1.0, pi/2.0, 3*pi/2.0, 0, MAP_PLAN, LOG_FACTOR, KERNEL_2D) producing nl_trunk_segmentation_map;
+
+# === CELULA MT ====
+filter	nl_simple_mono_right, nl_simple_mono_right_q, nl_simple_mono_left, nl_simple_mono_left_q  with robot_mt_cell ("%f", MT_SENSIBILITY)	producing	nl_mt;
+filter	nl_mt with robot_gaussian_filter("%d %f", 9, 2.0) producing nl_mt_gaussian;

@@ -1,0 +1,4 @@
+SetScaleFactor(0.3 * (40.0 / 30.0) * (40.0 / 30.0) * (40.0 / 30.0) * (40.0 / 30.0) * (40.0 / 30.0) * (40.0 / 30.0) * (40.0 / 30.0));
+GetImage(0);
+MoveToTrafficSign(0);
+TrainTrafficSign(0);

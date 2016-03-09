@@ -1,0 +1,81 @@
+################################################ Set Global Variables #################################################
+set NEURON_MEMORY_SIZE = 10*105;
+set TYPE_SHOW = SHOW_FRAME;
+set TYPE_MOVING_FRAME = STOP;
+
+######################################################## Constants ####################################################
+#const VERBOSE			= 1;
+
+const SAMPLE_SIZE		= 4;
+
+const IN_WIDTH			= 3 * SAMPLE_SIZE;
+const IN_HEIGHT			= 44;
+
+const NL_WIDTH 			= 10;
+const NL_HEIGHT			= 20;
+
+const SYNAPSES			= 256;
+
+const TT_PATH			= "TT_TEMP/";
+const DATA_PATH			= "DATA_TEMP/"; 
+const PEIXE_PILOTO_DATA_PATH	= "DADOS_PEIXE_PILOTO/COM_VOLUME/";
+const BUY_SELL_DATA_PATH	= "DATA_BUY_SELL/";
+
+
+const TRADING_OPENING_HOUR	= 11;
+
+const TRADING_SYSTEM_STOP_GAIN  		= 0.003;
+const TRADING_SYSTEM_STOP_LOSS 			= -0.07;
+const TRADING_SYSTEM_START_BUYING_RETURN	= 0.02;
+const TRADING_SYSTEM_BUY_SELL_DELTA_RETURN	= 0.0015;
+
+const MOVING_AVERAGE_NUM_PERIODS 		= 40;
+const EXPONENTIAL_MOVING_AVERAGE		= 0;
+
+const POINTS				= 0;
+const TYPE_OF_WNN_INPUT		 	= 2;
+const TYPE_OF_RETURN_AND_AVERAGE	= 2;
+const RELEARN_RETURN	 		= 0; # a principio, so deve ser usado se output_handler nao for output_handler_average
+
+const SAMPLES2CALIBRATE		= 104;
+
+
+############################################### Neuron Layers #########################################################
+neuronlayer	nl_wnn_pred[NL_WIDTH][NL_HEIGHT]	of minchinton neurons greyscale_float sensitive with greyscale outputs;
+
+neuronlayer	sample_gaussian[IN_WIDTH][IN_HEIGHT]	of minchinton neurons with greyscale_float outputs;
+
+############################################### Outputs #########################################################
+#output		nl_wnn_pred_out[NL_WIDTH][NL_HEIGHT] handled by output_handler();
+output		nl_wnn_pred_out[NL_WIDTH][NL_HEIGHT] handled by output_handler_average();
+
+output		sample_gaussian_out[IN_WIDTH][IN_HEIGHT];
+
+################################################## Inputs #############################################################
+input 		sample[IN_WIDTH][IN_HEIGHT]	with greyscale_float outputs produced by input_generator() controled by input_controler();
+
+############################################### Filters #########################################################
+filter		sample 	with gaussian_filter ("%d %f", 5, 1.0) producing sample_gaussian;
+
+
+################################## Connect Neuron Layers to Outputs #############################################
+outputconnect	nl_wnn_pred 		to nl_wnn_pred_out;
+outputconnect	sample_gaussian 	to sample_gaussian_out;
+
+############################################### Associations ####################################################
+associate	nl_wnn_pred		with nl_wnn_pred;
+
+################################################ Connections ####################################################
+connect		sample		to nl_wnn_pred	with SYNAPSES random inputs per neuron;
+connect		sample_gaussian	to nl_wnn_pred	with SYNAPSES random inputs per neuron;
+connect		sample_gaussian	to nl_wnn_pred	with SYNAPSES random inputs per neuron and gaussian distribution with radius 1.0;
+
+
+################################################ User Functions #################################################
+int GetSample ("%d");
+int ShowStatistics ("%d");
+int ResetStatistics ("%d");
+int SetNetworkStatus ("%d");
+int GetSamplebyDate ("%s");
+int GetNumDays ("%d");
+int ComputeTrainReturnAverageAndStadardDeviation ("%d %d");

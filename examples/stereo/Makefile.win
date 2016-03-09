@@ -1,0 +1,68 @@
+CC=gcc
+CCFLAGS= -Wall -g -O3 -D WINDOWS
+#CFLAGS = -g -pg -Wall -O3 -D WINDOWS -D GLUT_NO_LIB_PRAGMA
+DEL=del /F /Q 
+LIBRARYS=-L../../lib -L"C:\Arquivos de Programas\GnuWin32\lib" -lnet_conn -lGA -lStereo -lTsai -lgw32c -lole32 -luuid -lglut32 -lglu32 -lopengl32 -lm -lfl
+INCLUDES=-I../../include -I./ -I../../src/libstereo/include
+LIB_DIR = ..\..\lib
+
+DLLWRAP=dllwrap.exe
+DEFFILE=smv.def
+STATICLIB=smv.a
+
+##########################################################
+
+EXECUTABLE = stereo.exe
+DLL = smv.dll
+OBJECTS = stereo.o \
+	  stereo_user_functions/stereo_user_functions.o \
+	  stereo_user_functions/stereo_filters.o \
+	  stereo_user_functions/smv_api.o \
+	  stereo_user_functions/viewer.o \
+	  stereo_user_functions/map.o \
+	  stereo_user_functions/convert.o \
+	  stereo_user_functions/view.o	  
+
+##########################################################
+
+.c.o:
+	$(CC) $(CCFLAGS) -c $(INCLUDES) -o $@ $*.c
+
+.cpp.o:	
+	g++ $(CCFLAGS) -c -I$(INCLUDES) -o $@ $*.cpp
+
+##########################################################
+
+build: $(EXECUTABLE) $(DLL)
+	@echo OK
+
+$(EXECUTABLE): $(OBJECTS)
+	g++ $(CCFLAGS) -o $(EXECUTABLE) $(INCLUDES) $(OBJECTS) $(LIBRARYS)
+
+$(DLL): $(OBJECTS)
+	$(DLLWRAP) --driver-name=c++ --output-def $(LIB_DIR)\$(DEFFILE) $(OBJECTS) $(LIBRARYS) -o $(LIB_DIR)\$(DLL)
+
+##########################################################
+
+stereo.o:
+	netcomp -o $* < $*.con
+	$(CC) $(CCFLAGS) -c $(INCLUDES) -o $@ $*.c
+stereo_user_functions/stereo_user_functions.o: stereo_user_functions/stereo_user_functions.h
+stereo_user_functions/mapping.o: stereo_user_functions/mapping.h
+stereo_user_functions/list.o: stereo_user_functions/list.h
+stereo_user_functions/smv_api.o: stereo_user_functions/smv_api.h
+stereo_user_functions/stereo_filters.o: ../../include/filter.h
+stereo_user_functions/viewer.o: stereo_user_functions/viewer.hpp
+stereo_user_functions/map.o: stereo_user_functions/map.hpp
+stereo_user_functions/convert.o: stereo_user_functions/convert.hpp
+stereo_user_functions/view.o: stereo_user_functions/view.hpp
+
+##########################################################
+
+clean:
+	$(DEL) stereo.exe
+	$(DEL) stereo.c
+	$(DEL) stereo.h
+	$(DEL) *.o
+	$(DEL) *.out
+	$(DEL) stereo_user_functions\*.o

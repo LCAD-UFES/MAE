@@ -1,0 +1,102 @@
+/* Counters */
+int i;
+int retrain;
+int numRetrain;
+int numLastRetrained;
+int JustTrained;
+int num_pixels;
+int x;
+int y;
+int x_retrain;
+int y_retrain;
+int best_x;
+int best_y;
+float confidence;
+float best_confidence;
+float confidenceLevel;
+float scale_zoom;
+float scale_before;
+int out_of_scene;
+float scale_to_retrain;
+float max_scale;
+float min_scale;
+int num_frames;
+
+i = 0;
+/* Trainning */
+#Treinando com a imagem 0
+GetImage(i);
+MoveToTargetCenter(0);
+key t;
+ForwardVisualSearchNetwork(0);
+#forward outputs;
+
+/* Testing */
+numLastRetrained = -1;
+i = i + 1;
+GetImage(i);
+MoveToTargetCenter(0);
+JustTrained = 1;
+
+max_scale = GetMaxScale(0);
+min_scale = GetMinScale(0);
+
+num_frames = GetNumFrames(0);
+
+####
+key s;
+pause;
+
+/* Testando */
+GetImage(235);
+SetScaleFactor(0.466623);
+ForwardVisualSearchNetwork(0);
+
+MoveToPoint(147,76);
+MoveToPoint(147,76);
+pause;
+
+####
+
+/* Testando */
+GetImage(471);
+SetScaleFactor(0.406105);
+ForwardVisualSearchNetwork(0);
+
+MoveToPoint(78,95);
+MoveToPoint(78,95);
+pause;
+
+####
+
+/* Testando */
+GetImage(707);
+SetScaleFactor(0.438961);
+ForwardVisualSearchNetwork(0);
+
+MoveToPoint(241,126);
+MoveToPoint(241,126);
+pause;
+
+####
+
+/* Testando */
+GetImage(944);
+SetScaleFactor(0.387071);
+ForwardVisualSearchNetwork(0);
+
+MoveToPoint(171,95);
+MoveToPoint(171,95);
+pause;
+
+
+
+
+####
+
+###
+DisposeMemory(0);
+quit;
+
+
+

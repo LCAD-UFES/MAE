@@ -1,0 +1,118 @@
+CC=gcc
+#CCFLAGS= -Wall -O3 -D WINDOWS -D IMPORTING
+CCFLAGS= -Wall -g -D WINDOWS -D IMPORTING
+DEL=del /F /Q 
+
+LIBS= -lnet_conn -lGA -llibstereo -lgsl -lgw32c -lole32 -luuid -lglut32 -lglu32 -lopengl32 -lm -lfl
+LIBPATH=-L../../lib -L"C:\Arquivos de Programas\GnuWin32\lib" -L./
+INCPATH=-I"C:\Arquivos de Programas\GnuWin32\include" -I../../include -I./ -I./robot_user_functions -I./robot_user_functions/matlab_scripts -I./robot_user_functions/segment -I./util
+LIB_DIR = ..\..\lib
+
+DLLWRAP=dllwrap.exe
+DEFFILE=smv.def
+STATICLIB=smv.a
+
+##########################################################
+
+EXECUTABLE = robot.exe
+DLL = smv.dll
+OBJECTS = robot.o \
+	  robot_user_functions/crobot_smv.o \
+	  robot_user_functions/robot_con.o \
+	  robot_user_functions/robot_nl_functions.o \
+	  robot_user_functions/robot_neuron_network.o \
+	  robot_user_functions/point_cloud.o \
+	  robot_user_functions/robot_smv.o \
+	  robot_user_functions/robot_user_functions.o \
+	  robot_user_functions/robot_filters.o \
+	  robot_user_functions/smv_api.o \
+	  robot_user_functions/viewer.o \
+	  robot_user_functions/model_3d.o \
+	  robot_user_functions/model_3d_io.o \
+	  robot_user_functions/map.o \
+	  robot_user_functions/maplist.o \
+	  robot_user_functions/convert.o \
+	  robot_user_functions/view.o \
+	  robot_user_functions/circle_packing.o \
+	  robot_user_functions/cylinder.o \
+	  robot_user_functions/cylinder_list.o \
+	  robot_user_functions/line.o \
+	  robot_user_functions/stereo_volume.o \
+	  robot_user_functions/fitting.o \
+	  robot_user_functions/subpixel_disparity.o \
+	  robot_user_functions/gabor_guess_cylinder.o \
+	  robot_user_functions/geometric_operations.o \
+	  robot_user_functions/segment/segment.o \
+	  robot_user_functions/solver.o \
+	  robot_user_functions/working_area.o \
+	  util/cconfig.o \
+	  util/cinput_layer.o \
+	  util/config.o \
+	  util/config_default.o \
+	  util/file.o \
+	  util/image_ppm.o \
+	  util/input_layer.o \
+	  util/mae_neuron_layer.o \
+	  util/mae_neuron_network.o \
+	  util/neuron_layer.o \
+	  util/neuron_network.o \
+	  util/primitives.o \
+	  util/texture_frame_buffer.o
+	  
+LIBSTEREO = robot_user_functions/matlab_scripts/makelibstereo.m \
+	    robot_user_functions/matlab_scripts/LoadStereoParameters.m \
+	    robot_user_functions/matlab_scripts/StereoTriangulation.m \
+	    robot_user_functions/matlab_scripts/LoadRectificationIndexes.m \
+	    robot_user_functions/matlab_scripts/RectifyStereoPair.m \
+	    robot_user_functions/matlab_scripts/RectifyLeftImage.m \
+	    robot_user_functions/matlab_scripts/RectifyRightImage.m \
+	    robot_user_functions/matlab_scripts/CameraProjection.m \
+	    robot_user_functions/matlab_scripts/GetWorldPointAtDistance.m \
+	    robot_user_functions/matlab_scripts/stereo_api.c \
+	    robot_user_functions/matlab_scripts/stereo_api.h 
+
+##########################################################
+
+.c.o:
+	$(CC) $(CCFLAGS) -c $(INCPATH) -o $@ $*.c
+
+.cpp.o:	
+	g++ $(CCFLAGS) -c -I$(INCPATH) -o $@ $*.cpp
+	
+##########################################################
+
+build: $(EXECUTABLE) $(DLL)
+	@echo OK
+
+$(EXECUTABLE): $(OBJECTS)
+	g++ $(CCFLAGS) -o $(EXECUTABLE) $(OBJECTS) $(LIBPATH) $(LIBS)
+
+$(DLL): $(OBJECTS)
+	$(DLLWRAP) --driver-name=c++ --output-def $(LIB_DIR)\$(DEFFILE) $(OBJECTS) $(LIBPATH) $(LIBS) -o $(LIB_DIR)\$(DLL)
+
+##########################################################
+
+robot.o: libstereo.dll robot.con
+	netcomp -o $* < $*.con
+	$(CC) $(CCFLAGS) -c $(INCPATH) -o $@ $*.c
+
+libstereo.dll: $(LIBSTEREO)
+	$(MAKE) -C robot_user_functions/matlab_scripts -f Makefile.win
+	
+robot_user_functions/robot_user_functions.o: robot_user_functions/robot_user_functions.h
+robot_user_functions/smv_api.o: robot_user_functions/smv_api.h
+robot_user_functions/robot_filters.o: ../../include/filter.h
+robot_user_functions/viewer.o: robot_user_functions/viewer.hpp
+robot_user_functions/map.o: robot_user_functions/map.hpp
+robot_user_functions/convert.o: robot_user_functions/convert.hpp
+robot_user_functions/view.o: robot_user_functions/view.hpp
+
+##########################################################
+
+clean:
+	$(DEL) robot.exe
+	$(DEL) robot.c
+	$(DEL) robot.h
+	$(DEL) *.o
+	$(DEL) *.out
+	$(DEL) robot_user_functions\*.o

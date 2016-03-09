@@ -1,0 +1,19 @@
+
+- Ee necessaria uma funcao do usuario para carregar uma input de um batch na BM - OK
+-- Cada input adicionada muda o total NUM_SAMPLES (input_samples.size()) - OK
+-- Tem que criar a variavel input_samples no lugar de data2 e colocar ela na classe BoltzmannMachine (vetor de vetores) - OK
+
+- Tem que expor o train_step ao usuario
+-- Nesta funcao do usuario tem que passar o NUM_ITERATIONS_NEGATIVE_PHASE e o CD - OK (BASTA ATUALIZAR PARAMS ANTES)
+-- O treino, inicialmente, rodaria sobre todas as inputs carregadas (que podem formar um batch ou minibatch)
+
+- Tem que expor a test_step ao usuario
+-- Passando INITIAL_TEMP e FINAL_TEMP? - OK (BASTA ATUALIZAR PARAMS ANTES)
+
+- Tem que fazer uma funcao do usuario para mostrar o estado dos neuronios - OK
+-- Seria usada, tipicamente, apos um train_step ou test_step - OK
+
+- Tem que fazer uma funcao do usuario para ver se a rede aprendeu 
+-- Modificar o teste de convergencia atual por aquele da biblioteca de algoritmos geneticos da MAE
+
+- Passar os parametros quando criar a rede (tudo no inicio de rbm.h, mas tem que poder mudar alguns destes parametros via train_step e test_step (CD, por exemplo)) - OK (BASTA ATUALIZAR PARAMS ANTES)

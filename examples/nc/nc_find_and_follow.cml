@@ -1,0 +1,188 @@
+int i;
+train network;
+
+#Figura 1
+SetSentence("nc_input", 			"Encontrar|seguir|pessoa$ | | ");
+SetSentence("nc_program_input1", 	" | | $ | | ");
+SetSentence("nc_function_input1", 	" | | $ | | ");
+SetSentence("nc_program_input2", 	"Encontrar|pessoa| $ | |");
+train nc_program;
+
+
+#Figura 2
+SetSentence("nc_input", 			"Encontrar|seguir|pessoa$ | | ");
+SetSentence("nc_program_input1", 	"Encontrar|pessoa| $ | |");
+SetSentence("nc_function_input1", 	" | | $ | | ");
+SetSentence("nc_program_input2", 	"Encontrar|pessoa| $ | |");
+train nc_program;
+
+SetSentence("nc_program_input1", 	"Encontrar|pessoa| $ | |");
+SetSentence("nc_function_input1", 	" | | $ | | ");
+SetSentence("nc_command_input1", 	" | | $ | | ");
+SetSentence("nc_function_input2", 	"Depois|de|vazio$ | |");
+train nc_function;
+
+
+#Figura 3
+SetSentence("nc_input", 			"Encontrar|seguir|pessoa$ | | ");
+SetSentence("nc_program_input1", 	"Encontrar|pessoa| $ | |");
+SetSentence("nc_function_input1", 	"Depois|de|vazio$ | |");
+SetSentence("nc_program_input2", 	"Encontrar|pessoa| $ | |");
+train nc_program;
+
+SetSentence("nc_program_input1", 	"Encontrar|pessoa| $ | |");
+SetSentence("nc_function_input1", 	"Depois|de|vazio$ | |");
+SetSentence("nc_command_input1", 	" | | $ | | ");
+SetSentence("nc_function_input2", 	"Depois|de|vazio$ | |");
+train nc_function;
+
+SetSentence("nc_function_input1", 	"Depois|de|vazio$ | | ");
+SetSentence("nc_command_input1", 	" | | $ | | ");
+SetSentence("nc_sensors_input1", 	" | | $ | | ");
+SetSentence("nc_command_input2", 	" |encontrar| $ | | ");
+train nc_command;
+
+
+#Figura 4
+SetSentence("nc_program_input1", 	"Encontrar|pessoa| $ | |");
+SetSentence("nc_function_input1", 	"Depois|de|vazio$ | |");
+SetSentence("nc_command_input1", 	"|encontrar| $ | | ");
+SetSentence("nc_function_input2", 	"Depois|de|encontrar$ | |");
+train nc_function;
+
+SetSentence("nc_function_input1", 	"Depois|de|vazio$ | | ");
+SetSentence("nc_command_input1", 	" |encontrar| $ | | ");
+SetSentence("nc_sensors_input1", 	" | | $ | | ");
+SetSentence("nc_command_input2", 	" |encontrar| $ | | ");
+train nc_command;
+
+
+#Figura 5
+SetSentence("nc_input", 			"Encontrar|seguir|pessoa$ | | ");
+SetSentence("nc_program_input1", 	"Encontrar|pessoa| $ | |");
+SetSentence("nc_function_input1", 	"Depois|de|encontrar$ | | ");
+SetSentence("nc_program_input2", 	"Seguir|pessoa| $ | |");
+train nc_program;
+
+SetSentence("nc_program_input1", 	"Encontrar|pessoa| $ | |");
+SetSentence("nc_function_input1", 	"Depois|de|encontrar$ | |");
+SetSentence("nc_command_input1", 	"|encontrar| $ | | ");
+SetSentence("nc_function_input2", 	"Depois|de|encontrar$ | |");
+train nc_function;
+
+
+#Figura 6
+SetSentence("nc_input", 			"Encontrar|seguir|pessoa$ | | ");
+SetSentence("nc_program_input1", 	"Seguir|pessoa| $ | |");
+SetSentence("nc_function_input1", 	"Depois|de|encontrar$ | |");
+SetSentence("nc_program_input2", 	"Seguir|pessoa| $ | |");
+train nc_program;
+
+SetSentence("nc_program_input1", 	"Seguir|pessoa| $ | |");
+SetSentence("nc_function_input1", 	"Depois|de|encontrar$ | |");
+SetSentence("nc_command_input1", 	"|encontrar| $ | | ");
+SetSentence("nc_function_input2", 	"Depois|de|encontrar2$ | |");
+train nc_function;
+
+
+#Figura 7
+SetSentence("nc_input", 			"Encontrar|seguir|pessoa$ | | ");
+SetSentence("nc_program_input1", 	"Seguir|pessoa| $ | |");
+SetSentence("nc_function_input1", 	"Depois|de|encontrar2$ | |");
+SetSentence("nc_program_input2", 	"Seguir|pessoa| $ | |");
+train nc_program;
+
+SetSentence("nc_program_input1", 	"Seguir|pessoa| $ | |");
+SetSentence("nc_function_input1", 	"Depois|de|encontrar2$ | |");
+SetSentence("nc_command_input1", 	"|encontrar| $ | | ");
+SetSentence("nc_function_input2", 	"Depois|de|encontrar2$ | |");
+train nc_function;
+
+SetSentence("nc_function_input1", 	"Depois|de|encontrar2$ | |");
+SetSentence("nc_command_input1", 	" |encontrar| $ | | ");
+SetSentence("nc_sensors_input1", 	" | | $ | | ");
+SetSentence("nc_command_input2", 	" |seguir| $ | | ");
+train nc_command;
+
+
+#Figura 8
+SetSentence("nc_program_input1", 	"Seguir|pessoa| $ | |");
+SetSentence("nc_function_input1", 	"Depois|de|encontrar2$ | |");
+SetSentence("nc_command_input1", 	"|seguir| $ | | ");
+SetSentence("nc_function_input2", 	"Depois|de|seguir$ | |");
+train nc_function;
+
+SetSentence("nc_function_input1", 	"Depois|de|encontrar2$ | |");
+SetSentence("nc_command_input1", 	" |seguir| $ | | ");
+SetSentence("nc_sensors_input1", 	" | | $ | | ");
+SetSentence("nc_command_input2", 	" |seguir| $ | | ");
+train nc_command;
+
+
+#Figura 9
+SetSentence("nc_input", 			"Encontrar|seguir|pessoa$ | | ");
+SetSentence("nc_program_input1", 	"Seguir|pessoa| $ | |");
+SetSentence("nc_function_input1", 	"Depois|de|seguir$ | |");
+SetSentence("nc_program_input2", 	" |FIM| $ | |");
+train nc_program;
+
+SetSentence("nc_program_input1", 	"Seguir|pessoa| $ | |");
+SetSentence("nc_function_input1", 	"Depois|de|seguir$ | |");
+SetSentence("nc_command_input1", 	"|seguir| $ | | ");
+SetSentence("nc_function_input2", 	"Depois|de|seguir$ | |");
+train nc_function;
+
+
+#Figura 10
+SetSentence("nc_input", 			"Encontrar|seguir|pessoa$ | | ");
+SetSentence("nc_program_input1", 	" |FIM| $ | |");
+SetSentence("nc_function_input1", 	"Depois|de|seguir$ | |");
+SetSentence("nc_program_input2", 	" |FIM| $ | |");
+train nc_program;
+
+SetSentence("nc_program_input1", 	" |FIM| $ | |");
+SetSentence("nc_function_input1", 	"Depois|de|seguir$ | |");
+SetSentence("nc_command_input1", 	"|seguir| $ | | ");
+SetSentence("nc_function_input2", 	" |FIM| $ | |");
+train nc_function;
+
+
+#Figura 11
+SetSentence("nc_input", 			"Encontrar|seguir|pessoa$ | | ");
+SetSentence("nc_program_input1", 	" |FIM| $ | |");
+SetSentence("nc_function_input1", 	" |FIM| $ | |");
+SetSentence("nc_program_input2", 	" |FIM| $ | |");
+train nc_program;
+
+SetSentence("nc_program_input1", 	" |FIM| $ | |");
+SetSentence("nc_function_input1", 	" |FIM| $ | |");
+SetSentence("nc_command_input1", 	"|seguir| $ | | ");
+SetSentence("nc_function_input2", 	" |FIM| $ | |");
+train nc_function;
+
+SetSentence("nc_function_input1", 	" |FIM| $ | |");
+SetSentence("nc_command_input1", 	" |seguir| $ | | ");
+SetSentence("nc_sensors_input1", 	" | | $ | | ");
+SetSentence("nc_command_input2", 	" |FIM| $ | |");
+train nc_command;
+
+SetSentence("nc_function_input1", 	" |FIM| $ | |");
+SetSentence("nc_command_input1", 	" |FIM| $ | |");
+SetSentence("nc_sensors_input1", 	" | | $ | | ");
+SetSentence("nc_command_input2", 	" |FIM| $ | |");
+train nc_command;
+
+
+####
+GetSentence("nc_input", 1);				# Encontrar|seguir|pessoa
+GetSentence("nc_program_input1", 0);	#  | |
+GetSentence("nc_function_input1", 0);	#  | |
+GetSentence("nc_command_input1", 0);	#  | | 
+
+GetSentence("nc_program_input2", 0);	#  | |
+GetSentence("nc_function_input2", 0);	#  | |
+GetSentence("nc_command_input2", 0);	#  | | 
+
+GetSentence("nc_sensors_input1", 0);	#  | | 
+
+run 300;

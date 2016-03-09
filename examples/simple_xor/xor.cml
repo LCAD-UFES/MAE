@@ -1,0 +1,14 @@
+toggle move_active;
+toggle draw_active;
+move binary_input to 3, 0;
+draw result_out based on character move;
+train network;
+move binary_input to 3, 0;
+draw result_out based on character move;
+train network;
+move binary_input to 3, 0;
+draw result_out based on character move;
+train network;
+move binary_input to 3, 0;
+draw result_out based on character move;
+train network;

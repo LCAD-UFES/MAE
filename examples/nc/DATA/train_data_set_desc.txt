@@ -1,0 +1,104 @@
+# Dados de treino.
+#
+# Uma linha de dados contém uma sentença e o controle de atenção associado, separados por $.
+# - Uma sentença é uma sequencia de três strings separadas por |.
+# - Um controle de atenção é composto de três partes separadas por |. Cada uma pode conter zero, um ou dois caracteres d ou u.
+#   As três partes de um comando de atenção são a parte de cima, a do meio e a de baixo do alvo da 
+#   Camada Neural, sendo os alvos possíveis uma Camada Neural abaixo (d - down) ou acima (u - up) na hierarquia do NC.
+#   O caracter d significa que a Camada Neural abaixo (down) na hierarquia não prestará atenção na parte correspondente à posição
+#   onde está o caracter d. O caracter u significa que a Camada Neural acima (up) na hierarquia não prestará atenção na 
+#   parte correspondente à posição do caracter u. Partes que não devem receber atenção do tipo u aparecem em vermelho.
+#   Partes que não devem receber atenção do tipo d aparecem em azul.
+#
+#
+$nc_input
+ | | $ | | 
+Contar de|9 a 0|tres vezes$ | | 
+
+#
+#
+$nc_program_input1
+ | | $ | | 
+Contar|de 10|3$ | |d
+Contar|de 10|2$ | |d
+Contar|de 10|1$ | |d
+
+#
+#
+$nc_program_input2
+ | | $ | | 
+Contar|de 10|3$ | |d
+Contar|de 10|2$ | |d
+Contar|de 10|1$ | |d
+
+#
+#
+$nc_function_input1
+ | | $ | | 
+Depois|de|vazio$ | |u
+Depois|de|9$ | |u
+Depois|de|8$ | |u
+Depois|de|7$ | |u
+Depois|de|6$ | |u
+Depois|de|5$ | |u
+Depois|de|4$ | |u
+Depois|de|3$ | |u
+Depois|de|2$ | |u
+Depois|de|1$ | |u
+Depois|de|0$ | |
+Depois|de|9$ | |u
+
+#
+#
+$nc_function_input2
+ | | $ | | 
+Depois|de|vazio$ | |u
+Depois|de|9$ | |u
+Depois|de|8$ | |u
+Depois|de|7$ | |u
+Depois|de|6$ | |u
+Depois|de|5$ | |u
+Depois|de|4$ | |u
+Depois|de|3$ | |u
+Depois|de|2$ | |u
+Depois|de|1$ | |u
+Depois|de|0$ | |
+Depois|de|9$ | |u
+
+#
+#
+$nc_command_input1
+ | | $ | | 
+ |9| $ | | 
+ |8| $ | | 
+ |7| $ | | 
+ |6| $ | | 
+ |5| $ | | 
+ |4| $ | | 
+ |3| $ | | 
+ |2| $ | | 
+ |1| $ | | 
+ |0| $ | | 
+ |9| $ | | 
+
+#
+#
+$nc_command_input2
+ | | $ | | 
+ |9| $ | | 
+ |8| $ | | 
+ |7| $ | | 
+ |6| $ | | 
+ |5| $ | | 
+ |4| $ | | 
+ |3| $ | | 
+ |2| $ | | 
+ |1| $ | | 
+ |0| $ | | 
+ |9| $ | | 
+
+#
+#
+$nc_sensors_input1
+ | | $ | | 
+

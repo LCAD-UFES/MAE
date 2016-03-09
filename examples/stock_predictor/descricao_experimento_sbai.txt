@@ -1,0 +1,7 @@
+total de amostras: 265 semanas (2000-02-16 a 2005-03-09) - incluem as 4 entradas da rede (primeira predicao na semana 2000-03-15)
+
+60 foram usadas para previsao (teste): 2004-01-21 a 2005-03-09
+
+60 foram usadas para calibracao de parametros (validation): 2002-11-27 a 2004-01-14
+
+140 foram usadas para treino

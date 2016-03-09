@@ -1,0 +1,162 @@
+################################################ Set Global Variables #################################################
+
+set NEURON_MEMORY_SIZE = 4; 
+set TYPE_SHOW = SHOW_FRAME;
+set TYPE_MOVING_FRAME = STOP;
+
+######################################################## Constants ####################################################
+
+# Application constants
+const GET_IMAGE_FROM_PNM = 0;
+const GET_IMAGE_FROM_SMV = 1;
+
+# General settings
+const FOV_HORIZONTAL = 48.0;
+
+# Architecture settings
+const IMAGE_WIDTH  = 256;
+const IMAGE_HEIGHT = 384;
+const NL_WIDTH  = 64;
+const NL_HEIGHT = 32;
+
+# Lop-polar mapping settings
+const LOG_FACTOR = 2.0;
+
+# Frequency channels especifications for Gabor filters
+const F = 0.25;
+const BW = 2.0;
+
+# Target representation settings
+const CHANNELS = 1;
+const FEATURES_PER_CHANNEL = 8;
+const FEATURES_NUMBER = CHANNELS * FEATURES_PER_CHANNEL;
+const BAND_WIDTH = 0.0625;
+const FEATURES_SAMPLE = (int) (BAND_WIDTH * NL_WIDTH);
+
+# Search heuristic parameters
+const CUT_POINT	= 0.7;
+
+################################################## Inputs #############################################################
+input 		in_pattern[IMAGE_WIDTH][IMAGE_HEIGHT]		with color outputs and (CHANNELS-1) pyramid copies produced by input_generator("%d", GET_IMAGE_FROM_PNM) controled by input_controler();
+#input 		in_pattern[IMAGE_WIDTH][IMAGE_HEIGHT]		with color outputs and (CHANNELS-1) pyramid copies produced by input_generator("%d", GET_IMAGE_FROM_SMV) controled by input_controler();
+
+############################################### Neuron Layers #########################################################
+neuronlayer     nl_gabor_h_00[NL_WIDTH][NL_HEIGHT]  		with greyscale_float outputs;
+neuronlayer    	nl_gabor_h_90[NL_WIDTH][NL_HEIGHT] 		with greyscale_float outputs;
+neuronlayer     nl_gabor_v_00[NL_WIDTH][NL_HEIGHT]  		with greyscale_float outputs;
+neuronlayer    	nl_gabor_v_90[NL_WIDTH][NL_HEIGHT] 		with greyscale_float outputs;
+
+neuronlayer     nl_gabor_l_00[NL_WIDTH][NL_HEIGHT]  		with greyscale_float outputs;
+neuronlayer     nl_gabor_l_90[NL_WIDTH][NL_HEIGHT] 		with greyscale_float outputs;
+neuronlayer     nl_gabor_r_00[NL_WIDTH][NL_HEIGHT]  		with greyscale_float outputs;
+neuronlayer     nl_gabor_r_90[NL_WIDTH][NL_HEIGHT] 		with greyscale_float outputs;
+
+neuronlayer    	nl_v1_activation_map[NL_WIDTH][NL_HEIGHT]	with greyscale_float outputs;
+
+neuronlayer    	nl_features[FEATURES_NUMBER * FEATURES_SAMPLE][NL_HEIGHT]               with greyscale_float outputs;
+neuronlayer    	nl_sum[FEATURES_NUMBER * FEATURES_SAMPLE][NL_HEIGHT]                    with greyscale_float outputs;
+neuronlayer    	nl_squared_sum[FEATURES_NUMBER * FEATURES_SAMPLE][NL_HEIGHT]	        with greyscale_float outputs;
+neuronlayer    	nl_average[FEATURES_NUMBER * FEATURES_SAMPLE][NL_HEIGHT]	        with greyscale_float outputs;
+neuronlayer    	nl_variance[FEATURES_NUMBER * FEATURES_SAMPLE][NL_HEIGHT]	        with greyscale_float outputs;
+
+neuronlayer    	nl_target_coordinates[2][1]			with greyscale_float outputs;
+
+neuronlayer    	nl_v1_pattern[NL_WIDTH][NL_HEIGHT]	       	with color outputs;
+
+############################################### Outputs #########################################################
+#output		out_gabor_h_00[NL_WIDTH][NL_HEIGHT];
+#output	 	out_gabor_h_90[NL_WIDTH][NL_HEIGHT];
+#output		out_gabor_v_00[NL_WIDTH][NL_HEIGHT];
+#output         out_gabor_v_90[NL_WIDTH][NL_HEIGHT];
+
+#output         out_gabor_l_00[NL_WIDTH][NL_HEIGHT];
+#output	 	out_gabor_l_90[NL_WIDTH][NL_HEIGHT];
+#output		out_gabor_r_00[NL_WIDTH][NL_HEIGHT];
+#output         out_gabor_r_90[NL_WIDTH][NL_HEIGHT];
+
+output   	out_features[FEATURES_NUMBER * FEATURES_SAMPLE][NL_HEIGHT];
+output   	out_sum[FEATURES_NUMBER * FEATURES_SAMPLE][NL_HEIGHT];
+output   	out_squared_sum[FEATURES_NUMBER * FEATURES_SAMPLE][NL_HEIGHT];
+output   	out_average[FEATURES_NUMBER * FEATURES_SAMPLE][NL_HEIGHT];
+output   	out_variance[FEATURES_NUMBER * FEATURES_SAMPLE][NL_HEIGHT];
+
+#parameters: 	output_handler_min_value_position ("%s %f", <nl_target_coordinates_name>, <log_factor>)
+#output         out_v1_activation_map[NL_WIDTH][NL_HEIGHT]  handled by output_handler_min_value_position ("%f", LOG_FACTOR);
+
+#parameters: 	output_handler_max_value_position ("%s %f", <nl_target_coordinates_name>, <log_factor>)
+#output		out_v1_activation_map[NL_WIDTH][NL_HEIGHT] handled by output_handler_max_value_position ("%f", LOG_FACTOR);
+
+#parameters: 	output_handler_mean_position ("%s %f %f", <nl_target_name_coordinates>, <log_factor>, <cut_point>)
+output 		out_v1_activation_map[NL_WIDTH][NL_HEIGHT]  handled by output_handler_mean_position ("%f %f", LOG_FACTOR, CUT_POINT);
+
+output         	out_target_coordinates[2][1];
+
+output         	out_v1_pattern[NL_WIDTH][NL_HEIGHT];
+
+################################## Connect Neuron Layers to Outputs #############################################
+
+#outputconnect	nl_gabor_h_00	     	to out_gabor_h_00;
+#outputconnect	nl_gabor_h_90	     	to out_gabor_h_90;
+#outputconnect	nl_gabor_v_00	     	to out_gabor_v_00;
+#outputconnect	nl_gabor_v_90	     	to out_gabor_v_90;
+
+#outputconnect	nl_gabor_l_00	     	to out_gabor_l_00;
+#outputconnect	nl_gabor_l_90	     	to out_gabor_l_90;
+#outputconnect	nl_gabor_r_00	     	to out_gabor_r_00;
+#outputconnect	nl_gabor_r_90	     	to out_gabor_r_90;
+
+outputconnect	nl_features		to out_features;
+outputconnect	nl_sum                  to out_sum;
+outputconnect	nl_squared_sum		to out_squared_sum;
+outputconnect	nl_average	        to out_average;
+outputconnect	nl_variance             to out_variance;
+
+outputconnect	nl_v1_activation_map	to out_v1_activation_map;
+
+outputconnect  	nl_target_coordinates	to out_target_coordinates;
+
+outputconnect  	nl_v1_pattern 		to out_v1_pattern;
+
+############################################### Filters ###############################################################   
+
+#parameters: map_image_v1 ("%s %d", <input_name>, <log_factor>)
+filter	in_pattern  	        with map_image_v1 ("%s %f", "in_pattern", LOG_FACTOR) 	producing nl_v1_pattern;
+
+#parameters: biological_gabor_filter("%f %f %f %f %f %f %d %d %f", camera_opening_degree, cycles_per_degree, band_width, aspect_ratio, orientation, phase, shift, mapping, log_factor)
+filter	in_pattern		with biological_gabor_filter ("%f %f %f %f %f %f %d %d %f %d", FOV_HORIZONTAL, F, BW, 1.0,    0.0,    0.0, 0, MAP_LOG_POLAR, LOG_FACTOR, KERNEL_2D)  producing  nl_gabor_h_00;
+filter	in_pattern		with biological_gabor_filter ("%f %f %f %f %f %f %d %d %f %d", FOV_HORIZONTAL, F, BW, 1.0,    0.0, pi/2.0, 0, MAP_LOG_POLAR, LOG_FACTOR, KERNEL_2D)  producing  nl_gabor_h_90;
+filter	in_pattern		with biological_gabor_filter ("%f %f %f %f %f %f %d %d %f %d", FOV_HORIZONTAL, F, BW, 1.0, pi/2.0,    0.0, 0, MAP_LOG_POLAR, LOG_FACTOR, KERNEL_2D)  producing  nl_gabor_v_00;
+filter	in_pattern		with biological_gabor_filter ("%f %f %f %f %f %f %d %d %f %d", FOV_HORIZONTAL, F, BW, 1.0, pi/2.0, pi/2.0, 0, MAP_LOG_POLAR, LOG_FACTOR, KERNEL_2D)  producing  nl_gabor_v_90;
+
+filter	in_pattern		with biological_gabor_filter ("%f %f %f %f %f %f %d %d %f %d", FOV_HORIZONTAL, F, BW, 1.0, -pi/4.0,    0.0, 0, MAP_LOG_POLAR, LOG_FACTOR, KERNEL_2D)  producing  nl_gabor_l_00;
+filter	in_pattern		with biological_gabor_filter ("%f %f %f %f %f %f %d %d %f %d", FOV_HORIZONTAL, F, BW, 1.0, -pi/4.0, pi/2.0, 0, MAP_LOG_POLAR, LOG_FACTOR, KERNEL_2D)  producing  nl_gabor_l_90;
+filter	in_pattern		with biological_gabor_filter ("%f %f %f %f %f %f %d %d %f %d", FOV_HORIZONTAL, F, BW, 1.0,  pi/4.0,    0.0, 0, MAP_LOG_POLAR, LOG_FACTOR, KERNEL_2D)  producing  nl_gabor_r_00;
+filter	in_pattern		with biological_gabor_filter ("%f %f %f %f %f %f %d %d %f %d", FOV_HORIZONTAL, F, BW, 1.0,  pi/4.0, pi/2.0, 0, MAP_LOG_POLAR, LOG_FACTOR, KERNEL_2D)  producing  nl_gabor_r_90;
+
+#parameters: features_gather_filter ("%f", <band_width>)
+filter	        nl_gabor_h_00, nl_gabor_h_90, nl_gabor_v_00, nl_gabor_v_90,
+                nl_gabor_l_00, nl_gabor_l_90, nl_gabor_r_00, nl_gabor_r_90 
+		                        with features_gather_filter ("%f %d %d", BAND_WIDTH, FEATURES_NUMBER, FEATURES_PER_CHANNEL) producing nl_features;
+
+#parameters: activation_map_filter ("%d", <features_number>)
+filter          nl_average, nl_variance,
+                nl_gabor_h_00, nl_gabor_h_90, nl_gabor_v_00, nl_gabor_v_90,
+                nl_gabor_l_00, nl_gabor_l_90, nl_gabor_r_00, nl_gabor_r_90
+ 		                        with v1_activation_map_filter ("%d", FEATURES_NUMBER) producing nl_v1_activation_map;
+
+############################################### Associations ####################################################
+
+#associate	nl_features 		with nl_features;
+
+################################################ Connections ####################################################
+
+#fullconnect 	nl_memoryzed_sample	to nl_features;
+#connect 	nl_features 		to nl_features with 8 random inputs per neuron;
+
+################################################# User Functions ################################################
+
+int V1ToImageMapping ("%p %p %d %d %d %d %d %d");	
+int CalculateRandomPosition ("%d %d %d %d"); 
+int GetNoseCoordinates ("%p %p %f");
+int LoadAlbum ("%s");
+int GetFace ("%d %d");

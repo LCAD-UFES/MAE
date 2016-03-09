@@ -1,0 +1,8 @@
+100%   faces_te_all_side_lights.txt
+100%   faces_te_anger.txt
+97,46% faces_te_glasses.txt
+100%   faces_te_left_light.txt
+100%   faces_te_right_light.txt
+99,15% faces_te_scarf.txt
+97,46% faces_te_scream.txt
+100%   faces_te_smile.txt

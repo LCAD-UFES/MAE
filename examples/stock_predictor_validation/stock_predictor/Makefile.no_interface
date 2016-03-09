@@ -1,0 +1,41 @@
+LIBMAE =-L$(MAEHOME)/lib
+LIBPATH =-L/usr/local/lib -L/usr/X11R6/lib $(LIBMAE)
+CC=gcc
+CCFLAGS=-D NO_INTERFACE -g -Wall
+LIBRARYS=-lnet_conn -lforms -lGA -lTsai -lX11 -lglut -lGLU -lGL -lm -lfl
+ 
+##########################################################
+
+EXECUTABLE = wnn_pred
+OBJECTS = wnn_pred.o \
+	  wnn_pred_user_functions/wnn_pred_user_functions.o \
+	  wnn_pred_user_functions/wnn_input_output.o \
+	  wnn_pred_user_functions/pwb_analyse_series.o 
+
+##########################################################
+
+.c.o:
+	@echo OK
+	$(CC) $(CCFLAGS) -c -I$(MAEHOME)/include -o $@ $*.c
+
+##########################################################
+
+build: $(EXECUTABLE)
+$(EXECUTABLE): $(OBJECTS)
+	$(CC) $(CCFLAGS) -o $(EXECUTABLE) $(OBJECTS) $(LIBPATH) $(LIBRARYS)
+
+##########################################################
+
+wnn_pred_user_functions.o : ../wnn_pred.h
+
+##########################################################
+
+wnn_pred.o:
+	$(MAEHOME)/bin/netcomp -o $* < $*.con	
+	$(CC) $(CCFLAGS) -c -I$(MAEHOME)/include -o $@ $*.c
+
+##########################################################
+clean:
+	rm -f *.o wnn_pred_user_functions/*.o
+	rm -f wnn_pred wnn_pred.c wnn_pred.h
+	rm -f *.out

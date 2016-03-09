@@ -1,0 +1,49 @@
+int TRAINING_PATH;
+TRAINING_PATH = 0;
+
+int TEST_PATH;
+TEST_PATH = 1;
+
+int TRAINING_PHASE;
+TRAINING_PHASE = 1;
+
+int RECALL_PHASE;
+RECALL_PHASE = 2;
+
+int MOVING_PHASE;
+MOVING_PHASE = 3;
+
+int NUMBER_OF_TRAINING_FRAME;
+NUMBER_OF_TRAINING_FRAME = 59;
+
+int NUMBER_OF_TEST_FRAME;
+NUMBER_OF_TEST_FRAME = 1;
+
+set_network_status(TRAINING_PHASE);
+
+get_new_frame(NUMBER_OF_TRAINING_FRAME, TRAINING_PATH);
+
+move in_pattern to 320, 240;
+
+draw out_nl_saliency_pattern based on in_pattern move;
+
+forward outputs;
+train network;
+
+pause;
+
+/* Testing phase */
+
+set_network_status(MOVING_PHASE);
+
+get_new_frame(NUMBER_OF_TEST_FRAME, TEST_PATH);
+move in_pattern to 320, 240;
+
+set_network_status(RECALL_PHASE);
+forward neural_layers;
+forward outputs;
+
+forward filters;
+forward outputs;
+
+#key r;

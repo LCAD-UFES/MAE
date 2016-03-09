@@ -1,0 +1,54 @@
+CC = gcc
+CCC = g++
+#CCFLAGS = -g -pg -Wall -DNO_INTERFACE
+CCFLAGS = -O3 -Wall -fopenmp -DNO_INTERFACE
+
+LIBPATH = -L/usr/local/lib -L/usr/X11R6/lib 
+LIBPATH += -L$(MAEHOME)/lib
+LIBPATH += -lnet_conn -lforms -lGA -lX11 -lglut -lGLU -lGL -lm -lfl -lfann -lstdc++
+
+##########################################################
+
+EXECUTABLE = character
+LIBRARY = libcharacter.a
+OBJECTS = character.o \
+	  character_user_functions/character_user_functions.o \
+	  character_user_functions/rbm.o 
+
+##########################################################
+
+build: $(EXECUTABLE)
+	@echo OK
+
+##########################################################
+
+clean:
+	rm -f *.o *.out character_user_functions/*.o
+	rm -f character character.c character.h
+
+##########################################################
+
+profiling:
+	gprof character gmon.out > analysis.txt
+
+##########################################################
+
+$(EXECUTABLE): $(OBJECTS) $(LIBRARY)
+	$(CCC) $(CCFLAGS) -o $(EXECUTABLE) $(OBJECTS) $(LIBPATH)
+
+$(LIBRARY): $(OBJECTS)
+	$(AR) $(ARFLAGS) $(LIBRARY) $(OBJECTS)
+	ranlib $(LIBRARY)
+
+##########################################################
+
+.c.o:
+	$(CC) $(CCFLAGS) -c -I$(MAEHOME)/include -I. -o $@ $*.c
+
+.cpp.o:
+	$(CCC) $(CCFLAGS) -c -I$(MAEHOME)/include -I. -o $@ $*.cpp
+
+character.o:
+	$(MAEHOME)/bin/netcomp -o $* < $*.con
+	$(CC) $(CCFLAGS) -c -I$(MAEHOME)/include -I. -o $@ $*.c
+

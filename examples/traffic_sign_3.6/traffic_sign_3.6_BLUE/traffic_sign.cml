@@ -1,0 +1,109 @@
+int SIGNS2TRAINING;
+int SIGNS2TESTING;
+
+#Full dataset
+SIGNS2TRAINING = 39209;
+SIGNS2TESTING = 12630;
+
+#Minimal dataset
+#SIGNS2TRAINING = 860;
+#SIGNS2TESTING = 860/2;
+#SIGNS2TRAINING = 10;
+#SIGNS2TESTING = 10;
+
+/* Network Status */
+int MOVING;
+MOVING = 0;
+int TRAINING;
+TRAINING = 1;
+int TESTING;
+TESTING = 2;
+
+int SAVE;
+SAVE = 0;
+
+/* Iterators */
+int i;
+int j;
+int k;
+
+int confidence;
+
+if (SAVE)
+{
+	SaveConfig ("network-configuration-trafficsign.csv");
+	SaveSynapses ("synaptic-interconnection-pattern-trafficsign.csv");
+	SaveDataset ("training-set-trafficsign.csv", 1);
+	SaveDataset ("testing-set-trafficsign.csv", 1);
+}
+
+/* Training Phase */
+SetNetworkStatus (TRAINING);
+
+i = 1;
+while (i <= SIGNS2TRAINING)
+{
+#	print ("training",i);
+
+	GetSignByIndex (i);
+	
+	j = 1;
+	while (j <= 3)
+	{
+		if (j == 1) #training with original image shape
+			SetReshapeFilterParams(0);
+		else
+			SetReshapeFilterParams(1);
+	
+		forward filters;
+		forward outputs;
+		draw out_landmark based on out_traffic_gaussian move;
+		if (SAVE)
+			SaveDataset ("training-set-trafficsign.csv", 0);
+		else
+			train network;
+				
+		j = j + 1;
+	}
+	i = i + 1;
+}
+
+/* Testing phase */
+SetNetworkStatus (TESTING);
+i = 1;
+while (i <= SIGNS2TESTING)
+{
+	GetSignByIndex (i);
+
+	k = 0;
+	confidence = 0;
+	while ((k < 15) && (confidence < 50))
+	{
+		j = 1;
+		while (j <= 3)
+		{
+			if ((j == 1) && (k == 0))
+				SetReshapeFilterParams(0);
+			else
+				SetReshapeFilterParams(1);
+
+			if (SAVE)
+			{
+				forward filters;
+				forward outputs;
+				draw out_landmark based on out_traffic_gaussian move;
+				SaveDataset ("testing-set-trafficsign.csv", 0);
+			}
+			else
+				forward network;
+
+			j = j + 1;
+		}
+		confidence = GetConfidence(0);
+		k = k + 1;
+	}
+	PrintStatistics(0);
+	i = i + 1;
+}
+
+quit;

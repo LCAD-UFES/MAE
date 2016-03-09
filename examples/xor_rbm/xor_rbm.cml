@@ -1,0 +1,32 @@
+int i;
+
+i = 0;
+while(i < 2)
+{
+	#input mode
+	SetNetworkState(0);
+	move data to 2,0;
+
+	i = i + 1;
+	#pause;
+}
+
+#training mode
+SetNetworkState(1);
+
+forward filters;
+
+#test mode
+SetNetworkState(2);
+
+i = 0;
+while(i < 20)
+{
+	forward filters;
+	forward outputs;
+	i = i + 1;
+	#pause;
+}
+
+quit;
+

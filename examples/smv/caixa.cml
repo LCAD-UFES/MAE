@@ -1,0 +1,13 @@
+toggle move_active;
+toggle draw_active;
+int erro;
+erro = moveDominantEye(487, 558);
+erro = drawWorldPoint(0);
+erro = moveDominantEye(489, 800);
+erro = drawWorldPoint(0);
+erro = moveDominantEye(625, 798);
+erro = drawWorldPoint(0);
+erro = moveDominantEye(625, 558);
+erro = drawWorldPoint(0);
+erro = generateShapeMesh(0);
+quit;

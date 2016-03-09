@@ -1,0 +1,111 @@
+################################################ Set Global Variables #################################################
+set NEURON_MEMORY_SIZE = 10*105;
+set TYPE_SHOW = SHOW_FRAME;
+set TYPE_MOVING_FRAME = STOP;
+
+#const VERBOSE			= 1;
+#const VERBOSE2			= 1;
+######################################################## Constants ####################################################
+const IN_WIDTH			= 18*2; # deixar fixo, senão o dado futuro pode acabar sendo utilizado (números maiores que 17)
+const IN_HEIGHT			= 44*4;
+
+const NL_WIDTH = 16;
+const NL_HEIGHT = 16;
+
+const IF_WIDTH 			= 420;
+const IF_HEIGHT			= 420/2;
+
+const SYNAPSES = 256;
+
+const GAUSSIAN_DISTRIBUITON	= 8;
+
+const TT_PATH			= "TT_TEMP/";
+const DATA_PATH			= "DATA_TEMP/"; 
+const MAX_PATH                  = "MAX_MIN/";
+const PREDICTED_PATH            = "WNN_PREDICTED/"; 
+  
+
+const SAMPLE_GROUP_SIZE		= 4; # numero de amostras consideradas em cada intervalo de tempo
+const WINDOWS_OFFSET		= 1; # numero de amostras transladadas em cada intervalo de tempo
+const NETWORK_INPUT_SIZE	= 4; # numero de amostras usadas como entrada da rede
+const NETWORK_INPUT_STRIDE	= 1; #
+
+const NUMBER_OF_SAMPLES_IN_A_DAY = 60*7/SAMPLE_GROUP_SIZE;
+const FIRST_INPUT_SAMPLES	= (NETWORK_INPUT_SIZE * NETWORK_INPUT_STRIDE) / SAMPLE_GROUP_SIZE;
+const NUMBER_OF_USEFULL_SAMPLES_IN_A_DAY = NUMBER_OF_SAMPLES_IN_A_DAY - FIRST_INPUT_SAMPLES;
+const SAMPLES2CALIBRATE		= 2 * NUMBER_OF_USEFULL_SAMPLES_IN_A_DAY;
+const SAMPLES2TEST		= 1 * NUMBER_OF_USEFULL_SAMPLES_IN_A_DAY;
+const FRACTION_TRAIN_SET	= 0.6667;
+
+const MIN_RETURN		= -0.005;
+const MAX_RETURN		= 0.005;
+
+const STOP_GAIN  		= 0.001;
+const STOP_LOSS 		= -0.002;
+const START_BUY			= -0.001;
+
+const POINTS			= 0;
+const BY_ON_CLOSE_PRICE 	= 0;
+
+############################################### Neuron Layers #########################################################
+neuronlayer	nl_wnn_pred[NL_WIDTH][NL_HEIGHT]	of minchinton neurons greyscale_float sensitive with greyscale outputs;
+
+neuronlayer	sample_gaussian[IN_WIDTH][IN_HEIGHT]	with greyscale_float outputs;
+
+############################################### Outputs #########################################################
+#output		nl_wnn_pred_out[NL_WIDTH][NL_HEIGHT] handled by output_handler();
+#output		nl_wnn_pred_out[NL_WIDTH][NL_HEIGHT] handled by output_handler_average();
+#output		nl_wnn_pred_out[NL_WIDTH][NL_HEIGHT] handled by output_handler_stop_gain_stop_loss();
+#output		nl_wnn_pred_out[NL_WIDTH][NL_HEIGHT] handled by output_handler_average_stop_gain_stop_loss();
+output		nl_wnn_pred_out[NL_WIDTH][NL_HEIGHT] handled by output_handler_contingency_table ();
+
+output		sample_gaussian_out[IN_WIDTH][IN_HEIGHT];
+
+################################################## Inputs #############################################################
+input 		sample[IN_WIDTH][IN_HEIGHT]		with greyscale_float outputs produced by input_generator() controled by input_controler();
+
+input		inflection_points[IF_WIDTH][1+IF_HEIGHT]	with color outputs produced by inflection_points_generator() controled by inflection_points_controler();
+
+input		wnn_predicted[IF_WIDTH][1+IF_HEIGHT]	with color outputs produced by wnn_predicted_generator() controled by wnn_predicted_controler();
+
+#input 		next_sample[IN_WIDTH][IN_HEIGHT]	with greyscale_float outputs produced by input_generator_next();
+
+############################################### Filters #########################################################
+filter		sample 		with gaussian_filter ("%d %f", 5, 1.0) producing sample_gaussian;
+#filter		sample 		with next_sample_filter ("%d", NETWORK_INPUT_SIZE) producing next_sample;
+#filter		nl_wnn_pred	with predicted_sample_filter ("") producing next_sample;
+
+
+################################## Connect Neuron Layers to Outputs #############################################
+outputconnect	nl_wnn_pred 		to nl_wnn_pred_out;
+outputconnect	sample_gaussian 	to sample_gaussian_out;
+
+############################################### Associations ####################################################
+associate	nl_wnn_pred		with nl_wnn_pred;
+
+################################################ Connections ####################################################
+connect		sample		to nl_wnn_pred	with SYNAPSES random inputs per neuron;
+connect		sample_gaussian	to nl_wnn_pred	with SYNAPSES random inputs per neuron and gaussian distribution with radius GAUSSIAN_DISTRIBUITON; 
+
+
+################################################ User Functions #################################################
+int GetSample ("%d");
+int GetSampleGroup ("%d");
+int ShowStatistics ("%d");
+int SavePredictionWnn ("%d");
+int ResetStatistics ("%d");
+int SetNetworkStatus ("%d");
+int GetNumSampleGroups ("%d");
+int GetNumSamples ("%d");
+int GetSampleGroupSize ("%d");
+int GetNetworkInputSize ("%d");
+int GetNetworkInputStride ("%d");
+int GetNumSamplesTrain ("%d");
+int GetSampleFromFile ("%d");
+int GetPositionLastSamplesTrain ("%d");
+int ChangePhase ("%d");
+int RewindFileTrain ("%d");
+int OpenFileTrain ("%d");
+int GetNumSamplesTrainToCalibration ("%d");
+int GetSampleCurrent ("%d");
+int SaveSampleTest ("%d");

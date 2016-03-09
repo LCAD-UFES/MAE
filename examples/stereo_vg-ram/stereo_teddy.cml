@@ -1,0 +1,35 @@
+int i;
+int max_disp;
+float scale;
+
+scale = 0.8;
+i = 0;
+max_disp = 60;
+
+while (i < max_disp)
+{
+	forward nl_shift_filter, nl_selected_img_filter;
+	forward nl_img_filtered_level0_filter;
+	forward nl_img_resize_level1_filter, nl_img_filtered_level1_filter;
+	forward nl_img_resize_level2_filter, nl_img_filtered_level2_filter;
+	forward nl_img_resize_level3_filter, nl_img_filtered_level3_filter;
+	forward nl_img_resize_level4_filter, nl_img_filtered_level4_filter;
+	key w;
+	forward outputs;
+	TrainNetwork(i);
+	key s;
+	i = i + 1;
+}
+
+key c;
+forward nl_shift_filter, nl_selected_img_filter;
+forward nl_img_filtered_level0_filter;
+forward nl_img_resize_level1_filter, nl_img_filtered_level1_filter;
+forward nl_img_resize_level2_filter, nl_img_filtered_level2_filter;
+forward nl_img_resize_level3_filter, nl_img_filtered_level3_filter;
+forward nl_img_resize_level4_filter, nl_img_filtered_level4_filter;
+forward neural_layers;
+forward nl_disparity_map_filter;
+#PropagateDisparitiesToTheLeft(max_disp / 1.7);
+forward outputs;
+save nl_disparity_map to teddy_disparity_map.ppm;

@@ -1,0 +1,43 @@
+/* Counters */
+
+int tries;
+
+
+/* Testing */
+
+	key H; # Move to the good horizontal training point 
+	key t; # Train
+	key h; # Swap horizontaly and move to the good horizontal testing point
+	key s; # Saccade
+	key x; # Save delta x
+	key f; # Forget traning
+	key V; # Move to the good horizontal training point 
+	key t; # Train
+	key v; # Swap verticaly and move to the good vertical testing point
+	key s; # Saccade
+	key y; # Save delta y
+	key f; # Forget traning
+	tries = 0;
+/*	while ((DeltaXYOK(0) == 0) && (tries < 6))
+	{
+		MoveRamdomXY(0);
+
+		key H; # Move to the good horizontal training point 
+		key t; # Train
+		key h; # Swap horizontaly and move to the good horizontal testing point
+		key s; # Saccade
+		key x; # Save delta x
+		key f; # Forget traning
+		key V; # Move to the good horizontal training point 
+		key t; # Train
+		key v; # Swap verticaly and move to the good vertical testing point
+		key s; # Saccade
+		key y; # Save delta y
+		key f; # Forget traning
+		tries = tries + 1;	
+	}
+*/	key g; # Go to final position after centering
+	if (DeltaXYOK(0))
+		key w; # Save new traffic sign center
+	else
+		key r; # Report failure

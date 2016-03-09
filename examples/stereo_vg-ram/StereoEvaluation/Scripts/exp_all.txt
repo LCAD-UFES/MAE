@@ -1,0 +1,24 @@
+# exp_all.txt
+#
+# top-level script-file for experiments in IJCV taxonomy paper
+
+# This script file lives in the subdirectory imagedirs/Scripts
+# and sequences through the datasets
+
+# edit this file to select which data sets to use
+
+# edit the script 'exp_dispatch.txt' to select which experiments to run
+
+verbose 2       # just the summary
+
+#cd ../tsukuba
+#script ../Scripts/exp_dispatch.txt
+
+#cd ../cones
+#script ../Scripts/exp_dispatch.txt
+
+#cd ../teddy
+#script ../Scripts/exp_dispatch.txt
+
+cd ../venus
+script ../Scripts/exp_dispatch.txt

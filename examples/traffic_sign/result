@@ -1,0 +1,813 @@
+# Please wait, building network...
+file: /media/shared_win_dir/Seqs/Seq01/00/image.032617.jp2
+1 32617 2 E1 121,680000 212,490005 183,570007 267,690002
+2 32617 2 begin 184,750000 241,169998 220,899994 253,350006
+3 32617 1 C3 69,970001 696,260010 126,550003 738,299988
+4 32617 1 C29 199,979996 694,330017 256,170013 736,570007
+5 32617 1 B19 257,000000 693,010010 312,600006 732,690002
+6 32617 1 C21 313,209991 694,030029 367,239990 735,090027
+7 32739 1 E9a 199,389999 1026,550049 309,529999 1103,199951
+8 32844 1 X31 150,490005 1078,969971 264,829987 1155,599976
+9 32852 1 einde 379,579987 1322,160034 452,929993 1343,390015
+10 32863 5 X31_buiten 85,629997 1370,859985 360,329987 1561,060059
+11 32878 1 X32 221,460007 1228,599976 297,589996 1270,209961
+12 33147 5 X32_buiten 141,119995 1471,780029 293,779999 1525,239990
+13 33339 5 X3L 722,820007 1374,180054 875,760010 1528,880005
+14 33405 1 F59 277,100006 1071,000000 378,279999 1142,229980
+15 33436 2 F45 87,680000 82,930000 183,750000 150,119995
+16 33439 1 B5 231,809998 1376,670044 307,649994 1455,260010
+17 33447 2 F29_links 22,549999 165,399994 122,129997 534,770020
+18 33540 6 F4a 183,580002 103,779999 294,190002 192,929993
+19 33540 6 laden_lossen 276,070007 33,020000 306,730011 121,930000
+20 33540 1 D7 447,140015 948,599976 525,609985 1012,619995
+21 33568 6 F29 426,570007 1246,780029 510,649994 1536,160034
+22 33587 6 C31RIGHT 64,709999 16,469999 212,350006 98,820000
+23 33587 6 B15A 93,930000 121,260002 201,179993 170,589996
+24 33656 0 D1b_schuin_rechts 307,660004 348,829987 370,260010 412,570007
+25 33740 2 X11 125,589996 113,879997 222,270004 187,550003
+26 33778 1 E9b 169,240005 1328,849976 243,759995 1380,500000
+27 34036 1 oversteekplaats 246,490005 1236,589966 322,390015 1346,400024
+28 34039 1 F34A_links 185,110001 1149,560059 208,889999 1321,109985
+29 34039 1 F34A 274,670013 1147,109985 298,890015 1316,670044
+30 34078 0 X3R 265,869995 305,160004 321,670013 361,910004
+31 34085 1 F49 130,960007 1090,810059 229,539993 1189,109985
+32 34327 5 B3 378,350006 1283,290039 663,650024 1545,060059
+33 34353 5 lang 615,690002 1434,709961 743,590027 1470,760010
+34 34672 1 A7A 202,750000 1096,680054 298,980011 1202,579956
+35 34836 1 A14 157,779999 1191,040039 256,149994 1297,910034
+36 34836 1 meter 256,299988 1183,180054 293,450012 1301,189941
+37 34872 1 F4b 89,809998 989,200012 206,820007 1069,130005
+38 34872 1 B1 205,460007 993,960022 277,559998 1071,170044
+39 34878 6 Handic 239,350006 1458,479980 278,739990 1541,739990
+40 34898 5 A23 260,200012 1518,300049 326,980011 1588,510010
+41 34898 5 typell 326,609985 1512,130005 351,000000 1594,949951
+42 35012 0 F29_F23A_F23B 87,830002 301,160004 123,010002 452,079987
+43 35069 1 E9a_disk 198,070007 1196,979980 311,980011 1276,699951
+44 35094 0 F59_links 86,180000 212,589996 145,320007 255,619995
+45 35110 0 E9a_miva 99,150002 193,679993 149,559998 228,699997
+46 35125 0 X10 33,680000 255,960007 183,210007 359,500000
+47 35135 5 F37_links 313,510010 1476,920044 335,720001 1610,709961
+48 35166 0 C11 244,880005 275,970001 283,899994 315,119995
+49 35184 3 X33 624,710022 73,709999 729,609985 187,919998
+50 35213 5 A25 244,809998 1494,780029 316,119995 1571,599976
+51 35213 5 fietsers_rijbaan 311,410004 1486,329956 340,480011 1572,180054
+1 32626 2 E1 121,839996 780,520020 181,250000 836,979980
+*HIT* frame 032626 on camera 02 Sign:   0 - Correct:   0 (E1)- Tested:   1 - Total Correct:   1 - Confidence: 0,37 - Hit Percent: 100,00
+2 32626 2 begin 181,410004 804,739990 216,440002 814,890015
+*HIT* frame 032626 on camera 02 Sign:   1 - Correct:   1 (begin)- Tested:   2 - Total Correct:   2 - Confidence: 0,08 - Hit Percent: 100,00
+3 32629 1 C3 1,180000 1048,040039 79,480003 1106,760010
+*HIT* frame 032629 on camera 01 Sign:   2 - Correct:   2 (C3)- Tested:   3 - Total Correct:   3 - Confidence: 0,22 - Hit Percent: 100,00
+4 32629 1 C29 185,639999 1035,060059 266,540009 1094,729980
+*HIT* frame 032629 on camera 01 Sign:   3 - Correct:   3 (C29)- Tested:   4 - Total Correct:   4 - Confidence: 0,43 - Hit Percent: 100,00
+5 32629 1 B19 268,750000 1032,150024 348,239990 1087,099976
+*MISS* frame 032629 on camera 01 Sign:   5 - Correct:   4 (B19) - Tested:   5 - Total Correct:   4 - Confidence: 0,10 - Hit Percent: 80,00
+6 32629 1 C21 349,700012 1028,349976 428,940002 1085,189941
+*HIT* frame 032629 on camera 01 Sign:   5 - Correct:   5 (C21)- Tested:   6 - Total Correct:   5 - Confidence: 0,25 - Hit Percent: 83,33
+7 32635 2 E1 148,899994 1331,050049 208,429993 1391,369995
+*HIT* frame 032635 on camera 02 Sign:   0 - Correct:   0 (E1)- Tested:   7 - Total Correct:   6 - Confidence: 0,14 - Hit Percent: 85,71
+8 32635 2 begin 209,610001 1350,300049 243,589996 1361,109985
+*MISS* frame 032635 on camera 02 Sign:  32 - Correct:   1 (begin) - Tested:   8 - Total Correct:   6 - Confidence: 0,14 - Hit Percent: 75,00
+9 32656 1 C29 48,700001 739,750000 109,309998 800,119995
+*MISS* frame 032656 on camera 01 Sign:  47 - Correct:   3 (C29) - Tested:   9 - Total Correct:   6 - Confidence: 0,15 - Hit Percent: 66,67
+10 32660 1 C29 24,170000 746,580017 90,919998 814,510010
+*MISS* frame 032660 on camera 01 Sign:  48 - Correct:   3 (C29) - Tested:  10 - Total Correct:   6 - Confidence: 0,14 - Hit Percent: 60,00
+11 32664 1 C29 2,470000 742,099976 70,629997 821,109985
+*MISS* frame 032664 on camera 01 Sign:  47 - Correct:   3 (C29) - Tested:  11 - Total Correct:   6 - Confidence: 0,06 - Hit Percent: 54,55
+12 32739 1 begin 317,760010 1023,469971 389,700012 1045,170044
+*MISS* frame 032739 on camera 01 Sign:   8 - Correct:   1 (begin) - Tested:  12 - Total Correct:   6 - Confidence: 0,26 - Hit Percent: 50,00
+13 32743 1 E9a 186,910004 1153,069946 336,769989 1258,170044
+*HIT* frame 032743 on camera 01 Sign:   6 - Correct:   6 (E9a)- Tested:  13 - Total Correct:   7 - Confidence: 0,36 - Hit Percent: 53,85
+14 32743 1 begin 348,100006 1147,589966 442,440002 1176,770020
+*MISS* frame 032743 on camera 01 Sign:   8 - Correct:   1 (begin) - Tested:  14 - Total Correct:   7 - Confidence: 0,21 - Hit Percent: 50,00
+15 32747 1 E9a 162,449997 1388,560059 388,510010 1556,869995
+*HIT* frame 032747 on camera 01 Sign:   6 - Correct:   6 (E9a)- Tested:  15 - Total Correct:   8 - Confidence: 0,29 - Hit Percent: 53,33
+16 32747 1 begin 404,700012 1377,300049 543,440002 1424,479980
+*MISS* frame 032747 on camera 01 Sign:   8 - Correct:   1 (begin) - Tested:  16 - Total Correct:   8 - Confidence: 0,13 - Hit Percent: 50,00
+17 32844 1 E9a 264,049988 1094,849976 337,329987 1143,380005
+*MISS* frame 032844 on camera 01 Sign:  44 - Correct:   6 (E9a) - Tested:  17 - Total Correct:   8 - Confidence: 0,19 - Hit Percent: 47,06
+18 32852 1 X31 90,559998 1280,479980 265,790009 1402,650024
+*HIT* frame 032852 on camera 01 Sign:   7 - Correct:   7 (X31)- Tested:  18 - Total Correct:   9 - Confidence: 0,35 - Hit Percent: 50,00
+19 32852 1 E9a 266,329987 1299,650024 379,299988 1377,719971
+*HIT* frame 032852 on camera 01 Sign:   6 - Correct:   6 (E9a)- Tested:  19 - Total Correct:  10 - Confidence: 0,28 - Hit Percent: 52,63
+20 32856 1 X31 39,650002 1434,469971 286,119995 1612,119995
+*MISS* frame 032856 on camera 01 Sign:  32 - Correct:   7 (X31) - Tested:  20 - Total Correct:  10 - Confidence: 0,06 - Hit Percent: 50,00
+21 32856 1 E9a 286,350006 1453,060059 437,529999 1561,290039
+*HIT* frame 032856 on camera 01 Sign:   6 - Correct:   6 (E9a)- Tested:  21 - Total Correct:  11 - Confidence: 0,20 - Hit Percent: 52,38
+22 32856 1 einde 438,709991 1478,939941 536,940002 1510,119995
+*HIT* frame 032856 on camera 01 Sign:   8 - Correct:   8 (einde)- Tested:  22 - Total Correct:  12 - Confidence: 0,21 - Hit Percent: 54,55
+23 32863 5 E9a 361,220001 1365,880005 537,140015 1487,920044
+*HIT* frame 032863 on camera 05 Sign:   6 - Correct:   6 (E9a)- Tested:  23 - Total Correct:  13 - Confidence: 0,18 - Hit Percent: 56,52
+24 32863 5 begin 538,609985 1363,020020 652,489990 1397,709961
+*MISS* frame 032863 on camera 05 Sign:   8 - Correct:   1 (begin) - Tested:  24 - Total Correct:  13 - Confidence: 0,22 - Hit Percent: 54,17
+25 32867 5 X31_buiten 173,490005 1158,609985 359,609985 1282,689941
+*HIT* frame 032867 on camera 05 Sign:   9 - Correct:   9 (X31_buiten)- Tested:  25 - Total Correct:  14 - Confidence: 0,42 - Hit Percent: 56,00
+26 32867 5 E9a 359,200012 1159,020020 483,290009 1242,290039
+*HIT* frame 032867 on camera 05 Sign:   6 - Correct:   6 (E9a)- Tested:  26 - Total Correct:  15 - Confidence: 0,17 - Hit Percent: 57,69
+27 32867 5 begin 483,730011 1161,099976 563,729980 1184,780029
+*MISS* frame 032867 on camera 05 Sign:   8 - Correct:   1 (begin) - Tested:  27 - Total Correct:  15 - Confidence: 0,17 - Hit Percent: 55,56
+28 32871 5 X31_buiten 216,990005 1054,349976 360,869995 1150,609985
+*HIT* frame 032871 on camera 05 Sign:   9 - Correct:   9 (X31_buiten)- Tested:  28 - Total Correct:  16 - Confidence: 0,33 - Hit Percent: 57,14
+29 32871 5 E9a 360,859985 1055,550049 453,380005 1120,180054
+*HIT* frame 032871 on camera 05 Sign:   6 - Correct:   6 (E9a)- Tested:  29 - Total Correct:  17 - Confidence: 0,20 - Hit Percent: 58,62
+30 32871 5 begin 453,859985 1057,449951 517,460022 1076,500000
+*HIT* frame 032871 on camera 05 Sign:   1 - Correct:   1 (begin)- Tested:  30 - Total Correct:  18 - Confidence: 0,11 - Hit Percent: 60,00
+31 32882 1 X32 207,270004 1324,969971 299,359985 1373,400024
+*HIT* frame 032882 on camera 01 Sign:  10 - Correct:  10 (X32)- Tested:  31 - Total Correct:  19 - Confidence: 0,79 - Hit Percent: 61,29
+32 32886 1 X32 188,940002 1489,510010 310,029999 1551,760010
+*HIT* frame 032886 on camera 01 Sign:  10 - Correct:  10 (X32)- Tested:  32 - Total Correct:  20 - Confidence: 0,46 - Hit Percent: 62,50
+33 33147 5 C29 294,730011 1448,800049 464,119995 1532,880005
+*MISS* frame 033147 on camera 05 Sign:  11 - Correct:   3 (C29) - Tested:  33 - Total Correct:  20 - Confidence: 0,08 - Hit Percent: 60,61
+34 33158 5 X32_buiten 214,270004 767,940002 318,760010 811,200012
+*HIT* frame 033158 on camera 05 Sign:  11 - Correct:  11 (X32_buiten)- Tested:  34 - Total Correct:  21 - Confidence: 0,23 - Hit Percent: 61,76
+35 33158 5 C29 320,899994 756,650024 438,040009 824,000000
+*HIT* frame 033158 on camera 05 Sign:   3 - Correct:   3 (C29)- Tested:  35 - Total Correct:  22 - Confidence: 0,10 - Hit Percent: 62,86
+36 33166 5 X32_buiten 237,080002 422,109985 322,350006 458,940002
+*HIT* frame 033166 on camera 05 Sign:  11 - Correct:  11 (X32_buiten)- Tested:  36 - Total Correct:  23 - Confidence: 0,27 - Hit Percent: 63,89
+37 33166 5 C29 322,920013 415,029999 418,380005 469,700012
+*HIT* frame 033166 on camera 05 Sign:   3 - Correct:   3 (C29)- Tested:  37 - Total Correct:  24 - Confidence: 0,10 - Hit Percent: 64,86
+38 33344 5 X3L 587,710022 1112,520020 674,500000 1195,540039
+*HIT* frame 033344 on camera 05 Sign:  12 - Correct:  12 (X3L)- Tested:  38 - Total Correct:  25 - Confidence: 0,36 - Hit Percent: 65,79
+39 33348 5 X3L 531,729980 1005,969971 596,869995 1066,359985
+*HIT* frame 033348 on camera 05 Sign:  12 - Correct:  12 (X3L)- Tested:  39 - Total Correct:  26 - Confidence: 0,28 - Hit Percent: 66,67
+40 33405 1 X31_buiten 121,080002 1062,500000 278,149994 1168,869995
+*HIT* frame 033405 on camera 01 Sign:   9 - Correct:   9 (X31_buiten)- Tested:  40 - Total Correct:  27 - Confidence: 0,28 - Hit Percent: 67,50
+41 33409 1 X31_buiten 92,550003 1130,510010 301,369995 1271,199951
+*HIT* frame 033409 on camera 01 Sign:   9 - Correct:   9 (X31_buiten)- Tested:  41 - Total Correct:  28 - Confidence: 0,19 - Hit Percent: 68,29
+42 33409 1 F59 297,940002 1136,390015 429,799988 1232,959961
+*HIT* frame 033409 on camera 01 Sign:  13 - Correct:  13 (F59)- Tested:  42 - Total Correct:  29 - Confidence: 0,59 - Hit Percent: 69,05
+43 33413 1 X31_buiten 25,610001 1231,920044 322,179993 1432,410034
+*HIT* frame 033413 on camera 01 Sign:   9 - Correct:   9 (X31_buiten)- Tested:  43 - Total Correct:  30 - Confidence: 0,23 - Hit Percent: 69,77
+44 33413 1 F59 315,880005 1236,449951 501,670013 1374,689941
+*HIT* frame 033413 on camera 01 Sign:  13 - Correct:  13 (F59)- Tested:  44 - Total Correct:  31 - Confidence: 0,56 - Hit Percent: 70,45
+45 33441 2 F45 67,279999 326,269989 165,630005 394,200012
+*HIT* frame 033441 on camera 02 Sign:  14 - Correct:  14 (F45)- Tested:  45 - Total Correct:  32 - Confidence: 0,60 - Hit Percent: 71,11
+46 33447 2 F45 44,080002 640,099976 147,380005 708,500000
+*HIT* frame 033447 on camera 02 Sign:  14 - Correct:  14 (F45)- Tested:  46 - Total Correct:  33 - Confidence: 0,34 - Hit Percent: 71,74
+47 33447 2 F29_links 106,379997 175,619995 200,850006 539,020020
+*HIT* frame 033447 on camera 02 Sign:  16 - Correct:  16 (F29_links)- Tested:  47 - Total Correct:  34 - Confidence: 0,08 - Hit Percent: 72,34
+48 33447 1 B5 232,149994 1490,310059 327,630005 1591,689941
+*HIT* frame 033447 on camera 01 Sign:  15 - Correct:  15 (B5)- Tested:  48 - Total Correct:  35 - Confidence: 0,60 - Hit Percent: 72,92
+49 33454 2 F29_links 29,660000 687,469971 114,379997 1087,469971
+*HIT* frame 033454 on camera 02 Sign:  16 - Correct:  16 (F29_links)- Tested:  49 - Total Correct:  36 - Confidence: 0,12 - Hit Percent: 73,47
+50 33454 2 F29_links 111,830002 690,659973 196,539993 1082,380005
+*HIT* frame 033454 on camera 02 Sign:  16 - Correct:  16 (F29_links)- Tested:  50 - Total Correct:  37 - Confidence: 0,07 - Hit Percent: 74,00
+51 33466 2 F29_links 54,080002 1239,119995 144,389999 1626,880005
+*HIT* frame 033466 on camera 02 Sign:  16 - Correct:  16 (F29_links)- Tested:  51 - Total Correct:  38 - Confidence: 0,11 - Hit Percent: 74,51
+52 33466 2 F29_links 135,199997 1231,060059 227,039993 1617,290039
+*HIT* frame 033466 on camera 02 Sign:  16 - Correct:  16 (F29_links)- Tested:  52 - Total Correct:  39 - Confidence: 0,09 - Hit Percent: 75,00
+53 33511 2 B5 53,330002 98,690002 226,389999 234,610001
+*HIT* frame 033511 on camera 02 Sign:  15 - Correct:  15 (B5)- Tested:  53 - Total Correct:  40 - Confidence: 0,11 - Hit Percent: 75,47
+54 33540 6 X31 67,970001 46,000000 180,710007 138,919998
+*HIT* frame 033540 on camera 06 Sign:   7 - Correct:   7 (X31)- Tested:  54 - Total Correct:  41 - Confidence: 0,14 - Hit Percent: 75,93
+55 33540 6 C21 194,750000 22,410000 277,760010 109,199997
+*MISS* frame 033540 on camera 06 Sign:  47 - Correct:   5 (C21) - Tested:  55 - Total Correct:  41 - Confidence: 0,16 - Hit Percent: 74,55
+56 33540 6 X32 292,869995 128,190002 363,859985 183,610001
+*HIT* frame 033540 on camera 06 Sign:  10 - Correct:  10 (X32)- Tested:  56 - Total Correct:  42 - Confidence: 0,12 - Hit Percent: 75,00
+57 33553 2 D7 486,160004 276,269989 621,270020 418,709991
+*MISS* frame 033553 on camera 02 Sign:  23 - Correct:  19 (D7) - Tested:  57 - Total Correct:  42 - Confidence: 0,28 - Hit Percent: 73,68
+58 33557 2 D7 480,799988 1002,619995 615,640015 1128,969971
+*HIT* frame 033557 on camera 02 Sign:  19 - Correct:  19 (D7)- Tested:  58 - Total Correct:  43 - Confidence: 0,11 - Hit Percent: 74,14
+59 33568 6 F29 493,510010 1243,099976 577,590027 1531,270020
+*HIT* frame 033568 on camera 06 Sign:  20 - Correct:  20 (F29)- Tested:  59 - Total Correct:  44 - Confidence: 0,12 - Hit Percent: 74,58
+60 33572 6 F29 432,709991 813,859985 518,489990 1087,390015
+*HIT* frame 033572 on camera 06 Sign:  20 - Correct:  20 (F29)- Tested:  60 - Total Correct:  45 - Confidence: 0,22 - Hit Percent: 75,00
+61 33572 6 F29 499,859985 813,859985 587,119995 1083,469971
+*MISS* frame 033572 on camera 06 Sign:  40 - Correct:  20 (F29) - Tested:  61 - Total Correct:  45 - Confidence: 0,09 - Hit Percent: 73,77
+62 33576 6 F29 444,269989 350,899994 525,900024 573,349976
+*MISS* frame 033576 on camera 06 Sign:  41 - Correct:  20 (F29) - Tested:  62 - Total Correct:  45 - Confidence: 0,07 - Hit Percent: 72,58
+63 33576 6 F29 511,200012 356,200012 595,289978 577,840027
+*MISS* frame 033576 on camera 06 Sign:  50 - Correct:  20 (F29) - Tested:  63 - Total Correct:  45 - Confidence: 0,05 - Hit Percent: 71,43
+64 33602 1 B15A 167,990005 1203,020020 238,720001 1277,680054
+*MISS* frame 033602 on camera 01 Sign:  39 - Correct:  22 (B15A) - Tested:  64 - Total Correct:  45 - Confidence: 0,27 - Hit Percent: 70,31
+65 33606 1 B15A 155,520004 1301,310059 241,770004 1392,670044
+*MISS* frame 033606 on camera 01 Sign:  33 - Correct:  22 (B15A) - Tested:  65 - Total Correct:  45 - Confidence: 0,22 - Hit Percent: 69,23
+66 33607 5 C31RIGHT 307,200012 1479,540039 378,730011 1548,770020
+*MISS* frame 033607 on camera 05 Sign:  47 - Correct:  21 (C31RIGHT) - Tested:  66 - Total Correct:  45 - Confidence: 0,13 - Hit Percent: 68,18
+67 33607 5 B15A 315,630005 1561,119995 374,869995 1622,829956
+*MISS* frame 033607 on camera 05 Sign:  39 - Correct:  22 (B15A) - Tested:  67 - Total Correct:  45 - Confidence: 0,27 - Hit Percent: 67,16
+68 33610 1 B15A 138,059998 1449,630005 249,899994 1568,000000
+*MISS* frame 033610 on camera 01 Sign:  39 - Correct:  22 (B15A) - Tested:  68 - Total Correct:  45 - Confidence: 0,17 - Hit Percent: 66,18
+69 33611 5 C31RIGHT 313,750000 1386,150024 376,269989 1446,699951
+*MISS* frame 033611 on camera 05 Sign:  47 - Correct:  21 (C31RIGHT) - Tested:  69 - Total Correct:  45 - Confidence: 0,14 - Hit Percent: 65,22
+70 33611 5 B15A 321,720001 1457,520020 372,950012 1510,709961
+*MISS* frame 033611 on camera 05 Sign:  39 - Correct:  22 (B15A) - Tested:  70 - Total Correct:  45 - Confidence: 0,12 - Hit Percent: 64,29
+71 33646 6 D7 298,540009 146,130005 352,380005 175,750000
+*MISS* frame 033646 on camera 06 Sign:   1 - Correct:  19 (D7) - Tested:  71 - Total Correct:  45 - Confidence: 0,08 - Hit Percent: 63,38
+72 33648 6 D7 297,970001 10,350000 352,079987 45,189999
+*MISS* frame 033648 on camera 06 Sign:   0 - Correct:  19 (D7) - Tested:  72 - Total Correct:  45 - Confidence: 0,08 - Hit Percent: 62,50
+73 33658 6 B15A 119,949997 56,630001 247,139999 113,010002
+*HIT* frame 033658 on camera 06 Sign:  22 - Correct:  22 (B15A)- Tested:  73 - Total Correct:  46 - Confidence: 0,18 - Hit Percent: 63,01
+74 33660 0 D1b_schuin_rechts 371,329987 237,500000 449,519989 319,649994
+*HIT* frame 033660 on camera 00 Sign:  23 - Correct:  23 (D1b_schuin_rechts)- Tested:  74 - Total Correct:  47 - Confidence: 0,75 - Hit Percent: 63,51
+75 33664 0 D1b_schuin_rechts 480,839996 43,860001 584,919983 158,139999
+*HIT* frame 033664 on camera 00 Sign:  23 - Correct:  23 (D1b_schuin_rechts)- Tested:  75 - Total Correct:  48 - Confidence: 0,49 - Hit Percent: 64,00
+76 33682 5 B15A 340,200012 1544,699951 397,570007 1607,569946
+*MISS* frame 033682 on camera 05 Sign:  39 - Correct:  22 (B15A) - Tested:  76 - Total Correct:  48 - Confidence: 0,27 - Hit Percent: 63,16
+77 33685 5 D7 416,600006 1602,030029 441,779999 1626,260010
+*MISS* frame 033685 on camera 05 Sign:  23 - Correct:  19 (D7) - Tested:  77 - Total Correct:  48 - Confidence: 0,15 - Hit Percent: 62,34
+78 33686 5 B15A 344,540009 1512,420044 395,230011 1565,859985
+*MISS* frame 033686 on camera 05 Sign:  49 - Correct:  22 (B15A) - Tested:  78 - Total Correct:  48 - Confidence: 0,14 - Hit Percent: 61,54
+79 33706 1 B15A 198,309998 819,669983 288,089996 918,099976
+*MISS* frame 033706 on camera 01 Sign:  34 - Correct:  22 (B15A) - Tested:  79 - Total Correct:  48 - Confidence: 0,09 - Hit Percent: 60,76
+80 33711 1 B15A 170,029999 1028,770020 306,859985 1177,780029
+*MISS* frame 033711 on camera 01 Sign:  34 - Correct:  22 (B15A) - Tested:  80 - Total Correct:  48 - Confidence: 0,22 - Hit Percent: 60,00
+81 33715 1 B15A 127,540001 1355,140015 360,880005 1620,780029
+*MISS* frame 033715 on camera 01 Sign:  33 - Correct:  22 (B15A) - Tested:  81 - Total Correct:  48 - Confidence: 0,14 - Hit Percent: 59,26
+82 33740 2 F4a 25,459999 99,930000 127,449997 176,919998
+*HIT* frame 033740 on camera 02 Sign:  17 - Correct:  17 (F4a)- Tested:  82 - Total Correct:  49 - Confidence: 0,26 - Hit Percent: 59,76
+83 33746 2 F4a 29,250000 709,510010 126,900002 773,659973
+*HIT* frame 033746 on camera 02 Sign:  17 - Correct:  17 (F4a)- Tested:  83 - Total Correct:  50 - Confidence: 0,16 - Hit Percent: 60,24
+84 33746 2 X11 126,110001 709,700012 220,690002 774,080017
+*HIT* frame 033746 on camera 02 Sign:  24 - Correct:  24 (X11)- Tested:  84 - Total Correct:  51 - Confidence: 0,21 - Hit Percent: 60,71
+85 33746 6 D1b_schuin_rechts 304,470001 107,180000 461,200012 178,610001
+*MISS* frame 033746 on camera 06 Sign:  10 - Correct:  23 (D1b_schuin_rechts) - Tested:  85 - Total Correct:  51 - Confidence: 0,09 - Hit Percent: 60,00
+86 33749 1 D7 387,679993 1316,229980 434,609985 1357,359985
+*HIT* frame 033749 on camera 01 Sign:  19 - Correct:  19 (D7)- Tested:  86 - Total Correct:  52 - Confidence: 0,24 - Hit Percent: 60,47
+87 33752 1 D7 412,299988 1423,180054 467,640015 1470,569946
+*HIT* frame 033752 on camera 01 Sign:  19 - Correct:  19 (D7)- Tested:  87 - Total Correct:  53 - Confidence: 0,14 - Hit Percent: 60,92
+88 33752 0 D1b_schuin_rechts 194,130005 238,619995 261,130005 300,440002
+*HIT* frame 033752 on camera 00 Sign:  23 - Correct:  23 (D1b_schuin_rechts)- Tested:  88 - Total Correct:  54 - Confidence: 0,32 - Hit Percent: 61,36
+89 33753 2 F4a 37,119999 1373,020020 136,089996 1441,449951
+*HIT* frame 033753 on camera 02 Sign:  17 - Correct:  17 (F4a)- Tested:  89 - Total Correct:  55 - Confidence: 0,13 - Hit Percent: 61,80
+90 33753 2 X11 135,369995 1363,319946 228,710007 1429,359985
+*HIT* frame 033753 on camera 02 Sign:  24 - Correct:  24 (X11)- Tested:  90 - Total Correct:  56 - Confidence: 0,12 - Hit Percent: 62,22
+91 33755 1 D7 447,470001 1568,469971 511,910004 1621,910034
+*HIT* frame 033755 on camera 01 Sign:  19 - Correct:  19 (D7)- Tested:  91 - Total Correct:  57 - Confidence: 0,15 - Hit Percent: 62,64
+92 33757 0 D1b_schuin_rechts 207,089996 127,150002 288,369995 202,759995
+*HIT* frame 033757 on camera 00 Sign:  23 - Correct:  23 (D1b_schuin_rechts)- Tested:  92 - Total Correct:  58 - Confidence: 0,27 - Hit Percent: 63,04
+93 33760 0 D1b_schuin_rechts 230,339996 21,910000 323,450012 110,089996
+*HIT* frame 033760 on camera 00 Sign:  23 - Correct:  23 (D1b_schuin_rechts)- Tested:  93 - Total Correct:  59 - Confidence: 0,20 - Hit Percent: 63,44
+94 33763 5 D1b_schuin_rechts 435,799988 1505,910034 523,200012 1588,560059
+*HIT* frame 033763 on camera 05 Sign:  23 - Correct:  23 (D1b_schuin_rechts)- Tested:  94 - Total Correct:  60 - Confidence: 0,29 - Hit Percent: 63,83
+95 33768 5 D1b_schuin_rechts 425,359985 1362,939941 493,279999 1428,729980
+*HIT* frame 033768 on camera 05 Sign:  23 - Correct:  23 (D1b_schuin_rechts)- Tested:  95 - Total Correct:  61 - Confidence: 0,30 - Hit Percent: 64,21
+96 33778 1 begin 245,419998 1338,750000 291,410004 1354,790039
+*MISS* frame 033778 on camera 01 Sign:   8 - Correct:   1 (begin) - Tested:  96 - Total Correct:  61 - Confidence: 0,13 - Hit Percent: 63,54
+97 33781 1 E9b 129,190002 1422,780029 217,729996 1484,640015
+*HIT* frame 033781 on camera 01 Sign:  25 - Correct:  25 (E9b)- Tested:  97 - Total Correct:  62 - Confidence: 0,28 - Hit Percent: 63,92
+98 33781 1 begin 220,830002 1434,910034 276,309998 1452,089966
+*MISS* frame 033781 on camera 01 Sign:  32 - Correct:   1 (begin) - Tested:  98 - Total Correct:  62 - Confidence: 0,12 - Hit Percent: 63,27
+99 33784 1 E9b 171,520004 1538,760010 279,730011 1618,650024
+*MISS* frame 033784 on camera 01 Sign:  11 - Correct:  25 (E9b) - Tested:  99 - Total Correct:  62 - Confidence: 0,07 - Hit Percent: 62,63
+100 33784 1 begin 281,899994 1553,689941 349,609985 1577,760010
+*MISS* frame 033784 on camera 01 Sign:  32 - Correct:   1 (begin) - Tested: 100 - Total Correct:  62 - Confidence: 0,12 - Hit Percent: 62,00
+101 33934 1 B15A 178,880005 1453,329956 224,550003 1502,760010
+*MISS* frame 033934 on camera 01 Sign:  39 - Correct:  22 (B15A) - Tested: 101 - Total Correct:  62 - Confidence: 0,20 - Hit Percent: 61,39
+102 33937 1 B15A 175,690002 1536,900024 226,270004 1595,000000
+*MISS* frame 033937 on camera 01 Sign:  39 - Correct:  22 (B15A) - Tested: 102 - Total Correct:  62 - Confidence: 0,17 - Hit Percent: 60,78
+103 33954 2 B15A 1,360000 54,209999 77,550003 126,660004
+*MISS* frame 033954 on camera 02 Sign:  30 - Correct:  22 (B15A) - Tested: 103 - Total Correct:  62 - Confidence: 0,08 - Hit Percent: 60,19
+104 34039 1 oversteekplaats 247,800003 1315,949951 339,640015 1447,920044
+*HIT* frame 034039 on camera 01 Sign:  26 - Correct:  26 (oversteekplaats)- Tested: 104 - Total Correct:  63 - Confidence: 0,71 - Hit Percent: 60,58
+105 34039 1 F34A_links 208,889999 1148,670044 231,330002 1320,439941
+*HIT* frame 034039 on camera 01 Sign:  27 - Correct:  27 (F34A_links)- Tested: 105 - Total Correct:  64 - Confidence: 0,18 - Hit Percent: 60,95
+106 34039 1 F34A_links 231,330002 1148,219971 253,559998 1319,109985
+*MISS* frame 034039 on camera 01 Sign:  28 - Correct:  27 (F34A_links) - Tested: 106 - Total Correct:  64 - Confidence: 0,12 - Hit Percent: 60,38
+107 34039 1 F34A_links 253,559998 1148,000000 276,670013 1318,219971
+*MISS* frame 034039 on camera 01 Sign:  28 - Correct:  27 (F34A_links) - Tested: 107 - Total Correct:  64 - Confidence: 0,33 - Hit Percent: 59,81
+108 34042 1 oversteekplaats 254,690002 1436,569946 366,940002 1598,199951
+*HIT* frame 034042 on camera 01 Sign:  26 - Correct:  26 (oversteekplaats)- Tested: 108 - Total Correct:  65 - Confidence: 0,40 - Hit Percent: 60,19
+109 34042 1 F34A_links 175,589996 1225,199951 204,770004 1436,250000
+*HIT* frame 034042 on camera 01 Sign:  27 - Correct:  27 (F34A_links)- Tested: 109 - Total Correct:  66 - Confidence: 0,62 - Hit Percent: 60,55
+110 34042 1 F34A_links 203,919998 1225,199951 232,539993 1435,109985
+*HIT* frame 034042 on camera 01 Sign:  27 - Correct:  27 (F34A_links)- Tested: 110 - Total Correct:  67 - Confidence: 0,24 - Hit Percent: 60,91
+111 34042 1 F34A_links 232,250000 1224,069946 260,579987 1433,130005
+*MISS* frame 034042 on camera 01 Sign:  28 - Correct:  27 (F34A_links) - Tested: 111 - Total Correct:  67 - Confidence: 0,08 - Hit Percent: 60,36
+112 34042 1 F34A_links 260,299988 1223,500000 286,929993 1432,560059
+*MISS* frame 034042 on camera 01 Sign:  28 - Correct:  27 (F34A_links) - Tested: 112 - Total Correct:  67 - Confidence: 0,15 - Hit Percent: 59,82
+113 34042 1 F34A 286,929993 1222,650024 314,119995 1429,729980
+*HIT* frame 034042 on camera 01 Sign:  28 - Correct:  28 (F34A)- Tested: 113 - Total Correct:  68 - Confidence: 0,67 - Hit Percent: 60,18
+114 34045 1 F34A_links 154,919998 1346,739990 192,509995 1623,339966
+*HIT* frame 034045 on camera 01 Sign:  27 - Correct:  27 (F34A_links)- Tested: 114 - Total Correct:  69 - Confidence: 0,47 - Hit Percent: 60,53
+115 34045 1 F34A_links 192,160004 1344,619995 227,619995 1618,380005
+*HIT* frame 034045 on camera 01 Sign:  27 - Correct:  27 (F34A_links)- Tested: 115 - Total Correct:  70 - Confidence: 0,21 - Hit Percent: 60,87
+116 34045 1 F34A_links 227,259995 1343,550049 265,209991 1613,770020
+*MISS* frame 034045 on camera 01 Sign:  28 - Correct:  27 (F34A_links) - Tested: 116 - Total Correct:  70 - Confidence: 0,07 - Hit Percent: 60,34
+117 34045 1 F34A_links 264,500000 1341,430054 299,250000 1610,930054
+*MISS* frame 034045 on camera 01 Sign:  28 - Correct:  27 (F34A_links) - Tested: 117 - Total Correct:  70 - Confidence: 0,18 - Hit Percent: 59,83
+118 34045 1 F34A 298,890015 1339,650024 335,059998 1607,030029
+*HIT* frame 034045 on camera 01 Sign:  28 - Correct:  28 (F34A)- Tested: 118 - Total Correct:  71 - Confidence: 0,49 - Hit Percent: 60,17
+119 34062 1 B15A 208,039993 1158,900024 300,179993 1258,310059
+*MISS* frame 034062 on camera 01 Sign:  39 - Correct:  22 (B15A) - Tested: 119 - Total Correct:  71 - Confidence: 0,34 - Hit Percent: 59,66
+120 34065 1 B15A 201,750000 1242,369995 319,100006 1366,859985
+*MISS* frame 034065 on camera 01 Sign:  39 - Correct:  22 (B15A) - Tested: 120 - Total Correct:  71 - Confidence: 0,31 - Hit Percent: 59,17
+121 34068 1 B15A 194,770004 1384,819946 350,549988 1546,380005
+*MISS* frame 034068 on camera 01 Sign:  39 - Correct:  22 (B15A) - Tested: 121 - Total Correct:  71 - Confidence: 0,25 - Hit Percent: 58,68
+122 34081 0 X3R 298,420013 211,199997 364,720001 279,410004
+*HIT* frame 034081 on camera 00 Sign:  29 - Correct:  29 (X3R)- Tested: 122 - Total Correct:  72 - Confidence: 0,49 - Hit Percent: 59,02
+123 34083 0 X3R 297,609985 450,279999 360,679993 513,539978
+*HIT* frame 034083 on camera 00 Sign:  29 - Correct:  29 (X3R)- Tested: 123 - Total Correct:  73 - Confidence: 0,37 - Hit Percent: 59,35
+124 34085 0 X3R 365,929993 16,900000 453,679993 116,220001
+*HIT* frame 034085 on camera 00 Sign:  29 - Correct:  29 (X3R)- Tested: 124 - Total Correct:  74 - Confidence: 0,24 - Hit Percent: 59,68
+125 34087 0 X3R 363,920013 336,859985 443,880005 420,950012
+*HIT* frame 034087 on camera 00 Sign:  29 - Correct:  29 (X3R)- Tested: 125 - Total Correct:  75 - Confidence: 0,47 - Hit Percent: 60,00
+126 34090 1 F49 92,660004 1192,880005 226,389999 1325,900024
+*HIT* frame 034090 on camera 01 Sign:  30 - Correct:  30 (F49)- Tested: 126 - Total Correct:  76 - Confidence: 0,62 - Hit Percent: 60,32
+127 34092 0 X3R 527,710022 49,630001 651,729980 192,759995
+*HIT* frame 034092 on camera 00 Sign:  29 - Correct:  29 (X3R)- Tested: 127 - Total Correct:  77 - Confidence: 0,22 - Hit Percent: 60,63
+128 34094 1 F49 29,410000 1338,000000 218,820007 1527,410034
+*HIT* frame 034094 on camera 01 Sign:  30 - Correct:  30 (F49)- Tested: 128 - Total Correct:  78 - Confidence: 0,35 - Hit Percent: 60,94
+129 34118 6 D1b_schuin_rechts 250,479996 1,700000 424,970001 95,239998
+*MISS* frame 034118 on camera 06 Sign:  29 - Correct:  23 (D1b_schuin_rechts) - Tested: 129 - Total Correct:  78 - Confidence: 0,07 - Hit Percent: 60,47
+130 34122 2 F4a 60,439999 397,670013 163,160004 467,059998
+*HIT* frame 034122 on camera 02 Sign:  17 - Correct:  17 (F4a)- Tested: 130 - Total Correct:  79 - Confidence: 0,24 - Hit Percent: 60,77
+131 34131 2 F4a 49,360001 788,520020 150,770004 855,500000
+*HIT* frame 034131 on camera 02 Sign:  17 - Correct:  17 (F4a)- Tested: 131 - Total Correct:  80 - Confidence: 0,17 - Hit Percent: 61,07
+132 34140 2 F4a 51,950001 1327,430054 153,910004 1402,880005
+*HIT* frame 034140 on camera 02 Sign:  17 - Correct:  17 (F4a)- Tested: 132 - Total Correct:  81 - Confidence: 0,11 - Hit Percent: 61,36
+133 34154 2 D7 261,940002 19,059999 311,640015 66,010002
+*HIT* frame 034154 on camera 02 Sign:  19 - Correct:  19 (D7)- Tested: 133 - Total Correct:  82 - Confidence: 0,14 - Hit Percent: 61,65
+134 34167 2 D7 243,250000 676,960022 288,769989 713,989990
+*HIT* frame 034167 on camera 02 Sign:  19 - Correct:  19 (D7)- Tested: 134 - Total Correct:  83 - Confidence: 0,14 - Hit Percent: 61,94
+135 34215 2 D7 272,329987 1252,660034 317,079987 1283,760010
+*HIT* frame 034215 on camera 02 Sign:  19 - Correct:  19 (D7)- Tested: 135 - Total Correct:  84 - Confidence: 0,12 - Hit Percent: 62,22
+136 34223 2 D1b_schuin_rechts 141,649994 39,709999 268,119995 172,059998
+*HIT* frame 034223 on camera 02 Sign:  23 - Correct:  23 (D1b_schuin_rechts)- Tested: 136 - Total Correct:  85 - Confidence: 0,25 - Hit Percent: 62,50
+137 34224 6 D1b_schuin_rechts 220,449997 114,930000 290,790009 187,820007
+*HIT* frame 034224 on camera 06 Sign:  23 - Correct:  23 (D1b_schuin_rechts)- Tested: 137 - Total Correct:  86 - Confidence: 0,29 - Hit Percent: 62,77
+138 34233 2 D1b_schuin_rechts 123,309998 760,289978 241,270004 872,530029
+*HIT* frame 034233 on camera 02 Sign:  23 - Correct:  23 (D1b_schuin_rechts)- Tested: 138 - Total Correct:  87 - Confidence: 0,23 - Hit Percent: 63,04
+139 34240 2 D1b_schuin_rechts 144,880005 1345,530029 262,019989 1454,920044
+*HIT* frame 034240 on camera 02 Sign:  23 - Correct:  23 (D1b_schuin_rechts)- Tested: 139 - Total Correct:  88 - Confidence: 0,18 - Hit Percent: 63,31
+140 34243 6 D1b_schuin_rechts 206,929993 370,760010 270,609985 431,140015
+*HIT* frame 034243 on camera 06 Sign:  23 - Correct:  23 (D1b_schuin_rechts)- Tested: 140 - Total Correct:  89 - Confidence: 0,31 - Hit Percent: 63,57
+141 34245 1 F4a 189,899994 1247,020020 287,769989 1314,119995
+*MISS* frame 034245 on camera 01 Sign:  10 - Correct:  17 (F4a) - Tested: 141 - Total Correct:  89 - Confidence: 0,08 - Hit Percent: 63,12
+142 34250 1 F4a 204,850006 1513,119995 331,970001 1610,760010
+*HIT* frame 034250 on camera 01 Sign:  17 - Correct:  17 (F4a)- Tested: 142 - Total Correct:  90 - Confidence: 0,09 - Hit Percent: 63,38
+143 34255 6 D7 288,320007 1214,859985 326,839996 1251,910034
+*MISS* frame 034255 on camera 06 Sign:  23 - Correct:  19 (D7) - Tested: 143 - Total Correct:  90 - Confidence: 0,22 - Hit Percent: 62,94
+144 34262 6 D7 279,609985 976,500000 319,890015 1016,380005
+*MISS* frame 034262 on camera 06 Sign:  23 - Correct:  19 (D7) - Tested: 144 - Total Correct:  90 - Confidence: 0,23 - Hit Percent: 62,50
+145 34263 2 F4a 11,760000 130,899994 241,179993 246,589996
+*MISS* frame 034263 on camera 02 Sign:  37 - Correct:  17 (F4a) - Tested: 145 - Total Correct:  90 - Confidence: 0,07 - Hit Percent: 62,07
+146 34269 6 D7 275,730011 686,450012 315,829987 726,049988
+*MISS* frame 034269 on camera 06 Sign:  23 - Correct:  19 (D7) - Tested: 146 - Total Correct:  90 - Confidence: 0,12 - Hit Percent: 61,64
+147 34299 5 B5 348,179993 1277,410034 578,179993 1505,650024
+*HIT* frame 034299 on camera 05 Sign:  15 - Correct:  15 (B5)- Tested: 147 - Total Correct:  91 - Confidence: 0,45 - Hit Percent: 61,90
+148 34303 5 B5 361,220001 1116,939941 516,330017 1270,819946
+*HIT* frame 034303 on camera 05 Sign:  15 - Correct:  15 (B5)- Tested: 148 - Total Correct:  92 - Confidence: 0,36 - Hit Percent: 62,16
+149 34307 5 B5 364,640015 1057,020020 481,929993 1171,760010
+*HIT* frame 034307 on camera 05 Sign:  15 - Correct:  15 (B5)- Tested: 149 - Total Correct:  93 - Confidence: 0,51 - Hit Percent: 62,42
+150 34331 5 B3 379,859985 1105,630005 561,489990 1271,349976
+*HIT* frame 034331 on camera 05 Sign:  31 - Correct:  31 (B3)- Tested: 150 - Total Correct:  94 - Confidence: 0,44 - Hit Percent: 62,67
+151 34335 5 B3 383,630005 1018,390015 515,710022 1140,790039
+*HIT* frame 034335 on camera 05 Sign:  31 - Correct:  31 (B3)- Tested: 151 - Total Correct:  95 - Confidence: 0,35 - Hit Percent: 62,91
+152 34336 6 C31RIGHT 38,730000 1350,540039 266,200012 1572,369995
+*MISS* frame 034336 on camera 06 Sign:  48 - Correct:  21 (C31RIGHT) - Tested: 152 - Total Correct:  95 - Confidence: 0,11 - Hit Percent: 62,50
+153 34339 6 C31RIGHT 50,549999 829,059998 277,899994 1053,550049
+*MISS* frame 034339 on camera 06 Sign:  48 - Correct:  21 (C31RIGHT) - Tested: 153 - Total Correct:  95 - Confidence: 0,13 - Hit Percent: 62,09
+154 34343 6 C31RIGHT 81,000000 137,589996 308,059998 347,589996
+*MISS* frame 034343 on camera 06 Sign:  47 - Correct:  21 (C31RIGHT) - Tested: 154 - Total Correct:  95 - Confidence: 0,20 - Hit Percent: 61,69
+155 34353 5 E1 371,019989 1343,199951 611,219971 1575,550049
+*MISS* frame 034353 on camera 05 Sign:  47 - Correct:   0 (E1) - Tested: 155 - Total Correct:  95 - Confidence: 0,12 - Hit Percent: 61,29
+156 34357 5 E1 372,010010 1163,069946 530,849976 1318,510010
+*MISS* frame 034357 on camera 05 Sign:  48 - Correct:   0 (E1) - Tested: 156 - Total Correct:  95 - Confidence: 0,20 - Hit Percent: 60,90
+157 34357 5 lang 535,940002 1230,449951 621,989990 1253,579956
+*HIT* frame 034357 on camera 05 Sign:  32 - Correct:  32 (lang)- Tested: 157 - Total Correct:  96 - Confidence: 0,27 - Hit Percent: 61,15
+158 34361 5 E1 366,910004 1082,709961 489,359985 1201,069946
+*MISS* frame 034361 on camera 05 Sign:  47 - Correct:   0 (E1) - Tested: 158 - Total Correct:  96 - Confidence: 0,19 - Hit Percent: 60,76
+159 34361 5 lang 490,040009 1135,430054 557,049988 1151,760010
+*HIT* frame 034361 on camera 05 Sign:  32 - Correct:  32 (lang)- Tested: 159 - Total Correct:  97 - Confidence: 0,22 - Hit Percent: 61,01
+160 34367 2 E9b 154,350006 68,040001 278,369995 148,429993
+*MISS* frame 034367 on camera 02 Sign:  42 - Correct:  25 (E9b) - Tested: 160 - Total Correct:  97 - Confidence: 0,06 - Hit Percent: 60,62
+161 34367 2 begin 277,880005 109,709999 357,290009 141,570007
+*HIT* frame 034367 on camera 02 Sign:   1 - Correct:   1 (begin)- Tested: 161 - Total Correct:  98 - Confidence: 0,14 - Hit Percent: 60,87
+162 34376 2 E9b 163,610001 765,479980 288,779999 847,460022
+*MISS* frame 034376 on camera 02 Sign:  42 - Correct:  25 (E9b) - Tested: 162 - Total Correct:  98 - Confidence: 0,19 - Hit Percent: 60,49
+163 34376 2 begin 288,779999 795,070007 370,070007 817,859985
+*MISS* frame 034376 on camera 02 Sign:   8 - Correct:   1 (begin) - Tested: 163 - Total Correct:  98 - Confidence: 0,13 - Hit Percent: 60,12
+164 34403 0 C21 37,070000 405,519989 144,899994 508,929993
+*MISS* frame 034403 on camera 00 Sign:  47 - Correct:   5 (C21) - Tested: 164 - Total Correct:  98 - Confidence: 0,16 - Hit Percent: 59,76
+165 34403 0 laden_lossen 143,539993 412,670013 178,570007 514,710022
+*HIT* frame 034403 on camera 00 Sign:  18 - Correct:  18 (laden_lossen)- Tested: 165 - Total Correct:  99 - Confidence: 0,14 - Hit Percent: 60,00
+166 34427 6 C21 0,570000 809,719971 111,330002 920,770020
+*MISS* frame 034427 on camera 06 Sign:  48 - Correct:   5 (C21) - Tested: 166 - Total Correct:  99 - Confidence: 0,15 - Hit Percent: 59,64
+167 34427 6 laden_lossen 110,760002 817,369995 148,440002 927,000000
+*HIT* frame 034427 on camera 06 Sign:  18 - Correct:  18 (laden_lossen)- Tested: 167 - Total Correct: 100 - Confidence: 0,15 - Hit Percent: 59,88
+168 34429 2 E9b 198,039993 299,709991 375,980011 390,880005
+*MISS* frame 034429 on camera 02 Sign:   1 - Correct:  25 (E9b) - Tested: 168 - Total Correct: 100 - Confidence: 0,09 - Hit Percent: 59,52
+169 34429 2 begin 371,570007 337,940002 483,329987 368,820007
+*MISS* frame 034429 on camera 02 Sign:  24 - Correct:   1 (begin) - Tested: 169 - Total Correct: 100 - Confidence: 0,09 - Hit Percent: 59,17
+170 34434 6 C21 44,730000 48,590000 161,830002 161,360001
+*MISS* frame 034434 on camera 06 Sign:  47 - Correct:   5 (C21) - Tested: 170 - Total Correct: 100 - Confidence: 0,17 - Hit Percent: 58,82
+171 34434 6 laden_lossen 159,250000 67,220001 199,919998 178,610001
+*HIT* frame 034434 on camera 06 Sign:  18 - Correct:  18 (laden_lossen)- Tested: 171 - Total Correct: 101 - Confidence: 0,21 - Hit Percent: 59,06
+172 34459 5 C31RIGHT 146,330002 1253,939941 329,179993 1430,670044
+*MISS* frame 034459 on camera 05 Sign:  47 - Correct:  21 (C31RIGHT) - Tested: 172 - Total Correct: 101 - Confidence: 0,18 - Hit Percent: 58,72
+173 34459 5 F4a 151,630005 1482,160034 312,859985 1594,000000
+*HIT* frame 034459 on camera 05 Sign:  17 - Correct:  17 (F4a)- Tested: 173 - Total Correct: 102 - Confidence: 0,11 - Hit Percent: 58,96
+174 34459 5 laden_lossen 334,489990 1254,760010 386,329987 1431,900024
+*HIT* frame 034459 on camera 05 Sign:  18 - Correct:  18 (laden_lossen)- Tested: 174 - Total Correct: 103 - Confidence: 0,10 - Hit Percent: 59,20
+175 34463 5 C31RIGHT 204,009995 1123,900024 340,410004 1256,900024
+*MISS* frame 034463 on camera 05 Sign:  48 - Correct:  21 (C31RIGHT) - Tested: 175 - Total Correct: 103 - Confidence: 0,18 - Hit Percent: 58,86
+176 34463 5 F4a 211,160004 1295,349976 329,859985 1376,650024
+*HIT* frame 034463 on camera 05 Sign:  17 - Correct:  17 (F4a)- Tested: 176 - Total Correct: 104 - Confidence: 0,09 - Hit Percent: 59,09
+177 34463 5 laden_lossen 343,470001 1126,290039 384,970001 1259,959961
+*MISS* frame 034463 on camera 05 Sign:  50 - Correct:  18 (laden_lossen) - Tested: 177 - Total Correct: 104 - Confidence: 0,08 - Hit Percent: 58,76
+178 34467 5 C31RIGHT 241,259995 1046,609985 349,380005 1152,760010
+*MISS* frame 034467 on camera 05 Sign:  48 - Correct:  21 (C31RIGHT) - Tested: 178 - Total Correct: 104 - Confidence: 0,19 - Hit Percent: 58,43
+179 34467 5 F4a 247,410004 1184,280029 342,000000 1247,579956
+*HIT* frame 034467 on camera 05 Sign:  17 - Correct:  17 (F4a)- Tested: 179 - Total Correct: 105 - Confidence: 0,10 - Hit Percent: 58,66
+180 34467 5 laden_lossen 351,350006 1048,079956 384,850006 1154,239990
+*MISS* frame 034467 on camera 05 Sign:  50 - Correct:  18 (laden_lossen) - Tested: 180 - Total Correct: 105 - Confidence: 0,12 - Hit Percent: 58,33
+181 34559 6 E9b 148,080002 49,470001 351,760010 123,349998
+*MISS* frame 034559 on camera 06 Sign:   8 - Correct:  25 (E9b) - Tested: 181 - Total Correct: 105 - Confidence: 0,05 - Hit Percent: 58,01
+182 34559 6 begin 350,079987 89,900002 474,980011 120,919998
+*HIT* frame 034559 on camera 06 Sign:   1 - Correct:   1 (begin)- Tested: 182 - Total Correct: 106 - Confidence: 0,10 - Hit Percent: 58,24
+183 34586 1 E9b 283,350006 1564,989990 339,929993 1608,410034
+*MISS* frame 034586 on camera 01 Sign:  42 - Correct:  25 (E9b) - Tested: 183 - Total Correct: 106 - Confidence: 0,08 - Hit Percent: 57,92
+184 34586 1 begin 339,929993 1574,609985 377,450012 1589,550049
+*MISS* frame 034586 on camera 01 Sign:   8 - Correct:   1 (begin) - Tested: 184 - Total Correct: 106 - Confidence: 0,11 - Hit Percent: 57,61
+185 34587 2 E9b 110,540001 1302,569946 189,919998 1357,380005
+*HIT* frame 034587 on camera 02 Sign:  25 - Correct:  25 (E9b)- Tested: 185 - Total Correct: 107 - Confidence: 0,08 - Hit Percent: 57,84
+186 34587 2 begin 189,759995 1317,209961 240,839996 1333,709961
+*MISS* frame 034587 on camera 02 Sign:   8 - Correct:   1 (begin) - Tested: 186 - Total Correct: 107 - Confidence: 0,19 - Hit Percent: 57,53
+187 34600 2 E9b 149,800003 141,649994 214,679993 189,520004
+*MISS* frame 034600 on camera 02 Sign:  42 - Correct:  25 (E9b) - Tested: 187 - Total Correct: 107 - Confidence: 0,07 - Hit Percent: 57,22
+188 34600 2 begin 213,830002 166,289993 256,600006 181,869995
+*HIT* frame 034600 on camera 02 Sign:   1 - Correct:   1 (begin)- Tested: 188 - Total Correct: 108 - Confidence: 0,12 - Hit Percent: 57,45
+189 34605 4 E9b 57,650002 172,729996 125,029999 222,440002
+*MISS* frame 034605 on camera 04 Sign:  24 - Correct:  25 (E9b) - Tested: 189 - Total Correct: 108 - Confidence: 0,11 - Hit Percent: 57,14
+190 34605 4 begin 125,230003 195,720001 167,270004 211,050003
+*HIT* frame 034605 on camera 04 Sign:   1 - Correct:   1 (begin)- Tested: 190 - Total Correct: 109 - Confidence: 0,11 - Hit Percent: 57,37
+191 34605 1 E9b 235,130005 626,030029 322,410004 679,280029
+*MISS* frame 034605 on camera 01 Sign:  42 - Correct:  25 (E9b) - Tested: 191 - Total Correct: 109 - Confidence: 0,12 - Hit Percent: 57,07
+192 34605 1 begin 322,410004 644,960022 378,619995 660,349976
+*MISS* frame 034605 on camera 01 Sign:  49 - Correct:   1 (begin) - Tested: 192 - Total Correct: 109 - Confidence: 0,08 - Hit Percent: 56,77
+193 34607 2 E9b 122,570000 853,469971 184,759995 889,799988
+*MISS* frame 034607 on camera 02 Sign:  32 - Correct:  25 (E9b) - Tested: 193 - Total Correct: 109 - Confidence: 0,07 - Hit Percent: 56,48
+194 34607 2 begin 184,759995 865,409973 224,860001 875,559998
+*MISS* frame 034607 on camera 02 Sign:   8 - Correct:   1 (begin) - Tested: 194 - Total Correct: 109 - Confidence: 0,15 - Hit Percent: 56,19
+195 34610 4 E9b 63,240002 500,410004 122,169998 535,969971
+*MISS* frame 034610 on camera 04 Sign:  24 - Correct:  25 (E9b) - Tested: 195 - Total Correct: 109 - Confidence: 0,08 - Hit Percent: 55,90
+196 34610 4 begin 122,570000 516,119995 158,910004 527,520020
+*HIT* frame 034610 on camera 04 Sign:   1 - Correct:   1 (begin)- Tested: 196 - Total Correct: 110 - Confidence: 0,21 - Hit Percent: 56,12
+197 34612 1 E9b 210,919998 1004,549988 337,450012 1079,650024
+*MISS* frame 034612 on camera 01 Sign:  42 - Correct:  25 (E9b) - Tested: 197 - Total Correct: 110 - Confidence: 0,07 - Hit Percent: 55,84
+198 34612 1 begin 336,220001 1024,140015 419,079987 1047,819946
+*MISS* frame 034612 on camera 01 Sign:   8 - Correct:   1 (begin) - Tested: 198 - Total Correct: 110 - Confidence: 0,14 - Hit Percent: 55,56
+199 34618 1 E9b 175,729996 1410,099976 387,970001 1538,670044
+*MISS* frame 034618 on camera 01 Sign:  42 - Correct:  25 (E9b) - Tested: 199 - Total Correct: 110 - Confidence: 0,09 - Hit Percent: 55,28
+200 34618 1 begin 387,670013 1434,760010 522,700012 1475,579956
+*MISS* frame 034618 on camera 01 Sign:  32 - Correct:   1 (begin) - Tested: 200 - Total Correct: 110 - Confidence: 0,17 - Hit Percent: 55,00
+201 34672 1 X3L 468,239990 1084,969971 582,859985 1201,949951
+*HIT* frame 034672 on camera 01 Sign:  12 - Correct:  12 (X3L)- Tested: 201 - Total Correct: 111 - Confidence: 0,23 - Hit Percent: 55,22
+202 34676 1 A7A 199,350006 1200,630005 328,760010 1341,310059
+*HIT* frame 034676 on camera 01 Sign:  33 - Correct:  33 (A7A)- Tested: 202 - Total Correct: 112 - Confidence: 0,44 - Hit Percent: 55,45
+203 34676 1 X3L 551,489990 1175,410034 699,039978 1330,800049
+*HIT* frame 034676 on camera 01 Sign:  12 - Correct:  12 (X3L)- Tested: 203 - Total Correct: 113 - Confidence: 0,27 - Hit Percent: 55,67
+204 34680 1 A7A 170,850006 1362,709961 362,369995 1570,339966
+*HIT* frame 034680 on camera 01 Sign:  33 - Correct:  33 (A7A)- Tested: 204 - Total Correct: 114 - Confidence: 0,23 - Hit Percent: 55,88
+205 34680 1 X3L 684,049988 1309,319946 892,530029 1538,979980
+*HIT* frame 034680 on camera 01 Sign:  12 - Correct:  12 (X3L)- Tested: 205 - Total Correct: 115 - Confidence: 0,26 - Hit Percent: 56,10
+206 34714 5 A7A 304,290009 1429,180054 453,709991 1579,180054
+*HIT* frame 034714 on camera 05 Sign:  33 - Correct:  33 (A7A)- Tested: 206 - Total Correct: 116 - Confidence: 0,19 - Hit Percent: 56,31
+207 34714 5 X3L 718,289978 1380,349976 885,349976 1559,180054
+*HIT* frame 034714 on camera 05 Sign:  12 - Correct:  12 (X3L)- Tested: 207 - Total Correct: 117 - Confidence: 0,24 - Hit Percent: 56,52
+208 34718 5 A7A 322,299988 1259,579956 429,970001 1369,400024
+*HIT* frame 034718 on camera 05 Sign:  33 - Correct:  33 (A7A)- Tested: 208 - Total Correct: 118 - Confidence: 0,32 - Hit Percent: 56,73
+209 34718 5 X3L 623,830017 1230,489990 748,190002 1361,530029
+*HIT* frame 034718 on camera 05 Sign:  12 - Correct:  12 (X3L)- Tested: 209 - Total Correct: 119 - Confidence: 0,25 - Hit Percent: 56,94
+210 34722 5 A7A 329,149994 1165,410034 411,660004 1252,839966
+*HIT* frame 034722 on camera 05 Sign:  33 - Correct:  33 (A7A)- Tested: 210 - Total Correct: 120 - Confidence: 0,28 - Hit Percent: 57,14
+211 34722 5 X3L 563,570007 1145,219971 663,380005 1248,560059
+*HIT* frame 034722 on camera 05 Sign:  12 - Correct:  12 (X3L)- Tested: 211 - Total Correct: 121 - Confidence: 0,31 - Hit Percent: 57,35
+212 34766 1 X3R 432,359985 317,660004 471,910004 344,709991
+*MISS* frame 034766 on camera 01 Sign:  44 - Correct:  29 (X3R) - Tested: 212 - Total Correct: 121 - Confidence: 0,07 - Hit Percent: 57,08
+213 34771 1 X3R 481,950012 176,000000 532,690002 207,750000
+*MISS* frame 034771 on camera 01 Sign:  14 - Correct:  29 (X3R) - Tested: 213 - Total Correct: 121 - Confidence: 0,09 - Hit Percent: 56,81
+214 34774 1 A7A 212,970001 1079,219971 290,179993 1161,540039
+*HIT* frame 034774 on camera 01 Sign:  33 - Correct:  33 (A7A)- Tested: 214 - Total Correct: 122 - Confidence: 0,37 - Hit Percent: 57,01
+215 34774 1 X3L 426,190002 1066,760010 522,109985 1164,380005
+*HIT* frame 034774 on camera 01 Sign:  12 - Correct:  12 (X3L)- Tested: 215 - Total Correct: 123 - Confidence: 0,26 - Hit Percent: 57,21
+216 34774 1 X3R 521,469971 54,919998 580,400024 90,800003
+*MISS* frame 034774 on camera 01 Sign:  14 - Correct:  29 (X3R) - Tested: 216 - Total Correct: 123 - Confidence: 0,06 - Hit Percent: 56,94
+217 34779 1 A7A 206,869995 1158,290039 316,049988 1269,859985
+*HIT* frame 034779 on camera 01 Sign:  33 - Correct:  33 (A7A)- Tested: 217 - Total Correct: 124 - Confidence: 0,31 - Hit Percent: 57,14
+218 34779 1 X3L 505,109985 1135,479980 633,340027 1271,880005
+*HIT* frame 034779 on camera 01 Sign:  12 - Correct:  12 (X3L)- Tested: 218 - Total Correct: 125 - Confidence: 0,28 - Hit Percent: 57,34
+219 34784 1 A7A 172,839996 1368,199951 359,119995 1540,750000
+*HIT* frame 034784 on camera 01 Sign:  33 - Correct:  33 (A7A)- Tested: 219 - Total Correct: 126 - Confidence: 0,13 - Hit Percent: 57,53
+220 34784 1 X3L 666,020020 1303,979980 862,590027 1528,489990
+*HIT* frame 034784 on camera 01 Sign:  12 - Correct:  12 (X3L)- Tested: 220 - Total Correct: 127 - Confidence: 0,25 - Hit Percent: 57,73
+221 34784 0 X3R 379,619995 340,279999 433,140015 392,160004
+*HIT* frame 034784 on camera 00 Sign:  29 - Correct:  29 (X3R)- Tested: 221 - Total Correct: 128 - Confidence: 0,37 - Hit Percent: 57,92
+222 34787 0 X3R 448,890015 239,940002 510,640015 302,269989
+*HIT* frame 034787 on camera 00 Sign:  29 - Correct:  29 (X3R)- Tested: 222 - Total Correct: 129 - Confidence: 0,38 - Hit Percent: 58,11
+223 34790 6 C3 65,669998 1441,979980 211,389999 1592,589966
+*MISS* frame 034790 on camera 06 Sign:  47 - Correct:   2 (C3) - Tested: 223 - Total Correct: 129 - Confidence: 0,12 - Hit Percent: 57,85
+224 34790 6 X3L 836,900024 1246,239990 959,940002 1385,449951
+*HIT* frame 034790 on camera 06 Sign:  12 - Correct:  12 (X3L)- Tested: 224 - Total Correct: 130 - Confidence: 0,19 - Hit Percent: 58,04
+225 34791 0 X3R 576,010010 33,959999 655,130005 118,139999
+*HIT* frame 034791 on camera 00 Sign:  29 - Correct:  29 (X3R)- Tested: 225 - Total Correct: 131 - Confidence: 0,32 - Hit Percent: 58,22
+226 34793 6 X3L 857,900024 617,919983 978,299988 760,419983
+*HIT* frame 034793 on camera 06 Sign:  12 - Correct:  12 (X3L)- Tested: 226 - Total Correct: 132 - Confidence: 0,17 - Hit Percent: 58,41
+227 34795 6 C3 70,300003 812,500000 217,039993 955,559998
+*MISS* frame 034795 on camera 06 Sign:  47 - Correct:   2 (C3) - Tested: 227 - Total Correct: 132 - Confidence: 0,18 - Hit Percent: 58,15
+228 34796 6 X3L 871,590027 14,410000 986,849976 166,100006
+*HIT* frame 034796 on camera 06 Sign:  12 - Correct:  12 (X3L)- Tested: 228 - Total Correct: 133 - Confidence: 0,12 - Hit Percent: 58,33
+229 34800 6 C3 96,000000 188,059998 241,580002 314,579987
+*MISS* frame 034800 on camera 06 Sign:  47 - Correct:   2 (C3) - Tested: 229 - Total Correct: 133 - Confidence: 0,12 - Hit Percent: 58,08
+230 34814 5 A7A 232,899994 1433,410034 412,079987 1611,780029
+*MISS* frame 034814 on camera 05 Sign:  39 - Correct:  33 (A7A) - Tested: 230 - Total Correct: 133 - Confidence: 0,20 - Hit Percent: 57,83
+231 34814 5 X3L 749,880005 1384,020020 987,840027 1608,099976
+*HIT* frame 034814 on camera 05 Sign:  12 - Correct:  12 (X3L)- Tested: 231 - Total Correct: 134 - Confidence: 0,29 - Hit Percent: 58,01
+232 34816 5 X3L 816,710022 1518,709961 925,289978 1613,000000
+*HIT* frame 034816 on camera 05 Sign:  12 - Correct:  12 (X3L)- Tested: 232 - Total Correct: 135 - Confidence: 0,14 - Hit Percent: 58,19
+233 34817 5 A7A 279,559998 1245,900024 407,799988 1379,239990
+*HIT* frame 034817 on camera 05 Sign:  33 - Correct:  33 (A7A)- Tested: 233 - Total Correct: 136 - Confidence: 0,29 - Hit Percent: 58,37
+234 34817 5 X3L 653,859985 1226,920044 822,570007 1377,260010
+*HIT* frame 034817 on camera 05 Sign:  12 - Correct:  12 (X3L)- Tested: 234 - Total Correct: 137 - Confidence: 0,36 - Hit Percent: 58,55
+235 34819 5 X3L 714,520020 1356,849976 798,219971 1420,109985
+*HIT* frame 034819 on camera 05 Sign:  12 - Correct:  12 (X3L)- Tested: 235 - Total Correct: 138 - Confidence: 0,13 - Hit Percent: 58,72
+236 34820 5 A7A 298,260010 1141,079956 396,390015 1245,349976
+*HIT* frame 034820 on camera 05 Sign:  33 - Correct:  33 (A7A)- Tested: 236 - Total Correct: 139 - Confidence: 0,35 - Hit Percent: 58,90
+237 34820 5 X3L 591,059998 1133,900024 720,700012 1243,709961
+*HIT* frame 034820 on camera 05 Sign:  12 - Correct:  12 (X3L)- Tested: 237 - Total Correct: 140 - Confidence: 0,27 - Hit Percent: 59,07
+238 34822 5 X3L 652,320007 1252,469971 718,349976 1299,670044
+*HIT* frame 034822 on camera 05 Sign:  12 - Correct:  12 (X3L)- Tested: 238 - Total Correct: 141 - Confidence: 0,12 - Hit Percent: 59,24
+239 34839 1 A14 138,220001 1277,359985 263,950012 1412,140015
+*HIT* frame 034839 on camera 01 Sign:  34 - Correct:  34 (A14)- Tested: 239 - Total Correct: 142 - Confidence: 0,44 - Hit Percent: 59,41
+240 34839 1 meter 264,350006 1269,290039 309,929993 1417,030029
+*HIT* frame 034839 on camera 01 Sign:  35 - Correct:  35 (meter)- Tested: 240 - Total Correct: 143 - Confidence: 0,45 - Hit Percent: 59,58
+241 34842 1 A14 114,099998 1430,380005 289,269989 1613,369995
+*HIT* frame 034842 on camera 01 Sign:  34 - Correct:  34 (A14)- Tested: 241 - Total Correct: 144 - Confidence: 0,23 - Hit Percent: 59,75
+242 34842 1 meter 289,220001 1421,099976 349,429993 1621,780029
+*HIT* frame 034842 on camera 01 Sign:  35 - Correct:  35 (meter)- Tested: 242 - Total Correct: 145 - Confidence: 0,38 - Hit Percent: 59,92
+243 34876 1 F4b 49,470001 1048,739990 193,690002 1147,040039
+*HIT* frame 034876 on camera 01 Sign:  36 - Correct:  36 (F4b)- Tested: 243 - Total Correct: 146 - Confidence: 0,47 - Hit Percent: 60,08
+244 34876 1 B1 190,630005 1052,819946 280,079987 1146,699951
+*HIT* frame 034876 on camera 01 Sign:  37 - Correct:  37 (B1)- Tested: 244 - Total Correct: 147 - Confidence: 0,47 - Hit Percent: 60,25
+245 34878 6 E9a 119,250000 1465,109985 239,300003 1549,550049
+*MISS* frame 034878 on camera 06 Sign:  44 - Correct:   6 (E9a) - Tested: 245 - Total Correct: 147 - Confidence: 0,12 - Hit Percent: 60,00
+246 34880 1 F4b 4,080000 1118,410034 186,389999 1242,900024
+*HIT* frame 034880 on camera 01 Sign:  36 - Correct:  36 (F4b)- Tested: 246 - Total Correct: 148 - Confidence: 0,44 - Hit Percent: 60,16
+247 34880 1 B1 182,830002 1122,250000 295,070007 1242,319946
+*HIT* frame 034880 on camera 01 Sign:  37 - Correct:  37 (B1)- Tested: 247 - Total Correct: 149 - Confidence: 0,48 - Hit Percent: 60,32
+248 34885 6 E9a 122,879997 861,179993 245,669998 942,520020
+*HIT* frame 034885 on camera 06 Sign:   6 - Correct:   6 (E9a)- Tested: 248 - Total Correct: 150 - Confidence: 0,16 - Hit Percent: 60,48
+249 34885 6 Handic 246,369995 857,880005 286,440002 948,840027
+*HIT* frame 034885 on camera 06 Sign:  38 - Correct:  38 (Handic)- Tested: 249 - Total Correct: 151 - Confidence: 0,31 - Hit Percent: 60,64
+250 34893 6 E9a 149,940002 260,010010 273,519989 344,040009
+*MISS* frame 034893 on camera 06 Sign:  44 - Correct:   6 (E9a) - Tested: 250 - Total Correct: 151 - Confidence: 0,19 - Hit Percent: 60,40
+251 34893 6 Handic 272,049988 266,399994 313,329987 352,149994
+*HIT* frame 034893 on camera 06 Sign:  38 - Correct:  38 (Handic)- Tested: 251 - Total Correct: 152 - Confidence: 0,28 - Hit Percent: 60,56
+252 34905 5 A23 249,770004 1393,390015 306,890015 1453,459961
+*HIT* frame 034905 on camera 05 Sign:  39 - Correct:  39 (A23)- Tested: 252 - Total Correct: 153 - Confidence: 0,74 - Hit Percent: 60,71
+253 34905 5 typell 306,890015 1389,140015 327,510010 1457,060059
+*HIT* frame 034905 on camera 05 Sign:  40 - Correct:  40 (typell)- Tested: 253 - Total Correct: 154 - Confidence: 0,49 - Hit Percent: 60,87
+254 34913 5 A23 268,070007 1299,989990 317,660004 1353,670044
+*HIT* frame 034913 on camera 05 Sign:  39 - Correct:  39 (A23)- Tested: 254 - Total Correct: 155 - Confidence: 0,27 - Hit Percent: 61,02
+255 34913 5 typell 318,000000 1296,150024 335,829987 1357,849976
+*HIT* frame 034913 on camera 05 Sign:  40 - Correct:  40 (typell)- Tested: 255 - Total Correct: 156 - Confidence: 0,54 - Hit Percent: 61,18
+256 34998 6 F29_links 127,839996 1251,709961 197,940002 1446,800049
+*MISS* frame 034998 on camera 06 Sign:  49 - Correct:  16 (F29_links) - Tested: 256 - Total Correct: 156 - Confidence: 0,06 - Hit Percent: 60,94
+257 34998 6 F34A_links 195,979996 1259,060059 232,250000 1459,060059
+*MISS* frame 034998 on camera 06 Sign:  46 - Correct:  27 (F34A_links) - Tested: 257 - Total Correct: 156 - Confidence: 0,06 - Hit Percent: 60,70
+258 34998 6 F34A_links 231,759995 1257,099976 267,549988 1457,099976
+*MISS* frame 034998 on camera 06 Sign:   1 - Correct:  27 (F34A_links) - Tested: 258 - Total Correct: 156 - Confidence: 0,07 - Hit Percent: 60,47
+259 34998 6 F34A_links 266,079987 1256,609985 301,859985 1455,630005
+*MISS* frame 034998 on camera 06 Sign:  46 - Correct:  27 (F34A_links) - Tested: 259 - Total Correct: 156 - Confidence: 0,06 - Hit Percent: 60,23
+260 34998 6 F34A_links 298,429993 1255,140015 335,200012 1452,689941
+*HIT* frame 034998 on camera 06 Sign:  27 - Correct:  27 (F34A_links)- Tested: 260 - Total Correct: 157 - Confidence: 0,09 - Hit Percent: 60,38
+261 34998 6 F34A_links 328,329987 1257,099976 370,489990 1453,670044
+*MISS* frame 034998 on camera 06 Sign:  50 - Correct:  27 (F34A_links) - Tested: 261 - Total Correct: 157 - Confidence: 0,05 - Hit Percent: 60,15
+262 34998 6 F29_links 358,709991 1194,020020 434,690002 1477,349976
+*MISS* frame 034998 on camera 06 Sign:  37 - Correct:  16 (F29_links) - Tested: 262 - Total Correct: 157 - Confidence: 0,05 - Hit Percent: 59,92
+263 35002 1 C21 135,330002 165,139999 175,029999 205,250000
+*MISS* frame 035002 on camera 01 Sign:  47 - Correct:   5 (C21) - Tested: 263 - Total Correct: 157 - Confidence: 0,20 - Hit Percent: 59,70
+264 35002 1 F4a 175,440002 177,419998 209,410004 202,660004
+*HIT* frame 035002 on camera 01 Sign:  17 - Correct:  17 (F4a)- Tested: 264 - Total Correct: 158 - Confidence: 0,14 - Hit Percent: 59,85
+265 35002 1 A23 267,660004 181,149994 298,350006 216,619995
+*MISS* frame 035002 on camera 01 Sign:  49 - Correct:  39 (A23) - Tested: 265 - Total Correct: 158 - Confidence: 0,13 - Hit Percent: 59,62
+266 35002 1 X31 299,200012 182,100006 348,579987 221,250000
+*HIT* frame 035002 on camera 01 Sign:   7 - Correct:   7 (X31)- Tested: 266 - Total Correct: 159 - Confidence: 0,16 - Hit Percent: 59,77
+267 35004 6 F29_links 89,989998 608,590027 159,029999 834,099976
+*MISS* frame 035004 on camera 06 Sign:  29 - Correct:  16 (F29_links) - Tested: 267 - Total Correct: 159 - Confidence: 0,05 - Hit Percent: 59,55
+268 35004 6 F34A_links 153,240005 622,760010 195,419998 853,030029
+*HIT* frame 035004 on camera 06 Sign:  27 - Correct:  27 (F34A_links)- Tested: 268 - Total Correct: 160 - Confidence: 0,06 - Hit Percent: 59,70
+269 35004 6 F34A_links 185,899994 623,780029 230,119995 854,390015
+*MISS* frame 035004 on camera 06 Sign:  18 - Correct:  27 (F34A_links) - Tested: 269 - Total Correct: 160 - Confidence: 0,07 - Hit Percent: 59,48
+270 35004 6 F34A_links 220,250000 627,179993 264,470001 856,099976
+*MISS* frame 035004 on camera 06 Sign:  26 - Correct:  27 (F34A_links) - Tested: 270 - Total Correct: 160 - Confidence: 0,06 - Hit Percent: 59,26
+271 35004 6 F34A_links 251,539993 629,559998 297,799988 857,119995
+*MISS* frame 035004 on camera 06 Sign:  38 - Correct:  27 (F34A_links) - Tested: 271 - Total Correct: 160 - Confidence: 0,06 - Hit Percent: 59,04
+272 35004 6 F34A_links 281,480011 632,969971 331,140015 859,500000
+*MISS* frame 035004 on camera 06 Sign:  18 - Correct:  27 (F34A_links) - Tested: 272 - Total Correct: 160 - Confidence: 0,07 - Hit Percent: 58,82
+273 35004 6 F29_links 310,209991 564,530029 398,299988 890,059998
+*MISS* frame 035004 on camera 06 Sign:  44 - Correct:  16 (F29_links) - Tested: 273 - Total Correct: 160 - Confidence: 0,06 - Hit Percent: 58,61
+274 35009 6 F29_links 116,080002 20,730000 186,149994 276,510010
+*MISS* frame 035009 on camera 06 Sign:  31 - Correct:  16 (F29_links) - Tested: 274 - Total Correct: 160 - Confidence: 0,06 - Hit Percent: 58,39
+275 35009 6 F34A_links 178,940002 43,290001 222,479996 299,410004
+*HIT* frame 035009 on camera 06 Sign:  27 - Correct:  27 (F34A_links)- Tested: 275 - Total Correct: 161 - Confidence: 0,06 - Hit Percent: 58,55
+276 35009 6 F34A_links 211,250000 48,730000 257,850006 302,820007
+*MISS* frame 035009 on camera 06 Sign:   1 - Correct:  27 (F34A_links) - Tested: 276 - Total Correct: 161 - Confidence: 0,07 - Hit Percent: 58,33
+277 35009 6 F34A_links 242,880005 54,520000 292,880005 305,880005
+*MISS* frame 035009 on camera 06 Sign:  26 - Correct:  27 (F34A_links) - Tested: 277 - Total Correct: 161 - Confidence: 0,06 - Hit Percent: 58,12
+278 35009 6 F34A_links 275,540009 60,639999 324,859985 309,279999
+*MISS* frame 035009 on camera 06 Sign:   1 - Correct:  27 (F34A_links) - Tested: 278 - Total Correct: 161 - Confidence: 0,05 - Hit Percent: 57,91
+279 35009 6 F34A_links 304,359985 67,150002 358,779999 313,410004
+*MISS* frame 035009 on camera 06 Sign:  28 - Correct:  27 (F34A_links) - Tested: 279 - Total Correct: 161 - Confidence: 0,06 - Hit Percent: 57,71
+280 35009 6 F29_links 330,720001 0,000000 424,339996 354,040009
+*MISS* frame 035009 on camera 06 Sign:  18 - Correct:  16 (F29_links) - Tested: 280 - Total Correct: 161 - Confidence: 0,05 - Hit Percent: 57,50
+281 35010 5 B15A 160,820007 1431,569946 281,630005 1496,469971
+*MISS* frame 035010 on camera 05 Sign:  32 - Correct:  22 (B15A) - Tested: 281 - Total Correct: 161 - Confidence: 0,05 - Hit Percent: 57,30
+282 35010 5 E1 281,630005 1429,939941 428,160004 1505,040039
+*MISS* frame 035010 on camera 05 Sign:  11 - Correct:   0 (E1) - Tested: 282 - Total Correct: 161 - Confidence: 0,07 - Hit Percent: 57,09
+283 35010 5 einde 435,859985 1448,959961 515,039978 1464,880005
+*MISS* frame 035010 on camera 05 Sign:  32 - Correct:   8 (einde) - Tested: 283 - Total Correct: 161 - Confidence: 0,13 - Hit Percent: 56,89
+284 35012 0 F29 122,800003 327,130005 155,110001 446,959991
+*MISS* frame 035012 on camera 00 Sign:  26 - Correct:  20 (F29) - Tested: 284 - Total Correct: 161 - Confidence: 0,13 - Hit Percent: 56,69
+285 35013 5 B15A 184,350006 1171,260010 286,049988 1231,459961
+*HIT* frame 035013 on camera 05 Sign:  22 - Correct:  22 (B15A)- Tested: 285 - Total Correct: 162 - Confidence: 0,05 - Hit Percent: 56,84
+286 35013 5 E1 286,649994 1172,579956 410,119995 1240,609985
+*HIT* frame 035013 on camera 05 Sign:   0 - Correct:   0 (E1)- Tested: 286 - Total Correct: 163 - Confidence: 0,08 - Hit Percent: 56,99
+287 35013 5 einde 416,750000 1195,819946 484,440002 1208,069946
+*HIT* frame 035013 on camera 05 Sign:   8 - Correct:   8 (einde)- Tested: 287 - Total Correct: 164 - Confidence: 0,17 - Hit Percent: 57,14
+288 35015 0 F29_F23A_F23B 88,980003 31,219999 128,919998 211,389999
+*HIT* frame 035015 on camera 00 Sign:  41 - Correct:  41 (F29_F23A_F23B)- Tested: 288 - Total Correct: 165 - Confidence: 0,46 - Hit Percent: 57,29
+289 35015 0 F29 128,070007 65,209999 166,309998 206,850006
+*MISS* frame 035015 on camera 00 Sign:  26 - Correct:  20 (F29) - Tested: 289 - Total Correct: 165 - Confidence: 0,10 - Hit Percent: 57,09
+290 35016 5 B15A 205,509995 958,570007 294,489990 1012,450012
+*MISS* frame 035016 on camera 05 Sign:  39 - Correct:  22 (B15A) - Tested: 290 - Total Correct: 165 - Confidence: 0,05 - Hit Percent: 56,90
+291 35016 5 E1 294,899994 960,609985 402,649994 1022,239990
+*HIT* frame 035016 on camera 05 Sign:   0 - Correct:   0 (E1)- Tested: 291 - Total Correct: 166 - Confidence: 0,09 - Hit Percent: 57,04
+292 35016 5 einde 408,290009 981,309998 467,880005 994,780029
+*MISS* frame 035016 on camera 05 Sign:  32 - Correct:   8 (einde) - Tested: 292 - Total Correct: 166 - Confidence: 0,13 - Hit Percent: 56,85
+293 35023 6 C21 35,419998 1199,349976 78,800003 1241,770020
+*MISS* frame 035023 on camera 06 Sign:  47 - Correct:   5 (C21) - Tested: 293 - Total Correct: 166 - Confidence: 0,14 - Hit Percent: 56,66
+294 35023 6 F4a 79,209999 1206,300049 119,730003 1232,500000
+*HIT* frame 035023 on camera 06 Sign:  17 - Correct:  17 (F4a)- Tested: 294 - Total Correct: 167 - Confidence: 0,17 - Hit Percent: 56,80
+295 35023 6 A23 185,339996 1195,209961 221,080002 1235,719971
+*MISS* frame 035023 on camera 06 Sign:  34 - Correct:  39 (A23) - Tested: 295 - Total Correct: 167 - Confidence: 0,10 - Hit Percent: 56,61
+296 35023 6 X31 221,880005 1194,339966 277,540009 1231,859985
+*HIT* frame 035023 on camera 06 Sign:   7 - Correct:   7 (X31)- Tested: 296 - Total Correct: 168 - Confidence: 0,15 - Hit Percent: 56,76
+297 35028 6 F29_F23A_F23B 113,930000 1263,420044 158,149994 1430,500000
+*HIT* frame 035028 on camera 06 Sign:  41 - Correct:  41 (F29_F23A_F23B)- Tested: 297 - Total Correct: 169 - Confidence: 0,25 - Hit Percent: 56,90
+298 35028 6 F29 157,169998 1286,270020 198,699997 1417,229980
+*MISS* frame 035028 on camera 06 Sign:  26 - Correct:  20 (F29) - Tested: 298 - Total Correct: 169 - Confidence: 0,08 - Hit Percent: 56,71
+299 35028 6 B1 80,459999 1429,410034 177,160004 1530,349976
+*HIT* frame 035028 on camera 06 Sign:  37 - Correct:  37 (B1)- Tested: 299 - Total Correct: 170 - Confidence: 0,31 - Hit Percent: 56,86
+300 35033 6 B1 86,739998 871,179993 178,009995 971,650024
+*HIT* frame 035033 on camera 06 Sign:  37 - Correct:  37 (B1)- Tested: 300 - Total Correct: 171 - Confidence: 0,17 - Hit Percent: 57,00
+301 35033 6 C21 55,549999 488,079987 98,430000 528,669983
+*MISS* frame 035033 on camera 06 Sign:  47 - Correct:   5 (C21) - Tested: 301 - Total Correct: 171 - Confidence: 0,25 - Hit Percent: 56,81
+302 35033 6 F4a 98,760002 498,720001 138,199997 524,739990
+*HIT* frame 035033 on camera 06 Sign:  17 - Correct:  17 (F4a)- Tested: 302 - Total Correct: 172 - Confidence: 0,18 - Hit Percent: 56,95
+303 35033 6 A23 199,880005 497,679993 235,889999 536,799988
+*HIT* frame 035033 on camera 06 Sign:  39 - Correct:  39 (A23)- Tested: 303 - Total Correct: 173 - Confidence: 0,12 - Hit Percent: 57,10
+304 35033 6 X31 236,589996 499,100006 292,399994 536,250000
+*HIT* frame 035033 on camera 06 Sign:   7 - Correct:   7 (X31)- Tested: 304 - Total Correct: 174 - Confidence: 0,23 - Hit Percent: 57,24
+305 35040 6 B1 154,690002 221,429993 244,389999 322,899994
+*HIT* frame 035040 on camera 06 Sign:  37 - Correct:  37 (B1)- Tested: 305 - Total Correct: 175 - Confidence: 0,14 - Hit Percent: 57,38
+306 35069 1 einde 311,910004 1222,599976 386,910004 1244,300049
+*HIT* frame 035069 on camera 01 Sign:   8 - Correct:   8 (einde)- Tested: 306 - Total Correct: 176 - Confidence: 0,27 - Hit Percent: 57,52
+307 35072 1 E9a_disk 184,009995 1262,099976 332,459991 1366,630005
+*HIT* frame 035072 on camera 01 Sign:  42 - Correct:  42 (E9a_disk)- Tested: 307 - Total Correct: 177 - Confidence: 0,34 - Hit Percent: 57,65
+308 35072 1 einde 331,309998 1293,250000 426,489990 1323,560059
+*HIT* frame 035072 on camera 01 Sign:   8 - Correct:   8 (einde)- Tested: 308 - Total Correct: 178 - Confidence: 0,25 - Hit Percent: 57,79
+309 35075 1 E9a_disk 161,119995 1402,180054 369,290009 1555,650024
+*HIT* frame 035075 on camera 01 Sign:  42 - Correct:  42 (E9a_disk)- Tested: 309 - Total Correct: 179 - Confidence: 0,35 - Hit Percent: 57,93
+310 35075 1 einde 367,350006 1444,449951 501,220001 1490,160034
+*HIT* frame 035075 on camera 01 Sign:   8 - Correct:   8 (einde)- Tested: 310 - Total Correct: 180 - Confidence: 0,16 - Hit Percent: 58,06
+311 35079 1 E9a 243,919998 1312,119995 311,859985 1358,920044
+*HIT* frame 035079 on camera 01 Sign:   6 - Correct:   6 (E9a)- Tested: 311 - Total Correct: 181 - Confidence: 0,16 - Hit Percent: 58,20
+312 35079 1 begin 312,160004 1325,439941 357,720001 1340,589966
+*MISS* frame 035079 on camera 01 Sign:   8 - Correct:   1 (begin) - Tested: 312 - Total Correct: 181 - Confidence: 0,17 - Hit Percent: 58,01
+313 35082 1 E9a 243,630005 1390,449951 322,000000 1445,550049
+*HIT* frame 035082 on camera 01 Sign:   6 - Correct:   6 (E9a)- Tested: 313 - Total Correct: 182 - Confidence: 0,19 - Hit Percent: 58,15
+314 35082 1 begin 321,779999 1404,569946 374,220001 1423,349976
+*MISS* frame 035082 on camera 01 Sign:   8 - Correct:   1 (begin) - Tested: 314 - Total Correct: 182 - Confidence: 0,15 - Hit Percent: 57,96
+315 35085 1 E9a 246,440002 1507,319946 341,529999 1574,579956
+*HIT* frame 035085 on camera 01 Sign:   6 - Correct:   6 (E9a)- Tested: 315 - Total Correct: 183 - Confidence: 0,29 - Hit Percent: 58,10
+316 35085 1 begin 341,320007 1522,839966 404,329987 1545,099976
+*MISS* frame 035085 on camera 01 Sign:   8 - Correct:   1 (begin) - Tested: 316 - Total Correct: 183 - Confidence: 0,20 - Hit Percent: 57,91
+317 35097 0 F59_links 91,510002 129,229996 158,630005 180,529999
+*HIT* frame 035097 on camera 00 Sign:  43 - Correct:  43 (F59_links)- Tested: 317 - Total Correct: 184 - Confidence: 0,67 - Hit Percent: 58,04
+318 35100 0 F59_links 91,110001 17,200001 170,320007 81,639999
+*HIT* frame 035100 on camera 00 Sign:  43 - Correct:  43 (F59_links)- Tested: 318 - Total Correct: 185 - Confidence: 0,48 - Hit Percent: 58,18
+319 35113 0 E9a_miva 103,150002 126,769997 160,270004 167,360001
+*HIT* frame 035113 on camera 00 Sign:  44 - Correct:  44 (E9a_miva)- Tested: 319 - Total Correct: 186 - Confidence: 0,40 - Hit Percent: 58,31
+320 35116 0 E9a_miva 108,050003 31,830000 173,199997 81,410004
+*HIT* frame 035116 on camera 00 Sign:  44 - Correct:  44 (E9a_miva)- Tested: 320 - Total Correct: 187 - Confidence: 0,36 - Hit Percent: 58,44
+321 35128 0 X10 17,590000 164,419998 194,800003 285,510010
+*HIT* frame 035128 on camera 00 Sign:  45 - Correct:  45 (X10)- Tested: 321 - Total Correct: 188 - Confidence: 0,53 - Hit Percent: 58,57
+322 35130 1 E9a 205,380005 1337,609985 273,940002 1384,170044
+*HIT* frame 035130 on camera 01 Sign:   6 - Correct:   6 (E9a)- Tested: 322 - Total Correct: 189 - Confidence: 0,14 - Hit Percent: 58,70
+323 35130 1 einde 273,549988 1350,770020 317,950012 1365,119995
+*HIT* frame 035130 on camera 01 Sign:   8 - Correct:   8 (einde)- Tested: 323 - Total Correct: 190 - Confidence: 0,24 - Hit Percent: 58,82
+324 35131 0 X10 12,500000 43,540001 219,649994 191,160004
+*HIT* frame 035131 on camera 00 Sign:  45 - Correct:  45 (X10)- Tested: 324 - Total Correct: 191 - Confidence: 0,39 - Hit Percent: 58,95
+325 35133 1 E9a 205,259995 1420,589966 284,510010 1478,410034
+*HIT* frame 035133 on camera 01 Sign:   6 - Correct:   6 (E9a)- Tested: 325 - Total Correct: 192 - Confidence: 0,16 - Hit Percent: 59,08
+326 35133 1 einde 284,850006 1436,920044 335,869995 1453,589966
+*HIT* frame 035133 on camera 01 Sign:   8 - Correct:   8 (einde)- Tested: 326 - Total Correct: 193 - Confidence: 0,23 - Hit Percent: 59,20
+327 35135 5 F34A_links 294,260010 1478,689941 316,269989 1613,660034
+*MISS* frame 035135 on camera 05 Sign:  46 - Correct:  27 (F34A_links) - Tested: 327 - Total Correct: 193 - Confidence: 0,15 - Hit Percent: 59,02
+328 35136 1 E9a 205,509995 1534,709961 298,029999 1604,099976
+*HIT* frame 035136 on camera 01 Sign:   6 - Correct:   6 (E9a)- Tested: 328 - Total Correct: 194 - Confidence: 0,28 - Hit Percent: 59,15
+329 35136 1 einde 298,369995 1552,729980 359,929993 1572,800049
+*HIT* frame 035136 on camera 01 Sign:   8 - Correct:   8 (einde)- Tested: 329 - Total Correct: 195 - Confidence: 0,16 - Hit Percent: 59,27
+330 35137 5 F34A_links 301,829987 1422,099976 323,239990 1544,890015
+*MISS* frame 035137 on camera 05 Sign:  28 - Correct:  27 (F34A_links) - Tested: 330 - Total Correct: 195 - Confidence: 0,07 - Hit Percent: 59,09
+331 35137 5 F37_links 320,100006 1420,130005 340,529999 1542,920044
+*HIT* frame 035137 on camera 05 Sign:  46 - Correct:  46 (F37_links)- Tested: 331 - Total Correct: 196 - Confidence: 0,39 - Hit Percent: 59,21
+332 35138 1 X10 154,529999 1224,869995 325,649994 1334,489990
+*HIT* frame 035138 on camera 01 Sign:  45 - Correct:  45 (X10)- Tested: 332 - Total Correct: 197 - Confidence: 0,21 - Hit Percent: 59,34
+333 35139 5 F34A_links 306,559998 1374,459961 326,200012 1487,959961
+*MISS* frame 035139 on camera 05 Sign:   1 - Correct:  27 (F34A_links) - Tested: 333 - Total Correct: 197 - Confidence: 0,07 - Hit Percent: 59,16
+334 35139 5 F37_links 322,790009 1373,640015 342,440002 1485,099976
+*HIT* frame 035139 on camera 05 Sign:  46 - Correct:  46 (F37_links)- Tested: 334 - Total Correct: 198 - Confidence: 0,39 - Hit Percent: 59,28
+335 35141 5 F59 234,880005 1546,819946 311,309998 1598,699951
+*MISS* frame 035141 on camera 05 Sign:  43 - Correct:  13 (F59) - Tested: 335 - Total Correct: 198 - Confidence: 0,13 - Hit Percent: 59,10
+336 35141 5 A14 299,269989 1546,400024 375,220001 1626,109985
+*MISS* frame 035141 on camera 05 Sign:  49 - Correct:  34 (A14) - Tested: 336 - Total Correct: 198 - Confidence: 0,15 - Hit Percent: 58,93
+337 35141 5 meter 375,220001 1539,790039 403,750000 1627,760010
+*MISS* frame 035141 on camera 05 Sign:  40 - Correct:  35 (meter) - Tested: 337 - Total Correct: 198 - Confidence: 0,19 - Hit Percent: 58,75
+338 35142 1 X10 135,399994 1310,839966 344,619995 1443,109985
+*HIT* frame 035142 on camera 01 Sign:  45 - Correct:  45 (X10)- Tested: 338 - Total Correct: 199 - Confidence: 0,19 - Hit Percent: 58,88
+339 35145 5 F59 258,679993 1424,859985 321,859985 1466,449951
+*MISS* frame 035145 on camera 05 Sign:  43 - Correct:  13 (F59) - Tested: 339 - Total Correct: 199 - Confidence: 0,17 - Hit Percent: 58,70
+340 35145 5 A14 314,200012 1420,660034 376,070007 1485,959961
+*MISS* frame 035145 on camera 05 Sign:  39 - Correct:  34 (A14) - Tested: 340 - Total Correct: 199 - Confidence: 0,26 - Hit Percent: 58,53
+341 35145 5 meter 376,399994 1413,949951 399,640015 1489,400024
+*MISS* frame 035145 on camera 05 Sign:  40 - Correct:  35 (meter) - Tested: 341 - Total Correct: 199 - Confidence: 0,19 - Hit Percent: 58,36
+342 35146 1 X10 109,220001 1438,290039 373,429993 1606,430054
+*MISS* frame 035146 on camera 01 Sign:   1 - Correct:  45 (X10) - Tested: 342 - Total Correct: 199 - Confidence: 0,05 - Hit Percent: 58,19
+343 35149 5 F59 267,260010 1341,939941 322,179993 1377,640015
+*MISS* frame 035149 on camera 05 Sign:  43 - Correct:  13 (F59) - Tested: 343 - Total Correct: 199 - Confidence: 0,21 - Hit Percent: 58,02
+344 35149 5 A14 317,260010 1335,219971 369,470001 1392,500000
+*HIT* frame 035149 on camera 05 Sign:  34 - Correct:  34 (A14)- Tested: 344 - Total Correct: 200 - Confidence: 0,21 - Hit Percent: 58,14
+345 35149 5 meter 369,799988 1330,800049 390,910004 1394,800049
+*MISS* frame 035149 on camera 05 Sign:  40 - Correct:  35 (meter) - Tested: 345 - Total Correct: 200 - Confidence: 0,15 - Hit Percent: 57,97
+346 35170 0 C11 235,690002 187,199997 281,119995 230,990005
+*HIT* frame 035170 on camera 00 Sign:  47 - Correct:  47 (C11)- Tested: 346 - Total Correct: 201 - Confidence: 0,64 - Hit Percent: 58,09
+347 35174 0 C11 263,540009 45,560001 318,940002 100,370003
+*HIT* frame 035174 on camera 00 Sign:  47 - Correct:  47 (C11)- Tested: 347 - Total Correct: 202 - Confidence: 0,52 - Hit Percent: 58,21
+348 35176 1 E1 239,589996 1267,959961 330,630005 1355,459961
+*HIT* frame 035176 on camera 01 Sign:   0 - Correct:   0 (E1)- Tested: 348 - Total Correct: 203 - Confidence: 0,21 - Hit Percent: 58,33
+349 35176 1 begin 331,100006 1307,819946 381,579987 1321,969971
+*MISS* frame 035176 on camera 01 Sign:  32 - Correct:   1 (begin) - Tested: 349 - Total Correct: 203 - Confidence: 0,17 - Hit Percent: 58,17
+350 35176 1 D7 409,869995 1287,359985 460,100006 1335,469971
+*MISS* frame 035176 on camera 01 Sign:  23 - Correct:  19 (D7) - Tested: 350 - Total Correct: 203 - Confidence: 0,11 - Hit Percent: 58,00
+351 35180 1 E1 267,290009 1359,180054 377,290009 1464,469971
+*HIT* frame 035180 on camera 01 Sign:   0 - Correct:   0 (E1)- Tested: 351 - Total Correct: 204 - Confidence: 0,19 - Hit Percent: 58,12
+352 35180 1 begin 377,769989 1404,449951 440,040009 1422,380005
+*MISS* frame 035180 on camera 01 Sign:  32 - Correct:   1 (begin) - Tested: 352 - Total Correct: 204 - Confidence: 0,16 - Hit Percent: 57,95
+353 35180 1 D7 475,350006 1375,849976 537,140015 1436,229980
+*MISS* frame 035180 on camera 01 Sign:  23 - Correct:  19 (D7) - Tested: 353 - Total Correct: 204 - Confidence: 0,14 - Hit Percent: 57,79
+354 35183 1 E1 236,059998 1474,630005 374,019989 1604,839966
+*HIT* frame 035183 on camera 01 Sign:   0 - Correct:   0 (E1)- Tested: 354 - Total Correct: 205 - Confidence: 0,19 - Hit Percent: 57,91
+355 35183 1 begin 375,649994 1524,839966 450,350006 1549,729980
+*MISS* frame 035183 on camera 01 Sign:  32 - Correct:   1 (begin) - Tested: 355 - Total Correct: 205 - Confidence: 0,18 - Hit Percent: 57,75
+356 35183 1 D7 492,959991 1490,449951 569,289978 1561,880005
+*HIT* frame 035183 on camera 01 Sign:  19 - Correct:  19 (D7)- Tested: 356 - Total Correct: 206 - Confidence: 0,15 - Hit Percent: 57,87
+357 35188 3 X33 635,830017 779,750000 741,960022 886,109985
+*HIT* frame 035188 on camera 03 Sign:  48 - Correct:  48 (X33)- Tested: 357 - Total Correct: 207 - Confidence: 0,19 - Hit Percent: 57,98
+358 35190 3 X33 629,809998 1159,469971 736,270020 1251,989990
+*HIT* frame 035190 on camera 03 Sign:  48 - Correct:  48 (X33)- Tested: 358 - Total Correct: 208 - Confidence: 0,08 - Hit Percent: 58,10
+359 35203 5 X10 285,839996 1467,319946 455,760010 1597,410034
+*MISS* frame 035203 on camera 05 Sign:  37 - Correct:  45 (X10) - Tested: 359 - Total Correct: 208 - Confidence: 0,05 - Hit Percent: 57,94
+360 35206 5 X10 296,459991 1383,550049 442,480011 1492,989990
+*MISS* frame 035206 on camera 05 Sign:  37 - Correct:  45 (X10) - Tested: 360 - Total Correct: 208 - Confidence: 0,05 - Hit Percent: 57,78
+361 35208 5 X10 249,940002 32,240002 448,959991 168,509995
+*HIT* frame 035208 on camera 05 Sign:  45 - Correct:  45 (X10)- Tested: 361 - Total Correct: 209 - Confidence: 0,40 - Hit Percent: 57,89
+362 35209 5 X10 310,529999 1319,540039 439,730011 1414,530029
+*MISS* frame 035209 on camera 05 Sign:  50 - Correct:  45 (X10) - Tested: 362 - Total Correct: 209 - Confidence: 0,07 - Hit Percent: 57,73
+363 35211 5 X10 275,609985 165,570007 441,470001 274,760010
+*HIT* frame 035211 on camera 05 Sign:  45 - Correct:  45 (X10)- Tested: 363 - Total Correct: 210 - Confidence: 0,36 - Hit Percent: 57,85
+364 35213 5 E1 340,619995 1485,040039 423,130005 1566,579956
+*HIT* frame 035213 on camera 05 Sign:   0 - Correct:   0 (E1)- Tested: 364 - Total Correct: 211 - Confidence: 0,25 - Hit Percent: 57,97
+365 35213 5 einde 425,459991 1509,300049 472,809998 1525,410034
+*HIT* frame 035213 on camera 05 Sign:   8 - Correct:   8 (einde)- Tested: 365 - Total Correct: 212 - Confidence: 0,15 - Hit Percent: 58,08
+366 35214 5 X10 282,399994 263,410004 423,910004 354,920013
+*HIT* frame 035214 on camera 05 Sign:  45 - Correct:  45 (X10)- Tested: 366 - Total Correct: 213 - Confidence: 0,28 - Hit Percent: 58,20
+367 35216 5 A25 252,289993 1399,109985 311,820007 1464,930054
+*HIT* frame 035216 on camera 05 Sign:  49 - Correct:  49 (A25)- Tested: 367 - Total Correct: 214 - Confidence: 0,46 - Hit Percent: 58,31
+368 35216 5 fietsers_rijbaan 309,070007 1393,810059 333,429993 1464,930054
+*HIT* frame 035216 on camera 05 Sign:  50 - Correct:  50 (fietsers_rijbaan)- Tested: 368 - Total Correct: 215 - Confidence: 0,67 - Hit Percent: 58,42
+369 35216 5 E1 331,920013 1392,150024 403,829987 1461,300049
+*HIT* frame 035216 on camera 05 Sign:   0 - Correct:   0 (E1)- Tested: 369 - Total Correct: 216 - Confidence: 0,27 - Hit Percent: 58,54
+370 35216 5 einde 405,000000 1412,900024 445,859985 1427,050049
+*HIT* frame 035216 on camera 05 Sign:   8 - Correct:   8 (einde)- Tested: 370 - Total Correct: 217 - Confidence: 0,17 - Hit Percent: 58,65
+371 35219 5 A25 253,740005 1321,180054 309,529999 1379,530029
+*HIT* frame 035219 on camera 05 Sign:  49 - Correct:  49 (A25)- Tested: 371 - Total Correct: 218 - Confidence: 0,29 - Hit Percent: 58,76
+372 35219 5 fietsers_rijbaan 306,779999 1318,040039 328,589996 1380,119995
+*HIT* frame 035219 on camera 05 Sign:  50 - Correct:  50 (fietsers_rijbaan)- Tested: 372 - Total Correct: 219 - Confidence: 0,58 - Hit Percent: 58,87
+373 35219 5 E1 327,739990 1316,239990 390,609985 1377,140015
+*HIT* frame 035219 on camera 05 Sign:   0 - Correct:   0 (E1)- Tested: 373 - Total Correct: 220 - Confidence: 0,25 - Hit Percent: 58,98
+374 35219 5 einde 390,609985 1337,060059 426,170013 1347,469971
+*HIT* frame 035219 on camera 05 Sign:   8 - Correct:   8 (einde)- Tested: 374 - Total Correct: 221 - Confidence: 0,16 - Hit Percent: 59,09
+375 35239 1 A14 167,220001 1231,560059 235,000000 1304,050049
+*HIT* frame 035239 on camera 01 Sign:  34 - Correct:  34 (A14)- Tested: 375 - Total Correct: 222 - Confidence: 0,24 - Hit Percent: 59,20
+376 35239 1 meter 235,199997 1227,040039 259,170013 1307,979980
+*HIT* frame 035239 on camera 01 Sign:  35 - Correct:  35 (meter)- Tested: 376 - Total Correct: 223 - Confidence: 0,39 - Hit Percent: 59,31
+377 35242 1 A14 146,949997 1320,069946 229,270004 1408,500000
+*MISS* frame 035242 on camera 01 Sign:  39 - Correct:  34 (A14) - Tested: 377 - Total Correct: 223 - Confidence: 0,20 - Hit Percent: 59,15
+378 35242 1 meter 228,119995 1314,560059 258,760010 1412,989990
+*HIT* frame 035242 on camera 01 Sign:  35 - Correct:  35 (meter)- Tested: 378 - Total Correct: 224 - Confidence: 0,29 - Hit Percent: 59,26
+379 35245 1 A14 131,820007 1455,040039 235,490005 1564,020020
+*MISS* frame 035245 on camera 01 Sign:  39 - Correct:  34 (A14) - Tested: 379 - Total Correct: 224 - Confidence: 0,25 - Hit Percent: 59,10
+380 35245 1 meter 232,220001 1446,469971 271,000000 1569,300049
+*HIT* frame 035245 on camera 01 Sign:  35 - Correct:  35 (meter)- Tested: 380 - Total Correct: 225 - Confidence: 0,28 - Hit Percent: 59,21

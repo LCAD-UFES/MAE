@@ -1,0 +1,47 @@
+/* Counters */
+int i;
+
+int FIRST_TRAFFIC_SIGN_TYPE;
+int NUM_PROHIBITORY_TRAFFIC_SIGN_TYPES;
+int NUM_IMAGES;
+
+float confidence1 ;
+float confidence2 ;
+
+/* Trainning */
+FIRST_TRAFFIC_SIGN_TYPE = 0;
+NUM_PROHIBITORY_TRAFFIC_SIGN_TYPES = 12;
+i = FIRST_TRAFFIC_SIGN_TYPE;
+while (i < (FIRST_TRAFFIC_SIGN_TYPE + NUM_PROHIBITORY_TRAFFIC_SIGN_TYPES))
+{
+	GetBestProhibitoryTrafficSign(i, 0, 599);
+	TrainTrafficSign(0);
+	i = i + 1;
+}
+
+
+/* Testing */
+SetCriterion(1); /* PROHYBITORY */
+confidence1 = 0.0;
+confidence2 = 0.0;
+
+NUM_IMAGES = GetNumImages(0);
+i = NUM_IMAGES / 2;
+
+while (i < NUM_IMAGES)
+{
+	GetImage(i);
+#	GetImageByNumberImage(298);	
+	MoveCloseToTrafficSign(0);
+	key s;
+	confidence1 = GetConfidence(0);
+	
+	MoveFarWayFromTrafficSign(0);
+	key s;
+	confidence2 = GetConfidence(0);
+	
+	PrintEvalution(confidence1, confidence2); # confidence1, confidence2, (confidence1 - confidence2) / confidence1
+	
+	i = i + 1;
+}
+quit;

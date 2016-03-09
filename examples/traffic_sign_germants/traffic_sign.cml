@@ -1,0 +1,47 @@
+int SIGNS2TRAINING;
+#SIGNS2TRAINING = 26641;
+SIGNS2TRAINING = 2664;
+
+int SIGNS2TESTING;
+#SIGNS2TESTING = 12567;
+SIGNS2TESTING = 1000;
+
+/* Network Status */
+int MOVING;
+MOVING = 0;
+int TRAINING;
+TRAINING = 1;
+int TESTING;
+TESTING = 2;
+
+/* Iterators */
+int i;
+
+/* Training Phase */
+SetNetworkStatus (TRAINING);
+i = 1;
+while (i <= SIGNS2TRAINING)
+{
+	get_sign_by_index2 (i);
+
+	forward network;
+	draw out_landmark based on out_traffic_sign_f move;
+	train network;
+	
+	i = i + 1;
+}
+
+/* Testing phase */
+SetNetworkStatus (TESTING);
+i = 1;
+while (i <= SIGNS2TESTING)
+{
+	/*wait_key(0);*/
+	
+	get_sign_by_index2 (i);
+	forward network;
+
+	i = i + 1;
+}
+
+quit;

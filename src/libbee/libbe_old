@@ -1,0 +1,410 @@
+// BumblebeeLibrary.cpp : Defines the entry point for the console application.
+//
+
+#ifdef WIN32
+#include "stdafx.h"
+#endif
+
+//=============================================================================
+// System Includes
+//=============================================================================
+#include <stdio.h>
+#include <stdlib.h>
+
+//============================================================================= 
+// PGR Includes
+//=============================================================================
+#include "triclops.h"
+#include "pnmutils.h"
+#include "/usr/include/flycapture/C/FlyCapture2_C.h"
+
+
+//
+// Macro to check, report on, and handle Triclops API error codes.
+//
+#define _HANDLE_TRICLOPS_ERROR( function, error ) \
+{ \
+   if( error != TriclopsErrorOk ) \
+   { \
+      printf( \
+	 "ERROR: %s reported %s.\n", \
+	 function, \
+	 triclopsErrorToString( error ) ); \
+      exit( 1 ); \
+   } \
+} \
+
+//
+// Macro to check, report on, and handle Flycapture API error codes.
+//
+
+#define _HANDLE_FLYCAPTURE_ERROR( function, error ) \
+{ \
+    if ( error != FC2_ERROR_OK ) \
+    { \
+        printf( "Error in %s: %d\n", function, error ); \
+        exit(1); \
+    } \
+} \
+
+
+
+#define LEFT 0
+#define RIGHT 1024*4
+
+class BumblebeeCamera
+{
+		TriclopsInput colorInput;
+		TriclopsPackedColorImage colorImage;
+		TriclopsContext triclops;
+		
+		//disparity map
+		TriclopsInput		triclopsInput;
+		TriclopsImage		disparityImage;
+
+		fc2Context		flycapture;
+		fc2Image		flycaptureImage;
+		fc2CameraInfo		pInfo;
+		PixelFormat		pixelFormat;
+
+		TriclopsError		te;
+		fc2Error   		fe;
+	   
+		int iMaxCols;
+		int iMaxRows;
+	   
+		char* szCalFile;
+		PGRGuid guid;
+
+public:
+
+		bool InitBumblebeeCamera(int image_width, int image_height)
+		{
+
+			fe = fc2CreateContext( &flycapture );
+			_HANDLE_FLYCAPTURE_ERROR( "fc2CreateContext()",  fe );
+
+			fe = fc2GetNumOfCameras( flycapture, &numCameras );
+			_HANDLE_FLYCAPTURE_ERROR( "fc2GetNumOfCameras()",  fe );
+
+			// No cameras detected
+			if ( numCameras == 0 )
+				return 0;
+
+			fe = fc2GetCameraFromIndex( flycapture, 0, &guid );    
+			_HANDLE_FLYCAPTURE_ERROR( "fc2GetCameraFromIndex",  fe );
+
+			fe = fc2Connect( flycapture, &guid );
+			_HANDLE_FLYCAPTURE_ERROR( "fc2Connect",  fe );
+
+#if 0
+			// Open the camera
+			fe = fc2CreateContext(&flycapture);
+			_HANDLE_FLYCAPTURE_ERROR( "flycaptureCreateContext()",  fe );
+
+			// Initialize the Flycapture context
+			 fe = flycaptureInitialize(flycapture,0);
+			_HANDLE_FLYCAPTURE_ERROR( "flycaptureInitialize()",  fe );
+
+			// Save the camera's calibration file, and return the path 
+			 fe = flycaptureGetCalibrationFileFromCamera(flycapture, &szCalFile);
+			_HANDLE_FLYCAPTURE_ERROR( "flycaptureGetCalibrationFileFromCamera()",  fe );
+		   
+			// Create a Triclops context from the cameras calibratiopn file
+			 te = triclopsGetDefaultContextFromFile( &triclops,  szCalFile );
+			_HANDLE_TRICLOPS_ERROR( "triclopsGetDefaultContextFromFile()",  te );
+		 
+			// Get camera information
+			 fe = flycaptureGetCameraInfo(  flycapture, &pInfo );
+			_HANDLE_FLYCAPTURE_ERROR( "flycatpureGetCameraInfo()",  fe );  
+#endif
+
+#if 0
+			if ( pInfo.CameraType == FLYCAPTURE_COLOR)
+			{
+				   pixelFormat = FLYCAPTURE_RAW16;
+			}	 
+			else 
+			{
+				   pixelFormat = FLYCAPTURE_MONO16;
+			}
+		   
+			switch ( pInfo.CameraModel)
+			{
+					case FLYCAPTURE_BUMBLEBEE2:
+					{
+						 unsigned long ulValue;
+						 flycaptureGetCameraRegister( flycapture, 0x1F28, &ulValue );
+			 
+						 if ( ( ulValue & 0x2 ) == 0 )
+						 {
+							// Hi-res BB2
+							 iMaxCols = 1024; 
+							 iMaxRows = 768;   
+						 }
+						 else
+						 {
+							// Low-res BB2
+							 iMaxCols = 640;
+							 iMaxRows = 480;
+						 }
+					}    
+					break;
+		      
+				   case FLYCAPTURE_BUMBLEBEEXB3:
+					   iMaxCols = 1280;
+					   iMaxRows = 960;
+					  break;
+				      
+				   default:
+					   te = TriclopsErrorInvalidCamera;
+					  _HANDLE_TRICLOPS_ERROR( "triclopsCheckCameraModel()",  te );
+					  break;
+			}
+
+#endif
+			fe = fc2StartCapture( flycapture );
+			_HANDLE_FLYCAPTURE_ERROR( "fc2StartCapture()",  fe );
+
+			 te = triclopsSetResolution( triclops, image_height, image_width);
+			_HANDLE_TRICLOPS_ERROR( "triclopsSetResolution()",  te );
+
+			return true;
+		}
+
+		bool CaptureImagePair()
+		{
+				// Initialize image
+				fe = fc2CreateImage( &flycaptureImage );
+				_HANDLE_FLYCAPTURE_ERROR("fc2CreateImage()",  fe );
+
+				// Grab an image from the camera
+				fe = fc2RetrieveBuffer( flycapture,& flycaptureImage);
+				_HANDLE_FLYCAPTURE_ERROR("flycaptureGrabImage()",  fe );
+
+				return true;
+		}
+
+		char** GetImage(unsigned int which_camera)
+		{
+			// Extract information from the FlycaptureImage
+			int imageCols =  flycaptureImage.iCols;
+			int imageRows =  flycaptureImage.iRows;
+			int imageRowInc =  flycaptureImage.iRowInc;
+			int iSideBySideImages =  flycaptureImage.iNumImages;
+			unsigned long timeStampSeconds =  flycaptureImage.timeStamp.ulSeconds;
+			unsigned long timeStampMicroSeconds =  flycaptureImage.timeStamp.ulMicroSeconds;
+
+			// Create buffers for holding the color and mono images
+			unsigned char* rowIntColor = 
+				new unsigned char[ imageCols * imageRows * iSideBySideImages * 4 ];
+
+			// Create a temporary FlyCaptureImage for preparing the stereo image
+			FlyCaptureImage tempImage;
+			tempImage.pData = rowIntColor;
+		   
+			// Convert the pixel interleaved raw data to row interleaved format
+			 fe = flycapturePrepareStereoImage(flycapture,  flycaptureImage, NULL, &tempImage );
+			_HANDLE_FLYCAPTURE_ERROR( "flycapturePrepareStereoImage()",  fe );
+		   
+			// Pointers to positions in the color buffer that correspond to the beginning
+			// of the red, green and blue sections
+			unsigned char* redColor = NULL;
+			unsigned char* greenColor = NULL;
+			unsigned char* blueColor = NULL;
+		   
+			redColor = rowIntColor;
+			if ( flycaptureImage.iNumImages == 2)
+			{
+				greenColor = redColor + ( 4 * imageCols );
+				blueColor = redColor + ( 4 * imageCols );
+			}
+			if ( flycaptureImage.iNumImages == 3)
+			{
+				greenColor = redColor + ( 4 * imageCols );
+				blueColor = redColor + ( 2 * 4 * imageCols );
+			}
+
+			// Use the row interleaved images to build up a packed TriclopsInput.
+			// A packed triclops input will contain a single image with 32 bpp.
+			te = triclopsBuildPackedTriclopsInput(
+				  imageCols,
+				  imageRows,
+				  imageRowInc * 4,
+				  timeStampSeconds,
+				  timeStampMicroSeconds,
+				  redColor+(which_camera),
+				  & colorInput );
+
+			_HANDLE_TRICLOPS_ERROR( "triclopsBuildPackedTriclopsInput()", te );
+		   
+			printf("Rectifying...");
+			// rectify the color image
+			te = triclopsRectifyPackedColorImage( triclops, 
+				which_camera==RIGHT ? TriCam_L_LEFT : TriCam_L_RIGHT /*TriCam_REFERENCE*/, 
+						   & colorInput, 
+						   & colorImage );
+			_HANDLE_TRICLOPS_ERROR( "triclopsRectifyPackedColorImage()", te );
+		   
+
+			// Save the color rectified image to file
+			if(which_camera == RIGHT)
+					triclopsSavePackedColorImage(& colorImage, "right-rectified.ppm");
+			else
+					triclopsSavePackedColorImage(& colorImage, "left-rectified.ppm");
+			
+			// Delete the image buffer.
+			delete rowIntColor;
+			redColor = NULL;
+			greenColor = NULL;
+			blueColor = NULL;
+
+			return  (char**)colorImage.data;
+		}
+
+		char** GetDisparityMap()
+		{
+			// Extract information from the FlycaptureImage
+			int imageCols =  flycaptureImage.iCols;
+			int imageRows =  flycaptureImage.iRows;
+			int imageRowInc =  flycaptureImage.iRowInc;
+			int iSideBySideImages =  flycaptureImage.iNumImages;
+			unsigned long timeStampSeconds =  flycaptureImage.timeStamp.ulSeconds;
+			unsigned long timeStampMicroSeconds =  flycaptureImage.timeStamp.ulMicroSeconds;
+
+			// Create buffers for holding the color and mono images
+			unsigned char* rowIntMono = 
+				new unsigned char[ imageCols * imageRows * iSideBySideImages];
+
+			// Create a temporary FlyCaptureImage for preparing the stereo image
+			FlyCaptureImage tempImage;
+			tempImage.pData = rowIntMono;
+
+		   // Convert the pixel interleaved raw data to row interleaved format
+		   fe = flycapturePrepareStereoImage(flycapture, flycaptureImage, &tempImage, NULL);
+		   _HANDLE_FLYCAPTURE_ERROR( "flycapturePrepareStereoImage()", fe );
+
+		   // Pointers to positions in the mono buffer that correspond to the beginning
+		   // of the red, green and blue sections
+		   unsigned char* redMono = NULL;
+		   unsigned char* greenMono = NULL;
+		   unsigned char* blueMono = NULL;
+
+		   redMono = rowIntMono;
+		   if (flycaptureImage.iNumImages == 2)
+		   {
+			   greenMono = redMono + imageCols;
+			   blueMono = redMono + imageCols;
+		   }
+		   if (flycaptureImage.iNumImages == 3)
+		   {
+			   greenMono = redMono + imageCols;
+			   blueMono = redMono + ( 2 * imageCols );
+		   }
+		   
+		   // Use the row interleaved images to build up an RGB TriclopsInput.  
+		   // An RGB triclops input will contain the 3 raw images (1 from each camera).
+		   te = triclopsBuildRGBTriclopsInput(
+			  imageCols, 
+			  imageRows, 
+			  imageRowInc,  
+			  timeStampSeconds, 
+			  timeStampMicroSeconds, 
+			  redMono, 
+			  greenMono, 
+			  blueMono, 
+			  &triclopsInput);
+		   _HANDLE_TRICLOPS_ERROR( "triclopsBuildRGBTriclopsInput()", te );
+
+		   
+		   
+		   // Rectify the images
+		   
+		   te = triclopsSetRectImgQuality(triclops, TriRectQlty_ENHANCED_1);
+		   _HANDLE_TRICLOPS_ERROR( "triclopsSetSurfaceValidationSize()", te );
+		   
+		   te = triclopsRectify( triclops, &triclopsInput );
+		   _HANDLE_TRICLOPS_ERROR( "triclopsRectify()", te );
+
+           /* # Stereo Parameters */
+		   /*te = triclopsSetSubpixelInterpolation(triclops, true);
+		   _HANDLE_TRICLOPS_ERROR( "triclopsSetSubpixelInterpolation()", te );*/
+
+			te = triclopsSetSurfaceValidation(triclops, true);
+		   _HANDLE_TRICLOPS_ERROR( "triclopsSetSurfaceValidation()", te);
+
+		   te = triclopsSetSurfaceValidationDifference(triclops, 1.00);
+		   _HANDLE_TRICLOPS_ERROR( "triclopsSetSurfaceValidationDifference()", te );
+
+			te = triclopsSetSurfaceValidationSize(triclops, 250);
+		   _HANDLE_TRICLOPS_ERROR( "triclopsSetSurfaceValidationSize()",te );
+
+			te = triclopsSetTextureValidation(triclops, true);
+		   _HANDLE_TRICLOPS_ERROR( "triclopsSetTextureValidation()",te);
+			
+		    te = triclopsSetTextureValidationThreshold(triclops,0.25);
+		   _HANDLE_TRICLOPS_ERROR( "triclopsSetTextureValidationThreshold()",te);
+			
+			te = triclopsSetStereoMask(triclops, 9);
+		   _HANDLE_TRICLOPS_ERROR( "triclopsSetStereoMask()", te);
+			
+			te = triclopsSetDisparity(triclops, 0, 127);
+		   _HANDLE_TRICLOPS_ERROR( "triclopsSetDisparity()", te);
+		   
+		   camera.te = triclopsSetEdgeCorrelation(triclops, false);
+		   _HANDLE_TRICLOPS_ERROR( "triclopsSetEdgeCorrelation()", camera.te);
+
+			
+		   /* #end Stereo Parameters */
+		   
+		   // Do stereo processing
+		   te = triclopsStereo( triclops );
+		   _HANDLE_TRICLOPS_ERROR( "triclopsStereo()", te );
+		   
+		   // Retrieve the disparity image from the triclops context
+		   te = triclopsGetImage( triclops, TriImg_DISPARITY, TriCam_REFERENCE, &disparityImage );
+		   _HANDLE_TRICLOPS_ERROR( "triclopsGetImage()", te );
+
+		te = triclopsSaveImage( &disparityImage, "disparity.pgm" );
+		_HANDLE_TRICLOPS_ERROR( "triclopsSaveImage()", te );
+
+		return (char**) disparityImage.data;
+
+	}
+
+		void CloseCamera()
+		{
+				 // Close the camera
+			  fe = flycaptureStop(  flycapture );
+			 _HANDLE_FLYCAPTURE_ERROR( "flycaptureStop()",  fe );
+
+			 fe = flycaptureDestroyContext(  flycapture );
+			 _HANDLE_FLYCAPTURE_ERROR( "flycaptureDestroyContext()",  fe );
+
+			 // Destroy the Triclops context
+			  te = triclopsDestroyContext(  triclops ) ;
+			 _HANDLE_TRICLOPS_ERROR( "triclopsDestroyContext()",  te );
+
+		}
+
+};
+
+BumblebeeCamera camera;
+
+#if 0
+int main( int /* argc */, char** /* argv */ )
+{
+	char** data;
+
+	if(camera.InitBumblebeeCamera(320, 240)==true)
+	{
+		camera.CaptureImagePair();
+		camera.GetImage(RIGHT);
+		camera.GetImage(LEFT);
+		camera.GetDisparityMap();
+		camera.CloseCamera();
+	}
+	 
+	return 0;  
+}
+#endif

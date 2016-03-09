@@ -1,0 +1,151 @@
+################################################ Set Global Variables #################################################
+set TYPE_SHOW = SHOW_FRAME;
+set TYPE_MOVING_FRAME = STOP;
+
+#Full dataset
+#set NEURON_MEMORY_SIZE = 39209;
+#Minimal dataset
+set NEURON_MEMORY_SIZE = 860;
+
+float reshape_filter_offset_x = 0.0;
+float reshape_filter_offset_y = 0.0;
+float reshape_filter_scale_factor = 1.0;
+float reshape_filter_rotation_angle = 0.0;
+
+######################################################## Constants ####################################################
+const INPUT_WIDTH 	= 250;
+const INPUT_HEIGHT	= 250;
+
+const N_SCALE		= 2;
+const OUT_WIDTH		= 17 * (N_SCALE+1);
+const OUT_HEIGHT	=  9 * (N_SCALE+1);
+
+const VOTE_PARAM	= 2.5;
+const VOTE_SCALE	= VOTE_PARAM * OUT_WIDTH / OUT_HEIGHT;
+const VOTE_VARIANCE 	= VOTE_SCALE * N_SCALE;
+
+const SYNAPSES		= 256;
+
+# Filter's parameters
+const NL_WIDTH 		= 70;
+const NL_HEIGHT		= 70;
+
+const GAUSSIAN_RADIUS_DISTRIBUTION = 7.0;
+const GAUSSIAN_RADIUS_FILTER = 7;
+const GAUSSIAN_SIGMA_FILTER  = 1.0;
+const LOG_FACTOR = 2.0;
+
+const N_DEFINED_SIGNS = 43;
+const N_RECALL_TRIES = 1;
+
+#Full dataset for training/test
+#const TRAINING_INPUT_PATH = "./training_set_raw/";
+#const TRAINING_INPUT_FILES = "./training_set_raw/desc_training_set";
+#const TESTING_INPUT_PATH = "./testing_set_raw/";
+#const TESTING_INPUT_FILES = "./testing_set_raw/desc_testing_set";
+
+#Minimal dataset for training/test
+#const TRAINING_INPUT_PATH = "./training_set_raw/";
+#const TRAINING_INPUT_FILES = "./desc_training_set_min_860.csv";
+#const TESTING_INPUT_PATH = "./testing_set_raw/";
+#const TESTING_INPUT_FILES = "./desc_testing_set_min_860.csv";
+
+#Minimal dataset for sanity test
+#const TRAINING_INPUT_PATH = "./training_set_raw/";
+#const TRAINING_INPUT_FILES = "./desc_training_set_min_860.csv";
+#const TESTING_INPUT_PATH = TRAINING_INPUT_PATH;
+#const TESTING_INPUT_FILES = TRAINING_INPUT_FILES;
+
+#Minimal Random dataset for training/test
+#const TRAINING_INPUT_PATH = "./training_set_raw/";
+#const TRAINING_INPUT_FILES = "./desc_training_set_rand_860.csv";
+#const TESTING_INPUT_PATH = "./training_set_raw/";
+#const TESTING_INPUT_FILES = "./desc_testing_set_rand_430.csv";
+
+#Minimal Random dataset with simetry for training/test
+const TRAINING_INPUT_PATH = "./training_set_raw/";
+const TRAINING_INPUT_FILES = "./output_data_roi_training_set_rand_860.csv";
+const TESTING_INPUT_PATH = "./training_set_raw/";
+const TESTING_INPUT_FILES = "./output_data_roi_testing_set_rand_430.csv";
+
+
+# 43 picked dataset for training / 430 random for test
+#const TRAINING_INPUT_PATH = "./training_set_raw/";
+#const TRAINING_INPUT_FILES = "./desc_training_set_43.csv";
+#const TESTING_INPUT_PATH = "./training_set_raw/";
+#const TESTING_INPUT_FILES = "./desc_testing_set_rand_430.csv";
+
+############################################### Neuron Layers #########################################################
+neuronlayer 	nl_traffic_sign_gaussian[NL_WIDTH][NL_HEIGHT]   with color outputs;
+neuronlayer 	nl_traffic_sign_reshape[NL_WIDTH][NL_HEIGHT]    with color outputs;
+
+neuronlayer	nl_traffic_sign_red[NL_WIDTH][NL_HEIGHT]	with greyscale outputs, show;
+neuronlayer	nl_traffic_sign_green[NL_WIDTH][NL_HEIGHT]	with greyscale outputs, show;
+neuronlayer	nl_traffic_sign_blue[NL_WIDTH][NL_HEIGHT]	with greyscale outputs, show;
+
+#neuronlayer	nl_landmark_red[OUT_WIDTH][OUT_HEIGHT]		of wisard neurons greyscale sensitive with greyscale outputs;
+#neuronlayer	nl_landmark_green[OUT_WIDTH][OUT_HEIGHT]	of wisard neurons greyscale sensitive with greyscale outputs;
+#neuronlayer	nl_landmark_blue[OUT_WIDTH][OUT_HEIGHT]		of wisard neurons greyscale sensitive with greyscale outputs;
+#neuronlayer	nl_landmark_red[OUT_WIDTH][OUT_HEIGHT]		of minchinton_fat_fast neurons greyscale sensitive with greyscale outputs;
+#neuronlayer	nl_landmark_green[OUT_WIDTH][OUT_HEIGHT]	of minchinton_fat_fast neurons greyscale sensitive with greyscale outputs;
+#neuronlayer	nl_landmark_blue[OUT_WIDTH][OUT_HEIGHT]		of minchinton_fat_fast neurons greyscale sensitive with greyscale outputs;
+neuronlayer	nl_landmark_red[OUT_WIDTH][OUT_HEIGHT]		of minchinton neurons greyscale sensitive with greyscale outputs;
+neuronlayer	nl_landmark_green[OUT_WIDTH][OUT_HEIGHT]	of minchinton neurons greyscale sensitive with greyscale outputs;
+neuronlayer	nl_landmark_blue[OUT_WIDTH][OUT_HEIGHT]		of minchinton neurons greyscale sensitive with greyscale outputs;
+
+
+
+neuronlayer	nl_landmark_eval_mask[OUT_WIDTH][OUT_HEIGHT]	with greyscale_float outputs, show;
+
+############################################### Outputs #########################################################
+output      	out_traffic_sign_reshape[NL_WIDTH][NL_HEIGHT];
+output		out_traffic_sign_gaussian[NL_WIDTH][NL_HEIGHT];
+
+#output		out_landmark[OUT_WIDTH][OUT_HEIGHT];	##due to hardcoded stuff handled by output_handler();
+
+output		out_landmark_red[OUT_WIDTH][OUT_HEIGHT] ;
+output		out_landmark_green[OUT_WIDTH][OUT_HEIGHT] handled by output_handler_rgb();
+output		out_landmark_blue[OUT_WIDTH][OUT_HEIGHT] ;
+
+################################################## Inputs #############################################################
+input 		traffic_sign[INPUT_WIDTH][INPUT_HEIGHT]		with color outputs produced by input_generator() controled by input_controler();
+
+############################################### Filters #########################################################
+filter		traffic_sign 			with traffic_sign_reshape_opencv () producing nl_traffic_sign_reshape;
+
+filter      	nl_traffic_sign_reshape 	with gaussian_filter ("%d %f", GAUSSIAN_RADIUS_FILTER, GAUSSIAN_SIGMA_FILTER) producing nl_traffic_sign_gaussian;
+
+filter		nl_traffic_sign_gaussian	with red_mask_filter () producing nl_traffic_sign_red;
+filter		nl_traffic_sign_gaussian	with green_mask_filter () producing nl_traffic_sign_green;
+filter		nl_traffic_sign_gaussian	with blue_mask_filter () producing nl_traffic_sign_blue;
+
+################################## Connect Neuron Layers to Outputs #############################################
+outputconnect   nl_traffic_sign_gaussian	to out_traffic_sign_gaussian;
+outputconnect   nl_traffic_sign_reshape     	to out_traffic_sign_reshape;
+
+outputconnect	nl_landmark_red		to out_landmark_red;
+outputconnect	nl_landmark_green	to out_landmark_green;
+outputconnect	nl_landmark_blue	to out_landmark_blue;
+
+############################################### Associations ####################################################
+associate	nl_landmark_red			with	nl_landmark_red;
+associate	nl_landmark_green		with	nl_landmark_green;
+associate	nl_landmark_blue		with	nl_landmark_blue;
+
+################################################ Connections ####################################################
+connect 	nl_traffic_sign_red 		to nl_landmark_red	with SYNAPSES random inputs per neuron and log_polar distribution with radius GAUSSIAN_RADIUS_DISTRIBUTION and logfactor LOG_FACTOR;
+connect 	nl_traffic_sign_green		to nl_landmark_green 	with SYNAPSES random inputs per neuron and log_polar distribution with radius GAUSSIAN_RADIUS_DISTRIBUTION and logfactor LOG_FACTOR;
+connect 	nl_traffic_sign_blue		to nl_landmark_blue 	with SYNAPSES random inputs per neuron and log_polar distribution with radius GAUSSIAN_RADIUS_DISTRIBUTION and logfactor LOG_FACTOR;
+
+################################################ User Functions #################################################
+
+int SetReshapeFilterParams("%d");
+int SetNetworkStatus ("%d");
+int GetSignByIndex ("%d");
+int SaveSynapses("%s %d");
+int SaveDataset("%s %d");
+int SaveConfig("%s");
+int WaitKey ("%d");
+int GetConfidence ("%d");
+int PrintStatistics ("%d");
+int SaveNeuronsMemory ("%s");

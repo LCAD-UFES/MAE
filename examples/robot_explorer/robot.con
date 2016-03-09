@@ -1,0 +1,272 @@
+################################################ Set Global Variables #################################################
+# Global Variables
+set NEURON_MEMORY_SIZE = 1;
+set TYPE_SHOW = SHOW_FRAME;
+set TYPE_MOVING_FRAME = STOP;
+
+######################################################## Constants ####################################################
+
+# Input layer dimentions
+const JOSELITO_IMAGE_WIDTH  = 320;
+const JOSELITO_IMAGE_HEIGHT = 240;
+const SIMULATOR_IMAGE_WIDTH  = 256;
+const SIMULATOR_IMAGE_HEIGHT = 256;
+const INPUT_WIDTH  = SIMULATOR_IMAGE_WIDTH;
+const INPUT_HEIGHT = SIMULATOR_IMAGE_HEIGHT;
+
+# Neuron layer dimentions
+const NL_WIDTH  = 128;
+const NL_HEIGHT = 64;
+
+# Image source parameters
+const GET_IMAGE_FROM_SOCKET   = 0;
+const GET_IMAGE_FROM_RBT      = 1;
+const GET_IMAGE_FROM_PNM      = 2;
+const GET_IMAGE_FROM_SIMULATOR= 3;
+const IMAGE_SOURCE = GET_IMAGE_FROM_SIMULATOR;
+
+# Filter parameters
+const LOG_FACTOR              = 2.0;
+const CYCLES_PER_DEGREE       = 0.85;
+const MT_SENSIBILITY          = 0.1;
+const SMOOTHNESS              = 1.0;
+const CONTRAST_RATIO          = 10.0;
+
+# Robotic framework parameters
+const ROBOT_FOVY = 47.05; # [deg]
+const ROBOT_FAR = 500.0; # [cm]
+const ROBOT_NEAR = 0.1; # [cm]
+const ROBOT_FLOOR = -16.0; # [cm]
+const ROBOT_CAMERA_SEPARATION = 6.9; # [cm]
+const ROBOT_RADIUS = 15.0; # [cm]
+const ROBOT_HEIGHT = 6.5; # [cm]
+const TERRAIN_SIZE = 500.0; # [cm]
+
+const JOSELITO_FOCUS = 400.0; # [pix]
+const SIMULATOR_ROBOT_FOCUS = 294.0; # [pix]
+const ROBOT_FOCUS = SIMULATOR_ROBOT_FOCUS; # [pix]
+
+# Navigation system parameters
+const TURN_LEFT_STEP          = 5.0; # [cm]
+const TURN_RIGHT_STEP         = 5.0; # [cm]
+const MOVE_FORWARD_STEP       = 1.5; # [deg]
+const FUZZY_INPUTS_NUMBER     = 3;
+const FUZZY_OUTPUTS_NUMBER    = 2;
+const FIS_FILE                = "robot.fis";
+const VIRTUAL_FOV	      = ROBOT_FOVY; # [deg]
+
+# Input data file name
+const CAMERA_LEFT_PARAMETERS_FILE_NAME = "CameraLeftParameters.dat";
+const CAMERA_RIGHT_PARAMETERS_FILE_NAME = "CameraRightParameters.dat";
+const FILE_RBT_IMAGE_LEFT     = "img_left.rbt";
+const FILE_RBT_IMAGE_RIGHT    = "img_right.rbt";
+
+# Index MT CELL (mt cell that will be ploted)
+const INDEX_MT_CELL           = (NL_WIDTH * NL_HEIGHT / 2) + (NL_WIDTH / 2);
+
+# Network connection configuration
+const SOCKET_PORT             = 27015;
+const HOST_ADDR_MONO          = "192.168.0.1";
+const HOST_ADDR_LEFT          = "10.50.5.121";
+const HOST_ADDR_RIGHT         = "10.50.5.122";
+
+const VISION_STEREO           = TRUE;
+
+# Target representation settings
+const CHANNELS = 2;
+const FEATURES_PER_CHANNEL = 4;
+const FEATURES_NUMBER = CHANNELS * FEATURES_PER_CHANNEL;
+const BAND_WIDTH = 0.125;
+const FEATURES_SAMPLE = (int) (BAND_WIDTH * NL_WIDTH);
+
+# Search heuristic parameters
+const CUT_POINT	= 0.7;
+
+################################################# Inputs #######################################################
+
+input			image_left[INPUT_WIDTH][INPUT_HEIGHT]		with color outputs produced by input_generator("%d", IMAGE_SOURCE) controled by input_controler();
+input			image_right[INPUT_WIDTH][INPUT_HEIGHT]		with color outputs produced by input_generator("%d", IMAGE_SOURCE) controled by input_controler();
+
+############################################### Neuron Layers ##################################################
+
+#neuronlayer		nl_lp_image_left[NL_WIDTH][NL_HEIGHT]		with	greyscale_float outputs;
+#neuronlayer		nl_lp_image_right[NL_WIDTH][NL_HEIGHT]		with	greyscale_float outputs;
+
+neuronlayer		nl_simple_mono_right[NL_WIDTH][NL_HEIGHT]	with	greyscale_float outputs;
+neuronlayer		nl_simple_mono_right_q[NL_WIDTH][NL_HEIGHT]	with	greyscale_float outputs;
+neuronlayer		nl_simple_mono_left[NL_WIDTH][NL_HEIGHT]	with	greyscale_float outputs;
+neuronlayer		nl_simple_mono_left_q[NL_WIDTH][NL_HEIGHT]	with	greyscale_float outputs;
+
+neuronlayer		nl_simple_binocular[NL_WIDTH][NL_HEIGHT]	with	greyscale_float outputs;
+neuronlayer		nl_simple_binocular_q[NL_WIDTH][NL_HEIGHT]	with	greyscale_float outputs;
+
+neuronlayer		nl_complex_mono_right[NL_WIDTH][NL_HEIGHT]	with	greyscale_float outputs;
+neuronlayer		nl_complex_mono_left[NL_WIDTH][NL_HEIGHT]	with	greyscale_float outputs;
+neuronlayer		nl_complex_binocular[NL_WIDTH][NL_HEIGHT]	with	greyscale_float outputs;
+
+neuronlayer		nl_mt[NL_WIDTH][NL_HEIGHT]			with	greyscale_float outputs;
+neuronlayer		nl_mt_gaussian[NL_WIDTH][NL_HEIGHT]		with	greyscale_float outputs;
+
+neuronlayer		nl_mt_gaussian_var[NL_WIDTH][NL_HEIGHT]		with	greyscale_float outputs;
+neuronlayer		nl_mt_gaussian_map[NL_WIDTH][NL_HEIGHT]		with	greyscale_float outputs;
+neuronlayer		nl_confidence_map[NL_WIDTH][NL_HEIGHT]		with	greyscale_float outputs;
+neuronlayer		nl_disparity_map[NL_WIDTH][NL_HEIGHT]		with	greyscale_float outputs;
+
+neuronlayer		nl_gabor_big_h_00[NL_WIDTH][NL_HEIGHT]  	with greyscale_float outputs;
+neuronlayer    		nl_gabor_big_h_90[NL_WIDTH][NL_HEIGHT] 		with greyscale_float outputs;
+neuronlayer     	nl_gabor_big_v_00[NL_WIDTH][NL_HEIGHT]  	with greyscale_float outputs;
+neuronlayer    		nl_gabor_big_v_90[NL_WIDTH][NL_HEIGHT] 		with greyscale_float outputs;
+neuronlayer    		nl_gabor_small_h_00[NL_WIDTH][NL_HEIGHT]      	with greyscale_float outputs;
+neuronlayer    		nl_gabor_small_h_90[NL_WIDTH][NL_HEIGHT]     	with greyscale_float outputs;
+neuronlayer    		nl_gabor_small_v_00[NL_WIDTH][NL_HEIGHT]      	with greyscale_float outputs;
+neuronlayer    		nl_gabor_small_v_90[NL_WIDTH][NL_HEIGHT]     	with greyscale_float outputs;
+
+neuronlayer		nl_v1_activation_map[NL_WIDTH][NL_HEIGHT]	with greyscale_float outputs;
+
+neuronlayer		nl_features[FEATURES_NUMBER * FEATURES_SAMPLE][NL_HEIGHT]	of minchinton neurons with greyscale_float outputs;
+neuronlayer		nl_features1[FEATURES_NUMBER * FEATURES_SAMPLE][NL_HEIGHT]	with greyscale_float outputs;
+
+neuronlayer		nl_target_coordinates[2][1]			with greyscale_float outputs;
+
+#neuronlayer    	nl_memoryzed_sample[13][1]	       		with greyscale_float outputs;
+
+############################################### Outputs ########################################################
+#output		out_lp_image_left[NL_WIDTH][NL_HEIGHT];
+#output		out_lp_image_right[NL_WIDTH][NL_HEIGHT];
+
+#output		out_simple_mono_right[NL_WIDTH][NL_HEIGHT];
+#output		out_simple_mono_right_q[NL_WIDTH][NL_HEIGHT];
+#output		out_simple_mono_left[NL_WIDTH][NL_HEIGHT];
+#output		out_simple_mono_left_q[NL_WIDTH][NL_HEIGHT];
+
+#output		out_simple_binocular[NL_WIDTH][NL_HEIGHT];
+#output		out_simple_binocular_q[NL_WIDTH][NL_HEIGHT];
+
+#output		out_complex_mono_right[NL_WIDTH][NL_HEIGHT];
+#output		out_complex_mono_left[NL_WIDTH][NL_HEIGHT];
+#output		out_complex_binocular[NL_WIDTH][NL_HEIGHT];
+
+#output		out_mt[NL_WIDTH][NL_HEIGHT];
+#output		out_mt_gaussian[NL_WIDTH][NL_HEIGHT];
+
+#output		out_mt_gaussian_var[NL_WIDTH][NL_HEIGHT];
+#output		out_mt_gaussian_map[NL_WIDTH][NL_HEIGHT];
+output		out_confidence_map[NL_WIDTH][NL_HEIGHT];
+output		out_disparity_map[NL_WIDTH][NL_HEIGHT];
+
+output   	out_features[FEATURES_NUMBER * FEATURES_SAMPLE][NL_HEIGHT];
+output   	out_features1[FEATURES_NUMBER * FEATURES_SAMPLE][NL_HEIGHT];
+
+#parameters: 	output_handler_mean_position ("%s %f %f", <nl_target_name_coordinates>, <log_factor>, <cut_point>)
+output 		out_v1_activation_map[NL_WIDTH][NL_HEIGHT]  handled by output_handler_mean_position ("%f %f", LOG_FACTOR, CUT_POINT);
+
+output         	out_target_coordinates[2][1];
+
+#output    	out_memoryzed_sample[13][1];
+
+################################## Connect Neuron Layers to Outputs #############################################
+#outputconnect	nl_lp_image_left to out_lp_image_left;
+#outputconnect	nl_lp_image_right to out_lp_image_right;
+
+#outputconnect	nl_simple_mono_right to out_simple_mono_right;
+#outputconnect	nl_simple_mono_right_q to out_simple_mono_right_q;
+#outputconnect	nl_simple_mono_left to out_simple_mono_left;
+#outputconnect	nl_simple_mono_left_q to out_simple_mono_left_q;
+
+#outputconnect	nl_simple_binocular to out_simple_binocular;
+#outputconnect	nl_simple_binocular_q to out_simple_binocular_q;
+
+#outputconnect	nl_complex_mono_right to out_complex_mono_right;
+#outputconnect	nl_complex_mono_left to out_complex_mono_left;
+#outputconnect	nl_complex_binocular to out_complex_binocular;
+
+#outputconnect	nl_mt to out_mt;
+#outputconnect	nl_mt_gaussian to out_mt_gaussian;
+
+#outputconnect	nl_mt_gaussian_var to out_mt_gaussian_var;
+#outputconnect	nl_mt_gaussian_map to out_mt_gaussian_map;
+outputconnect	nl_confidence_map to out_confidence_map;
+outputconnect	nl_disparity_map to out_disparity_map;
+
+outputconnect   nl_features		to out_features;
+outputconnect	nl_features1		to out_features1;
+
+outputconnect	nl_v1_activation_map	to out_v1_activation_map;
+
+outputconnect  	nl_target_coordinates	to out_target_coordinates;
+
+#outputconnect  	nl_memoryzed_sample 	to out_memoryzed_sample;
+
+############################################### Filters #########################################################
+
+#filter	image_left   with log_polar_filter("%f", LOG_FACTOR) producing nl_lp_image_left;
+#filter	image_right  with log_polar_filter("%f", LOG_FACTOR) producing nl_lp_image_right;
+
+# Parameters specification: biological_gabor_filter("%f %f %f %f %f %f %d %d %f", camera_opening_degree, cycles_per_degree, band_width, aspect_ratio, orientation, phase, shift, mapping, log_factor)
+
+# Monocular simple cells
+filter	image_right	with biological_gabor_filter ("%f %f %f %f %f %f %d %d %f %d", ROBOT_FOVY, CYCLES_PER_DEGREE, 2.0, 1.0, 0.0, -3.0*pi/4.0, 0, MAP_LOG_POLAR, LOG_FACTOR, KERNEL_1D)	producing nl_simple_mono_right;
+filter	image_right	with biological_gabor_filter ("%f %f %f %f %f %f %d %d %f %d", ROBOT_FOVY, CYCLES_PER_DEGREE, 2.0, 1.0, 0.0,     -pi/4.0, 0, MAP_LOG_POLAR, LOG_FACTOR, KERNEL_1D)	producing nl_simple_mono_right_q;
+filter	image_left	with biological_gabor_filter ("%f %f %f %f %f %f %d %d %f %d", ROBOT_FOVY, CYCLES_PER_DEGREE, 2.0, 1.0, 0.0,      pi/4.0, 0, MAP_LOG_POLAR, LOG_FACTOR, KERNEL_1D)	producing nl_simple_mono_left;
+filter	image_left	with biological_gabor_filter ("%f %f %f %f %f %f %d %d %f %d", ROBOT_FOVY, CYCLES_PER_DEGREE, 2.0, 1.0, 0.0,  3.0*pi/4.0, 0, MAP_LOG_POLAR, LOG_FACTOR, KERNEL_1D)	producing nl_simple_mono_left_q;
+
+# Binocular simple cells
+filter	nl_simple_mono_right,	nl_simple_mono_left	with	robot_sum_filter ("")	producing	nl_simple_binocular;
+filter	nl_simple_mono_right_q,	nl_simple_mono_left_q	with	robot_sum_filter ("")	producing	nl_simple_binocular_q;
+
+# Monocular complex cells
+filter	nl_simple_mono_right,	nl_simple_mono_right_q	with	robot_complex_cell ("")	producing	nl_complex_mono_right;
+filter	nl_simple_mono_left,	nl_simple_mono_left_q	with	robot_complex_cell ("")	producing	nl_complex_mono_left;
+
+# Binocular complex cells
+filter	nl_simple_binocular, 	nl_simple_binocular_q 	with	robot_complex_cell ("")	producing	nl_complex_binocular;
+
+# MT cells
+filter	nl_complex_mono_left, nl_complex_mono_right, nl_complex_binocular with robot_mt_cell ("%f", MT_SENSIBILITY)	producing nl_mt;
+filter	nl_mt with robot_gaussian_filter("%d %f", 9, 2.0) producing nl_mt_gaussian;
+
+# Visual search filters
+#filter image_right	with biological_gabor_filter ("%f %f %f %f %f %f %d %d %f %d", ROBOT_FOVY, 0.14, 2.0, 1.0,	0.0,	0.0, 0, MAP_LOG_POLAR, LOG_FACTOR, KERNEL_2D)  producing  nl_gabor_big_h_00;
+#filter image_right	with biological_gabor_filter ("%f %f %f %f %f %f %d %d %f %d", ROBOT_FOVY, 0.14, 2.0, 1.0,	0.0, pi/2.0, 0, MAP_LOG_POLAR, LOG_FACTOR, KERNEL_2D)  producing  nl_gabor_big_h_90;
+#filter image_right	with biological_gabor_filter ("%f %f %f %f %f %f %d %d %f %d", ROBOT_FOVY, 0.14, 2.0, 1.0, pi/2.0,	0.0, 0, MAP_LOG_POLAR, LOG_FACTOR, KERNEL_2D)  producing  nl_gabor_big_v_00;
+#filter image_right	with biological_gabor_filter ("%f %f %f %f %f %f %d %d %f %d", ROBOT_FOVY, 0.14, 2.0, 1.0, pi/2.0, pi/2.0, 0, MAP_LOG_POLAR, LOG_FACTOR, KERNEL_2D)    producing  nl_gabor_big_v_90;
+#filter image_right	with biological_gabor_filter ("%f %f %f %f %f %f %d %d %f %d", ROBOT_FOVY, 0.28, 2.0, 1.0,	0.0,	0.0, 0, MAP_LOG_POLAR, LOG_FACTOR, KERNEL_2D)  producing  nl_gabor_small_h_00;
+#filter image_right	with biological_gabor_filter ("%f %f %f %f %f %f %d %d %f %d", ROBOT_FOVY, 0.28, 2.0, 1.0,	0.0, pi/2.0, 0, MAP_LOG_POLAR, LOG_FACTOR, KERNEL_2D)  producing  nl_gabor_small_h_90;
+#filter image_right	with biological_gabor_filter ("%f %f %f %f %f %f %d %d %f %d", ROBOT_FOVY, 0.28, 2.0, 1.0, pi/2.0,	0.0, 0, MAP_LOG_POLAR, LOG_FACTOR, KERNEL_2D)  producing  nl_gabor_small_v_00;
+#filter image_right	with biological_gabor_filter ("%f %f %f %f %f %f %d %d %f %d", ROBOT_FOVY, 0.28, 2.0, 1.0, pi/2.0, pi/2.0, 0, MAP_LOG_POLAR, LOG_FACTOR, KERNEL_2D)    producing  nl_gabor_small_v_90;
+
+# Parameters specification: features_gather_filter ("%f", <band_width>)
+#filter		nl_gabor_small_h_00, nl_gabor_small_h_90, nl_gabor_small_v_00, nl_gabor_small_v_90, 
+#		nl_gabor_big_h_00, nl_gabor_big_h_90, nl_gabor_big_v_00, nl_gabor_big_v_90 
+#		                        with features_gather_filter ("%f %d", BAND_WIDTH, FEATURES_NUMBER) producing nl_features1;
+
+# Parameters specification: activation_map_filter ("%d", <features_number>)
+#filter		nl_features, nl_gabor_small_h_00, nl_gabor_small_h_90, nl_gabor_small_v_00, nl_gabor_small_v_90, 
+#		nl_gabor_big_h_00, nl_gabor_big_h_90, nl_gabor_big_v_00, nl_gabor_big_v_90 
+# 		                        with v1_activation_map_filter ("%d", FEATURES_NUMBER) producing nl_v1_activation_map;
+
+############################################### Associations ####################################################
+#associate	nl_features 		with nl_features;
+
+################################################ Connections ####################################################
+#fullconnect 	nl_memoryzed_sample	to nl_features;
+
+################################################# User Functions ################################################
+
+int Verge ("");
+int SetVergenceAtPoint ("%d %d");
+int Reconstruct3DWorld ("");
+int GetLandmark ("%p %p %f %f %f %f %f");
+int MemorizeLandmark ("%d %d");
+int SearchLandmark ("%p %p");
+int GetFuzzyInputsFromMap ("%p %p %p");
+int ForwardFuzzyMachine ("%p %p %f %f %f");
+int TransformMap ("%f %f");
+int TurnRobot ("%f");
+int ForwardRobot ("%f");
+int Delay ("%d");
+int GetRotation ("%p %d %d");
+int UpdateEvidenceMap ("%f");
+int GetNextMovement ("%p %p");
+int MakePath ("");
+int MakePath2 ("%f %f");

@@ -1,0 +1,12 @@
+p e P: controlam o objto no eixo x;
+o e O: controlam o objto no eixo y;
+i e I: controlam o objto no eixo z;
+a e A: Retifica a imagem;
+v e V: Verge no modelo logpolar e gera o mapa de disparidades no modelo plano;
+r e R: Reconstroi o modelo 3D;
+d e D: Winner takes it all;
+f e F: Passa baixa;
+
+Botao direito do mouse: insere um ponto no poligono a ser visualizado;
+Botao do meio do mouse: retira um ponto do poligono a ser visualizado;
+

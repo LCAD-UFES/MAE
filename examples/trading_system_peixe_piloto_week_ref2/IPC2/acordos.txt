@@ -1,0 +1,55 @@
+- Os sistemas que geram as cotacoes devem gerar dois arquivos no formato abaixo:
+-- Arquivo 1: /mnt/sharedocs/quotes/Quotes.txt
+2 			# numero de acoes
+2011-03-25 Fri 15:21	# data e hora
+GOLL4;PETR4		# simbolo das acoes separados por ";"
+25.28;28.39		# preco
+0;1200			# volume do minuto
+
+-- Arquivo 2: /mnt/sharedocs/quotes/Control.txt
+quote posted
+
+- Só pode gerar o Arquivo 1 quando não existir o Arquivo 2
+- Quem lê estes arquivos apaga os dois. Correntemente, o programa quotes_server_order_router verifica se o arquivo 
+Control.txt existe e, se existir, ele le^ o arquivo Quotes.txt; se, neste caso, o arquivo Quotes.txt não exitir, é gerado um erro.
+
+- As contacoes devem ser geradas apenas uma vez por minuto.
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+- Quando o programa trading_system achar apropriado, ele publica uma ordem de compra via uma mensagem IPC.
+O programa quotes_server_order_router assina esta mensagem e, quando a recebe, gera dois arquivos no formato abaixo:
+-- Arquivo 1: /mnt/sharedocs/order/Order.txt
+1			# tipo de ordem: 1 buy, 0 sell, -1 cancel
+GOLL4			# simbolo da acao
+25.46			# preco
+1500			# quantidade
+2010-01-07 Thu 12:18	# data e hora em que a ordem foi enviada
+trading_system		# quem enviou
+
+-- Arquivo 2: /mnt/sharedocs/order/Control.txt
+valid order available
+
+- Ele so gera o Arquivo 1 quando não existir o Arquivo 2
+- Quem lê estes arquivos apaga os dois. 
+
+- O programa que le estes arquivos (system trade) deve verificar se Control.txt existe e, se existir, ele 
+le^ o arquivo Order.txt; se, neste caso, o arquivo Order.txt não exitir, é gerado um erro. 
+Este mesmo programa (ou outro), quando a ordem for executada ou cancelada, deve gerar 
+dois arquivos no formato abaixo:
+
+-- Arquivo 1: /mnt/sharedocs/orderExecution/orderExecution.txt
+1			# tipo de ordem: 1 buy, 0 sell, -1 cancel
+GOLL4			# simbolo da acao
+25.46			# preco
+1500			# quantidade
+2010-01-07 Thu 12:18	# data e hora em que a ordem foi enviada
+trading_system		# quem enviou
+
+-- Arquivo 2: /mnt/sharedocs/orderExecution/control.txt
+valid order available
+
+O programa system trade deve buscar executar a ordem totalmente ou cancela-la. Se executar parcialmente, deve
+executar apenas uma vez (apenas uma parte: não deve mandar varias mensagens de execucao parcial).
+

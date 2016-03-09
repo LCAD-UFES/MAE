@@ -1,0 +1,459 @@
+2010-01-07 Thu 11:00 - INITIALIZE
+2010-01-07 Thu 11:00 - SELECT_STOCK: best stock 	GOLL4, max. buy price = R$25.73
+2010-01-07 Thu 12:00 - WAIT_MOVING_AVERAGE: 		current quote = 60
+2010-01-07 Thu 12:18 - WAIT_MIN_TO_BUY: min. found,	GOLL4 price = R$25.46, moving aver. price = R$25.47, max. buy price = R$25.73
+2010-01-07 Thu 12:18 - SEND_BUY_ORDER: 			GOLL4 price = R$25.46, quant. = 1500
+2010-01-07 Thu 12:18 - WAIT_BUY: buy order exec., 	GOLL4 price = R$25.46, order price = R$25.46, buy price = R$25.46, quant. = 1500
+2010-01-08 Fri 14:42 - WAIT_MAX_TO_SELL: max. found,	GOLL4 price = R$26.83, moving aver. price = R$26.99, min. sell price = R$26.22
+2010-01-08 Fri 14:42 - SEND_SELL_ORDER:			GOLL4 price = R$26.83, quant. = 1500
+2010-01-08 Fri 14:42 - WAIT_SELL: sell order exec.,	GOLL4 price = R$26.83, order price = R$26.83, sell price = R$26.83, quant. = 1500
+2010-01-08 Fri 14:42 - WAIT_SELL: current capital, 	R$42025.19
+2010-01-14 Thu 11:00 - WAIT_BEGIN_WEEK: starting a week.
+2010-01-14 Thu 11:00 - SELECT_STOCK: best stock 	VALE5, max. buy price = R$45.92
+2010-01-14 Thu 12:00 - WAIT_MOVING_AVERAGE: 		current quote = 60
+2010-01-14 Thu 13:54 - WAIT_MIN_TO_BUY: min. found,	VALE5 price = R$45.80, moving aver. price = R$45.77, max. buy price = R$45.92
+2010-01-14 Thu 13:54 - SEND_BUY_ORDER: 			VALE5 price = R$45.80, quant. = 900
+2010-01-14 Thu 13:54 - WAIT_BUY: buy order exec., 	VALE5 price = R$45.80, order price = R$45.80, buy price = R$45.80, quant. = 900
+2010-01-20 Wed 17:59 - WAIT_MAX_TO_SELL:		time out to sell!
+2010-01-20 Wed 17:59 - SEND_SELL_ORDER:			VALE5 price = R$45.49, quant. = 900
+2010-01-20 Wed 17:59 - WAIT_SELL: sell order exec.,	VALE5 price = R$45.49, order price = R$45.49, sell price = R$45.49, quant. = 900
+2010-01-20 Wed 17:59 - WAIT_SELL: current capital, 	R$41715.45
+2010-01-21 Thu 11:00 - WAIT_BEGIN_WEEK: starting a week.
+2010-01-21 Thu 11:00 - SELECT_STOCK: best stock 	TNLP4, max. buy price = R$29.62
+2010-01-21 Thu 12:00 - WAIT_MOVING_AVERAGE: 		current quote = 60
+2010-01-21 Thu 15:44 - WAIT_MIN_TO_BUY: min. found,	TNLP4 price = R$29.01, moving aver. price = R$28.80, max. buy price = R$29.62
+2010-01-21 Thu 15:44 - SEND_BUY_ORDER: 			TNLP4 price = R$29.01, quant. = 1400
+2010-01-21 Thu 15:44 - WAIT_BUY: buy order exec., 	TNLP4 price = R$29.01, order price = R$29.01, buy price = R$29.01, quant. = 1400
+2010-01-26 Tue 12:24 - WAIT_MAX_TO_SELL: max. found,	TNLP4 price = R$29.90, moving aver. price = R$30.02, min. sell price = R$29.88
+2010-01-26 Tue 12:24 - SEND_SELL_ORDER:			TNLP4 price = R$29.90, quant. = 1400
+2010-01-26 Tue 12:24 - WAIT_SELL: sell order exec.,	TNLP4 price = R$29.90, order price = R$29.90, sell price = R$29.90, quant. = 1400
+2010-01-26 Tue 12:24 - WAIT_SELL: current capital, 	R$42930.63
+2010-01-28 Thu 11:00 - WAIT_BEGIN_WEEK: starting a week.
+2010-01-28 Thu 11:00 - SELECT_STOCK: best stock 	BRFS3, max. buy price = R$23.10
+2010-01-28 Thu 12:00 - WAIT_MOVING_AVERAGE: 		current quote = 60
+2010-01-28 Thu 16:04 - WAIT_MIN_TO_BUY: min. found,	BRFS3 price = R$22.49, moving aver. price = R$22.40, max. buy price = R$23.10
+2010-01-28 Thu 16:04 - SEND_BUY_ORDER: 			BRFS3 price = R$22.49, quant. = 1900
+2010-01-28 Thu 16:04 - WAIT_BUY: buy order exec., 	BRFS3 price = R$22.49, order price = R$22.49, buy price = R$22.49, quant. = 1900
+2010-02-03 Wed 17:59 - WAIT_MAX_TO_SELL:		time out to sell!
+2010-02-03 Wed 17:59 - SEND_SELL_ORDER:			BRFS3 price = R$22.86, quant. = 1900
+2010-02-03 Wed 17:59 - WAIT_SELL: sell order exec.,	BRFS3 price = R$22.86, order price = R$22.86, sell price = R$22.86, quant. = 1900
+2010-02-03 Wed 17:59 - WAIT_SELL: current capital, 	R$43601.89
+2010-02-04 Thu 11:00 - WAIT_BEGIN_WEEK: starting a week.
+2010-02-04 Thu 11:00 - SELECT_STOCK: best stock 	LREN3, max. buy price = R$37.90
+2010-02-04 Thu 12:00 - WAIT_MOVING_AVERAGE: 		current quote = 60
+2010-02-05 Fri 12:13 - WAIT_MIN_TO_BUY: min. found,	LREN3 price = R$35.86, moving aver. price = R$35.66, max. buy price = R$37.90
+2010-02-05 Fri 12:13 - SEND_BUY_ORDER: 			LREN3 price = R$35.86, quant. = 1200
+2010-02-05 Fri 12:13 - WAIT_BUY: buy order exec., 	LREN3 price = R$35.86, order price = R$35.86, buy price = R$35.86, quant. = 1200
+2010-02-10 Wed 17:59 - WAIT_MAX_TO_SELL:		time out to sell!
+2010-02-10 Wed 17:59 - SEND_SELL_ORDER:			LREN3 price = R$36.34, quant. = 1200
+2010-02-10 Wed 17:59 - WAIT_SELL: sell order exec.,	LREN3 price = R$36.34, order price = R$36.34, sell price = R$36.34, quant. = 1200
+2010-02-10 Wed 17:59 - WAIT_SELL: current capital, 	R$44146.04
+2010-02-11 Thu 11:00 - WAIT_BEGIN_WEEK: starting a week.
+2010-02-11 Thu 11:00 - SELECT_STOCK: best stock 	GOLL4, max. buy price = R$24.25
+2010-02-11 Thu 12:00 - WAIT_MOVING_AVERAGE: 		current quote = 60
+2010-02-12 Fri 12:08 - WAIT_MIN_TO_BUY: min. found,	GOLL4 price = R$24.21, moving aver. price = R$24.12, max. buy price = R$24.25
+2010-02-12 Fri 12:08 - SEND_BUY_ORDER: 			GOLL4 price = R$24.21, quant. = 1800
+2010-02-12 Fri 12:08 - WAIT_BUY: buy order exec., 	GOLL4 price = R$24.21, order price = R$24.21, buy price = R$24.21, quant. = 1800
+2010-02-17 Wed 17:59 - WAIT_MAX_TO_SELL:		time out to sell!
+2010-02-17 Wed 17:59 - SEND_SELL_ORDER:			GOLL4 price = R$24.53, quant. = 1800
+2010-02-17 Wed 17:59 - WAIT_SELL: sell order exec.,	GOLL4 price = R$24.53, order price = R$24.53, sell price = R$24.53, quant. = 1800
+2010-02-17 Wed 17:59 - WAIT_SELL: current capital, 	R$44689.91
+2010-02-18 Thu 11:00 - WAIT_BEGIN_WEEK: starting a week.
+2010-02-18 Thu 11:00 - SELECT_STOCK: best stock 	BRFS3, max. buy price = R$22.95
+2010-02-18 Thu 12:00 - WAIT_MOVING_AVERAGE: 		current quote = 60
+2010-02-18 Thu 12:49 - WAIT_MIN_TO_BUY: min. found,	BRFS3 price = R$22.66, moving aver. price = R$22.60, max. buy price = R$22.95
+2010-02-18 Thu 12:49 - SEND_BUY_ORDER: 			BRFS3 price = R$22.66, quant. = 1900
+2010-02-18 Thu 12:49 - WAIT_BUY: buy order exec., 	BRFS3 price = R$22.66, order price = R$22.66, buy price = R$22.66, quant. = 1900
+2010-02-24 Wed 17:59 - WAIT_MAX_TO_SELL:		time out to sell!
+2010-02-24 Wed 17:59 - SEND_SELL_ORDER:			BRFS3 price = R$22.27, quant. = 1900
+2010-02-24 Wed 17:59 - WAIT_SELL: sell order exec.,	BRFS3 price = R$22.27, order price = R$22.27, sell price = R$22.27, quant. = 1900
+2010-02-24 Wed 17:59 - WAIT_SELL: current capital, 	R$43917.37
+2010-02-25 Thu 11:00 - WAIT_BEGIN_WEEK: starting a week.
+2010-02-25 Thu 11:00 - SELECT_STOCK: best stock 	GGBR4, max. buy price = R$24.88
+2010-02-25 Thu 12:00 - WAIT_MOVING_AVERAGE: 		current quote = 60
+2010-02-25 Thu 12:12 - WAIT_MIN_TO_BUY: min. found,	GGBR4 price = R$24.85, moving aver. price = R$24.65, max. buy price = R$24.88
+2010-02-25 Thu 12:12 - SEND_BUY_ORDER: 			GGBR4 price = R$24.85, quant. = 1700
+2010-02-25 Thu 12:12 - WAIT_BUY: buy order exec., 	GGBR4 price = R$24.85, order price = R$24.85, buy price = R$24.85, quant. = 1700
+2010-02-26 Fri 12:11 - WAIT_MAX_TO_SELL: max. found,	GGBR4 price = R$25.63, moving aver. price = R$25.75, min. sell price = R$25.60
+2010-02-26 Fri 12:11 - SEND_SELL_ORDER:			GGBR4 price = R$25.63, quant. = 1700
+2010-02-26 Fri 12:11 - WAIT_SELL: sell order exec.,	GGBR4 price = R$25.63, order price = R$25.63, sell price = R$25.63, quant. = 1700
+2010-02-26 Fri 12:11 - WAIT_SELL: current capital, 	R$45211.71
+2010-03-04 Thu 11:00 - WAIT_BEGIN_WEEK: starting a week.
+2010-03-04 Thu 11:00 - SELECT_STOCK: best stock 	TCSL3, max. buy price = R$7.25
+2010-03-04 Thu 12:00 - WAIT_MOVING_AVERAGE: 		current quote = 60
+2010-03-04 Thu 14:44 - WAIT_MIN_TO_BUY: min. found,	TCSL3 price = R$7.19, moving aver. price = R$7.15, max. buy price = R$7.25
+2010-03-04 Thu 14:44 - SEND_BUY_ORDER: 			TCSL3 price = R$7.19, quant. = 6200
+2010-03-04 Thu 14:44 - WAIT_BUY: buy order exec., 	TCSL3 price = R$7.19, order price = R$7.19, buy price = R$7.19, quant. = 6200
+2010-03-05 Fri 15:47 - WAIT_MAX_TO_SELL: max. found,	TCSL3 price = R$7.42, moving aver. price = R$7.46, min. sell price = R$7.41
+2010-03-05 Fri 15:47 - SEND_SELL_ORDER:			TCSL3 price = R$7.42, quant. = 6200
+2010-03-05 Fri 15:47 - WAIT_SELL: sell order exec.,	TCSL3 price = R$7.42, order price = R$7.42, sell price = R$7.42, quant. = 6200
+2010-03-05 Fri 15:47 - WAIT_SELL: current capital, 	R$46604.87
+2010-03-11 Thu 11:00 - WAIT_BEGIN_WEEK: starting a week.
+2010-03-11 Thu 11:00 - SELECT_STOCK: best stock 	TCSL3, max. buy price = R$7.84
+2010-03-11 Thu 12:00 - WAIT_MOVING_AVERAGE: 		current quote = 60
+2010-03-11 Thu 13:16 - WAIT_MIN_TO_BUY: min. found,	TCSL3 price = R$7.78, moving aver. price = R$7.76, max. buy price = R$7.84
+2010-03-11 Thu 13:16 - SEND_BUY_ORDER: 			TCSL3 price = R$7.78, quant. = 5900
+2010-03-11 Thu 13:16 - WAIT_BUY: buy order exec., 	TCSL3 price = R$7.78, order price = R$7.78, buy price = R$7.78, quant. = 5900
+2010-03-17 Wed 17:59 - WAIT_MAX_TO_SELL:		time out to sell!
+2010-03-17 Wed 17:59 - SEND_SELL_ORDER:			TCSL3 price = R$7.57, quant. = 5900
+2010-03-17 Wed 17:59 - WAIT_SELL: sell order exec.,	TCSL3 price = R$7.57, order price = R$7.57, sell price = R$7.57, quant. = 5900
+2010-03-17 Wed 17:59 - WAIT_SELL: current capital, 	R$45333.03
+2010-03-18 Thu 11:00 - WAIT_BEGIN_WEEK: starting a week.
+2010-03-18 Thu 11:00 - SELECT_STOCK: best stock 	POMO4, max. buy price = R$3.71
+2010-03-18 Thu 12:00 - WAIT_MOVING_AVERAGE: 		current quote = 60
+2010-03-18 Thu 15:53 - WAIT_MIN_TO_BUY: min. found,	POMO4 price = R$3.69, moving aver. price = R$3.67, max. buy price = R$3.71
+2010-03-18 Thu 15:53 - SEND_BUY_ORDER: 			POMO4 price = R$3.69, quant. = 12200
+2010-03-18 Thu 15:53 - WAIT_BUY: buy order exec., 	POMO4 price = R$3.69, order price = R$3.69, buy price = R$3.69, quant. = 12200
+2010-03-24 Wed 17:59 - WAIT_MAX_TO_SELL:		time out to sell!
+2010-03-24 Wed 17:59 - SEND_SELL_ORDER:			POMO4 price = R$3.63, quant. = 12200
+2010-03-24 Wed 17:59 - WAIT_SELL: sell order exec.,	POMO4 price = R$3.63, order price = R$3.63, sell price = R$3.63, quant. = 12200
+2010-03-24 Wed 17:59 - WAIT_SELL: current capital, 	R$44568.50
+2010-03-25 Thu 11:00 - WAIT_BEGIN_WEEK: starting a week.
+2010-03-25 Thu 11:00 - SELECT_STOCK: best stock 	BBAS3, max. buy price = R$28.32
+2010-03-25 Thu 12:00 - WAIT_MOVING_AVERAGE: 		current quote = 60
+2010-03-26 Fri 17:38 - WAIT_MIN_TO_BUY: min. found,	BBAS3 price = R$28.32, moving aver. price = R$28.32, max. buy price = R$28.32
+2010-03-26 Fri 17:38 - SEND_BUY_ORDER: 			BBAS3 price = R$28.32, quant. = 1500
+2010-03-26 Fri 17:38 - WAIT_BUY: buy order exec., 	BBAS3 price = R$28.32, order price = R$28.32, buy price = R$28.32, quant. = 1500
+2010-03-31 Wed 17:59 - WAIT_MAX_TO_SELL:		time out to sell!
+2010-03-31 Wed 17:59 - SEND_SELL_ORDER:			BBAS3 price = R$28.62, quant. = 1500
+2010-03-31 Wed 17:59 - WAIT_SELL: sell order exec.,	BBAS3 price = R$28.62, order price = R$28.62, sell price = R$28.62, quant. = 1500
+2010-03-31 Wed 17:59 - WAIT_SELL: current capital, 	R$44986.95
+2010-04-01 Thu 11:00 - WAIT_BEGIN_WEEK: starting a week.
+2010-04-01 Thu 11:00 - SELECT_STOCK: best stock 	ITUB4, max. buy price = R$38.69
+2010-04-01 Thu 12:00 - WAIT_MOVING_AVERAGE: 		current quote = 60
+2010-04-05 Mon 11:01 - WAIT_MIN_TO_BUY:			time out to buy - skip week!
+2010-04-08 Thu 11:00 - WAIT_BEGIN_WEEK: starting a week.
+2010-04-08 Thu 11:00 - SELECT_STOCK: best stock 	GOLL4, max. buy price = R$23.08
+2010-04-08 Thu 12:00 - WAIT_MOVING_AVERAGE: 		current quote = 60
+2010-04-12 Mon 11:01 - WAIT_MIN_TO_BUY:			time out to buy - skip week!
+2010-04-15 Thu 11:00 - WAIT_BEGIN_WEEK: starting a week.
+2010-04-15 Thu 11:00 - SELECT_STOCK: best stock 	LREN3, max. buy price = R$41.55
+2010-04-15 Thu 12:00 - WAIT_MOVING_AVERAGE: 		current quote = 60
+2010-04-15 Thu 12:57 - WAIT_MIN_TO_BUY: min. found,	LREN3 price = R$41.25, moving aver. price = R$40.99, max. buy price = R$41.55
+2010-04-15 Thu 12:57 - SEND_BUY_ORDER: 			LREN3 price = R$41.25, quant. = 1000
+2010-04-15 Thu 12:57 - WAIT_BUY: buy order exec., 	LREN3 price = R$41.25, order price = R$41.25, buy price = R$41.25, quant. = 1000
+2010-04-21 Wed 17:59 - WAIT_MAX_TO_SELL:		time out to sell!
+2010-04-21 Wed 17:59 - SEND_SELL_ORDER:			LREN3 price = R$40.12, quant. = 1000
+2010-04-21 Wed 17:59 - WAIT_SELL: sell order exec.,	LREN3 price = R$40.12, order price = R$40.12, sell price = R$40.12, quant. = 1000
+2010-04-21 Wed 17:59 - WAIT_SELL: current capital, 	R$43826.41
+2010-04-22 Thu 11:00 - WAIT_BEGIN_WEEK: starting a week.
+2010-04-22 Thu 11:00 - SELECT_STOCK: best stock 	LREN3, max. buy price = R$40.41
+2010-04-22 Thu 12:00 - WAIT_MOVING_AVERAGE: 		current quote = 60
+2010-04-22 Thu 12:17 - WAIT_MIN_TO_BUY: min. found,	LREN3 price = R$39.92, moving aver. price = R$39.81, max. buy price = R$40.41
+2010-04-22 Thu 12:17 - SEND_BUY_ORDER: 			LREN3 price = R$39.92, quant. = 1000
+2010-04-22 Thu 12:17 - WAIT_BUY: buy order exec., 	LREN3 price = R$39.92, order price = R$39.92, buy price = R$39.92, quant. = 1000
+2010-04-28 Wed 17:59 - WAIT_MAX_TO_SELL:		time out to sell!
+2010-04-28 Wed 17:59 - SEND_SELL_ORDER:			LREN3 price = R$40.15, quant. = 1000
+2010-04-28 Wed 17:59 - WAIT_SELL: sell order exec.,	LREN3 price = R$40.15, order price = R$40.15, sell price = R$40.15, quant. = 1000
+2010-04-28 Wed 17:59 - WAIT_SELL: current capital, 	R$44026.20
+2010-04-29 Thu 11:00 - WAIT_BEGIN_WEEK: starting a week.
+2010-04-29 Thu 11:00 - SELECT_STOCK: best stock 	PETR3, max. buy price = R$35.77
+2010-04-29 Thu 12:00 - WAIT_MOVING_AVERAGE: 		current quote = 60
+2010-05-03 Mon 11:01 - WAIT_MIN_TO_BUY:			time out to buy - skip week!
+2010-05-06 Thu 11:00 - WAIT_BEGIN_WEEK: starting a week.
+2010-05-06 Thu 11:00 - SELECT_STOCK: best stock 	ELET3, max. buy price = R$22.78
+2010-05-06 Thu 12:00 - WAIT_MOVING_AVERAGE: 		current quote = 60
+2010-05-06 Thu 14:24 - WAIT_MIN_TO_BUY: min. found,	ELET3 price = R$22.43, moving aver. price = R$22.24, max. buy price = R$22.78
+2010-05-06 Thu 14:24 - SEND_BUY_ORDER: 			ELET3 price = R$22.43, quant. = 1900
+2010-05-06 Thu 14:24 - WAIT_BUY: buy order exec., 	ELET3 price = R$22.43, order price = R$22.43, buy price = R$22.43, quant. = 1900
+2010-05-10 Mon 15:13 - WAIT_MAX_TO_SELL: max. found,	ELET3 price = R$23.74, moving aver. price = R$23.66, min. sell price = R$23.10
+2010-05-10 Mon 15:13 - SEND_SELL_ORDER:			ELET3 price = R$23.74, quant. = 1900
+2010-05-10 Mon 15:13 - WAIT_SELL: sell order exec.,	ELET3 price = R$23.74, order price = R$23.74, sell price = R$23.74, quant. = 1900
+2010-05-10 Mon 15:13 - WAIT_SELL: current capital, 	R$46483.06
+2010-05-13 Thu 11:00 - WAIT_BEGIN_WEEK: starting a week.
+2010-05-13 Thu 11:00 - SELECT_STOCK: best stock 	CNFB4, max. buy price = R$4.33
+2010-05-13 Thu 12:00 - WAIT_MOVING_AVERAGE: 		current quote = 60
+2010-05-17 Mon 11:01 - WAIT_MIN_TO_BUY:			time out to buy - skip week!
+2010-05-20 Thu 11:00 - WAIT_BEGIN_WEEK: starting a week.
+2010-05-20 Thu 11:00 - SELECT_STOCK: best stock 	BRKM5, max. buy price = R$10.18
+2010-05-20 Thu 12:00 - WAIT_MOVING_AVERAGE: 		current quote = 60
+2010-05-20 Thu 12:02 - WAIT_MIN_TO_BUY: min. found,	BRKM5 price = R$10.05, moving aver. price = R$9.73, max. buy price = R$10.18
+2010-05-20 Thu 12:02 - SEND_BUY_ORDER: 			BRKM5 price = R$10.05, quant. = 4600
+2010-05-20 Thu 12:02 - WAIT_BUY: buy order exec., 	BRKM5 price = R$10.05, order price = R$10.05, buy price = R$10.05, quant. = 4600
+2010-05-24 Mon 11:02 - WAIT_MAX_TO_SELL: max. found,	BRKM5 price = R$10.50, moving aver. price = R$10.60, min. sell price = R$10.35
+2010-05-24 Mon 11:02 - SEND_SELL_ORDER:			BRKM5 price = R$10.50, quant. = 4600
+2010-05-24 Mon 11:02 - WAIT_SELL: sell order exec.,	BRKM5 price = R$10.50, order price = R$10.50, sell price = R$10.50, quant. = 4600
+2010-05-24 Mon 11:02 - WAIT_SELL: current capital, 	R$48519.23
+2010-05-27 Thu 11:00 - WAIT_BEGIN_WEEK: starting a week.
+2010-05-27 Thu 11:00 - SELECT_STOCK: best stock 	GOAU4, max. buy price = R$29.72
+2010-05-27 Thu 12:00 - WAIT_MOVING_AVERAGE: 		current quote = 60
+2010-05-27 Thu 12:28 - WAIT_MIN_TO_BUY: min. found,	GOAU4 price = R$29.56, moving aver. price = R$29.40, max. buy price = R$29.72
+2010-05-27 Thu 12:28 - SEND_BUY_ORDER: 			GOAU4 price = R$29.56, quant. = 1600
+2010-05-27 Thu 12:28 - WAIT_BUY: buy order exec., 	GOAU4 price = R$29.56, order price = R$29.56, buy price = R$29.56, quant. = 1600
+2010-05-31 Mon 16:45 - WAIT_MAX_TO_SELL: max. found,	GOAU4 price = R$30.68, moving aver. price = R$30.78, min. sell price = R$30.45
+2010-05-31 Mon 16:45 - SEND_SELL_ORDER:			GOAU4 price = R$30.68, quant. = 1600
+2010-05-31 Mon 16:45 - WAIT_SELL: sell order exec.,	GOAU4 price = R$30.68, order price = R$30.68, sell price = R$30.68, quant. = 1600
+2010-05-31 Mon 16:45 - WAIT_SELL: current capital, 	R$50276.94
+2010-06-03 Thu 11:00 - WAIT_BEGIN_WEEK: starting a week.
+2010-06-03 Thu 11:00 - SELECT_STOCK: best stock 	TNLP4, max. buy price = R$29.77
+2010-06-04 Fri 11:01 - WAIT_MOVING_AVERAGE: 		current quote = 421
+2010-06-04 Fri 13:56 - WAIT_MIN_TO_BUY: min. found,	TNLP4 price = R$28.77, moving aver. price = R$28.67, max. buy price = R$29.77
+2010-06-04 Fri 13:56 - SEND_BUY_ORDER: 			TNLP4 price = R$28.77, quant. = 1700
+2010-06-04 Fri 13:56 - WAIT_BUY: buy order exec., 	TNLP4 price = R$28.77, order price = R$28.77, buy price = R$28.77, quant. = 1700
+2010-06-09 Wed 17:59 - WAIT_MAX_TO_SELL:		time out to sell!
+2010-06-09 Wed 17:59 - SEND_SELL_ORDER:			TNLP4 price = R$28.55, quant. = 1700
+2010-06-09 Wed 17:59 - WAIT_SELL: sell order exec.,	TNLP4 price = R$28.55, order price = R$28.55, sell price = R$28.55, quant. = 1700
+2010-06-09 Wed 17:59 - WAIT_SELL: current capital, 	R$49868.38
+2010-06-10 Thu 11:00 - WAIT_BEGIN_WEEK: starting a week.
+2010-06-10 Thu 11:00 - SELECT_STOCK: best stock 	PETR3, max. buy price = R$34.17
+2010-06-10 Thu 12:00 - WAIT_MOVING_AVERAGE: 		current quote = 60
+2010-06-11 Fri 12:17 - WAIT_MIN_TO_BUY: min. found,	PETR3 price = R$34.12, moving aver. price = R$33.96, max. buy price = R$34.17
+2010-06-11 Fri 12:17 - SEND_BUY_ORDER: 			PETR3 price = R$34.12, quant. = 1400
+2010-06-11 Fri 12:17 - WAIT_BUY: buy order exec., 	PETR3 price = R$34.12, order price = R$34.12, buy price = R$34.12, quant. = 1400
+2010-06-16 Wed 17:59 - WAIT_MAX_TO_SELL:		time out to sell!
+2010-06-16 Wed 17:59 - SEND_SELL_ORDER:			PETR3 price = R$33.96, quant. = 1400
+2010-06-16 Wed 17:59 - WAIT_SELL: sell order exec.,	PETR3 price = R$33.96, order price = R$33.96, sell price = R$33.96, quant. = 1400
+2010-06-16 Wed 17:59 - WAIT_SELL: current capital, 	R$49610.35
+2010-06-17 Thu 11:00 - WAIT_BEGIN_WEEK: starting a week.
+2010-06-17 Thu 11:00 - SELECT_STOCK: best stock 	PSSA3, max. buy price = R$18.14
+2010-06-17 Thu 12:00 - WAIT_MOVING_AVERAGE: 		current quote = 60
+2010-06-17 Thu 16:11 - WAIT_MIN_TO_BUY: min. found,	PSSA3 price = R$17.84, moving aver. price = R$17.77, max. buy price = R$18.14
+2010-06-17 Thu 16:11 - SEND_BUY_ORDER: 			PSSA3 price = R$17.84, quant. = 2700
+2010-06-17 Thu 16:11 - WAIT_BUY: buy order exec., 	PSSA3 price = R$17.84, order price = R$17.84, buy price = R$17.84, quant. = 2700
+2010-06-23 Wed 17:59 - WAIT_MAX_TO_SELL:		time out to sell!
+2010-06-23 Wed 17:59 - SEND_SELL_ORDER:			PSSA3 price = R$18.30, quant. = 2700
+2010-06-23 Wed 17:59 - WAIT_SELL: sell order exec.,	PSSA3 price = R$18.30, order price = R$18.30, sell price = R$18.30, quant. = 2700
+2010-06-23 Wed 17:59 - WAIT_SELL: current capital, 	R$50817.75
+2010-06-24 Thu 11:00 - WAIT_BEGIN_WEEK: starting a week.
+2010-06-24 Thu 11:00 - SELECT_STOCK: best stock 	BRFS3, max. buy price = R$25.54
+2010-06-24 Thu 12:00 - WAIT_MOVING_AVERAGE: 		current quote = 60
+2010-06-24 Thu 13:55 - WAIT_MIN_TO_BUY: min. found,	BRFS3 price = R$24.86, moving aver. price = R$24.78, max. buy price = R$25.54
+2010-06-24 Thu 13:55 - SEND_BUY_ORDER: 			BRFS3 price = R$24.86, quant. = 2000
+2010-06-24 Thu 13:55 - WAIT_BUY: buy order exec., 	BRFS3 price = R$24.86, order price = R$24.86, buy price = R$24.86, quant. = 2000
+2010-06-28 Mon 16:37 - WAIT_MAX_TO_SELL: max. found,	BRFS3 price = R$25.66, moving aver. price = R$25.71, min. sell price = R$25.61
+2010-06-28 Mon 16:37 - SEND_SELL_ORDER:			BRFS3 price = R$25.66, quant. = 2000
+2010-06-28 Mon 16:37 - WAIT_SELL: sell order exec.,	BRFS3 price = R$25.66, order price = R$25.66, sell price = R$25.66, quant. = 2000
+2010-06-28 Mon 16:37 - WAIT_SELL: current capital, 	R$52382.29
+2010-07-01 Thu 11:00 - WAIT_BEGIN_WEEK: starting a week.
+2010-07-01 Thu 11:00 - SELECT_STOCK: best stock 	BRTO4, max. buy price = R$11.62
+2010-07-01 Thu 12:00 - WAIT_MOVING_AVERAGE: 		current quote = 60
+2010-07-01 Thu 13:59 - WAIT_MIN_TO_BUY: min. found,	BRTO4 price = R$11.20, moving aver. price = R$11.15, max. buy price = R$11.62
+2010-07-01 Thu 13:59 - SEND_BUY_ORDER: 			BRTO4 price = R$11.20, quant. = 4600
+2010-07-01 Thu 13:59 - WAIT_BUY: buy order exec., 	BRTO4 price = R$11.20, order price = R$11.20, buy price = R$11.20, quant. = 4600
+2010-07-06 Tue 14:18 - WAIT_MAX_TO_SELL: max. found,	BRTO4 price = R$11.73, moving aver. price = R$11.75, min. sell price = R$11.54
+2010-07-06 Tue 14:18 - SEND_SELL_ORDER:			BRTO4 price = R$11.73, quant. = 4600
+2010-07-06 Tue 14:18 - WAIT_SELL: sell order exec.,	BRTO4 price = R$11.73, order price = R$11.73, sell price = R$11.73, quant. = 4600
+2010-07-06 Tue 14:18 - WAIT_SELL: current capital, 	R$54783.72
+2010-07-08 Thu 11:00 - WAIT_BEGIN_WEEK: starting a week.
+2010-07-08 Thu 11:00 - SELECT_STOCK: best stock 	TCSL4, max. buy price = R$4.87
+2010-07-08 Thu 12:00 - WAIT_MOVING_AVERAGE: 		current quote = 60
+2010-07-08 Thu 15:07 - WAIT_MIN_TO_BUY: min. found,	TCSL4 price = R$4.84, moving aver. price = R$4.79, max. buy price = R$4.87
+2010-07-08 Thu 15:07 - SEND_BUY_ORDER: 			TCSL4 price = R$4.84, quant. = 11300
+2010-07-08 Thu 15:07 - WAIT_BUY: buy order exec., 	TCSL4 price = R$4.84, order price = R$4.84, buy price = R$4.84, quant. = 11300
+2010-07-14 Wed 17:59 - WAIT_MAX_TO_SELL:		time out to sell!
+2010-07-14 Wed 17:59 - SEND_SELL_ORDER:			TCSL4 price = R$4.71, quant. = 11300
+2010-07-14 Wed 17:59 - WAIT_SELL: sell order exec.,	TCSL4 price = R$4.71, order price = R$4.71, sell price = R$4.71, quant. = 11300
+2010-07-14 Wed 17:59 - WAIT_SELL: current capital, 	R$53277.54
+2010-07-15 Thu 11:00 - WAIT_BEGIN_WEEK: starting a week.
+2010-07-15 Thu 11:00 - SELECT_STOCK: best stock 	KLBN4, max. buy price = R$4.84
+2010-07-15 Thu 12:00 - WAIT_MOVING_AVERAGE: 		current quote = 60
+2010-07-15 Thu 13:57 - WAIT_MIN_TO_BUY: min. found,	KLBN4 price = R$4.76, moving aver. price = R$4.75, max. buy price = R$4.84
+2010-07-15 Thu 13:57 - SEND_BUY_ORDER: 			KLBN4 price = R$4.76, quant. = 11100
+2010-07-15 Thu 13:57 - WAIT_BUY: buy order exec., 	KLBN4 price = R$4.76, order price = R$4.76, buy price = R$4.76, quant. = 11100
+2010-07-21 Wed 16:45 - WAIT_MAX_TO_SELL: max. found,	KLBN4 price = R$4.92, moving aver. price = R$4.92, min. sell price = R$4.90
+2010-07-21 Wed 16:45 - SEND_SELL_ORDER:			KLBN4 price = R$4.92, quant. = 11100
+2010-07-21 Wed 16:45 - WAIT_SELL: sell order exec.,	KLBN4 price = R$4.92, order price = R$4.92, sell price = R$4.92, quant. = 11100
+2010-07-21 Wed 16:45 - WAIT_SELL: current capital, 	R$55016.48
+2010-07-22 Thu 11:00 - WAIT_BEGIN_WEEK: starting a week.
+2010-07-22 Thu 11:00 - SELECT_STOCK: best stock 	KLBN4, max. buy price = R$4.96
+2010-07-22 Thu 12:00 - WAIT_MOVING_AVERAGE: 		current quote = 60
+2010-07-26 Mon 11:01 - WAIT_MIN_TO_BUY:			time out to buy - skip week!
+2010-07-29 Thu 11:00 - WAIT_BEGIN_WEEK: starting a week.
+2010-07-29 Thu 11:00 - SELECT_STOCK: best stock 	BRFS3, max. buy price = R$23.72
+2010-07-29 Thu 12:00 - WAIT_MOVING_AVERAGE: 		current quote = 60
+2010-07-29 Thu 15:10 - WAIT_MIN_TO_BUY: min. found,	BRFS3 price = R$23.38, moving aver. price = R$23.18, max. buy price = R$23.72
+2010-07-29 Thu 15:10 - SEND_BUY_ORDER: 			BRFS3 price = R$23.38, quant. = 2300
+2010-07-29 Thu 15:10 - WAIT_BUY: buy order exec., 	BRFS3 price = R$23.38, order price = R$23.38, buy price = R$23.38, quant. = 2300
+2010-08-02 Mon 14:30 - WAIT_MAX_TO_SELL: max. found,	BRFS3 price = R$24.62, moving aver. price = R$24.71, min. sell price = R$24.08
+2010-08-02 Mon 14:30 - SEND_SELL_ORDER:			BRFS3 price = R$24.62, quant. = 2300
+2010-08-02 Mon 14:30 - WAIT_SELL: sell order exec.,	BRFS3 price = R$24.62, order price = R$24.62, sell price = R$24.62, quant. = 2300
+2010-08-02 Mon 14:30 - WAIT_SELL: current capital, 	R$57830.68
+2010-08-05 Thu 11:00 - WAIT_BEGIN_WEEK: starting a week.
+2010-08-05 Thu 11:00 - SELECT_STOCK: best stock 	LREN3, max. buy price = R$55.11
+2010-08-05 Thu 12:00 - WAIT_MOVING_AVERAGE: 		current quote = 60
+2010-08-06 Fri 17:21 - WAIT_MIN_TO_BUY: min. found,	LREN3 price = R$52.80, moving aver. price = R$52.74, max. buy price = R$55.11
+2010-08-06 Fri 17:21 - SEND_BUY_ORDER: 			LREN3 price = R$52.80, quant. = 1000
+2010-08-06 Fri 17:21 - WAIT_BUY: buy order exec., 	LREN3 price = R$52.80, order price = R$52.80, buy price = R$52.80, quant. = 1000
+2010-08-11 Wed 17:59 - WAIT_MAX_TO_SELL:		time out to sell!
+2010-08-11 Wed 17:59 - SEND_SELL_ORDER:			LREN3 price = R$53.43, quant. = 1000
+2010-08-11 Wed 17:59 - WAIT_SELL: sell order exec.,	LREN3 price = R$53.43, order price = R$53.43, sell price = R$53.43, quant. = 1000
+2010-08-11 Wed 17:59 - WAIT_SELL: current capital, 	R$58423.92
+2010-08-12 Thu 11:00 - WAIT_BEGIN_WEEK: starting a week.
+2010-08-12 Thu 11:00 - SELECT_STOCK: best stock 	LIGT3, max. buy price = R$20.30
+2010-08-12 Thu 12:00 - WAIT_MOVING_AVERAGE: 		current quote = 60
+2010-08-12 Thu 13:14 - WAIT_MIN_TO_BUY: min. found,	LIGT3 price = R$20.15, moving aver. price = R$20.07, max. buy price = R$20.30
+2010-08-12 Thu 13:14 - SEND_BUY_ORDER: 			LIGT3 price = R$20.15, quant. = 2800
+2010-08-12 Thu 13:14 - WAIT_BUY: buy order exec., 	LIGT3 price = R$20.15, order price = R$20.15, buy price = R$20.15, quant. = 2800
+2010-08-18 Wed 17:59 - WAIT_MAX_TO_SELL:		time out to sell!
+2010-08-18 Wed 17:59 - SEND_SELL_ORDER:			LIGT3 price = R$20.50, quant. = 2800
+2010-08-18 Wed 17:59 - WAIT_SELL: sell order exec.,	LIGT3 price = R$20.50, order price = R$20.50, sell price = R$20.50, quant. = 2800
+2010-08-18 Wed 17:59 - WAIT_SELL: current capital, 	R$59365.27
+2010-08-19 Thu 11:00 - WAIT_BEGIN_WEEK: starting a week.
+2010-08-19 Thu 11:00 - SELECT_STOCK: best stock 	LREN3, max. buy price = R$57.49
+2010-08-19 Thu 12:00 - WAIT_MOVING_AVERAGE: 		current quote = 60
+2010-08-20 Fri 12:03 - WAIT_MIN_TO_BUY: min. found,	LREN3 price = R$55.74, moving aver. price = R$55.51, max. buy price = R$57.49
+2010-08-20 Fri 12:03 - SEND_BUY_ORDER: 			LREN3 price = R$55.74, quant. = 1000
+2010-08-20 Fri 12:03 - WAIT_BUY: buy order exec., 	LREN3 price = R$55.74, order price = R$55.74, buy price = R$55.74, quant. = 1000
+2010-08-25 Wed 17:59 - WAIT_MAX_TO_SELL:		time out to sell!
+2010-08-25 Wed 17:59 - SEND_SELL_ORDER:			LREN3 price = R$53.99, quant. = 1000
+2010-08-25 Wed 17:59 - WAIT_SELL: sell order exec.,	LREN3 price = R$53.99, order price = R$53.99, sell price = R$53.99, quant. = 1000
+2010-08-25 Wed 17:59 - WAIT_SELL: current capital, 	R$57577.64
+2010-08-26 Thu 11:00 - WAIT_BEGIN_WEEK: starting a week.
+2010-08-26 Thu 11:00 - SELECT_STOCK: best stock 	RAPT4, max. buy price = R$11.23
+2010-08-26 Thu 12:00 - WAIT_MOVING_AVERAGE: 		current quote = 60
+2010-08-26 Thu 16:43 - WAIT_MIN_TO_BUY: min. found,	RAPT4 price = R$11.07, moving aver. price = R$11.02, max. buy price = R$11.23
+2010-08-26 Thu 16:43 - SEND_BUY_ORDER: 			RAPT4 price = R$11.07, quant. = 5200
+2010-08-26 Thu 16:43 - WAIT_BUY: buy order exec., 	RAPT4 price = R$11.07, order price = R$11.07, buy price = R$11.07, quant. = 5200
+2010-09-01 Wed 17:59 - WAIT_MAX_TO_SELL:		time out to sell!
+2010-09-01 Wed 17:59 - SEND_SELL_ORDER:			RAPT4 price = R$11.29, quant. = 5200
+2010-09-01 Wed 17:59 - WAIT_SELL: sell order exec.,	RAPT4 price = R$11.29, order price = R$11.29, sell price = R$11.29, quant. = 5200
+2010-09-01 Wed 17:59 - WAIT_SELL: current capital, 	R$58682.37
+2010-09-02 Thu 11:00 - WAIT_BEGIN_WEEK: starting a week.
+2010-09-02 Thu 11:00 - SELECT_STOCK: best stock 	GGBR4, max. buy price = R$24.28
+2010-09-02 Thu 12:00 - WAIT_MOVING_AVERAGE: 		current quote = 60
+2010-09-02 Thu 12:45 - WAIT_MIN_TO_BUY: min. found,	GGBR4 price = R$23.99, moving aver. price = R$23.97, max. buy price = R$24.28
+2010-09-02 Thu 12:45 - SEND_BUY_ORDER: 			GGBR4 price = R$23.99, quant. = 2400
+2010-09-02 Thu 12:45 - WAIT_BUY: buy order exec., 	GGBR4 price = R$23.99, order price = R$23.99, buy price = R$23.99, quant. = 2400
+2010-09-08 Wed 17:59 - WAIT_MAX_TO_SELL:		time out to sell!
+2010-09-08 Wed 17:59 - SEND_SELL_ORDER:			GGBR4 price = R$24.70, quant. = 2400
+2010-09-08 Wed 17:59 - WAIT_SELL: sell order exec.,	GGBR4 price = R$24.70, order price = R$24.70, sell price = R$24.70, quant. = 2400
+2010-09-08 Wed 17:59 - WAIT_SELL: current capital, 	R$60346.96
+2010-09-09 Thu 11:00 - WAIT_BEGIN_WEEK: starting a week.
+2010-09-09 Thu 11:00 - SELECT_STOCK: best stock 	TNLP4, max. buy price = R$24.17
+2010-09-09 Thu 12:00 - WAIT_MOVING_AVERAGE: 		current quote = 60
+2010-09-09 Thu 13:05 - WAIT_MIN_TO_BUY: min. found,	TNLP4 price = R$24.15, moving aver. price = R$24.03, max. buy price = R$24.17
+2010-09-09 Thu 13:05 - SEND_BUY_ORDER: 			TNLP4 price = R$24.15, quant. = 2400
+2010-09-09 Thu 13:05 - WAIT_BUY: buy order exec., 	TNLP4 price = R$24.15, order price = R$24.15, buy price = R$24.15, quant. = 2400
+2010-09-15 Wed 17:59 - WAIT_MAX_TO_SELL:		time out to sell!
+2010-09-15 Wed 17:59 - SEND_SELL_ORDER:			TNLP4 price = R$24.33, quant. = 2400
+2010-09-15 Wed 17:59 - WAIT_SELL: sell order exec.,	TNLP4 price = R$24.33, order price = R$24.33, sell price = R$24.33, quant. = 2400
+2010-09-15 Wed 17:59 - WAIT_SELL: current capital, 	R$60739.67
+2010-09-16 Thu 11:00 - WAIT_BEGIN_WEEK: starting a week.
+2010-09-16 Thu 11:00 - SELECT_STOCK: best stock 	BRKM5, max. buy price = R$15.76
+2010-09-16 Thu 12:00 - WAIT_MOVING_AVERAGE: 		current quote = 60
+2010-09-16 Thu 14:06 - WAIT_MIN_TO_BUY: min. found,	BRKM5 price = R$15.70, moving aver. price = R$15.67, max. buy price = R$15.76
+2010-09-16 Thu 14:06 - SEND_BUY_ORDER: 			BRKM5 price = R$15.70, quant. = 3800
+2010-09-16 Thu 14:06 - WAIT_BUY: buy order exec., 	BRKM5 price = R$15.70, order price = R$15.70, buy price = R$15.70, quant. = 3800
+2010-09-22 Wed 17:59 - WAIT_MAX_TO_SELL:		time out to sell!
+2010-09-22 Wed 17:59 - SEND_SELL_ORDER:			BRKM5 price = R$15.76, quant. = 3800
+2010-09-22 Wed 17:59 - WAIT_SELL: sell order exec.,	BRKM5 price = R$15.76, order price = R$15.76, sell price = R$15.76, quant. = 3800
+2010-09-22 Wed 17:59 - WAIT_SELL: current capital, 	R$60927.59
+2010-09-23 Thu 11:00 - WAIT_BEGIN_WEEK: starting a week.
+2010-09-23 Thu 11:00 - SELECT_STOCK: best stock 	FIBR3, max. buy price = R$28.95
+2010-09-23 Thu 12:00 - WAIT_MOVING_AVERAGE: 		current quote = 60
+2010-09-23 Thu 12:39 - WAIT_MIN_TO_BUY: min. found,	FIBR3 price = R$28.95, moving aver. price = R$28.67, max. buy price = R$28.95
+2010-09-23 Thu 12:39 - SEND_BUY_ORDER: 			FIBR3 price = R$28.95, quant. = 2100
+2010-09-23 Thu 12:39 - WAIT_BUY: buy order exec., 	FIBR3 price = R$28.95, order price = R$28.95, buy price = R$28.95, quant. = 2100
+2010-09-29 Wed 12:24 - WAIT_MAX_TO_SELL: max. found,	FIBR3 price = R$29.87, moving aver. price = R$30.01, min. sell price = R$29.82
+2010-09-29 Wed 12:24 - SEND_SELL_ORDER:			FIBR3 price = R$29.87, quant. = 2100
+2010-09-29 Wed 12:24 - WAIT_SELL: sell order exec.,	FIBR3 price = R$29.87, order price = R$29.87, sell price = R$29.87, quant. = 2100
+2010-09-29 Wed 12:24 - WAIT_SELL: current capital, 	R$62818.50
+2010-09-30 Thu 11:00 - WAIT_BEGIN_WEEK: starting a week.
+2010-09-30 Thu 11:00 - SELECT_STOCK: best stock 	LAME4, max. buy price = R$15.44
+2010-09-30 Thu 12:00 - WAIT_MOVING_AVERAGE: 		current quote = 60
+2010-09-30 Thu 15:02 - WAIT_MIN_TO_BUY: min. found,	LAME4 price = R$15.27, moving aver. price = R$15.27, max. buy price = R$15.44
+2010-09-30 Thu 15:02 - SEND_BUY_ORDER: 			LAME4 price = R$15.27, quant. = 4100
+2010-09-30 Thu 15:02 - WAIT_BUY: buy order exec., 	LAME4 price = R$15.27, order price = R$15.27, buy price = R$15.27, quant. = 4100
+2010-10-06 Wed 13:14 - WAIT_MAX_TO_SELL: max. found,	LAME4 price = R$16.82, moving aver. price = R$16.81, min. sell price = R$15.73
+2010-10-06 Wed 13:14 - SEND_SELL_ORDER:			LAME4 price = R$16.82, quant. = 4100
+2010-10-06 Wed 13:14 - WAIT_SELL: sell order exec.,	LAME4 price = R$16.82, order price = R$16.82, sell price = R$16.82, quant. = 4100
+2010-10-06 Wed 13:14 - WAIT_SELL: current capital, 	R$69130.41
+2010-10-07 Thu 11:00 - WAIT_BEGIN_WEEK: starting a week.
+2010-10-07 Thu 11:00 - SELECT_STOCK: best stock 	PETR4, max. buy price = R$25.70
+2010-10-07 Thu 12:00 - WAIT_MOVING_AVERAGE: 		current quote = 60
+2010-10-07 Thu 13:24 - WAIT_MIN_TO_BUY: min. found,	PETR4 price = R$24.81, moving aver. price = R$24.80, max. buy price = R$25.70
+2010-10-07 Thu 13:24 - SEND_BUY_ORDER: 			PETR4 price = R$24.81, quant. = 2700
+2010-10-07 Thu 13:24 - WAIT_BUY: buy order exec., 	PETR4 price = R$24.81, order price = R$24.81, buy price = R$24.81, quant. = 2700
+2010-10-11 Mon 13:29 - WAIT_MAX_TO_SELL: max. found,	PETR4 price = R$25.67, moving aver. price = R$25.73, min. sell price = R$25.55
+2010-10-11 Mon 13:29 - SEND_SELL_ORDER:			PETR4 price = R$25.67, quant. = 2700
+2010-10-11 Mon 13:29 - WAIT_SELL: sell order exec.,	PETR4 price = R$25.67, order price = R$25.67, sell price = R$25.67, quant. = 2700
+2010-10-11 Mon 13:29 - WAIT_SELL: current capital, 	R$71408.13
+2010-10-14 Thu 11:00 - WAIT_BEGIN_WEEK: starting a week.
+2010-10-14 Thu 11:00 - SELECT_STOCK: best stock 	BRAP4, max. buy price = R$41.51
+2010-10-14 Thu 12:00 - WAIT_MOVING_AVERAGE: 		current quote = 60
+2010-10-15 Fri 15:13 - WAIT_MIN_TO_BUY: min. found,	BRAP4 price = R$41.15, moving aver. price = R$41.16, max. buy price = R$41.51
+2010-10-15 Fri 15:13 - SEND_BUY_ORDER: 			BRAP4 price = R$41.15, quant. = 1700
+2010-10-15 Fri 15:13 - WAIT_BUY: buy order exec., 	BRAP4 price = R$41.15, order price = R$41.15, buy price = R$41.15, quant. = 1700
+2010-10-20 Wed 17:59 - WAIT_MAX_TO_SELL:		time out to sell!
+2010-10-20 Wed 17:59 - SEND_SELL_ORDER:			BRAP4 price = R$42.45, quant. = 1700
+2010-10-20 Wed 17:59 - WAIT_SELL: sell order exec.,	BRAP4 price = R$42.45, order price = R$42.45, sell price = R$42.45, quant. = 1700
+2010-10-20 Wed 17:59 - WAIT_SELL: current capital, 	R$73572.40
+2010-10-21 Thu 11:00 - WAIT_BEGIN_WEEK: starting a week.
+2010-10-21 Thu 11:00 - SELECT_STOCK: best stock 	EMBR3, max. buy price = R$11.64
+2010-10-21 Thu 12:00 - WAIT_MOVING_AVERAGE: 		current quote = 60
+2010-10-21 Thu 12:15 - WAIT_MIN_TO_BUY: min. found,	EMBR3 price = R$11.59, moving aver. price = R$11.51, max. buy price = R$11.64
+2010-10-21 Thu 12:15 - SEND_BUY_ORDER: 			EMBR3 price = R$11.59, quant. = 6300
+2010-10-21 Thu 12:15 - WAIT_BUY: buy order exec., 	EMBR3 price = R$11.59, order price = R$11.59, buy price = R$11.59, quant. = 6300
+2010-10-27 Wed 17:59 - WAIT_MAX_TO_SELL:		time out to sell!
+2010-10-27 Wed 17:59 - SEND_SELL_ORDER:			EMBR3 price = R$11.70, quant. = 6300
+2010-10-27 Wed 17:59 - WAIT_SELL: sell order exec.,	EMBR3 price = R$11.70, order price = R$11.70, sell price = R$11.70, quant. = 6300
+2010-10-27 Wed 17:59 - WAIT_SELL: current capital, 	R$74218.52
+2010-10-28 Thu 11:00 - WAIT_BEGIN_WEEK: starting a week.
+2010-10-28 Thu 11:00 - SELECT_STOCK: best stock 	TCSL4, max. buy price = R$5.50
+2010-10-28 Thu 12:00 - WAIT_MOVING_AVERAGE: 		current quote = 60
+2010-10-29 Fri 15:38 - WAIT_MIN_TO_BUY: min. found,	TCSL4 price = R$5.47, moving aver. price = R$5.46, max. buy price = R$5.50
+2010-10-29 Fri 15:38 - SEND_BUY_ORDER: 			TCSL4 price = R$5.47, quant. = 13500
+2010-10-29 Fri 15:38 - WAIT_BUY: buy order exec., 	TCSL4 price = R$5.47, order price = R$5.47, buy price = R$5.47, quant. = 13500
+2010-11-01 Mon 17:15 - WAIT_MAX_TO_SELL: max. found,	TCSL4 price = R$5.73, moving aver. price = R$5.73, min. sell price = R$5.63
+2010-11-01 Mon 17:15 - SEND_SELL_ORDER:			TCSL4 price = R$5.73, quant. = 13500
+2010-11-01 Mon 17:15 - WAIT_SELL: sell order exec.,	TCSL4 price = R$5.73, order price = R$5.73, sell price = R$5.73, quant. = 13500
+2010-11-01 Mon 17:15 - WAIT_SELL: current capital, 	R$77680.52
+2010-11-04 Thu 11:00 - WAIT_BEGIN_WEEK: starting a week.
+2010-11-04 Thu 11:00 - SELECT_STOCK: best stock 	USIM5, max. buy price = R$21.39
+2010-11-04 Thu 12:00 - WAIT_MOVING_AVERAGE: 		current quote = 60
+2010-11-08 Mon 11:01 - WAIT_MIN_TO_BUY:			time out to buy - skip week!
+2010-11-11 Thu 11:00 - WAIT_BEGIN_WEEK: starting a week.
+2010-11-11 Thu 11:00 - SELECT_STOCK: best stock 	BBAS3, max. buy price = R$33.65
+2010-11-11 Thu 12:00 - WAIT_MOVING_AVERAGE: 		current quote = 60
+2010-11-11 Thu 15:55 - WAIT_MIN_TO_BUY: min. found,	BBAS3 price = R$33.04, moving aver. price = R$32.97, max. buy price = R$33.65
+2010-11-11 Thu 15:55 - SEND_BUY_ORDER: 			BBAS3 price = R$33.04, quant. = 2300
+2010-11-11 Thu 15:55 - WAIT_BUY: buy order exec., 	BBAS3 price = R$33.04, order price = R$33.04, buy price = R$33.04, quant. = 2300
+2010-11-17 Wed 17:59 - WAIT_MAX_TO_SELL:		time out to sell!
+2010-11-17 Wed 17:59 - SEND_SELL_ORDER:			BBAS3 price = R$33.40, quant. = 2300
+2010-11-17 Wed 17:59 - WAIT_SELL: sell order exec.,	BBAS3 price = R$33.40, order price = R$33.40, sell price = R$33.40, quant. = 2300
+2010-11-17 Wed 17:59 - WAIT_SELL: current capital, 	R$78460.12
+2010-11-18 Thu 11:00 - WAIT_BEGIN_WEEK: starting a week.
+2010-11-18 Thu 11:00 - SELECT_STOCK: best stock 	ITUB4, max. buy price = R$41.14
+2010-11-18 Thu 12:00 - WAIT_MOVING_AVERAGE: 		current quote = 60
+2010-11-22 Mon 11:01 - WAIT_MIN_TO_BUY:			time out to buy - skip week!
+2010-11-25 Thu 11:00 - WAIT_BEGIN_WEEK: starting a week.
+2010-11-25 Thu 11:00 - SELECT_STOCK: best stock 	ITSA4, max. buy price = R$13.18
+2010-11-25 Thu 12:00 - WAIT_MOVING_AVERAGE: 		current quote = 60
+2010-11-25 Thu 12:42 - WAIT_MIN_TO_BUY: min. found,	ITSA4 price = R$13.08, moving aver. price = R$13.06, max. buy price = R$13.18
+2010-11-25 Thu 12:42 - SEND_BUY_ORDER: 			ITSA4 price = R$13.08, quant. = 5900
+2010-11-25 Thu 12:42 - WAIT_BUY: buy order exec., 	ITSA4 price = R$13.08, order price = R$13.08, buy price = R$13.08, quant. = 5900
+2010-12-01 Wed 17:59 - WAIT_MAX_TO_SELL:		time out to sell!
+2010-12-01 Wed 17:59 - SEND_SELL_ORDER:			ITSA4 price = R$13.16, quant. = 5900
+2010-12-01 Wed 17:59 - WAIT_SELL: sell order exec.,	ITSA4 price = R$13.16, order price = R$13.16, sell price = R$13.16, quant. = 5900
+2010-12-01 Wed 17:59 - WAIT_SELL: current capital, 	R$78883.21
+2010-12-02 Thu 11:00 - WAIT_BEGIN_WEEK: starting a week.
+2010-12-02 Thu 11:00 - SELECT_STOCK: best stock 	USIM5, max. buy price = R$18.90
+2010-12-02 Thu 12:00 - WAIT_MOVING_AVERAGE: 		current quote = 60
+2010-12-02 Thu 13:10 - WAIT_MIN_TO_BUY: min. found,	USIM5 price = R$18.82, moving aver. price = R$18.77, max. buy price = R$18.90
+2010-12-02 Thu 13:10 - SEND_BUY_ORDER: 			USIM5 price = R$18.82, quant. = 4100
+2010-12-02 Thu 13:10 - WAIT_BUY: buy order exec., 	USIM5 price = R$18.82, order price = R$18.82, buy price = R$18.82, quant. = 4100
+2010-12-07 Tue 13:17 - WAIT_MAX_TO_SELL: max. found,	USIM5 price = R$19.65, moving aver. price = R$19.74, min. sell price = R$19.38
+2010-12-07 Tue 13:17 - SEND_SELL_ORDER:			USIM5 price = R$19.65, quant. = 4100
+2010-12-07 Tue 13:17 - WAIT_SELL: sell order exec.,	USIM5 price = R$19.65, order price = R$19.65, sell price = R$19.65, quant. = 4100
+2010-12-07 Tue 13:17 - WAIT_SELL: current capital, 	R$82236.58
+2010-12-09 Thu 11:00 - WAIT_BEGIN_WEEK: starting a week.
+2010-12-09 Thu 11:00 - SELECT_STOCK: best stock 	GOLL4, max. buy price = R$26.89
+2010-12-09 Thu 12:00 - WAIT_MOVING_AVERAGE: 		current quote = 60
+2010-12-10 Fri 11:07 - WAIT_MIN_TO_BUY: min. found,	GOLL4 price = R$26.33, moving aver. price = R$25.90, max. buy price = R$26.89
+2010-12-10 Fri 11:07 - SEND_BUY_ORDER: 			GOLL4 price = R$26.33, quant. = 3100
+2010-12-10 Fri 11:07 - WAIT_BUY: buy order exec., 	GOLL4 price = R$26.33, order price = R$26.33, buy price = R$26.33, quant. = 3100
+2010-12-15 Wed 17:59 - WAIT_MAX_TO_SELL:		time out to sell!
+2010-12-15 Wed 17:59 - SEND_SELL_ORDER:			GOLL4 price = R$25.75, quant. = 3100
+2010-12-15 Wed 17:59 - WAIT_SELL: sell order exec.,	GOLL4 price = R$25.75, order price = R$25.75, sell price = R$25.75, quant. = 3100
+2010-12-15 Wed 17:59 - WAIT_SELL: current capital, 	R$80388.02
+2010-12-16 Thu 11:00 - WAIT_BEGIN_WEEK: starting a week.
+2010-12-16 Thu 11:00 - SELECT_STOCK: best stock 	GGBR4, max. buy price = R$22.79
+2010-12-16 Thu 12:00 - WAIT_MOVING_AVERAGE: 		current quote = 60
+2010-12-17 Fri 12:40 - WAIT_MIN_TO_BUY: min. found,	GGBR4 price = R$22.24, moving aver. price = R$22.03, max. buy price = R$22.79
+2010-12-17 Fri 12:40 - SEND_BUY_ORDER: 			GGBR4 price = R$22.24, quant. = 3600
+2010-12-17 Fri 12:40 - WAIT_BUY: buy order exec., 	GGBR4 price = R$22.24, order price = R$22.24, buy price = R$22.24, quant. = 3600
+2010-12-22 Wed 11:15 - WAIT_MAX_TO_SELL: max. found,	GGBR4 price = R$23.04, moving aver. price = R$23.18, min. sell price = R$22.91
+2010-12-22 Wed 11:15 - SEND_SELL_ORDER:			GGBR4 price = R$23.04, quant. = 3600
+2010-12-22 Wed 11:15 - WAIT_SELL: sell order exec.,	GGBR4 price = R$23.04, order price = R$23.04, sell price = R$23.04, quant. = 3600
+2010-12-22 Wed 11:15 - WAIT_SELL: current capital, 	R$83217.07
+2010-12-23 Thu 11:00 - QUIT: Final Capital		R$83217.07  retorno acumulado: 108.04%

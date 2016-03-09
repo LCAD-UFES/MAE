@@ -1,0 +1,2 @@
+save nl_disparity_map to disparity_map;
+save nl_trunk_segmentation_map to segmentation_map;

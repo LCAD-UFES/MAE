@@ -1,0 +1,164 @@
+int i;
+train network;
+print ("Training - part ", 1);
+SetSentence("nc_input", 		"Count from|0 to 9|three times$ | | ");
+SetSentence("nc_program_input1", 	" | | $ | | ");
+SetSentence("nc_function_input1", 	" | | $ | | ");
+SetSentence("nc_program_input2", 	"Count|until 10|1$ | |d");
+train nc_program;
+
+pause;
+
+SetSentence("nc_input", 		"Count from|0 to 9|three times$ | | ");
+SetSentence("nc_program_input1", 	"Count|until 10|1$ | |d");
+SetSentence("nc_function_input1", 	" | | $ | | ");
+SetSentence("nc_program_input2", 	"Count|until 10|1$ | |d");
+train nc_program;
+
+pause;
+
+SetSentence("nc_input", 		"Count from|0 to 9|three times$ | | ");
+SetSentence("nc_program_input1", 	"Count|until 10|1$ | |d");
+SetSentence("nc_function_input1", 	"After|number|x$ | |u");
+SetSentence("nc_program_input2", 	"Count|until 10|1$ | |d");
+train nc_program;
+
+pause;
+
+SetSentence("nc_input", 		"Count from|0 to 9|three times$ | | ");
+SetSentence("nc_program_input1", 	"Count|until 10|1$ | |d");
+SetSentence("nc_function_input1", 	"After|number|9$ | | ");
+SetSentence("nc_program_input2", 	"Count|until 10|1-9$ | |d");
+train nc_program;
+pause;
+
+SetSentence("nc_input", 		"Count from|0 to 9|three times$ | | ");
+SetSentence("nc_program_input1", 	"Count|until 10|1-9$ | |d");
+SetSentence("nc_function_input1", 	"After|number|9$ | | ");
+SetSentence("nc_program_input2", 	"Count|until 10|2$ | |d");
+train nc_program;
+pause;
+
+SetSentence("nc_input", 		"Count from|0 to 9|three times$ | | ");
+SetSentence("nc_program_input1", 	"Count|until 10|2$ | |d");
+SetSentence("nc_function_input1", 	"After|number|x$ | |u");
+SetSentence("nc_program_input2", 	"Count|until 10|2$ | |d");
+train nc_program;
+
+pause;
+
+SetSentence("nc_input", 		"Count from|0 to 9|three times$ | | ");
+SetSentence("nc_program_input1", 	"Count|until 10|2$ | |d");
+SetSentence("nc_function_input1", 	"After|number|9$ | | ");
+SetSentence("nc_program_input2", 	"Count|until 10|2-9$ | |d");
+train nc_program;
+
+pause;
+
+SetSentence("nc_input", 		"Count from|0 to 9|three times$ | | ");
+SetSentence("nc_program_input1", 	"Count|until 10|2-9$ | |d");
+SetSentence("nc_function_input1", 	"After|number|9$ | | ");
+SetSentence("nc_program_input2", 	"Count|until 10|3$ | |d");
+train nc_program;
+
+pause;
+
+SetSentence("nc_input", 		"Count from|0 to 9|three times$ | | ");
+SetSentence("nc_program_input1", 	"Count|until 10|3$ | |d");
+SetSentence("nc_function_input1", 	"After|number|x$ | |u");
+SetSentence("nc_program_input2", 	"Count|until 10|3$ | |d");
+train nc_program;
+
+pause;
+
+SetSentence("nc_input", 		"Count from|0 to 9|three times$ | | ");
+SetSentence("nc_program_input1", 	"Count|until 10|3$ | |d");
+SetSentence("nc_function_input1", 	"After|number|9$ | | ");
+SetSentence("nc_program_input2", 	" |The end| $ | | ");
+train nc_program;
+
+pause;
+
+SetSentence("nc_input", 		"Count from|0 to 9|three times$ | | ");
+SetSentence("nc_program_input1", 	" |The end| $ | | ");
+SetSentence("nc_function_input1", 	" |The end| $ | | ");
+SetSentence("nc_program_input2", 	" |The end| $ | | ");
+train nc_program;
+
+pause;
+i = 0;
+while (i < 12)
+{
+	GetSentence("nc_program_input1", 1);
+	GetSentence("nc_function_input1", i);
+	GetSentence("nc_command_input1", i);
+	GetSentence("nc_function_input2", i+1);
+	train nc_function;
+pause;
+
+	GetSentence("nc_program_input1", 1);
+	GetSentence("nc_function_input1", i+1);
+	GetSentence("nc_command_input1", i);
+	GetSentence("nc_function_input2", i+1);
+	train nc_function;
+	i = i + 1;
+pause;
+}
+
+
+SetSentence("nc_program_input1", 	" |The end| $ | | ");
+SetSentence("nc_function_input1", 	"After|number|9$ | | ");
+SetSentence("nc_command_input1", 	" |0| $ | | ");
+SetSentence("nc_function_input2", 	" |The end| $ | | ");
+train nc_function;
+
+SetSentence("nc_program_input1", 	" |The end| $ | | ");
+SetSentence("nc_function_input1", 	" |The end| $ | | ");
+SetSentence("nc_command_input1", 	" |The end| $ | | ");
+SetSentence("nc_function_input2", 	" |The end| $ | | ");
+train nc_function;
+pause;
+i = 0;
+while (i < 11)
+{
+	GetSentence("nc_function_input1", i+1);	# After| |empty
+	GetSentence("nc_command_input1", i);	#  | | 
+	GetSentence("nc_sensors_input1", 0);	#  | | 
+	GetSentence("nc_command_input2", i+1);	#  |0|
+	train nc_command;
+
+	GetSentence("nc_function_input1", i+1);	# After| |empty
+	GetSentence("nc_command_input1", i+1);	#  |0| 
+	GetSentence("nc_sensors_input1", 0);	#  | | 
+	GetSentence("nc_command_input2", i+1);	#  |0|
+	train nc_command;
+	i = i + 1;
+}
+
+SetSentence("nc_function_input1", 	" |The end| $ | | ");
+SetSentence("nc_command_input1", 	" |0| $ | | ");
+SetSentence("nc_sensors_input1", 	" | | $ | | ");
+SetSentence("nc_command_input2", 	" |The end| $ | | ");
+train nc_command;
+
+SetSentence("nc_function_input1", 	" |The end| $ | | ");
+SetSentence("nc_command_input1", 	" |The end| $ | | ");
+SetSentence("nc_sensors_input1", 	" | | $ | | ");
+SetSentence("nc_command_input2", 	" |The end| $ | | ");
+train nc_command;
+
+####
+
+print ("Testing - part ", 2);
+pause;
+GetSentence("nc_input", 1);		# Count from|0 to 9|three times
+GetSentence("nc_program_input1", 0);	#  | |
+GetSentence("nc_function_input1", 0);	#  | |
+GetSentence("nc_command_input1", 0);	#  | | 
+
+GetSentence("nc_program_input2", 0);	#  | |
+GetSentence("nc_function_input2", 0);	#  | |
+GetSentence("nc_command_input2", 0);	#  | | 
+
+run 300;
+

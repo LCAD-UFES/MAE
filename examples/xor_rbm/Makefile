@@ -1,0 +1,50 @@
+CC = gcc
+CCC = g++
+CCFLAGS = -g -Wall -fopenmp
+
+LIBPATH = -L/usr/local/lib -L/usr/X11R6/lib 
+LIBPATH += -L$(MAEHOME)/lib
+LIBPATH += -lnet_conn -lforms -lGA -lX11 -lglut -lGLU -lGL -lm -lfl -lstdc++
+INCPATH = $(MAEHOME)/include
+
+##########################################################
+
+EXECUTABLE = xor_rbm
+LIBRARY = libxor_rbm.a
+OBJECTS = xor_rbm.o \
+	  xor_rbm_user_functions/xor_rbm_user_functions.o \
+	  xor_rbm_user_functions/rbm.o 
+
+##########################################################
+
+build: $(EXECUTABLE)
+	@echo OK
+
+##########################################################
+
+clean:
+	rm -f *.o xor_rbm_user_functions/*.o
+	rm -f xor_rbm xor_rbm.c xor_rbm.h
+
+##########################################################
+
+$(EXECUTABLE): $(OBJECTS)
+	$(CCC) $(CCFLAGS) -o $(EXECUTABLE) $(OBJECTS) $(LIBPATH)
+
+$(LIBRARY): $(OBJECTS)
+	$(AR) $(ARFLAGS) $(LIBRARY) $(OBJECTS)
+	ranlib $(LIBRARY)
+
+##########################################################
+
+.c.o:
+	$(CC) $(CCFLAGS) -c -I$(MAEHOME)/include -o $@ $*.c
+
+.cpp.o:
+	$(CCC) $(CCFLAGS) -c -I$(MAEHOME)/include -o $@ $*.cpp
+
+xor_rbm.o: xor_rbm.con
+	$(MAEHOME)/bin/netcomp -o $* < $*.con	
+	$(CC) $(CCFLAGS) -c -I$(MAEHOME)/include -o $@ $*.c
+
+

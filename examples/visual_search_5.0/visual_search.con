@@ -1,0 +1,209 @@
+################################################ Set Global Variables #################################################
+
+set NEURON_MEMORY_SIZE = 20; 
+set TYPE_SHOW = SHOW_FRAME;
+set TYPE_MOVING_FRAME = STOP;
+
+######################################################## Constants ####################################################
+
+int IMAGE_WIDTH  = 256;
+int IMAGE_HEIGHT = 192;
+
+int NL_WIDTH  = 64;
+int NL_HEIGHT = 64;
+
+int FEATURES = 4;
+int SAMPLES  = 20;
+
+############################################### Neuron Layers #########################################################
+
+neuronlayer     nl_gabor_big_h_00[NL_WIDTH][NL_HEIGHT]  	with greyscale_float outputs;
+neuronlayer    	nl_gabor_big_h_90[NL_WIDTH][NL_HEIGHT] 		with greyscale_float outputs;
+neuronlayer     nl_gabor_big_v_00[NL_WIDTH][NL_HEIGHT]  	with greyscale_float outputs;
+neuronlayer    	nl_gabor_big_v_90[NL_WIDTH][NL_HEIGHT] 		with greyscale_float outputs;
+
+neuronlayer    	nl_gabor_small_h_00[NL_WIDTH][NL_HEIGHT]      	with greyscale_float outputs;
+neuronlayer    	nl_gabor_small_h_90[NL_WIDTH][NL_HEIGHT]     	with greyscale_float outputs;
+neuronlayer    	nl_gabor_small_v_00[NL_WIDTH][NL_HEIGHT]      	with greyscale_float outputs;
+neuronlayer    	nl_gabor_small_v_90[NL_WIDTH][NL_HEIGHT]     	with greyscale_float outputs;
+
+neuronlayer    	nl_gabor_medium_h_00[NL_WIDTH][NL_HEIGHT]	with greyscale_float outputs;
+neuronlayer    	nl_gabor_medium_h_90[NL_WIDTH][NL_HEIGHT]    	with greyscale_float outputs;
+neuronlayer    	nl_gabor_medium_v_00[NL_WIDTH][NL_HEIGHT]	with greyscale_float outputs;
+neuronlayer    	nl_gabor_medium_v_90[NL_WIDTH][NL_HEIGHT]    	with greyscale_float outputs;
+
+neuronlayer    	nl_activation_map_coarse[NL_WIDTH][NL_HEIGHT]	with greyscale_float outputs;
+neuronlayer    	nl_activation_map_soso[NL_WIDTH][NL_HEIGHT]	with greyscale_float outputs;
+neuronlayer    	nl_activation_map_fine[NL_WIDTH][NL_HEIGHT]	with greyscale_float outputs;
+
+neuronlayer    	nl_features_coarse[1*FEATURES][1]		with greyscale_float outputs;
+neuronlayer    	nl_features_soso[2*FEATURES][1]			with greyscale_float outputs;
+neuronlayer    	nl_features_fine[3*FEATURES][1]			with greyscale_float outputs;
+
+neuronlayer    	nl_v1_row_coarse[1*FEATURES][SAMPLES]		with greyscale_float outputs;
+neuronlayer    	nl_v1_row_soso[2*FEATURES][SAMPLES]		with greyscale_float outputs;
+neuronlayer    	nl_v1_row_fine[3*FEATURES][SAMPLES]		with greyscale_float outputs;
+
+neuronlayer    	nl_target_coordinates_coarse[2][1]		with greyscale_float outputs;
+neuronlayer    	nl_target_coordinates_soso[2][1]		with greyscale_float outputs;
+neuronlayer    	nl_target_coordinates_fine[2][1]		with greyscale_float outputs;
+
+neuronlayer    	nl_pattern_v1[NL_WIDTH][NL_HEIGHT]	       	with color outputs;
+
+############################################### Outputs #########################################################
+
+#output 	out_gabor_big_h_00[NL_WIDTH][NL_HEIGHT];
+#output 	out_gabor_big_h_90[NL_WIDTH][NL_HEIGHT];
+#output 	out_gabor_big_v_00[NL_WIDTH][NL_HEIGHT];
+#output 	out_gabor_big_v_90[NL_WIDTH][NL_HEIGHT];
+
+#output		out_gabor_small_h_00[NL_WIDTH][NL_HEIGHT];
+#output		out_gabor_small_h_90[NL_WIDTH][NL_HEIGHT];
+#output		out_gabor_small_v_00[NL_WIDTH][NL_HEIGHT];
+#output		out_gabor_small_v_90[NL_WIDTH][NL_HEIGHT];
+
+#output 	out_gabor_medium_h_00[NL_WIDTH][NL_HEIGHT];
+#output 	out_gabor_medium_h_90[NL_WIDTH][NL_HEIGHT];
+#output 	out_gabor_medium_v_00[NL_WIDTH][NL_HEIGHT];
+#output 	out_gabor_medium_v_90[NL_WIDTH][NL_HEIGHT];
+
+#output   	out_features_coarse[1*FEATURES][1];
+#output   	out_features_soso[2*FEATURES][1];
+#output   	out_features_fine[3*FEATURES][1];
+
+#output 	out_v1_row_coarse[1*FEATURES][SAMPLES];
+#output 	out_v1_row_soso[2*FEATURES][SAMPLES];
+#output 	out_v1_row_fine[3*FEATURES][SAMPLES];
+
+#parameters: 	output_handler_max_value_position ("%s %f", <nl_target_coordinates_name>, <log_factor>, <cut_point>)
+#output         	out_activation_map_coarse[NL_WIDTH][NL_HEIGHT]  handled by output_handler_min_value_position ("%s %f", "nl_target_coordinates_coarse", 2.0);
+#output         	out_activation_map_soso[NL_WIDTH][NL_HEIGHT]    handled by output_handler_min_value_position ("%s %f", "nl_target_coordinates_soso",   2.0);
+#output         	out_activation_map_fine[NL_WIDTH][NL_HEIGHT]    handled by output_handler_min_value_position ("%s %f", "nl_target_coordinates_fine",   2.0);
+
+#parameters: 	output_handler_max_value_position ("%s %f", <nl_target_coordinates_name>, <log_factor>, <cut_point>)
+output         out_activation_map_coarse[NL_WIDTH][NL_HEIGHT]  handled by output_handler_max_value_position ("%s %f", "nl_target_coordinates_coarse", 2.0);
+output         out_activation_map_soso[NL_WIDTH][NL_HEIGHT]	handled by output_handler_max_value_position ("%s %f", "nl_target_coordinates_soso",   2.0);
+output         out_activation_map_fine[NL_WIDTH][NL_HEIGHT]	handled by output_handler_max_value_position ("%s %f", "nl_target_coordinates_fine",   2.0);
+
+#parameters: 	output_handler_mean_position ("%s %f %f", <nl_target_name_coordinates>, <log_factor>)
+#output 	out_activation_map_coarse[NL_WIDTH][NL_HEIGHT]   handled by output_handler_mean_position ("%s %f %f", "nl_target_coordinates_coarse", 2.0, 1.0);
+#output 	out_activation_map_soso[NL_WIDTH][NL_HEIGHT]	 handled by output_handler_mean_position ("%s %f %f", "nl_target_coordinates_soso",   2.0, 1.0);
+#output 	out_activation_map_fine[NL_WIDTH][NL_HEIGHT]	 handled by output_handler_mean_position ("%s %f %f", "nl_target_coordinates_fine",   2.0, 1.0);
+
+output         	out_target_coordinates_coarse[2][1];
+output         	out_target_coordinates_soso[2][1];
+output         	out_target_coordinates_fine[2][1];
+
+output         	out_pattern_v1[NL_WIDTH][NL_HEIGHT];
+
+################################################## Inputs #############################################################
+
+input 		in_pattern[IMAGE_WIDTH][IMAGE_HEIGHT]		with color outputs produced by input_generator() controled by input_controler();
+
+############################################### Filters ###############################################################   
+
+#parameters: 	map_image_v1 ("%s %d", <input_name>, <log_factor>)
+filter		in_pattern  		with map_image_v1 ("%s %f", "in_pattern", 2.0) 	producing nl_pattern_v1;
+
+#parameters: 	gabor_filter ("%f %f %f %f %f %d %d %f", <harmonic>, <band_width>, <aspect_ratio>, <orientation>, <phase>, <shift>, <mapping>, <log_factor>)
+#filter		in_pattern		with gabor_filter ("%f %f %f %f %f %d %d %f", 20.0, 1.0, 1.0, pi/2.0,    0.0, 0, MAP_LOG_POLAR, 2.0)  producing  nl_gabor_big_h_00;
+#filter         in_pattern	       	with gabor_filter ("%f %f %f %f %f %d %d %f", 20.0, 1.0, 1.0, pi/2.0, pi/2.0, 0, MAP_LOG_POLAR, 2.0)  producing  nl_gabor_big_h_90;
+#filter         in_pattern	       	with gabor_filter ("%f %f %f %f %f %d %d %f", 20.0, 1.0, 1.0,	0.0,	0.0, 0, MAP_LOG_POLAR, 2.0)  producing  nl_gabor_big_v_00;
+#filter         in_pattern	       	with gabor_filter ("%f %f %f %f %f %d %d %f", 20.0, 1.0, 1.0,	0.0, pi/2.0, 0, MAP_LOG_POLAR, 2.0)  producing  nl_gabor_big_v_90;
+
+#filter         in_pattern	       	with gabor_filter ("%f %f %f %f %f %d %d %f", 40.0, 1.0, 1.0, pi/2.0,	0.0, 0, MAP_LOG_POLAR, 2.0)  producing  nl_gabor_medium_h_00;
+#filter         in_pattern	       	with gabor_filter ("%f %f %f %f %f %d %d %f", 40.0, 1.0, 1.0, pi/2.0, pi/2.0, 0, MAP_LOG_POLAR, 2.0)  producing  nl_gabor_medium_h_90;
+#filter         in_pattern	       	with gabor_filter ("%f %f %f %f %f %d %d %f", 40.0, 1.0, 1.0,	0.0,	0.0, 0, MAP_LOG_POLAR, 2.0)  producing  nl_gabor_medium_v_00;
+#filter         in_pattern	       	with gabor_filter ("%f %f %f %f %f %d %d %f", 40.0, 1.0, 1.0,	0.0, pi/2.0, 0, MAP_LOG_POLAR, 2.0)  producing  nl_gabor_medium_v_90;
+
+#filter         in_pattern	       	with gabor_filter ("%f %f %f %f %f %d %d %f", 80.0, 1.0, 1.0, pi/2.0,	0.0, 0, MAP_LOG_POLAR, 2.0)  producing  nl_gabor_small_h_00;
+#filter         in_pattern	       	with gabor_filter ("%f %f %f %f %f %d %d %f", 80.0, 1.0, 1.0, pi/2.0, pi/2.0, 0, MAP_LOG_POLAR, 2.0)  producing  nl_gabor_small_h_90;
+#filter         in_pattern	       	with gabor_filter ("%f %f %f %f %f %d %d %f", 80.0, 1.0, 1.0,	0.0,	0.0, 0, MAP_LOG_POLAR, 2.0)  producing  nl_gabor_small_v_00;
+#filter         in_pattern	       	with gabor_filter ("%f %f %f %f %f %d %d %f", 80.0, 1.0, 1.0,	0.0, pi/2.0, 0, MAP_LOG_POLAR, 2.0)  producing  nl_gabor_small_v_90;
+
+#parameters: 	biological_gabor_filter("%f %f %f %f %f %f %d %d %f", camera_opening_degree, cycles_per_degree, band_width, aspect_ratio, orientation, phase, shift, mapping, log_factor)
+filter  	in_pattern		with biological_gabor_filter ("%f %f %f %f %f %f %d %d %f", 48.0, 0.16, 2.0, 1.0,    0.0,    0.0, 0, MAP_LOG_POLAR, 2.0)  producing  nl_gabor_big_h_00;
+filter  	in_pattern		with biological_gabor_filter ("%f %f %f %f %f %f %d %d %f", 48.0, 0.16, 2.0, 1.0,    0.0, pi/2.0, 0, MAP_LOG_POLAR, 2.0)  producing  nl_gabor_big_h_90;
+filter  	in_pattern		with biological_gabor_filter ("%f %f %f %f %f %f %d %d %f", 48.0, 0.16, 2.0, 1.0, pi/2.0,    0.0, 0, MAP_LOG_POLAR, 2.0)  producing  nl_gabor_big_v_00;
+filter  	in_pattern		with biological_gabor_filter ("%f %f %f %f %f %f %d %d %f", 48.0, 0.16, 2.0, 1.0, pi/2.0, pi/2.0, 0, MAP_LOG_POLAR, 2.0)  producing  nl_gabor_big_v_90;
+
+filter  	in_pattern		with biological_gabor_filter ("%f %f %f %f %f %f %d %d %f", 48.0, 0.32, 2.0, 1.0,    0.0,    0.0, 0, MAP_LOG_POLAR, 2.0)  producing  nl_gabor_medium_h_00;
+filter  	in_pattern		with biological_gabor_filter ("%f %f %f %f %f %f %d %d %f", 48.0, 0.32, 2.0, 1.0,    0.0, pi/2.0, 0, MAP_LOG_POLAR, 2.0)  producing  nl_gabor_medium_h_90;
+filter  	in_pattern		with biological_gabor_filter ("%f %f %f %f %f %f %d %d %f", 48.0, 0.32, 2.0, 1.0, pi/2.0,    0.0, 0, MAP_LOG_POLAR, 2.0)  producing  nl_gabor_medium_v_00;
+filter  	in_pattern		with biological_gabor_filter ("%f %f %f %f %f %f %d %d %f", 48.0, 0.32, 2.0, 1.0, pi/2.0, pi/2.0, 0, MAP_LOG_POLAR, 2.0)  producing  nl_gabor_medium_v_90;
+
+filter  	in_pattern		with biological_gabor_filter ("%f %f %f %f %f %f %d %d %f", 48.0, 0.64, 2.0, 1.0,    0.0,    0.0, 0, MAP_LOG_POLAR, 2.0)  producing  nl_gabor_small_h_00;
+filter  	in_pattern		with biological_gabor_filter ("%f %f %f %f %f %f %d %d %f", 48.0, 0.64, 2.0, 1.0,    0.0, pi/2.0, 0, MAP_LOG_POLAR, 2.0)  producing  nl_gabor_small_h_90;
+filter  	in_pattern		with biological_gabor_filter ("%f %f %f %f %f %f %d %d %f", 48.0, 0.64, 2.0, 1.0, pi/2.0,    0.0, 0, MAP_LOG_POLAR, 2.0)  producing  nl_gabor_small_v_00;
+filter  	in_pattern		with biological_gabor_filter ("%f %f %f %f %f %f %d %d %f", 48.0, 0.64, 2.0, 1.0, pi/2.0, pi/2.0, 0, MAP_LOG_POLAR, 2.0)  producing  nl_gabor_small_v_90;
+
+#parameters: 	mean_filter ("%f", <gaussian_band_width>)
+filter		nl_gabor_big_h_00, nl_gabor_big_h_90, nl_gabor_big_v_00, nl_gabor_big_v_90 
+					with mean_filter ("%f", 0.0) producing nl_features_coarse;
+
+filter		nl_gabor_medium_h_00, nl_gabor_medium_h_90, nl_gabor_medium_v_00, nl_gabor_medium_v_90,
+		nl_gabor_big_h_00, nl_gabor_big_h_90, nl_gabor_big_v_00, nl_gabor_big_v_90 
+					with mean_filter ("%f", 0.0) producing nl_features_soso;
+
+filter		nl_gabor_small_h_00, nl_gabor_small_h_90, nl_gabor_small_v_00, nl_gabor_small_v_90, 
+		nl_gabor_medium_h_00, nl_gabor_medium_h_90, nl_gabor_medium_v_00, nl_gabor_medium_v_90,
+		nl_gabor_big_h_00, nl_gabor_big_h_90, nl_gabor_big_v_00, nl_gabor_big_v_90 
+					with mean_filter ("%f", 0.0) producing nl_features_fine;
+
+#parameters: 	distance_filter ()
+filter		nl_v1_row_coarse, nl_gabor_big_h_00, nl_gabor_big_h_90, nl_gabor_big_v_00, nl_gabor_big_v_90 
+					with activation_map_filter () producing nl_activation_map_coarse;
+
+filter		nl_v1_row_soso, nl_gabor_medium_h_00, nl_gabor_medium_h_90, nl_gabor_medium_v_00, nl_gabor_medium_v_90,
+		nl_gabor_big_h_00, nl_gabor_big_h_90, nl_gabor_big_v_00, nl_gabor_big_v_90 
+					with activation_map_filter () producing nl_activation_map_soso;
+
+filter		nl_v1_row_fine, nl_gabor_small_h_00, nl_gabor_small_h_90, nl_gabor_small_v_00, nl_gabor_small_v_90, 
+		nl_gabor_medium_h_00, nl_gabor_medium_h_90, nl_gabor_medium_v_00, nl_gabor_medium_v_90,
+		nl_gabor_big_h_00, nl_gabor_big_h_90, nl_gabor_big_v_00, nl_gabor_big_v_90 
+		 			with activation_map_filter () producing nl_activation_map_fine;
+
+################################## Connect Neuron Layers to Outputs #############################################
+
+#outputconnect  nl_gabor_big_h_00	     	to out_gabor_big_h_00;
+#outputconnect  nl_gabor_big_h_90	     	to out_gabor_big_h_90;
+#outputconnect  nl_gabor_big_v_00	     	to out_gabor_big_v_00;
+#outputconnect	nl_gabor_big_v_90	     	to out_gabor_big_v_90;
+
+#outputconnect  nl_gabor_small_h_00	     	to out_gabor_small_h_00;
+#outputconnect  nl_gabor_small_h_90	     	to out_gabor_small_h_90;
+#outputconnect  nl_gabor_small_v_00	     	to out_gabor_small_v_00;
+#outputconnect  nl_gabor_small_v_90	     	to out_gabor_small_v_90;
+
+#outputconnect  nl_gabor_medium_h_00	     	to out_gabor_medium_h_00;
+#outputconnect 	nl_gabor_medium_h_90	     	to out_gabor_medium_h_90;
+#outputconnect  nl_gabor_medium_v_00	     	to out_gabor_medium_v_00;
+#outputconnect  nl_gabor_medium_v_90	     	to out_gabor_medium_v_90;
+
+#outputconnect  nl_features_coarse		to out_features_coarse;
+#outputconnect  nl_features_soso		to out_features_soso;
+#outputconnect  nl_features_fine		to out_features_fine;
+
+#outputconnect  nl_v1_row_coarse		to out_v1_row_coarse;
+#outputconnect  nl_v1_row_soso 			to out_v1_row_soso;
+#outputconnect  nl_v1_row_fine 			to out_v1_row_fine;
+
+outputconnect	nl_activation_map_coarse	to out_activation_map_coarse;
+outputconnect	nl_activation_map_soso		to out_activation_map_soso;
+outputconnect	nl_activation_map_fine		to out_activation_map_fine;
+
+outputconnect  	nl_target_coordinates_coarse	to out_target_coordinates_coarse;
+outputconnect  	nl_target_coordinates_soso	to out_target_coordinates_soso;
+outputconnect  	nl_target_coordinates_fine	to out_target_coordinates_fine;
+
+outputconnect  	nl_pattern_v1 			to out_pattern_v1;
+
+############################################### Associations ####################################################
+
+################################################ Connections ####################################################
+
+################################################# User Functions ################################################
+
+int v1_to_image_mapping ("%p %p %d %d %d %d %d %d");	
+int calculate_random_position ("%d %d %d %d"); 
+int get_target_coordinates ("%p %p");

@@ -1,0 +1,49 @@
+################################################ Set Global Variables #################################################
+
+set NEURON_MEMORY_SIZE = 0; 
+set TYPE_SHOW = SHOW_FRAME;
+set TYPE_MOVING_FRAME = STOP;
+
+######################################################## Constants ####################################################
+
+int IMAGE_WIDTH	 = 200;
+int IMAGE_HEIGHT = 200;
+
+int NL_WIDTH  = 128;
+int NL_HEIGHT = 96;
+
+############################################### Neuron Layers #########################################################
+
+neuronlayer    	nl_log_polar_image_old[NL_WIDTH][NL_HEIGHT]		with color outputs;
+
+neuronlayer    	nl_log_polar_image_new[NL_WIDTH][NL_HEIGHT]	       	with color outputs;
+
+############################################### Outputs #########################################################
+
+output         	out_log_polar_image_old[NL_WIDTH][NL_HEIGHT];
+
+output         	out_log_polar_image_new[NL_WIDTH][NL_HEIGHT];
+
+################################################## Inputs #############################################################
+
+input 		input_image[IMAGE_WIDTH][IMAGE_HEIGHT]		with color outputs produced by input_generator() controled by input_controler();
+
+############################################### Filters ###############################################################   
+
+#parameters: 	map_image_v1 ("%s %d", <input_name>, <log_factor>)
+filter		input_image  		with map_image_v1 ("%s %f", "input_image", 2.0) 	producing nl_log_polar_image_old;
+
+#parameters: 	log_polar_filter ("%s %d", <input_name>, <log_factor>)
+filter		input_image  		with log_polar_filter ("%s %f", "input_image", 1.0) 	producing nl_log_polar_image_new;
+
+################################## Connect Neuron Layers to Outputs #############################################
+
+outputconnect  	nl_log_polar_image_old		to out_log_polar_image_old;
+
+outputconnect  	nl_log_polar_image_new		to out_log_polar_image_new;
+
+############################################### Associations ####################################################
+
+################################################ Connections ####################################################
+
+################################################# User Functions ################################################

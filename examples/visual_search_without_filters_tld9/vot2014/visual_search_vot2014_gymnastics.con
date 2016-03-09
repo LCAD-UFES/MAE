@@ -1,0 +1,239 @@
+################################################ Set Global Variables #################################################
+
+set TYPE_SHOW = SHOW_FRAME;
+set TYPE_MOVING_FRAME = STOP;
+
+######################################################## Constants ####################################################
+
+#TLD Dataset Reference Log/Frames/Frames_Invalids/Size/Initial_Pos 
+#01 David		- 761 frames 		- 0 frames 		- 320x240 	- (165,93,216,147)
+#02 Jumping		- 313 frames 		- 0 frames 		- 352x288 	- (147,110,180,142)
+#03 Pedestrian1		- 140 frames 		- 0 frames 		- 320x240 	- (48,46,64,111) 
+#04 Pedestrian2		- 338 frames 		- 72 frames 		- 320x240 	- (124,136,145,189)
+#05 Pedestrian3		- 184 frames 		- 28 frames 		- 320x240 	- (154,102,178,154)
+#06 Car			- 945 frames 		- 85 frames		- 320x240 	- (142,125,232,164)
+#07 Motocross		- 2665 frames		- 1253 frames		- 470x310 	- (293,36,310,52)
+#08 Volkswagen		- 8576 frames 		- 3435 frames		- 640x240 	- (273,96.452,293.64,114.49)
+#09 Carchase		- 9928 frames 		- 1268 frames		- 290x217 	- (145,84,199,121)
+#10 Panda		- 3000 frames 		- 270 frames		- 312x233 	- (58,100,85,122)
+
+#Scale variation parameter
+#const i = 1;
+
+# General settings
+const FOV_HORIZONTAL = 48.0;
+const TARGET_NEURON_LAYER_NAME = "nl_target_coordinates";
+
+# Architecture settings ( vot2014/gymnastics )
+const NUM_FRAMES = 207;
+const IMAGE_WIDTH  = 320;
+const IMAGE_HEIGHT = 180;
+const RAMDOM_IMAGES_TRAIN = "/dados/vot2014/gymnastics/groundtruth.txt";
+const TLD_GT = "/dados/TLD/TLD/10_panda/TLD1.0.txt";
+const RAMDOM_IMAGES_RECALL = "/dados/vot2014/gymnastics/image_list.txt";
+const TRAINING_INPUT_PATH = "/dados/vot2014/gymnastics/";
+const REACALL_INPUT_PATH = "vot2014/gymnastics/";
+const INPUT_PATH = "vot2014/gymnastics/";
+const INVALIDS_FRAMES = 0;
+const MAX_SCALE = 2.31169225;	#1.320967 + (1.320967 * 0.75);
+const MIN_SCALE = 0.6604835;	#1.320967 - (1.320967 * 0.5);
+
+
+const IMAGE_WIDTH_RESIZED  = 201;	# TEM QUE SER IMPAR
+const IMAGE_HEIGHT_RESIZED = 201;	# TEM QUE SER IMPAR
+
+const NL_WIDTH  = 16 * 4 + 1;		# TEM QUE SER IMPAR
+const NL_HEIGHT = 12 * 4;		# TEM QUE SER PAR
+
+#set NEURON_MEMORY_SIZE = 8 * NL_WIDTH * NL_HEIGHT;  
+ set NEURON_MEMORY_SIZE = 32 * NL_WIDTH * NL_HEIGHT; 
+
+const INPUTS_PER_NEURON = 256;
+const GAUSSIAN_RADIUS = 8.0;
+const LOG_FACTOR = 2.0;
+
+const BAND_WIDTH = 0.125;
+
+# Network status conventions
+const TRAINNING	= 0;
+const RUNNING	= 1;
+
+# Search heuristic parameters
+const CUT_POINT	= 0.7;
+
+# Translation filter deltaX & delataY
+float	translation_filter_deltaX = IMAGE_WIDTH / 2.0;
+float	translation_filter_deltaY = IMAGE_HEIGHT / 2.0;
+
+# gaussian_filter_dynamic parameter
+int	g_kernel_size = 5;
+float	g_sigma = 1.0;
+
+#Neuron layer activation bandwidth
+const   ACT_BAND_WIDTH = 2*4;
+
+#Activation Bandwidth output value ( highest output )
+float   HIGHEST_OUTPUT = 1.0;
+
+# tamanho da camada de zoom
+const TAM_NL_ZOOM = 1601;
+
+set NEURON_MEMORY_INDEX_SIZE = 10;
+
+############################################### Neuron Layers #########################################################
+
+
+#PS: nl_v1_activation_map is the only neural layer with actual neuron memory
+neuronlayer nl_v1_activation_map[NL_WIDTH][NL_HEIGHT] of minchinton neurons color_selective sensitive with color outputs using shared memory;
+#neuronlayer nl_v1_activation_map[NL_WIDTH][NL_HEIGHT] of minchinton_fat_fast_rand neurons greyscale sensitive with color outputs using shared memory;
+
+neuronlayer nl_v1_activation_map_neuron_weight[NL_WIDTH][NL_HEIGHT] with greyscale_float outputs;
+neuronlayer nl_v1_activation_map_neuron_weight_thresholded[NL_WIDTH][NL_HEIGHT] with greyscale_float outputs, show;
+
+neuronlayer nl_target_coordinates[2][1] with greyscale_float outputs;
+
+neuronlayer nl_v1_pattern[NL_WIDTH][NL_HEIGHT] with color outputs, show;
+
+neuronlayer in_pattern_translated[IMAGE_WIDTH_RESIZED][IMAGE_HEIGHT_RESIZED] with color outputs;
+
+neuronlayer in_pattern_filtered_translated[IMAGE_WIDTH_RESIZED][IMAGE_HEIGHT_RESIZED] with color outputs;
+neuronlayer in_pattern_filtered_translated_red[IMAGE_WIDTH_RESIZED][IMAGE_HEIGHT_RESIZED] with greyscale outputs;
+neuronlayer in_pattern_filtered_translated_green[IMAGE_WIDTH_RESIZED][IMAGE_HEIGHT_RESIZED] with greyscale outputs;
+neuronlayer in_pattern_filtered_translated_blue[IMAGE_WIDTH_RESIZED][IMAGE_HEIGHT_RESIZED] with greyscale outputs;
+
+neuronlayer table[IMAGE_WIDTH_RESIZED][IMAGE_HEIGHT_RESIZED] with color outputs;
+neuronlayer table_v1[NL_WIDTH][NL_HEIGHT] with color outputs, show;
+
+neuronlayer nl_activation_map_hough[IMAGE_WIDTH_RESIZED][IMAGE_HEIGHT_RESIZED] with greyscale_float outputs;
+neuronlayer nl_activation_map_hough_gaussian[IMAGE_WIDTH_RESIZED][IMAGE_HEIGHT_RESIZED] with greyscale_float outputs;
+neuronlayer nl_activation_map_hough_v1[NL_WIDTH][NL_HEIGHT] with greyscale_float outputs;
+
+neuronlayer nl_activation_map_hough_zoom[TAM_NL_ZOOM][1] with greyscale_float outputs;
+neuronlayer nl_activation_map_hough_zoom_gaussian[TAM_NL_ZOOM][1] with greyscale_float outputs;
+
+
+############################################### Outputs #########################################################
+
+
+output out_v1_activation_map[NL_WIDTH][NL_HEIGHT];
+
+output out_nl_v1_activation_map_neuron_weight_thresholded[IMAGE_WIDTH_RESIZED][IMAGE_HEIGHT_RESIZED] handled by output_handler_weighted_average_value_position("%s %f", TARGET_NEURON_LAYER_NAME, LOG_FACTOR);
+
+output out_target_coordinates[2][1];
+
+output out_in_pattern_filtered_translated[IMAGE_WIDTH_RESIZED][IMAGE_HEIGHT_RESIZED];
+
+output out_table[IMAGE_WIDTH_RESIZED][IMAGE_HEIGHT_RESIZED];
+
+output out_nl_activation_map_hough_zoom[TAM_NL_ZOOM][1] handled by output_handler_resize("%f", LOG_FACTOR);
+
+output out_nl_activation_map_hough_zoom_gaussian[TAM_NL_ZOOM][1] handled by output_handler_resize("%f", LOG_FACTOR);
+
+
+################################################## Inputs #############################################################
+
+
+input 		in_pattern[IMAGE_WIDTH][IMAGE_HEIGHT]	with color outputs produced by input_generator() controled by input_controler();
+
+
+############################################### Filters ###############################################################   
+
+
+#parameters:	translate_nl_filter("%f %f",Delta_X,Delta_Y)
+filter in_pattern with translate_nl_filter("%p %p", &translation_filter_deltaX, &translation_filter_deltaY) producing in_pattern_translated;
+
+#parameters: 	gaussian_filter("%s %d", <kernel size>, <sigma>)
+filter in_pattern_translated with gaussian_filter("%d %f", 5, 1.0) producing in_pattern_filtered_translated;
+
+filter in_pattern_filtered_translated with red_mask_filter("") producing in_pattern_filtered_translated_red;
+filter in_pattern_filtered_translated with green_mask_filter("") producing in_pattern_filtered_translated_green;
+filter in_pattern_filtered_translated with blue_mask_filter("") producing in_pattern_filtered_translated_blue;
+
+#parameters: 	map_image_v1("%s %d", <input_name>, <log_factor>)
+filter in_pattern_filtered_translated with map_image_v1("%s %f", "", LOG_FACTOR) producing nl_v1_pattern;
+
+filter table with map_image_v1("%s %f", "", LOG_FACTOR) producing table_v1;
+
+filter nl_v1_activation_map with compute_weigheted_neighboor_filter("%f", LOG_FACTOR) producing nl_v1_activation_map_neuron_weight;
+
+filter nl_v1_activation_map_neuron_weight with threshold_cut_filter("") producing nl_v1_activation_map_neuron_weight_thresholded;
+
+filter nl_v1_activation_map with generate_hough_activation_map("%f", LOG_FACTOR) producing nl_activation_map_hough;
+
+filter nl_activation_map_hough with gaussian_filter("%d %f", 5, 0.5) producing nl_activation_map_hough_gaussian;
+
+filter nl_activation_map_hough_gaussian with map_image_v1("%s %f", "", LOG_FACTOR) producing nl_activation_map_hough_v1;
+
+filter nl_v1_activation_map with generate_hough_zoom_activation_map("%f", LOG_FACTOR) producing nl_activation_map_hough_zoom;
+
+filter nl_activation_map_hough_zoom with gaussian_filter("%d %f", 13, 2.0) producing nl_activation_map_hough_zoom_gaussian;
+
+
+################################## Connect Neuron Layers to Outputs #############################################
+
+
+outputconnect nl_v1_activation_map to out_v1_activation_map;
+
+outputconnect nl_activation_map_hough to out_nl_v1_activation_map_neuron_weight_thresholded;
+
+outputconnect nl_target_coordinates to out_target_coordinates;
+
+outputconnect in_pattern_filtered_translated to out_in_pattern_filtered_translated;
+
+outputconnect table to out_table;
+
+outputconnect nl_activation_map_hough_zoom to out_nl_activation_map_hough_zoom;
+
+outputconnect nl_activation_map_hough_zoom_gaussian to out_nl_activation_map_hough_zoom_gaussian;
+
+
+############################################### Associations ####################################################
+
+
+associate nl_v1_activation_map with nl_v1_activation_map;
+
+
+################################################ Connections ####################################################
+
+
+#A first experiment of a connection to a shared memory neural layer
+connect in_pattern_filtered_translated_red to nl_v1_activation_map with INPUTS_PER_NEURON random inputs per neuron and log_polar distribution with radius GAUSSIAN_RADIUS and logfactor LOG_FACTOR , same interconnection pattern;
+connect in_pattern_filtered_translated_green to nl_v1_activation_map with INPUTS_PER_NEURON random inputs per neuron and log_polar distribution with radius GAUSSIAN_RADIUS and logfactor LOG_FACTOR , same interconnection pattern;
+connect in_pattern_filtered_translated_blue to nl_v1_activation_map with INPUTS_PER_NEURON random inputs per neuron and log_polar distribution with radius GAUSSIAN_RADIUS and logfactor LOG_FACTOR , same interconnection pattern;
+
+################################################# User Functions ################################################
+	
+int get_target_coordinates("%p %p %f");
+int GetImage("%d");
+int MoveToTargetCenter("");
+int CheckTrafficSignDetection("");
+int EvaluateDetection("");
+int ImageToRetrain("");
+int SetScaleFactor("%f");
+int SetImageOrder("%d");
+int SaveTLDReasultsFile("");
+int ForwardVisualSearchNetwork("");
+float GetConfidence("");
+float GetScaleFactorInTrain("");
+float GetMinConfidenceToRetrain("");
+float GetConfidenceLevel("");
+int GetNumPixels("");
+int GetX("%d");
+int GetY("%d");
+float GetScaleBefore("");
+float GetScaleFactorZoom("");
+int GetOutOfScene("");
+int MoveToPoint("%d %d");
+int GetX_before("%d");
+int GetY_before("%d");
+float GetScaleToRetrain("%d");
+int GetImageOutOfScene("%d");
+float GetConfidenceZoom("");
+int GetDistanceZoom("");
+float GetMaxScale("");
+float GetMinScale("");
+int GetNumFrames("");
+int SetOutOfScene("");
+int DisposeMemory("");
+
+

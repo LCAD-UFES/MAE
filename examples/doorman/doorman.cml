@@ -1,0 +1,60 @@
+/* Persons number */
+int PERSON_MAX; 		
+PERSON_MAX = 67;
+
+int PHOTOS_PER_PERSON; 		
+PHOTOS_PER_PERSON = 13;
+
+/* Target coordinates */
+int x;
+int y;
+
+/* Counters */
+int i;
+int j;
+
+int sample;
+
+/* Training Phase */
+
+/* Move to the photo */ 
+getPhoto (1,1);
+
+/* Memorize the target features */
+getTargetCoordinates(x,y, 2.0);
+move in_pattern to x,y;
+copy out_features1;
+paste out_features;
+train network;
+	
+/* Test phase */
+i = 1;
+while (i <= PERSON_MAX)
+{
+	j = 1;
+	while (j <= PHOTOS_PER_PERSON)
+	{
+		/*sample = (i - 1) * PHOTOS_PER_PERSON + j;
+		if ((sample==35)||(sample==36)||(sample==81)||(sample==104)||(sample==115)||(sample==117)||(sample==121)||(sample==127)||(sample==131)||(sample==134))
+		{*/
+			/* Move to the photo */ 
+			getPhoto (i,j);
+			
+			/* Move to default point */
+			move in_pattern to 100, 100;
+	
+			/* Saccade to until reach the target */
+			key 's';
+
+			/* Report the partial error */
+			key 'e';
+		/*}*/
+		j = j + 1;
+	}
+	i = i + 1;
+}
+
+/* Report the final error */
+key 'E';
+
+quit;

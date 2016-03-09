@@ -1,0 +1,3 @@
+destroy network;
+reload from "netmem";
+SetNetworkStatus(1); # Test data set

@@ -1,0 +1,40 @@
+LIBMAE =-L$(MAEHOME)/lib
+LIBPATH =-L/usr/local/lib -L/usr/X11R6/lib $(LIBMAE)
+CC=gcc
+CCFLAGS=-D NO_INTERFACE -g -Wall
+LIBRARYS=-lnet_conn -lforms -lGA -lTsai -lX11 -lglut -lGLU -lGL -lm -lfl
+ 
+##########################################################
+
+EXECUTABLE = face_recog
+OBJECTS = face_recog.o \
+	  face_recog_user_functions/face_recog_user_functions.o \
+	  face_recog_user_functions/face_recog_filters.o 
+
+##########################################################
+
+.c.o:
+	@echo OK
+	$(CC) $(CCFLAGS) -c -I$(MAEHOME)/include -o $@ $*.c
+
+##########################################################
+
+build: $(EXECUTABLE)
+$(EXECUTABLE): $(OBJECTS)
+	$(CC) $(CCFLAGS) -o $(EXECUTABLE) $(OBJECTS) $(LIBPATH) $(LIBRARYS)
+
+##########################################################
+
+face_recog_user_functions.o : ../face_recog.h
+
+##########################################################
+
+face_recog.o:
+	$(MAEHOME)/bin/netcomp -o $* < $*.con	
+	$(CC) $(CCFLAGS) -c -I$(MAEHOME)/include -o $@ $*.c
+
+##########################################################
+clean:
+	rm -f *.o face_recog_user_functions/*.o
+	rm -f face_recog face_recog.c face_recog.h
+	rm -f *.out

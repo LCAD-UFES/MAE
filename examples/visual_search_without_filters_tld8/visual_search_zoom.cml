@@ -1,0 +1,99 @@
+/* Counters */
+int i;
+int retrain;
+int numRetrain;
+int numLastRetrained;
+int JustTrained;
+int num_pixels;
+int x;
+int y;
+int x_retrain;
+int y_retrain;
+int best_x;
+int best_y;
+float confidence;
+float best_confidence;
+float confidenceLevel;
+float scale_zoom;
+float scale_before;
+int out_of_scene;
+float scale_to_retrain;
+float max_scale;
+float min_scale;
+int num_frames;
+
+i = 0;
+/* Trainning */
+#Treinando com a imagem 0
+GetImage(i);
+MoveToTargetCenter(0);
+key t;
+ForwardVisualSearchNetwork(0);
+#forward outputs;
+
+/* Testing */
+numLastRetrained = -1;
+i = i + 1;
+GetImage(i);
+MoveToTargetCenter(0);
+JustTrained = 1;
+
+max_scale = GetMaxScale(0);
+min_scale = GetMinScale(0);
+
+num_frames = GetNumFrames(0);
+
+
+while (i < num_frames)
+{
+	GetImage(i);
+	
+	out_of_scene = GetOutOfScene(0);
+	
+	if (out_of_scene == 0)
+	{
+		/* Escala frame anterior*/
+		scale_before = GetScaleBefore(0);	
+		SetScaleFactor(scale_before);
+		ForwardVisualSearchNetwork(0);
+		#forward outputs;
+
+		key s;
+		
+		/*Atualizando escala*/
+		scale_zoom = GetScaleFactorZoom(0);
+
+
+		if (scale_zoom > max_scale)
+		{
+			scale_zoom = scale_before;
+			#SetOutOfScene(0);
+			#GetImage(i);
+		}
+
+		if (scale_zoom < min_scale)
+		{
+			scale_zoom = scale_before;
+			#SetOutOfScene(0);
+			#GetImage(i);
+		}
+
+		SetScaleFactor(scale_zoom);
+		ForwardVisualSearchNetwork(0);
+		#forward outputs;
+
+
+	}
+		
+	key s;
+
+	CheckTrafficSignDetection(0);
+
+	i = i + 1;
+}
+SaveTLDReasultsFile(0);
+DisposeMemory(0);
+quit;
+
+
+

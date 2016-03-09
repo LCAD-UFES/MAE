@@ -1,0 +1,16 @@
+
+	L  R   LQ   RQ
+phase  45 -135 135 -45
+
+-phase -135 45 -45  135
+
+	L  R   LQ   RQ
+phase -45  0   45   90	
+phase   0 -45  90   45
+
+	L  R   LQ   RQ
+phase -180-135-90  -45
+-phase 0   45  90  135
+
+phase  45  0   135  90
+-phase-135 180 -45 -90

@@ -1,0 +1,145 @@
+int i;
+train network;
+
+SetSentence("nc_input", 		"Contar de|9 a 0|tres vezes$ | | ");
+SetSentence("nc_program_input1", 	" | | $ | | ");
+SetSentence("nc_function_input1", 	" | | $ | | ");
+SetSentence("nc_program_input2", 	"Contar|de 10|3$ | |d");
+train nc_program;
+
+SetSentence("nc_input", 		"Contar de|9 a 0|tres vezes$ | | ");
+SetSentence("nc_program_input1", 	"Contar|de 10|3$ | |d");
+SetSentence("nc_function_input1", 	" | | $ | | ");
+SetSentence("nc_program_input2", 	"Contar|de 10|3$ | |d");
+train nc_program;
+
+SetSentence("nc_input", 		"Contar de|9 a 0|tres vezes$ | | ");
+SetSentence("nc_program_input1", 	"Contar|de 10|3$ | |d");
+SetSentence("nc_function_input1", 	"Depois|de|x$ | |u");
+SetSentence("nc_program_input2", 	"Contar|de 10|3$ | |d");
+train nc_program;
+
+
+SetSentence("nc_input", 		"Contar de|9 a 0|tres vezes$ | | ");
+SetSentence("nc_program_input1", 	"Contar|de 10|3$ | |d");
+SetSentence("nc_function_input1", 	"Depois|de|0$ | | ");
+SetSentence("nc_program_input2", 	"Contar|de 10|3-0$ | |d");
+train nc_program;
+
+SetSentence("nc_input", 		"Contar de|9 a 0|tres vezes$ | | ");
+SetSentence("nc_program_input1", 	"Contar|de 10|3-0$ | |d");
+SetSentence("nc_function_input1", 	"Depois|de|0$ | | ");
+SetSentence("nc_program_input2", 	"Contar|de 10|2$ | |d");
+train nc_program;
+
+SetSentence("nc_input", 		"Contar de|9 a 0|tres vezes$ | | ");
+SetSentence("nc_program_input1", 	"Contar|de 10|2$ | |d");
+SetSentence("nc_function_input1", 	"Depois|de|x$ | |u");
+SetSentence("nc_program_input2", 	"Contar|de 10|2$ | |d");
+train nc_program;
+
+
+SetSentence("nc_input", 		"Contar de|9 a 0|tres vezes$ | | ");
+SetSentence("nc_program_input1", 	"Contar|de 10|2$ | |d");
+SetSentence("nc_function_input1", 	"Depois|de|0$ | | ");
+SetSentence("nc_program_input2", 	"Contar|de 10|2-0$ | |d");
+train nc_program;
+
+SetSentence("nc_input", 		"Contar de|9 a 0|tres vezes$ | | ");
+SetSentence("nc_program_input1", 	"Contar|de 10|2-0$ | |d");
+SetSentence("nc_function_input1", 	"Depois|de|0$ | | ");
+SetSentence("nc_program_input2", 	"Contar|de 10|1$ | |d");
+train nc_program;
+
+SetSentence("nc_input", 		"Contar de|9 a 0|tres vezes$ | | ");
+SetSentence("nc_program_input1", 	"Contar|de 10|1$ | |d");
+SetSentence("nc_function_input1", 	"Depois|de|x$ | |u");
+SetSentence("nc_program_input2", 	"Contar|de 10|1$ | |d");
+train nc_program;
+
+
+SetSentence("nc_input", 		"Contar de|9 a 0|tres vezes$ | | ");
+SetSentence("nc_program_input1", 	"Contar|de 10|1$ | |d");
+SetSentence("nc_function_input1", 	"Depois|de|0$ | | ");
+SetSentence("nc_program_input2", 	" |FIM| $ | | ");
+train nc_program;
+
+SetSentence("nc_input", 		"Contar de|9 a 0|tres vezes$ | | ");
+SetSentence("nc_program_input1", 	" |FIM| $ | | ");
+SetSentence("nc_function_input1", 	" |FIM| $ | | ");
+SetSentence("nc_program_input2", 	" |FIM| $ | | ");
+train nc_program;
+
+
+
+i = 0;
+while (i < 12)
+{
+	GetSentence("nc_program_input1", 1);
+	GetSentence("nc_function_input1", i);
+	GetSentence("nc_command_input1", i);
+	GetSentence("nc_function_input2", i+1);
+	train nc_function;
+
+	GetSentence("nc_program_input1", 1);
+	GetSentence("nc_function_input1", i+1);
+	GetSentence("nc_command_input1", i);
+	GetSentence("nc_function_input2", i+1);
+	train nc_function;
+	i = i + 1;
+}
+
+
+SetSentence("nc_program_input1", 	" |FIM| $ | | ");
+SetSentence("nc_function_input1", 	"Depois|de|0$ | | ");
+SetSentence("nc_command_input1", 	" |0| $ | | ");
+SetSentence("nc_function_input2", 	" |FIM| $ | | ");
+train nc_function;
+
+SetSentence("nc_program_input1", 	" |FIM| $ | | ");
+SetSentence("nc_function_input1", 	" |FIM| $ | | ");
+SetSentence("nc_command_input1", 	" |FIM| $ | | ");
+SetSentence("nc_function_input2", 	" |FIM| $ | | ");
+train nc_function;
+
+i = 0;
+while (i < 11)
+{
+	GetSentence("nc_function_input1", i+1);	# Depois|de|vazio
+	GetSentence("nc_command_input1", i);	#  | | 
+	GetSentence("nc_sensors_input1", 0);	#  | | 
+	GetSentence("nc_command_input2", i+1);	#  |0|
+	train nc_command;
+
+	GetSentence("nc_function_input1", i+1);	# Depois|de|vazio
+	GetSentence("nc_command_input1", i+1);	#  |0| 
+	GetSentence("nc_sensors_input1", 0);	#  | | 
+	GetSentence("nc_command_input2", i+1);	#  |0|
+	train nc_command;
+	i = i + 1;
+}
+
+
+SetSentence("nc_function_input1", 	" |FIM| $ | | ");
+SetSentence("nc_command_input1", 	" |0| $ | | ");
+SetSentence("nc_sensors_input1", 	" | | $ | | ");
+SetSentence("nc_command_input2", 	" |FIM| $ | | ");
+train nc_command;
+
+SetSentence("nc_function_input1", 	" |FIM| $ | | ");
+SetSentence("nc_command_input1", 	" |FIM| $ | | ");
+SetSentence("nc_sensors_input1", 	" | | $ | | ");
+SetSentence("nc_command_input2", 	" |FIM| $ | | ");
+train nc_command;
+
+####
+GetSentence("nc_input", 1);		# Contar de|9 a 0|tres vezes
+GetSentence("nc_program_input1", 0);	#  | |
+GetSentence("nc_function_input1", 0);	#  | |
+GetSentence("nc_command_input1", 0);	#  | | 
+
+GetSentence("nc_program_input2", 0);	#  | |
+GetSentence("nc_function_input2", 0);	#  | |
+GetSentence("nc_command_input2", 0);	#  | | 
+
+run 300;

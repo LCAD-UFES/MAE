@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VisualStudioToolFile
+	Name="MAE Compiler Rule"
+	Version="8,00"
+	>
+	<Rules>
+		<CustomBuildRule
+			Name="MAEGenerator"
+			DisplayName="MAE Generator"
+			CommandLine="netcomp.exe [AllOptions] &lt; [Inputs]"
+			Outputs="$(InputName)"
+			FileExtensions="*.con"
+			ExecutionDescription="Generating MAE Neural Network..."
+			>
+			<Properties>
+				<StringProperty
+					Name="OutputFile"
+					DisplayName="Output File"
+					Description="The output file containing the implementation of the network"
+					Switch="-o [value]"
+					DefaultValue="$(InputName)"
+				/>
+			</Properties>
+		</CustomBuildRule>
+	</Rules>
+</VisualStudioToolFile>

@@ -1,0 +1,57 @@
+/* Counters */
+int i;
+int NUM_TRAFFIC_SIGNS;
+int tries;
+
+int RECALL_PHASE;
+RECALL_PHASE = 2;
+int TRAINING_PHASE;
+TRAINING_PHASE = 1;
+
+
+/* Testing */
+SetNetworkStatus(RECALL_PHASE);
+
+NUM_TRAFFIC_SIGNS = GetNumImages(0);
+i = 0;
+while (i < NUM_TRAFFIC_SIGNS)
+{
+	GetImage(i);
+
+	key t; # Train
+	key h; # Swap horizontaly
+	key s; # Saccade
+	key x; # Save delta x
+	key u; # Go back to initial position
+	key v; # Swap verticaly
+	key s; # Saccade
+	key y; # Save delta y
+	key f; # Forget
+	tries = 0;
+	while ((DeltaXYOK(0) == 0) && (tries < 6))
+	{
+		MoveRamdomXY(0);
+		if (tries < 4)
+			ScaleUp(0);
+
+		key t; # Train
+		key h; # Swap horizontaly
+		key s; # Saccade
+		key x; # Save delta x
+		key u; # Go back to initial position
+		key v; # Swap verticaly
+		key s; # Saccade
+		key y; # Save delta y
+		key f; # Forget
+		tries = tries + 1;	
+	}
+	if (DeltaXYOK(0))
+		key w; # Save new traffic sign center
+	else
+		key r; # Report failure
+
+	/* Colocar aqui a busca binaria por melhor scale_factor */
+	i = i + 1;
+}
+SaveGTDSBReasultsFile(0);
+quit;

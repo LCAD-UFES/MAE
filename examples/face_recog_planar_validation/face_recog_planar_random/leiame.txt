@@ -1,0 +1,1 @@
+Na validação, as VG-RAM WNN foram treinadas com o arquivo faces_tr.txt e testadas com os arquivos faces_va.txt.

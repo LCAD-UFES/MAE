@@ -1,0 +1,87 @@
+Starting LimeWire...
+Java exec found in PATH. Verifying...
+Suitable java version found [java = 1.6.0_04]
+Configuring environment...
+Loading LimeWire:
+CyberGarage warning : HTTP/1.1 200 OK
+ST:upnp:rootdevice
+USN:uuid:0f950f26-583b-4777-a108-01cda1c98e72::upnp:rootdevice
+Location:http://10.50.4.65:2869/upnphost/udhisapi.dll?content=uuid:0f950f26-583b-4777-a108-01cda1c98e72
+OPT:"http://schemas.upnp.org/upnp/1/0/"; ns=01
+01-NLS:3099226df79eab05b1466af508dcc295
+Cache-Control:max-age=1800
+Server:Microsoft-Windows-NT/5.1 UPnP/1.0 UPnP-Device-Host/1.0
+Ext:
+
+
+CyberGarage warning : org.cybergarage.xml.ParserException: java.net.ConnectException: Connection timed out
+org.cybergarage.xml.ParserException: org.cybergarage.xml.ParserException: java.net.ConnectException: Connection timed out
+	at org.cybergarage.xml.Parser.parse(Parser.java:80)
+	at org.cybergarage.upnp.ControlPoint.addDevice(ControlPoint.java:222)
+	at org.cybergarage.upnp.ControlPoint.searchResponseReceived(ControlPoint.java:470)
+	at org.cybergarage.upnp.ssdp.SSDPSearchResponseSocket.run(SSDPSearchResponseSocket.java:75)
+	at java.lang.Thread.run(Thread.java:619)
+Caused by: org.cybergarage.xml.ParserException: java.net.ConnectException: Connection timed out
+	at org.cybergarage.xml.Parser.parse(Parser.java:56)
+	at org.cybergarage.xml.Parser.parse(Parser.java:78)
+	... 4 more
+Caused by: java.net.ConnectException: Connection timed out
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.PlainSocketImpl.doConnect(PlainSocketImpl.java:333)
+	at java.net.PlainSocketImpl.connectToAddress(PlainSocketImpl.java:195)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:182)
+	at java.net.Socket.connect(Socket.java:519)
+	at java.net.Socket.connect(Socket.java:469)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:157)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:394)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:529)
+	at sun.net.www.http.HttpClient.<init>(HttpClient.java:233)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:306)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:323)
+	at sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:788)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:729)
+	at sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:654)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:977)
+	at org.cybergarage.xml.Parser.parse(Parser.java:46)
+	... 5 more
+CyberGarage warning : HTTP/1.1 200 OK
+ST:upnp:rootdevice
+USN:uuid:0f950f26-583b-4777-a108-01cda1c98e72::upnp:rootdevice
+Location:http://10.50.4.65:2869/upnphost/udhisapi.dll?content=uuid:0f950f26-583b-4777-a108-01cda1c98e72
+OPT:"http://schemas.upnp.org/upnp/1/0/"; ns=01
+01-NLS:3099226df79eab05b1466af508dcc295
+Cache-Control:max-age=1800
+Server:Microsoft-Windows-NT/5.1 UPnP/1.0 UPnP-Device-Host/1.0
+Ext:
+
+
+CyberGarage warning : org.cybergarage.xml.ParserException: java.net.ConnectException: Connection timed out
+org.cybergarage.xml.ParserException: org.cybergarage.xml.ParserException: java.net.ConnectException: Connection timed out
+	at org.cybergarage.xml.Parser.parse(Parser.java:80)
+	at org.cybergarage.upnp.ControlPoint.addDevice(ControlPoint.java:222)
+	at org.cybergarage.upnp.ControlPoint.searchResponseReceived(ControlPoint.java:470)
+	at org.cybergarage.upnp.ssdp.SSDPSearchResponseSocket.run(SSDPSearchResponseSocket.java:75)
+	at java.lang.Thread.run(Thread.java:619)
+Caused by: org.cybergarage.xml.ParserException: java.net.ConnectException: Connection timed out
+	at org.cybergarage.xml.Parser.parse(Parser.java:56)
+	at org.cybergarage.xml.Parser.parse(Parser.java:78)
+	... 4 more
+Caused by: java.net.ConnectException: Connection timed out
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.PlainSocketImpl.doConnect(PlainSocketImpl.java:333)
+	at java.net.PlainSocketImpl.connectToAddress(PlainSocketImpl.java:195)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:182)
+	at java.net.Socket.connect(Socket.java:519)
+	at java.net.Socket.connect(Socket.java:469)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:157)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:394)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:529)
+	at sun.net.www.http.HttpClient.<init>(HttpClient.java:233)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:306)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:323)
+	at sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:788)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:729)
+	at sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:654)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:977)
+	at org.cybergarage.xml.Parser.parse(Parser.java:46)
+	... 5 more

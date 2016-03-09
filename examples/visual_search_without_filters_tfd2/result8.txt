@@ -1,0 +1,51 @@
+# Please wait, building network...
+# 0.075 # 0.124 # 0.075 
+# 0.124 # 0.204 # 0.124 
+# 0.075 # 0.124 # 0.075 
+# 0.000 # 0.000 # 0.001 # 0.002 # 0.002 # 0.002 # 0.001 # 0.000 # 0.000 
+# 0.000 # 0.001 # 0.004 # 0.008 # 0.010 # 0.008 # 0.004 # 0.001 # 0.000 
+# 0.001 # 0.004 # 0.012 # 0.023 # 0.029 # 0.023 # 0.012 # 0.004 # 0.001 
+# 0.002 # 0.008 # 0.023 # 0.046 # 0.057 # 0.046 # 0.023 # 0.008 # 0.002 
+# 0.002 # 0.010 # 0.029 # 0.057 # 0.071 # 0.057 # 0.029 # 0.010 # 0.002 
+# 0.002 # 0.008 # 0.023 # 0.046 # 0.057 # 0.046 # 0.023 # 0.008 # 0.002 
+# 0.001 # 0.004 # 0.012 # 0.023 # 0.029 # 0.023 # 0.012 # 0.004 # 0.001 
+# 0.000 # 0.001 # 0.004 # 0.008 # 0.010 # 0.008 # 0.004 # 0.001 # 0.000 
+# 0.000 # 0.000 # 0.001 # 0.002 # 0.002 # 0.002 # 0.001 # 0.000 # 0.000 
+Locale set to C.
+Number of images with traffic signs within criterion = 9
+Image file name: /home/alberto/TIAGO/haar_competition/test_full/00005.ppm
+''Image file name: /home/alberto/TIAGO/haar_competition/test_full/00005.ppm
+Image file name: /home/alberto/TIAGO/haar_competition/test_full/00121.ppm
+Image file name: /home/alberto/TIAGO/haar_competition/test_full/00253.ppm
+Image file name: /home/alberto/TIAGO/haar_competition/test_full/00283.ppm
+delta = 301
+Image file name: /home/alberto/TIAGO/haar_competition/test_full/00312.ppm
+scale_factor = 0.33; image = 00312; x =  165; y = 491; confidence = 1.00; HIT ***
+scale_factor = 0.33; image = 00316; x =  732; y = 285; confidence = 0.84; MISS
+scale_factor = 0.33; image = 00316; x = 1015; y = 174; confidence = 0.81; MISS
+scale_factor = 0.33; image = 00316; x = 1235; y = 311; confidence = 0.55; MISS
+scale_factor = 0.33; image = 00312; x =  189; y = 469; confidence = 0.94; HIT ***
+scale_factor = 0.33; image = 00316; x =  630; y = 699; confidence = 0.57; MISS
+scale_factor = 0.33; image = 00316; x = 1138; y = 612; confidence = 0.83; MISS
+scale_factor = 0.33; image = 00316; x = 1149; y = 612; confidence = 0.82; MISS
+### Current Image = 00312; Traffic signs searched =    1; Traffic signs found =    1; Best confidence = 1.000000; Percentage found = 100.00; HIT
+Image file name: /home/alberto/TIAGO/haar_competition/test_full/00378.ppm
+scale_factor = 0.33; image = 00382; x =  147; y = 222; confidence = 0.95; MISS
+scale_factor = 0.33; image = 00382; x =  810; y = 147; confidence = 0.70; MISS
+scale_factor = 0.33; image = 00382; x =  902; y = 300; confidence = 0.38; MISS
+scale_factor = 0.33; image = 00382; x = 1053; y = 177; confidence = 0.76; MISS
+scale_factor = 0.33; image = 00378; x =   66; y = 520; confidence = 0.94; HIT ***
+scale_factor = 0.33; image = 00382; x =  430; y = 771; confidence = 0.37; MISS
+scale_factor = 0.33; image = 00382; x =  872; y = 627; confidence = 0.47; MISS
+scale_factor = 0.33; image = 00382; x = 1179; y = 595; confidence = 0.62; MISS
+### Current Image = 00378; Traffic signs searched =    2; Traffic signs found =    1; Best confidence = 0.000000; Percentage found = 50.00; MISS
+Image file name: /home/alberto/TIAGO/haar_competition/test_full/00427.ppm
+scale_factor = 0.33; image = 00427; x =  329; y = 386; confidence = 0.88; HIT ***
+scale_factor = 0.33; image = 00427; x =  358; y = 380; confidence = 0.90; HIT ***
+scale_factor = 0.33; image = 00435; x =  970; y = 168; confidence = 0.74; MISS
+scale_factor = 0.33; image = 00435; x = 1137; y = 177; confidence = 0.73; MISS
+scale_factor = 0.33; image = 00427; x =  347; y = 382; confidence = 0.95; HIT ***
+scale_factor = 0.33; image = 00435; x =  511; y = 711; confidence = 0.53; MISS
+scale_factor = 0.33; image = 00435; x =  902; y = 601; confidence = 0.07; MISS
+scale_factor = 0.33; image = 00435; x = 1134; y = 481; confidence = 0.41; MISS
+### Current Image = 00427; Traffic signs searched =    3; Traffic signs found =    2; Best confidence = 0.950252; Percentage found = 66.67; HIT

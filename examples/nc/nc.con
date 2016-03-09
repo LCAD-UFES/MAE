@@ -1,0 +1,104 @@
+################################################ Set Global Variables #################################################
+set NEURON_MEMORY_SIZE = 500;
+set TYPE_SHOW = SHOW_FRAME;
+set TYPE_MOVING_FRAME = STOP;
+
+#const VERBOSE			= 1;
+######################################################## Constants ####################################################
+const IN_WIDTH			= 100;
+const IN_HEIGHT			= 50;
+
+const NL_WIDTH 			= 100;
+const NL_HEIGHT			= 50;
+
+const NUM_SYNAPSES		= 128;
+
+const GAUSSIAN_DISTRIBUITON	= 1;
+
+const DATA_PATH			= "DATA/";
+
+const DOWN			= 0;
+const UP			= 1;
+
+############################################### Neuron Layers #########################################################
+neuronlayer	nc_program[NL_WIDTH][NL_HEIGHT]			of minchinton neurons color sensitive with color outputs, show;
+neuronlayer	from_nc_program_down[NL_WIDTH][NL_HEIGHT]	of minchinton neurons color sensitive with color outputs;
+
+neuronlayer	nc_function[NL_WIDTH][NL_HEIGHT]		of minchinton neurons color sensitive with color outputs, show;
+neuronlayer	from_nc_function_up[NL_WIDTH][NL_HEIGHT]	of minchinton neurons color sensitive with color outputs;
+neuronlayer	from_nc_function_down[NL_WIDTH][NL_HEIGHT]	of minchinton neurons color sensitive with color outputs;
+
+neuronlayer	nc_command[NL_WIDTH][NL_HEIGHT]			of minchinton neurons color sensitive with color outputs, show;
+neuronlayer	from_nc_command_up[NL_WIDTH][NL_HEIGHT]		of minchinton neurons color sensitive with color outputs;
+
+neuronlayer	nc_sensors[NL_WIDTH][NL_HEIGHT]			of minchinton neurons color sensitive with color outputs, show;
+
+#neuronlayer nc_image_memory[NL_WIDTH][NL_HEIGHT] of minchinton neurons with greyscale_float outputs;
+
+############################################### Outputs #########################################################
+
+################################################## Inputs #############################################################
+input 		nc_input[IN_WIDTH][IN_HEIGHT]		with color outputs produced by input_generator2() controled by input_controler1();
+
+input 		nc_program_input1[IN_WIDTH][IN_HEIGHT]	with color outputs produced by input_generator1("%p", nc_program) controled by input_controler1();
+input 		nc_program_input2[IN_WIDTH][IN_HEIGHT]	with color outputs produced by input_generator2() controled by input_controler2("%p", nc_program);
+
+input 		nc_function_input1[IN_WIDTH][IN_HEIGHT]	with color outputs produced by input_generator1("%p", nc_function) controled by input_controler1();
+input 		nc_function_input2[IN_WIDTH][IN_HEIGHT]	with color outputs produced by input_generator2() controled by input_controler2("%p", nc_function);
+
+input 		nc_command_input1[IN_WIDTH][IN_HEIGHT]	with color outputs produced by input_generator1("%p", nc_command) controled by input_controler1();
+input 		nc_command_input2[IN_WIDTH][IN_HEIGHT]	with color outputs produced by input_generator2() controled by input_controler2("%p", nc_command);
+
+input 		nc_sensors_input1[IN_WIDTH][IN_HEIGHT]	with color outputs produced by input_generator1("%p", nc_sensors) controled by input_controler1();
+
+#input 		nc_image_memory_input[IN_WIDTH][IN_HEIGHT]		with greyscale_float outputs produced by input_generator3("%p", nc_image_memory)  controled by input_controler1();
+
+############################################### Filters #########################################################
+filter		nc_program	with attention_filter("%d", DOWN)	producing from_nc_program_down;
+
+filter		nc_function	with attention_filter("%d", DOWN)	producing from_nc_function_down;
+filter		nc_function	with attention_filter("%d", UP)		producing from_nc_function_up;
+
+filter		nc_command	with attention_filter("%d", UP)		producing from_nc_command_up;
+
+############################################### Outputs #########################################################
+#output		nc_image_memory_out[NL_WIDTH][NL_HEIGHT] handled by output_nc_image_memory_handler();
+
+################################## Connect Neuron Layers to Outputs #############################################
+#outputconnect	nc_image_memory 		to nc_image_memory_out;
+
+############################################### Associations ####################################################
+associate	nc_program_input2	with nc_program;
+associate	nc_function_input2	with nc_function;
+associate	nc_command_input2	with nc_command;
+
+#associate	nc_image_memory		with nc_image_memory;
+
+################################################ Connections ####################################################
+connect		nc_input		to nc_program	with NUM_SYNAPSES random inputs per neuron;
+connect		nc_program		to nc_program	with NUM_SYNAPSES random inputs per neuron;
+connect		nc_program		to nc_program	with NUM_SYNAPSES random inputs per neuron and gaussian distribution with radius 5.0;
+connect		from_nc_function_up	to nc_program	with NUM_SYNAPSES random inputs per neuron;
+
+connect		from_nc_program_down	to nc_function	with NUM_SYNAPSES random inputs per neuron;
+connect		nc_function		to nc_function	with NUM_SYNAPSES random inputs per neuron;
+connect		nc_function		to nc_function	with NUM_SYNAPSES random inputs per neuron and gaussian distribution with radius 5.0;
+connect		from_nc_command_up	to nc_function	with NUM_SYNAPSES random inputs per neuron;
+
+connect		from_nc_function_down	to nc_command	with NUM_SYNAPSES random inputs per neuron;
+connect		nc_command		to nc_command	with NUM_SYNAPSES random inputs per neuron;
+#connect		nc_command		to nc_command	with NUM_SYNAPSES random inputs per neuron and gaussian distribution with radius 5.0;
+#connect		nc_sensors		to nc_command	with NUM_SYNAPSES random inputs per neuron;
+
+#connect		nc_image_memory 		to nc_image_memory	with NUM_SYNAPSES random inputs per neuron;
+#connect		nc_image_memory 		to nc_image_memory	with NUM_SYNAPSES random inputs per neuron and gaussian distribution with radius 5.0;
+#connect		nc_command 		to nc_image_memory	with NUM_SYNAPSES random inputs per neuron;
+#connect		nc_command		to nc_image_memory	with NUM_SYNAPSES random inputs per neuron and gaussian distribution with radius 5.0;
+
+################################################ User Functions #################################################
+int SetNetworkStatus ("%d");
+int GetSentence ("%s %d");
+int SetSentence ("%s %s");
+int SetImage ("%s %s");
+int ChangeDataSetFont ("");
+int LoadInputSensor ("%s");

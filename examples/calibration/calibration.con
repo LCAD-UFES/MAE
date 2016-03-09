@@ -1,0 +1,86 @@
+################################################ Set Global Variables #################################################
+
+set NEURON_MEMORY_SIZE = 0;
+set TYPE_SHOW = SHOW_WINDOW;
+set TYPE_MOVING_FRAME = STOP;
+set KERNEL_SIZE = 15;
+
+######################################################## Constants ####################################################
+
+# Network parameters
+const IMG_WIDTH  = 640;
+const IMG_HEIGHT = 480;
+const NL_WIDTH   = 64;
+const NL_HEIGHT  = 32;
+#const LOG_FACTOR  = SERENO_MODEL;
+const LOG_FACTOR  = 100.0;
+
+# Image source definitions
+const READ_FROM_IMAGE_FILE     = 0;
+const PASS_BY_PARAMETER        = 1;
+const CAPTURED_FROM_CAMERA     = 2;
+const CAPTURED_FROM_IP_ADDRESS = 3;
+const IMAGE_SOURCE = READ_FROM_IMAGE_FILE;
+
+# Calibration types
+const COPLANAR				 = 0;
+const COPLANAR_WITH_FULL_OPTIMIZATION    = 1;
+const NONCOPLANAR			 = 2;
+const NONCOPLANAR_WITH_FULL_OPTIMIZATION = 3;
+const CALIBRATION_TYPE = NONCOPLANAR_WITH_FULL_OPTIMIZATION;
+
+# Camera CCD formats
+const QUARTER_INCH	= 0;
+const THIRD_INCH	= 1;
+const HALF_INCH		= 2;
+const TWO_THIRDS_INCH	= 3;
+const ONE_INCH		= 4;
+const CCD_FORMAT 	= HALF_INCH;
+
+# File definitions
+const CAMERA_LEFT_CONSTANTS_FILE_NAME = "CameraLeftConstants.dat";
+const CAMERA_RIGHT_CONSTANTS_FILE_NAME	= "CameraRightConstants.dat";
+const LEFT_CALIBRATION_DATA_FILE_NAME = "LeftCalibrationData.dat";
+const RIGHT_CALIBRATION_DATA_FILE_NAME = "RightCalibrationData.dat";
+const WINDOWS_CAPTURE_SCRIPT = "capture.bat";
+const LINUX_CAPTURE_SCRIPT = "./capture.sh";
+const CAPTURE_SCRIPT = WINDOWS_CAPTURE_SCRIPT;
+
+# Vergence parameters
+const NEAREST_DISTANCE	= 750.0; # [mm]
+const FARTEST_DISTANCE	= 1250.0; # [mm]
+
+################################################## Inputs #######################################################
+
+input 		image_right[IMG_WIDTH][IMG_HEIGHT]	with color outputs produced by input_generator("%d",IMAGE_SOURCE) controled by input_controler();
+input 		image_left[IMG_WIDTH][IMG_HEIGHT]	with color outputs produced by input_generator("%d",IMAGE_SOURCE) controled by input_controler();
+
+############################################### Neuron Layers ##################################################
+
+neuronlayer	logpolar_righteye[NL_WIDTH][NL_HEIGHT] 		with greyscale_float outputs;
+neuronlayer	logpolar_lefteye[NL_WIDTH][NL_HEIGHT]		with greyscale_float outputs;
+neuronlayer	right_minus_left[NL_WIDTH][NL_HEIGHT] 		with greyscale_float outputs;
+
+############################################### Filters #########################################################
+
+filter 		image_right with my_v1_filter("%d %d %d %d %f", MCELLS, OFFCENTER, RGB, STATISTIC_DISTRIBUTION, LOG_FACTOR) producing logpolar_righteye;
+filter 		image_left  with my_v1_filter("%d %d %d %d %f", MCELLS, OFFCENTER, RGB, STATISTIC_DISTRIBUTION, LOG_FACTOR) producing logpolar_lefteye;
+filter 		logpolar_righteye, logpolar_lefteye with minus_filter() producing right_minus_left;
+
+######################################### Connect Neuron Layers #################################################
+
+############################################### Outputs ########################################################
+
+output  	logpolar_righteye_out[NL_WIDTH][NL_HEIGHT];
+output  	logpolar_lefteye_out[NL_WIDTH][NL_HEIGHT];
+output  	right_minus_left_out[NL_WIDTH][NL_HEIGHT];
+
+################################## Connect Neuron Layers to Outputs #############################################
+
+outputconnect   logpolar_righteye	to logpolar_righteye_out;
+outputconnect   logpolar_lefteye	to logpolar_lefteye_out;
+outputconnect   right_minus_left 	to right_minus_left_out;
+
+############################################### Associate ########################################################
+
+############################################### User Functions ########################################################

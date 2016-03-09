@@ -1,0 +1,90 @@
+int NUM_WEEKS;
+NUM_WEEKS = GetNumWeeks (0);
+
+int SAMPLES2TRAIN; 		
+SAMPLES2TRAIN = 104;
+
+int SAMPLES2CALIBRATE; 		
+SAMPLES2CALIBRATE = 104;
+
+int SAMPLES2TEST; 		
+SAMPLES2TEST = 52;
+
+int SAMPLES2DISCARD;
+SAMPLES2DISCARD = 0;
+
+
+/* Network Status */
+int TRAINING_PHASE;
+TRAINING_PHASE = 1;
+int RECALL_PHASE;
+RECALL_PHASE = 2;
+
+/* Counters */
+int i;
+
+ResetStatistics (0);
+ComputeTrainReturnAverageAndStadardDeviation(NUM_WEEKS - SAMPLES2DISCARD - SAMPLES2TEST - SAMPLES2CALIBRATE - SAMPLES2TRAIN, NUM_WEEKS - SAMPLES2DISCARD - SAMPLES2TEST - SAMPLES2CALIBRATE);
+
+/* Training Phase */
+SetNetworkStatus (TRAINING_PHASE);
+i = NUM_WEEKS - SAMPLES2DISCARD - SAMPLES2TEST - SAMPLES2CALIBRATE - SAMPLES2TRAIN;
+if (i < 0)
+{
+	print("There are not enough weeks to run. Trying to access week number ", i);
+	quit;
+}
+
+while (i < NUM_WEEKS - SAMPLES2DISCARD - SAMPLES2TEST - SAMPLES2CALIBRATE)
+{
+	GetSample (i);
+	
+	forward network;
+	
+	/* Draws nl_wnn_pred layer output */
+	draw nl_wnn_pred_out based on sample move;
+	train network;
+	
+	i = i + 1;
+}
+
+	
+/* Calibrating phase */
+SetNetworkStatus (RECALL_PHASE);
+#i = 0;
+while (i < NUM_WEEKS - SAMPLES2DISCARD - SAMPLES2TEST)
+{
+	GetSample(i);
+	
+	forward network;
+	
+	/* Draws nl_wnn_pred layer output */
+	draw nl_wnn_pred_out based on sample move;
+	train network;
+	
+	i = i + 1;
+}
+
+	
+/* Testing phase */
+SetNetworkStatus (RECALL_PHASE);
+#i = 0;
+while (i < NUM_WEEKS - SAMPLES2DISCARD)
+{
+	GetSample(i);
+	
+	forward network;
+	
+	/* Draws nl_wnn_pred layer output */
+	draw nl_wnn_pred_out based on sample move;
+	train network;
+	
+	i = i + 1;
+}
+
+GetSample(i);
+forward network;
+
+ShowStatistics (0);
+
+quit; 

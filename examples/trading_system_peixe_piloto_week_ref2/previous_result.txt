@@ -1,0 +1,212 @@
+### Stock Ranking (unordered) ###
+# AMBV4 0.745941  5.44%
+# BBAS3 0.629053  4.36%
+# BBDC4 0.559418  3.72%
+# BRAP4 0.320101  1.51%
+# BRFS3 0.000000  -1.45%
+# BRKM5 0.797913  5.92%
+# BRTO4 0.577092  3.88%
+# CCRO3 0.410559  2.34%
+# CMIG4 0.572958  3.84%
+# CNFB4 0.659823  4.65%
+# CSNA3 0.848803  6.39%
+# ELET3 0.680517  4.84%
+# ELET6 0.675170  4.79%
+# EMBR3 0.762717  5.60%
+# FIBR3 0.634909  4.42%
+# GGBR4 0.775997  5.72%
+# GOAU4 0.658816  4.64%
+# GOLL4 1.000000  7.79%
+# ITSA4 0.718949  5.19%
+# ITUB4 0.751331  5.49%
+# KLBN4 0.437811  2.59%
+# LAME4 0.616715  4.25%
+# LIGT3 0.294547  1.27%
+# LREN3 0.659574  4.64%
+# PETR3 0.157031  0.00%
+# PETR4 0.215150  0.54%
+# PLAS3 0.769341  5.66%
+# POMO4 0.625265  4.33%
+# PSSA3 0.674759  4.78%
+# RAPT4 0.969079  7.50%
+# RSID3 0.620038  4.28%
+# TAMM4 0.899271  6.86%
+# TBLE3 0.458700  2.79%
+# TNLP4 0.793335  5.88%
+# USIM5 0.950269  7.33%
+# VALE3 0.373479  2.00%
+# VALE5 0.370276  1.97%
+###
+### Soma dos sinais preditos na direcao SELL_BUY = +33
+### Melhor acao de hoje, 2011-08-10 = GOLL4, order de negociacao = SELL_BUY, Retorno predito = -7.79%
+2010-01-06 ;  0.058068 ;  0.112573 ; -0.054505; BUY_SELL FIBR3 - capital = R$42236.69  +23
+2010-01-13 ;  0.035991 ;  0.047626 ; -0.011635; BUY_SELL BRFS3 - capital = R$43666.97  +19
+2010-01-20 ;  0.071246 ;  0.065242 ;  0.006004; BUY_SELL PLAS3 - capital = R$46683.55  +27
+2010-01-27 ;  0.056408 ;  0.219956 ; -0.163548; BUY_SELL PLAS3 - capital = R$49216.56  +31
+2010-02-03 ; -0.018600 ;  0.127845 ; -0.146446; BUY_SELL PLAS3 - capital = R$48199.22  +9
+2010-02-10 ;  0.012483 ;  0.045668 ; -0.033185; SELL_BUY BRTO4 - capital = R$48699.53  +1
+2010-02-17 ;  0.036791 ;  0.045361 ; -0.008570; BUY_SELL POMO4 - capital = R$50387.58  +9
+2010-02-24 ;  0.023268 ;  0.032801 ; -0.009534; SELL_BUY ELET3 - capital = R$51453.46  +5
+2010-03-03 ;  0.021425 ;  0.045528 ; -0.024103; BUY_SELL POMO4 - capital = R$52447.16  +3
+2010-03-10 ;  0.062555 ;  0.053201 ;  0.009354; SELL_BUY TAMM4 - capital = R$55614.95  +15
+2010-03-17 ;  0.027350 ;  0.032829 ; -0.005479; SELL_BUY TAMM4 - capital = R$57018.20  +15
+2010-03-24 ;  0.031310 ;  0.068331 ; -0.037021; SELL_BUY TAMM4 - capital = R$58682.40  +21
+2010-03-31 ; -0.062416 ;  0.053720 ; -0.116136; SELL_BUY TAMM4 - capital = R$54900.86  +15
+2010-04-07 ;  0.024077 ;  0.037256 ; -0.013180; SELL_BUY TAMM4 - capital = R$56106.59  +3
+2010-04-14 ;  0.021958 ;  0.056079 ; -0.034121; BUY_SELL BRFS3 - capital = R$57220.03  +19
+2010-04-21 ; -0.059336 ;  0.057053 ; -0.116389; BUY_SELL GGBR4 - capital = R$53708.78  +9
+2010-04-28 ;  0.037096 ;  0.061048 ; -0.023952; BUY_SELL GGBR4 - capital = R$55586.82  +31
+2010-05-05 ;  0.060225 ;  0.036028 ;  0.024198; BUY_SELL RAPT4 - capital = R$58814.87  +11
+2010-05-12 ;  0.023546 ;  0.061783 ; -0.038236; BUY_SELL CMIG4 - capital = R$60075.35  +17
+2010-05-19 ; -0.028495 ;  0.100366 ; -0.128861; BUY_SELL PLAS3 - capital = R$58239.73  +21
+2010-05-26 ;  0.111704 ;  0.078502 ;  0.033201; BUY_SELL RSID3 - capital = R$64616.83  +31
+2010-06-02 ;  0.027518 ;  0.056132 ; -0.028614; SELL_BUY BRKM5 - capital = R$66258.04  +1
+2010-06-09 ; -0.009027 ;  0.048222 ; -0.057250; BUY_SELL BRFS3 - capital = R$65522.08  +7
+2010-06-16 ; -0.049668 ;  0.066459 ; -0.116127; SELL_BUY CMIG4 - capital = R$62134.19  +13
+2010-06-23 ;  0.021641 ;  0.074094 ; -0.052452; SELL_BUY TAMM4 - capital = R$63347.57  +27
+2010-06-30 ; -0.050188 ;  0.037400 ; -0.087588; SELL_BUY PSSA3 - capital = R$60039.21  +1
+2010-07-07 ;  0.023667 ;  0.084496 ; -0.060829; BUY_SELL PLAS3 - capital = R$61333.19  +35
+2010-07-14 ; -0.017957 ;  0.087472 ; -0.105429; BUY_SELL PLAS3 - capital = R$60104.79  +25
+2010-07-21 ;  0.025523 ;  0.061269 ; -0.035747; BUY_SELL USIM5 - capital = R$61511.62  +19
+2010-07-28 ;  0.032858 ;  0.053753 ; -0.020895; BUY_SELL RSID3 - capital = R$63402.10  +5
+2010-08-04 ;  0.020562 ;  0.035471 ; -0.014909; BUY_SELL EMBR3 - capital = R$64571.90  +13
+2010-08-11 ; -0.002722 ;  0.062657 ; -0.065379; BUY_SELL EMBR3 - capital = R$64261.37  +27
+2010-08-18 ; -0.025238 ;  0.087018 ; -0.112256; SELL_BUY TNLP4 - capital = R$62506.93  +25
+2010-08-25 ; -0.090322 ;  0.026456 ; -0.116778; BUY_SELL GOLL4 - capital = R$56736.44  +13
+2010-09-01 ; -0.027901 ;  0.145821 ; -0.173723; BUY_SELL TAMM4 - capital = R$55036.51  +23
+2010-09-08 ;  0.018048 ;  0.089949 ; -0.071900; BUY_SELL TAMM4 - capital = R$55913.74  +31
+2010-09-15 ;  0.034820 ;  0.055001 ; -0.020181; BUY_SELL CNFB4 - capital = R$57741.77  +11
+2010-09-22 ;  0.039720 ;  0.040979 ; -0.001259; SELL_BUY ELET6 - capital = R$59912.19  +23
+2010-09-29 ;  0.029293 ;  0.078875 ; -0.049582; BUY_SELL GOLL4 - capital = R$61540.15  +35
+2010-10-06 ;  0.032570 ;  0.062736 ; -0.030166; BUY_SELL GOLL4 - capital = R$63413.80  +35
+2010-10-13 ;  0.026058 ;  0.036075 ; -0.010017; BUY_SELL VALE3 - capital = R$64931.97  +7
+2010-10-20 ;  0.028779 ;  0.087530 ; -0.058751; BUY_SELL PSSA3 - capital = R$66662.99  +31
+2010-10-27 ;  0.053541 ;  0.102340 ; -0.048799; BUY_SELL RAPT4 - capital = R$70089.14  +29
+2010-11-03 ; -0.023316 ;  0.080704 ; -0.104019; BUY_SELL RAPT4 - capital = R$68310.16  +31
+2010-11-10 ; -0.036534 ;  0.026507 ; -0.063041; SELL_BUY USIM5 - capital = R$65674.36  +5
+2010-11-17 ; -0.031898 ;  0.032209 ; -0.064107; SELL_BUY ELET3 - capital = R$63444.41  +11
+2010-11-24 ;  0.021021 ;  0.070476 ; -0.049455; SELL_BUY RSID3 - capital = R$64644.08  +27
+2010-12-01 ;  0.026252 ;  0.036511 ; -0.010258; BUY_SELL TBLE3 - capital = R$66204.23  +23
+2010-12-08 ;  0.012212 ;  0.043965 ; -0.031752; BUY_SELL TBLE3 - capital = R$66873.51  +17
+2010-12-15 ;  0.043637 ;  0.063475 ; -0.019837; BUY_SELL KLBN4 - capital = R$69648.85  +7
+2010-12-22 ; -0.005466 ;  0.071241 ; -0.076707; BUY_SELL KLBN4 - capital = R$69122.98  +1
+2010-12-29 ;  0.023380 ;  0.039803 ; -0.016423; SELL_BUY LAME4 - capital = R$70592.92  +5
+2011-01-05 ; -0.049582 ;  0.054989 ; -0.104571; SELL_BUY GOLL4 - capital = R$66948.90  +13
+2011-01-12 ; -0.016993 ;  0.063354 ; -0.080348; SELL_BUY RAPT4 - capital = R$65672.51  +33
+2011-01-19 ; -0.053417 ;  0.040910 ; -0.094327; SELL_BUY TAMM4 - capital = R$62030.89  +25
+2011-01-26 ;  0.012627 ;  0.050386 ; -0.037759; SELL_BUY LREN3 - capital = R$62683.69  +25
+2011-02-02 ;  0.031198 ;  0.068662 ; -0.037464; BUY_SELL EMBR3 - capital = R$64506.24  +15
+2011-02-09 ;  0.025415 ;  0.040750 ; -0.015335; BUY_SELL BRKM5 - capital = R$66009.14  +17
+2011-02-16 ; -0.023027 ;  0.083344 ; -0.106371; SELL_BUY TAMM4 - capital = R$64352.78  +33
+2011-02-23 ;  0.033273 ;  0.045457 ; -0.012184; SELL_BUY RSID3 - capital = R$66357.25  +15
+2011-03-02 ;  0.000100 ;  0.045664 ; -0.045564; SELL_BUY POMO4 - capital = R$66225.19  +15
+2011-03-09 ;  0.032311 ;  0.101298 ; -0.068987; SELL_BUY PLAS3 - capital = R$68224.35  +35
+2011-03-16 ; -0.005666 ;  0.105314 ; -0.110980; SELL_BUY PLAS3 - capital = R$67695.60  +33
+2011-03-23 ;  0.030852 ;  0.043858 ; -0.013006; SELL_BUY PLAS3 - capital = R$69640.48  +15
+2011-03-30 ;  0.032504 ;  0.079478 ; -0.046974; BUY_SELL POMO4 - capital = R$71756.16  +23
+2011-04-06 ;  0.022946 ;  0.043228 ; -0.020282; BUY_SELL RSID3 - capital = R$73250.99  +5
+2011-04-13 ;  0.039453 ;  0.066128 ; -0.026675; BUY_SELL BRTO4 - capital = R$75984.84  +17
+2011-04-20 ;  0.055223 ;  0.087463 ; -0.032240; BUY_SELL BRTO4 - capital = R$80017.76  +25
+2011-04-27 ; -0.068018 ;  0.095357 ; -0.163376; BUY_SELL BRTO4 - capital = R$74413.56  +33
+2011-05-04 ; -0.021020 ;  0.077087 ; -0.098108; BUY_SELL LREN3 - capital = R$72695.50  +29
+2011-05-11 ;  0.059528 ;  0.057601 ;  0.001927; BUY_SELL AMBV4 - capital = R$76866.46  +29
+2011-05-18 ;  0.028952 ;  0.050997 ; -0.022045; SELL_BUY USIM5 - capital = R$78928.93  +5
+2011-05-25 ;  0.052669 ;  0.077800 ; -0.025131; BUY_SELL LAME4 - capital = R$82916.73  +25
+2011-06-01 ;  0.022942 ;  0.050195 ; -0.027253; BUY_SELL BRKM5 - capital = R$84643.72  +7
+2011-06-08 ;  0.021267 ;  0.056984 ; -0.035718; BUY_SELL TNLP4 - capital = R$86265.05  +13
+2011-06-15 ; -0.112139 ;  0.049849 ; -0.161987; BUY_SELL PLAS3 - capital = R$76421.19  +7
+2011-06-22 ;  0.021265 ;  0.078567 ; -0.057302; BUY_SELL PLAS3 - capital = R$77884.87  +25
+2011-06-29 ; -0.027456 ;  0.050153 ; -0.077609; SELL_BUY BRFS3 - capital = R$75585.92  +1
+2011-07-06 ;  0.010988 ;  0.035018 ; -0.024031; SELL_BUY CSNA3 - capital = R$76257.61  -1
+2011-07-13 ; -0.027173 ;  0.026005 ; -0.053177; BUY_SELL LIGT3 - capital = R$74028.25  +13
+2011-07-20 ; -0.031524 ;  0.077204 ; -0.108728; BUY_SELL TAMM4 - capital = R$71542.30  +1
+2011-07-27 ;  0.024610 ;  0.050232 ; -0.025622; SELL_BUY FIBR3 - capital = R$73151.60  +19
+2011-08-03 ;  0.107141 ;  0.048947 ;  0.058194; SELL_BUY GOLL4 - capital = R$80828.05  +17
+SELL_BUY GOLL4, predicted_return = 0.077887, 2011-08-10
+# **** average_target_return:  0.011407, average_wnn_error: -0.052282
+# **** standard_deviation_target_return:  0.039982, standard_deviation_wnn_error:  0.047449
+# **** hr_up: 67.47, hr_dn: 0.00, hr: 67.47
+# **** capital inicial: R$40000.00  capital final: R$80828.05  retorno acumulado: 102.07%
+Initial state = INITIALIZE
+# 2010-01-12 Tue 15:54 - traded stock BRFS3,  current capital: R$41457.19,  week return: +3.64%,  accumulated return: +3.64%
+# 2010-01-14 Thu 14:30 - traded stock PLAS3,  current capital: R$44817.75,  week return: +8.11%,  accumulated return: +12.04%
+# 2010-01-21 Thu 16:48 - traded stock PLAS3,  current capital: R$47252.97,  week return: +5.43%,  accumulated return: +18.13%
+# 2010-02-03 Wed 16:50 - traded stock PLAS3,  current capital: R$46702.93,  week return: -1.16%,  accumulated return: +16.76%
+# 2010-02-10 Wed 16:50 - traded stock BRTO4,  current capital: R$48376.61,  week return: +3.58%,  accumulated return: +20.94%
+# 2010-02-17 Wed 16:50 - traded stock POMO4,  current capital: R$49655.01,  week return: +2.64%,  accumulated return: +24.14%
+# 2010-02-22 Mon 16:04 - traded stock ELET3,  current capital: R$53096.94,  week return: +6.93%,  accumulated return: +32.74%
+# 2010-03-03 Wed 16:50 - traded stock POMO4,  current capital: R$50686.30,  week return: -4.54%,  accumulated return: +26.72%
+# 2010-03-08 Mon 10:01 - traded stock TAMM4,  current capital: R$54481.06,  week return: +7.49%,  accumulated return: +36.20%
+# 2010-03-15 Mon 12:23 - traded stock TAMM4,  current capital: R$56715.35,  week return: +4.10%,  accumulated return: +41.79%
+# 2010-03-22 Mon 15:38 - traded stock TAMM4,  current capital: R$58821.39,  week return: +3.71%,  accumulated return: +47.05%
+# 2010-03-31 Wed 16:50 - traded stock TAMM4,  current capital: R$52447.55,  week return: -10.84%,  accumulated return: +31.12%
+# 2010-04-07 Wed 16:50 - traded stock TAMM4,  current capital: R$48361.01,  week return: -7.79%,  accumulated return: +20.90%
+# 2010-04-14 Wed 16:50 - traded stock BRFS3,  current capital: R$49119.88,  week return: +1.57%,  accumulated return: +22.80%
+# 2010-04-21 Wed 16:59 - traded stock GGBR4,  current capital: R$44830.80,  week return: -8.73%,  accumulated return: +12.08%
+# 2010-04-23 Fri 15:20 - traded stock GGBR4,  current capital: R$47258.87,  week return: +5.42%,  accumulated return: +18.15%
+# 2010-05-05 Wed 11:05 - traded stock RAPT4,  current capital: R$49208.36,  week return: +4.13%,  accumulated return: +23.02%
+# 2010-05-11 Tue 11:49 - traded stock CMIG4,  current capital: R$51689.98,  week return: +5.04%,  accumulated return: +29.22%
+# 2010-05-19 Wed 16:50 - traded stock PLAS3,  current capital: R$49112.95,  week return: -4.99%,  accumulated return: +22.78%
+# 2010-05-21 Fri 10:07 - traded stock RSID3,  current capital: R$55216.17,  week return: +12.43%,  accumulated return: +38.04%
+# 2010-06-02 Wed 16:50 - traded stock BRKM5,  current capital: R$52599.21,  week return: -4.74%,  accumulated return: +31.50%
+# 2010-06-07 Mon 12:07 - traded stock BRFS3,  current capital: R$54942.61,  week return: +4.46%,  accumulated return: +37.36%
+# 2010-06-16 Wed 16:50 - traded stock CMIG4,  current capital: R$51247.71,  week return: -6.73%,  accumulated return: +28.12%
+# 2010-06-23 Wed 16:50 - traded stock TAMM4,  current capital: R$47141.81,  week return: -8.01%,  accumulated return: +17.85%
+# 2010-06-30 Wed 16:50 - traded stock PSSA3,  current capital: R$44038.92,  week return: -6.58%,  accumulated return: +10.10%
+# 2010-07-07 Wed 16:50 - traded stock PLAS3,  current capital: R$42014.35,  week return: -4.60%,  accumulated return: +5.04%
+# 2010-07-14 Wed 16:50 - traded stock PLAS3,  current capital: R$40427.90,  week return: -3.78%,  accumulated return: +1.07%
+# 2010-07-21 Wed 16:50 - traded stock USIM5,  current capital: R$43560.83,  week return: +7.75%,  accumulated return: +8.90%
+# 2010-07-26 Mon 15:26 - traded stock RSID3,  current capital: R$45148.54,  week return: +3.64%,  accumulated return: +12.87%
+# 2010-07-30 Fri 14:28 - traded stock EMBR3,  current capital: R$47236.06,  week return: +4.62%,  accumulated return: +18.09%
+# 2010-08-11 Wed 16:50 - traded stock EMBR3,  current capital: R$47715.88,  week return: +1.02%,  accumulated return: +19.29%
+# 2010-08-18 Wed 16:50 - traded stock TNLP4,  current capital: R$45266.49,  week return: -5.13%,  accumulated return: +13.17%
+# 2010-08-25 Wed 16:50 - traded stock GOLL4,  current capital: R$40823.67,  week return: -9.81%,  accumulated return: +2.06%
+# 2010-09-01 Wed 16:50 - traded stock TAMM4,  current capital: R$39651.25,  week return: -2.87%,  accumulated return: -0.87%
+# 2010-09-08 Wed 14:42 - traded stock TAMM4,  current capital: R$41303.60,  week return: +4.17%,  accumulated return: +3.26%
+# 2010-09-15 Wed 16:50 - traded stock CNFB4,  current capital: R$42110.74,  week return: +1.95%,  accumulated return: +5.28%
+# 2010-09-20 Mon 16:18 - traded stock ELET6,  current capital: R$45083.16,  week return: +7.06%,  accumulated return: +12.71%
+# 2010-09-27 Mon 12:45 - traded stock GOLL4,  current capital: R$46983.06,  week return: +4.21%,  accumulated return: +17.46%
+# 2010-10-04 Mon 16:04 - traded stock GOLL4,  current capital: R$48897.31,  week return: +4.07%,  accumulated return: +22.24%
+# 2010-10-07 Thu 14:40 - traded stock VALE3,  current capital: R$51109.41,  week return: +4.52%,  accumulated return: +27.77%
+# 2010-10-20 Wed 16:50 - traded stock PSSA3,  current capital: R$52239.89,  week return: +2.21%,  accumulated return: +30.60%
+# 2010-10-22 Fri 12:20 - traded stock RAPT4,  current capital: R$55157.90,  week return: +5.59%,  accumulated return: +37.89%
+# 2010-11-03 Wed 16:50 - traded stock RAPT4,  current capital: R$53031.53,  week return: -3.86%,  accumulated return: +32.58%
+# 2010-11-10 Wed 16:50 - traded stock USIM5,  current capital: R$50285.82,  week return: -5.18%,  accumulated return: +25.71%
+# 2010-11-17 Wed 16:50 - traded stock ELET3,  current capital: R$46541.00,  week return: -7.45%,  accumulated return: +16.35%
+# 2010-11-22 Mon 13:48 - traded stock RSID3,  current capital: R$49557.85,  week return: +6.48%,  accumulated return: +23.89%
+# 2010-11-26 Fri 13:41 - traded stock TBLE3,  current capital: R$52340.43,  week return: +5.61%,  accumulated return: +30.85%
+# 2010-12-08 Wed 16:50 - traded stock TBLE3,  current capital: R$53386.88,  week return: +2.00%,  accumulated return: +33.47%
+# 2010-12-15 Wed 16:50 - traded stock KLBN4,  current capital: R$55887.71,  week return: +4.68%,  accumulated return: +39.72%
+# 2010-12-22 Wed 16:50 - traded stock KLBN4,  current capital: R$56114.66,  week return: +0.41%,  accumulated return: +40.29%
+# 2010-12-27 Mon 13:50 - traded stock LAME4,  current capital: R$58716.23,  week return: +4.64%,  accumulated return: +46.79%
+# 2011-01-05 Wed 16:50 - traded stock GOLL4,  current capital: R$55669.73,  week return: -5.19%,  accumulated return: +39.17%
+# 2011-01-12 Wed 16:50 - traded stock RAPT4,  current capital: R$53723.81,  week return: -3.50%,  accumulated return: +34.31%
+# 2011-01-19 Wed 16:50 - traded stock TAMM4,  current capital: R$49486.76,  week return: -7.89%,  accumulated return: +23.72%
+# 2011-01-26 Wed 16:50 - traded stock LREN3,  current capital: R$50523.98,  week return: +2.10%,  accumulated return: +26.31%
+# 2011-01-28 Fri 12:29 - traded stock EMBR3,  current capital: R$52489.82,  week return: +3.89%,  accumulated return: +31.22%
+# 2011-02-09 Wed 16:50 - traded stock BRKM5,  current capital: R$53860.23,  week return: +2.61%,  accumulated return: +34.65%
+# 2011-02-16 Wed 16:50 - traded stock TAMM4,  current capital: R$50627.30,  week return: -6.00%,  accumulated return: +26.57%
+# 2011-02-22 Tue 16:01 - traded stock RSID3,  current capital: R$52601.17,  week return: +3.90%,  accumulated return: +31.50%
+# 2011-03-02 Wed 16:50 - traded stock POMO4,  current capital: R$51057.88,  week return: -2.93%,  accumulated return: +27.64%
+# 2011-03-09 Wed 16:50 - traded stock PLAS3,  current capital: R$50645.57,  week return: -0.81%,  accumulated return: +26.61%
+# 2011-03-11 Fri 13:10 - traded stock PLAS3,  current capital: R$52683.27,  week return: +4.02%,  accumulated return: +31.71%
+# 2011-03-17 Thu 15:20 - traded stock PLAS3,  current capital: R$54823.37,  week return: +4.06%,  accumulated return: +37.06%
+# 2011-03-28 Mon 16:54 - traded stock POMO4,  current capital: R$56842.15,  week return: +3.68%,  accumulated return: +42.11%
+# 2011-04-01 Fri 16:40 - traded stock RSID3,  current capital: R$59137.35,  week return: +4.04%,  accumulated return: +47.84%
+# 2011-04-11 Mon 14:12 - traded stock BRTO4,  current capital: R$62242.06,  week return: +5.25%,  accumulated return: +55.61%
+# 2011-04-14 Thu 16:04 - traded stock BRTO4,  current capital: R$65657.56,  week return: +5.49%,  accumulated return: +64.14%
+# 2011-05-04 Wed 16:50 - traded stock LREN3,  current capital: R$62834.67,  week return: -4.30%,  accumulated return: +57.09%
+# 2011-05-05 Thu 14:22 - traded stock AMBV4,  current capital: R$66424.94,  week return: +5.71%,  accumulated return: +66.06%
+# 2011-05-18 Wed 16:50 - traded stock USIM5,  current capital: R$66486.46,  week return: +0.09%,  accumulated return: +66.22%
+# 2011-05-25 Wed 12:40 - traded stock LAME4,  current capital: R$72113.54,  week return: +8.46%,  accumulated return: +80.28%
+# 2011-06-01 Wed 11:08 - traded stock BRKM5,  current capital: R$78779.88,  week return: +9.24%,  accumulated return: +96.95%
+# 2011-06-08 Wed 16:50 - traded stock TNLP4,  current capital: R$77342.09,  week return: -1.83%,  accumulated return: +93.36%
+# 2011-06-10 Fri 16:43 - traded stock PLAS3,  current capital: R$65456.05,  week return: -15.37%,  accumulated return: +63.64%
+# 2011-06-22 Wed 16:50 - traded stock PLAS3,  current capital: R$65392.98,  week return: -0.10%,  accumulated return: +63.48%
+# 2011-06-29 Wed 16:50 - traded stock BRFS3,  current capital: R$64512.30,  week return: -1.35%,  accumulated return: +61.28%
+# 2011-07-06 Wed 16:50 - traded stock CSNA3,  current capital: R$65337.61,  week return: +1.28%,  accumulated return: +63.34%
+# 2011-07-13 Wed 16:50 - traded stock LIGT3,  current capital: R$65363.53,  week return: +0.04%,  accumulated return: +63.41%
+# 2011-07-20 Wed 16:50 - traded stock TAMM4,  current capital: R$62481.45,  week return: -4.41%,  accumulated return: +56.20%
+# 2011-07-25 Mon 12:38 - traded stock FIBR3,  current capital: R$64717.53,  week return: +3.58%,  accumulated return: +61.79%
+# 2011-08-01 Mon 12:43 - traded stock GOLL4,  current capital: R$87481.06,  week return: +35.17%,  accumulated return: +118.70%
+### 2011-08-10 Wed 16:59 - QUIT: Final Capital		R$87481.06	 accumulated return: 118.70%

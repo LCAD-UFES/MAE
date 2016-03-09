@@ -1,0 +1,50 @@
+################################################ Set Global Variables #################################################
+set NEURON_MEMORY_SIZE = 1000;
+set TYPE_SHOW = SHOW_FRAME;
+set TYPE_MOVING_FRAME = STOP;
+
+######################################################## Constants ####################################################
+const IMAGE_SCALE	= 4;
+const IMAGE_WIDTH	= 691;
+const IMAGE_HEIGHT	= 219;
+
+const INPUT_WIDTH 	= IMAGE_WIDTH;
+const INPUT_HEIGHT	= IMAGE_HEIGHT;
+
+const NL_WIDTH		= INPUT_WIDTH/IMAGE_SCALE;
+const NL_HEIGHT		= INPUT_HEIGHT/IMAGE_SCALE;
+
+const OUT_WIDTH		= INPUT_WIDTH/IMAGE_SCALE;
+const OUT_HEIGHT	= INPUT_HEIGHT/IMAGE_SCALE;
+
+const SYNAPSES		= 256;
+const GAUSSIAN_RADIUS = 8.0; # Gaussian synaptic pattern radius
+
+const DATA_PATH	= "/media/storage/mogai/amt-imagens/TEXT_DETECT";
+
+############################################### Neuron Layers #########################################################
+neuronlayer	nl_text_detect[NL_WIDTH][NL_HEIGHT]	of minchinton neurons color sensitive with color outputs;
+#neuronlayer	nl_text_detect_gauss[INPUT_WIDTH][INPUT_HEIGHT]	with color outputs;
+
+############################################### Outputs #########################################################
+output		out_text_detect[OUT_WIDTH][OUT_HEIGHT] 	handled by output_handler();
+
+################################################## Inputs #############################################################
+input 		in_text_detect[INPUT_WIDTH][INPUT_HEIGHT]	with color outputs produced by input_generator() controled by input_controler();
+
+############################################### Filters #########################################################
+#filter		in_text_detect 	with gaussian_filter ("%d %f", 5, 1.0) producing nl_text_detect_gauss;
+
+################################## Connect Neuron Layers to Outputs #############################################
+outputconnect	nl_text_detect 	to out_text_detect;
+
+############################################### Associations ####################################################
+associate nl_text_detect with nl_text_detect;
+
+################################################ Connections ####################################################
+connect 	in_text_detect  to nl_text_detect with SYNAPSES random inputs per neuron and gaussian distribution with radius GAUSSIAN_RADIUS;
+#connect 	nl_text_detect_gauss  to nl_text_detect with SYNAPSES random inputs per neuron and gaussian distribution with radius GAUSSIAN_RADIUS;
+
+################################################ User Functions #################################################
+int read_input("%d");
+int read_output("%d");

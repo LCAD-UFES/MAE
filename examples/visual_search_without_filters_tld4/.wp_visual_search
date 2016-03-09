@@ -1,0 +1,11 @@
+in_pattern 81 398
+nl_v1_activation_map_neuron_weight_filtered_out 666 273
+nl_v1_activation_map_neuron_weight_filtered_threshold_out 667 79
+nl_v1_pattern_out 417 642
+table_v1_out 658 846
+out_v1_activation_map 663 659
+out_nl_v1_activation_map_neuron_weight 667 464
+out_target_coordinates 935 267
+out_in_pattern_filtered_translated 414 399
+out_table 116 668
+mae_control_window 77 68

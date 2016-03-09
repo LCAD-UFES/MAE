@@ -1,0 +1,959 @@
+AMBEV - PN [VIS]
+MyCap
+Alerta
+
+______________________________________________________________________________________________________________
+Conta Depósito
+Conta Investimento
+
+00h01 para o fechamento    |   Relogio 59:56
+Sair
+ 
+
+    * Homebroker
+    * FlexScan
+
+Poder de Compra Configurações Atendimento
+
+Vencimentos:
+
+    *
+
+	
+
+Ativo Base
+	
+
+Último
+	
+
+Série
+	
+
+Exercício
+	
+
+Custo
+	
+
+Taxa (ao ano)
+	
+
+Taxa (%CDI)
+	
+
+-->
+
+    * Suas Ordens
+    * Carteira
+    * Financeiro
+
+	
+
+C/V
+	
+
+Data
+	
+
+Série
+	
+
+Ativo Base
+	
+
+Qtd.
+	
+
+P. Estimado
+	
+
+P. Exec.
+	
+
+Resul. Estimado
+	
+
+Status
+	
+
+Procurando financiamentos...
+	
+
+Tipo Operação
+	
+
+Qtd. Total
+	
+
+Qtd. Neg.
+	
+
+Qtd. Aberta
+	
+
+Qtd. Final
+	
+
+Pr. Médio
+	
+
+Pr. Médio Finan.
+	
+
+Procurando financiamentos em carteira...
+SALDOS E LIQUIDAÇÕES 	ORDENS DIA 	LIMITE 	
+Saldo em Conta 	2.997,51 	Compras em Aberto 	0,00 	Ações - Disponível 	2.997,51 	
+Para D1 	Para D1 - 05/11/2010 	0,00 	Vendas em Aberto 	0,00 	Ações - 1ª Linha 	2.997,51 	
+Para D2 	Para D2 - 08/11/2010 	0,00 	Saldo em Aberto 	0,00 	Ações - 2ª Linha 	2.997,51 	
+Para D3 	Para D3 - 09/11/2010 	0,00 	Compras Executadas 	0,00 	Opções - Disponível 	2.997,51 	
+Saldo Indisponível 	0,00 	Vendas Executadas 	0,00 			
+Saldo Final 	2.997,51 	Saldo Líquido 	0,00 			
+						
+FINANCIAMENTOS
+
+Consiste na compra do ativo objeto e venda de opção call na mesma quantidade do ativo. O investidor busca uma remuneração programada (ou fixa) sobre o capital investido.
+
+Volatilidade
+
+Contra
+
+A Favor
+
+Tempo
+
+Contra
+
+A Favor
+
+Compra
+C/V 	Ativo 	Preço Est
+C 	VALE5 	R$ 30,00
+V 	VALEH22 	R$ 2,00
+Quantidade
+Ass. Eletrônica
+Salvar Enviar
+
+Quantidade
+
+A reversão de seu financiamento será enviada à Mesa de Operações.
+Ass. Eletrônica
+Salvar Enviar
+
+Mesa de Operações
+
+Quer financiar uma ação ou um prazo diferente?
+Financeiro Disponível
+Fechar
+Ações: 2.997,51 2.997,51 Opções:
+Crédito Ações
+Ações 1ª Linha: 2.997,51 2.997,51 Ações 2ª Linha:
+Configurações
+Fechar
+
+Cores
+
+Layout
+
+Boletas
+Flutuantes
+Fixas
+Configurar
+Atendimento
+Fechar
+
+Fale conosco - Chat Chat
+
+Esclareça aqui todas as suas dúvidas.
+
+Fale conosco - ChatSkype
+
+Fale agora pelo nosso canal
+de voz:
+mycapbrasil
+
+Fale conosco - Chat Telefone
+
+Rio|São Paulo
+2114 0500
+
+Demais Localidades
+0800 725 0500
+
+SAC
+0800 724 1579
+
+Ouvidoria
+0800 724 1479
+Fechar
+Entre com o nome da nova lista: OK
+Fechar
+Atualize o nome da lista: OK
+Fechar
+Poder de Compra
+|
+R$ 00,00
+   
+
+    * COMPRA VENDA
+    * Poder de Compra
+    *
+
+Ativo: Qtde.
+Preço Total
+Preço Disparo Limite Total
+Stop Gain Stop Loss
+Preço Limite
+Preço Stop
+Preço Stop Preço Limite
+Ajuste Inicial
+Baixa Alta Zero
+
+Assinatura Eletrônica: salvar Enviar Ordem
+
+    * Default
+
+ATIVOS 												
+IBOV	72.995,69	+1,52	0	0,00	0,00	0	71.909,64	73.103,28	5B	327.277	18:19:02
+DOLCM	1,68	-1,35	0	1,68	1,68	0	1,68	1,69	0	0	17:00:00
+AMBV4	235,65	+1,82	300	234,51	235,69	1.000	232,80	238,15	77M	1.692	18:33:17
+BBAS3	34,98	+2,55	500	35,01	34,85	500	34,25	34,98	172M	10.598	18:35:40
+BBDC4	36,85	+1,04	4.200	36,85	36,84	4.000	36,47	37,00	195M	10.321	18:34:39
+BRAP4	46,23	+3,61	200	45,82	46,16	100	44,95	46,49	45M	4.170	18:32:31
+BRFS3	24,90	+0,61	100	24,71	24,42	100	24,59	25,25	75M	4.448	18:36:40
+BTOW3	31,36	+1,16	300	31,25	31,34	600	30,51	31,42	16M	1.438	18:36:54
+BVMF3	14,50	+0,42	600	14,50	14,40	1.300	14,44	14,75	135M	7.826	18:37:01
+CCRO3	46,20	-0,54	300	46,03	46,19	300	45,74	46,70	34M	2.516	18:36:48
+CESP6	27,79	-1,80	200	27,85	27,81	500	27,79	28,66	13M	1.397	18:37:11
+CMIG4	30,10	+1,28	1.500	29,94	30,29	900	29,80	30,48	36M	3.544	18:30:08
+CPLE6	41,28	+3,20	500	41,12	41,30	1.500	40,50	41,30	33M	2.076	18:37:18
+CSAN3	28,85	+1,94	600	28,80	28,85	16.200	28,60	29,20	49M	2.348	18:31:24
+CSNA3	29,90	+3,10	500	29,85	29,60	100	29,40	30,10	127M	7.530	18:30:00
+CYRE3	22,70	+4,80	300	22,70	22,67	800	21,84	22,75	99M	10.805	18:36:50
+ECOD3	1,08	+0,00	27.400	1,09	1,08	20.000	1,08	1,10	13M	3.916	18:32:28
+ELET3	24,09	+1,18	100	24,06	24,09	600	23,74	24,25	27M	2.506	18:35:11
+ELET6	28,50	+1,42	400	28,50	28,49	1.000	28,06	28,66	19M	2.118	18:34:07
+ELPL6	30,49	+1,63	1.200	30,55	30,49	200	29,94	30,63	27M	3.789	18:30:34
+EMBR3	12,77	+1,19	1.300	12,77	12,81	200	12,65	12,96	21M	1.632	18:33:48
+FIBR3	31,75	+0,28	600	31,75	31,70	300	31,74	32,64	65M	2.919	18:34:07
+GFSA3	14,65	+2,81	300	14,61	14,64	400	14,27	14,65	55M	5.203	18:30:01
+GGBR4	22,82	+1,97	1.700	22,90	22,80	2.000	22,47	22,97	183M	10.000	18:36:49
+GOAU4	27,18	+1,46	1.500	27,18	27,17	500	26,80	27,29	37M	2.354	18:34:07
+GOLL4	30,35	-0,16	100	30,29	30,30	200	30,30	30,80	13M	1.492	18:31:31
+ITSA4	13,96	+2,50	2.500	14,00	13,96	6.400	13,62	13,96	114M	10.151	18:32:31
+ITUB4	43,27	+2,66	600	43,27	43,10	400	42,31	43,27	369M	10.999	18:35:47
+JBSS3	6,46	+0,00	200	6,55	6,46	16.400	6,42	6,54	29M	4.517	18:36:01
+LAME4	18,79	-1,16	1.900	18,78	18,79	3.500	18,51	19,25	88M	6.077	18:37:02
+LLXL3	9,50	-0,73	2.200	9,53	9,50	1.800	9,49	9,65	25M	1.787	18:35:05
+LREN3	65,00	-1,05	900	65,02	65,37	1.000	65,00	66,65	70M	3.773	18:36:24
+MMXM3	13,51	-2,53	3.000	13,56	13,50	800	13,36	14,00	48M	4.319	18:36:16
+MRVE3	17,10	+1,12	14.600	17,10	17,10	35.300	17,00	17,29	47M	5.309	18:36:19
+NATU3	49,20	+1,55	100	49,00	49,19	400	48,45	49,22	39M	2.826	18:32:13
+NETC4	22,84	-0,17	30.900	22,84	22,89	900	22,80	22,90	27M	67	17:59:34
+OGXP3	23,20	+1,53	200	23,20	23,19	800	22,97	23,23	296M	7.361	18:36:52
+PCAR5	67,50	+2,12	100	67,50	67,30	100	65,94	67,69	61M	3.152	18:31:11
+PDGR3	22,42	+0,99	700	22,42	22,42	4.900	22,28	22,59	59M	4.653	18:34:58
+PETR3	30,20	+3,07	2.300	30,20	30,15	100	29,50	30,24	201M	9.717	18:34:07
+PETR4	27,50	+1,85	100	27,52	27,20	200	27,21	27,64	890M	34.739	18:36:19
+RDCD3	22,12	+1,70	600	22,19	22,12	500	21,90	22,39	78M	6.834	18:30:48
+RSID3	17,20	-0,23	3.400	17,20	17,24	3.000	17,04	17,46	50M	8.667	18:35:22
+TAMM4	41,74	-0,43	700	41,74	41,80	200	41,60	42,33	18M	951	18:05:02
+TCSL4	5,87	+2,26	2.000	5,87	5,86	500	5,68	5,87	24M	4.136	18:34:07
+TNLP4	25,80	-0,62	100	25,80	25,81	1.100	25,50	26,17	29M	2.197	18:37:05
+USIM3	25,70	+3,63	500	25,45	25,45	100	24,27	25,70	14M	1.048	18:34:34
+USIM5	22,33	+4,05	400	22,35	22,30	2.400	21,62	22,35	155M	8.287	18:36:15
+VALE3	55,59	+2,56	1.200	55,61	55,60	700	54,48	55,88	183M	7.924	18:31:47
+VALE5	49,35	+2,30	1.600	49,40	49,34	400	48,51	49,68	925M	25.396	18:35:15
+VIVO4	50,00	+0,20	20.000	50,00	50,00	400	48,89	50,34	26M	1.183	18:35:39
+
+    * Suas Ordens
+    * Carteira
+    * Financeiro
+
+    * Radar
+    * Notícias
+    * Fórum
+
+	
+
+Seq
+	
+
+Ação
+	
+
+C/V
+	
+
+Tipo
+	
+
+Status
+	
+
+Qtde
+	
+
+Preço
+	
+
+R$ Total
+	
+
+Abertura
+	
+
+Validade
+	
+
+QtdeExec
+	
+
+Seq
+	
+
+Ação
+	
+
+C/V
+	
+
+Tipo
+	
+
+Status
+	
+
+Qtde
+	
+
+Preço
+	
+
+R$ Total
+	
+
+Abertura
+	
+
+Validade
+	
+
+QtdeExec
+Nenhuma ordem encontrada.
+Mês: Status: Consultar X Cancelar Ordem
+
+Ação
+	
+
+Cotação
+	
+
+Qtde. Livre
+	
+
+Lanc.Previsto
+	
+
+Compra Exec.
+	
+
+Venda Exec.
+	
+
+Qtde. Total
+	
+
+Saldo
+
+Ação
+	
+
+Cotação
+	
+
+Qtde.Livre
+	
+
+Lanc.Previsto
+	
+
+Compra Exec.
+	
+
+Venda Exec.
+	
+
+Qtde. Total
+	
+
+Saldo
+
+SALDOS E LIQUIDAÇÕES
+	
+
+ORDENS DIA
+	
+
+LIMITE
+	
+Saldo em Conta 	2.997,51 	Compras em Aberto 	0,00 	Ações - Disponível 	2.997,51 	
+Para D1 	Para D1 - 05/11/2010 	0,00 	Vendas em Aberto 	0,00 	Ações - 1ª Linha 	2.997,51 	
+Para D2 	Para D2 - 08/11/2010 	0,00 	Saldo em Aberto 	0,00 	Ações - 2ª Linha 	2.997,51 	
+Para D3 	Para D3 - 09/11/2010 	0,00 	Compras Executadas 	0,00 	Opções - Disponível 	2.997,51 	
+Saldo Indisponível 	0,00 	Vendas Executadas 	0,00 			
+Saldo Final 	2.997,51 	Saldo Líquido 	0,00 			
+						
+Ativo: Mínima: Máxima: E-mail: Adicionar
+
+Data
+	
+
+Hora
+	
+
+Agência
+	
+
+Título
+Carregando notícias.
+
+Postar Mensagens
+(0) Caixa de Entrada Preferências
+
+Página de 21
+
+Mercados
+
+Postado por: Raphael Figueredo - Analista
+
+    * 4/11/2010
+    * |
+    * 17h27
+
+DJIA +1,83% 11420,73
+SP500 +1,72% 1218,57
+NASDAQ +1,35% 2574,54
+
+Comentar
+
+MMXM3
+
+Postado por: flávia
+
+    * 4/11/2010
+    * |
+    * 17h20
+
+Quem trava tanto MMXM3, Raphael ? Vai ser só eu vender que ela vai explodir de subir!!!!
+
+Comentar
+
+(1) Comentários
+MMXM3
+
+Postado por: Raphael Figueredo - Analista
+
+    * 4/11/2010 - 17:26
+
+nao sei quem trava o papel.. por mais que esteja de lado ha 13 dias a tendencia continua sendo de alta.. esta testando a paciencia de cada um.
+TCSL4
+
+Postado por: cmb
+
+    * 4/11/2010
+    * |
+    * 17h20
+
+Poderia comentar?
+
+Comentar
+
+(1) Comentários
+TCSL4
+
+Postado por: Raphael Figueredo - Analista
+
+    * 4/11/2010 - 17:26
+
+TCSL4 - Ainda está sob atenção por conta do shooting star deixado no gráfico diário. O papel vem para buscar a resistência deixada nos 5,87, se romper anula o padrao de topo e abre caminho para buscar os 6,00, quiçá os 6,25 inicialmente. Volta ceder, confirmado o padrao de topo a paartir da perda dos 5,72 (stop)
+Esclarecimentos:
+
+Postado por: LLXL3
+
+    * 4/11/2010
+    * |
+    * 17h14
+
+Caro Rafael,
+
+Boa Tarde.
+
+Rafael ou Rafhael?
+Veja, é possível a venda a descoberto já no horário do leilão de abertura? Outro: anteriormente, o horário final para recompra quando da venda a descoberto era 16h30min, e agora, passou a ser 17h30min?
+
+Atenciosamente,
+
+Flávio
+
+Comentar
+
+(4) Comentários
+Esclarecimentos:
+
+Postado por: Raphael Figueredo - Analista
+
+    * 4/11/2010 - 17:14
+
+sim é possível, basta colocar a ordem no leilao de abertura.
+
+sim.. agora o horario final é 17:30 ok?
+Esclarecimentos:
+
+Postado por: LLXL3 - Usuário Comum
+
+    * 4/11/2010 - 17:16
+
+Obrigado, Nobre Colega.
+
+Seu nome correto é Rafael ou Rafhael?
+
+Esclarecimentos:
+
+Postado por: Raphael Figueredo - Analista
+
+    * 4/11/2010 - 17:19
+
+nenhum dos dois.. meu nome correto está escrito aqui no fórum amigo..
+
+RAPHAEL
+Esclarecimentos:
+
+Postado por: LLXL3 - Usuário Comum
+
+    * 4/11/2010 - 17:20
+
+hhhhhhhuuummmmmmm
+
+Minhas desculpas.... não tinha prestado atenção... nessa escrita diferenciada....
+petr4
+
+Postado por: SLP
+
+    * 4/11/2010
+    * |
+    * 17h14
+
+mas e esta a figura
+
+Comentar
+
+(1) Comentários
+petr4
+
+Postado por: Raphael Figueredo - Analista
+
+    * 4/11/2010 - 17:15
+
+Isso é um doji ou um spinning top.. harami é um padrao de 2 candles, nao de apenas 1 candle.
+petr4
+
+Postado por: SLP
+
+    * 4/11/2010
+    * |
+    * 17h12
+
+desculpe a pergunta mas se fechar assim ta proximo de um aramii de alta
+
+Comentar
+
+(1) Comentários
+petr4
+
+Postado por: Raphael Figueredo - Analista
+
+    * 4/11/2010 - 17:13
+
+nao amigo... nao ha como formar um harami, desta forma.
+GFSA3
+
+Postado por: AGR
+
+    * 4/11/2010
+    * |
+    * 17h09
+
+Caro Raphael,
+favor comentar GFSA3. Obrigado
+
+Comentar
+
+(1) Comentários
+GFSA3
+
+Postado por: Raphael Figueredo - Analista
+
+    * 4/11/2010 - 17:13
+
+GFSA3 - O papel sentiu, na última sessão, a forte resistência e divisor nos 14,37/45, que precisa ser rompida para ganhara força na compra buscando os 14,80, região onde libera. Estando comprado convém manter um stop pouco abaixo dos 13,75. Vai apontando um viés mais positivo, mas é imprescindível o rompimento desta resistência imediata.
+FIBR3
+
+Postado por: guicaldas
+
+    * 4/11/2010
+    * |
+    * 16h47
+
+boa tarde mestre
+
+fenchando assim o candles que esta deixando pode siguinificar um possivel topo? poderia comentar?
+
+Comentar
+
+(3) Comentários
+FIBR3
+
+Postado por: Raphael Figueredo - Analista
+
+    * 4/11/2010 - 16:50
+
+fechando do jeito que está forma um shooting star, se houver confirmacao deixará um topo no gráfico diário para começar uma realizacao.
+FIBR3
+
+Postado por: guicaldas - Usuário Comum
+
+    * 4/11/2010 - 17:11
+
+sugestão
+
+diante da recente alta, valeria a pena vender alguns lotes e esperar uma realização?
+FIBR3
+
+Postado por: Raphael Figueredo - Analista
+
+    * 4/11/2010 - 17:12
+
+vale manter uma estratégia para sua operacao vender, qual o motivo, pq, onde esta o stop e target?
+BRAP4
+
+Postado por: mel
+
+    * 4/11/2010
+    * |
+    * 17h04
+
+Raphael por favor comente o papel.
+
+Comentar
+
+(1) Comentários
+BRAP4
+
+Postado por: Raphael Figueredo - Analista
+
+    * 4/11/2010 - 17:12
+
+BRAP4 - O papel segue firme na sua tendência de alta e tem espaço livre para buscar os próximos objetivos em 47,23, quiçá os 49,72/50,57, onde conclui seu objetivo de alta de curto prazo. Estando comprado convém manter um stop pouco abaixo dos 44,25
+VALE5
+
+Postado por: ferreira
+
+    * 4/11/2010
+    * |
+    * 16h46
+
+Raphael, poderia falar um pouco da Vale5.
+Grato.
+
+Comentar
+
+(3) Comentários
+VALE5
+
+Postado por: Raphael Figueredo - Analista
+
+    * 4/11/2010 - 16:49
+
+VALE5 - O papel confirmou o suporte nos 47,60 (intraday) e segue na tentativa de romper a resistência nos 48,50, cuja ultrapassagem abre espaço para buscar a forte resistência nos 49,70/49,95, que se rompida abre para os 50,91, sendo este último o TH do papel. Estando comprado convém manter um stop pouco abaixo dos 47,30. Papel mantém a boa configuracaom, mas ainda devendo o rompimento dos 49,95 para liberar
+VALE5
+
+Postado por: kafran - Usuário Comum
+
+    * 4/11/2010 - 17:05
+
+Raphael,
+
+com aquelas realizadinhas que o papel deu a alguns dias atrás foi o suficiente para tomar folego para novas arrancadas? Muita gente dizia que o papel estava sobrecomprado.
+VALE5
+
+Postado por: Raphael Figueredo - Analista
+
+    * 4/11/2010 - 17:06
+
+foi importante para aliviar um pouco os indicadores, assim o papel ganha novo potencial na alta, principalmente se romepr os 49,95
+
+Página de 21
+
+As mensagens publicadas no FÓRUM estão sujeitas a monitoramento pela ICAP, podendo, inclusive, serem excluídas do site. Os conteúdos das mensagens serão guardados pelo período de 05 (cinco) anos e estarão à disposição da CVM e demais órgãos reguladores. Algumas das mensagens veiculadas nesta página são elaboradas por analista(s) de investimento, apenas com o objetivo de prover informações, sendo que a ICAP não se responsabiliza por qualquer decisão de investimento baseada nas informações divulgadas. As opiniões contidas em tais mensagens são baseadas em julgamento e estimativas estando, portanto, sujeitas a mudanças. O analista de investimento que veicula tais mensagens certifica: (a) que as opiniões nelas contidas refletem exclusivamente suas opiniões pessoais sobre a companhia e seus valores mobiliários e foram elaboradas de forma independente e autônoma, inclusive em relação à ICAP. (b) que não mantém vínculo com qualquer pessoa natural que atue no âmbito das companhias cujos valores mobiliários foram alvo de análise; (c) não é titular, direta ou indiretamente, de valores mobiliários de emissão da companhia objeto da análise, que representem 5% ou mais de seu patrimônio pessoal, bem como não está envolvido na aquisição, alienação e intermediação destes valores mobiliários; (d) que não recebe remuneração ou apresenta relações comerciais com qualquer das companhias cujos valores mobiliários são alvo de análise; (e) que a remuneração que recebe não está atrelada à precificação dos valores mobiliários emitidos por companhias analisadas ou às receitas provenientes dos negócios e operações financeiras realizadas pela ICAP. A ICAP não possui participação acionária direta ou indireta, igual ou superior a 1% do capital social de quaisquer das companhias cujos valores mobiliários são alvo da análise. A ICAP participou na qualidade de instituição intermediária, das ofertas públicas de ações nos últimos doze meses das seguintes companhias: BR Malls, Brasil Foods, Natura, Multiplan, Rossi, PDG Realty, Santander, Gol, Brookfield, Iguatemi, CCR, Cetip, Cyrela, Marfrig, Multiplus, Inpar,Aliansce,Fleury, Anhanguera, BNDES, Energias do Brasil, Direcional Engenharia, Tivit, Renova Energia S.A., OSX Brasil S.A., BR Properties S.A., Gafisa S.A., Ecorodovias S.A., Hypermarcas S.A., Mills S.A., FII Presidente Vargas, Julio Simões S.A., Even Construtora e Incorporadora S.A., JBS S.A., Banco Cruzeiro do Sul S.A. e Banco do Brasil S.A.. A ICAP não possui participação acionária direta ou indireta, igual ou superior a 1% do capital social de quaisquer das companhias cujos valores mobiliários são alvo da análise do relatório.
+Título: *
+Mensagem: *
+Enviar Cancelar
+Preferências
+
+1. Deseja que o fórum se atualize automaticamente?
+Sim, a cada minutos.
+Não.
+
+2. Selecione o número de mensagens a ser exibido por página:
+Exibir mensagens.
+
+Enviar Fechar
+Caixa de Entrada
+
+Ativos:
+Atualizar
+AMBV4
+
++1,82%
+Ativo em Baixa Ativo em Alta Ativo Estável
+
+R$ 235,65
+
++1,82%
+
+R$ 235,65
+Quantidade
+Ajuste Inicial Stop
+Limite
+Preço Total
+Stop Limite
+Total
+Preço Limite Preço Stop
+Stop Gain
+Stop Loss
+
+Venda de AMBV4
+
+Ass. Eletrônica
+Salvar
+Enviar
+Vol. R$ 	77M 	Abr. 	234,27
+Qtd. Últ. 	400 	Máx. 	238,15
+Fec. Ant. 	231,44 	Min. 	232,80
+Cotação 	unitária 	Lote 	100
+			
+Osc.Teó. 	0,00% 	Qtd.Teó. 	40.500
+Pre.Teó. 	235,65 	Lado 	Venda
+LeilãoAté 	18:12:30 	Qtd.Rest. 	900
+									
+Qtde. 	$Compra 	$Venda 	Qtde.
+100
+	
+233,75
+	
+233,98
+	
+400
+400
+	
+233,74
+	
+234,00
+	
+100
+500
+	
+233,73
+	
+234,08
+	
+100
+200
+	
+233,71
+	
+234,12
+	
+400
+500
+	
+233,70
+	
+234,20
+	
+1.900
+Qtde. 	$Compra 	$Venda 	Qtde.
+Qtde.	$Compra	$Venda	Qtde.
+300
+	
+234,51
+	
+235,69
+	
+1.000
+1.000
+	
+234,00
+	
+236,00
+	
+800
+100
+	
+233,40
+	
+237,00
+	
+100
+200
+	
+233,32
+	
+237,00
+	
+200
+100
+	
+233,30
+	
+237,48
+	
+300
+100
+	
+232,95
+	
+237,50
+	
+100
+500
+	
+232,95
+	
+237,70
+	
+300
+100
+	
+232,90
+	
+237,80
+	
+100
+100
+	
+232,90
+	
+237,90
+	
+100
+500
+	
+232,50
+	
+237,95
+	
+100
+100
+	
+232,40
+	
+237,99
+	
+200
+100
+	
+232,10
+	
+237,99
+	
+100
+300
+	
+232,00
+	
+238,00
+	
+100
+300
+	
+232,00
+	
+238,00
+	
+100
+100
+	
+232,00
+	
+238,00
+	
+1.000
+Corr 	Nome 	Saldo R$
+Corr	Nome	Saldo R$
+Hora 	Preço 	Qtde 	Comp 	Vend
+Hora	Preço	Qtde	Comp	Vend
+
+    * 5
+    * 15
+    * D
+    * H
+
+ordem Rápida
+Fechar
+
+Siga o exemplo:
+Para comprar 400 PETR4 a R$ 43,10 cada, digite:
+C400PETR4A43,10
+Para vender:
+V400PETR4A43,10
+
+Ordem Rápida: OK
+
+Operação:
+
+Quantidade:
+
+Ativo:
+
+Preço:
+
+Total:
+
+Validade:
+petrobras pn
+
+-1,19%
+Ativo em Baixa
+
+R$32,50
+Resumo
+petrobras pn
+
+-1,19%
+Ativo em Baixa
+
+R$32,50
+
+17:23
+Compra 	Qt. Compra 	Qt.Venda 	Venda
+32,8 	2K 	3K 	32,85
+Vol. 		Neg. 	
+Quant. 		Máx. 	
+Abr. 		Méd. 	
+Fech. Ant. 		Min. 	
+Cotação 		Lote 	
+Gráfico
+Fechar Sucesso
+
+Operação realizada com sucesso.
+OK
+Fechar Erro
+
+Transação temporariamente indisponível.
+OK
+Fechar Erro
+
+Transação temporariamente indisponível.
+Sim Não

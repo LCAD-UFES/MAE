@@ -1,0 +1,5 @@
+face_recog 3 49
+out_face_recog_lp 399 367
+out_face_recog_lp_f 536 368
+out_landmark 674 369
+mae_control_window 397 48

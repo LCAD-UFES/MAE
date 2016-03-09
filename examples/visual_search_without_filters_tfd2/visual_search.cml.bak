@@ -1,0 +1,65 @@
+/* Counters */
+int i;
+int NUM_PROHIBITORY_TRAFFIC_SIGN_TYPES;
+int NUM_IMAGES;
+int x;
+int y;
+int delta_move;
+float scale_factor;
+
+/* Trainning */
+SetCriterion(0); /* PROHIBITORY_AND_SCALED */
+NUM_PROHIBITORY_TRAFFIC_SIGN_TYPES = 3;
+SetScaleFactor(0.76538);
+i = 0;
+while (i < NUM_PROHIBITORY_TRAFFIC_SIGN_TYPES)
+{
+	GetProhibitoryTrafficSign(i);
+	TrainTrafficSign(0);
+	i = i + 1;
+}
+
+
+/* Testing */
+SetCriterion(1); /* PROHIBITORY */
+NUM_IMAGES = GetNumImages(0);
+i = 0;
+while (i < 1)
+{
+	GetImage(i);
+	scale_factor = 40.0 / 128.0;
+	while (scale_factor < (30.0 / 16.0)) /* 1.875 */
+	{
+		SetScaleFactor(scale_factor);
+		delta_move = GetDeltaMove(0);
+		y = delta_move;
+		while (y < 800)
+		{
+			x = delta_move;
+			while (x < 1360)
+			{
+				MoveToPoint(x, y);
+				key 's';
+				CheckTrafficSignDetection(0);
+				x = x + delta_move;
+			}
+			y = y + delta_move;
+		}
+		scale_factor = scale_factor * 1.565;
+	}
+	ReportParcialResults(0);
+	i = i + 1;
+}
+quit;
+
+/*
+i = 0;
+while (i < NUM_IMAGES)
+{
+	GetImage(i);
+	MoveToTrafficSign(0);
+	CheckTrafficSignDetection(0);
+
+	i = i + 1;
+}
+*/

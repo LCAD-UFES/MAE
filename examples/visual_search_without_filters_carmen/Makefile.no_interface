@@ -1,0 +1,71 @@
+##########################################################
+AR = ar
+ARFLAGS = -rc
+CC = gcc
+CCFLAGS = -g -Wall -fPIC -D NO_INTERFACE -D DEBUG
+
+MAE_LIB_DIR = $(MAEHOME)/lib
+MAE_INC_DIR = $(MAEHOME)/include 
+MAE_API_DIR = $(MAEHOME)/src/api 
+
+MAE_LIB = -L$(MAE_LIB_DIR) 
+MAE_INC	= -I$(MAE_INC_DIR) -I$(MAE_API_DIR) -I.
+
+INC_PATH =$(MAE_INC) `pkg-config --cflags opencv`
+LIB_PATH =$(MAE_LIB) `pkg-config --libs opencv` -L/usr/local/lib -L/usr/X11R6/lib
+LIB_FILES=-lnet_conn -lforms -lGA -lX11 -lglut -lGLU -lGL -lm -lfl
+
+##########################################################
+SHARED_LIBRARY = libtext_detect.so
+STATIC_LIBRARY = libtext_detect.a
+OBJ_TXT_DTC = text_detect.o \
+	  text_detect_user_functions/text_detect_user_functions.o \
+	  text_detect_user_functions/text_detect_files.o \
+	  text_detect_user_functions/text_detect_filters.o
+OBJ_TXT_API = text_detect_api/text_detect_api.o \
+	  text_detect_api/text_detect_util.o
+OBJ_MAE_API = $(MAEHOME)/src/api/mae_api.o
+OBJ_MAE_CV = $(MAEHOME)/src/api/mae_cv.o
+
+##########################################################
+.c.o:
+	@echo OK
+	$(CC) $(CCFLAGS) -c $(INC_PATH) -o $@ $*.c
+
+##########################################################
+all: build copy
+
+build: $(SHARED_LIBRARY) $(STATIC_LIBRARY)
+	@echo OK
+
+$(SHARED_LIBRARY): $(OBJ_TXT_DTC) $(OBJ_MAE_API) $(OBJ_TXT_API) $(OBJ_MAE_CV)
+	$(CC) -shared  $(OBJ_TXT_DTC) $(OBJ_MAE_API) $(OBJ_TXT_API) $(OBJ_MAE_CV) $(LIB_PATH) $(LIB_FILES) -o $(SHARED_LIBRARY)
+
+$(STATIC_LIBRARY): $(OBJ_TXT_DTC) $(OBJ_MAE_API) $(OBJ_TXT_API) $(OBJ_MAE_CV)
+	$(AR) $(ARFLAGS) $(STATIC_LIBRARY) $(OBJ_TXT_DTC) $(OBJ_MAE_API) $(OBJ_TXT_API) $(OBJ_MAE_CV)
+	ranlib $(STATIC_LIBRARY) 
+
+##########################################################
+
+text_detect_user_functions.o : ../text_detect.h
+
+##########################################################
+
+text_detect.o:
+	$(MAEHOME)/bin/netcomp -o $* < $*.con	
+	$(CC) $(CCFLAGS) -c $(MAE_INC) -o $@ $*.c
+
+##########################################################
+clean:
+	rm -f *.o *.so *.a *.out 
+	rm -f text_detect text_detect.c text_detect.h
+	rm -f text_detect_user_functions/*.o
+	rm -f text_detect_api/*.o
+	rm -f $(MAEHOME)/src/api/*.o
+	rm -f $(STATIC_LIBRARY)
+	rm -f $(SHARED_LIBRARY)
+	
+copy:
+	cp $(STATIC_LIBRARY) $(MAE_LIB_DIR)
+	cp $(SHARED_LIBRARY) $(MAE_LIB_DIR)	
+	cp text_detect_api/text_detect_api.h $(MAE_INC_DIR) 

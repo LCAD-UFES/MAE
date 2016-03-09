@@ -1,0 +1,172 @@
+################################################ Set Global Variables #################################################
+
+set NEURON_MEMORY_SIZE = 1;
+set KERNEL_SIZE = 11;
+
+######################################################## Constants ####################################################
+
+int NL_WIDTH  = 256;
+int NL_HEIGHT = 256;
+
+############################################### Inputs #############################################################
+
+input 		image_left[256][256]			with greyscale outputs;
+input 		image_right[256][256]			with greyscale outputs;
+
+############################################# Neuron Layers ########################################################
+
+neuronlayer		nl_gabor_right_00[NL_WIDTH][NL_HEIGHT]	with greyscale_float outputs;
+neuronlayer		nl_gabor_right_01[NL_WIDTH][NL_HEIGHT]	with greyscale_float outputs;
+neuronlayer		nl_gabor_right_02[NL_WIDTH][NL_HEIGHT]	with greyscale_float outputs;
+neuronlayer		nl_gabor_right_03[NL_WIDTH][NL_HEIGHT]	with greyscale_float outputs;
+neuronlayer		nl_gabor_right_04[NL_WIDTH][NL_HEIGHT]	with greyscale_float outputs;
+neuronlayer		nl_gabor_right_05[NL_WIDTH][NL_HEIGHT]	with greyscale_float outputs;
+neuronlayer		nl_gabor_right_06[NL_WIDTH][NL_HEIGHT]	with greyscale_float outputs;
+neuronlayer		nl_gabor_right_07[NL_WIDTH][NL_HEIGHT]	with greyscale_float outputs;
+neuronlayer		nl_gabor_right_08[NL_WIDTH][NL_HEIGHT]	with greyscale_float outputs;
+neuronlayer		nl_gabor_right_09[NL_WIDTH][NL_HEIGHT]	with greyscale_float outputs;
+neuronlayer		nl_gabor_right_10[NL_WIDTH][NL_HEIGHT]	with greyscale_float outputs;
+neuronlayer		nl_gabor_right_11[NL_WIDTH][NL_HEIGHT]	with greyscale_float outputs;
+#neuronlayer		nl_gabor_right_12[NL_WIDTH][NL_HEIGHT]	with greyscale_float outputs;
+#neuronlayer		nl_gabor_right_13[NL_WIDTH][NL_HEIGHT]	with greyscale_float outputs;
+#neuronlayer		nl_gabor_right_14[NL_WIDTH][NL_HEIGHT]	with greyscale_float outputs;
+#neuronlayer		nl_gabor_right_15[NL_WIDTH][NL_HEIGHT]	with greyscale_float outputs;
+
+neuronlayer		nl_gabor_left_00[NL_WIDTH][NL_HEIGHT]	with greyscale_float outputs;
+neuronlayer		nl_gabor_left_01[NL_WIDTH][NL_HEIGHT]	with greyscale_float outputs;
+neuronlayer		nl_gabor_left_02[NL_WIDTH][NL_HEIGHT]	with greyscale_float outputs;
+neuronlayer		nl_gabor_left_03[NL_WIDTH][NL_HEIGHT]	with greyscale_float outputs;
+neuronlayer		nl_gabor_left_04[NL_WIDTH][NL_HEIGHT]	with greyscale_float outputs;
+neuronlayer		nl_gabor_left_05[NL_WIDTH][NL_HEIGHT]	with greyscale_float outputs;
+neuronlayer		nl_gabor_left_06[NL_WIDTH][NL_HEIGHT]	with greyscale_float outputs;
+neuronlayer		nl_gabor_left_07[NL_WIDTH][NL_HEIGHT]	with greyscale_float outputs;
+#neuronlayer		nl_gabor_left_08[NL_WIDTH][NL_HEIGHT]	with greyscale_float outputs;
+#neuronlayer		nl_gabor_left_09[NL_WIDTH][NL_HEIGHT]	with greyscale_float outputs;
+#neuronlayer		nl_gabor_left_10[NL_WIDTH][NL_HEIGHT]	with greyscale_float outputs;
+#neuronlayer		nl_gabor_left_11[NL_WIDTH][NL_HEIGHT]	with greyscale_float outputs;
+neuronlayer		nl_gabor_left_12[NL_WIDTH][NL_HEIGHT]	with greyscale_float outputs;
+neuronlayer		nl_gabor_left_13[NL_WIDTH][NL_HEIGHT]	with greyscale_float outputs;
+neuronlayer		nl_gabor_left_14[NL_WIDTH][NL_HEIGHT]	with greyscale_float outputs;
+neuronlayer		nl_gabor_left_15[NL_WIDTH][NL_HEIGHT]	with greyscale_float outputs;
+
+neuronlayer		nl_complex_00[NL_WIDTH][NL_HEIGHT]	with greyscale_float outputs;
+neuronlayer		nl_complex_01[NL_WIDTH][NL_HEIGHT]	with greyscale_float outputs;
+neuronlayer		nl_complex_02[NL_WIDTH][NL_HEIGHT]	with greyscale_float outputs;
+neuronlayer		nl_complex_03[NL_WIDTH][NL_HEIGHT]	with greyscale_float outputs;
+neuronlayer		nl_complex_04[NL_WIDTH][NL_HEIGHT]	with greyscale_float outputs;
+neuronlayer		nl_complex_05[NL_WIDTH][NL_HEIGHT]	with greyscale_float outputs;
+neuronlayer		nl_complex_06[NL_WIDTH][NL_HEIGHT]	with greyscale_float outputs;
+neuronlayer		nl_complex_07[NL_WIDTH][NL_HEIGHT]	with greyscale_float outputs;
+
+neuronlayer	disparity_map[NL_WIDTH][NL_HEIGHT]			with greyscale_float outputs;
+
+############################################### Outputs ############################################################
+
+#output  	nl_complex_out[NL_WIDTH][NL_HEIGHT];
+
+output  	disparity_map_out[NL_WIDTH][NL_HEIGHT];
+
+##################################### Connect Neuron Layers to Outputs #############################################
+
+#outputconnect	nl_complex_00				to nl_complex_out;
+
+outputconnect	disparity_map				to disparity_map_out;
+
+################################################ Filters ###########################################################
+#-6.0*pi/8.0, -5.0*pi/8.0, -4.0*pi/8.0, -3.0*pi/8.0, -2.0*pi/8.0, -pi/8.0, 0.0, pi/8.0
+#2.0*pi/8.0, pi/8.0, 0.0, -pi/8.0, -2.0*pi/8.0, -3.0*pi/8.0, -4.0*pi/8.0, -5.0*pi/8.0
+
+#filter		input_left, input_right 		with binocular_disparity_filter(sigma_w) producing output_map;
+#filter		image_left, image_right 		with binocular_disparity_filter("%f", 10.0) producing disparity_map;
+
+filter		image_right		with gabor_filter ("%f %f %f %f %f %d %d %f %d", 32.0, 1.0, 1.0, 0.0,  2.0*pi/8.0, 0, MAP_PLAN, 2.0, KERNEL_1D)  producing nl_gabor_right_00;
+filter		image_right		with gabor_filter ("%f %f %f %f %f %d %d %f %d", 32.0, 1.0, 1.0, 0.0,      pi/8.0, 0, MAP_PLAN, 2.0, KERNEL_1D)  producing nl_gabor_right_01;
+filter		image_right		with gabor_filter ("%f %f %f %f %f %d %d %f %d", 32.0, 1.0, 1.0, 0.0,         0.0, 0, MAP_PLAN, 2.0, KERNEL_1D)  producing nl_gabor_right_02;
+filter		image_right		with gabor_filter ("%f %f %f %f %f %d %d %f %d", 32.0, 1.0, 1.0, 0.0,     -pi/8.0, 0, MAP_PLAN, 2.0, KERNEL_1D)  producing nl_gabor_right_03;
+filter		image_right		with gabor_filter ("%f %f %f %f %f %d %d %f %d", 32.0, 1.0, 1.0, 0.0, -2.0*pi/8.0, 0, MAP_PLAN, 2.0, KERNEL_1D)  producing nl_gabor_right_04;
+filter		image_right		with gabor_filter ("%f %f %f %f %f %d %d %f %d", 32.0, 1.0, 1.0, 0.0, -3.0*pi/8.0, 0, MAP_PLAN, 2.0, KERNEL_1D)  producing nl_gabor_right_05;
+filter		image_right		with gabor_filter ("%f %f %f %f %f %d %d %f %d", 32.0, 1.0, 1.0, 0.0, -4.0*pi/8.0, 0, MAP_PLAN, 2.0, KERNEL_1D)  producing nl_gabor_right_06;
+filter		image_right		with gabor_filter ("%f %f %f %f %f %d %d %f %d", 32.0, 1.0, 1.0, 0.0, -5.0*pi/8.0, 0, MAP_PLAN, 2.0, KERNEL_1D)  producing nl_gabor_right_07;
+filter		image_right		with gabor_filter ("%f %f %f %f %f %d %d %f %d", 32.0, 1.0, 1.0, 0.0,  6.0*pi/8.0, 0, MAP_PLAN, 2.0, KERNEL_1D)  producing nl_gabor_right_08;
+filter		image_right		with gabor_filter ("%f %f %f %f %f %d %d %f %d", 32.0, 1.0, 1.0, 0.0,  5.0*pi/8.0, 0, MAP_PLAN, 2.0, KERNEL_1D)  producing nl_gabor_right_09;
+filter		image_right		with gabor_filter ("%f %f %f %f %f %d %d %f %d", 32.0, 1.0, 1.0, 0.0,  4.0*pi/8.0, 0, MAP_PLAN, 2.0, KERNEL_1D)  producing nl_gabor_right_10;
+filter		image_right		with gabor_filter ("%f %f %f %f %f %d %d %f %d", 32.0, 1.0, 1.0, 0.0,  3.0*pi/8.0, 0, MAP_PLAN, 2.0, KERNEL_1D)  producing nl_gabor_right_11;
+#filter		image_right		with gabor_filter ("%f %f %f %f %f %d %d %f %d", 32.0, 1.0, 1.0, 0.0,  2.0*pi/8.0, 0, MAP_PLAN, 2.0, KERNEL_1D)  producing nl_gabor_right_12;
+#filter		image_right		with gabor_filter ("%f %f %f %f %f %d %d %f %d", 32.0, 1.0, 1.0, 0.0,	   pi/8.0, 0, MAP_PLAN, 2.0, KERNEL_1D)  producing nl_gabor_right_13;
+#filter		image_right		with gabor_filter ("%f %f %f %f %f %d %d %f %d", 32.0, 1.0, 1.0, 0.0,	      0.0, 0, MAP_PLAN, 2.0, KERNEL_1D)  producing nl_gabor_right_14;
+#filter		image_right		with gabor_filter ("%f %f %f %f %f %d %d %f %d", 32.0, 1.0, 1.0, 0.0,	  -pi/8.0, 0, MAP_PLAN, 2.0, KERNEL_1D)  producing nl_gabor_right_15;
+
+#parameters: 	gabor_filter ("%f %f %f %f %f %d %d %f",disparity_map <harmonic>, <band_width>, <aspect_ratio>, <orientation>, <phase>, <shift>, <mapping>, <log_factor>)
+filter		image_left		with gabor_filter ("%f %f %f %f %f %d %d %f %d", 32.0, 1.0, 1.0, 0.0, -6.0*pi/8.0, 0, MAP_PLAN, 2.0, KERNEL_1D)  producing nl_gabor_left_00;
+filter		image_left		with gabor_filter ("%f %f %f %f %f %d %d %f %d", 32.0, 1.0, 1.0, 0.0, -5.0*pi/8.0, 0, MAP_PLAN, 2.0, KERNEL_1D)  producing nl_gabor_left_01;
+filter		image_left		with gabor_filter ("%f %f %f %f %f %d %d %f %d", 32.0, 1.0, 1.0, 0.0, -4.0*pi/8.0, 0, MAP_PLAN, 2.0, KERNEL_1D)  producing nl_gabor_left_02;
+filter		image_left		with gabor_filter ("%f %f %f %f %f %d %d %f %d", 32.0, 1.0, 1.0, 0.0, -3.0*pi/8.0, 0, MAP_PLAN, 2.0, KERNEL_1D)  producing nl_gabor_left_03;
+filter		image_left		with gabor_filter ("%f %f %f %f %f %d %d %f %d", 32.0, 1.0, 1.0, 0.0, -2.0*pi/8.0, 0, MAP_PLAN, 2.0, KERNEL_1D)  producing nl_gabor_left_04;
+filter		image_left		with gabor_filter ("%f %f %f %f %f %d %d %f %d", 32.0, 1.0, 1.0, 0.0,	  -pi/8.0, 0, MAP_PLAN, 2.0, KERNEL_1D)  producing nl_gabor_left_05;
+filter		image_left		with gabor_filter ("%f %f %f %f %f %d %d %f %d", 32.0, 1.0, 1.0, 0.0,	      0.0, 0, MAP_PLAN, 2.0, KERNEL_1D)  producing nl_gabor_left_06;
+filter		image_left		with gabor_filter ("%f %f %f %f %f %d %d %f %d", 32.0, 1.0, 1.0, 0.0,	   pi/8.0, 0, MAP_PLAN, 2.0, KERNEL_1D)  producing nl_gabor_left_07;
+#filter		image_left		with gabor_filter ("%f %f %f %f %f %d %d %f %d", 32.0, 1.0, 1.0, 0.0, -2.0*pi/8.0, 0, MAP_PLAN, 2.0, KERNEL_1D)  producing nl_gabor_left_08;
+#filter		image_left		with gabor_filter ("%f %f %f %f %f %d %d %f %d", 32.0, 1.0, 1.0, 0.0,	  -pi/8.0, 0, MAP_PLAN, 2.0, KERNEL_1D)  producing nl_gabor_left_09;
+#filter		image_left		with gabor_filter ("%f %f %f %f %f %d %d %f %d", 32.0, 1.0, 1.0, 0.0,	      0.0, 0, MAP_PLAN, 2.0, KERNEL_1D)  producing nl_gabor_left_10;
+#filter		image_left		with gabor_filter ("%f %f %f %f %f %d %d %f %d", 32.0, 1.0, 1.0, 0.0,	   pi/8.0, 0, MAP_PLAN, 2.0, KERNEL_1D)  producing nl_gabor_left_11;
+filter		image_left		with gabor_filter ("%f %f %f %f %f %d %d %f %d", 32.0, 1.0, 1.0, 0.0,  2.0*pi/8.0, 0, MAP_PLAN, 2.0, KERNEL_1D)  producing nl_gabor_left_12;
+filter		image_left		with gabor_filter ("%f %f %f %f %f %d %d %f %d", 32.0, 1.0, 1.0, 0.0,  3.0*pi/8.0, 0, MAP_PLAN, 2.0, KERNEL_1D)  producing nl_gabor_left_13;
+filter		image_left		with gabor_filter ("%f %f %f %f %f %d %d %f %d", 32.0, 1.0, 1.0, 0.0,  4.0*pi/8.0, 0, MAP_PLAN, 2.0, KERNEL_1D)  producing nl_gabor_left_14;
+filter		image_left		with gabor_filter ("%f %f %f %f %f %d %d %f %d", 32.0, 1.0, 1.0, 0.0,  5.0*pi/8.0, 0, MAP_PLAN, 2.0, KERNEL_1D)  producing nl_gabor_left_15;
+
+#filter	nl_gabor_right_00, nl_gabor_left_00, nl_gabor_right_08, nl_gabor_left_08 with complex_cell_filter ("")	producing	nl_complex_00;
+#filter	nl_gabor_right_01, nl_gabor_left_01, nl_gabor_right_09, nl_gabor_left_09 with complex_cell_filter ("")	producing	nl_complex_01;
+#filter	nl_gabor_right_02, nl_gabor_left_02, nl_gabor_right_10, nl_gabor_left_10 with complex_cell_filter ("")	producing	nl_complex_02;
+#filter	nl_gabor_right_03, nl_gabor_left_03, nl_gabor_right_11, nl_gabor_left_11 with complex_cell_filter ("")	producing	nl_complex_03;
+#filter	nl_gabor_right_04, nl_gabor_left_04, nl_gabor_right_12, nl_gabor_left_12 with complex_cell_filter ("")	producing	nl_complex_04;
+#filter	nl_gabor_right_05, nl_gabor_left_05, nl_gabor_right_13, nl_gabor_left_13 with complex_cell_filter ("")	producing	nl_complex_05;
+#filter	nl_gabor_right_06, nl_gabor_left_06, nl_gabor_right_14, nl_gabor_left_14 with complex_cell_filter ("")	producing	nl_complex_06;
+#filter	nl_gabor_right_07, nl_gabor_left_07, nl_gabor_right_15, nl_gabor_left_15 with complex_cell_filter ("")	producing	nl_complex_07;
+
+filter	nl_gabor_right_00, nl_gabor_left_00, nl_gabor_right_08, nl_gabor_left_04 with complex_cell_filter ("")	producing	nl_complex_00;
+filter	nl_gabor_right_01, nl_gabor_left_01, nl_gabor_right_09, nl_gabor_left_05 with complex_cell_filter ("")	producing	nl_complex_01;
+filter	nl_gabor_right_02, nl_gabor_left_02, nl_gabor_right_10, nl_gabor_left_06 with complex_cell_filter ("")	producing	nl_complex_02;
+filter	nl_gabor_right_03, nl_gabor_left_03, nl_gabor_right_11, nl_gabor_left_07 with complex_cell_filter ("")	producing	nl_complex_03;
+filter	nl_gabor_right_04, nl_gabor_left_04, nl_gabor_right_00, nl_gabor_left_12 with complex_cell_filter ("")	producing	nl_complex_04;
+filter	nl_gabor_right_05, nl_gabor_left_05, nl_gabor_right_01, nl_gabor_left_13 with complex_cell_filter ("")	producing	nl_complex_05;
+filter	nl_gabor_right_06, nl_gabor_left_06, nl_gabor_right_02, nl_gabor_left_14 with complex_cell_filter ("")	producing	nl_complex_06;
+filter	nl_gabor_right_07, nl_gabor_left_07, nl_gabor_right_03, nl_gabor_left_15 with complex_cell_filter ("")	producing	nl_complex_07;
+
+#filter nl_complex_00, nl_complex_01, nl_complex_02, nl_complex_03, nl_complex_04, nl_complex_05, nl_complex_06, nl_complex_07 with max_association_filter ("%d %d %d %d %d %d %d %d", -4, -3, -2, -1, 0, 1, 2, 3) producing disparity_map;
+filter nl_complex_00, nl_complex_01, nl_complex_02, nl_complex_03, nl_complex_04, nl_complex_05, nl_complex_06, nl_complex_07 with max_average_association_filter ("%d %d %d %d %d %d %d %d %d %f", -4, -3, -2, -1, 0, 1, 2, 3, 9, 7.0) producing disparity_map;
+
+
+neuronlayer		nl_disparity_map[NL_WIDTH][NL_HEIGHT]	      		with	greyscale_float outputs, show;
+#neuronlayer		nl_subpixel_disparity_map[NL_WIDTH][NL_HEIGHT]		with	greyscale_float outputs, show;
+
+neuronlayer		nl_simple_mono_right[NL_WIDTH][NL_HEIGHT]		with	greyscale_float outputs;
+neuronlayer		nl_simple_mono_left[NL_WIDTH][NL_HEIGHT]		with	greyscale_float outputs;
+neuronlayer		nl_simple_mono_right_q[NL_WIDTH][NL_HEIGHT]	with	greyscale_float outputs;
+neuronlayer		nl_simple_mono_left_q[NL_WIDTH][NL_HEIGHT]	with	greyscale_float outputs;
+
+neuronlayer		nl_mt[NL_WIDTH][NL_HEIGHT]	             	with	greyscale_float outputs;
+neuronlayer		nl_mt_gaussian[NL_WIDTH][NL_HEIGHT]      	with	greyscale_float outputs;
+
+
+const FOV_HORIZONTAL          = 71.21;
+const CYCLES_PER_DEGREE       = 0.85;
+const PHASE_SIMPLE_RIGHT_1    = -3.0*pi/4.0;
+const PHASE_SIMPLE_LEFT_1     = pi/4.0;
+const PHASE_SIMPLE_RIGHT_1_Q  = -pi/4.0;
+const PHASE_SIMPLE_LEFT_1_Q   = 3.0*pi/4.0;
+const LOG_FACTOR              = 10.0;
+
+const MT_SELECTIVITY    = 0.1;
+int   DISPARITY		= 0;
+int   DISPARITY_MAP_FILTER_STATE = DISPARITY_MAP_FILTER_INIT;
+const MIN_DISP = -3;
+const MAX_DISP = 4;
+
+filter	image_right	with biological_gabor_filter ("%f %f %f %f %f %f %d %d %f %d", FOV_HORIZONTAL, CYCLES_PER_DEGREE, 2.0, 1.0, 0.0,   PHASE_SIMPLE_RIGHT_1, 0, MAP_PLAN, LOG_FACTOR, KERNEL_2D)	producing nl_simple_mono_right;
+filter	image_right	with biological_gabor_filter ("%f %f %f %f %f %f %d %d %f %d", FOV_HORIZONTAL, CYCLES_PER_DEGREE, 2.0, 1.0, 0.0, PHASE_SIMPLE_RIGHT_1_Q, 0, MAP_PLAN, LOG_FACTOR, KERNEL_2D)	producing nl_simple_mono_right_q;
+filter	image_left	with biological_gabor_filter ("%f %f %f %f %f %f %d %d %f %d", FOV_HORIZONTAL, CYCLES_PER_DEGREE, 2.0, 1.0, 0.0,    PHASE_SIMPLE_LEFT_1, 0, MAP_PLAN, LOG_FACTOR, KERNEL_2D)	producing nl_simple_mono_left;
+filter	image_left	with biological_gabor_filter ("%f %f %f %f %f %f %d %d %f %d", FOV_HORIZONTAL, CYCLES_PER_DEGREE, 2.0, 1.0, 0.0,  PHASE_SIMPLE_LEFT_1_Q, 0, MAP_PLAN, LOG_FACTOR, KERNEL_2D)	producing nl_simple_mono_left_q;
+
+filter	nl_simple_mono_right, nl_simple_mono_right_q, nl_simple_mono_left, nl_simple_mono_left_q  with mt_cell ("%f %p", MT_SELECTIVITY, &DISPARITY) producing nl_mt;
+filter	nl_mt 		with gaussian_filter ("%d %f", 9, 2.0) 						producing nl_mt_gaussian;
+filter  nl_mt_gaussian 	with disparity_map_filter ("%p %p", &DISPARITY_MAP_FILTER_STATE, &DISPARITY) 	producing nl_disparity_map;

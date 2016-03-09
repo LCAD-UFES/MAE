@@ -1,0 +1,35 @@
+################################################ Set Global Variables #################################################
+
+set NEURON_MEMORY_SIZE = 100;
+
+######################################################## Constants ####################################################
+
+int SMALL_KERNEL  = 7;
+int MEDIUM_KERNEL = 15;
+int BIG_KERNEL	  = 31;
+
+############################################### Neuron Layers #########################################################
+
+neuronlayer	char_discr[80][40] 	of minchinton neurons color sensitive with color outputs;
+
+############################################### Outputs #########################################################
+
+output		char_discr_out[80][40];
+
+################################################## Inputs #############################################################
+
+input 		character[30][30]	with b&w outputs produced by input_generator("%p", char_discr_out)
+					controled by input_controler("%p", char_discr_out);
+
+############################################### Filters #########################################################
+
+filter		character, character, character	with merge_filter ("%d", 0) producing char_discr;
+
+############################################### Associations ####################################################
+
+associate	char_discr 		with char_discr;
+
+############################################### Outputs #########################################################
+
+outputconnect	char_discr		to char_discr_out;
+

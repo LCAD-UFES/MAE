@@ -1,0 +1,180 @@
+=== Acoes Novas
+exp_PETR3_parameters1/out.txt:### 2011-12-28 Wed 17:59 - QUIT: Final Capital		R$36040.56	 accumulated return: -9.90%
+exp_PETR3_parameters2/out.txt:### 2011-12-28 Wed 17:59 - QUIT: Final Capital		R$35041.80	 accumulated return: -12.40%
+exp_PETR3_parameters3/out.txt:### 2012-01-03 Tue 17:59 - QUIT: Final Capital		R$40616.90	 accumulated return: 1.54%
+exp_PETR3_parameters4/out.txt:### 2012-01-03 Tue 17:59 - QUIT: Final Capital		R$42474.52	 accumulated return: 6.19%
+exp_PETR4_parameters1/out.txt:### 2011-12-28 Wed 17:59 - QUIT: Final Capital		R$36474.26	 accumulated return: -8.81%
+exp_PETR4_parameters2/out.txt:### 2011-12-28 Wed 17:59 - QUIT: Final Capital		R$35778.53	 accumulated return: -10.55%
+exp_PETR4_parameters3/out.txt:### 2012-01-03 Tue 17:59 - QUIT: Final Capital		R$36666.86	 accumulated return: -8.33%
+exp_PETR4_parameters4/out.txt:### 2012-01-03 Tue 17:59 - QUIT: Final Capital		R$42519.59	 accumulated return: 6.30%
+exp_VALE3_parameters1/out.txt:### 2011-12-28 Wed 17:59 - QUIT: Final Capital		R$37682.59	 accumulated return: -5.79%
+exp_VALE3_parameters2/out.txt:### 2011-12-28 Wed 17:59 - QUIT: Final Capital		R$36653.32	 accumulated return: -8.37%
+exp_VALE3_parameters3/out.txt:### 2012-01-03 Tue 17:59 - QUIT: Final Capital		R$29704.79	 accumulated return: -25.74%
+exp_VALE3_parameters4/out.txt:### 2012-01-03 Tue 17:59 - QUIT: Final Capital		R$30343.55	 accumulated return: -24.14%
+exp_VALE5_parameters1/out.txt:### 2011-12-28 Wed 17:59 - QUIT: Final Capital		R$40083.95	 accumulated return: 0.21%
+exp_VALE5_parameters2/out.txt:### 2011-12-28 Wed 17:59 - QUIT: Final Capital		R$38099.49	 accumulated return: -4.75%
+exp_VALE5_parameters3/out.txt:### 2012-01-03 Tue 17:59 - QUIT: Final Capital		R$30983.87	 accumulated return: -22.54%
+exp_VALE5_parameters4/out.txt:### 2012-01-03 Tue 17:59 - QUIT: Final Capital		R$29085.75	 accumulated return: -27.29%
+
+=== Acoes Novas, stop loss -5%
+exp_PETR3_parameters1/out.txt:### 2011-12-28 Wed 17:59 - QUIT: Final Capital		R$37184.48	 accumulated return: -7.04%
+exp_PETR3_parameters2/out.txt:### 2011-12-28 Wed 17:59 - QUIT: Final Capital		R$34867.12	 accumulated return: -12.83%
+exp_PETR3_parameters3/out.txt:### 2012-01-03 Tue 17:59 - QUIT: Final Capital		R$41175.53	 accumulated return: 2.94%
+exp_PETR3_parameters4/out.txt:### 2012-01-03 Tue 17:59 - QUIT: Final Capital		R$39653.74	 accumulated return: -0.87%
+exp_PETR4_parameters1/out.txt:### 2011-12-28 Wed 17:59 - QUIT: Final Capital		R$35860.12	 accumulated return: -10.35%
+exp_PETR4_parameters2/out.txt:### 2011-12-28 Wed 17:59 - QUIT: Final Capital		R$34945.81	 accumulated return: -12.64%
+exp_PETR4_parameters3/out.txt:### 2012-01-03 Tue 17:59 - QUIT: Final Capital		R$35251.66	 accumulated return: -11.87%
+exp_PETR4_parameters4/out.txt:### 2012-01-03 Tue 17:59 - QUIT: Final Capital		R$43384.03	 accumulated return: 8.46%
+exp_VALE3_parameters1/out.txt:### 2011-12-28 Wed 17:59 - QUIT: Final Capital		R$36734.87	 accumulated return: -8.16%
+exp_VALE3_parameters2/out.txt:### 2011-12-28 Wed 17:59 - QUIT: Final Capital		R$33147.86	 accumulated return: -17.13%
+exp_VALE3_parameters3/out.txt:### 2012-01-03 Tue 17:59 - QUIT: Final Capital		R$33793.28	 accumulated return: -15.52%
+exp_VALE3_parameters4/out.txt:### 2012-01-03 Tue 17:59 - QUIT: Final Capital		R$35877.69	 accumulated return: -10.31%
+exp_VALE5_parameters1/out.txt:### 2011-12-28 Wed 17:59 - QUIT: Final Capital		R$36848.80	 accumulated return: -7.88%
+exp_VALE5_parameters2/out.txt:### 2011-12-28 Wed 17:59 - QUIT: Final Capital		R$35770.46	 accumulated return: -10.57%
+exp_VALE5_parameters3/out.txt:### 2012-01-03 Tue 17:59 - QUIT: Final Capital		R$33724.00	 accumulated return: -15.69%
+exp_VALE5_parameters4/out.txt:### 2012-01-03 Tue 17:59 - QUIT: Final Capital		R$34248.89	 accumulated return: -14.38%
+
+=== Acoes Velhas
+exp_PETR3_parameters1/out.txt:### 2011-12-28 Wed 17:59 - QUIT: Final Capital		R$37171.71	 accumulated return: -7.07%
+exp_PETR3_parameters2/out.txt:### 2011-12-28 Wed 17:59 - QUIT: Final Capital		R$32449.21	 accumulated return: -18.88%
+exp_PETR3_parameters3/out.txt:### 2012-01-03 Tue 17:59 - QUIT: Final Capital		R$31169.70	 accumulated return: -22.08%
+exp_PETR3_parameters4/out.txt:### 2012-01-03 Tue 17:59 - QUIT: Final Capital		R$31191.54	 accumulated return: -22.02%
+exp_PETR4_parameters1/out.txt:### 2011-12-28 Wed 17:59 - QUIT: Final Capital		R$32502.59	 accumulated return: -18.74%
+exp_PETR4_parameters2/out.txt:### 2011-12-28 Wed 17:59 - QUIT: Final Capital		R$32193.05	 accumulated return: -19.52%
+exp_PETR4_parameters3/out.txt:### 2012-01-03 Tue 17:59 - QUIT: Final Capital		R$30334.44	 accumulated return: -24.16%
+exp_PETR4_parameters4/out.txt:### 2012-01-03 Tue 17:59 - QUIT: Final Capital		R$31933.84	 accumulated return: -20.17%
+exp_VALE3_parameters1/out.txt:### 2011-12-28 Wed 17:59 - QUIT: Final Capital		R$35483.85	 accumulated return: -11.29%
+exp_VALE3_parameters2/out.txt:### 2011-12-28 Wed 17:59 - QUIT: Final Capital		R$35788.31	 accumulated return: -10.53%
+exp_VALE3_parameters3/out.txt:### 2012-01-03 Tue 17:59 - QUIT: Final Capital		R$34750.00	 accumulated return: -13.12%
+exp_VALE3_parameters4/out.txt:### 2012-01-03 Tue 17:59 - QUIT: Final Capital		R$35139.21	 accumulated return: -12.15%
+exp_VALE5_parameters1/out.txt:### 2011-12-28 Wed 17:59 - QUIT: Final Capital		R$35930.23	 accumulated return: -10.17%
+exp_VALE5_parameters2/out.txt:### 2011-12-28 Wed 17:59 - QUIT: Final Capital		R$35844.40	 accumulated return: -10.39%
+exp_VALE5_parameters3/out.txt:### 2012-01-03 Tue 17:59 - QUIT: Final Capital		R$37121.47	 accumulated return: -7.20%
+exp_VALE5_parameters4/out.txt:### 2012-01-03 Tue 17:59 - QUIT: Final Capital		R$38350.81	 accumulated return: -4.12%
+
+=== Acoes Velhas, stop loss -5%
+exp_PETR3_parameters1/out.txt:### 2011-12-28 Wed 17:59 - QUIT: Final Capital		R$40769.01	 accumulated return: 1.92%
+exp_PETR3_parameters2/out.txt:### 2011-12-28 Wed 17:59 - QUIT: Final Capital		R$38127.34	 accumulated return: -4.68%
+exp_PETR3_parameters3/out.txt:### 2012-01-03 Tue 17:59 - QUIT: Final Capital		R$34300.77	 accumulated return: -14.25%
+exp_PETR3_parameters4/out.txt:### 2012-01-03 Tue 17:59 - QUIT: Final Capital		R$34312.38	 accumulated return: -14.22%
+exp_PETR4_parameters1/out.txt:### 2011-12-28 Wed 17:59 - QUIT: Final Capital		R$38397.95	 accumulated return: -4.01%
+exp_PETR4_parameters2/out.txt:### 2011-12-28 Wed 17:59 - QUIT: Final Capital		R$37453.72	 accumulated return: -6.37%
+exp_PETR4_parameters3/out.txt:### 2012-01-03 Tue 17:59 - QUIT: Final Capital		R$33169.10	 accumulated return: -17.08%
+exp_PETR4_parameters4/out.txt:### 2012-01-03 Tue 17:59 - QUIT: Final Capital		R$34254.71	 accumulated return: -14.36%
+exp_VALE3_parameters1/out.txt:### 2011-12-28 Wed 17:59 - QUIT: Final Capital		R$37354.39	 accumulated return: -6.61%
+exp_VALE3_parameters2/out.txt:### 2011-12-28 Wed 17:59 - QUIT: Final Capital		R$38092.83	 accumulated return: -4.77%
+exp_VALE3_parameters3/out.txt:### 2012-01-03 Tue 17:59 - QUIT: Final Capital		R$36182.07	 accumulated return: -9.54%
+exp_VALE3_parameters4/out.txt:### 2012-01-03 Tue 17:59 - QUIT: Final Capital		R$36551.66	 accumulated return: -8.62%
+exp_VALE5_parameters1/out.txt:### 2011-12-28 Wed 17:59 - QUIT: Final Capital		R$38090.71	 accumulated return: -4.77%
+exp_VALE5_parameters2/out.txt:### 2011-12-28 Wed 17:59 - QUIT: Final Capital		R$38476.01	 accumulated return: -3.81%
+exp_VALE5_parameters3/out.txt:### 2012-01-03 Tue 17:59 - QUIT: Final Capital		R$38735.34	 accumulated return: -3.16%
+exp_VALE5_parameters4/out.txt:### 2012-01-03 Tue 17:59 - QUIT: Final Capital		R$40896.51	 accumulated return: 2.24%
+
+=== Acoes Velhas, filtradas
+exp_PETR3_parameters1/out.txt:### 2011-12-28 Wed 17:59 - QUIT: Final Capital		R$45721.93	 accumulated return: 14.30%
+exp_PETR3_parameters2/out.txt:### 2011-12-28 Wed 17:59 - QUIT: Final Capital		R$41777.74	 accumulated return: 4.44%
+exp_PETR3_parameters3/out.txt:### 2012-01-03 Tue 17:59 - QUIT: Final Capital		R$37713.51	 accumulated return: -5.72%
+exp_PETR3_parameters4/out.txt:### 2012-01-03 Tue 17:59 - QUIT: Final Capital		R$37498.86	 accumulated return: -6.25%
+exp_PETR4_parameters1/out.txt:### 2011-12-28 Wed 17:59 - QUIT: Final Capital		R$42894.01	 accumulated return: 7.24%
+exp_PETR4_parameters2/out.txt:### 2011-12-28 Wed 17:59 - QUIT: Final Capital		R$42898.66	 accumulated return: 7.25%
+exp_PETR4_parameters3/out.txt:### 2012-01-03 Tue 17:59 - QUIT: Final Capital		R$37280.90	 accumulated return: -6.80%
+exp_PETR4_parameters4/out.txt:### 2012-01-03 Tue 17:59 - QUIT: Final Capital		R$35887.37	 accumulated return: -10.28%
+exp_VALE3_parameters1/out.txt:### 2011-12-28 Wed 17:59 - QUIT: Final Capital		R$37525.22	 accumulated return: -6.19%
+exp_VALE3_parameters2/out.txt:### 2011-12-28 Wed 17:59 - QUIT: Final Capital		R$38556.08	 accumulated return: -3.61%
+exp_VALE3_parameters3/out.txt:### 2012-01-03 Tue 17:59 - QUIT: Final Capital		R$35871.47	 accumulated return: -10.32%
+exp_VALE3_parameters4/out.txt:### 2012-01-03 Tue 17:59 - QUIT: Final Capital		R$36411.44	 accumulated return: -8.97%
+exp_VALE5_parameters1/out.txt:### 2011-12-28 Wed 17:59 - QUIT: Final Capital		R$38116.05	 accumulated return: -4.71%
+exp_VALE5_parameters2/out.txt:### 2011-12-28 Wed 17:59 - QUIT: Final Capital		R$38801.84	 accumulated return: -3.00%
+exp_VALE5_parameters3/out.txt:### 2012-01-03 Tue 17:59 - QUIT: Final Capital		R$32288.32	 accumulated return: -19.28%
+exp_VALE5_parameters4/out.txt:### 2012-01-03 Tue 17:59 - QUIT: Final Capital		R$34170.77	 accumulated return: -14.57%
+
+=== Acoes Velhas, filtradas 2
+exp_PETR3_parameters1/out.txt:### 2011-12-28 Wed 17:59 - QUIT: Final Capital		R$42458.65	 accumulated return: 6.15%
+exp_PETR3_parameters2/out.txt:### 2011-12-28 Wed 17:59 - QUIT: Final Capital		R$41700.51	 accumulated return: 4.25%
+exp_PETR3_parameters3/out.txt:### 2012-01-03 Tue 17:59 - QUIT: Final Capital		R$37713.51	 accumulated return: -5.72%
+exp_PETR3_parameters4/out.txt:### 2012-01-03 Tue 17:59 - QUIT: Final Capital		R$37498.86	 accumulated return: -6.25%
+exp_PETR4_parameters1/out.txt:### 2011-12-28 Wed 17:59 - QUIT: Final Capital		R$43294.65	 accumulated return: 8.24%
+exp_PETR4_parameters2/out.txt:### 2011-12-28 Wed 17:59 - QUIT: Final Capital		R$43581.11	 accumulated return: 8.95%
+exp_PETR4_parameters3/out.txt:### 2012-01-03 Tue 17:59 - QUIT: Final Capital		R$37280.90	 accumulated return: -6.80%
+exp_PETR4_parameters4/out.txt:### 2012-01-03 Tue 17:59 - QUIT: Final Capital		R$35887.37	 accumulated return: -10.28%
+exp_VALE3_parameters1/out.txt:### 2011-12-28 Wed 17:59 - QUIT: Final Capital		R$34097.69	 accumulated return: -14.76%
+exp_VALE3_parameters2/out.txt:### 2011-12-28 Wed 17:59 - QUIT: Final Capital		R$33312.72	 accumulated return: -16.72%
+exp_VALE3_parameters3/out.txt:### 2012-01-03 Tue 17:59 - QUIT: Final Capital		R$33020.89	 accumulated return: -17.45%
+exp_VALE3_parameters4/out.txt:### 2012-01-03 Tue 17:59 - QUIT: Final Capital		R$33476.87	 accumulated return: -16.31%
+exp_VALE5_parameters1/out.txt:### 2011-12-28 Wed 17:59 - QUIT: Final Capital		R$34549.48	 accumulated return: -13.63%
+exp_VALE5_parameters2/out.txt:### 2011-12-28 Wed 17:59 - QUIT: Final Capital		R$33565.18	 accumulated return: -16.09%
+exp_VALE5_parameters3/out.txt:### 2012-01-03 Tue 17:59 - QUIT: Final Capital		R$33033.73	 accumulated return: -17.42%
+exp_VALE5_parameters4/out.txt:### 2012-01-03 Tue 17:59 - QUIT: Final Capital		R$34356.23	 accumulated return: -14.11%
+
+=== Acoes Velhas, filtradas 3
+exp_PETR3_parameters1/out.txt:### 2011-12-28 Wed 17:59 - QUIT: Final Capital		R$44004.33	 accumulated return: 10.01%
+exp_PETR3_parameters2/out.txt:### 2011-12-28 Wed 17:59 - QUIT: Final Capital		R$43640.91	 accumulated return: 9.10%
+exp_PETR3_parameters3/out.txt:### 2012-01-03 Tue 17:59 - QUIT: Final Capital		R$44145.81	 accumulated return: 10.36%
+exp_PETR3_parameters4/out.txt:### 2012-01-03 Tue 17:59 - QUIT: Final Capital		R$44138.68	 accumulated return: 10.35%
+exp_PETR4_parameters1/out.txt:### 2011-12-28 Wed 17:59 - QUIT: Final Capital		R$41031.68	 accumulated return: 2.58%
+exp_PETR4_parameters2/out.txt:### 2011-12-28 Wed 17:59 - QUIT: Final Capital		R$41220.87	 accumulated return: 3.05%
+exp_PETR4_parameters3/out.txt:### 2012-01-03 Tue 17:59 - QUIT: Final Capital		R$43831.36	 accumulated return: 9.58%
+exp_PETR4_parameters4/out.txt:### 2012-01-03 Tue 17:59 - QUIT: Final Capital		R$42016.93	 accumulated return: 5.04%
+exp_VALE3_parameters1/out.txt:### 2011-12-28 Wed 17:59 - QUIT: Final Capital		R$37620.40	 accumulated return: -5.95%
+exp_VALE3_parameters2/out.txt:### 2011-12-28 Wed 17:59 - QUIT: Final Capital		R$38366.03	 accumulated return: -4.08%
+exp_VALE3_parameters3/out.txt:### 2012-01-03 Tue 17:59 - QUIT: Final Capital		R$37980.46	 accumulated return: -5.05%
+exp_VALE3_parameters4/out.txt:### 2012-01-03 Tue 17:59 - QUIT: Final Capital		R$38385.08	 accumulated return: -4.04%
+exp_VALE5_parameters1/out.txt:### 2011-12-28 Wed 17:59 - QUIT: Final Capital		R$38008.12	 accumulated return: -4.98%
+exp_VALE5_parameters2/out.txt:### 2011-12-28 Wed 17:59 - QUIT: Final Capital		R$37951.77	 accumulated return: -5.12%
+exp_VALE5_parameters3/out.txt:### 2012-01-03 Tue 17:59 - QUIT: Final Capital		R$34145.13	 accumulated return: -14.64%
+exp_VALE5_parameters4/out.txt:### 2012-01-03 Tue 17:59 - QUIT: Final Capital		R$36214.30	 accumulated return: -9.46%
+
+=== Acoes Velhas, filtradas 4
+exp_PETR3_parameters1/out.txt:### 2011-12-28 Wed 17:59 - QUIT: Final Capital		R$43941.42	 accumulated return: 9.85%
+exp_PETR3_parameters2/out.txt:### 2011-12-28 Wed 17:59 - QUIT: Final Capital		R$45101.91	 accumulated return: 12.75%
+exp_PETR3_parameters3/out.txt:### 2012-01-03 Tue 17:59 - QUIT: Final Capital		R$44287.96	 accumulated return: 10.72%
+exp_PETR3_parameters4/out.txt:### 2012-01-03 Tue 17:59 - QUIT: Final Capital		R$44738.26	 accumulated return: 11.85%
+exp_PETR4_parameters1/out.txt:### 2011-12-28 Wed 17:59 - QUIT: Final Capital		R$44349.92	 accumulated return: 10.87%
+exp_PETR4_parameters2/out.txt:### 2011-12-28 Wed 17:59 - QUIT: Final Capital		R$44761.03	 accumulated return: 11.90%
+exp_PETR4_parameters3/out.txt:### 2012-01-03 Tue 17:59 - QUIT: Final Capital		R$41017.99	 accumulated return: 2.54%
+exp_PETR4_parameters4/out.txt:### 2012-01-03 Tue 17:59 - QUIT: Final Capital		R$42170.34	 accumulated return: 5.43%
+exp_VALE3_parameters1/out.txt:### 2011-12-28 Wed 17:59 - QUIT: Final Capital		R$39168.13	 accumulated return: -2.08%
+exp_VALE3_parameters2/out.txt:### 2011-12-28 Wed 17:59 - QUIT: Final Capital		R$42257.40	 accumulated return: 5.64%
+exp_VALE3_parameters3/out.txt:### 2012-01-03 Tue 17:59 - QUIT: Final Capital		R$38424.72	 accumulated return: -3.94%
+exp_VALE3_parameters4/out.txt:### 2012-01-03 Tue 17:59 - QUIT: Final Capital		R$40194.55	 accumulated return: 0.49%
+exp_VALE5_parameters1/out.txt:### 2011-12-28 Wed 17:59 - QUIT: Final Capital		R$39437.92	 accumulated return: -1.41%
+exp_VALE5_parameters2/out.txt:### 2011-12-28 Wed 17:59 - QUIT: Final Capital		R$41924.16	 accumulated return: 4.81%
+exp_VALE5_parameters3/out.txt:### 2012-01-03 Tue 17:59 - QUIT: Final Capital		R$38207.17	 accumulated return: -4.48%
+exp_VALE5_parameters4/out.txt:### 2012-01-03 Tue 17:59 - QUIT: Final Capital		R$41250.92	 accumulated return: 3.13%
+
+=== Acoes Velhas, filtradas 5
+exp_PETR3_parameters1/out.txt:### 2011-12-28 Wed 17:59 - QUIT: Final Capital		R$42068.26	 accumulated return: 5.17%
+exp_PETR3_parameters2/out.txt:### 2011-12-28 Wed 17:59 - QUIT: Final Capital		R$42211.17	 accumulated return: 5.53%
+exp_PETR3_parameters3/out.txt:### 2012-01-03 Tue 17:59 - QUIT: Final Capital		R$43283.41	 accumulated return: 8.21%
+exp_PETR3_parameters4/out.txt:### 2012-01-03 Tue 17:59 - QUIT: Final Capital		R$43110.06	 accumulated return: 7.78%
+exp_PETR4_parameters1/out.txt:### 2011-12-28 Wed 17:59 - QUIT: Final Capital		R$43927.36	 accumulated return: 9.82%
+exp_PETR4_parameters2/out.txt:### 2011-12-28 Wed 17:59 - QUIT: Final Capital		R$45207.51	 accumulated return: 13.02%
+exp_PETR4_parameters3/out.txt:### 2012-01-03 Tue 17:59 - QUIT: Final Capital		R$40041.98	 accumulated return: 0.10%
+exp_PETR4_parameters4/out.txt:### 2012-01-03 Tue 17:59 - QUIT: Final Capital		R$41051.65	 accumulated return: 2.63%
+exp_VALE3_parameters1/out.txt:### 2011-12-28 Wed 17:59 - QUIT: Final Capital		R$41583.98	 accumulated return: 3.96%
+exp_VALE3_parameters2/out.txt:### 2011-12-28 Wed 17:59 - QUIT: Final Capital		R$44851.70	 accumulated return: 12.13%
+exp_VALE3_parameters3/out.txt:### 2012-01-03 Tue 17:59 - QUIT: Final Capital		R$39180.21	 accumulated return: -2.05%
+exp_VALE3_parameters4/out.txt:### 2012-01-03 Tue 17:59 - QUIT: Final Capital		R$39789.27	 accumulated return: -0.53%
+exp_VALE5_parameters1/out.txt:### 2011-12-28 Wed 17:59 - QUIT: Final Capital		R$41732.69	 accumulated return: 4.33%
+exp_VALE5_parameters2/out.txt:### 2011-12-28 Wed 17:59 - QUIT: Final Capital		R$45091.54	 accumulated return: 12.73%
+exp_VALE5_parameters3/out.txt:### 2012-01-03 Tue 17:59 - QUIT: Final Capital		R$37116.18	 accumulated return: -7.21%
+exp_VALE5_parameters4/out.txt:### 2012-01-03 Tue 17:59 - QUIT: Final Capital		R$38915.11	 accumulated return: -2.71%
+
+
+=== Apenas PETR3, Acoes Velhas Filtradas 4
+exp_PETR3_parameters1/out.txt:### 2011-12-28 Wed 17:59 - QUIT: Final Capital		R$47599.63	 accumulated return: 19.00%
+exp_PETR3_parameters2/out.txt:### 2011-12-28 Wed 17:59 - QUIT: Final Capital		R$45084.97	 accumulated return: 12.71%
+exp_PETR3_parameters3/out.txt:### 2012-01-03 Tue 17:59 - QUIT: Final Capital		R$44026.05	 accumulated return: 10.07%
+exp_PETR3_parameters4/out.txt:### 2012-01-03 Tue 17:59 - QUIT: Final Capital		R$43917.12	 accumulated return: 9.79%
+exp_PETR3_parameters5/out.txt:### 2011-12-28 Wed 17:59 - QUIT: Final Capital		R$48534.39	 accumulated return: 21.34%
+exp_PETR3_parameters6/out.txt:### 2011-12-28 Wed 17:59 - QUIT: Final Capital		R$46525.29	 accumulated return: 16.31%
+exp_PETR3_parameters7/out.txt:### 2012-01-03 Tue 17:59 - QUIT: Final Capital		R$44101.98	 accumulated return: 10.25%
+exp_PETR3_parameters8/out.txt:### 2012-01-03 Tue 17:59 - QUIT: Final Capital		R$40019.13	 accumulated return: 0.05%
+exp_PETR3_parameters9/out.txt:### 2011-12-28 Wed 17:59 - QUIT: Final Capital		R$44488.77	 accumulated return: 11.22%
+exp_PETR3_parameters10/out.txt:### 2011-12-28 Wed 17:59 - QUIT: Final Capital		R$45485.00	 accumulated return: 13.71%
+exp_PETR3_parameters11/out.txt:### 2012-01-03 Tue 17:59 - QUIT: Final Capital		R$38185.31	 accumulated return: -4.54%
+exp_PETR3_parameters12/out.txt:### 2012-01-03 Tue 17:59 - QUIT: Final Capital		R$41354.74	 accumulated return: 3.39%
+exp_PETR3_parameters13/out.txt:### 2011-12-28 Wed 17:59 - QUIT: Final Capital		R$43911.72	 accumulated return: 9.78%
+exp_PETR3_parameters14/out.txt:### 2011-12-28 Wed 17:59 - QUIT: Final Capital		R$46148.90	 accumulated return: 15.37%
+exp_PETR3_parameters15/out.txt:### 2012-01-03 Tue 17:59 - QUIT: Final Capital		R$41460.40	 accumulated return: 3.65%
+exp_PETR3_parameters16/out.txt:### 2012-01-03 Tue 17:59 - QUIT: Final Capital		R$38523.08	 accumulated return: -3.69%

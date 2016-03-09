@@ -1,0 +1,12 @@
+Inicialmente, faca um make em todos os diretorios:
+./scriptMake.sh
+
+Rode todos os 3 scripts (red, green e blue):
+./scriptRodaTodos.sh
+
+Depois, rode o script Python gera_resultado_final.py (gera o resultado que deve ser submetido para o site)
+python gera_resultado_final.py
+
+Para saber o hit rate, rode:
+python gera_hit_final.py
+

@@ -1,0 +1,30 @@
+int tries;
+
+key t; # Train
+key h; # Swap horizontaly
+key s; # Saccade
+key x; # Save delta x
+key u; # Go back to initial position
+key v; # Swap verticaly
+key s; # Saccade
+key y; # Save delta y
+key f; # Forget
+tries = 0;
+while (!DeltaXYOK(0) && (tries < 8))
+{
+	MoveRamdomXY(0);
+	if (tries < 4)
+		ScaleUp(0);
+
+	key t; # Train
+	key h; # Swap horizontaly
+	key s; # Saccade
+	key x; # Save delta x
+	key u; # Go back to initial position
+	key v; # Swap verticaly
+	key s; # Saccade
+	key y; # Save delta y
+	key f; # Forget
+	tries = tries + 1;	
+}
+key g; # Go to final position after centering

@@ -1,0 +1,74 @@
+CC=gcc
+CCFLAGS= -Wall -g -O3 -D WINDOWS
+DEL=del /F /Q 
+LIBRARYS=-L../../lib -L"C:\Arquivos de Programas\GnuWin32\lib" -lnet_conn -lGA -lStereo -lTsai -lgw32c -lole32 -luuid -lglut32 -lglu32 -lopengl32 -lm -lfl
+INCLUDES=-I../../include -I./ -I../../src/libstereo/include
+LIB_DIR = ..\..\lib
+
+
+##########################################################
+
+EXECUTABLE = robot.exe
+OBJECTS = robot.o \
+	  robot_user_functions/robot_user_functions.o \
+	  robot_user_functions/robot_filters.o \
+	  robot_user_functions/fis.o \
+	  robot_user_functions/mapping.o \
+	  robot_user_functions/visual_search.o \
+ 	  robot_user_functions/camera.o \
+	  robot_user_functions/fuzzy.o \
+	  robot_user_functions/list.o \
+ 	  robot_user_functions/robot.o \
+ 	  robot_user_functions/simulator.o \
+	  robot_user_functions/map.o \
+	  robot_user_functions/convert.o \
+	  robot_user_functions/target.o \
+	  robot_user_functions/terrain.o \
+  	  robot_user_functions/viewer.o	  
+
+##########################################################
+
+.c.o:
+	$(CC) $(CCFLAGS) -c $(INCLUDES) -o $@ $*.c
+
+.cpp.o:	
+	g++ $(CCFLAGS) -c -I$(INCLUDES) -o $@ $*.cpp
+	
+##########################################################
+
+build: $(EXECUTABLE)
+	@echo OK
+
+$(EXECUTABLE): $(OBJECTS)
+	g++ $(CCFLAGS) -o $(EXECUTABLE) $(INCLUDES) $(OBJECTS) $(LIBRARYS)
+
+##########################################################
+
+robot.o:
+	netcomp -o $* < $*.con
+	$(CC) $(CCFLAGS) -c $(INCLUDES) -o $@ $*.c
+robot_user_functions/robot_user_functions.o: robot_user_functions/robot_user_functions.h
+robot_user_functions/robot_filters.o: robot_user_functions/robot_filters.c
+robot_user_functions/fis.o: robot_user_functions/fis.h
+robot_user_functions/mapping.o: robot_user_functions/mapping.h
+robot_user_functions/visual_search.o: robot_user_functions/visual_search.h
+robot_user_functions/camera.o: robot_user_functions/camera.hpp
+robot_user_functions/fuzzy.o: robot_user_functions/fuzzy.hpp
+robot_user_functions/list.o: robot_user_functions/list.hpp
+robot_user_functions/robot.o: robot_user_functions/robot.hpp
+robot_user_functions/simulator.o: robot_user_functions/simulator.hpp
+robot_user_functions/map.o: robot_user_functions/map.hpp
+robot_user_functions/convert.o: robot_user_functions/convert.hpp
+robot_user_functions/target.o: robot_user_functions/target.hpp
+robot_user_functions/terrain.o: robot_user_functions/terrain.hpp
+robot_user_functions/viewer.o: robot_user_functions/viewer.hpp
+
+##########################################################
+
+clean:
+	$(DEL) robot.exe
+	$(DEL) robot.c
+	$(DEL) robot.h
+	$(DEL) *.o
+	$(DEL) *.out
+	$(DEL) robot_user_functions\*.o

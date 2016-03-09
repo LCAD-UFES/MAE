@@ -1,0 +1,5 @@
+image_left 628 293
+image_right 954 25
+out_disparity_map 954 292
+out_aux 628 25
+mae_control_window 49 52

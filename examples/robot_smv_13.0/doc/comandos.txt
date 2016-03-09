@@ -1,0 +1,59 @@
+=== Roteiro de Execução do SMV-13 ===
+
+Abaixo estão descritos os passos básicos do SMV-13 para carregar imagens e gerar a reconstrução 3D delas.
+
+   1. Antes de executar o programa certifique-se de que os arquivos de calibração abaixo estão no diretório raiz do SMV-13 (MAE/examples/robot_smv_13.0). Obs: os indices [i] contam a partir do zero e representam cada par de câmeras (conhecidos internamente como Face/Side). Portanto, o primeiro par de cameras tem indice [i] = 0, o segundo par [i] = 1 e assim por diante.
+          *
+            camera_pair_[i]_rectification_indexes.mat
+          *
+            camera_pair_[i]_rectification_stereo.mat
+   2.
+      Colocar as imagens a serem exibidas no diretorio raiz do SMV. Os arquivos devem ser renomeados segundo o formato. Obs: para este exemplo o parametro image.basename=s4n1680 (ver arquivo SMV-13/config.txt).
+          *
+            Imagem esquerda da camera [i]: <image.basename>_half0_side[i]_left.ppm
+          * Imagem direita  da camera [i]: <image.basename>_half0_side[i]_right.ppm 
+   3.
+      Após executar o SMV pelo arquivo robot, abrirá diversas janelas:
+          * uma chamada Map 3D, em OpenGL (ver fontes em [SMV]/robot_user_functions/viewer.cpp);
+          * e o restante das janelas controladas pela MAE (ver fontes em [SMV]/robot_user_functions/robot_user_functions.c.
+   4. Alterne entre as janelas para a janela chamada "image right", por exemplo, e tecle o índice correspondente para carregar as imagens de um par de câmeras (ex: '0'). As imagens serão carregadas nas janelas "image right" e "image left" e retificadas automaticamente;
+   5. Após a retificação, opcionalmente, pode-se selecionar uma área de interesse (conhecida como WorkingArea) na imagem direita (half 0, opção 'f' default do menu e escolha arbitrária adotada para a biblioteca smv.dll) ou esquerda (half 1, opção 'b' do menu) usando o botão esquerdo do mouse para desenhar um retângulo [definido pelos pontos (x0,y0) e (xn,yn)]. Muito embora este passo não é obrigatório, pois esta área já se encontra pré-definida internamente nos parâmetros abaixo do arquivo SMV-13/config.txt:
+          * input.half[i].workingArea.x0
+          * input.half[i].workingArea.y0
+          * input.half[i].workingArea.xn
+          * input.half[i].workingArea.yn
+   6. Em seguida, para gerar a reconstrucao do lado atual, digite "v". A opção "V" é um atalho para calcular o volume diretamente dos 3 pares de imagens;
+   7. E depois digite "r" no menu da MAE para visualizar a reconstrução do lado atual na janela Map 3D. A opção 'R' limpa a tela e gera novamente;
+   8. Opcionalmente, pode-se calcular a distância entre dois pontos seguindo os procedimentos abaixo a partir do passo 6:
+         1. Primeiro deve-se selecionar um mesmo ponto nas imagens direita e esquerda. Dica: selecione um ponto de fácil identificação na imagem direita e o ajuste manualmente na imagem esquerda se necessário;
+         2. Digite 't' para marcar o 1o. ponto na imagem direita;
+         3. Clique num outro ponto na imagem direita, que queira saber a distância para o 1o. ponto, e verifique sua posição na imagem esquerda. Dica: ajuste o ponto manualmente na imagem esquerda para corresponder ao da imagem direita, se for preciso;
+         4. Digite 'y' para marcar o 2o. ponto;
+         5. Pronto, confira as medidas impressas no terminal.
+
+Para encaixar as faces do objeto após a reconstruçao 3D utilize os seguintes comandos na janela Map 3D:
+
+Para Posicionamento:
+
+    * p e P: controlam o objeto no eixo x;
+    * o e O: controlam o objeto no eixo y;
+    * i e I: controlam o objeto no eixo z;
+
+Para Translaçâo:
+
+    * b e B: transladam o objeto ao longo do eixo x;
+    * n e N: transladam o objeto ao longo do eixo y;
+    * m e M: transladam o objeto ao londo do eixo z;
+
+Para Rotação:
+
+    * h e H: rotaciona o objeto em relação ao eixo x;
+    * j e J: rotaciona o objeto em relação ao eixo y;
+    * k e K: rotaciona o objeto em relação ao eixo z;
+    * f e F: ajuste fino de rotação;
+
+Os eixos XYZ estão orientados na janela Map 3D da seguinte forma:
+
+    * x esteja na horizontal (longitudinal em relação a tela);
+    * y esteja na vertical (longitudinal em relação a tela);
+    * z atravessa o plano da tela perpendicularmente;

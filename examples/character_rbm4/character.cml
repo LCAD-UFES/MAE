@@ -1,0 +1,61 @@
+int train_size;
+int test_size;
+int batch_num;
+int char_num;
+
+float initial_time;
+float elapsed_time;
+
+train_size = 60000;
+test_size = 10000;
+
+initial_time = time;
+
+/* Reading data */
+SetNetworkStatus(0);
+
+char_num = 0;
+while (char_num < train_size )
+{
+	GetCharOrderN(char_num);
+	forward character_RBM_filter;
+	char_num = char_num + 1;
+}
+
+
+/* Training DBN */
+SetNetworkStatus(1);
+forward character_RBM_filter;
+
+
+/* Unload Pre-training DBN */
+SetNetworkStatus(3);
+forward character_RBM_filter;
+
+
+/* Reload Pre-training DBN */
+SetNetworkStatus(4);
+forward character_RBM_filter;
+
+elapsed_time = time;
+print("Training time in ms:", elapsed_time - initial_time);
+
+/* Testing phase */
+SetNetworkStatus(2);
+forward character_RBM_filter;
+
+char_num = 0;
+while (char_num < test_size)
+{
+	GetCharN(char_num);
+	
+	forward network;
+
+	EvaluateChar(0.0);
+
+	UpdateStats(0);
+	
+	char_num = char_num + 1;
+}
+
+quit;

@@ -1,0 +1,103 @@
+################################################ Set Global Variables #################################################
+set NEURON_MEMORY_SIZE = 300;
+set TYPE_SHOW = SHOW_FRAME;
+set TYPE_MOVING_FRAME = STOP;
+
+######################################################## Constants ####################################################
+const NL_WIDTH 		= 60;
+const NL_HEIGHT		= 60;
+
+## A cada 3 linhas --> uma pessoa. Ou seja, 12 neuronios por pessoa.
+const TOTAL_PERSONS		= 50;
+const OUT_WIDTH			= 4;
+const OUT_HEIGHT		= 3*TOTAL_PERSONS;
+const OUT_NEURONS_BY_PERSON	= 3*OUT_WIDTH;
+
+const FOV_HORIZONTAL    = 47.05;
+const LOG_FACTOR	= 2.0;
+const CYCLES_PER_DEGREE	= 0.85;
+const BAND_WITH		= 2.0;
+const ASPECT_RATIO	= 1.0;
+const PHASE		= 0.0;
+const SYNAPSES		= 256;
+
+############################################### Neuron Layers #########################################################
+#neuronlayer	nl_face_recog_lp[100][100]		with greyscale_float outputs;
+
+#neuronlayer	nl_eye_v1[NL_WIDTH][NL_HEIGHT]		with greyscale_float outputs;
+#neuronlayer	nl_eye_h1[NL_WIDTH][NL_HEIGHT]		with greyscale_float outputs;
+neuronlayer	nl_nose_v1[NL_WIDTH][NL_HEIGHT]		with greyscale_float outputs;
+neuronlayer	nl_nose_h1[NL_WIDTH][NL_HEIGHT]		with greyscale_float outputs;
+#neuronlayer	nl_mouth_v1[NL_WIDTH][NL_HEIGHT]	with greyscale_float outputs;
+#neuronlayer	nl_mouth_h1[NL_WIDTH][NL_HEIGHT]	with greyscale_float outputs;
+
+#neuronlayer	nl_eye[OUT_WIDTH][OUT_HEIGHT]		of minchinton neurons with greyscale_float outputs;
+neuronlayer	nl_nose[OUT_WIDTH][OUT_HEIGHT]		of minchinton neurons with greyscale_float outputs;
+#neuronlayer	nl_mouth[OUT_WIDTH][OUT_HEIGHT]		of minchinton neurons with greyscale_float outputs;
+
+############################################### Outputs #########################################################
+#output		out_face_recog_lp[100][100];
+
+#output		out_eye_v1[NL_WIDTH][NL_HEIGHT];
+#output		out_eye_h1[NL_WIDTH][NL_HEIGHT];
+output		out_nose_v1[NL_WIDTH][NL_HEIGHT];
+output		out_nose_h1[NL_WIDTH][NL_HEIGHT];
+#output		out_mouth_v1[NL_WIDTH][NL_HEIGHT];
+#output		out_mouth_h1[NL_WIDTH][NL_HEIGHT];
+
+#output		out_eye[OUT_WIDTH][OUT_HEIGHT] handled by output_handler();
+output		out_nose[OUT_WIDTH][OUT_HEIGHT] handled by output_handler();
+#output		out_mouth[OUT_WIDTH][OUT_HEIGHT] handled by output_handler();
+
+################################################## Inputs #############################################################
+input 		face_recog[384][288]	with color outputs produced by input_generator() controled by input_controler();
+
+############################################### Filters #########################################################
+#filter		face_recog	with map_image_v1("%s %f","face_recog", LOG_FACTOR) producing nl_face_recog_lp;
+
+#biological_gabor_filter("%f %f %f %f %f %f %d %d %f", camera_opening_degree, cycles_per_degree, band_width, aspect_ratio, orientation, phase, shift, mapping, log_factor)
+
+#filter		face_recog	with biological_gabor_filter ("%f %f %f %f %f %f %d %d %f %d", FOV_HORIZONTAL, CYCLES_PER_DEGREE, BAND_WITH, ASPECT_RATIO,    0.0, PHASE, 0, MAP_LOG_POLAR, LOG_FACTOR, KERNEL_2D) producing nl_eye_v1;
+#filter		face_recog	with biological_gabor_filter ("%f %f %f %f %f %f %d %d %f %d", FOV_HORIZONTAL, CYCLES_PER_DEGREE, BAND_WITH, ASPECT_RATIO, pi/2.0, PHASE, 0, MAP_LOG_POLAR, LOG_FACTOR, KERNEL_2D) producing nl_eye_h1;
+filter		face_recog	with biological_gabor_filter ("%f %f %f %f %f %f %d %d %f %d", FOV_HORIZONTAL, CYCLES_PER_DEGREE, BAND_WITH, ASPECT_RATIO,    0.0, PHASE, 0, MAP_LOG_POLAR, LOG_FACTOR, KERNEL_2D) producing nl_nose_v1;
+filter		face_recog	with biological_gabor_filter ("%f %f %f %f %f %f %d %d %f %d", FOV_HORIZONTAL, CYCLES_PER_DEGREE, BAND_WITH, ASPECT_RATIO, pi/2.0, PHASE, 0, MAP_LOG_POLAR, LOG_FACTOR, KERNEL_2D) producing nl_nose_h1;
+#filter		face_recog	with biological_gabor_filter ("%f %f %f %f %f %f %d %d %f %d", FOV_HORIZONTAL, CYCLES_PER_DEGREE, BAND_WITH, ASPECT_RATIO,    0.0, PHASE, 0, MAP_LOG_POLAR, LOG_FACTOR, KERNEL_2D) producing nl_mouth_v1;
+#filter		face_recog	with biological_gabor_filter ("%f %f %f %f %f %f %d %d %f %d", FOV_HORIZONTAL, CYCLES_PER_DEGREE, BAND_WITH, ASPECT_RATIO, pi/2.0, PHASE, 0, MAP_LOG_POLAR, LOG_FACTOR, KERNEL_2D) producing nl_mouth_h1;
+
+################################## Connect Neuron Layers to Outputs #############################################
+#outputconnect	nl_face_recog_lp to out_face_recog_lp;
+
+#outputconnect	nl_eye_v1 to out_eye_v1;
+#outputconnect	nl_eye_h1 to out_eye_h1;
+outputconnect	nl_nose_v1 to out_nose_v1;
+outputconnect	nl_nose_h1 to out_nose_h1;
+#outputconnect	nl_mouth_v1 to out_mouth_v1;
+#outputconnect	nl_mouth_h1 to out_mouth_h1;
+
+#outputconnect	nl_eye to out_eye;
+outputconnect	nl_nose to out_nose;
+#outputconnect	nl_mouth to out_mouth;
+
+############################################### Associations ####################################################
+#associate	nl_eye		with	nl_eye;
+associate	nl_nose		with	nl_nose;
+#associate	nl_mouth	with	nl_mouth;
+
+################################################ Connections ####################################################
+#connect		nl_eye_v1	to nl_eye	with SYNAPSES random inputs per neuron;
+#connect		nl_eye_h1	to nl_eye	with SYNAPSES random inputs per neuron;
+connect		nl_nose_v1	to nl_nose	with SYNAPSES random inputs per neuron;
+connect		nl_nose_h1	to nl_nose	with SYNAPSES random inputs per neuron;
+#connect		nl_mouth_v1	to nl_mouth	with SYNAPSES random inputs per neuron;
+#connect		nl_mouth_h1	to nl_mouth	with SYNAPSES random inputs per neuron;
+
+################################################ User Functions #################################################
+int GetFace("%d %d %d");
+int GetRandomFace("%d");
+int Move2Eye ("%d");
+int Move2Nose ("%d");
+int Move2Mouth ("%d");
+int ShowStatistics ("%d");
+int ResetStatistics ("%d");
+int SetNetworkStatus ("%d");
+

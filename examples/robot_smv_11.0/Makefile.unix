@@ -1,0 +1,130 @@
+CC=gcc
+CCC=g++
+CCFLAGS= -Wall -g #  -O3
+LIBS = -lnet_conn -lGA -lstereo -lXmu -lXext -lX11 -ltiff -lglut -lGLU -lGL -lXi -lforms -lm -lfl -lgsl -lgslcblas -lXpm
+LIBPATH = -L/usr/local/lib -L/usr/X11R6/lib -L../../lib -L./
+INCPATH = -I/usr/local/matlab7/extern/include -I../../include -I./ -I./robot_user_functions -I./robot_user_functions/segment  -I./util 
+
+##########################################################
+
+EXECUTABLE = robot
+OBJECTS = robot.o \
+	  robot_user_functions/robot_io.o \
+	  robot_user_functions/robot_nl_functions.o \
+	  robot_user_functions/robot_user_functions.o \
+	  robot_user_functions/robot_filters.o \
+	  robot_user_functions/smv_api.o \
+	  robot_user_functions/viewer.o \
+	  robot_user_functions/model_3d.o \
+	  robot_user_functions/model_3d_io.o \
+	  robot_user_functions/map.o \
+	  robot_user_functions/maplist.o \
+	  robot_user_functions/convert.o \
+	  robot_user_functions/view.o \
+	  robot_user_functions/circle_packing.o \
+	  robot_user_functions/cylinder.o \
+	  robot_user_functions/cylinder_list.o \
+	  robot_user_functions/line.o \
+	  robot_user_functions/estimate_volume.o \
+	  robot_user_functions/stereo_volume.o \
+	  robot_user_functions/fitting.o \
+	  robot_user_functions/subpixel_disparity.o \
+	  robot_user_functions/gabor_guess_cylinder.o \
+	  robot_user_functions/geometric_operations.o \
+	  robot_user_functions/segment/segment.o \
+	  robot_user_functions/solver.o \
+	  util/config.o \
+	  util/config_default.o \
+	  util/cconfig.o
+	  
+LIBSTEREO = robot_user_functions/matlab_scripts/makelibstereo.m \
+	    robot_user_functions/matlab_scripts/LoadStereoParameters.m \
+	    robot_user_functions/matlab_scripts/StereoTriangulation.m \
+	    robot_user_functions/matlab_scripts/LoadRectificationIndexes.m \
+	    robot_user_functions/matlab_scripts/RectifyStereoPair.m \
+	    robot_user_functions/matlab_scripts/RectifyLeftImage.m \
+	    robot_user_functions/matlab_scripts/RectifyRightImage.m \
+	    robot_user_functions/matlab_scripts/CameraProjection.m \
+	    robot_user_functions/matlab_scripts/GetWorldPointAtDistance.m \
+	    robot_user_functions/matlab_scripts/stereo_api.c \
+	    robot_user_functions/matlab_scripts/stereo_api.h 
+	
+SEGMENT = 	robot_user_functions/segment/segment.hpp \
+		robot_user_functions/segment/convolve.h \
+		robot_user_functions/segment/disjoint-set.h \
+		robot_user_functions/segment/filter.h \
+		robot_user_functions/segment/image.h \
+		robot_user_functions/segment/imconv.h \
+		robot_user_functions/segment/imutil.h \
+		robot_user_functions/segment/misc.h \
+		robot_user_functions/segment/pnmfile.h \
+		robot_user_functions/segment/segment.cpp \
+		robot_user_functions/segment/segment-graph.h \
+		robot_user_functions/segment/segment-image.h 
+	  
+##########################################################
+
+.c.o:
+	$(CC) $(CCFLAGS) -c $(INCPATH) -o $@ $*.c
+
+.cpp.o:	
+	$(CCC) $(CCFLAGS) -c $(INCPATH) -o $@ $*.cpp
+	
+##########################################################
+
+build: $(EXECUTABLE)
+	@echo OK
+
+$(EXECUTABLE): $(OBJECTS) ../../lib/libnet_conn.a
+	$(CCC) $(CCFLAGS) -o $(EXECUTABLE) $(OBJECTS) $(LIBPATH) $(LIBS)
+
+##########################################################
+
+robot.o: libstereo.so robot.con
+	netcomp -o $* < $*.con
+	$(CC) $(CCFLAGS) -c $(INCPATH) -o $@ $*.c
+
+libstereo.so: $(LIBSTEREO)
+	$(MAKE) -C robot_user_functions/matlab_scripts
+	
+robot_user_functions/segment/segment.o: $(SEGMENT)
+	$(MAKE) -C robot_user_functions/segment
+
+robot_user_functions/model_3d.o: robot_user_functions/model_3d.hpp
+robot_user_functions/model_3d_io.o: robot_user_functions/model_3d_io.hpp
+robot_user_functions/robot_user_functions.o: robot.h robot_user_functions/robot_user_functions.h robot_user_functions/viewer.hpp robot_user_functions/matlab_scripts/stereo_api.h
+robot_user_functions/smv_api.o: robot_user_functions/smv_api.h robot_user_functions/matlab_scripts/stereo_api.h
+robot_user_functions/robot_filters.o: ../../include/filter.h
+robot_user_functions/viewer.o: robot_user_functions/viewer.hpp
+robot_user_functions/map.o: robot_user_functions/map.hpp
+robot_user_functions/convert.o: robot_user_functions/convert.hpp
+robot_user_functions/view.o: robot_user_functions/view.hpp	  
+robot_user_functions/cylinder.o: robot.h robot_user_functions/robot_user_functions.h robot_user_functions/cylinder.h robot.h robot_user_functions/view.hpp
+robot_user_functions/cylinder_list.o: robot_user_functions/cylinder_list.h robot_user_functions/cylinder.h
+robot_user_functions/estimate_volume.o: robot_user_functions/estimate_volume.h robot_user_functions/matlab_scripts/stereo_api.h robot_user_functions/robot_user_functions.h
+robot_user_functions/fitting.o: robot_user_functions/fitting.h robot_user_functions/cylinder.h 
+robot_user_functions/solver.o: robot_user_functions/solver.h
+robot_user_functions/subpixel_disparity.o: robot_user_functions/subpixel_disparity.h
+robot_user_functions/gabor_guess_cylinder.o: robot_user_functions/gabor_guess_cylinder.h
+robot_user_functions/geometric_operations.o: robot_user_functions/geometric_operations.h
+
+##########################################################
+
+clean:
+	rm -f *.o robot_user_functions/*.o robot_user_functions/segment/*.o util/*.o
+	rm -f robot
+	rm -f robot.[c,h]
+	rm -f *.out
+	rm -f robot.sh.*
+	rm -f robot_user_functions/matlab_scripts/libstereo.so 
+	rm -f robot_user_functions/matlab_scripts/libstereo.ctf 
+	rm -f robot_user_functions/matlab_scripts/libstereo.h 
+	rm -f robot_user_functions/matlab_scripts/libstereo.c
+	rm -f robot_user_functions/matlab_scripts/libstereo_mcc_component_data.c 
+	rm -f robot_user_functions/matlab_scripts/libstereo.exports
+	rm -f robot_user_functions/stereo_api.h 
+	rm -f libstereo.so 
+	rm -f libstereo.ctf
+	rm -f -R libstereo_mcr 
+	rm -f hs_err_pid*.log
+	rm -f kernel_*.out

@@ -1,0 +1,20 @@
+.wp_visual_search
+# Please wait, building network...
+.wp_visual_search
+.wp_visual_search
+.wp_visual_search
+.wp_visual_search
+.wp_visual_search
+.wp_visual_search
+# 0.003 # 0.013 # 0.022 # 0.013 # 0.003 
+# 0.013 # 0.060 # 0.098 # 0.060 # 0.013 
+# 0.022 # 0.098 # 0.162 # 0.098 # 0.022 
+# 0.013 # 0.060 # 0.098 # 0.060 # 0.013 
+# 0.003 # 0.013 # 0.022 # 0.013 # 0.003 
+# 0.003 # 0.013 # 0.022 # 0.013 # 0.003 
+# 0.013 # 0.060 # 0.098 # 0.060 # 0.013 
+# 0.022 # 0.098 # 0.162 # 0.098 # 0.022 
+# 0.013 # 0.060 # 0.098 # 0.060 # 0.013 
+# 0.003 # 0.013 # 0.022 # 0.013 # 0.003 
+Locale set to C.
+Number of images with traffic signs within criterion = 26

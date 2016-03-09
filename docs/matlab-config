@@ -1,0 +1,33 @@
+1 - Instalar o Matlab versao "7.0.0.19901 (R14)" seguindo as intrucoes de instalacao contidas no CD, 
+porém é necessário não 
+instalar o Matlab completo. Caso contrario ocorrerá um erro ao tentar ler o segundo CD, que contem o
+ matlab compiler(Na ocasiao 
+presente excluiu-se o pacote "Matlab Web Service");
+2 - Para utilizar o Matlab foi necessario resolver 3 bugs:
+2.1 - Um relativo a seguinte msg "Matlab shell widget has zero width
+and/or zero height", que foi resolvido com a solucao: 
+
+Criar um arquivo chamado "matlab.xresource" dentro do diretorio "home" contendo as seguintes linhas:
+MATLAB*height: 1
+MATLAB*width: 1
+
+Adicionar no arquivo .bashrc, que esta oculto dentro do diretorio "home", o seguinte comando:
+xrdb -merge matlab.xresource 
+
+2.2 - Trocar os ponteiros da variavel LD_LIBRARY_PATH que esta apontando para a versao antiga do java(No caso presente jre1.4.2) para 
+apontar para a versao mais nova(No caso presente j2re1.5-sun). Para isso, basta trocar no arquivo .bashrc, que esta oculto dentro do 
+diretorio "home", as referencias ao diretorio da versao antiga para a nova, como por exemplo:
+Trocar
+$MATLABROOT/sys/java/jre/glnx86/jre1.4.2/lib/i386/native_threads
+Por
+/usr/lib/j2re1.5-sun/lib/i386/native_threads
+
+e assim por diante, até eliminar todas as referencias antigas.
+
+2.3 - Inicializar a variavel "MATLAB_JAVA" apontando para a versao mais recente do java runtime (No caso presente jre-1.5.0_09). Para 
+isso, basta adicionar no arquivo .bashrc, que esta oculto dentro do diretorio "home", o seguinte comando:
+export MATLAB_JAVA=<caminho_do_j2re1.5-sun>
+
+onde, <caminho_do_j2re1.5-sun> é o caminho da versao mais recente do java runtime.
+
+2.4 - Após resolver esses dois bugs a aplicacao utilizando o matlab estara pronta para ser executado no shell preparado.

@@ -1,0 +1,111 @@
+BIN_DIR = ..\bin
+LIB_DIR = ..\lib
+EXAMPLES_DIR = ..\examples
+
+CC = gcc
+CFLAGS = -g -Wall -D GLUT_NO_LIB_PRAGMA -D GLUT_NO_WARNING_DISABLE -D GLUT_DISABLE_ATEXIT_HACK -D WINDOWS -D NO_INTERFACE
+#CFLAGS = -g -pg -Wall -O3 -D WINDOWS -D GLUT_NO_LIB_PRAGMA
+DEL=del /F /Q 
+INCPATH = ..\include
+LIBS =  -L"C:\Program Files\GnuWin32\lib" -L../lib -lGA -lTsai -lgw32c -lole32 -luuid -lglut32 -lglu32 -lopengl32 -lm -lfl #-lStereo 
+YACC = bison
+LEX = flex
+AR = ar
+ARFLAGS = -rc
+
+#############################################################
+EXECUTABLE =netcomp.exe
+EXEC_OBJS  =netcomp_yacc.o \
+		netcomp_lex.o 
+
+LIBRARY    =libnet_conn.a
+LIB_OBJS   =mae_control_main_true.o \
+		mae_control_file_cb.o \
+		io_display.o \
+		mae_control_actions_cb.o \
+		global.o \
+		syn_neu.o \
+		learning.o \
+		connect.o \
+		io.o \
+		filter.o \
+		user_functions.o \
+		interpreter_yacc.o \
+		interpreter_lex.o 
+
+#############################################################
+
+.c.o:
+	$(CC) $(CFLAGS) -c -I$(INCPATH) -I"C:\Dev-cpp\include" -o $@ $*.c
+
+.l.o:
+	$(LEX) -o$*.yy.c $*.l  
+	$(CC) $(CFLAGS) -c -I$(INCPATH) -I"C:\Dev-cpp\include" -o $@ $*.yy.c
+
+.y.o:
+	$(YACC) -d $*.y
+	$(CC) $(CFLAGS) -c -I$(INCPATH) -I"C:\Dev-cpp\include" -o $@ $*.tab.c
+
+#############################################################
+
+#build: $(LIBRARY) libGA.a libTsai.a libStereo.a $(EXECUTABLE)
+build: $(LIBRARY) libGA.a libStereo.a $(EXECUTABLE) 
+	@echo OK
+	
+$(LIBRARY): $(LIB_OBJS) libGA.a
+	$(AR) $(ARFLAGS) $(LIB_DIR)\$(LIBRARY) $(LIB_OBJS)
+	ranlib $(LIB_DIR)\$(LIBRARY)
+
+$(EXECUTABLE): $(EXEC_OBJS)
+	$(CC) $(CFLAGS) -o $(BIN_DIR)\$(EXECUTABLE) $(EXEC_OBJS) $(LIBS)
+
+libGA.a:
+	$(MAKE) -C libga100 -f Makefile.win
+	copy libga100\libGA.a $(LIB_DIR)
+
+libTsai.a:
+	$(MAKE) -C libtsai -f Makefile.win
+	copy libtsai\libTsai.a $(LIB_DIR)
+
+libStereo.a:
+	$(MAKE) -C libstereo -f Makefile.win
+#	copy libstereo\lib\libStereo.a $(LIB_DIR)
+	copy libstereo\lib\libTsai.a $(LIB_DIR)
+
+##############################################################
+
+mae_control.o 			: $(INCPATH)\mae_control.h
+mae_control_main_true.o 	: $(INCPATH)\mae_control.h $(INCPATH)\mae.h
+mae_control_file_cb.o 		: $(INCPATH)\mae_control.h $(INCPATH)\mae.h
+mae_control_actions_cb.o 	: $(INCPATH)\mae_control.h $(INCPATH)\mae.h
+global.o 				: $(INCPATH)\mae.h
+syn_neu.o 				: $(INCPATH)\mae.h
+learning.o 				: $(INCPATH)\mae.h
+connect.o 				: $(INCPATH)\mae.h
+io_display.o	 		: $(INCPATH)\mae.h
+io.o 					: $(INCPATH)\mae.h
+filter.o 				: $(INCPATH)\mae.h $(INCPATH)\filter.h
+user_functions.o 			: $(INCPATH)\mae.h
+netcomp_yacc.o 			: netcomp_yacc.y
+netcomp_lex.o 			: netcomp_lex.l netcomp_yacc.y
+interpreter_yacc.o 		: interpreter_yacc.y $(INCPATH)\mae.h
+interpreter_lex.o 		: interpreter_lex.l interpreter_yacc.y $(INCPATH)\mae.h
+
+##############################################################
+
+clean :
+	$(DEL) *.o 
+	$(DEL) *yacc.tab.* 
+	$(DEL) *lex.yy.c 
+	$(DEL) *.bak 
+	$(DEL) $(BIN_DIR)\$(EXECUTABLE) 
+	$(DEL) $(LIB_DIR)\$(LIBRARY)
+	$(DEL) $(LIB_DIR)\*.a
+	$(DEL) $(LIB_DIR)\*.dll
+	$(DEL) $(LIB_DIR)\*.def
+	$(DEL) core
+	$(MAKE) -C libga100 -f Makefile.win clean
+#	$(MAKE) -C libtsai -f Makefile.win clean
+	$(MAKE) -C libstereo -f Makefile.win clean
+
+

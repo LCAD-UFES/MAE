@@ -1,0 +1,30 @@
+Para rodar o modulo utilize o comando abaixo:
+
+	>> ./voice_recognition
+
+Procedimento de Captura 
+
+	Para começar a capturar o som clique a direita da borda da janela spectogram. 
+	Clique novamente para terminar a captura.
+
+Procedimento de Treino
+
+	O procedimento de treino da rede se baseia em tres etapas:
+		1. Escolher a palavra de saida
+		
+			Para escolher a palavra de saida, clique nas area mais a direita ou mais a esquerda
+			da janela command_input.
+		
+		3. Centralizar o som da palavra
+		
+			Para centralizar o som da palavra escolhida, utilize as teclas 'k' (para se deslocar 
+			para frente no espectograma) ou 'j' (para se deslocar para tras)
+		
+		2. Treinar a rede
+	
+			Para treinar a rede, clique no botao Train da janela "./voice_recognition"
+
+Procedimento de Teste
+
+	Para testar a rede utilizando os sons capturados, basta se mover no espectograma utilizando as teclas 'k' e 'j'.
+	Para testar a rede com novos sons, utilize o procedimento de captura descrito acima. 

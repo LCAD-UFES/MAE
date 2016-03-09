@@ -1,0 +1,1678 @@
+Training discriminative model on MNIST by minimizing cross entropy error. 
+60 batches of 1000 cases each. 
+Size of the training dataset=  3200 
+Size of the test dataset= 10000 
+Before epoch 1 Train # misclassified: 2691 (from 3200). Test # misclassified: 8364 (from 10000) 	 	 
+epoch 1 batch 1
+Linesearch      1;  Value 7.526344e+02
+Linesearch      2;  Value 4.400819e+02
+Linesearch      3;  Value 3.185097e+02
+
+epoch 1 batch 2
+Linesearch      1;  Value 3.444691e+02
+Linesearch      2;  Value 2.697349e+02
+Linesearch      3;  Value 1.589301e+02
+
+epoch 1 batch 3
+Linesearch      1;  Value 2.607868e+02
+Linesearch      2;  Value 1.885846e+02
+Linesearch      3;  Value 1.365042e+02
+
+Before epoch 2 Train # misclassified: 157 (from 3200). Test # misclassified: 711 (from 10000) 	 	 
+epoch 2 batch 1
+Linesearch      1;  Value 1.755661e+02
+Linesearch      2;  Value 1.391687e+02
+Linesearch      3;  Value 1.040895e+02
+
+epoch 2 batch 2
+Linesearch      1;  Value 1.148263e+02
+Linesearch      2;  Value 8.464112e+01
+Linesearch      3;  Value 6.488378e+01
+
+epoch 2 batch 3
+Linesearch      1;  Value 1.262079e+02
+Linesearch      2;  Value 9.806201e+01
+Linesearch      3;  Value 6.359197e+01
+
+Before epoch 3 Train # misclassified: 88 (from 3200). Test # misclassified: 633 (from 10000) 	 	 
+epoch 3 batch 1
+Linesearch      1;  Value 9.646985e+01
+Linesearch      2;  Value 6.950206e+01
+Linesearch      3;  Value 4.793548e+01
+
+epoch 3 batch 2
+Linesearch      1;  Value 7.031108e+01
+Linesearch      2;  Value 4.857064e+01
+Linesearch      3;  Value 3.506938e+01
+
+epoch 3 batch 3
+Linesearch      1;  Value 6.880080e+01
+Linesearch      2;  Value 5.150795e+01
+Linesearch      3;  Value 3.583656e+01
+
+Before epoch 4 Train # misclassified: 41 (from 3200). Test # misclassified: 602 (from 10000) 	 	 
+epoch 4 batch 1
+Linesearch      1;  Value 5.218633e+01
+Linesearch      2;  Value 3.852802e+01
+Linesearch      3;  Value 3.107539e+01
+
+epoch 4 batch 2
+Linesearch      1;  Value 4.205086e+01
+Linesearch      2;  Value 3.007917e+01
+Linesearch      3;  Value 2.367868e+01
+
+epoch 4 batch 3
+Linesearch      1;  Value 3.914463e+01
+Linesearch      2;  Value 2.855652e+01
+Linesearch      3;  Value 2.195085e+01
+
+Before epoch 5 Train # misclassified: 28 (from 3200). Test # misclassified: 574 (from 10000) 	 	 
+epoch 5 batch 1
+Linesearch      1;  Value 3.729037e+01
+Linesearch      2;  Value 2.873969e+01
+Linesearch      3;  Value 2.193331e+01
+
+epoch 5 batch 2
+Linesearch      1;  Value 2.777710e+01
+Linesearch      2;  Value 2.050302e+01
+Linesearch      3;  Value 1.569478e+01
+
+epoch 5 batch 3
+Linesearch      1;  Value 2.484594e+01
+Linesearch      2;  Value 2.065740e+01
+Linesearch      3;  Value 1.642899e+01
+
+Before epoch 6 Train # misclassified: 17 (from 3200). Test # misclassified: 566 (from 10000) 	 	 
+epoch 6 batch 1
+Linesearch      1;  Value 2.147052e+01
+Linesearch      2;  Value 1.443592e+01
+Linesearch      3;  Value 1.001946e+01
+
+epoch 6 batch 2
+Linesearch      1;  Value 1.837094e+01
+Linesearch      2;  Value 1.157286e+01
+Linesearch      3;  Value 8.201782e+00
+
+epoch 6 batch 3
+Linesearch      1;  Value 1.784459e+01
+Linesearch      2;  Value 1.251903e+01
+Linesearch      3;  Value 9.610653e+00
+
+Before epoch 7 Train # misclassified: 12 (from 3200). Test # misclassified: 544 (from 10000) 	 	 
+epoch 7 batch 1
+Linesearch      1;  Value 9.869295e+00
+Linesearch      2;  Value 7.578752e+00
+Linesearch      3;  Value 5.247320e+00
+
+epoch 7 batch 2
+Linesearch      1;  Value 7.094446e+00
+Linesearch      2;  Value 5.130933e+00
+Linesearch      3;  Value 3.632900e+00
+
+epoch 7 batch 3
+Linesearch      1;  Value 9.348601e+00
+Linesearch      2;  Value 6.968463e+00
+Linesearch      3;  Value 4.734405e+00
+
+Before epoch 8 Train # misclassified: 11 (from 3200). Test # misclassified: 532 (from 10000) 	 	 
+epoch 8 batch 1
+Linesearch      1;  Value 5.194548e+00
+Linesearch      2;  Value 4.146782e+00
+Linesearch      3;  Value 2.799883e+00
+
+epoch 8 batch 2
+Linesearch      1;  Value 3.104681e+00
+Linesearch      2;  Value 2.358444e+00
+Linesearch      3;  Value 1.502949e+00
+
+epoch 8 batch 3
+Linesearch      1;  Value 4.634943e+00
+Linesearch      2;  Value 3.496947e+00
+Linesearch      3;  Value 2.449264e+00
+
+Before epoch 9 Train # misclassified: 12 (from 3200). Test # misclassified: 522 (from 10000) 	 	 
+epoch 9 batch 1
+Linesearch      1;  Value 2.619575e+00
+Linesearch      2;  Value 2.032658e+00
+Linesearch      3;  Value 1.506015e+00
+
+epoch 9 batch 2
+Linesearch      1;  Value 1.247603e+00
+Linesearch      2;  Value 9.234094e-01
+Linesearch      3;  Value 6.292882e-01
+
+epoch 9 batch 3
+Linesearch      1;  Value 2.377518e+00
+Linesearch      2;  Value 1.756434e+00
+Linesearch      3;  Value 1.118198e+00
+
+Before epoch 10 Train # misclassified: 10 (from 3200). Test # misclassified: 501 (from 10000) 	 	 
+epoch 10 batch 1
+Linesearch      1;  Value 1.408268e+00
+Linesearch      2;  Value 1.044817e+00
+Linesearch      3;  Value 7.081690e-01
+
+epoch 10 batch 2
+Linesearch      1;  Value 5.139829e-01
+Linesearch      2;  Value 3.653631e-01
+Linesearch      3;  Value 2.242370e-01
+
+epoch 10 batch 3
+Linesearch      1;  Value 1.134240e+00
+Linesearch      2;  Value 8.393420e-01
+Linesearch      3;  Value 5.361256e-01
+
+Before epoch 11 Train # misclassified: 8 (from 3200). Test # misclassified: 503 (from 10000) 	 	 
+epoch 11 batch 1
+Linesearch      1;  Value 6.183217e-01
+Linesearch      2;  Value 4.450209e-01
+Linesearch      3;  Value 2.967407e-01
+
+epoch 11 batch 2
+Linesearch      1;  Value 1.711518e-01
+Linesearch      2;  Value 1.149276e-01
+Linesearch      3;  Value 6.558029e-02
+
+epoch 11 batch 3
+Linesearch      1;  Value 5.474025e-01
+Linesearch      2;  Value 3.948933e-01
+Linesearch      3;  Value 2.425013e-01
+
+Before epoch 12 Train # misclassified: 9 (from 3200). Test # misclassified: 493 (from 10000) 	 	 
+epoch 12 batch 1
+Linesearch      1;  Value 2.306200e-01
+Linesearch      2;  Value 1.623235e-01
+Linesearch      3;  Value 1.243752e-01
+
+epoch 12 batch 2
+Linesearch      1;  Value 4.845108e-02
+Linesearch      2;  Value 3.793626e-02
+Linesearch      3;  Value 2.008269e-02
+
+epoch 12 batch 3
+Linesearch      1;  Value 3.299541e-01
+Linesearch      2;  Value 2.017876e-01
+Linesearch      3;  Value 1.483802e-01
+
+Before epoch 13 Train # misclassified: 9 (from 3200). Test # misclassified: 504 (from 10000) 	 	 
+epoch 13 batch 1
+Linesearch      1;  Value 1.080670e-01
+Linesearch      2;  Value 8.215873e-02
+Linesearch      3;  Value 6.215298e-02
+
+epoch 13 batch 2
+Linesearch      1;  Value 1.466085e-02
+Linesearch      2;  Value 1.217661e-02
+Linesearch      3;  Value 4.488890e-03
+
+epoch 13 batch 3
+Linesearch      1;  Value 3.611012e-01
+Linesearch      2;  Value 1.669649e-01
+Linesearch      3;  Value 1.046868e-01
+
+Before epoch 14 Train # misclassified: 9 (from 3200). Test # misclassified: 503 (from 10000) 	 	 
+epoch 14 batch 1
+Linesearch      1;  Value 5.186622e-02
+Linesearch      2;  Value 3.475988e-02
+Linesearch      3;  Value 2.310692e-02
+
+epoch 14 batch 2
+Linesearch      1;  Value 2.506765e-03
+Linesearch      2;  Value 1.967000e-03
+Linesearch      3;  Value 8.683166e-04
+
+epoch 14 batch 3
+Linesearch      1;  Value 1.340523e-01
+Linesearch      2;  Value 7.254650e-02
+Linesearch      3;  Value 4.561608e-02
+
+Before epoch 15 Train # misclassified: 9 (from 3200). Test # misclassified: 497 (from 10000) 	 	 
+epoch 15 batch 1
+Linesearch      1;  Value 1.996632e-02
+Linesearch      2;  Value 1.430309e-02
+Linesearch      3;  Value 9.411809e-03
+
+epoch 15 batch 2
+Linesearch      1;  Value 5.219762e-04
+Linesearch      2;  Value 4.050776e-04
+Linesearch      3;  Value 1.419535e-04
+
+epoch 15 batch 3
+Linesearch      1;  Value 1.147468e-01
+Linesearch      2;  Value 5.166045e-02
+Linesearch      3;  Value 3.427284e-02
+
+Before epoch 16 Train # misclassified: 9 (from 3200). Test # misclassified: 515 (from 10000) 	 	 
+epoch 16 batch 1
+Linesearch      1;  Value 7.206162e-03
+Linesearch      2;  Value 4.735167e-03
+Linesearch      3;  Value 3.094809e-03
+
+epoch 16 batch 2
+Linesearch      1;  Value 9.978401e-05
+Linesearch      2;  Value 7.987551e-05
+Linesearch      3;  Value 3.862732e-05
+
+epoch 16 batch 3
+Linesearch      1;  Value 3.077740e-02
+Linesearch      2;  Value 1.938055e-02
+Linesearch      3;  Value 1.097220e-02
+
+Before epoch 17 Train # misclassified: 9 (from 3200). Test # misclassified: 492 (from 10000) 	 	 
+epoch 17 batch 1
+Linesearch      1;  Value 2.614477e-03
+Linesearch      2;  Value 1.973164e-03
+Linesearch      3;  Value 1.179718e-03
+
+epoch 17 batch 2
+Linesearch      1;  Value 2.430391e-05
+Linesearch      2;  Value 1.957538e-05
+Linesearch      3;  Value 8.818351e-06
+
+epoch 17 batch 3
+Linesearch      1;  Value 1.474711e-02
+Linesearch      2;  Value 7.931810e-03
+Linesearch      3;  Value 5.160771e-03
+
+Before epoch 18 Train # misclassified: 9 (from 3200). Test # misclassified: 500 (from 10000) 	 	 
+epoch 18 batch 1
+Linesearch      1;  Value 8.840982e-04
+Linesearch      2;  Value 6.660852e-04
+Linesearch      3;  Value 4.191627e-04
+
+epoch 18 batch 2
+Linesearch      1;  Value 5.712021e-06
+Linesearch      2;  Value 4.713608e-06
+Linesearch      3;  Value 3.416243e-06
+
+epoch 18 batch 3
+Linesearch      1;  Value 4.828023e-03
+Linesearch      2;  Value 2.996190e-03
+Linesearch      3;  Value 1.977267e-03
+
+Before epoch 19 Train # misclassified: 8 (from 3200). Test # misclassified: 496 (from 10000) 	 	 
+epoch 19 batch 1
+Linesearch      1;  Value 3.416917e-04
+Linesearch      2;  Value 2.659897e-04
+Linesearch      3;  Value 1.570407e-04
+
+epoch 19 batch 2
+Linesearch      1;  Value 2.670211e-06
+Linesearch      2;  Value 2.000308e-06
+Linesearch      3;  Value 7.803037e-07
+
+epoch 19 batch 3
+Linesearch      1;  Value 2.554771e-03
+Linesearch      2;  Value 1.499932e-03
+Linesearch      3;  Value 8.466983e-04
+
+Before epoch 20 Train # misclassified: 9 (from 3200). Test # misclassified: 493 (from 10000) 	 	 
+epoch 20 batch 1
+Linesearch      1;  Value 1.133505e-04
+Linesearch      2;  Value 8.102696e-05
+Linesearch      3;  Value 4.827371e-05
+
+epoch 20 batch 2
+Linesearch      1;  Value 5.788999e-07
+Linesearch      2;  Value 4.698079e-07
+Linesearch      3;  Value 1.802418e-07
+
+epoch 20 batch 3
+Linesearch      1;  Value 9.856421e-04
+Linesearch      2;  Value 5.955296e-04
+Linesearch      3;  Value 3.535076e-04
+
+Before epoch 21 Train # misclassified: 9 (from 3200). Test # misclassified: 488 (from 10000) 	 	 
+epoch 21 batch 1
+Linesearch      1;  Value 3.668773e-05
+Linesearch      2;  Value 2.645439e-05
+Linesearch      3;  Value 1.681031e-05
+
+epoch 21 batch 2
+Linesearch      1;  Value 1.218055e-07
+Linesearch      2;  Value 1.001874e-07
+Linesearch      3;  Value 6.117969e-08
+
+epoch 21 batch 3
+Linesearch      1;  Value 3.157409e-04
+Linesearch      2;  Value 1.905021e-04
+Linesearch      3;  Value 8.092402e-05
+
+Before epoch 22 Train # misclassified: 7 (from 3200). Test # misclassified: 483 (from 10000) 	 	 
+epoch 22 batch 1
+Linesearch      1;  Value 1.706036e-05
+Linesearch      2;  Value 1.120599e-05
+Linesearch      3;  Value 8.264252e-06
+
+epoch 22 batch 2
+Linesearch      1;  Value 4.404467e-08
+Linesearch      2;  Value 3.319331e-08
+Linesearch      3;  Value 1.316536e-08
+
+epoch 22 batch 3
+Linesearch      1;  Value 1.139539e-04
+Linesearch      2;  Value 6.012737e-05
+Linesearch      3;  Value 4.047663e-05
+
+Before epoch 23 Train # misclassified: 9 (from 3200). Test # misclassified: 495 (from 10000) 	 	 
+epoch 23 batch 1
+Linesearch      1;  Value 6.134392e-06
+Linesearch      2;  Value 4.593606e-06
+Linesearch      3;  Value 3.044955e-06
+
+epoch 23 batch 2
+Linesearch      1;  Value 7.631978e-09
+Linesearch      2;  Value 6.252347e-09
+Linesearch      3;  Value 3.992876e-09
+
+epoch 23 batch 3
+Linesearch      1;  Value 2.978138e-05
+Linesearch      2;  Value 2.004448e-05
+Linesearch      3;  Value 9.595168e-06
+
+Before epoch 24 Train # misclassified: 9 (from 3200). Test # misclassified: 489 (from 10000) 	 	 
+epoch 24 batch 1
+Linesearch      1;  Value 2.766737e-06
+Linesearch      2;  Value 2.182339e-06
+Linesearch      3;  Value 1.537241e-06
+
+epoch 24 batch 2
+Linesearch      1;  Value 3.317210e-09
+Linesearch      2;  Value 2.774510e-09
+Linesearch      3;  Value 1.529609e-09
+
+epoch 24 batch 3
+Linesearch      1;  Value 9.711586e-06
+Linesearch      2;  Value 6.746159e-06
+Linesearch      3;  Value 4.407080e-06
+
+Before epoch 25 Train # misclassified: 9 (from 3200). Test # misclassified: 485 (from 10000) 	 	 
+epoch 25 batch 1
+Linesearch      1;  Value 1.268595e-06
+Linesearch      2;  Value 8.727588e-07
+Linesearch      3;  Value 5.586789e-07
+
+epoch 25 batch 2
+
+epoch 25 batch 3
+Linesearch      1;  Value 3.874126e-06
+Linesearch      2;  Value 2.619012e-06
+Linesearch      3;  Value 1.431439e-06
+
+Before epoch 26 Train # misclassified: 9 (from 3200). Test # misclassified: 491 (from 10000) 	 	 
+epoch 26 batch 1
+Linesearch      1;  Value 5.420115e-07
+Linesearch      2;  Value 4.093374e-07
+Linesearch      3;  Value 2.755161e-07
+
+epoch 26 batch 2
+
+epoch 26 batch 3
+Linesearch      1;  Value 1.206654e-06
+Linesearch      2;  Value 9.078709e-07
+Linesearch      3;  Value 4.108390e-07
+
+Before epoch 27 Train # misclassified: 9 (from 3200). Test # misclassified: 489 (from 10000) 	 	 
+epoch 27 batch 1
+Linesearch      1;  Value 2.874917e-07
+Linesearch      2;  Value 2.202574e-07
+Linesearch      3;  Value 1.568442e-07
+
+epoch 27 batch 2
+Linesearch      1;  Value 1.085506e-09
+Linesearch      2;  Value 7.202149e-10
+Linesearch      3;  Value 4.837458e-10
+
+epoch 27 batch 3
+Linesearch      1;  Value 3.472328e-07
+Linesearch      2;  Value 2.705624e-07
+Linesearch      3;  Value 1.391402e-07
+
+Before epoch 28 Train # misclassified: 9 (from 3200). Test # misclassified: 490 (from 10000) 	 	 
+epoch 28 batch 1
+Linesearch      1;  Value 1.324542e-07
+Linesearch      2;  Value 1.004978e-07
+Linesearch      3;  Value 6.034309e-08
+
+epoch 28 batch 2
+
+epoch 28 batch 3
+Linesearch      1;  Value 1.138522e-07
+Linesearch      2;  Value 8.186555e-08
+Linesearch      3;  Value 3.676869e-08
+
+Before epoch 29 Train # misclassified: 10 (from 3200). Test # misclassified: 488 (from 10000) 	 	 
+epoch 29 batch 1
+Linesearch      1;  Value 5.796116e-08
+Linesearch      2;  Value 4.433847e-08
+Linesearch      3;  Value 3.150811e-08
+
+epoch 29 batch 2
+
+epoch 29 batch 3
+Linesearch      1;  Value 2.832785e-08
+Linesearch      2;  Value 2.290992e-08
+Linesearch      3;  Value 1.201144e-08
+
+Before epoch 30 Train # misclassified: 8 (from 3200). Test # misclassified: 495 (from 10000) 	 	 
+epoch 30 batch 1
+Linesearch      1;  Value 2.844138e-08
+Linesearch      2;  Value 2.245426e-08
+Linesearch      3;  Value 1.417142e-08
+
+epoch 30 batch 2
+Linesearch      1;  Value 4.852390e-10
+Linesearch      2;  Value 2.669032e-10
+Linesearch      3;  Value 1.446261e-10
+
+epoch 30 batch 3
+Linesearch      1;  Value 1.087325e-08
+Linesearch      2;  Value 8.892606e-09
+Linesearch      3;  Value 5.670834e-09
+
+Before epoch 31 Train # misclassified: 7 (from 3200). Test # misclassified: 493 (from 10000) 	 	 
+epoch 31 batch 1
+Linesearch      1;  Value 1.149144e-08
+Linesearch      2;  Value 9.369454e-09
+Linesearch      3;  Value 5.408817e-09
+
+epoch 31 batch 2
+
+epoch 31 batch 3
+Linesearch      1;  Value 4.616212e-09
+Linesearch      2;  Value 3.813633e-09
+Linesearch      3;  Value 1.914915e-09
+
+Before epoch 32 Train # misclassified: 7 (from 3200). Test # misclassified: 488 (from 10000) 	 	 
+epoch 32 batch 1
+Linesearch      1;  Value 5.199921e-09
+Linesearch      2;  Value 4.065396e-09
+Linesearch      3;  Value 3.013695e-09
+
+epoch 32 batch 2
+
+epoch 32 batch 3
+Linesearch      1;  Value 1.372307e-09
+Linesearch      2;  Value 1.142756e-09
+Linesearch      3;  Value 6.898534e-10
+
+Before epoch 33 Train # misclassified: 8 (from 3200). Test # misclassified: 493 (from 10000) 	 	 
+epoch 33 batch 1
+Linesearch      1;  Value 2.590304e-09
+Linesearch      2;  Value 1.899146e-09
+Linesearch      3;  Value 1.056448e-09
+
+epoch 33 batch 2
+
+epoch 33 batch 3
+
+Before epoch 34 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 34 batch 1
+
+epoch 34 batch 2
+
+epoch 34 batch 3
+
+Before epoch 35 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 35 batch 1
+
+epoch 35 batch 2
+
+epoch 35 batch 3
+
+Before epoch 36 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 36 batch 1
+
+epoch 36 batch 2
+
+epoch 36 batch 3
+
+Before epoch 37 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 37 batch 1
+
+epoch 37 batch 2
+
+epoch 37 batch 3
+
+Before epoch 38 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 38 batch 1
+
+epoch 38 batch 2
+
+epoch 38 batch 3
+
+Before epoch 39 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 39 batch 1
+
+epoch 39 batch 2
+
+epoch 39 batch 3
+
+Before epoch 40 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 40 batch 1
+
+epoch 40 batch 2
+
+epoch 40 batch 3
+
+Before epoch 41 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 41 batch 1
+
+epoch 41 batch 2
+
+epoch 41 batch 3
+
+Before epoch 42 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 42 batch 1
+
+epoch 42 batch 2
+
+epoch 42 batch 3
+
+Before epoch 43 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 43 batch 1
+
+epoch 43 batch 2
+
+epoch 43 batch 3
+
+Before epoch 44 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 44 batch 1
+
+epoch 44 batch 2
+
+epoch 44 batch 3
+
+Before epoch 45 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 45 batch 1
+
+epoch 45 batch 2
+
+epoch 45 batch 3
+
+Before epoch 46 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 46 batch 1
+
+epoch 46 batch 2
+
+epoch 46 batch 3
+
+Before epoch 47 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 47 batch 1
+
+epoch 47 batch 2
+
+epoch 47 batch 3
+
+Before epoch 48 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 48 batch 1
+
+epoch 48 batch 2
+
+epoch 48 batch 3
+
+Before epoch 49 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 49 batch 1
+
+epoch 49 batch 2
+
+epoch 49 batch 3
+
+Before epoch 50 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 50 batch 1
+
+epoch 50 batch 2
+
+epoch 50 batch 3
+
+Before epoch 51 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 51 batch 1
+
+epoch 51 batch 2
+
+epoch 51 batch 3
+
+Before epoch 52 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 52 batch 1
+
+epoch 52 batch 2
+
+epoch 52 batch 3
+
+Before epoch 53 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 53 batch 1
+
+epoch 53 batch 2
+
+epoch 53 batch 3
+
+Before epoch 54 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 54 batch 1
+
+epoch 54 batch 2
+
+epoch 54 batch 3
+
+Before epoch 55 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 55 batch 1
+
+epoch 55 batch 2
+
+epoch 55 batch 3
+
+Before epoch 56 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 56 batch 1
+
+epoch 56 batch 2
+
+epoch 56 batch 3
+
+Before epoch 57 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 57 batch 1
+
+epoch 57 batch 2
+
+epoch 57 batch 3
+
+Before epoch 58 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 58 batch 1
+
+epoch 58 batch 2
+
+epoch 58 batch 3
+
+Before epoch 59 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 59 batch 1
+
+epoch 59 batch 2
+
+epoch 59 batch 3
+
+Before epoch 60 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 60 batch 1
+
+epoch 60 batch 2
+
+epoch 60 batch 3
+
+Before epoch 61 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 61 batch 1
+
+epoch 61 batch 2
+
+epoch 61 batch 3
+
+Before epoch 62 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 62 batch 1
+
+epoch 62 batch 2
+
+epoch 62 batch 3
+
+Before epoch 63 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 63 batch 1
+
+epoch 63 batch 2
+
+epoch 63 batch 3
+
+Before epoch 64 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 64 batch 1
+
+epoch 64 batch 2
+
+epoch 64 batch 3
+
+Before epoch 65 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 65 batch 1
+
+epoch 65 batch 2
+
+epoch 65 batch 3
+
+Before epoch 66 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 66 batch 1
+
+epoch 66 batch 2
+
+epoch 66 batch 3
+
+Before epoch 67 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 67 batch 1
+
+epoch 67 batch 2
+
+epoch 67 batch 3
+
+Before epoch 68 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 68 batch 1
+
+epoch 68 batch 2
+
+epoch 68 batch 3
+
+Before epoch 69 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 69 batch 1
+
+epoch 69 batch 2
+
+epoch 69 batch 3
+
+Before epoch 70 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 70 batch 1
+
+epoch 70 batch 2
+
+epoch 70 batch 3
+
+Before epoch 71 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 71 batch 1
+
+epoch 71 batch 2
+
+epoch 71 batch 3
+
+Before epoch 72 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 72 batch 1
+
+epoch 72 batch 2
+
+epoch 72 batch 3
+
+Before epoch 73 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 73 batch 1
+
+epoch 73 batch 2
+
+epoch 73 batch 3
+
+Before epoch 74 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 74 batch 1
+
+epoch 74 batch 2
+
+epoch 74 batch 3
+
+Before epoch 75 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 75 batch 1
+
+epoch 75 batch 2
+
+epoch 75 batch 3
+
+Before epoch 76 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 76 batch 1
+
+epoch 76 batch 2
+
+epoch 76 batch 3
+
+Before epoch 77 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 77 batch 1
+
+epoch 77 batch 2
+
+epoch 77 batch 3
+
+Before epoch 78 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 78 batch 1
+
+epoch 78 batch 2
+
+epoch 78 batch 3
+
+Before epoch 79 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 79 batch 1
+
+epoch 79 batch 2
+
+epoch 79 batch 3
+
+Before epoch 80 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 80 batch 1
+
+epoch 80 batch 2
+
+epoch 80 batch 3
+
+Before epoch 81 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 81 batch 1
+
+epoch 81 batch 2
+
+epoch 81 batch 3
+
+Before epoch 82 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 82 batch 1
+
+epoch 82 batch 2
+
+epoch 82 batch 3
+
+Before epoch 83 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 83 batch 1
+
+epoch 83 batch 2
+
+epoch 83 batch 3
+
+Before epoch 84 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 84 batch 1
+
+epoch 84 batch 2
+
+epoch 84 batch 3
+
+Before epoch 85 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 85 batch 1
+
+epoch 85 batch 2
+
+epoch 85 batch 3
+
+Before epoch 86 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 86 batch 1
+
+epoch 86 batch 2
+
+epoch 86 batch 3
+
+Before epoch 87 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 87 batch 1
+
+epoch 87 batch 2
+
+epoch 87 batch 3
+
+Before epoch 88 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 88 batch 1
+
+epoch 88 batch 2
+
+epoch 88 batch 3
+
+Before epoch 89 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 89 batch 1
+
+epoch 89 batch 2
+
+epoch 89 batch 3
+
+Before epoch 90 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 90 batch 1
+
+epoch 90 batch 2
+
+epoch 90 batch 3
+
+Before epoch 91 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 91 batch 1
+
+epoch 91 batch 2
+
+epoch 91 batch 3
+
+Before epoch 92 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 92 batch 1
+
+epoch 92 batch 2
+
+epoch 92 batch 3
+
+Before epoch 93 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 93 batch 1
+
+epoch 93 batch 2
+
+epoch 93 batch 3
+
+Before epoch 94 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 94 batch 1
+
+epoch 94 batch 2
+
+epoch 94 batch 3
+
+Before epoch 95 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 95 batch 1
+
+epoch 95 batch 2
+
+epoch 95 batch 3
+
+Before epoch 96 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 96 batch 1
+
+epoch 96 batch 2
+
+epoch 96 batch 3
+
+Before epoch 97 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 97 batch 1
+
+epoch 97 batch 2
+
+epoch 97 batch 3
+
+Before epoch 98 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 98 batch 1
+
+epoch 98 batch 2
+
+epoch 98 batch 3
+
+Before epoch 99 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 99 batch 1
+
+epoch 99 batch 2
+
+epoch 99 batch 3
+
+Before epoch 100 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 100 batch 1
+
+epoch 100 batch 2
+
+epoch 100 batch 3
+
+Before epoch 101 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 101 batch 1
+
+epoch 101 batch 2
+
+epoch 101 batch 3
+
+Before epoch 102 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 102 batch 1
+
+epoch 102 batch 2
+
+epoch 102 batch 3
+
+Before epoch 103 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 103 batch 1
+
+epoch 103 batch 2
+
+epoch 103 batch 3
+
+Before epoch 104 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 104 batch 1
+
+epoch 104 batch 2
+
+epoch 104 batch 3
+
+Before epoch 105 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 105 batch 1
+
+epoch 105 batch 2
+
+epoch 105 batch 3
+
+Before epoch 106 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 106 batch 1
+
+epoch 106 batch 2
+
+epoch 106 batch 3
+
+Before epoch 107 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 107 batch 1
+
+epoch 107 batch 2
+
+epoch 107 batch 3
+
+Before epoch 108 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 108 batch 1
+
+epoch 108 batch 2
+
+epoch 108 batch 3
+
+Before epoch 109 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 109 batch 1
+
+epoch 109 batch 2
+
+epoch 109 batch 3
+
+Before epoch 110 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 110 batch 1
+
+epoch 110 batch 2
+
+epoch 110 batch 3
+
+Before epoch 111 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 111 batch 1
+
+epoch 111 batch 2
+
+epoch 111 batch 3
+
+Before epoch 112 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 112 batch 1
+
+epoch 112 batch 2
+
+epoch 112 batch 3
+
+Before epoch 113 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 113 batch 1
+
+epoch 113 batch 2
+
+epoch 113 batch 3
+
+Before epoch 114 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 114 batch 1
+
+epoch 114 batch 2
+
+epoch 114 batch 3
+
+Before epoch 115 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 115 batch 1
+
+epoch 115 batch 2
+
+epoch 115 batch 3
+
+Before epoch 116 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 116 batch 1
+
+epoch 116 batch 2
+
+epoch 116 batch 3
+
+Before epoch 117 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 117 batch 1
+
+epoch 117 batch 2
+
+epoch 117 batch 3
+
+Before epoch 118 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 118 batch 1
+
+epoch 118 batch 2
+
+epoch 118 batch 3
+
+Before epoch 119 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 119 batch 1
+
+epoch 119 batch 2
+
+epoch 119 batch 3
+
+Before epoch 120 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 120 batch 1
+
+epoch 120 batch 2
+
+epoch 120 batch 3
+
+Before epoch 121 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 121 batch 1
+
+epoch 121 batch 2
+
+epoch 121 batch 3
+
+Before epoch 122 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 122 batch 1
+
+epoch 122 batch 2
+
+epoch 122 batch 3
+
+Before epoch 123 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 123 batch 1
+
+epoch 123 batch 2
+
+epoch 123 batch 3
+
+Before epoch 124 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 124 batch 1
+
+epoch 124 batch 2
+
+epoch 124 batch 3
+
+Before epoch 125 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 125 batch 1
+
+epoch 125 batch 2
+
+epoch 125 batch 3
+
+Before epoch 126 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 126 batch 1
+
+epoch 126 batch 2
+
+epoch 126 batch 3
+
+Before epoch 127 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 127 batch 1
+
+epoch 127 batch 2
+
+epoch 127 batch 3
+
+Before epoch 128 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 128 batch 1
+
+epoch 128 batch 2
+
+epoch 128 batch 3
+
+Before epoch 129 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 129 batch 1
+
+epoch 129 batch 2
+
+epoch 129 batch 3
+
+Before epoch 130 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 130 batch 1
+
+epoch 130 batch 2
+
+epoch 130 batch 3
+
+Before epoch 131 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 131 batch 1
+
+epoch 131 batch 2
+
+epoch 131 batch 3
+
+Before epoch 132 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 132 batch 1
+
+epoch 132 batch 2
+
+epoch 132 batch 3
+
+Before epoch 133 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 133 batch 1
+
+epoch 133 batch 2
+
+epoch 133 batch 3
+
+Before epoch 134 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 134 batch 1
+
+epoch 134 batch 2
+
+epoch 134 batch 3
+
+Before epoch 135 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 135 batch 1
+
+epoch 135 batch 2
+
+epoch 135 batch 3
+
+Before epoch 136 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 136 batch 1
+
+epoch 136 batch 2
+
+epoch 136 batch 3
+
+Before epoch 137 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 137 batch 1
+
+epoch 137 batch 2
+
+epoch 137 batch 3
+
+Before epoch 138 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 138 batch 1
+
+epoch 138 batch 2
+
+epoch 138 batch 3
+
+Before epoch 139 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 139 batch 1
+
+epoch 139 batch 2
+
+epoch 139 batch 3
+
+Before epoch 140 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 140 batch 1
+
+epoch 140 batch 2
+
+epoch 140 batch 3
+
+Before epoch 141 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 141 batch 1
+
+epoch 141 batch 2
+
+epoch 141 batch 3
+
+Before epoch 142 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 142 batch 1
+
+epoch 142 batch 2
+
+epoch 142 batch 3
+
+Before epoch 143 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 143 batch 1
+
+epoch 143 batch 2
+
+epoch 143 batch 3
+
+Before epoch 144 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 144 batch 1
+
+epoch 144 batch 2
+
+epoch 144 batch 3
+
+Before epoch 145 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 145 batch 1
+
+epoch 145 batch 2
+
+epoch 145 batch 3
+
+Before epoch 146 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 146 batch 1
+
+epoch 146 batch 2
+
+epoch 146 batch 3
+
+Before epoch 147 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 147 batch 1
+
+epoch 147 batch 2
+
+epoch 147 batch 3
+
+Before epoch 148 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 148 batch 1
+
+epoch 148 batch 2
+
+epoch 148 batch 3
+
+Before epoch 149 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 149 batch 1
+
+epoch 149 batch 2
+
+epoch 149 batch 3
+
+Before epoch 150 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 150 batch 1
+
+epoch 150 batch 2
+
+epoch 150 batch 3
+
+Before epoch 151 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 151 batch 1
+
+epoch 151 batch 2
+
+epoch 151 batch 3
+
+Before epoch 152 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 152 batch 1
+
+epoch 152 batch 2
+
+epoch 152 batch 3
+
+Before epoch 153 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 153 batch 1
+
+epoch 153 batch 2
+
+epoch 153 batch 3
+
+Before epoch 154 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 154 batch 1
+
+epoch 154 batch 2
+
+epoch 154 batch 3
+
+Before epoch 155 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 155 batch 1
+
+epoch 155 batch 2
+
+epoch 155 batch 3
+
+Before epoch 156 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 156 batch 1
+
+epoch 156 batch 2
+
+epoch 156 batch 3
+
+Before epoch 157 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 157 batch 1
+
+epoch 157 batch 2
+
+epoch 157 batch 3
+
+Before epoch 158 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 158 batch 1
+
+epoch 158 batch 2
+
+epoch 158 batch 3
+
+Before epoch 159 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 159 batch 1
+
+epoch 159 batch 2
+
+epoch 159 batch 3
+
+Before epoch 160 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 160 batch 1
+
+epoch 160 batch 2
+
+epoch 160 batch 3
+
+Before epoch 161 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 161 batch 1
+
+epoch 161 batch 2
+
+epoch 161 batch 3
+
+Before epoch 162 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 162 batch 1
+
+epoch 162 batch 2
+
+epoch 162 batch 3
+
+Before epoch 163 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 163 batch 1
+
+epoch 163 batch 2
+
+epoch 163 batch 3
+
+Before epoch 164 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 164 batch 1
+
+epoch 164 batch 2
+
+epoch 164 batch 3
+
+Before epoch 165 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 165 batch 1
+
+epoch 165 batch 2
+
+epoch 165 batch 3
+
+Before epoch 166 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 166 batch 1
+
+epoch 166 batch 2
+
+epoch 166 batch 3
+
+Before epoch 167 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 167 batch 1
+
+epoch 167 batch 2
+
+epoch 167 batch 3
+
+Before epoch 168 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 168 batch 1
+
+epoch 168 batch 2
+
+epoch 168 batch 3
+
+Before epoch 169 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 169 batch 1
+
+epoch 169 batch 2
+
+epoch 169 batch 3
+
+Before epoch 170 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 170 batch 1
+
+epoch 170 batch 2
+
+epoch 170 batch 3
+
+Before epoch 171 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 171 batch 1
+
+epoch 171 batch 2
+
+epoch 171 batch 3
+
+Before epoch 172 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 172 batch 1
+
+epoch 172 batch 2
+
+epoch 172 batch 3
+
+Before epoch 173 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 173 batch 1
+
+epoch 173 batch 2
+
+epoch 173 batch 3
+
+Before epoch 174 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 174 batch 1
+
+epoch 174 batch 2
+
+epoch 174 batch 3
+
+Before epoch 175 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 175 batch 1
+
+epoch 175 batch 2
+
+epoch 175 batch 3
+
+Before epoch 176 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 176 batch 1
+
+epoch 176 batch 2
+
+epoch 176 batch 3
+
+Before epoch 177 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 177 batch 1
+
+epoch 177 batch 2
+
+epoch 177 batch 3
+
+Before epoch 178 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 178 batch 1
+
+epoch 178 batch 2
+
+epoch 178 batch 3
+
+Before epoch 179 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 179 batch 1
+
+epoch 179 batch 2
+
+epoch 179 batch 3
+
+Before epoch 180 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 180 batch 1
+
+epoch 180 batch 2
+
+epoch 180 batch 3
+
+Before epoch 181 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 181 batch 1
+
+epoch 181 batch 2
+
+epoch 181 batch 3
+
+Before epoch 182 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 182 batch 1
+
+epoch 182 batch 2
+
+epoch 182 batch 3
+
+Before epoch 183 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 183 batch 1
+
+epoch 183 batch 2
+
+epoch 183 batch 3
+
+Before epoch 184 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 184 batch 1
+
+epoch 184 batch 2
+
+epoch 184 batch 3
+
+Before epoch 185 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 185 batch 1
+
+epoch 185 batch 2
+
+epoch 185 batch 3
+
+Before epoch 186 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 186 batch 1
+
+epoch 186 batch 2
+
+epoch 186 batch 3
+
+Before epoch 187 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 187 batch 1
+
+epoch 187 batch 2
+
+epoch 187 batch 3
+
+Before epoch 188 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 188 batch 1
+
+epoch 188 batch 2
+
+epoch 188 batch 3
+
+Before epoch 189 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 189 batch 1
+
+epoch 189 batch 2
+
+epoch 189 batch 3
+
+Before epoch 190 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 190 batch 1
+
+epoch 190 batch 2
+
+epoch 190 batch 3
+
+Before epoch 191 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 191 batch 1
+
+epoch 191 batch 2
+
+epoch 191 batch 3
+
+Before epoch 192 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 192 batch 1
+
+epoch 192 batch 2
+
+epoch 192 batch 3
+
+Before epoch 193 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 193 batch 1
+
+epoch 193 batch 2
+
+epoch 193 batch 3
+
+Before epoch 194 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 194 batch 1
+
+epoch 194 batch 2
+
+epoch 194 batch 3
+
+Before epoch 195 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 195 batch 1
+
+epoch 195 batch 2
+
+epoch 195 batch 3
+
+Before epoch 196 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 196 batch 1
+
+epoch 196 batch 2
+
+epoch 196 batch 3
+
+Before epoch 197 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 197 batch 1
+
+epoch 197 batch 2
+
+epoch 197 batch 3
+
+Before epoch 198 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 198 batch 1
+
+epoch 198 batch 2
+
+epoch 198 batch 3
+
+Before epoch 199 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 199 batch 1
+
+epoch 199 batch 2
+
+epoch 199 batch 3
+
+Before epoch 200 Train # misclassified: 8 (from 3200). Test # misclassified: 477 (from 10000) 	 	 
+epoch 200 batch 1
+
+epoch 200 batch 2
+
+epoch 200 batch 3
+
+>> 

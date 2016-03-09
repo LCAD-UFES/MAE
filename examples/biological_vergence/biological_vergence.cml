@@ -1,0 +1,12 @@
+toggle move_active;
+toggle draw_active;
+
+/* Set the Vergence */
+move image_right to 238,189;
+move image_left  to 290,189;
+
+/* Save Maps */
+/*save image_right   to color_map;*/
+/*save disparity_out to disparity_map; */
+
+/*quit;*/

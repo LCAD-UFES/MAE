@@ -1,0 +1,25 @@
+- Checar se o novo ajuste do Andre para o fim do dia esta correto
+- Mudar o neuronio da MAE para ele sobrescrever o conhecimento mais velho quando a memoria encher
+
+- Terminar de testar acoes contra acao/indice - OK, boa ideia, bons resultados (predicao melhor!)
+-- Falta fazer o trading system minuto a minuto (TSMM). Para isso, ee necessario:
+--- Mudar a maquina de estados para ela tratar a difenca entre uma acao e
+    outra ou entre uma acao e um indice, tanto no modo buy_sell como no sell_buy
+--- Mudar a maquina de estados para ela enviar dois trades de uma vez
+--- Ler os dados da acao/indice de referencia no TSMM tambem
+--- Mudar o mecanismo IPC de envio e recebimento de ordens para que trate duas
+    ordens de uma vez
+--- Mudar o modo teste para que sejam enviados e recebidos o indice/acao de 
+    referencia e a acao de interesse
+--- Fazer um unico grafico que mostre a acao, a referencia e as medias de interesse
+    Para isso, basta 
+     (i) dividir os valores da acao e referencia pelo precco do primeiro negocio
+     e subtrair um: teremos no grafico um valor maior ou menor que zero para cada,
+     que indica quanto a acao e a referencia variaram proporcinalmente ao primeiro 
+     negocio, a partir do primeiro negocio
+     (ii) as medias de interesse seriam a media rapida e a media lenta para a diferenca
+     entre a acao e a referencia: quando elas cruzarem e o retorno for bom ee hora
+     de realizar o segundo negocio
+     
+- Testar entrada de retorno logaritmo para ver se melhora a predicao - OK, aparentemente nao...
+- Testar manter a acao por duas semanas se nao alcancar stop-gain na primeira

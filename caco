@@ -1,0 +1,12 @@
+mae_control_actions_cb.c: In function `init_interpreter_pipe':
+mae_control_actions_cb.c:783: warning: implicit declaration of function `pipe'
+interpreter_yacc.y: conflicts: 3 shift/reduce
+interpreter_yacc.tab.c: In function `yyparse':
+interpreter_yacc.tab.c:1678: warning: implicit declaration of function `yylex'
+interpreter_lex.yy.c:1735: warning: 'yyunput' defined but not used
+dllwrap.exe: no export definition file provided.
+Creating one, but that may not be what you want
+netcomp_yacc.y: conflicts: 8 shift/reduce, 4 reduce/reduce
+netcomp_yacc.tab.c: In function `yyparse':
+netcomp_yacc.tab.c:1316: warning: implicit declaration of function `yylex'
+netcomp_lex.yy.c:1474: warning: 'yyunput' defined but not used

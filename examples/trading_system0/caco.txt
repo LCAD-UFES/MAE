@@ -1,0 +1,109 @@
+num_neg = 6
+num_neg = 8
+num_neg = 6
+num_neg = 6
+num_neg = 7
+num_neg = 9
+num_neg = 6
+num_neg = 5
+num_neg = 4
+num_neg = 3
+num_neg = 7
+num_neg = 3
+num_neg = 6
+num_neg = 8
+num_neg = 7
+num_neg = 7
+num_neg = 9
+num_neg = 6
+num_neg = 1
+num_neg = 4
+num_neg = 4
+num_neg = 3
+num_neg = 9
+num_neg = 8
+num_neg = 4
+num_neg = 5
+num_neg = 4
+num_neg = 4
+num_neg = 7
+num_neg = 5
+num_neg = 6
+num_neg = 11
+num_neg = 5
+num_neg = 10
+num_neg = 2
+num_neg = 7
+num_neg = 14
+num_neg = 18
+num_neg = 6
+num_neg = 5
+num_neg = 12
+num_neg = 6
+num_neg = 8
+num_neg = 4
+num_neg = 6
+num_neg = 6
+num_neg = 5
+num_neg = 6
+num_neg = 8
+num_neg = 7
+num_neg = 11
+num_neg = 8
+2008-02-18 Mon ;  0.020000 ;  0.035832 ; -0.010140; TT_new/PETR3.pe
+2008-02-25 Mon ;  0.020000 ;  0.031790 ; -0.003659; TT_new/ELET6.pe
+2008-03-03 Mon ;  0.020000 ;  0.025066 ; -0.000978; TT_new/ELET6.pe
+2008-03-10 Mon ;  0.020000 ;  0.026604 ; -0.003220; TT_new/ELET6.pe
+2008-03-17 Mon ;  0.020000 ;  0.027691 ;  0.026351; TT_new/ELET6.pe
+2008-03-24 Mon ;  0.020000 ;  0.082131 ; -0.055071; TT_new/ELET6.pe
+2008-03-31 Mon ;  0.020000 ;  0.040298 ; -0.003047; TT_new/PETR3.pe
+2008-04-07 Mon ;  0.020000 ;  0.032187 ;  0.013089; TT_new/PETR3.pe
+2008-04-14 Mon ; -0.043346 ;  0.046496 ; -0.089842; TT_new/ELET6.pe
+2008-04-21 Mon ;  0.020000 ;  0.067829 ; -0.023852; TT_new/VALE3.pe
+2008-04-28 Mon ;  0.020000 ;  0.036217 ;  0.010842; TT_new/CMIG4.pe
+2008-05-05 Mon ;  0.020000 ;  0.038596 ;  0.039845; TT_new/ELET6.pe
+2008-05-12 Mon ; -0.010744 ;  0.027131 ; -0.037875; TT_new/ELET6.pe
+2008-05-19 Mon ;  0.020000 ;  0.061920 ; -0.023150; TT_new/ELET6.pe
+2008-05-26 Mon ; -0.022989 ;  0.038596 ; -0.061585; TT_new/ELET6.pe
+2008-06-02 Mon ;  0.020000 ;  0.025305 ;  0.020437; TT_new/ELET6.pe
+2008-06-09 Mon ;  0.020000 ;  0.064118 ; -0.036309; TT_new/CMIG4.pe
+2008-06-16 Mon ;  0.020000 ;  0.045743 ; -0.003136; TT_new/ELET6.pe
+2008-06-23 Mon ; -0.100000 ;  0.159675 ; -0.273511; TT_new/RSID3.pe
+2008-06-30 Mon ;  0.020000 ;  0.059899 ; -0.029373; TT_new/PETR3.pe
+2008-07-07 Mon ; -0.068975 ;  0.028947 ; -0.097921; TT_new/ELET6.pe
+2008-07-14 Mon ;  0.020000 ;  0.081423 ; -0.054892; TT_new/PETR4.pe
+2008-07-21 Mon ;  0.020000 ;  0.027809 ;  0.012911; TT_new/CMIG4.pe
+2008-07-28 Mon ; -0.027182 ;  0.034862 ; -0.062044; TT_new/CMIG4.pe
+2008-08-04 Mon ;  0.020000 ;  0.041416 ;  0.032332; TT_new/VALE3.pe
+2008-08-11 Mon ;  0.020000 ;  0.068425 ; -0.040925; TT_new/ELET6.pe
+2008-08-18 Mon ;  0.020000 ;  0.063681 ; -0.035273; TT_new/ELET6.pe
+2008-08-25 Mon ; -0.057126 ;  0.057249 ; -0.114374; TT_new/RSID3.pe
+2008-09-01 Mon ;  0.020000 ;  0.063327 ; -0.030343; TT_new/PETR3.pe
+2008-09-08 Mon ; -0.042599 ;  0.028947 ; -0.071545; TT_new/ELET6.pe
+2008-09-15 Mon ;  0.020000 ;  0.065905 ; -0.035374; TT_new/ELET6.pe
+2008-09-22 Mon ;  0.020000 ;  0.062161 ; -0.011847; TT_new/PETR4.pe
+2008-09-29 Mon ;  0.020000 ;  0.054554 ; -0.023439; TT_new/VALE3.pe
+2008-10-06 Mon ;  0.020000 ;  0.086710 ; -0.023790; TT_new/CMIG4.pe
+2008-10-13 Mon ; -0.100000 ;  0.081423 ; -0.184006; TT_new/PETR4.pe
+2008-10-20 Mon ; -0.100000 ;  0.095218 ; -0.282914; TT_new/PETR3.pe
+2008-10-27 Mon ; -0.100000 ;  0.031889 ; -0.132381; TT_new/CMIG4.pe
+2008-11-03 Mon ;  0.020000 ;  0.021114 ;  0.057470; TT_new/CMIG4.pe
+2008-11-10 Mon ;  0.020000 ;  0.062161 ; -0.023035; TT_new/PETR4.pe
+2008-11-17 Mon ;  0.020000 ;  0.151615 ; -0.087749; TT_new/GOAU4.pe
+2008-11-24 Mon ; -0.100000 ;  0.130506 ; -0.315691; TT_new/RSID3.pe
+2008-12-01 Mon ;  0.020000 ;  0.092260 ;  0.072118; TT_new/GOAU4.pe
+2008-12-08 Mon ;  0.020000 ;  0.031107 ; -0.010165; TT_new/ELET6.pe
+2008-12-15 Mon ;  0.020000 ;  0.043208 ;  0.045190; TT_new/PETR4.pe
+2008-12-22 Mon ;  0.020000 ;  0.030531 ; -0.008591; TT_new/ELET6.pe
+2008-12-29 Mon ;  0.020000 ;  0.108867 ; -0.061302; TT_new/VALE3.pe
+2009-01-05 Mon ;  0.020000 ;  0.206910 ; -0.143347; TT_new/RSID3.pe
+2009-01-12 Mon ; -0.100000 ;  0.115990 ; -0.238603; TT_new/VALE3.pe
+2009-01-19 Mon ;  0.020000 ;  0.027500 ;  0.004535; TT_new/ELET6.pe
+2009-01-26 Mon ;  0.020000 ;  0.071789 ; -0.050866; TT_new/GOAU4.pe
+2009-02-02 Mon ; -0.035697 ;  0.085849 ; -0.121546; TT_new/GOAU4.pe
+2009-02-09 Mon ;  0.020000 ;  0.063327 ; -0.008310; TT_new/PETR3.pe
+2009-02-16 Mon ;  0.000000 ;  0.130506 ;  0.000000; TT_new/RSID3.pe
+# **** average_target_return: -0.002805, average_wnn_error: -0.048866
+# **** standard_deviation_target_return:  0.041407, standard_deviation_wnn_error:  0.083429
+# **** wnn_same_up: 100.00, wnn_same_down: 0.00, wnn_same_signal: 73.08
+# **** accumulated_return: -17.78%

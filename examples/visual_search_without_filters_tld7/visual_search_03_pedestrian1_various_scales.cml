@@ -1,0 +1,219 @@
+
+# Procura varios zooms baseados no zoom anterior e retreinando com o que deu
+
+/* Counters */
+int i;
+int retrain;
+int numRetrain;
+int numLastRetrained;
+int JustTrained;
+int num_pixels;
+int x;
+int y;
+int x_retrain;
+int y_retrain;
+int best_x;
+int best_y;
+float confidence;
+float best_confidence;
+float confidenceToRetrain;
+float confidenceLevel;
+float scale_factor_in_train;
+float scale_zoom;
+float scale_before;
+int out_of_scene;
+int j;
+float best_scale;
+float scale;
+float scale_to_retrain;
+float scale_to_retrain_i;
+float best_confidence_to_retrain;
+float best_scale_to_retrain;
+int best_x_to_retrain;
+int best_y_to_retrain;
+float confidence_zoom;
+float best_confidence_zoom;
+int poseInVector;
+int menorPose;
+
+
+i = 0;
+/* Trainning */
+#Treinando com a imagem 0
+GetImage(i);
+MoveToTargetCenter(0);
+key t;
+ForwardVisualSearchNetwork(0);
+forward outputs;
+scale_factor_in_train = GetScaleFactorInTrain(0);
+
+/* Testing */
+numLastRetrained = -1;
+i = i + 1;
+GetImage(i);
+MoveToTargetCenter(0);
+JustTrained = 1;
+
+while (i < 140)
+{
+	GetImage(i);
+	
+	out_of_scene = GetOutOfScene(0);
+	
+	if (out_of_scene == 0)
+	{
+		/* Escala frame anterior*/
+		scale_before = GetScaleBefore(0);
+
+		best_confidence = 0.0;
+		best_scale = scale_before;
+		confidence = 0.0;
+		menorPose = 1000;
+		best_confidence_zoom = 0.0;
+		confidence_zoom = 0.0;
+		j = 1;
+		scale = scale_before * 0.95;
+
+		x = GetX_before(i); 
+		y = GetY_before(i);
+
+		while (j <= 3){
+			MoveToPoint(x, y);
+
+			if (scale > scale_factor_in_train + (scale_factor_in_train * 0.25))
+			{
+				scale = scale_before;
+			}
+			if (scale < scale_factor_in_train - (scale_factor_in_train * 0.25))
+			{
+				scale = scale_before;
+			}
+
+			SetScaleFactor(scale);
+			ForwardVisualSearchNetwork(0);
+			forward outputs;
+			key s;
+
+			confidence_zoom = GetConfidenceZoom(0);
+			poseInVector = GetDistanceZoom(0);
+
+			if (poseInVector == menorPose)
+			{
+				if (confidence_zoom > best_confidence_zoom)
+				{							
+					best_x = x;
+					best_y = y;
+					confidence = GetConfidence(0);
+					best_confidence = confidence;
+					best_confidence_zoom = confidence_zoom;
+					best_scale_to_retrain = scale;
+				}
+		
+			}
+			else
+			{
+				if (poseInVector < menorPose)
+				{
+					best_x = x;
+					best_y = y;
+					confidence = GetConfidence(0);
+					best_confidence = confidence;
+					menorPose = poseInVector;
+					best_confidence_zoom = confidence_zoom;
+					best_scale_to_retrain = scale;
+				}
+			}
+
+		
+			j = j + 1;
+			scale = scale * 1.05;
+		}
+
+		SetScaleFactor(best_scale_to_retrain);
+		ForwardVisualSearchNetwork(0);
+		forward outputs;
+		MoveToPoint(best_x, best_y);
+	}
+		
+	key s;
+
+	x_retrain = GetX(i); 
+	y_retrain = GetY(i);
+	confidence = GetConfidence(0);
+	retrain = EvaluateDetection(0);
+
+	if (JustTrained == 1)
+	{
+		JustTrained = 0;
+		retrain = 0;
+	}
+
+	if (retrain == 1)
+	{
+		numRetrain = ImageToRetrain(0);
+		out_of_scene = GetOutOfScene(numRetrain);
+		if (out_of_scene == 0)
+		{
+			GetImage(numRetrain);
+
+			scale_to_retrain = GetScaleToRetrain(numRetrain);
+			SetScaleFactor(scale_to_retrain);
+			ForwardVisualSearchNetwork(0);
+			forward outputs;
+
+			num_pixels = GetNumPixels(0);
+			x_retrain = GetX(numRetrain); 
+			y_retrain = GetY(numRetrain);
+			if (x_retrain >= 0 && y_retrain >= 0 && numLastRetrained + 10 < numRetrain)
+			{
+				x = x_retrain - (num_pixels / 2); 
+				y = y_retrain - (num_pixels / 2);
+				best_x = x;
+				best_y = y; 
+				best_confidence = 0.0;
+				confidence = 0.0;
+				while (y <= (y_retrain + (num_pixels / 2)))
+				{
+					while (x <= (x_retrain + (num_pixels / 2)))
+					{
+						MoveToPoint(x, y);
+						ForwardVisualSearchNetwork(0);
+						forward outputs;
+						SetImageOrder(i);
+						confidence = GetConfidence(0);
+						if (confidence > best_confidence)
+						{
+							best_x = x;
+							best_y = y;
+							best_confidence = confidence;
+						}
+						x = x + 1;
+					}
+					x = x_retrain - (num_pixels / 2);
+					y = y + 1;
+				}
+
+				confidenceLevel = GetConfidenceLevel(0);
+				if ( best_confidence > confidenceLevel )
+				{
+					MoveToPoint(best_x, best_y);
+					key t;
+					ForwardVisualSearchNetwork(0);
+					forward outputs;
+					JustTrained = 1;
+					numLastRetrained = numRetrain;
+					i = i - 1;
+				}
+			}
+		}
+	}
+	else
+		CheckTrafficSignDetection(0);
+
+	i = i + 1;
+}
+SaveTLDReasultsFile(0);
+quit;
+
+
+

@@ -1,0 +1,56 @@
+int num_char_train;
+int num_char_test;
+int i;
+
+float initial_time;
+float elapsed_time;
+
+#num_char_train = 60000;
+num_char_train = 1000;
+#num_char_test = 10000;
+num_char_test = 10;
+
+/* Reading Phase */
+SetNetworkStatus(0); 
+
+i = 0;
+while (i < num_char_train)
+{
+	GetCharOrderN(i);	/* pega um caracter */
+	forward character_rbm1_filter;
+	i = i + 1;
+}
+
+initial_time = time;
+
+/* Training Phase */
+#/* 
+SetNetworkStatus(2); # Train Step 
+forward character_rbm1_filter;
+
+elapsed_time = time;
+print("Trainning time in ms:", elapsed_time - initial_time);
+
+#SetNetworkStatus(5); # Unload Learning 
+#forward character_rbm1_filter;
+#*/
+
+#SetNetworkStatus(6); # Reload Learning 
+#forward character_rbm1_filter;
+
+/* Testing phase */
+SetNetworkStatus(4); # Set and Test data set
+
+i = 0;
+while (i < num_char_test)
+{
+	GetCharOrderN(i);	/* pega um caracter */
+	print("test step set = ", i);
+	pause;
+	forward character_rbm1_filter;
+	print("test step test = ", i);
+	pause;
+	i = i + 1;
+}
+
+quit;

@@ -1,0 +1,96 @@
+/* Persons number */
+int PERSON_MAX; 		
+PERSON_MAX = 67;
+
+int PHOTOS_PER_PERSON; 		
+PHOTOS_PER_PERSON = 13;
+
+/* Network Status */
+int MOVING_FACE;
+MOVING_FACE = 0;
+int TRAINING_FACE;
+TRAINING_FACE = 1;
+int TESTING_FACE;
+TESTING_FACE = 2;
+int MALE;
+MALE = 0;
+int FEMALE;
+FEMALE = 1;
+
+/* Counters */
+int i;
+int j;
+int k;
+
+ResetStatistics (0);
+
+/* Training Phase */
+SetNetworkStatus (TRAINING_FACE);
+i = MALE;
+while (i <= FEMALE)
+{
+	j = 1;
+	while (j <= PERSON_MAX)
+	{
+		k = 1;
+		while (k < 7)
+		{
+			/* Get the next face */ 
+			GetFace (i, j, k);
+
+			/* Updates the eye, nose and mouth filter's outputs */
+			/* Move2Eye (0);*/
+			Move2Nose (0);
+			/* Move2Mouth (0); */
+
+			/* Draws the eye, nose and mouth neuron layer's outputs */
+			/* draw out_eye based on face_recog move;*/
+			draw out_nose based on face_recog move;
+			/* draw out_mouth based on face_recog move;*/
+
+			forward outputs;
+			train network;
+
+			k = k + 2;
+		}
+		j = j + 1;
+	}
+	i = i + 1;
+}
+
+	
+/* Testing phase */
+SetNetworkStatus (TESTING_FACE);
+i = MALE;
+while (i <= FEMALE)
+{
+	j = 1;
+	while (j <= PERSON_MAX)
+	{
+		k = 2;
+		while (k <= 7)
+		{
+			/* Get the next face */ 
+			GetFace (i, j, k);
+
+			/* Updates the eye, nose and mouth filter's outputs */
+			/*Move2Eye (0);*/
+			Move2Nose (0);
+			/*Move2Mouth (0);*/
+
+			forward neural_layers;
+			forward outputs;
+
+			ShowStatistics (0);
+
+			if (k < 6)
+				k = k + 2;
+			else
+				k = k + 1;
+		}
+		j = j + 1;
+	}
+	i = i + 1;
+}
+
+quit;

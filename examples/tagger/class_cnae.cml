@@ -1,0 +1,65 @@
+/******************************************/
+int DOCS2TRAINING;
+/*DOCS2TRAINING = 977172;*/
+DOCS2TRAINING = 10;
+
+int DOCS2TEST;
+/*DOCS2TEST = 244292;*/
+DOCS2TEST = 10;
+
+/* Network Status */
+int TRAINING_PHASE;
+TRAINING_PHASE = 1;
+int RECALL_PHASE;
+RECALL_PHASE = 2;
+
+/* Test Status */
+int BEGINNING;
+BEGINNING = 1;
+int END;
+END = 2;
+
+/* Counters */
+int i;
+
+ResetStatistics (0);
+
+SetNetworkStatus (TRAINING_PHASE);
+i = 0;
+
+while (i < DOCS2TRAINING)
+{
+	GetDoc (i);
+	
+	draw nl_class_cnae_out based on class_cnae move;
+
+	train network;
+	
+	i = i + 1;
+}
+
+/*save_memory(0);*/
+
+/*reload_memory(0);*/
+
+SetNetworkStatus (RECALL_PHASE);
+
+TestStatus (BEGINNING);
+
+i = 0;
+
+while (i < DOCS2TEST )
+{
+	GetDoc(i);
+
+	forward network;
+	
+	ShowStatistics (0);
+
+	i = i + 1;
+}
+
+TestStatus (END);
+
+quit;
+

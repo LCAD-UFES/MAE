@@ -1,0 +1,64 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include "../include/xv.h"
+
+int
+main (int argc, char **argv)
+{
+	FILE *image_out;
+	FILE *image_out2;
+	PICINFO pinfo;
+	PICINFO pinfo2;
+	int i, w, h;
+	
+	if (argc != 4)
+	{
+		printf ("Erro: Invalid number of parameters.\n Usage: gera_image <image_in> <image_out> <image_out2>\n");
+		exit (1);
+	}
+	
+	LoadBMP (argv[1], &pinfo);
+	LoadBMP (argv[1], &pinfo2);
+	
+	if ((image_out = fopen (argv[2], "w")) == NULL)
+	{
+		printf ("Could not create %s for writting\n", argv[2]);
+		exit (1);
+	}
+	
+	if ((image_out2 = fopen (argv[3], "w")) == NULL)
+	{
+		printf ("Could not create %s for writting\n", argv[3]);
+		exit (1);
+	}
+	
+	pinfo.r[0] = pinfo.g[0] = pinfo.b[0] = 0;
+	pinfo.r[1] = pinfo.g[1] = pinfo.b[1] = 255;
+	
+	for (i = 0; i < pinfo.w * pinfo.h; i++)
+	{
+		pinfo.pic[i] = rand () & 1; 
+	}
+	
+	for (h = 0; h < pinfo.h; h++)
+	{
+		for (w = 0; w < pinfo.w; w++)
+		{
+			pinfo2.pic[h * pinfo.w + w] = (w < pinfo.w - 1)? pinfo.pic[h * pinfo.w + w + 2]: rand () & 1;
+		}
+	}
+	
+	for (h = 64; h < 192; h++)
+	{
+		for (w = 64; w < 192; w++)
+		{
+			pinfo2.pic[h * pinfo.w + w] = pinfo.pic[h * pinfo.w + w - 2];
+		}
+	}
+	WriteBMP (image_out, pinfo.pic, pinfo.type, pinfo.w, pinfo.h, pinfo.r, pinfo.g, pinfo.b, 256, F_FULLCOLOR);
+	WriteBMP (image_out2, pinfo2.pic, pinfo.type, pinfo.w, pinfo.h, pinfo.r, pinfo.g, pinfo.b, 256, F_FULLCOLOR);
+	fclose (image_out);
+	fclose (image_out2);
+	
+	return (0);
+}

@@ -1,0 +1,8 @@
+A versão que vai subir agora para o svn obtem retorno de 102.70% no ano de 2010
+(de 2009-12-30 a 2010-12-29 no printout do trading system sem usar os dados 
+intraday).
+
+Ela usa o mesmo preditor e máquina de estados do trading system que foi colocado
+em testes na Peixe Piloto (trading_system_peixe_piloto_week.laptopvelho.tgz)
+com dados do diretorio trading_system_peixe_piloto_week-2011-03-25. O 
+wnn_pred.cml que sobe é próprio para estes dados.

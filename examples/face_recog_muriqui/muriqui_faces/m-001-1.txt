@@ -1,0 +1,4 @@
+left_eye_coordinates=219 155
+nose_coordinates=183 103
+mouth_coordinates=185 66
+right_eye_coordinates=145 147

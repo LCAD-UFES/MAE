@@ -1,0 +1,3 @@
+load image_right from imgr;
+load image_left from imgl;
+load out_disparity_map from odm;

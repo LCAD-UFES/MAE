@@ -1,0 +1,72 @@
+################################################ Set Global Variables #################################################
+
+set NEURON_MEMORY_SIZE = 60000;
+
+######################################################## Constants ####################################################
+
+const INPUT_WIDTH 	= 28;
+const INPUT_HEIGHT	= 28;
+
+const NL_WIDTH 		= 32;
+const NL_HEIGHT		= 32;
+
+const SYNAPSES		= 128;
+const GAUSS_RAD 	= 10.0;
+
+############################################### Neuron Layers #########################################################
+
+neuronlayer	character_scaled[INPUT_WIDTH*2][INPUT_HEIGHT*2] 	with greyscale outputs;
+neuronlayer	character_gaussian[INPUT_WIDTH*2][INPUT_HEIGHT*2] 	with greyscale outputs;
+neuronlayer	char_discr_1[INPUT_WIDTH*2][INPUT_HEIGHT*2] 		of minchinton neurons greyscale sensitive with greyscale outputs size NEURON_MEMORY_SIZE/3;
+neuronlayer	char_discr_2[INPUT_WIDTH*2][INPUT_HEIGHT*2] 		of minchinton neurons greyscale sensitive with greyscale outputs size NEURON_MEMORY_SIZE/3;
+neuronlayer	char_discr_3[INPUT_WIDTH*2][INPUT_HEIGHT*2] 		of minchinton neurons greyscale sensitive with greyscale outputs size NEURON_MEMORY_SIZE/3;
+neuronlayer	character_label[NL_WIDTH][NL_HEIGHT] 				of minchinton neurons greyscale sensitive with greyscale outputs;
+
+############################################### Outputs #########################################################
+
+output		character_gaussian_out[INPUT_WIDTH*2][INPUT_HEIGHT*2];
+output		char_discr_out_1[INPUT_WIDTH*2][INPUT_HEIGHT*2]	handled by output_handler();
+output		char_discr_out_2[INPUT_WIDTH*2][INPUT_HEIGHT*2]	handled by output_handler();
+output		char_discr_out_3[INPUT_WIDTH*2][INPUT_HEIGHT*2]	handled by output_handler();
+output		character_label_out[NL_WIDTH][NL_HEIGHT]	handled by output_handler();
+
+################################################## Inputs #############################################################
+
+input 		character[INPUT_WIDTH][INPUT_HEIGHT]	with greyscale outputs produced by input_generator()
+									       controled by input_controler();
+
+############################################### Filters ###############################################################   
+
+filter 		character 			with scale_and_translate_filter() producing character_scaled;
+filter 		character_scaled	with gaussian_filter("%d %f", 5, 1.0) producing character_gaussian;
+
+################################## Connect Neuron Layers to Outputs #############################################
+
+outputconnect	character_gaussian	to character_gaussian_out;
+outputconnect	character_label		to character_label_out;
+outputconnect	char_discr_1		to char_discr_out_1;
+outputconnect	char_discr_2		to char_discr_out_2;
+outputconnect	char_discr_3		to char_discr_out_3;
+
+############################################### Associations ####################################################
+
+associate	character_label	with character_label;
+associate	char_discr_1 	with char_discr_1;
+associate	char_discr_2 	with char_discr_2;
+associate	char_discr_3 	with char_discr_3;
+
+################################################ Connections ####################################################
+
+connect 	character_gaussian 	to char_discr_1 with SYNAPSES random inputs per neuron and gaussian distribution with radius GAUSS_RAD ;
+connect 	character_gaussian 	to char_discr_2 with SYNAPSES random inputs per neuron and gaussian distribution with radius GAUSS_RAD ;
+connect 	character_gaussian 	to char_discr_3 with SYNAPSES random inputs per neuron and gaussian distribution with radius GAUSS_RAD ;
+connect 	char_discr_1 		to character_label with SYNAPSES random inputs per neuron and gaussian distribution with radius GAUSS_RAD ;
+connect 	char_discr_2 		to character_label with SYNAPSES random inputs per neuron and gaussian distribution with radius GAUSS_RAD ;
+connect 	char_discr_3 		to character_label with SYNAPSES random inputs per neuron and gaussian distribution with radius GAUSS_RAD ;
+
+################################################# User Functions ################################################
+
+int SetNetworkStatus("%d");
+int EvaluateChar("%f");
+int LoadLabelImage("%d");
+float UpdateStats("");

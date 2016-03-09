@@ -1,0 +1,12 @@
+in_pattern 76 380
+nl_v1_pattern_out 591 64
+nl_v1_activation_map_red_confidence_out 790 65
+nl_v1_activation_map_green_confidence_out 991 63
+nl_v1_activation_map_blue_confidence_out 1194 62
+nl_v1_activation_map_red_out 627 510
+nl_v1_activation_map_green_out 853 509
+nl_v1_activation_map_blue_out 1077 508
+out_v1_activation_map_red_f 809 248
+out_target_coordinates 1020 246
+out_in_pattern_filtered_translated 586 251
+mae_control_window 75 58

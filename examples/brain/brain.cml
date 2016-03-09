@@ -1,0 +1,32 @@
+int num_char_train;
+int num_char_test;
+int i;
+
+num_char_train = 10;
+num_char_test = 10;
+i = 0;
+toggle move_active;
+toggle draw_active;
+move character to 20, 14;
+while (i < num_char_train)
+{
+	draw char_discr_out based on character move;
+	train network;
+	move character to 20, 14;
+	i = i + 1;
+}
+
+i = 0;
+while (i < num_char_test)
+{
+	move character to 4, 17;
+	i = i + 1;
+}
+
+i = 0;
+while (i < num_char_test)
+{
+	move character to 20, 14;
+	forward network;
+	i = i + 1;
+}

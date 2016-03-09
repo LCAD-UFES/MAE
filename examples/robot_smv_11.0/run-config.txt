@@ -1,0 +1,33 @@
+Compilando e Executando o Projeto de Exemplo "Robot SMV #.0"
+------------------------------------------------------------
+
+O projeto de exemplo "Robot SMV 4.0" foi modificado para executar parte do seu processamento na plataforma MATLAB. 
+
+Anteriormente, para compilar e rodar o projeto os seguintes passos foram automatizados no Makefile e, portanto, não é necessário fazê-los manualmente:
+
+1- Dentro do ambiente MATLAB, era preciso entrar no diretório robot_smv_#.0/robot_user_functions/matlab_scripts/ e executar o script makelibstereo.m;
+
+2- No ambiente shell, era necessário entrar no diretório robot_smv_#.0/robot_user_functions/matlab_scripts/ e copiar os seguintes arquivos para robot_smv_#.0/:
+
+* libstereo.dll [apenas no Windows]
+* libstereo.so  [apenas no Linux]
+* libstereo.ctf
+
+Além disso, era necessário copiar o arquivo "stereo_api.h" para robot_smv_#.0/robot_user_functions/;
+
+3- Agora, basta, no ambiente shell, entrar no diretório robot_smv_#.0/ e executar o make:
+
+* No Windows, utilizando o MingW: 
+  make -f Makefile.win
+
+* No Linux/Cygwin:   
+  make -f Makefile (ou apenas make)
+
+4- Rode o projeto de teste digitando "./robot" no ambiente shell.
+
+5- Alterne o foco das janelas para a que contém a imagem direita e pressione a tecla V-Maiúsculo para gerar a reconstrução 3D dos três pares de imagens que se encontram
+   no repositório utilizando apenas um par de arquivos de calibração. É importante que as configurações encontradas no arquivo config.txt sejam mantidas, pois a região de 
+   interesse das imagens já se encontra registrada nele.
+
+6- Após o fim do processo será exibido na janela Map 3D a reconstrução das toras e o fitting dos cilindros em vermelho. Alterne para a janela entitulada circles e pressione
+   a tecla v-minúsculo para iniciar o preenchimento da carga do caminhão. Ao final será exibido no shell o volumes sólido da carga.

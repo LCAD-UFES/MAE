@@ -1,0 +1,53 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libGA", "libGA\libGA.vcproj", "{B860EA81-3B24-4ADE-8A36-77050025A2FA}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libTsai", "libTsai\libTsai.vcproj", "{9CEDEDAA-8F2E-4BAF-8994-25864B16D95D}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libStereo", "libStereo\libStereo.vcproj", "{BEF9919A-8642-4B4D-8716-D0D8A53596DD}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9CEDEDAA-8F2E-4BAF-8994-25864B16D95D} = {9CEDEDAA-8F2E-4BAF-8994-25864B16D95D}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libnet_conn", "libnet\libnet.vcproj", "{6C5DC0AD-6534-4FF4-A6F1-519298924ED9}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B860EA81-3B24-4ADE-8A36-77050025A2FA} = {B860EA81-3B24-4ADE-8A36-77050025A2FA}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "netcomp", "netcomp\netcomp.vcproj", "{E2B5ADAB-684D-4B6D-8F8C-D7B695A5368B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B860EA81-3B24-4ADE-8A36-77050025A2FA} = {B860EA81-3B24-4ADE-8A36-77050025A2FA}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B860EA81-3B24-4ADE-8A36-77050025A2FA}.Debug|Win32.ActiveCfg = Debug|Win32
+		{B860EA81-3B24-4ADE-8A36-77050025A2FA}.Debug|Win32.Build.0 = Debug|Win32
+		{B860EA81-3B24-4ADE-8A36-77050025A2FA}.Release|Win32.ActiveCfg = Release|Win32
+		{B860EA81-3B24-4ADE-8A36-77050025A2FA}.Release|Win32.Build.0 = Release|Win32
+		{9CEDEDAA-8F2E-4BAF-8994-25864B16D95D}.Debug|Win32.ActiveCfg = Debug|Win32
+		{9CEDEDAA-8F2E-4BAF-8994-25864B16D95D}.Debug|Win32.Build.0 = Debug|Win32
+		{9CEDEDAA-8F2E-4BAF-8994-25864B16D95D}.Release|Win32.ActiveCfg = Release|Win32
+		{9CEDEDAA-8F2E-4BAF-8994-25864B16D95D}.Release|Win32.Build.0 = Release|Win32
+		{BEF9919A-8642-4B4D-8716-D0D8A53596DD}.Debug|Win32.ActiveCfg = Debug|Win32
+		{BEF9919A-8642-4B4D-8716-D0D8A53596DD}.Debug|Win32.Build.0 = Debug|Win32
+		{BEF9919A-8642-4B4D-8716-D0D8A53596DD}.Release|Win32.ActiveCfg = Release|Win32
+		{BEF9919A-8642-4B4D-8716-D0D8A53596DD}.Release|Win32.Build.0 = Release|Win32
+		{6C5DC0AD-6534-4FF4-A6F1-519298924ED9}.Debug|Win32.ActiveCfg = Debug|Win32
+		{6C5DC0AD-6534-4FF4-A6F1-519298924ED9}.Debug|Win32.Build.0 = Debug|Win32
+		{6C5DC0AD-6534-4FF4-A6F1-519298924ED9}.Release|Win32.ActiveCfg = Release|Win32
+		{6C5DC0AD-6534-4FF4-A6F1-519298924ED9}.Release|Win32.Build.0 = Release|Win32
+		{E2B5ADAB-684D-4B6D-8F8C-D7B695A5368B}.Debug|Win32.ActiveCfg = Debug|Win32
+		{E2B5ADAB-684D-4B6D-8F8C-D7B695A5368B}.Debug|Win32.Build.0 = Debug|Win32
+		{E2B5ADAB-684D-4B6D-8F8C-D7B695A5368B}.Release|Win32.ActiveCfg = Release|Win32
+		{E2B5ADAB-684D-4B6D-8F8C-D7B695A5368B}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

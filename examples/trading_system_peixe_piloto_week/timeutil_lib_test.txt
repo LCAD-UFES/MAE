@@ -1,0 +1,6 @@
+data_l = 978577200, iso_date = 2001-01-04
+data_l = 978663600, iso_date = 2001-01-05
+data_l = 978922800, iso_date = 2001-01-08
+date1 = 2001-01-04, data2 = 2001-01-05, difference = 1
+date1 = 2001-01-05, data2 = 2001-01-04, difference = 1
+date = 2001-01-04, dow inteiro = 4, dow string = Thu

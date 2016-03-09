@@ -1,0 +1,14 @@
+Para capturar as imagens no gimp:
+1 - Escolher a Ferramenta de Selecao Retangular
+2 - Selecionar com o mouse uma regiao da imagem de tamanho 256x192 (IMAGE_WIDTH x IMAGE_HEIGHT do .con)
+    Para conseguir selecionar a regiao pode ser necessario expandir a imagem com <shift> +
+3 - Clicar com o botao direitona selecao e, em seguida, escolher Editar->Colar Como e Visto
+4 - Em seguida clicar com o botao direito na imagem e escolher Editar->Colar Como->Nova Imagem
+5 - Salvar a nova imagem como .pnm, ASCII (clicar com o botao direito na imagem, Arquivo->Salvar Como (escolher o nome, 
+    Salvar->Exportar->ASCII->Salvar
+
+Para filtrar (borrar) a imagem no gimp:
+1 - Abrir a imagem e escolher Filtros->Desfocar->Desfocagem Gaussiana
+2 - Tipo de Borrao = RLE
+3 - Reio de Desfocagem Horizontal=Vetical=3,0
+3 - Salvar

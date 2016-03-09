@@ -1,0 +1,46 @@
+################################################ Set Global Variables #################################################
+
+set NEURON_MEMORY_SIZE = 1;
+
+######################################################## Constants ####################################################
+
+const INPUT_WIDTH 	= 28;
+const INPUT_HEIGHT	= 28;
+
+int	g_rbm_state1 = 0;
+
+############################################### Neuron Layers #########################################################
+
+neuronlayer	character_RBM[10][1] 	with greyscale_float outputs, show;
+
+############################################### Outputs #########################################################
+
+
+################################################## Inputs #############################################################
+
+input 		character[INPUT_WIDTH][INPUT_HEIGHT]	with greyscale outputs produced by input_generator() 
+															controled by input_controler();
+
+############################################### Filters ###############################################################   
+
+filter 		character			with rbm_filter("%p", &g_rbm_state1) producing character_RBM;
+
+################################## Connect Neuron Layers to Outputs #############################################
+
+
+############################################### Associations ####################################################
+
+
+################################################ Connections ####################################################
+
+
+################################################# User Functions ################################################
+
+int SetNetworkStatus("%d");
+int GetCharOrderN("%d");
+int GetCharN("%d");
+int GetNextChar("");
+int RewindCharInput("");
+
+int EvaluateChar("%f");
+float UpdateStats("");

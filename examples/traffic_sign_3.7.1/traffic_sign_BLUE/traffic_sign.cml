@@ -1,0 +1,106 @@
+float time_loading;
+float time_testing;
+float time_testing_avg;
+float time_showing;
+
+int SIGNS2TRAINING;
+int SIGNS2TESTING;
+
+#Full dataset
+SIGNS2TRAINING = 39209;
+SIGNS2TESTING = 12630;
+
+/* Network Status */
+int MOVING;
+MOVING = 0;
+int TRAINING;
+TRAINING = 1;
+int TESTING;
+TESTING = 2;
+
+/* Iterators */
+int i;
+int j;
+int k;
+
+/* Collision Counters */
+float average_collision_in_train;
+float average_collision_in_test;
+
+int confidence;
+
+/* Training Phase */
+SetNetworkStatus (TRAINING);
+/*
+i = 1;
+while (i <= SIGNS2TRAINING)
+e
+#	print ("training",i);
+
+	GetNextSign (0);
+	
+	j = 1;
+	while (j <= 3)
+	{
+		if (j == 1) #training with original image shape
+			SetReshapeFilterParams(0);
+		else
+			SetReshapeFilterParams(1);
+	
+		forward filters;
+		forward outputs;
+		draw out_landmark based on out_traffic_gaussian move;
+		train network;
+				
+		j = j + 1;
+	}
+	i = i + 1;
+}
+
+unload to "netmem.dump";
+unload "nl_landmark" to "netmem.blue";
+*/
+destroy network;
+
+time;
+print("Start timer:", 0);
+
+reload from "netmem.dump";
+
+reload "nl_landmark" from "netmem.blue";
+
+time_loading = time;
+print("Load time in ms:", time_loading);
+
+average_collision_in_train = ComputeAverageNeuronLayerHashCollisionsInTrain(0);
+
+/* Testing phase */
+SetNetworkStatus (TESTING);
+
+time_testing_avg = 0.0;
+
+i = 1;
+while (i <= SIGNS2TESTING)
+{
+	GetNextSign(0);
+	SetReshapeFilterParams(0);
+
+	forward network;
+	time_testing_avg = time_testing_avg + ComputeAverageTimeForNeuronsFindingNearestPattern(0);
+
+	confidence = GetConfidence(0);
+	CalcStatistics(0);
+	i = i + 1;
+}
+time_testing = time;
+
+average_collision_in_test = ComputeAverageNeuronLayerHashCollisionsInTest(SIGNS2TESTING);
+
+print("Average collision in train:", average_collision_in_train);
+print("Average collision in test:", average_collision_in_test);
+print("Average test time in ms:", time_testing_avg / SIGNS2TESTING);
+print("Total test time in ms:", time_testing - time_loading);
+
+PrintStatistics(0);
+
+quit;

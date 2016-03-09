@@ -1,0 +1,42 @@
+################################################ Set Global Variables #################################################
+set NEURON_MEMORY_SIZE 	= 1;
+set TYPE_SHOW = SHOW_FRAME;
+set TYPE_MOVING_FRAME = STOP;
+
+###################################################### Constants ######################################################
+# INPUT & Neuron Layer Dimentions
+const INPUT_WIDTH  = 128;
+const INPUT_HEIGHT = 128;
+const NL_WIDTH  = 128;
+const NL_HEIGHT = INPUT_HEIGHT * 3;
+const SYNAPSES			= 256;
+
+#### Application constants
+const GET_IMAGE_FROM_RBT      = 0;
+const GET_IMAGE_FROM_PNM      = 1;
+const IMAGE_SOURCE = GET_IMAGE_FROM_PNM;
+
+################################################## Inputs #############################################################
+input input_image[INPUT_WIDTH][INPUT_HEIGHT] with b&w outputs produced by input_generator("%d", IMAGE_SOURCE) controled by input_controler();
+
+############################################### Outputs #########################################################
+output		out_nl_program[NL_WIDTH][NL_HEIGHT];
+output		out_nl_function[NL_WIDTH][NL_HEIGHT];
+output		out_nl_command[NL_WIDTH][NL_HEIGHT];
+
+############################################### Neuron Layers #########################################################
+neuronlayer	nl_program  [NL_WIDTH][NL_HEIGHT] with b&w outputs;
+neuronlayer	nl_function [NL_WIDTH][NL_HEIGHT] with b&w outputs;
+neuronlayer	nl_command  [NL_WIDTH][NL_HEIGHT] with b&w outputs;
+
+############################################### Filters #########################################################
+filter		input_image, nl_program, nl_function  		with nl_program_filter () producing nl_program;
+filter		nl_program, nl_function, nl_command  		with nl_function_filter () producing nl_function;
+filter		nl_function, nl_command             		with nl_command_filter () producing nl_command;
+
+################################## Connect Neuron Layers to Outputs #############################################
+outputconnect	nl_program 		to out_nl_program;
+outputconnect	nl_function 	to out_nl_function;
+outputconnect	nl_command 		to out_nl_command;
+
+

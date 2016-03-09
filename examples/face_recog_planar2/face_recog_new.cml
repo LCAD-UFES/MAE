@@ -1,0 +1,58 @@
+int FACES2TRAINING; 		
+FACES2TRAINING = 135;
+
+int FACES2TESTING; 		
+FACES2TESTING = 135;
+
+/* Network Status */
+int TRAINING_FACE;
+TRAINING_FACE = 1;
+int TESTING_FACE;
+TESTING_FACE = 2;
+
+/* Counters */
+int i;
+
+ResetStatistics (0);
+
+/* Training Phase */
+SetNetworkStatus (TRAINING_FACE);
+i = 1;
+while (i <= FACES2TRAINING)
+{
+	GetRandomFace (i);
+
+	/* Update the output */
+	Move2Nose (0);
+
+	/* Draws the landmark neuron layer output */
+	draw out_landmark based on face_recog move;
+
+	forward outputs;
+	train network;
+
+	SaveFaceImage(0);
+	
+	i = i + 1;
+}
+
+
+/* Testing phase */
+SetNetworkStatus2 (TESTING_FACE, 1);
+i = 1;
+while (i <= FACES2TESTING)
+{
+	GetRandomFace (i);
+
+	/* Updates the output */
+	Move2Nose (0);
+
+	forward neural_layers;
+	forward outputs;
+
+	SaveFaceImage(0);
+
+	i = i + 1;
+}
+
+quit;

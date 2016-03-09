@@ -1,0 +1,75 @@
+float time_loading;
+float time_testing;
+float time_testing_avg;
+float time_showing;
+
+int NUM_CHAR_TRAIN;
+int NUM_CHAR_TEST;
+
+#Full dataset
+NUM_CHAR_TRAIN = 60000;
+NUM_CHAR_TEST = 10000;
+
+/* Network Status */
+int TRAINING;
+TRAINING = 0;
+int TESTING;
+TESTING = 1;
+
+/* Iterators */
+int i;
+
+/* Collision Counters */
+float average_collision_in_train;
+float average_collision_in_test;
+
+/* Training Phase */
+SetNetworkStatus(TRAINING); 		# Train data set
+
+destroy network;
+
+time;
+print("Start timer:", 0);
+
+reload from "netmem.dump";
+reload "char_discr" from "netmem_original_100.ascii";
+
+time_loading = time;
+print("Load time in ms:", time_loading);
+
+average_collision_in_train = ComputeAverageNeuronLayerHashCollisionsInTrain(0);
+
+/* Testing phase */
+SetNetworkStatus(TESTING);		# Test data set
+
+i = 0;
+move character to 4, 17;		/* volta um para comeccar do zero */
+#RewindCharInput(0);
+
+time_testing_avg = 0.0;
+
+while (i < NUM_CHAR_TEST)
+{
+	#GetNextChar(0);
+	move character to 20, 14;	/* avancca um */
+	forward network;
+	if (EvaluateChar(0.0) == 0)
+		EvaluateCharInRangePixels(2);
+
+	time_testing_avg = time_testing_avg + ComputeAverageTimeForNeuronsFindingNearestPattern(0);
+
+	UpdateStats(0);
+	i = i + 1;
+}
+time_testing = time;
+
+average_collision_in_test = ComputeAverageNeuronLayerHashCollisionsInTest(NUM_CHAR_TEST);
+
+print("Average collision in train:", average_collision_in_train);
+print("Average collision in test:", average_collision_in_test);
+print("Average test time in ms:", time_testing_avg / NUM_CHAR_TEST);
+print("Total test time in ms:", time_testing - time_loading);
+
+PrintStatistics(0);
+
+quit;

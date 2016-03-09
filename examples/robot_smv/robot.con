@@ -1,0 +1,190 @@
+################################################ Set Global Variables #################################################
+# Global Variables
+set NEURON_MEMORY_SIZE = 1;
+set TYPE_SHOW = SHOW_FRAME;
+set TYPE_MOVING_FRAME = STOP;
+
+# Camera Parameters
+set CAMERA_DISTANCE = 6.9; # [cm]
+#set PYRAMID_LEVEL = 0;
+#set FOCAL_DISTANCE  = 400.0; # [pixels]
+#set VERGENCE_SCAN_TYPE = LINEAR_SCAN;
+set VERGENCE_SCAN_TYPE = COARSE2FINE_SCAN;
+
+######################################################## Constants ####################################################
+#### INPUT & Neuron Layer Dimentions
+const INPUT_WIDTH  = 256;
+const INPUT_HEIGHT = 256;
+const NL_WIDTH  = 128;
+const NL_HEIGHT = 64;
+
+#### Camera Constants
+const FOV_HORIZONTAL          = 47.05;
+const FOV_VERTICAL            = 35.71;
+
+#### Inputs, Neuron & Outputs layers name´s
+const INPUT_NAME_LEFT         = "image_left";
+const INPUT_NAME_RIGHT        = "image_right";
+#const NL_SIMPLE_MONO_RIGHT    = "nl_simple_mono_right";
+#const NL_SIMPLE_MONO_RIGHT_Q  = "nl_simple_mono_right_q";
+#const NL_SIMPLE_MONO_LEFT     = "nl_simple_mono_left";
+#const NL_SIMPLE_MONO_LEFT_Q   = "nl_simple_mono_left_q";
+#const NL_SIMPLE_BIONOCULAR    = "nl_simple_binocular";
+#const NL_SIMPLE_BIONOCULAR_Q  = "nl_simple_binocular_q";
+#const NL_COMPLEX_MONO_RIGHT   = "nl_complex_mono_right";
+#const NL_COMPLEX_MONO_LEFT    = "nl_complex_mono_left";
+#const NL_COMPLEX_BINOCULAR    = "nl_complex_binocular";
+#const NL_MT                   = "nl_mt";
+#const NL_MT_GAUSSIAN          = "nl_mt_gaussian";
+#const NL_DISPARITY_MAP        = "nl_disparity_map";
+#const OUT_DISPARITY_MAP       = "out_disparity_map";
+
+#### Input data file name
+const CAMERA_LEFT_PARAMETERS_FILE_NAME = "CameraLeftParameters.dat";
+const CAMERA_RIGHT_PARAMETERS_FILE_NAME = "CameraRightParameters.dat";
+const FILE_RBT_IMAGE_LEFT     = "img_left.rbt";
+const FILE_RBT_IMAGE_RIGHT    = "img_right.rbt";
+
+#### Output data file name
+const FILE_PLOT_SIMPLE_M_R    = "s_m_r.out";
+const FILE_PLOT_SIMPLE_M_R_Q  = "s_m_r_q.out";
+const FILE_PLOT_SIMPLE_M_L    = "s_m_l.out";
+const FILE_PLOT_SIMPLE_M_L_Q  = "s_m_l_q.out";
+const FILE_PLOT_SIMPLE_B      = "s_b.out";
+const FILE_PLOT_SIMPLE_B_Q    = "s_b_q.out";
+const FILE_PLOT_COMPLEX_M_R   = "c_m_r.out";
+const FILE_PLOT_COMPLEX_M_L   = "c_m_l.out";
+const FILE_PLOT_COMPLEX_B     = "c_b.out";
+const FILE_PLOT_MT            = "mt.out";
+const FILE_PLOT_MT_GAUSSIAN   = "mt_g.out";
+const FILE_PLOT_VERGENCE      = "vergence.out";
+const FILE_PLOT_MT_CELL       = "mt_cell.out";
+
+#### Index MT CELL (mt cell that will be ploted)
+const INDEX_MT_CELL           = (NL_WIDTH * NL_HEIGHT / 2) + (NL_WIDTH / 2);
+
+const VISION_STEREO           = TRUE;
+
+#### Application constants
+const GET_IMAGE_FROM_RBT      = 0;
+const GET_IMAGE_FROM_PNM      = 1;
+const GET_IMAGE_FROM_SMV      = 2;
+
+const LOG_FACTOR              = 2.0;
+const CYCLES_PER_DEGREE       = 0.85; # robot = 0.85 / test = 0.31
+const MT_SENSIBILITY          = 0.1;
+const SMOOTHNESS              = 1.0;
+const CONTRAST_RATIO          = 10.0;
+
+#### Kernel types
+#const KERNEL_1D               = 0;
+#const KERNEL_2D               = 1;
+
+################################################# Inputs #######################################################
+input		image_left[INPUT_WIDTH][INPUT_HEIGHT]		with color outputs and 3 pyramid copies produced by input_generator("%d", GET_IMAGE_FROM_PNM) controled by input_controler();
+input		image_right[INPUT_WIDTH][INPUT_HEIGHT]		with color outputs and 3 pyramid copies produced by input_generator("%d", GET_IMAGE_FROM_PNM) controled by input_controler();
+
+#input		image_left[INPUT_WIDTH][INPUT_HEIGHT]		with color outputs and 2 pyramid copies produced by input_generator("%d", GET_IMAGE_FROM_RBT) controled by input_controler();
+#input		image_right[INPUT_WIDTH][INPUT_HEIGHT]		with color outputs and 2 pyramid copies produced by input_generator("%d", GET_IMAGE_FROM_RBT) controled by input_controler();
+
+#input		image_left[INPUT_WIDTH][INPUT_HEIGHT]		with color outputs and 2 pyramid copies produced by input_generator("%d", GET_IMAGE_FROM_SMV) controled by input_controler();
+#input		image_right[INPUT_WIDTH][INPUT_HEIGHT]		with color outputs and 2 pyramid copies produced by input_generator("%d", GET_IMAGE_FROM_SMV) controled by input_controler();
+
+############################################### Neuron Layers ##################################################
+#neuronlayer	nl_lp_image_left[NL_WIDTH][NL_HEIGHT]	      with	greyscale_float outputs;
+#neuronlayer	nl_lp_image_right[NL_WIDTH][NL_HEIGHT]	      with	greyscale_float outputs;
+
+neuronlayer		nl_simple_mono_right[NL_WIDTH][NL_HEIGHT]		with	greyscale_float outputs;
+neuronlayer		nl_simple_mono_left[NL_WIDTH][NL_HEIGHT]		with	greyscale_float outputs;
+neuronlayer		nl_simple_mono_right_q[NL_WIDTH][NL_HEIGHT]	with	greyscale_float outputs;
+neuronlayer		nl_simple_mono_left_q[NL_WIDTH][NL_HEIGHT]	with	greyscale_float outputs;
+
+neuronlayer		nl_simple_binocular[NL_WIDTH][NL_HEIGHT]		with	greyscale_float outputs;
+neuronlayer		nl_simple_binocular_q[NL_WIDTH][NL_HEIGHT]	with	greyscale_float outputs;
+
+neuronlayer		nl_complex_mono_right[NL_WIDTH][NL_HEIGHT]	with	greyscale_float outputs;
+neuronlayer		nl_complex_mono_left[NL_WIDTH][NL_HEIGHT]		with	greyscale_float outputs;
+neuronlayer		nl_complex_binocular[NL_WIDTH][NL_HEIGHT]		with	greyscale_float outputs;
+
+neuronlayer		nl_mt[NL_WIDTH][NL_HEIGHT]	                	with	greyscale_float outputs;
+neuronlayer		nl_mt_gaussian[NL_WIDTH][NL_HEIGHT]	        	with	greyscale_float outputs;
+
+neuronlayer		nl_mt_gaussian_var[NL_WIDTH][NL_HEIGHT]	      with	greyscale_float outputs;
+neuronlayer		nl_mt_gaussian_map[NL_WIDTH][NL_HEIGHT]	      with	greyscale_float outputs;
+neuronlayer		nl_confidence_map[NL_WIDTH][NL_HEIGHT]	      with	greyscale_float outputs;
+neuronlayer		nl_disparity_map[NL_WIDTH][NL_HEIGHT]	      with	greyscale_float outputs;
+
+############################################### Outputs ########################################################
+#output		out_lp_image_left[NL_WIDTH][NL_HEIGHT];
+#output		out_lp_image_right[NL_WIDTH][NL_HEIGHT];
+
+#output		out_simple_mono_right[NL_WIDTH][NL_HEIGHT];
+#output		out_simple_mono_left[NL_WIDTH][NL_HEIGHT];
+#output		out_simple_mono_right_q[NL_WIDTH][NL_HEIGHT];
+#output		out_simple_mono_left_q[NL_WIDTH][NL_HEIGHT];
+
+#output		out_simple_binocular[NL_WIDTH][NL_HEIGHT];
+#output		out_simple_binocular_q[NL_WIDTH][NL_HEIGHT];
+
+#output		out_complex_mono_right[NL_WIDTH][NL_HEIGHT];
+#output		out_complex_mono_left[NL_WIDTH][NL_HEIGHT];
+#output		out_complex_binocular[NL_WIDTH][NL_HEIGHT];
+
+#output		out_mt[NL_WIDTH][NL_HEIGHT];
+#output		out_mt_gaussian[NL_WIDTH][NL_HEIGHT];
+
+#output		out_mt_gaussian_var[NL_WIDTH][NL_HEIGHT];
+#output		out_mt_gaussian_map[NL_WIDTH][NL_HEIGHT];
+#output		out_confidence_map[NL_WIDTH][NL_HEIGHT];
+output		out_disparity_map[NL_WIDTH][NL_HEIGHT];
+
+################################## Connect Neuron Layers to Outputs #############################################
+#outputconnect	nl_lp_image_left to out_lp_image_left;
+#outputconnect	nl_lp_image_right to out_lp_image_right;
+
+#outputconnect	nl_simple_mono_right to out_simple_mono_right;
+#outputconnect	nl_simple_mono_left to out_simple_mono_left;
+#outputconnect	nl_simple_mono_right_q to out_simple_mono_right_q;
+#outputconnect	nl_simple_mono_left_q to out_simple_mono_left_q;
+
+#outputconnect	nl_simple_binocular to out_simple_binocular;
+#outputconnect	nl_simple_binocular_q to out_simple_binocular_q;
+
+#outputconnect	nl_complex_mono_right to out_complex_mono_right;
+#outputconnect	nl_complex_mono_left to out_complex_mono_left;
+#outputconnect	nl_complex_binocular to out_complex_binocular;
+
+#outputconnect	nl_mt to out_mt;
+#outputconnect	nl_mt_gaussian to out_mt_gaussian;
+
+#outputconnect	nl_mt_gaussian_var to out_mt_gaussian_var;
+#outputconnect	nl_mt_gaussian_map to out_mt_gaussian_map;
+#outputconnect	nl_confidence_map to out_confidence_map;
+outputconnect	nl_disparity_map to out_disparity_map;
+
+############################################### Filters #########################################################
+#filter		image_left   with log_polar_filter("%f", LOG_FACTOR) producing nl_lp_image_left;
+#filter		image_right  with log_polar_filter("%f", LOG_FACTOR) producing nl_lp_image_right;
+
+#biological_gabor_filter("%f %f %f %f %f %f %d %d %f", camera_opening_degree, cycles_per_degree, band_width, aspect_ratio, orientation, phase, shift, mapping, log_factor, kernel_type)
+
+# === CELULAS SIMPLES MONOCULARES ===
+filter	image_right	with biological_gabor_filter ("%f %f %f %f %f %f %d %d %f %d", FOV_HORIZONTAL, CYCLES_PER_DEGREE, 2.0, 1.0, 0.0, -3.0*pi/4.0, 0, MAP_LOG_POLAR, LOG_FACTOR, KERNEL_1D)	producing nl_simple_mono_right;
+filter	image_right	with biological_gabor_filter ("%f %f %f %f %f %f %d %d %f %d", FOV_HORIZONTAL, CYCLES_PER_DEGREE, 2.0, 1.0, 0.0,     -pi/4.0, 0, MAP_LOG_POLAR, LOG_FACTOR, KERNEL_1D)	producing nl_simple_mono_right_q;
+filter	image_left	with biological_gabor_filter ("%f %f %f %f %f %f %d %d %f %d", FOV_HORIZONTAL, CYCLES_PER_DEGREE, 2.0, 1.0, 0.0,      pi/4.0, 0, MAP_LOG_POLAR, LOG_FACTOR, KERNEL_1D)	producing nl_simple_mono_left;
+filter	image_left	with biological_gabor_filter ("%f %f %f %f %f %f %d %d %f %d", FOV_HORIZONTAL, CYCLES_PER_DEGREE, 2.0, 1.0, 0.0,  3.0*pi/4.0, 0, MAP_LOG_POLAR, LOG_FACTOR, KERNEL_1D)	producing nl_simple_mono_left_q;
+
+# === CELULA SIMPLES BINOCULAR ====
+filter	nl_simple_mono_right,	nl_simple_mono_left	with	robot_sum_filter ("")	producing	nl_simple_binocular;
+filter	nl_simple_mono_right_q,	nl_simple_mono_left_q	with	robot_sum_filter ("")	producing	nl_simple_binocular_q;
+
+# === CELULA COMPLEXA MONOCULAR ====
+filter	nl_simple_mono_right,	nl_simple_mono_right_q	with	robot_complex_cell ("")	producing	nl_complex_mono_right;
+filter	nl_simple_mono_left,	nl_simple_mono_left_q	with	robot_complex_cell ("")	producing	nl_complex_mono_left;
+
+# === CELULA COMPLEXA BINOCULAR ====
+filter	nl_simple_binocular, nl_simple_binocular_q with robot_complex_cell ("")		producing	nl_complex_binocular;
+
+# === CELULA MT ====
+filter	nl_complex_mono_left, nl_complex_mono_right, nl_complex_binocular with robot_mt_cell ("%f", MT_SENSIBILITY)	producing	nl_mt;
+filter	nl_mt with robot_gaussian_filter("%d %f", 9, 2.0) producing nl_mt_gaussian;

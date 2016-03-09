@@ -1,0 +1,54 @@
+/* Counters */
+int i;
+int x;
+int y;
+int delta_move;
+float scale_factor;
+int upper_y;
+int lower_y;
+
+/* Trainning */
+TrainTrafficSign(1);
+
+/* Testing */
+
+i = 1;
+
+while (i < 3)
+{
+	GetImage(i);
+/*	scale_factor = 40.0 / 128.0;
+	while (scale_factor < (30.0 / 16.0)) */
+#resolver o scale_factor
+	scale_factor = 1.55;
+/*	while (scale_factor < 2.0)
+
+	{
+*/		SetScaleFactor(scale_factor);
+#		delta_move = GetDeltaMove(0);
+#		y = delta_move;
+#		while (y < 233)
+#		{
+#			x = delta_move;
+#			while (x < 312)
+#			{
+#				MoveToPoint(x, y);
+#Mover para o centro do ultimo ponto que tinha encontrado (ultimo frame)
+MoveToPanda(0);
+				pause;
+				key s;
+				CheckTrafficSignDetection(0);
+				pause;
+#				x = x + delta_move;
+#			}
+#			y = y + delta_move;
+#		}
+#		scale_factor = scale_factor * 1.2;
+#	}
+	i = i + 1;
+}
+SaveTLDReasultsFile(0);
+quit;
+
+
+

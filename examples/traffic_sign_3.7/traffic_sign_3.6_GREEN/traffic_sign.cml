@@ -1,0 +1,108 @@
+float time_loading;
+float time_testing;
+float time_showing;
+
+int SIGNS2TRAINING;
+int SIGNS2TESTING;
+
+#Full dataset
+SIGNS2TRAINING = 39209;
+SIGNS2TESTING = 12630;
+
+#Minimal dataset
+#SIGNS2TRAINING = 860;
+#SIGNS2TESTING = 860/2;
+
+/* Network Status */
+int MOVING;
+MOVING = 0;
+int TRAINING;
+TRAINING = 1;
+int TESTING;
+TESTING = 2;
+
+/* Iterators */
+int i;
+int j;
+int k;
+
+int confidence;
+
+/* Training Phase */
+SetNetworkStatus (TRAINING);
+/*
+i = 1;
+while (i <= SIGNS2TRAINING)
+{
+#	print ("training",i);
+
+	GetSignByIndex (i);
+	
+	j = 1;
+	while (j <= 3)
+	{
+		if (j == 1) #training with original image shape
+			SetReshapeFilterParams(0);
+		else
+			SetReshapeFilterParams(1);
+	
+		forward filters;
+		forward outputs;
+		draw out_landmark based on out_traffic_gaussian move;
+		train network;
+				
+		j = j + 1;
+	}
+	i = i + 1;
+}
+
+unload to "netmem.dump";
+unload "nl_landmark" to "netmem.green";
+*/
+destroy network;
+
+#reload from "netmem.dump";
+reload from "my_netmem_001.dump";
+
+time;
+print("Start timer:", 0);
+
+reload "nl_landmark" from "netmem.green";
+
+time_loading = time;
+print("Load time in ms:", time_loading);
+
+/* Testing phase */
+SetNetworkStatus (TESTING);
+i = 1;
+while (i <= SIGNS2TESTING)
+{
+	GetSignByIndex (i);
+
+	k = 0;
+	confidence = 0;
+	while ((k < 15) && (confidence < 70))
+	{
+		j = 1;
+		while (j <= 3)
+		{
+			if ((j == 1) && (k == 0))
+				SetReshapeFilterParams(0);
+			else
+				SetReshapeFilterParams(1);
+
+			forward network;
+
+			j = j + 1;
+		}
+		confidence = GetConfidence(0);
+		k = k + 1;
+	}
+	PrintStatistics(0);
+	i = i + 1;
+}
+
+time_testing = time;
+print("Test time in ms:", time_testing - time_loading);
+
+quit;

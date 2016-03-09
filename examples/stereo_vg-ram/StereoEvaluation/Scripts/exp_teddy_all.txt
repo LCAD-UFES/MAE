@@ -1,0 +1,4 @@
+verbose 2
+cd ../teddy
+script ../Scripts/exp_dispatch_teddy.txt
+

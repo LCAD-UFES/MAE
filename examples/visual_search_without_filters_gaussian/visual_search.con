@@ -1,0 +1,112 @@
+################################################ Set Global Variables #################################################
+
+set NEURON_MEMORY_SIZE = 3072;  
+set TYPE_SHOW = SHOW_FRAME;
+set TYPE_MOVING_FRAME = STOP;
+
+######################################################## Constants ####################################################
+
+# General settings
+const FOV_HORIZONTAL = 48.0;
+const TARGET_NEURON_LAYER_NAME = "nl_target_coordinates";
+
+# Architecture settings
+const IMAGE_WIDTH  = 384;
+const IMAGE_HEIGHT = 288;
+
+const NL_WIDTH  = 64;
+const NL_HEIGHT = 48;
+
+const INPUTS_PER_NEURON = 256;
+const GAUSSIAN_RADIUS = 10.0;
+const LOG_FACTOR = 2.0;
+
+const BAND_WIDTH = 0.125;
+
+# Network status conventions
+const TRAINNING	= 0;
+const RUNNING	= 1;
+
+# Search heuristic parameters
+const CUT_POINT	= 0.7;
+
+const INPUT_PATH	= "/home/hallysson/img/ARDataBase/ARPhotoDataBase/";
+#const INPUT_PATH	= "./IMAGENS/";
+
+############################################### Neuron Layers #########################################################
+
+neuronlayer    	nl_v1_activation_map[NL_WIDTH][NL_HEIGHT]	of minchinton neurons color sensitive with greyscale_float outputs;
+
+neuronlayer    	nl_v1_activation_map_f[NL_WIDTH][NL_HEIGHT] 	with greyscale_float outputs;
+
+neuronlayer    	nl_target_coordinates[2][1]			with greyscale_float outputs;
+
+neuronlayer    	nl_v1_pattern[NL_WIDTH][NL_HEIGHT]	       	with color outputs;
+
+neuronlayer    	nl_aux[IMAGE_WIDTH][IMAGE_HEIGHT]	       	with color outputs;
+
+############################################### Outputs #########################################################
+
+#parameters: 	output_handler_min_value_position ("%s %f", <nl_target_coordinates_name>, <log_factor>)
+#output         out_v1_activation_map[NL_WIDTH][NL_HEIGHT]  handled by output_handler_min_value_position ("%s %f", TARGET_NEURON_LAYER_NAME, LOG_FACTOR);
+
+#parameters: 	output_handler_max_value_position ("%s %f", <nl_target_coordinates_name>, <log_factor>)
+#output		out_v1_activation_map[NL_WIDTH][NL_HEIGHT] handled by output_handler_max_value_position ("%s %f", TARGET_NEURON_LAYER_NAME, LOG_FACTOR);
+
+#parameters: 	output_handler_mean_position ("%s %f %f", <nl_target_name_coordinates>, <log_factor>, <cut_point>)
+output		out_v1_activation_map[NL_WIDTH][NL_HEIGHT]  handled by output_handler_mean_position ("%s %f %f %f", TARGET_NEURON_LAYER_NAME, LOG_FACTOR, CUT_POINT, BAND_WIDTH);
+
+output         	out_target_coordinates[2][1];
+
+output         	out_v1_pattern[NL_WIDTH][NL_HEIGHT];
+
+################################################## Inputs #############################################################
+
+input 		in_pattern[IMAGE_WIDTH][IMAGE_HEIGHT]	with color outputs produced by input_generator() controled by input_controler();
+
+#parameters: 	gaussian_filter ("%s %d", <kernel size>, <sigma>)
+filter		in_pattern 	with copy_filter ("") producing nl_aux;
+
+filter		nl_aux 	with gaussian_filter ("%d %f", 7, 1.0) producing in_pattern;
+
+############################################### Filters ###############################################################   
+
+#parameters: 	activation_map_filter ()
+filter		in_pattern		with v1_activation_map_filter ("%d %f %f", INPUTS_PER_NEURON, GAUSSIAN_RADIUS, LOG_FACTOR) producing nl_v1_activation_map;
+
+#parameters: 	map_image_v1 ("%s %d", <input_name>, <log_factor>)
+filter		in_pattern  		with map_image_v1 ("%s %f", "in_pattern", LOG_FACTOR) 	producing nl_v1_pattern;
+
+
+#parameters: 	gaussian_filter ("%s %d", <kernel size>, <sigma>)
+#filter		nl_v1_activation_map 	with gaussian_filter ("%d %f", 5, 1.0) producing nl_v1_activation_map_f;
+
+################################## Connect Neuron Layers to Outputs #############################################
+
+outputconnect	nl_v1_activation_map		to out_v1_activation_map;
+
+#outputconnect	nl_v1_activation_map_f		to out_v1_activation_map;
+
+outputconnect  	nl_target_coordinates		to out_target_coordinates;
+
+outputconnect  	nl_v1_pattern 			to out_v1_pattern;
+
+############################################### Associations ####################################################
+
+associate	nl_v1_activation_map		with	nl_v1_activation_map;
+
+################################################ Connections ####################################################
+
+################################################# User Functions ################################################
+
+int v1_to_image_mapping ("%p %p %d %d %d %d %d %d");	
+int calculate_random_position ("%d %d %d %d"); 
+int get_target_coordinates ("%p %p %f");
+#int get_photo ("%d %d");
+
+int GetFace("%d %d %d");
+int GetRandomFace("%d");
+int Move2Eye ("%d");
+int Move2Nose ("%d");
+int Move2Mouth ("%d");
+int SetNetworkStatus ("%d");

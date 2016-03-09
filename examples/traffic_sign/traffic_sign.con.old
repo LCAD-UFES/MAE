@@ -1,0 +1,59 @@
+################################################ Set Global Variables #################################################
+set NEURON_MEMORY_SIZE = 350;
+set TYPE_SHOW = SHOW_FRAME;
+set TYPE_MOVING_FRAME = STOP;
+
+######################################################## Constants ####################################################
+const INPUT_WIDTH 	= 1628;
+const INPUT_HEIGHT	= 1236;
+
+const OUT_WIDTH		= 32;
+const OUT_HEIGHT	= 32;
+
+const SYNAPSES		= 256;
+
+# Filter's parameters
+const NL_WIDTH 		= 200;
+const NL_HEIGHT		= 200;
+
+#const INPUT_PATH	= "/home/victor/belgium_ts/annotations/01pnm/";
+#const GROUNDT_PATH	= "/home/victor/belgium_ts/_mae/";
+const INPUT_PATH	= "/media/shared_win_dir/Seqs/";
+const GROUNDT_PATH	= "/media/shared_win_dir/_mae/";
+
+############################################### Neuron Layers #########################################################
+neuronlayer	nl_traffic_sign_lp[NL_WIDTH][NL_HEIGHT]	with color outputs;
+neuronlayer	nl_traffic_sign_lp_f[NL_WIDTH][NL_HEIGHT]	with color outputs;
+neuronlayer	nl_landmark[OUT_WIDTH][OUT_HEIGHT]	of minchinton neurons color sensitive with greyscale outputs;
+
+############################################### Outputs #########################################################
+output		out_traffic_sign_lp[NL_WIDTH][NL_HEIGHT];
+output		out_traffic_sign_lp_f[NL_WIDTH][NL_HEIGHT];
+output		out_landmark[OUT_WIDTH][OUT_HEIGHT] 	handled by output_handler();
+
+################################################## Inputs #############################################################
+input 		traffic_sign[INPUT_WIDTH][INPUT_HEIGHT]	with color outputs produced by input_generator() controled by input_controler();
+
+############################################### Filters #########################################################
+filter		traffic_sign 		with traffic_sign_crop () producing nl_traffic_sign_lp;
+filter		nl_traffic_sign_lp 	with gaussian_filter ("%d %f", 5, 1.0) producing nl_traffic_sign_lp_f;
+
+################################## Connect Neuron Layers to Outputs #############################################
+outputconnect	nl_traffic_sign_lp		to out_traffic_sign_lp;
+outputconnect	nl_traffic_sign_lp_f	to out_traffic_sign_lp_f;
+outputconnect	nl_landmark				to out_landmark;
+
+############################################### Associations ####################################################
+associate	nl_landmark		with	nl_landmark;
+
+################################################ Connections ####################################################
+connect		nl_traffic_sign_lp_f	to nl_landmark 	with SYNAPSES random inputs per neuron and gaussian distribution with radius 10.0;
+
+################################################ User Functions #################################################
+int GetFrame("%d %d %d");
+int ShowStatistics ("%d");
+int ResetStatistics ("%d");
+int SetNetworkStatus ("%d");
+int GetNthSignParam ("%d");
+
+

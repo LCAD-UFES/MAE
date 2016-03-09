@@ -1,0 +1,50 @@
+/* Counters */
+int i;
+int x;
+int y;
+int delta_move;
+float scale_factor;
+int upper_y;
+int lower_y;
+
+/* Trainning */
+TrainTrafficSign(1);
+
+/* Testing */
+
+i = 1;
+
+while (i < 8576)
+{
+	GetImage(i);
+/*	scale_factor = 40.0 / 128.0; */
+/*	while (scale_factor < (30.0 / 16.0)) */
+	scale_factor = 0.5;
+	while (scale_factor < 2.0)
+
+	{
+		SetScaleFactor(scale_factor);
+		delta_move = GetDeltaMove(0);
+		y = delta_move;
+		while (y < 240)
+		{
+			x = delta_move;
+			while (x < 640)
+			{
+				MoveToPoint(x, y);
+				key s;
+				CheckTrafficSignDetection(0);
+				/*pause;*/
+				x = x + delta_move;
+			}
+			y = y + delta_move;
+		}
+		scale_factor = scale_factor * 1.2;
+	}
+	i = i + 1;
+}
+SaveTLDReasultsFile(0);
+quit;
+
+
+

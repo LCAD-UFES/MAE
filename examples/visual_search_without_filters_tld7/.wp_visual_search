@@ -1,0 +1,11 @@
+in_pattern 81 398
+nl_v1_pattern_out 425 651
+table_v1_out 115 892
+out_v1_activation_map 424 845
+out_nl_v1_activation_map_neuron_weight_thresholded 632 100
+out_target_coordinates 856 106
+out_in_pattern_filtered_translated 428 404
+out_table 113 668
+out_nl_activation_map_hough_zoom 1618 24
+out_nl_activation_map_hough_zoom_gaussian 1312 24
+mae_control_window 77 68

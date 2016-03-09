@@ -1,0 +1,87 @@
+int num_char_train;
+int num_char_test;
+int i;
+
+num_char_train = 60000;
+num_char_test = 10000;
+
+SetNetworkStatus(0); # Unsupervised Training
+
+i = 0;
+move character to 4, 17; /* volta um para comeccar do zero */
+while (i < num_char_train/3)
+{
+	move character to 20, 14; /* avancca um */
+	
+	LoadLabelImage(1);
+	
+	train char_discr_1;
+
+	i = i + 1;
+}
+
+i = 0;
+while (i < num_char_train/3)
+{
+	move character to 20, 14; /* avancca um */
+	
+	LoadLabelImage(2);
+	
+	train char_discr_2;
+
+	i = i + 1;
+}
+
+i = 0;
+while (i < num_char_train/3)
+{
+	move character to 20, 14; /* avancca um */
+	
+	LoadLabelImage(3);
+	
+	train char_discr_3;
+
+	i = i + 1;
+}
+
+SetNetworkStatus(1); # Supervised Training
+
+i = 0;
+move character to 4, 17; /* volta um para comeccar do zero */
+while (i < num_char_train)
+{
+	move character to 20, 14; /* avancca um */
+	forward char_discr_1;
+	forward char_discr_out_1;
+	forward char_discr_2;
+	forward char_discr_out_2;
+	forward char_discr_3;
+	forward char_discr_out_3;
+	draw character_label_out based on character move;
+	train character_label;
+	i = i + 1;
+	#pause;
+}
+
+SetNetworkStatus(2); # Test
+
+i = 0;
+move character to 4, 17; /* volta um para comeccar do zero */
+while (i < num_char_test)
+{
+	move character to 20, 14; /* avancca um */
+	forward char_discr_1;
+	forward char_discr_out_1;
+	forward char_discr_2;
+	forward char_discr_out_2;
+	forward char_discr_3;
+	forward char_discr_out_3;
+	forward character_label;
+	forward character_label_out;
+	EvaluateChar(0.0);
+	UpdateStats(0);
+	i = i + 1;
+	#pause;
+}
+
+quit;

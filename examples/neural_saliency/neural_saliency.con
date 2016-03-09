@@ -1,0 +1,88 @@
+################################################ Set Global Variables #################################################
+
+set NEURON_MEMORY_SIZE = 1;  
+set TYPE_SHOW = SHOW_FRAME;
+set TYPE_MOVING_FRAME = STOP;
+
+######################################################## Constants ####################################################
+
+# General settings
+
+# Architecture settings
+const IMAGE_WIDTH  = 640;
+const IMAGE_HEIGHT = 480;
+const IMAGE_HEIGHT_CROP = 320;
+
+const NL_WIDTH  = 64;
+const NL_HEIGHT = 32;
+
+const INPUTS_PER_NEURON = 128;
+const GAUSSIAN_RADIUS = 20.0;
+
+const NUMBER_OF_SALIENCIES = 10;
+const NUMBER_OF_TRAINING_FRAMES = 1;
+const NUMBER_OF_TEST_FRAMES = 1;
+
+const INPUT_TRAINING_PATH = "/home/lauro/robotics/code/carmen/data/saliency/training/";
+const INPUT_TEST_PATH = "/home/lauro/robotics/code/carmen/data/saliency/test/";
+const DATA_SET_FILE = "data.txt";
+
+############################################### Neuron Layers #########################################################
+
+neuronlayer    	nl_saliency_pattern[NL_WIDTH][NL_HEIGHT]	       	of minchinton_center_surround neurons color sensitive with greyscale outputs;
+
+neuronlayer		nl_saliency_pattern_max[NL_WIDTH][NL_HEIGHT]  		with greyscale outputs;
+
+neuronlayer		in_pattern_cropped[IMAGE_WIDTH][IMAGE_HEIGHT_CROP] 	with color outputs;
+
+neuronlayer    	in_pattern_gaussian[IMAGE_WIDTH][IMAGE_HEIGHT_CROP]	with color outputs;
+
+neuronlayer		recall[IMAGE_WIDTH][IMAGE_HEIGHT] 	with color outputs;
+
+############################################### Outputs #########################################################
+
+output		    out_recall[IMAGE_WIDTH][IMAGE_HEIGHT];
+
+output         	out_in_pattern_gaussian[IMAGE_WIDTH][IMAGE_HEIGHT_CROP];
+
+output         	out_nl_saliency_pattern[NL_WIDTH][NL_HEIGHT] handled by output_handler_saliency();
+
+output         	out_nl_saliency_pattern_max[NL_WIDTH][NL_HEIGHT] handled by output_handler_saliency_max("%s %s", "out_recall", "out_nl_saliency_pattern_max");
+
+################################################## Inputs #############################################################
+
+input	in_pattern[IMAGE_WIDTH][IMAGE_HEIGHT]	with color outputs	produced by input_generator()	controled by input_controler();
+
+############################################### Filters ###############################################################   
+
+#parameters:	crop_nl_filter("%f %f", rect_x, rect_y)
+filter	in_pattern	 					with crop_nl_filter("%d %d", 0, IMAGE_HEIGHT - IMAGE_HEIGHT_CROP) 			producing in_pattern_cropped;
+
+#parameters: 	gaussian_filter ("%s %d", <kernel size>, <sigma>)
+filter	in_pattern_cropped				with gaussian_filter ("%d %f", 33, 11.0)		producing in_pattern_gaussian;
+
+#parameters: 	hamming_filter ("%d", <threshold>)
+filter nl_saliency_pattern 				with hamming_nl_filter("%d", NUMBER_OF_SALIENCIES)				producing nl_saliency_pattern_max;
+
+################################## Connect Neuron Layers to Outputs #############################################
+
+outputconnect	recall							to 		out_recall;
+
+outputconnect	in_pattern_gaussian				to 		out_in_pattern_gaussian;
+
+outputconnect  	nl_saliency_pattern 			to	 	out_nl_saliency_pattern;
+
+outputconnect  	nl_saliency_pattern_max 		to	 	out_nl_saliency_pattern_max	;
+
+################################################ Connections ####################################################
+
+connect			in_pattern_gaussian  	to nl_saliency_pattern 	with INPUTS_PER_NEURON random inputs per neuron and gaussian distribution with radius GAUSSIAN_RADIUS;
+
+############################################### Associations ####################################################
+
+associate	nl_saliency_pattern			with		nl_saliency_pattern;
+
+################################################# User Functions ################################################
+
+int set_network_status("%d");
+int get_new_frame("%d %d");

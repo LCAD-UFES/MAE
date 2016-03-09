@@ -1,0 +1,89 @@
+##################################################################################################################################
+#
+# 05/09/2011 – Jorcy de Oliveira Neto e Alberto Ferreira de Souza
+# Lista de Assuntos à serem tratados e prioridades para a implementação do Road Finding Neural.
+#
+#	I)	Qual deverá ser a saída da rede – Exemplo : 1 – Não dirigivel/ 0 – Dirigivel. 
+#	II)	O que a rede deverá usar para transformar a imagem de entrada no vetor de bits.
+#	III)	Qual será a arquitetura da rede ? ( tipo e quantidade de camadas, filtros, etc ...)
+#	IV)	Como será / O que servirá de base para o treinamento ?
+#
+#	PS: Sugestão do Alberto -> Gerar valores aleatórios para os threshold de ativação (0/1 das sinapses da VG-RAM) - ruim (N)
+#
+#	Sugestão da Claudine: Fazer o treinamento em pedaços
+#
+##################################################################################################################################
+
+################################################ Set Global Variables #################################################
+set NEURON_MEMORY_SIZE = (320*240*2);	# Shared neuron layer memory size.
+set TYPE_SHOW = SHOW_FRAME;
+set TYPE_MOVING_FRAME = STOP;
+
+######################################################## Constants ####################################################
+
+#Image - Input Neuron Layer
+const INPUT_WIDTH	= 320;
+const INPUT_HEIGHT	= 240;
+
+#Filtered inputs and output must have same size as Image Input
+const NL_WIDTH 		= INPUT_WIDTH;
+const NL_HEIGHT		= INPUT_HEIGHT;
+
+const OUT_WIDTH		= INPUT_WIDTH;
+const OUT_HEIGHT	= INPUT_HEIGHT;
+
+const SYNAPSES		= 256;
+const GAUSSIAN_RADIUS	= 10.0;
+
+const IMAGE_WIDTH 	= INPUT_WIDTH;
+const IMAGE_HEIGHT 	= INPUT_HEIGHT;
+const IMG_SET_SIZE 	= 9;
+
+set DUMMY_OUTPUT_ACTIVATION_VALUE = -1;	#standard dummy activation value
+const HIGH_OUTPUT_ACTIVATION_VALUE = 255;
+const LOW_OUTPUT_ACTIVATION_VALUE = 0;
+
+const UNKNOWN = DUMMY_OUTPUT_ACTIVATION_VALUE;
+const DRIVABLE = HIGH_OUTPUT_ACTIVATION_VALUE;
+const NON_DRIVABLE = LOW_OUTPUT_ACTIVATION_VALUE;
+
+const LOWER_BOUND	= 23;
+const UPPER_BOUND	= 67;
+const LEFT_BOUND	= 117;
+const RIGHT_BOUND 	= 202;
+
+const INPUT_PATH	= "imgs/";
+
+############################################### Neuron Layers #########################################################
+neuronlayer	nl_road_finding_input_filtered[NL_WIDTH][NL_HEIGHT]	with color outputs;
+neuronlayer	nl_road_finding[OUT_WIDTH][OUT_HEIGHT]	of minchinton neurons color sensitive with greyscale outputs using shared memory ,show;
+#neuronlayer	nl_road_finding[OUT_WIDTH][OUT_HEIGHT]	of minchinton_threshold neurons color sensitive with greyscale outputs using shared memory ,show;
+#neuronlayer	nl_road_finding[OUT_WIDTH][OUT_HEIGHT]	of minchinton_gaussian neurons color sensitive with greyscale outputs using shared memory ,show;
+#neuronlayer	nl_road_finding[OUT_WIDTH][OUT_HEIGHT]	of minchinton_kcorrelate neurons color sensitive with greyscale outputs using shared memory ,show;
+
+
+############################################### Outputs #########################################################
+output		out_road_finding_input_filtered[NL_WIDTH][NL_HEIGHT];
+#output		out_road_finding[OUT_WIDTH][OUT_HEIGHT]	#handled by output_handler();
+
+################################################## Inputs #############################################################
+input 		road_finding[INPUT_WIDTH][INPUT_HEIGHT]	with color outputs produced by input_generator() controled by input_controler();
+
+############################################### Filters #########################################################
+#filter		face_recog 		with scale_nl_filter ("%f", 1.0) producing nl_face_recog_lp;
+#filter		face_recog 		with rotate_nl_filter ("%f", 45.0) producing nl_face_recog_lp;
+#filter		face_recog 		with translate_nl_filter ("%f %f", -NL_WIDTH/2.0, -NL_HEIGHT/2.0) producing nl_face_recog_lp;
+
+filter		road_finding 		with gaussian_filter ("%d %f", 5, 1.0) producing nl_road_finding_input_filtered;
+
+################################## Connect Neuron Layers to Outputs #############################################
+outputconnect	nl_road_finding_input_filtered 	to out_road_finding_input_filtered;
+
+############################################### Associations ####################################################
+associate	nl_road_finding		with	nl_road_finding;
+
+################################################ Connections ####################################################
+connect		nl_road_finding_input_filtered	to nl_road_finding	with SYNAPSES random inputs per neuron and gaussian distribution with radius GAUSSIAN_RADIUS , same interconnection pattern;
+
+################################################ User Functions #################################################
+#No current new user functions for Road Finding application

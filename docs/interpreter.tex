@@ -1,0 +1,978 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage{graphicx,url}
+\usepackage[brazil]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{listings}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage[parfill]{parskip}
+
+\lstset{
+         basicstyle=\footnotesize\ttfamily, % Standardschrift
+         numbersep=5pt,              % Abstand der Nummern zum Text
+         tabsize=2,                  % Groesse von Tabs
+         stringstyle=\color{white}\ttfamily, % Farbe der String
+         showspaces=false,           % Leerzeichen anzeigen ?
+         showtabs=false,             % Tabs anzeigen ?
+         xleftmargin=17pt,
+         framexleftmargin=17pt,
+         framexrightmargin=5pt,
+         framexbottommargin=4pt,
+         %backgroundcolor=\color{lightgray},
+         showstringspaces=false      % Leerzeichen in Strings anzeigen ?        
+}
+
+
+
+% Title Page
+\title{MAE Interpreter: Uma documenta\c{c}\~{a}o.}
+\author{Victor Nascimento Neves\and Filipe Wall Mutz\and Lauro Jos\'e Lyrio Junior.}
+
+
+\begin{document}
+\maketitle
+
+\tableofcontents
+
+\section{A Linguagem de Scripts de Controle}
+A Control Script Language \'e a linguagem que nos fornece uma interface para comandos e facilidade de scripts com a MAE.
+Esta linguagem \'e utilizada tanto na comunica\c{c}\~ao com a MAE atrav\'es de comandos j\'a declarados na linguagem ou para invoca\c{c}\~ao de fun\c{c}\~oes definidas pelo usu\'ario.
+
+O l\'exico e a sintaxe da Control Script Language (CSL) foram desenvolvidos com as ferramentas Flex e Bison,
+
+\section{Estrutura L\'exica}
+Um programa em CSL consiste em um arquivo .cml, no qual s\~ao descritos os procedimentos e fun\c{c}\~oes que o usu\'ario deseja gerar.
+Este arquivo dever\'a ser composto dos s\'imbolos (tokens) especificados na linguagem l\'exica da CSL como descritos abaixo.
+
+  \subsection{Terminadores de Linha}
+  Terminadores de linha dividem os caracteres de um arquivo .con em linhas:
+  \begin{center}
+    \begin{tabular}{| l | c | r |}
+    \hline
+    nova linha & \textbackslash n & (Line Feed - ASC 10)\\
+    \hline
+    \end{tabular}
+  \end{center}
+
+  \subsection{Coment\'arios}
+  A forma de coment\'ario de c\'odigo suportada pela CSL segue o padr\~ao de coment\'arios de blocos do C (utilizando /* [texto de coment\'ario] */) ou a forma de coment\'ario de linha
+  conhecida em scripts de Bash (utilizando o \# [texto de coment\'ario]).
+  \begin{center}
+    \begin{tabular}{| l | c | r |}
+    \hline
+    coment\'ario de linha & \# & (Sharp - ASC 35)\\
+    coment\'ario de bloco & & \\
+    \hline
+    \end{tabular}
+  \end{center}
+
+  \subsection{Espa\c{c}os em Branco}
+  Espa\c{c}os em branco s\~{a}o definidos com algum dos seguintes caracteres que incluem um espa\c{c}o na tabela ASC.
+  \begin{center}
+  \begin{tabular}{| l | c | r |}
+    \hline
+    espa\c{c}o em branco & [] & (Blank Space - ASC 32) \\
+    tabula\c{c}\~{a}o & \textbackslash t & (Horizontal Tab - ASC 09) \\
+    \hline
+  \end{tabular}
+  \end{center}	
+
+  \subsection{Tipos de Vari\'aveis}
+  Os tipos poss\'iveis para vari\'aveis s\~ao: inteiro e float.
+  \begin{center}
+  \begin{tabular}{| l | r |}
+    \hline
+    inteiro & int \\
+    ponto flutuante & float\\
+    \hline
+  \end{tabular}
+  \end{center}
+
+  \subsection{Operadores e Pontuadores}
+  Existem v\'arios tipos de operadores e pontuadores. Operadores s\~ao usados em express\~oes para descrever opera\c{c}\~{o}es que envolvam um ou mais operandos.
+  Pontuadores s\~{a}o usados para agrupamento e separa\c{c}\~{a}o de c\'{o}digo.
+  
+    \subsubsection{Operadores}
+    A tabela abaixo cont\'em os operadores aritim\'eticos, de compara\c{c}\~ao, l\'ogicos e aritim\'eticos da linguagem. S\~ao descritos seus nomes, s\'imbolos terminais e valores na tabela ASCII.
+    \begin{center}
+    \begin{tabular}{| l | l | c | r |}
+      \hline
+	    Atribui\c{c}\~ao & Atribui\c{c}\~{a}o & = & ASC 61 \\
+	    \hline
+	    Compara\c{c}\~oes & Igual & == & [ASC 61 ASC 61]\\
+	    & Menor & $<$ & ASC 60 \\
+	    & Maior & $<$ & ASC 62 \\
+	    & Menor ou Igual & $<=$ & [ASC 60 ASC 61] \\
+	    & Maior ou Igual & $>=$ & [ASC 62 ASC 61] \\
+	    & Diferente & $=!$ & [ASC 61 ASC 33] \\
+	    \hline
+	    L\'ogicos& Ou (l\'ogico) & $||$ & [ASC 124 ASC 124] \\
+	    & E (l\'ogico) & \&\& & [ASC 38 ASC 38] \\
+	    \hline
+	    De Bit & Ou (operador de bit) & $|$ & ASC 124\\
+	    & E (operador de bit) & \& & ASC 38\\
+	    & Deslocamento \`{a} Esquerda & $<<$ & [ASC 60 ASC60]\\
+	    & Deslocamento \`{a} Direita & $>>$ & [ASC 62 ASC 62]\\
+	    \hline
+	    Aritim\'eticos& Resto da Divis\~ao & \% & ASC 37 \\
+	    & Mais & $+$ & ASC 43 \\
+	    & Menos & $-$ & ASC 45 \\
+	    & Vezes & $*$ & ASC 42 \\
+	    & Dividido & $/$ & ASC 47 \\
+      \hline
+    \end{tabular}
+    \end{center}
+
+    \subsubsection{Pontuadores}
+    A tabela abaixo cont\'em os s\'imbolos de pontua\c{c}\~ao e agrupamento da linguagem, com o seu nome, s\'imbolo terminal e valor na tabela ASCII.
+    \begin{center}
+    \begin{tabular}{| l | c | r |}
+      \hline
+	    Abre Par\^enteses & ( & ASC 40\\
+	    Fecha Par\^enteses & ) & ASC 41\\
+	    Abre Chaves & \{ & ASC 124\\
+	    Fecha Chaves & \} & ASC 125\\
+	    Abre Colchetes & [ & ASC 91\\
+	    Fecha Colchetes & ] & ASC 93\\
+	    Dois Pontos & : & ASC 58\\
+	    Ponto e V\'irgula & ; & ASC 59\\
+	    V\'irgula & , & ASC 44 \\
+      \hline
+    \end{tabular}
+    \end{center}
+  
+    \subsubsection{Preced\^encia de Operadores}
+    A tabela abaixo lista a a preced\^encia e associatividade dos operadores. Operadores s\~ao listados de cima para baixo, em ordem decrescente de preced\^encia. Operadores com o mesmo valor de preced\^encia
+    s\~ao avaliados na dire\c{c}\~ao da associatividade.
+    \begin{center}
+    \begin{tabular}{| l | l | c | r |}
+      \hline
+	    {\bf Preced\^encia} & {\bf Operador} & {\bf Descri\c{c}\~ao} & {\bf Associatividade} \\
+	    \hline
+	    {\bf 1} & $-$ & Menos un\'ario & Esquerda-Direita \\
+	    \hline
+	    {\bf 2} & $*$ & Multiplica\c{c}\~ao & Esquerda-Direita \\
+		    & $/$ & Divis\~ao & Esquerda-Direita \\
+		    & \% & Resto de divis\~ao & Esquerda-Direita \\
+	    \hline
+	    {\bf 3} & $+$ & Soma & Esquerda-Direita \\
+		    & $-$ & Subtra\c{c}\~ao & Esquerda-Direita \\
+	    \hline
+	    {\bf 4} & $<<$ & Deslocamento \`a esquerda & Esquerda-Direita \\
+		    & $>>$ & Deslocamento \`a direita & Esquerda-Direita \\
+	    \hline
+	    {\bf 5} & $==$ & Igual & Esquerda-Direita \\
+		    & $!=$ & Diferente & Esquerda-Direita \\
+		    & $>$ & Maior & Esquerda-Direita \\
+		    & $<$ & Menor & Esquerda-Direita \\
+		    & $>=$ & Maior ou igual & Esquerda-Direita \\
+		    & $<=$ & Menor ou igual & Esquerda-Direita \\
+	    \hline
+	    {\bf 6} & \& & E de bit & Esquerda-Direita \\
+		    & $|$ & Ou de bit & Esquerda-Direita \\
+	    \hline
+	    {\bf 7} & \&\& & E l\'ogico & Esquerda-Direita \\
+	    \hline
+	    {\bf 8} & $||$ & Ou l\'ogico & Esquerda-Direita \\    
+      \hline
+    \end{tabular}
+    \end{center}
+  
+  
+  \subsection{Estruturas de Controle}
+  A Control Script Language suporta as estruturas de controle \emph{if-else}, \emph{while}. \emph{do while} e \emph{for}, similiares \`a Linguagem de Programa\c{c}\~ao C. Mais detalhes s\~ao providos na se\c{c}\~ao
+  "Comandos Reconhecidos".
+  
+  \subsection{Strings, Vari\'aveis e Literal D\'igito}
+  Na NADL String, Vari\'aveis e D\'igitos s\~ao representados seguindo o padr\~ao de express\~oes regulares, como exemplificado abaixo:
+    \begin{center}
+      \begin{tabular}{| l | r |}
+      \hline
+	    string & \begin{lstlisting}
+	    \"(\\.|\\\n|[^\\"])*\"
+	    \end{lstlisting} \\
+      \hline
+      \end{tabular}
+    \end{center}
+    Exemplos:
+    \begin{lstlisting}
+      "c:/cygwin/home/img/ARDataBase/ARPhotoDataBase/"
+      " " 
+    \end{lstlisting}
+
+    \begin{center}
+      \begin{tabular}{| l | r |}
+      \hline
+	    variable & \begin{lstlisting}
+	    [&a-zA-Z][_a-zA-Z0-9]*
+	    \end{lstlisting}\\
+      \hline
+      \end{tabular}
+    \end{center}
+    Exemplos:
+    \begin{lstlisting}
+    input_height, _kernel_SIZE, &gaUSIan98
+    \end{lstlisting}
+
+    \begin{center}
+      \begin{tabular}{| l | r |}
+      \hline
+	    float constant & \begin{lstlisting}
+	    [0-9]*\.[0-9]+
+	    \end{lstlisting}\\
+	    int constant & \begin{lstlisting}
+	    [0-9]*
+	    \end{lstlisting}\\
+      \hline
+      \end{tabular}
+    \end{center}
+    Exemplos:
+    \begin{lstlisting}
+    239, 239.0987, 003.004, .007
+    \end{lstlisting}
+
+
+  \subsection{Palavras Reservadas}
+  Essas s\~ao as palavras reservadas pela CSL:
+  \begin{center}
+  \begin{tabular}{| l | c | c | r |}
+    \hline
+	  key & run & based & of \\
+	  test\_connections & forward & output & to\\
+	  copy & backpropagate & position & from\\
+	  paste & correlate & network & wait\\
+	  save & prune & neural\_layers & quit\\
+	  load & move & inputs & display\\
+	  clear & toggle & outputs & int\\
+	  rand & push & filters & float \\
+	  train & pop & memory & while\\
+	  unload & draw\_x & move\_active & do\\
+	  reload & draw\_y & draw\_active & if\\
+	  destroy & draw & on & else\\
+	  print & pause & & \\
+    \hline
+  \end{tabular}
+  \end{center}
+
+\section{Estrutura Sint\'atica}
+  \subsection{Tokens Reconhecidos}
+  O Analisador l\'exico examina o fluxo de entrada e converte sequ\^encias de caracteres em elementos terminais. Estes s\~ao os operadores, pontuadores, strings, vari\'aveis, d\'igitos e palavras reservadas, como descritos anteriormente.
+
+  \subsection{Comandos Reconhecidos}
+A seguir descrevemos brevemente o significado de cada uma das declara\c{c}\~oes e comandos reconhecidos pelo analisador sint\'atico do Interpretador de CSL.
+Cada subse\c{c}\~ao abaixo descreve o nome do comando, suas regras de produ\c{c}\~ao e a sua descri\c{c}\~ao.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\subsubsection{statement}
+		\begin{lstlisting}
+		statement	->	wait_st
+		statement	->	quit_st
+		statement	->	pause_st
+		statement	->	test_conn_st
+		statement	->	test_conn_v_st
+		statement	->	copy_st
+		statement	->	paste_st
+		statement	->	save_st
+		statement	->	load_st
+		statement	->	clear_st
+		statement	->	rand_st
+		statement	->	train_st
+		statement	->	unload_st
+		statement	->	reload_st
+		statement	->	destroy_st
+		statement	->	run_st
+		statement	->	forward_st
+		statement	->	backpropagate_st
+		statement	->	correlate_st
+		statement	->	prune_st
+		statement	->	move_st
+		statement	->	toggle_st
+		statement	->	push_position_st
+		statement	->	pop_position_st
+		statement	->	draw_x_st
+		statement	->	draw_y_st
+		statement	->	draw_output_st
+		statement	->	draw_st
+		statement	->	int_st
+		statement	->	float_st
+		statement	->	int_vec_st
+		statement	->	float_vec_st
+		statement	->	assignment_st
+		statement	->	while_loop
+		statement	->	do_while_loop
+		statement	->	if_st
+		statement	->	print_st
+		statement	->	key_st
+		statement	->	function_st
+		\end{lstlisting}
+		Todos as formas de declara\c{c}\~ao de um programa do interpretador.
+		\vspace{10mm}
+		
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\subsubsection{wait\_st}
+		\begin{lstlisting}
+		wait_st		->	WAIT DISPLAY SEMI_COLON
+		\end{lstlisting}
+		O programa fica em espera at\'e que ocorra algum evento.
+		
+		Exemplo:
+		\begin{lstlisting}
+		wait display;
+		\end{lstlisting}
+		\vspace{10mm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\subsubsection{quit\_st}
+		\begin{lstlisting}
+		quit_st		->	QUIT SEMI_COLON
+		\end{lstlisting}
+		Aborta o programa
+		
+		Exemplo:
+		\begin{lstlisting}
+		quit;
+		\end{lstlisting}
+		\vspace{10mm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\subsubsection{pause\_st}
+		\begin{lstlisting}
+		pause_st	->	PAUSE SEMI_COLON
+		\end{lstlisting}
+		O programa espera um car\'actere lido do teclado para continuar;
+		
+		Exemplo:
+		\begin{lstlisting}
+		pause;
+		\end{lstlisting}
+		\vspace{10mm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\subsubsection{test\_connections}
+		\begin{lstlisting}
+		test_conn_st		->	TEST_CONNECTIONS_ST VARIABLE SEMI_COLON
+		\end{lstlisting}
+		Testa as conex\~oes da camada neural da output fornecida.
+		
+		Exemplo:
+		\begin{lstlisting}
+		test_connections out_landmark;
+		\end{lstlisting}
+		\vspace{10mm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\subsubsection{test\_connections\_v}
+		\begin{lstlisting}
+		test_conn_v_st		->	TEST_CONNECTIONS_V_ST VARIABLE SEMI_COLON
+		\end{lstlisting}
+		Testa as conex\~oes da camada neural da output fornecida, na dire\c{c}\~ao vertical.
+		
+		Exemplo:
+		\begin{lstlisting}
+		test_connections_v out_landmark;
+		\end{lstlisting}
+		\vspace{10mm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\subsubsection{copy\_st}
+		\begin{lstlisting}
+		copy_st		->	COPY_ST VARIABLE SEMI_COLON
+		\end{lstlisting}
+		Copia uma camada neural de uma input ou de uma output.
+		
+		Exemplo:
+		\begin{lstlisting}
+		copy face_recog_out;
+		\end{lstlisting}
+		\vspace{10mm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\subsubsection{paste\_st}
+		\begin{lstlisting}
+		paste_st	->	PASTE_ST VARIABLE SEMI_COLON
+		\end{lstlisting}
+		Cola a camada neural copiada em uma input ou output.
+		
+		Exemplo:
+		\begin{lstlisting}
+		paste face_recog_out2;
+		\end{lstlisting}
+		\vspace{10mm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\subsubsection{save\_st}
+		\begin{lstlisting}
+		save_st		->	SAVE_ST VARIABLE TO VARIABLE SEMI_COLON
+		\end{lstlisting}
+		Salva a imagem de uma input, output ou camada neural fornecida para um arquivo.
+		
+		Exemplo:
+		\begin{lstlisting}
+		save face_recog_out2 to new_image.ppm;
+		\end{lstlisting}
+		\vspace{10mm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\subsubsection{load\_st}
+		\begin{lstlisting}
+		load_st		->	LOAD_ST VARIABLE FROM VARIABLE SEMI_COLON
+		\end{lstlisting}
+		Carrega uma imagem de uma arquivo em uma input, output ou camada neural.
+		
+		Exemplo:
+		\begin{lstlisting}
+		load image.ppm to neural_layer_input;
+		\end{lstlisting}
+		\vspace{10mm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\subsubsection{clear\_st}
+		\begin{lstlisting}
+		clear_st	->	CLEAR_ST VARIABLE SEMI_COLON
+		clear_st	->	CLEAR_ST NETWORK MEMORY SEMI_COLON
+		clear_st	->	CLEAR_ST str_list MEMORY SEMI_COLON
+		\end{lstlisting}
+		Limpa os valores de sa\'ida  de uma output. Pode ser usado para limpar a mem\'oria de uma lista de camadas neurais, ou de toda a rede usando a palavra-chave "memory".
+		
+		Exemplos:
+		\begin{lstlisting}
+		clear face_recog_out;
+		clear network memory;
+		\end{lstlisting}
+		\vspace{10mm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\subsubsection{rand\_st}
+		\begin{lstlisting}
+		rand_st	-	>	RAND_ST VARIABLE SEMI_COLON
+		\end{lstlisting}
+		Preenche a imagem de uma output com valores aleat\'orios.
+		
+		Exemplo:
+		\begin{lstlisting}
+		rand face_recog_out;
+		\end{lstlisting}
+		\vspace{10mm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\subsubsection{train\_st}
+		\begin{lstlisting}
+		train_st	->	TRAIN_ST NETWORK SEMI_COLON
+		train_st	->	TRAIN_ST VARIABLE SEMI_COLON
+		\end{lstlisting}
+		Treina a rede toda, ou uma camada neural fornecida.
+		
+		Exemplos:
+		\begin{lstlisting}
+		train network;
+		train face_recog_out_neural_layer;
+		\end{lstlisting}
+		\vspace{10mm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\subsubsection{unload\_st}
+		\begin{lstlisting}
+		unload_st	->	UNLOAD_ST TO STRING SEMI_COLON
+		\end{lstlisting}
+		Escreve em um arquivo de sa\'ida as conex\~oes neurais da rede.
+		
+		Exemplo:
+		\begin{lstlisting}
+		unload to "arquivo_de_conexoes";
+		\end{lstlisting}
+		\vspace{10mm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\subsubsection{reload\_st}
+		\begin{lstlisting}
+		reload_st	->	RELOAD_ST FROM STRING SEMI_COLON
+		\end{lstlisting}
+		Carrega os dados de uma rede a partir de um arquivo.
+		
+		Exemplo:
+		\begin{lstlisting}
+		reload from "arquivo_de_conexoes";
+		\end{lstlisting}
+		\vspace{10mm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\subsubsection{destroy\_st}
+		\begin{lstlisting}
+		destroy_st	->	DESTROY_ST NETWORK SEMI_COLON
+		destroy_st	->	DESTROY_ST VARIABLE SEMI_COLON
+		\end{lstlisting}
+		Destroi as informa\c{c}\~oes de uma rede, carregada.
+		Antes de carregar uma rede com o comando \emph{reload} deve-se realizar este comando.
+		
+		Exemplo:
+		\begin{lstlisting}
+		destroy network;
+		\end{lstlisting}
+		\vspace{10mm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\subsubsection{run\_st}
+		\begin{lstlisting}
+		run_st		->	RUN_ST expression SEMI_COLON
+		\end{lstlisting}
+		Roda a rede durante um n\'umero fixo de passos;
+		
+		Exemplo:
+		\begin{lstlisting}
+		run 4;
+		\end{lstlisting}
+		\vspace{10mm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\subsubsection{forward\_st}
+		\begin{lstlisting}
+		forward_st	->	FORWARD_ST NETWORK SEMI_COLON
+		forward_st	->	FORWARD_ST NEURAL_LAYERS SEMI_COLON
+		forward_st	->	FORWARD_ST INPUTS SEMI_COLON
+		forward_st	->	FORWARD_ST OUTPUTS SEMI_COLON
+		forward_st	->	FORWARD_ST FILTERS SEMI_COLON
+		forward_st	->	FORWARD_ST str_list SEMI_COLON
+		\end{lstlisting}
+		Comando utilizado para atualizar os filtros, os outputs, os inputs, as camadas neurais, uma lista de objetos destes tipos. ou toda a rede.
+		
+		Exemplos:
+		\begin{lstlisting}
+		forward network;
+		forward neural_layer;
+		forward inputs;
+		forward outputs;
+		forward filters;
+		\end{lstlisting}
+		\vspace{10mm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\subsubsection{backpropagate\_st}
+		\begin{lstlisting}
+		backpropagate_st	->	BACKPROPAGATE_ST NETWORK SEMI_COLON
+		backpropagate_st	->	BACKPROPAGATE_ST str_list SEMI_COLON
+		\end{lstlisting}
+		Realiza backpropagation em toda a rede, ou em uma lista de camadas neurais.
+		
+		Exemplos:
+		\begin{lstlisting}
+		backpropagate network;
+		backpropagate "neural_layer0", "neural_layer1";
+		\end{lstlisting}
+		\vspace{10mm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\subsubsection{correlate\_st\_st}
+		\begin{lstlisting}
+		correlate_st	->	CORRELATE_ST NETWORK SEMI_COLON
+		correlate_st	->	CORRELATE_ST str_list SEMI_COLON
+		\end{lstlisting}
+		Realiza correlation em toda a rede, ou em uma lista de camadas neurais.
+		
+		Exemplos:
+		\begin{lstlisting}
+		correlate network;
+		correlate "neural_layer0", "neural_layer1";
+		\end{lstlisting}
+		\vspace{10mm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\subsubsection{prune\_st}
+		\begin{lstlisting}
+		prune_st	->	PRUNE_ST NETWORK SEMI_COLON
+		prune_st	->	PRUNE_ST str_list SEMI_COLON
+		\end{lstlisting}
+		Realiza prune em toda a rede, ou em uma lista de camadas neurais.
+		
+		Exemplos:
+		\begin{lstlisting}
+		prune network;
+		prune "neural_layer0", "neural_layer1";
+		\end{lstlisting}
+		\vspace{10mm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\subsubsection{move\_st}
+		\begin{lstlisting}
+		move_st	-	>	MOVE_ST VARIABLE TO expression COMA expression SEMI_COLON
+		\end{lstlisting}
+		Reposiciona o cursor em uma janela de input
+		
+		Exemplo:
+		\begin{lstlisting}
+		move "input" to 30.50;
+		\end{lstlisting}
+		\vspace{10mm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\subsubsection{toggle\_st}
+		\begin{lstlisting}
+		toggle_st	->	TOGGLE_ST MOVE_ACTIVE SEMI_COLON
+		toggle_st	->	TOGGLE_ST DRAW_ACTIVE SEMI_COLON
+		\end{lstlisting}
+		Alterna o estado da rede entre os modos de movimento (move) e escrita (draw);
+		
+		Exemplos:
+		\begin{lstlisting}
+		toggle draw_active;
+		toggle move_active;
+		\end{lstlisting}
+		\vspace{10mm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\subsubsection{push\_position\_st}
+		\begin{lstlisting}
+		push_position_st	->	PUSH_ST POSITION OF VARIABLE SEMI_COLON
+		\end{lstlisting}
+		Guarda as posi\c{c}\~oes de do cursor de uma input;
+		
+		Exemplo:
+		\begin{lstlisting}
+		push position of face_recog_input;
+		\end{lstlisting}
+		\vspace{10mm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\subsubsection{pop\_position\_st}
+		\begin{lstlisting}
+		pop_position_st		->	POP_ST POSITION OF VARIABLE SEMI_COLON
+		\end{lstlisting}
+		Retorna as posi\c{c}\~oes de do cursor de uma input;
+		
+		Exemplo:
+		\begin{lstlisting}
+		pop position of face_recog_input;
+		\end{lstlisting}
+		\vspace{10mm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\subsubsection{draw\_x\_st}
+		\begin{lstlisting}
+		draw_x_st	->	DRAW_X_ST VARIABLE BASED ON VARIABLE MOVE_ST SEMI_COLON
+		\end{lstlisting}
+		Escreve os valores de saida de uma output baseada em uma input (horizontalmente).
+		
+		Exemplo:
+		\begin{lstlisting}
+		draw_x out_landmark based on face_recog_input move;
+		\end{lstlisting}
+		\vspace{10mm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\subsubsection{draw\_y\_st}
+		\begin{lstlisting}
+		draw_y_st	->	DRAW_Y_ST VARIABLE BASED ON VARIABLE MOVE_ST SEMI_COLON
+		\end{lstlisting}
+		Escreve os valores de saida de uma output baseada em uma input (verticalmente)
+		
+		Exemplo:
+		\begin{lstlisting}
+		draw_y out_landmark based on face_recog_input move;
+		\end{lstlisting}
+		\vspace{10mm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\subsubsection{draw\_output\_st}
+		\begin{lstlisting}
+		draw_output_st		->	DRAW_ST OUTPUT VARIABLE SEMI_COLON
+		\end{lstlisting}
+		Escreve os valores de saida de uma output baseada em uma input
+		
+		Exemplo:
+		\begin{lstlisting}
+		draw output face_recog_input;
+		\end{lstlisting}
+		\vspace{10mm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\subsubsection{draw\_st}
+		\begin{lstlisting}
+		draw_st		->	DRAW_ST VARIABLE BASED ON VARIABLE MOVE_ST SEMI_COLON
+		\end{lstlisting}
+		Escreve os valores de saida de uma output baseada em uma input.
+		
+		Exemplo:
+		\begin{lstlisting}
+		draw out_landmark based on face_recog_input move;
+		\end{lstlisting}
+		\vspace{10mm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\subsubsection{key\_st}
+		\begin{lstlisting}
+		key_st		->	KEY_ST VARIABLE SEMI_COLON
+		key_st		->	KEY_ST expression SEMI_COLON
+		\end{lstlisting}
+		Executa a função de usuário chamada ao pressionar uma tecla.
+		
+		Exemplo:
+		\begin{lstlisting}
+		key n;
+		\end{lstlisting}
+		\vspace{10mm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\subsubsection{int\_st}
+		\begin{lstlisting}
+		int_st		->	INT VARIABLE SEMI_COLON
+		\end{lstlisting}
+		Declara uma vari\'avel do tipo integer.
+		
+		Exemplo:
+		\begin{lstlisting}
+		int my_var;
+		\end{lstlisting}
+		\vspace{10mm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\subsubsection{int\_vec\_st}
+		\begin{lstlisting}
+		int_vec_st	->	INT VARIABLE OPEN_COLCHETES expression CLOSE_COLCHETES SEMI_COLON 
+		\end{lstlisting}
+		Declara um vetor do tipo integer.
+		
+		Exemplo:
+		\begin{lstlisting}
+		int my_vector [10];
+		\end{lstlisting}
+		\vspace{10mm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\subsubsection{float\_st}
+		\begin{lstlisting}
+		float_st	->	FLOAT VARIABLE SEMI_COLON
+		\end{lstlisting}
+		Declara uma vari\'avel do tipo float.
+		
+		Exemplo:
+		\begin{lstlisting}
+		float my_var;
+		\end{lstlisting}
+		\vspace{10mm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\subsubsection{float\_vec\_st}
+		\begin{lstlisting}
+		float_vec_st	->	FLOAT VARIABLE OPEN_COLCHETES expression
+					  CLOSE_COLCHETES SEMI_COLON
+		\end{lstlisting}
+		Declara um vetor do tipo float.
+		
+		Exemplo:
+		\begin{lstlisting}
+		float my_vector [10];
+		\end{lstlisting}
+		\vspace{10mm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\subsubsection{assignment\_st}
+		\begin{lstlisting}
+		assignment_st	->	VARIABLE EQUAL expression SEMI_COLON
+		assignment_st	->	VARIABLE OPEN_COLCHETES expression
+					  CLOSE_COLCHETES EQUAL expression SEMI_COLON
+		\end{lstlisting}
+		Atribuição de valores a vari\'aveis.
+		
+		Exemplos:
+		\begin{lstlisting}
+		my_var = 24;
+		my_vector[2] = 3;
+		\end{lstlisting}
+		\vspace{10mm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\subsubsection{while\_loop}
+		\begin{lstlisting}
+		while_loop	->	WHILE OPEN_PARENTESIS expression
+					   CLOSE_PARENTESIS OPEN_CHAVES series CLOSE_CHAVES
+		while_loop	->	WHILE OPEN_PARENTESIS expression CLOSE_PARENTESIS statement 
+		\end{lstlisting}
+		Declara\c{c}\~ao de loop \emph{while}, similiar \`{a} C.
+		
+		Exemplo:
+		\begin{lstlisting}
+		while (i <= 10)
+		{
+		    print ("", i);
+		}
+		\end{lstlisting}
+		\vspace{10mm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\subsubsection{do\_while\_loop}
+		\begin{lstlisting}
+		do_while_loop	->	DO OPEN_CHAVES series CLOSE_CHAVES
+					  WHILE OPEN_PARENTESIS expression CLOSE_PARENTESIS SEMI_COLON
+		do_while_loop	->	DO statement WHILE
+					  OPEN_PARENTESIS expression CLOSE_PARENTESIS SEMI_COLON
+		\end{lstlisting}
+		Declara\c{c}\~ao de loop \emph{do while}, similiar \`{a} C.
+		
+		Exemplos:
+		\begin{lstlisting}
+		i = 0;
+		do print ("",i); while (i > 5);
+		
+		
+		i = 0;
+		do
+		{
+			print ("",i);
+			i = i + 1;
+		}
+		while (i < 5);
+		\end{lstlisting}
+		\vspace{10mm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\subsubsection{if\_st}
+		\begin{lstlisting}
+		if_st	->	IF OPEN_PARENTESIS expression CLOSE_PARENTESIS
+				  OPEN_CHAVES series CLOSE_CHAVES ELSE OPEN_CHAVES series CLOSE_CHAVES
+		if_st	->	IF OPEN_PARENTESIS expression CLOSE_PARENTESIS
+				  OPEN_CHAVES series CLOSE_CHAVES ELSE statement 
+		if_st	->	IF OPEN_PARENTESIS expression CLOSE_PARENTESIS
+				  OPEN_CHAVES series CLOSE_CHAVES
+		if_st	->	IF OPEN_PARENTESIS expression CLOSE_PARENTESIS
+				  statement ELSE OPEN_CHAVES series CLOSE_CHAVES
+		if_st	->	IF OPEN_PARENTESIS expression CLOSE_PARENTESIS statement ELSE statement 
+		if_st	->	IF OPEN_PARENTESIS expression CLOSE_PARENTESIS statement 
+		\end{lstlisting}
+		Comandos condicionais \emph{if-then-else}, similiares \`{a} C.
+		
+		Exemplos:
+		\begin{lstlisting}
+		i = 0;
+		if (i==0) print("i igual a ",i);
+		
+		
+		if (i < 10)
+		{
+			my_vector[i] = 0;
+			i = i + 1;
+		}
+		\end{lstlisting}
+		\vspace{10mm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\subsubsection{print\_st}
+		\begin{lstlisting}
+		print_st	->	PRINT OPEN_PARENTESIS STRING COMA expression
+					  CLOSE_PARENTESIS SEMI_COLON
+		\end{lstlisting}
+		Imprime uma string, seguida de uma expression.
+		
+		Exemplo:
+		\begin{lstlisting}
+		i = 0;
+		print ("printing zero... ",i);
+		\end{lstlisting}
+		\vspace{10mm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\subsubsection{function\_st}
+		\begin{lstlisting}
+		function_st	->	VARIABLE OPEN_PARENTESIS param_list CLOSE_PARENTESIS SEMI_COLON
+		\end{lstlisting}
+		Chamada de fun\c{c}\~oes.
+		
+		Exemplo:
+		\begin{lstlisting}
+		i = 1;
+		while (i <= TOTAL_INPUTS)
+		{
+		    get_input_by_index (i);
+		}
+		\end{lstlisting}
+		\vspace{10mm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\subsubsection{param\_list}
+		\begin{lstlisting}
+		param_list	->	param
+		param_list	->	param_list COMA param
+		\end{lstlisting}
+		Lista de par\^ametros. Usado na chamada de fun\c{c}\~oes.
+		
+		\vspace{10mm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\subsubsection{param}
+		\begin{lstlisting}
+		param		->	expression
+		param		->	STRING
+		\end{lstlisting}
+		Um par\^ametro.
+		
+		\vspace{10mm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\subsubsection{expression}
+		\begin{lstlisting}
+		expression	->	expression PLUS expression 
+		expression	->	expression MINUS expression   	     
+		expression	->	expression TIMES expression   	  
+		expression	->	expression DIVIDE expression	 
+		expression	->	expression REMINDER_DIVIDE expression	 
+		expression	->	expression OR expression
+		expression	->	expression AND expression
+		expression	->	expression BITWISE_OR expression
+		expression	->	expression BITWISE_AND expression
+		expression	->	expression SHIFT_RIGHT expression
+		expression	->	expression SHIFT_LEFT expression
+		expression	->	expression GREATER expression
+		expression	->	expression LESS expression
+		expression	->	expression LESS_EQUAL expression
+		expression	->	expression GREATER_EQUAL expression
+		expression	->	expression EQUAL_EQUAL expression
+		expression	->	expression DIFFERENT expression
+		expression	->	VARIABLE
+		expression	->	VARIABLE OPEN_COLCHETES expression CLOSE_COLCHETES
+		expression	->	VARIABLE OPEN_PARENTESIS param_list CLOSE_PARENTESIS
+		expression	->	CONSTANT_INT 
+		expression	->	CONSTANT_FLOAT 
+		expression	->	OPEN_PARENTESIS expression CLOSE_PARENTESIS
+		expression	->	MINUS expression %prec UMINUS
+		\end{lstlisting}
+		Poss\'iveis regras de produ\c{c}\~ao para o s\'imbolo \emph{expression}.
+
+		\vspace{10mm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\subsubsection{str\_list}
+		\begin{lstlisting}
+		str_list	->	VARIABLE
+		str_list	->	str_list COMA VARIABLE
+		\end{lstlisting}
+		Lista de strings.
+		
+		\vspace{10mm}
+
+\section{Observa\c{c}\~oes}
+  \subsection{Conflitos de Shift-Reduce}
+  
+    \subsubsection{I}
+      Conflito: Na estado com a seguinte regra h\'a uma ambiguidade ao tratar a express\~ao antes do token \emph{SEMI\_COLON}.
+      \begin{lstlisting}
+      (87) key_st		->	KEY_ST VARIABLE SEMI_COLON
+      \end{lstlisting}
+      Pode acontecer um shift para o estado com a regra:
+      \begin{lstlisting}
+      (87) key_st		->	KEY_ST VARIABLE SEMI_COLON
+      \end{lstlisting}
+      Ou um reduce para a regra:
+      \begin{lstlisting}
+      expression	->	VARIABLE
+      \end{lstlisting}
+      O analisador sint\'atico escolhe o shift.
+      \vspace{5mm}
+      
+    \subsubsection{II}
+      Conflito: No estado com as seguintes regras h\'a uma ambiguidade ao tratar a express\~ao antes do token \emph{ELSE}.
+      \begin{lstlisting}
+      (99) if_st	->	IF OPEN_PARENTESIS expression CLOSE_PARENTESIS
+				  OPEN_CHAVES series CLOSE_CHAVES ELSE OPEN_CHAVES series CLOSE_CHAVES
+      
+      (100) if_st	->	IF OPEN_PARENTESIS expression CLOSE_PARENTESIS
+				  OPEN_CHAVES series CLOSE_CHAVES ELSE statement
+      \end{lstlisting}
+      Pode acontecer um shift para o estado com as regras:
+      \begin{lstlisting}
+      (99) if_st	->	IF OPEN_PARENTESIS expression CLOSE_PARENTESIS
+				  OPEN_CHAVES series CLOSE_CHAVES ELSE OPEN_CHAVES series CLOSE_CHAVES
+				  
+      (100) if_st	->	IF OPEN_PARENTESIS expression CLOSE_PARENTESIS
+				  OPEN_CHAVES series CLOSE_CHAVES ELSE statement
+				  
+      (101) if_st	->	IF OPEN_PARENTESIS expression CLOSE_PARENTESIS
+				  OPEN_CHAVES series CLOSE_CHAVES
+      \end{lstlisting}
+      Ou um reduce para a regra:
+      \begin{lstlisting}
+      (101) if_st	->	IF OPEN_PARENTESIS expression CLOSE_PARENTESIS
+				  OPEN_CHAVES series CLOSE_CHAVES
+      \end{lstlisting}
+      O analisador sint\'atico escolhe o shift.
+      \vspace{5mm}
+      
+    \subsubsection{III}
+      Conflito: No estado com as seguintes regras h\'a uma ambiguidade ao tratar a express\~ao antes do token \emph{ELSE}.
+      \begin{lstlisting}
+      (102) if_st	->	IF OPEN_PARENTESIS expression CLOSE_PARENTESIS
+				  statement ELSE OPEN_CHAVES series CLOSE_CHAVES
+				  
+      (103) if_st	->	IF OPEN_PARENTESIS expression CLOSE_PARENTESIS
+				  statement ELSE statement 
+      \end{lstlisting}
+      Pode acontecer um shift para o estado com as regras:
+      \begin{lstlisting}
+      (102) if_st	->	IF OPEN_PARENTESIS expression CLOSE_PARENTESIS
+				  statement ELSE OPEN_CHAVES series CLOSE_CHAVES
+				  
+      (103) if_st	->	IF OPEN_PARENTESIS expression CLOSE_PARENTESIS
+				  statement ELSE statement
+				  
+      (104) if_st	->	IF OPEN_PARENTESIS expression CLOSE_PARENTESIS statement
+      \end{lstlisting}
+      Ou um reduce para a regra:
+      \begin{lstlisting}
+      (104) if_st	->	IF OPEN_PARENTESIS expression CLOSE_PARENTESIS statement
+      \end{lstlisting}
+      O analisador sint\'atico escolhe o shift.
+
+\end{document}

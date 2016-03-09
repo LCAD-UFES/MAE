@@ -1,0 +1,168 @@
+# Please wait, building network...
+# Data set: VALE5.txt, num_samples: 422
+# Data set: VALE5.pe,  num_samples: 168
+0.018 0.082 0.135 0.082 0.018 
+0.082 0.368 0.607 0.368 0.082 
+0.135 0.607 1.000 0.607 0.135 
+0.082 0.368 0.607 0.368 0.082 
+0.018 0.082 0.135 0.082 0.018 
+2008-02-06 Wed ; -0.000230 ;  0.064418 ; -0.064648
+# 001: wnn_predicted_return:  0.064418, target_return: -0.000230, wnn_error: -0.064648, rna_error: -0.003989
+#
+2008-02-13 Wed ;  0.057970 ; -0.084912 ;  0.142882
+# 002: wnn_predicted_return: -0.084912, target_return:  0.057970, wnn_error:  0.142882, rna_error:  0.092612
+#
+2008-02-20 Wed ;  0.050799 ;  0.032575 ;  0.018224
+# 003: wnn_predicted_return:  0.032575, target_return:  0.050799, wnn_error:  0.018224, rna_error:  0.216171
+#
+2008-02-27 Wed ;  0.021899 ;  0.026697 ; -0.004798
+# 004: wnn_predicted_return:  0.026697, target_return:  0.021899, wnn_error: -0.004798, rna_error: -0.006940
+#
+2008-03-05 Wed ; -0.034267 ; -0.019401 ; -0.014866
+# 005: wnn_predicted_return: -0.019401, target_return: -0.034267, wnn_error: -0.014866, rna_error: -0.052386
+#
+2008-03-12 Wed ; -0.026021 ; -0.056625 ;  0.030604
+# 006: wnn_predicted_return: -0.056625, target_return: -0.026021, wnn_error:  0.030604, rna_error: -0.028765
+#
+2008-03-19 Wed ; -0.083652 ;  0.020224 ; -0.103876
+# 007: wnn_predicted_return:  0.020224, target_return: -0.083652, wnn_error: -0.103876, rna_error: -0.056662
+#
+2008-03-26 Wed ;  0.124056 ;  0.040564 ;  0.083492
+# 008: wnn_predicted_return:  0.040564, target_return:  0.124056, wnn_error:  0.083492, rna_error:  0.216332
+#
+2008-04-02 Wed ;  0.031154 ; -0.008238 ;  0.039392
+# 009: wnn_predicted_return: -0.008238, target_return:  0.031154, wnn_error:  0.039392, rna_error:  0.027129
+#
+2008-04-09 Wed ; -0.001761 ;  0.053303 ; -0.055064
+# 010: wnn_predicted_return:  0.053303, target_return: -0.001761, wnn_error: -0.055064, rna_error: -0.028806
+#
+2008-04-16 Wed ;  0.018103 ;  0.018508 ; -0.000405
+# 011: wnn_predicted_return:  0.018508, target_return:  0.018103, wnn_error: -0.000405, rna_error: -0.004301
+#
+2008-04-23 Wed ;  0.019533 ;  0.019835 ; -0.000302
+# 012: wnn_predicted_return:  0.019835, target_return:  0.019533, wnn_error: -0.000302, rna_error: -0.006003
+#
+2008-04-30 Wed ;  0.016894 ;  0.061360 ; -0.044466
+# 013: wnn_predicted_return:  0.061360, target_return:  0.016894, wnn_error: -0.044466, rna_error:  0.040865
+#
+2008-05-07 Wed ;  0.006895 ; -0.011744 ;  0.018639
+# 014: wnn_predicted_return: -0.011744, target_return:  0.006895, wnn_error:  0.018639, rna_error:  0.031630
+#
+2008-05-14 Wed ;  0.023919 ; -0.004377 ;  0.028296
+# 015: wnn_predicted_return: -0.004377, target_return:  0.023919, wnn_error:  0.028296, rna_error:  0.036390
+#
+2008-05-21 Wed ;  0.029862 ;  0.019835 ;  0.010027
+# 016: wnn_predicted_return:  0.019835, target_return:  0.029862, wnn_error:  0.010027, rna_error: -0.023010
+#
+2008-05-28 Wed ; -0.019337 ;  0.000000 ; -0.019337
+# 017: wnn_predicted_return:  0.000000, target_return: -0.019337, wnn_error: -0.019337, rna_error: -0.035541
+#
+2008-06-04 Wed ; -0.088702 ;  0.024182 ; -0.112884
+# 018: wnn_predicted_return:  0.024182, target_return: -0.088702, wnn_error: -0.112884, rna_error: -0.080370
+#
+2008-06-11 Wed ; -0.063919 ;  0.013275 ; -0.077194
+# 019: wnn_predicted_return:  0.013275, target_return: -0.063919, wnn_error: -0.077194, rna_error: -0.087714
+#
+2008-06-18 Wed ;  0.027309 ;  0.040865 ; -0.013556
+# 020: wnn_predicted_return:  0.040865, target_return:  0.027309, wnn_error: -0.013556, rna_error:  0.045567
+#
+2008-06-25 Wed ;  0.011871 ;  0.021242 ; -0.009371
+# 021: wnn_predicted_return:  0.021242, target_return:  0.011871, wnn_error: -0.009371, rna_error:  0.038993
+#
+2008-07-02 Wed ; -0.122891 ; -0.035080 ; -0.087811
+# 022: wnn_predicted_return: -0.035080, target_return: -0.122891, wnn_error: -0.087811, rna_error: -0.096685
+#
+2008-07-09 Wed ;  0.000000 ; -0.056625 ;  0.056625
+# 023: wnn_predicted_return: -0.056625, target_return:  0.000000, wnn_error:  0.056625, rna_error:  0.012484
+#
+2008-07-16 Wed ; -0.018427 ; -0.004377 ; -0.014050
+# 024: wnn_predicted_return: -0.004377, target_return: -0.018427, wnn_error: -0.014050, rna_error: -0.018718
+#
+2008-07-23 Wed ; -0.060570 ;  0.043932 ; -0.104502
+# 025: wnn_predicted_return:  0.043932, target_return: -0.060570, wnn_error: -0.104502, rna_error: -0.005908
+#
+2008-07-30 Wed ;  0.039735 ; -0.104523 ;  0.144258
+# 026: wnn_predicted_return: -0.104523, target_return:  0.039735, wnn_error:  0.144258, rna_error:  0.121567
+#
+2008-08-06 Wed ; -0.117765 ;  0.021242 ; -0.139007
+# 027: wnn_predicted_return:  0.021242, target_return: -0.117765, wnn_error: -0.139007, rna_error: -0.081600
+#
+2008-08-13 Wed ; -0.031317 ;  0.104727 ; -0.136044
+# 028: wnn_predicted_return:  0.104727, target_return: -0.031317, wnn_error: -0.136044, rna_error: -0.016987
+#
+2008-08-20 Wed ;  0.065818 ; -0.056625 ;  0.122443
+# 029: wnn_predicted_return: -0.056625, target_return:  0.065818, wnn_error:  0.122443, rna_error:  0.101942
+#
+2008-08-27 Wed ;  0.015832 ; -0.019924 ;  0.035756
+# 030: wnn_predicted_return: -0.019924, target_return:  0.015832, wnn_error:  0.035756, rna_error: -0.033200
+#
+2008-09-03 Wed ; -0.048066 ;  0.044793 ; -0.092859
+# 031: wnn_predicted_return:  0.044793, target_return: -0.048066, wnn_error: -0.092859, rna_error: -0.019285
+#
+2008-09-10 Wed ; -0.038193 ;  0.016766 ; -0.054959
+# 032: wnn_predicted_return:  0.016766, target_return: -0.038193, wnn_error: -0.054959, rna_error: -0.016859
+#
+2008-09-17 Wed ; -0.086543 ;  0.020224 ; -0.106767
+# 033: wnn_predicted_return:  0.020224, target_return: -0.086543, wnn_error: -0.106767, rna_error: -0.052763
+#
+2008-09-24 Wed ;  0.060572 ;  0.040564 ;  0.020008
+# 034: wnn_predicted_return:  0.040564, target_return:  0.060572, wnn_error:  0.020008, rna_error:  0.071189
+#
+2008-10-01 Wed ; -0.042465 ;  0.047062 ; -0.089527
+# 035: wnn_predicted_return:  0.047062, target_return: -0.042465, wnn_error: -0.089527, rna_error: -0.006369
+#
+2008-10-08 Wed ; -0.211010 ; -0.016214 ; -0.194796
+# 036: wnn_predicted_return: -0.016214, target_return: -0.211010, wnn_error: -0.194796, rna_error: -0.160477
+#
+2008-10-15 Wed ; -0.089121 ; -0.046157 ; -0.042964
+# 037: wnn_predicted_return: -0.046157, target_return: -0.089121, wnn_error: -0.042964, rna_error: -0.148249
+#
+2008-10-22 Wed ;  0.055490 ;  0.049386 ;  0.006104
+# 038: wnn_predicted_return:  0.049386, target_return:  0.055490, wnn_error:  0.006104, rna_error:  0.080269
+#
+2008-10-29 Wed ; -0.024896 ;  0.047062 ; -0.071958
+# 039: wnn_predicted_return:  0.047062, target_return: -0.024896, wnn_error: -0.071958, rna_error:  0.009192
+#
+2008-11-05 Wed ;  0.096596 ; -0.046157 ;  0.142753
+# 040: wnn_predicted_return: -0.046157, target_return:  0.096596, wnn_error:  0.142753, rna_error:  0.048137
+#
+2008-11-12 Wed ; -0.074117 ; -0.046157 ; -0.027960
+# 041: wnn_predicted_return: -0.046157, target_return: -0.074117, wnn_error: -0.027960, rna_error: -0.059841
+#
+2008-11-19 Wed ; -0.056999 ;  0.040865 ; -0.097864
+# 042: wnn_predicted_return:  0.040865, target_return: -0.056999, wnn_error: -0.097864, rna_error: -0.137648
+#
+2008-11-26 Wed ;  0.085778 ;  0.069733 ;  0.016045
+# 043: wnn_predicted_return:  0.069733, target_return:  0.085778, wnn_error:  0.016045, rna_error:  0.122212
+#
+2008-12-03 Wed ; -0.080639 ; -0.033851 ; -0.046788
+# 044: wnn_predicted_return: -0.033851, target_return: -0.080639, wnn_error: -0.046788, rna_error:  0.000917
+#
+2008-12-10 Wed ;  0.126447 ;  0.005859 ;  0.120588
+# 045: wnn_predicted_return:  0.005859, target_return:  0.126447, wnn_error:  0.120588, rna_error:  0.246001
+#
+2008-12-17 Wed ;  0.043083 ; -0.084912 ;  0.127995
+# 046: wnn_predicted_return: -0.084912, target_return:  0.043083, wnn_error:  0.127995, rna_error: -0.027311
+#
+2008-12-24 Wed ;  0.000000 ; -0.026225 ;  0.026225
+# 047: wnn_predicted_return: -0.026225, target_return:  0.000000, wnn_error:  0.026225, rna_error: -0.049370
+#
+2008-12-31 Wed ;  0.000000 ;  0.063335 ; -0.063335
+# 048: wnn_predicted_return:  0.063335, target_return:  0.000000, wnn_error: -0.063335, rna_error:  0.002293
+#
+2009-01-07 Wed ;  0.041682 ;  0.029473 ;  0.012209
+# 049: wnn_predicted_return:  0.029473, target_return:  0.041682, wnn_error:  0.012209, rna_error:  0.052576
+#
+2009-01-14 Wed ; -0.065115 ;  0.036338 ; -0.101453
+# 050: wnn_predicted_return:  0.036338, target_return: -0.065115, wnn_error: -0.101453, rna_error: -0.047804
+#
+2009-01-21 Wed ;  0.010506 ;  0.027920 ; -0.017414
+# 051: wnn_predicted_return:  0.027920, target_return:  0.010506, wnn_error: -0.017414, rna_error: -0.000735
+#
+2009-01-28 Wed ;  0.130920 ; -0.019401 ;  0.150321
+# 052: wnn_predicted_return: -0.019401, target_return:  0.130920, wnn_error:  0.150321, rna_error:  0.158718
+#
+# **** average_target_return: -0.005256, average_wnn_error: -0.012653, average_rna_error:  0.007286
+# **** standard_deviation_target_return:  0.067438, standard_deviation_wnn_error:  0.081441, standard_deviation_rna_error:  0.085290
+# **** wnn_same_up: 60.00, wnn_same_down: 33.33, rna_same_up: 36.00, rna_same_down: 62.50
+# **** wnn_same_signal: 46.94, rna_same_signal: 48.98

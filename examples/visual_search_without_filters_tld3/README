@@ -1,0 +1,8 @@
+Baixe a base da maquina lcad40 (10.50.2.240):
+diretorio /dados/TLD/TLD
+
+- Escolha o exemplo que ira utilizar e descomente o .con
+
+- Execute o Makefile
+
+- Rode o cml correspondente ao exemplo escolhido

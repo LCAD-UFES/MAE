@@ -1,0 +1,75 @@
+/*******************************************/
+/*   SET THE TRAINING AND THE TEST MODE    */
+/*   1 to LINEAR_MODE and 2 to RANDOM_MODE */
+/*******************************************/
+
+int TRAINING_MODE;
+TRAINING_MODE = 1; 
+
+int TEST_MODE;
+TEST_MODE = 1;
+
+/******************************************/
+int DOCS2TRAINING; 		
+DOCS2TRAINING = 764;
+
+int DOCS2TEST; 		
+DOCS2TEST = 3264;
+
+int FIRSTDOC2TRAINING;
+FIRSTDOC2TRAINING = 1;
+
+int FIRSTDOC2TEST;
+FIRSTDOC2TEST = 1;
+
+/* Network Status */
+int TRAINING_PHASE;
+TRAINING_PHASE = 1;
+int RECALL_PHASE;
+RECALL_PHASE = 2;
+
+/* Counters */
+int i;
+int first_access;
+
+ResetStatistics (0);
+
+/* Training Phase */
+SetNetworkStatus (TRAINING_PHASE);
+i = 1;
+first_access = 1;
+
+while (i <= DOCS2TRAINING)
+{
+	GetDoc (FIRSTDOC2TRAINING, TRAINING_MODE, first_access);
+	
+	first_access = 0;
+
+	/* Draws the landmark neuron layer output */
+	draw nl_class_cnae_out based on class_cnae move;
+
+	train network;
+	
+	i = i + 1;
+}
+
+	
+/* Testing phase */
+SetNetworkStatus (RECALL_PHASE);
+i = 1;
+first_access = 1;
+
+while (i <= DOCS2TEST)
+{
+	GetDoc(FIRSTDOC2TEST, TEST_MODE, first_access);
+
+	first_access = 0;
+
+	forward network;
+	
+	ShowStatistics (0);
+
+	i = i + 1;
+}
+
+quit;

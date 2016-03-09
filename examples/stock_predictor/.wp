@@ -1,0 +1,4 @@
+sample 546 50
+nl_wnn_pred_out 834 50
+sample_gaussian_out 692 50
+mae_control_window 50 50

@@ -1,0 +1,22 @@
+# exp_dispatch.txt
+#
+# script-file to dispatch the different experiments in taxonomy paper
+
+# This script file lives in the subdirectory imagedirs/Scripts
+# and is used by the top-level script 'exp_all.txt'
+
+# read the parameters specific to the current image sequence
+input_params param_in.txt
+
+#evaluate_only 1 # uncomment to re-evaluate previous experiments
+
+# edit the lines below to select which experiments to run
+
+#script ../Scripts/exp0_groundtruth.txt
+
+script ../Scripts/exp1_costSSD9.txt
+#script ../Scripts/exp2_costSSDMF9.txt
+#script ../Scripts/exp3_costGlobal.txt
+#script ../Scripts/exp4_aggr.txt
+#script ../Scripts/exp5_lambda.txt
+#script ../Scripts/exp6_gc.txt

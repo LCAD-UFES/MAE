@@ -1,0 +1,41 @@
+################################################ Set Global Variables #################################################
+
+set NEURON_MEMORY_SIZE = 2;
+
+######################################################## Constants ####################################################
+
+const INPUT_WIDTH 	= 2;
+const INPUT_HEIGHT	= 1;
+
+const NL_WIDTH 		= 3;
+const NL_HEIGHT		= 1;
+
+############################################### Neuron Layers #########################################################
+
+neuronlayer	nl_rbm[NL_WIDTH][NL_HEIGHT] 	with greyscale_float outputs;
+
+############################################### Outputs #########################################################
+
+output		nl_rbm_out[NL_WIDTH][NL_HEIGHT]	handled by output_handler();
+
+################################################## Inputs #############################################################
+
+input 		data[INPUT_WIDTH][INPUT_HEIGHT]	with greyscale_float outputs produced by input_generator() controled by input_controler();
+
+############################################### Filters ###############################################################   
+
+filter 		data 		with rbm_filter() producing nl_rbm;
+
+################################## Connect Neuron Layers to Outputs #############################################
+
+outputconnect	nl_rbm		to nl_rbm_out;
+
+############################################### Associations ####################################################
+
+
+################################################ Connections ####################################################
+
+
+################################################# User Functions ################################################
+
+int SetNetworkState("%d");

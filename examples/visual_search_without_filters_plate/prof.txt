@@ -1,0 +1,972 @@
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls   s/call   s/call  name    
+ 89.72    649.17   649.17 1527144192     0.00     0.00  hamming_distance
+  4.40    680.97    31.80   505008     0.00     0.00  find_nearest_pattern
+  2.14    696.47    15.50      171     0.09     0.09  optimized_2d_point_convolution_color
+  1.42    706.73    10.26   517104     0.00     0.00  compute_input_pattern_minchinton
+  1.11    714.75     8.02       52     0.15     0.15  ReadFaceInput
+  0.22    716.32     1.57                             hamming_distance_correlate
+  0.17    717.56     1.24 39143860     0.00     0.00  evaluate_dendrite
+  0.14    718.58     1.02      170     0.01     0.01  all_neurons_update
+  0.12    719.47     0.89      171     0.01     0.01  translate_nl_filter
+  0.10    720.20     0.73  5861376     0.00     0.00  get_neuron_output_from_image
+  0.10    720.90     0.70      519     0.00     0.00  update_output_image
+  0.09    721.55     0.65      172     0.00     0.00  optimized_2d_point_convolution_greyscale_float
+  0.09    722.20     0.65   774144     0.00     0.00  add_synapse
+  0.07    722.74     0.54      170     0.00     4.08  all_dendrites_update
+  0.03    722.99     0.25       51     0.00     0.00  update_input_image
+  0.02    723.16     0.17       53     0.00     0.02  update_input_neurons
+  0.01    723.25     0.09   774144     0.00     0.00  connect_2_neurons
+  0.01    723.33     0.08  1548288     0.00     0.00  gaussrand
+  0.01    723.39     0.06   514080     0.00     0.00  neuron_memory_read
+  0.01    723.44     0.05   340850     0.00     0.00  initialise_neuron
+  0.01    723.48     0.04        1     0.04     0.89  connect_neuron_layers_log_polar
+  0.00    723.51     0.03     3024     0.00     0.00  neuron_memory_write
+  0.00    723.53     0.02  1552399     0.00     0.00  alloc_mem
+  0.00    723.54     0.01   774144     0.00     0.00  initialise_synapse
+  0.00    723.55     0.01     1035     0.00     0.00  output_display
+  0.00    723.56     0.01      172     0.00     0.00  output_handler_max_value_position
+  0.00    723.57     0.01        3     0.00     0.00  make_output_image
+  0.00    723.58     0.01                             Erro
+  0.00    723.58     0.01     3024     0.00     0.00  train_neuron
+  0.00    723.58     0.00     3196     0.00     0.00  map_v1_to_image
+  0.00    723.58     0.00     3183     0.00     0.00  distance_from_image_center
+  0.00    723.58     0.00     2053     0.00     0.00  get_num_neurons
+  0.00    723.58     0.00     1041     0.00     0.00  get_output_by_win
+  0.00    723.58     0.00      516     0.00     0.00  output_update
+  0.00    723.58     0.00      514     0.00     0.03  filter_update
+  0.00    723.58     0.00      508     0.00     0.00  get_filter_by_name
+  0.00    723.58     0.00      343     0.00     0.05  gaussian_filter
+  0.00    723.58     0.00      343     0.00     0.05  optimized_2d_point_convolution
+  0.00    723.58     0.00      259     0.00     0.00  evaluate
+  0.00    723.58     0.00      256     0.00     0.00  list_member
+  0.00    723.58     0.00      222     0.00     0.00  get_input_by_win
+  0.00    723.58     0.00      220     0.00     0.00  check_input_bounds
+  0.00    723.58     0.00      220     0.00     0.00  input_display
+  0.00    723.58     0.00      203     0.00     0.00  get_address_of_int_variable
+  0.00    723.58     0.00      203     0.00     0.00  get_int_variable
+  0.00    723.58     0.00      173     0.00     0.00  get_neuron_layer_by_name
+  0.00    723.58     0.00      172     0.00     0.00  all_outputs_update
+  0.00    723.58     0.00      171     0.00     4.14  input_generator
+  0.00    723.58     0.00      169     0.00     0.00  get_input_by_name
+  0.00    723.58     0.00      169     0.00     4.14  move_input_window
+  0.00    723.58     0.00      108     0.00     0.00  add_param
+  0.00    723.58     0.00      102     0.00     4.75  f_keyboard
+  0.00    723.58     0.00       97     0.00     0.00  yylex
+  0.00    723.58     0.00       68     0.00     0.00  CC
+  0.00    723.58     0.00       53     0.00     0.25  call_function
+  0.00    723.58     0.00       53     0.00     0.00  destroy_param_list
+  0.00    723.58     0.00       53     0.00     0.00  get_param_list_from_command
+  0.00    723.58     0.00       53     0.00     0.00  set_int_variable
+  0.00    723.58     0.00       52     0.00     0.00  GetGroundTruths
+  0.00    723.58     0.00       50     0.00     0.18  GetRandomFace
+  0.00    723.58     0.00       50     0.00     9.68  saccade
+  0.00    723.58     0.00        9     0.00     0.00  create_interpreter_user_function
+  0.00    723.58     0.00        9     0.00     0.00  yy_load_buffer_state
+  0.00    723.58     0.00        8     0.00     0.00  nearest_power_of_2
+  0.00    723.58     0.00        8     0.00     0.00  yy_get_next_buffer
+  0.00    723.58     0.00        7     0.00     0.01  initialise_neuron_vector
+  0.00    723.58     0.00        6     0.00     0.00  add_neuron_layer
+  0.00    723.58     0.00        6     0.00     0.01  create_neuron_layer
+  0.00    723.58     0.00        6     0.00     0.00  get_param_list
+  0.00    723.58     0.00        5     0.00     0.00  read_window_position
+  0.00    723.58     0.00        5     0.00     0.00  yy_flush_buffer
+  0.00    723.58     0.00        5     0.00     0.00  yy_init_buffer
+  0.00    723.58     0.00        4     0.00     0.00  add_to_command_list
+  0.00    723.58     0.00        4     0.00     0.00  addto_browser
+  0.00    723.58     0.00        4     0.00   177.12  exec_command
+  0.00    723.58     0.00        4     0.00     0.00  init_interpreter_pipe
+  0.00    723.58     0.00        4     0.00   177.12  interpreter
+  0.00    723.58     0.00        4     0.00     0.00  yy_get_previous_state
+  0.00    723.58     0.00        4     0.00   177.12  yyparse
+  0.00    723.58     0.00        4     0.00     0.00  yyrestart
+  0.00    723.58     0.00        3     0.00     0.00  add_filter_to_filter_list
+  0.00    723.58     0.00        3     0.00     0.00  add_output_to_output_list
+  0.00    723.58     0.00        3     0.00     0.00  add_symbol
+  0.00    723.58     0.00        3     0.00     0.00  create_filter
+  0.00    723.58     0.00        3     0.00     0.00  create_output
+  0.00    723.58     0.00        3     0.00     0.00  create_output_window
+  0.00    723.58     0.00        3     0.00     0.00  free_tree
+  0.00    723.58     0.00        3     0.00     0.00  output_connect
+  0.00    723.58     0.00        3     0.00     0.00  output_init
+  0.00    723.58     0.00        3     0.00     0.00  rand_output_image
+  0.00    723.58     0.00        3     0.00     0.00  yyalloc
+  0.00    723.58     0.00        2     0.00     0.00  add_param2
+  0.00    723.58     0.00        2     0.00     0.10  all_filters_update
+  0.00    723.58     0.00        2     0.00     0.00  compute_gaussian_kernel2
+  0.00    723.58     0.00        1     0.00     0.18  GetFace
+  0.00    723.58     0.00        1     0.00     0.00  GetNextFileName
+  0.00    723.58     0.00        1     0.00     4.14  Move2Nose
+  0.00    723.58     0.00        1     0.00     0.00  SetNetworkStatus
+  0.00    723.58     0.00        1     0.00     0.00  add_input_to_input_list
+  0.00    723.58     0.00        1     0.00     4.14  all_inputs_update
+  0.00    723.58     0.00        1     0.00     0.00  associate_neurons
+  0.00    723.58     0.00        1     0.00     5.09  build_network
+  0.00    723.58     0.00        1     0.00     0.00  check_forms
+  0.00    723.58     0.00        1     0.00     0.89  connect_neurons
+  0.00    723.58     0.00        1     0.00     0.00  count_num_neurons
+  0.00    723.58     0.00        1     0.00     0.00  create_form_mae_control
+  0.00    723.58     0.00        1     0.00     0.01  create_input
+  0.00    723.58     0.00        1     0.00     4.14  create_input_window
+  0.00    723.58     0.00        1     0.00     4.15  create_io_windows
+  0.00    723.58     0.00        1     0.00     0.00  create_the_forms
+  0.00    723.58     0.00        1     0.00   177.12  execute_script
+  0.00    723.58     0.00        1     0.00     0.00  get_file_size
+  0.00    723.58     0.00        1     0.00     0.00  init_measuraments
+  0.00    723.58     0.00        1     0.00     0.00  init_pattern_xor_table
+  0.00    723.58     0.00        1     0.00   531.47  init_user_functions
+  0.00    723.58     0.00        1     0.00     0.17  init_visual_search
+  0.00    723.58     0.00        1     0.00     0.00  initialise_memory
+  0.00    723.58     0.00        1     0.00     0.00  initialise_neuron_memory
+  0.00    723.58     0.00        1     0.00     0.00  input_controler
+  0.00    723.58     0.00        1     0.00     0.00  input_init
+  0.00    723.58     0.00        1     0.00     4.14  input_update
+  0.00    723.58     0.00        1     0.00     0.00  make_input_image_visual_search
+  0.00    723.58     0.00        1     0.00     0.00  map_layers2id
+  0.00    723.58     0.00        1     0.00     0.00  same_dimentions
+  0.00    723.58     0.00        1     0.00     0.00  set_neuron_layer_band
+  0.00    723.58     0.00        1     0.00     0.00  toggle_draw_active
+  0.00    723.58     0.00        1     0.00     0.00  toggle_move_active
+  0.00    723.58     0.00        1     0.00     0.10  train_neuron_layer
+  0.00    723.58     0.00        1     0.00     0.00  yy_create_buffer
+  0.00    723.58     0.00        1     0.00     0.00  yyensure_buffer_stack
+  0.00    723.58     0.00        1     0.00     0.00  yygrowstack
+
+ %         the percentage of the total running time of the
+time       program used by this function.
+
+cumulative a running sum of the number of seconds accounted
+ seconds   for by this function and those listed above it.
+
+ self      the number of seconds accounted for by this
+seconds    function alone.  This is the major sort for this
+           listing.
+
+calls      the number of times this function was invoked, if
+           this function is profiled, else blank.
+ 
+ self      the average number of milliseconds spent in this
+ms/call    function per call, if this function is profiled,
+	   else blank.
+
+ total     the average number of milliseconds spent in this
+ms/call    function and its descendents per call, if this 
+	   function is profiled, else blank.
+
+name       the name of the function.  This is the minor sort
+           for this listing. The index shows the location of
+	   the function in the gprof listing. If the index is
+	   in parenthesis it shows where it would appear in
+	   the gprof listing if it were to be printed.
+
+		     Call graph (explanation follows)
+
+
+granularity: each sample hit covers 2 byte(s) for 0.00% of 723.58 seconds
+
+index % time    self  children    called     name
+                0.00  177.12       1/4           execute_script [15]
+                0.00  531.35       3/4           init_user_functions [12]
+[1]     97.9    0.00  708.47       4         interpreter [1]
+                0.00  708.47       4/4           yyparse [2]
+                0.00    0.00       4/4           add_to_command_list [71]
+                0.00    0.00       4/4           addto_browser [105]
+                0.00    0.00       4/4           init_interpreter_pipe [106]
+-----------------------------------------------
+                0.00  708.47       4/4           interpreter [1]
+[2]     97.9    0.00  708.47       4         yyparse [2]
+                0.00  708.47       4/4           exec_command [3]
+                0.00    0.00      68/68          CC [64]
+                0.00    0.00      97/97          yylex [67]
+                0.00    0.00       3/3           free_tree [109]
+                0.00    0.00       1/1           yygrowstack [133]
+-----------------------------------------------
+                                 474             exec_command [3]
+                0.00  708.47       4/4           yyparse [2]
+[3]     97.9    0.00  708.47       4+474     exec_command [3]
+                0.00  484.30     102/102         f_keyboard [13]
+                0.00  211.05      51/169         move_input_window [5]
+                0.00   13.12      53/53          call_function [21]
+                0.00    0.00       3/3           add_symbol [76]
+                0.00    0.00     259/259         evaluate [77]
+                0.00    0.00      53/256         list_member [87]
+                0.00    0.00      53/53          set_int_variable [97]
+                0.00    0.00       1/1           toggle_draw_active [129]
+                0.00    0.00       1/1           toggle_move_active [130]
+                                 474             exec_command [3]
+-----------------------------------------------
+                0.00    4.14       1/171         create_input_window [29]
+                0.00    4.14       1/171         input_update [30]
+                0.00  699.35     169/171         move_input_window [5]
+[4]     97.8    0.00  707.63     171         input_generator [4]
+                0.54  688.39     169/170         all_dendrites_update [6]
+                0.00   16.81     507/514         filter_update [17]
+                1.01    0.00     169/170         all_neurons_update [32]
+                0.00    0.70     169/172         all_outputs_update [40]
+                0.00    0.17       1/1           init_visual_search [47]
+                0.00    0.00     507/508         get_filter_by_name [86]
+                0.00    0.00     169/220         check_input_bounds [89]
+                0.00    0.00     169/220         input_display [90]
+-----------------------------------------------
+                0.00    4.14       1/169         Move2Nose [27]
+                0.00  211.05      51/169         exec_command [3]
+                0.00  484.17     117/169         saccade [14]
+[5]     96.7    0.00  699.35     169         move_input_window [5]
+                0.00  699.35     169/171         input_generator [4]
+                0.00    0.00     169/169         get_input_by_name [94]
+-----------------------------------------------
+                0.00    4.07       1/170         main [11]
+                0.54  688.39     169/170         input_generator [4]
+[6]     95.8    0.54  692.47     170         all_dendrites_update [6]
+                1.24  691.23 39143860/39143860     evaluate_dendrite [7]
+                0.00    0.00    1020/2053        get_num_neurons [84]
+-----------------------------------------------
+                1.24  691.23 39143860/39143860     all_dendrites_update [6]
+[7]     95.7    1.24  691.23 39143860         evaluate_dendrite [7]
+                0.06  680.97  514080/514080      neuron_memory_read [8]
+               10.20    0.00  514080/517104      compute_input_pattern_minchinton [22]
+-----------------------------------------------
+                0.06  680.97  514080/514080      evaluate_dendrite [7]
+[8]     94.1    0.06  680.97  514080         neuron_memory_read [8]
+               31.80  649.17  505008/505008      find_nearest_pattern [9]
+-----------------------------------------------
+               31.80  649.17  505008/505008      neuron_memory_read [8]
+[9]     94.1   31.80  649.17  505008         find_nearest_pattern [9]
+              649.17    0.00 1527144192/1527144192     hamming_distance [10]
+-----------------------------------------------
+              649.17    0.00 1527144192/1527144192     find_nearest_pattern [9]
+[10]    89.7  649.17    0.00 1527144192         hamming_distance [10]
+-----------------------------------------------
+                                                 <spontaneous>
+[11]    75.3    0.00  544.89                 main [11]
+                0.00  531.47       1/1           init_user_functions [12]
+                0.00    5.09       1/1           build_network [25]
+                0.00    4.14       1/1           all_inputs_update [28]
+                0.00    4.07       1/170         all_dendrites_update [6]
+                0.00    0.10       1/2           all_filters_update [45]
+                0.01    0.00       1/170         all_neurons_update [32]
+                0.00    0.00       1/172         all_outputs_update [40]
+                0.00    0.00       1/1           create_the_forms [119]
+                0.00    0.00       1/5           read_window_position [102]
+                0.00    0.00       1/1           init_measuraments [121]
+                0.00    0.00       1/1           init_pattern_xor_table [122]
+                0.00    0.00       1/1           check_forms [116]
+-----------------------------------------------
+                0.00  531.47       1/1           main [11]
+[12]    73.4    0.00  531.47       1         init_user_functions [12]
+                0.00  531.35       3/4           interpreter [1]
+                0.00    0.10       1/2           all_filters_update [45]
+                0.00    0.01       1/53          update_input_neurons [33]
+                0.00    0.00       1/172         all_outputs_update [40]
+-----------------------------------------------
+                0.00  484.30     102/102         exec_command [3]
+[13]    66.9    0.00  484.30     102         f_keyboard [13]
+                0.00  484.17      50/50          saccade [14]
+                0.00    0.10       1/1           train_neuron_layer [49]
+                0.00    0.03       1/514         filter_update [17]
+                0.00    0.00       1/172         all_outputs_update [40]
+                0.00    0.00       1/1           set_neuron_layer_band [128]
+                0.00    0.00       1/508         get_filter_by_name [86]
+-----------------------------------------------
+                0.00  484.17      50/50          f_keyboard [13]
+[14]    66.9    0.00  484.17      50         saccade [14]
+                0.00  484.17     117/169         move_input_window [5]
+-----------------------------------------------
+                0.00  177.12       1/1           run_cmdl_script [16]
+[15]    24.5    0.00  177.12       1         execute_script [15]
+                0.00  177.12       1/4           interpreter [1]
+                0.00    0.00       1/1552399     alloc_mem [55]
+                0.00    0.00       1/1           get_file_size [120]
+-----------------------------------------------
+                                                 <spontaneous>
+[16]    24.5    0.00  177.12                 run_cmdl_script [16]
+                0.00  177.12       1/1           execute_script [15]
+-----------------------------------------------
+                0.00    0.03       1/514         f_keyboard [13]
+                0.00    0.20       6/514         all_filters_update [45]
+                0.00   16.81     507/514         input_generator [4]
+[17]     2.4    0.00   17.04     514         filter_update [17]
+                0.00   16.15     343/343         gaussian_filter [18]
+                0.89    0.00     171/171         translate_nl_filter [34]
+-----------------------------------------------
+                0.00   16.15     343/343         filter_update [17]
+[18]     2.2    0.00   16.15     343         gaussian_filter [18]
+                0.00   16.15     343/343         optimized_2d_point_convolution [19]
+                0.00    0.00       2/2           compute_gaussian_kernel2 [74]
+-----------------------------------------------
+                0.00   16.15     343/343         gaussian_filter [18]
+[19]     2.2    0.00   16.15     343         optimized_2d_point_convolution [19]
+               15.50    0.00     171/171         optimized_2d_point_convolution_color [20]
+                0.65    0.00     172/172         optimized_2d_point_convolution_greyscale_float [43]
+-----------------------------------------------
+               15.50    0.00     171/171         optimized_2d_point_convolution [19]
+[20]     2.1   15.50    0.00     171         optimized_2d_point_convolution_color [20]
+                0.00    0.00     513/1552399     alloc_mem [55]
+-----------------------------------------------
+                0.00   13.12      53/53          exec_command [3]
+[21]     1.8    0.00   13.12      53         call_function [21]
+                0.00    8.81      50/50          GetRandomFace [23]
+                0.00    4.14       1/1           Move2Nose [27]
+                0.00    0.18       1/1           GetFace [46]
+                0.00    0.00      53/53          get_param_list_from_command [65]
+                0.00    0.00      53/53          destroy_param_list [96]
+                0.00    0.00       1/1           SetNetworkStatus [114]
+-----------------------------------------------
+                0.06    0.00    3024/517104      train_neuron [48]
+               10.20    0.00  514080/517104      evaluate_dendrite [7]
+[22]     1.4   10.26    0.00  517104         compute_input_pattern_minchinton [22]
+-----------------------------------------------
+                0.00    8.81      50/50          call_function [21]
+[23]     1.2    0.00    8.81      50         GetRandomFace [23]
+                7.71    0.00      50/52          ReadFaceInput [24]
+                0.16    0.69      50/53          update_input_neurons [33]
+                0.25    0.00      50/51          update_input_image [44]
+                0.00    0.00      50/220         check_input_bounds [89]
+-----------------------------------------------
+                0.15    0.00       1/52          init_visual_search [47]
+                0.15    0.00       1/52          GetFace [46]
+                7.71    0.00      50/52          GetRandomFace [23]
+[24]     1.1    8.02    0.00      52         ReadFaceInput [24]
+                0.00    0.00      52/52          GetGroundTruths [98]
+-----------------------------------------------
+                0.00    5.09       1/1           main [11]
+[25]     0.7    0.00    5.09       1         build_network [25]
+                0.00    4.15       1/1           create_io_windows [26]
+                0.00    0.89       1/1           connect_neurons [36]
+                0.00    0.04       6/6           create_neuron_layer [53]
+                0.00    0.01       1/1           create_input [62]
+                0.00    0.00       9/9           create_interpreter_user_function [66]
+                0.00    0.00       3/3           create_filter [68]
+                0.00    0.00       3/3           create_output [72]
+                0.00    0.00       1/1           initialise_memory [80]
+                0.00    0.00       3/3           output_connect [110]
+                0.00    0.00       1/1           associate_neurons [115]
+                0.00    0.00       1/1           count_num_neurons [117]
+                0.00    0.00       1/1           map_layers2id [126]
+-----------------------------------------------
+                0.00    4.15       1/1           build_network [25]
+[26]     0.6    0.00    4.15       1         create_io_windows [26]
+                0.00    4.14       1/1           create_input_window [29]
+                0.00    0.01       3/3           create_output_window [56]
+-----------------------------------------------
+                0.00    4.14       1/1           call_function [21]
+[27]     0.6    0.00    4.14       1         Move2Nose [27]
+                0.00    4.14       1/169         move_input_window [5]
+-----------------------------------------------
+                0.00    4.14       1/1           main [11]
+[28]     0.6    0.00    4.14       1         all_inputs_update [28]
+                0.00    4.14       1/1           input_update [30]
+-----------------------------------------------
+                0.00    4.14       1/1           create_io_windows [26]
+[29]     0.6    0.00    4.14       1         create_input_window [29]
+                0.00    4.14       1/171         input_generator [4]
+-----------------------------------------------
+                0.00    4.14       1/1           all_inputs_update [28]
+[30]     0.6    0.00    4.14       1         input_update [30]
+                0.00    4.14       1/171         input_generator [4]
+                0.00    0.00       1/1           input_controler [124]
+-----------------------------------------------
+                                                 <spontaneous>
+[31]     0.2    1.57    0.00                 hamming_distance_correlate [31]
+-----------------------------------------------
+                0.01    0.00       1/170         main [11]
+                1.01    0.00     169/170         input_generator [4]
+[32]     0.1    1.02    0.00     170         all_neurons_update [32]
+                0.00    0.00    1020/2053        get_num_neurons [84]
+-----------------------------------------------
+                0.00    0.01       1/53          init_user_functions [12]
+                0.00    0.01       1/53          init_visual_search [47]
+                0.00    0.01       1/53          GetFace [46]
+                0.16    0.69      50/53          GetRandomFace [23]
+[33]     0.1    0.17    0.73      53         update_input_neurons [33]
+                0.73    0.00 5861376/5861376     get_neuron_output_from_image [38]
+-----------------------------------------------
+                0.89    0.00     171/171         filter_update [17]
+[34]     0.1    0.89    0.00     171         translate_nl_filter [34]
+-----------------------------------------------
+                0.04    0.85       1/1           connect_neurons [36]
+[35]     0.1    0.04    0.85       1         connect_neuron_layers_log_polar [35]
+                0.09    0.68  774144/774144      connect_2_neurons [37]
+                0.08    0.00 1548288/1548288     gaussrand [50]
+                0.00    0.00    3024/3196        map_v1_to_image [82]
+-----------------------------------------------
+                0.00    0.89       1/1           build_network [25]
+[36]     0.1    0.00    0.89       1         connect_neurons [36]
+                0.04    0.85       1/1           connect_neuron_layers_log_polar [35]
+-----------------------------------------------
+                0.09    0.68  774144/774144      connect_neuron_layers_log_polar [35]
+[37]     0.1    0.09    0.68  774144         connect_2_neurons [37]
+                0.65    0.01  774144/774144      add_synapse [42]
+                0.01    0.00  774144/774144      initialise_synapse [58]
+                0.01    0.00  774144/1552399     alloc_mem [55]
+-----------------------------------------------
+                0.73    0.00 5861376/5861376     update_input_neurons [33]
+[38]     0.1    0.73    0.00 5861376         get_neuron_output_from_image [38]
+-----------------------------------------------
+                0.00    0.72     516/516         all_outputs_update [40]
+[39]     0.1    0.00    0.72     516         output_update [39]
+                0.70    0.00     516/519         update_output_image [41]
+                0.01    0.00     172/172         output_handler_max_value_position [60]
+                0.00    0.00     516/1035        output_display [59]
+-----------------------------------------------
+                0.00    0.00       1/172         init_user_functions [12]
+                0.00    0.00       1/172         f_keyboard [13]
+                0.00    0.00       1/172         main [11]
+                0.00    0.70     169/172         input_generator [4]
+[40]     0.1    0.00    0.72     172         all_outputs_update [40]
+                0.00    0.72     516/516         output_update [39]
+-----------------------------------------------
+                0.00    0.00       3/519         rand_output_image [63]
+                0.70    0.00     516/519         output_update [39]
+[41]     0.1    0.70    0.01     519         update_output_image [41]
+                0.01    0.00     519/1035        output_display [59]
+-----------------------------------------------
+                0.65    0.01  774144/774144      connect_2_neurons [37]
+[42]     0.1    0.65    0.01  774144         add_synapse [42]
+                0.01    0.00  774144/1552399     alloc_mem [55]
+-----------------------------------------------
+                0.65    0.00     172/172         optimized_2d_point_convolution [19]
+[43]     0.1    0.65    0.00     172         optimized_2d_point_convolution_greyscale_float [43]
+                0.00    0.00     172/1552399     alloc_mem [55]
+-----------------------------------------------
+                0.00    0.00       1/51          GetFace [46]
+                0.25    0.00      50/51          GetRandomFace [23]
+[44]     0.0    0.25    0.00      51         update_input_image [44]
+                0.00    0.00      51/220         input_display [90]
+-----------------------------------------------
+                0.00    0.10       1/2           init_user_functions [12]
+                0.00    0.10       1/2           main [11]
+[45]     0.0    0.00    0.20       2         all_filters_update [45]
+                0.00    0.20       6/514         filter_update [17]
+-----------------------------------------------
+                0.00    0.18       1/1           call_function [21]
+[46]     0.0    0.00    0.18       1         GetFace [46]
+                0.15    0.00       1/52          ReadFaceInput [24]
+                0.00    0.01       1/53          update_input_neurons [33]
+                0.00    0.00       1/51          update_input_image [44]
+                0.00    0.00       1/220         check_input_bounds [89]
+-----------------------------------------------
+                0.00    0.17       1/1           input_generator [4]
+[47]     0.0    0.00    0.17       1         init_visual_search [47]
+                0.15    0.00       1/52          ReadFaceInput [24]
+                0.00    0.01       1/53          update_input_neurons [33]
+                0.00    0.00       1/1           make_input_image_visual_search [81]
+                0.00    0.00       1/1           GetNextFileName [113]
+                0.00    0.00       1/5           read_window_position [102]
+                0.00    0.00       1/1           input_init [125]
+-----------------------------------------------
+                0.01    0.09    3024/3024        train_neuron_layer [49]
+[48]     0.0    0.01    0.09    3024         train_neuron [48]
+                0.06    0.00    3024/517104      compute_input_pattern_minchinton [22]
+                0.03    0.00    3024/3024        neuron_memory_write [54]
+-----------------------------------------------
+                0.00    0.10       1/1           f_keyboard [13]
+[49]     0.0    0.00    0.10       1         train_neuron_layer [49]
+                0.01    0.09    3024/3024        train_neuron [48]
+                0.00    0.00       1/173         get_neuron_layer_by_name [93]
+                0.00    0.00       1/2053        get_num_neurons [84]
+-----------------------------------------------
+                0.08    0.00 1548288/1548288     connect_neuron_layers_log_polar [35]
+[50]     0.0    0.08    0.00 1548288         gaussrand [50]
+-----------------------------------------------
+                0.00    0.01       1/7           create_input [62]
+                0.00    0.04       6/7           create_neuron_layer [53]
+[51]     0.0    0.00    0.05       7         initialise_neuron_vector [51]
+                0.05    0.00  340850/340850      initialise_neuron [52]
+                0.00    0.00       7/1552399     alloc_mem [55]
+-----------------------------------------------
+                0.05    0.00  340850/340850      initialise_neuron_vector [51]
+[52]     0.0    0.05    0.00  340850         initialise_neuron [52]
+-----------------------------------------------
+                0.00    0.04       6/6           build_network [25]
+[53]     0.0    0.00    0.04       6         create_neuron_layer [53]
+                0.00    0.04       6/7           initialise_neuron_vector [51]
+                0.00    0.00       6/6           add_neuron_layer [73]
+                0.00    0.00       5/1552399     alloc_mem [55]
+-----------------------------------------------
+                0.03    0.00    3024/3024        train_neuron [48]
+[54]     0.0    0.03    0.00    3024         neuron_memory_write [54]
+                0.00    0.00    3024/1552399     alloc_mem [55]
+-----------------------------------------------
+                0.00    0.00       1/1552399     make_input_image_visual_search [81]
+                0.00    0.00       1/1552399     execute_script [15]
+                0.00    0.00       1/1552399     initialise_memory [80]
+                0.00    0.00       1/1552399     add_input_to_input_list [79]
+                0.00    0.00       2/1552399     create_input [62]
+                0.00    0.00       2/1552399     add_param2 [78]
+                0.00    0.00       3/1552399     make_output_image [57]
+                0.00    0.00       3/1552399     add_output_to_output_list [75]
+                0.00    0.00       3/1552399     create_filter [68]
+                0.00    0.00       3/1552399     add_symbol [76]
+                0.00    0.00       4/1552399     compute_gaussian_kernel2 [74]
+                0.00    0.00       5/1552399     create_neuron_layer [53]
+                0.00    0.00       6/1552399     add_neuron_layer [73]
+                0.00    0.00       7/1552399     initialise_neuron_vector [51]
+                0.00    0.00       8/1552399     add_to_command_list [71]
+                0.00    0.00       9/1552399     add_filter_to_filter_list [70]
+                0.00    0.00      20/1552399     get_param_list [69]
+                0.00    0.00      22/1552399     yylex [67]
+                0.00    0.00      27/1552399     create_interpreter_user_function [66]
+                0.00    0.00     108/1552399     get_param_list_from_command [65]
+                0.00    0.00     166/1552399     CC [64]
+                0.00    0.00     172/1552399     optimized_2d_point_convolution_greyscale_float [43]
+                0.00    0.00     513/1552399     optimized_2d_point_convolution_color [20]
+                0.00    0.00    3024/1552399     neuron_memory_write [54]
+                0.01    0.00  774144/1552399     add_synapse [42]
+                0.01    0.00  774144/1552399     connect_2_neurons [37]
+[55]     0.0    0.02    0.00 1552399         alloc_mem [55]
+-----------------------------------------------
+                0.00    0.01       3/3           create_io_windows [26]
+[56]     0.0    0.00    0.01       3         create_output_window [56]
+                0.01    0.00       3/3           make_output_image [57]
+                0.00    0.00       3/3           rand_output_image [63]
+                0.00    0.00       3/5           read_window_position [102]
+                0.00    0.00       3/3           output_init [111]
+-----------------------------------------------
+                0.01    0.00       3/3           create_output_window [56]
+[57]     0.0    0.01    0.00       3         make_output_image [57]
+                0.00    0.00       3/1552399     alloc_mem [55]
+                0.00    0.00       6/8           nearest_power_of_2 [100]
+-----------------------------------------------
+                0.01    0.00  774144/774144      connect_2_neurons [37]
+[58]     0.0    0.01    0.00  774144         initialise_synapse [58]
+-----------------------------------------------
+                0.00    0.00     516/1035        output_update [39]
+                0.01    0.00     519/1035        update_output_image [41]
+[59]     0.0    0.01    0.00    1035         output_display [59]
+                0.00    0.00    1038/1041        get_output_by_win [85]
+-----------------------------------------------
+                0.01    0.00     172/172         output_update [39]
+[60]     0.0    0.01    0.00     172         output_handler_max_value_position [60]
+                0.00    0.00     172/173         get_neuron_layer_by_name [93]
+                0.00    0.00     172/3196        map_v1_to_image [82]
+-----------------------------------------------
+                                                 <spontaneous>
+[61]     0.0    0.01    0.00                 Erro [61]
+-----------------------------------------------
+                0.00    0.01       1/1           build_network [25]
+[62]     0.0    0.00    0.01       1         create_input [62]
+                0.00    0.01       1/7           initialise_neuron_vector [51]
+                0.00    0.00       2/6           get_param_list [69]
+                0.00    0.00       2/1552399     alloc_mem [55]
+                0.00    0.00       1/1           add_input_to_input_list [79]
+-----------------------------------------------
+                0.00    0.00       3/3           create_output_window [56]
+[63]     0.0    0.00    0.00       3         rand_output_image [63]
+                0.00    0.00       3/519         update_output_image [41]
+-----------------------------------------------
+                0.00    0.00      68/68          yyparse [2]
+[64]     0.0    0.00    0.00      68         CC [64]
+                0.00    0.00     166/1552399     alloc_mem [55]
+-----------------------------------------------
+                0.00    0.00      53/53          call_function [21]
+[65]     0.0    0.00    0.00      53         get_param_list_from_command [65]
+                0.00    0.00     108/1552399     alloc_mem [55]
+-----------------------------------------------
+                0.00    0.00       9/9           build_network [25]
+[66]     0.0    0.00    0.00       9         create_interpreter_user_function [66]
+                0.00    0.00      27/1552399     alloc_mem [55]
+-----------------------------------------------
+                0.00    0.00      97/97          yyparse [2]
+[67]     0.0    0.00    0.00      97         yylex [67]
+                0.00    0.00      22/1552399     alloc_mem [55]
+                0.00    0.00       8/8           yy_get_next_buffer [101]
+                0.00    0.00       4/4           yy_get_previous_state [107]
+                0.00    0.00       1/1           yyensure_buffer_stack [132]
+                0.00    0.00       1/9           yy_load_buffer_state [99]
+                0.00    0.00       1/1           yy_create_buffer [131]
+-----------------------------------------------
+                0.00    0.00       3/3           build_network [25]
+[68]     0.0    0.00    0.00       3         create_filter [68]
+                0.00    0.00       3/6           get_param_list [69]
+                0.00    0.00       3/3           add_filter_to_filter_list [70]
+                0.00    0.00       3/1552399     alloc_mem [55]
+-----------------------------------------------
+                0.00    0.00       1/6           create_output [72]
+                0.00    0.00       2/6           create_input [62]
+                0.00    0.00       3/6           create_filter [68]
+[69]     0.0    0.00    0.00       6         get_param_list [69]
+                0.00    0.00      20/1552399     alloc_mem [55]
+-----------------------------------------------
+                0.00    0.00       3/3           create_filter [68]
+[70]     0.0    0.00    0.00       3         add_filter_to_filter_list [70]
+                0.00    0.00       9/1552399     alloc_mem [55]
+-----------------------------------------------
+                0.00    0.00       4/4           interpreter [1]
+[71]     0.0    0.00    0.00       4         add_to_command_list [71]
+                0.00    0.00       8/1552399     alloc_mem [55]
+-----------------------------------------------
+                0.00    0.00       3/3           build_network [25]
+[72]     0.0    0.00    0.00       3         create_output [72]
+                0.00    0.00       1/6           get_param_list [69]
+                0.00    0.00       3/3           add_output_to_output_list [75]
+-----------------------------------------------
+                0.00    0.00       6/6           create_neuron_layer [53]
+[73]     0.0    0.00    0.00       6         add_neuron_layer [73]
+                0.00    0.00       6/1552399     alloc_mem [55]
+-----------------------------------------------
+                0.00    0.00       2/2           gaussian_filter [18]
+[74]     0.0    0.00    0.00       2         compute_gaussian_kernel2 [74]
+                0.00    0.00       4/1552399     alloc_mem [55]
+-----------------------------------------------
+                0.00    0.00       3/3           create_output [72]
+[75]     0.0    0.00    0.00       3         add_output_to_output_list [75]
+                0.00    0.00       3/1552399     alloc_mem [55]
+-----------------------------------------------
+                0.00    0.00       3/3           exec_command [3]
+[76]     0.0    0.00    0.00       3         add_symbol [76]
+                0.00    0.00       3/1552399     alloc_mem [55]
+-----------------------------------------------
+                                 314             evaluate [77]
+                0.00    0.00     259/259         exec_command [3]
+[77]     0.0    0.00    0.00     259+314     evaluate [77]
+                0.00    0.00       2/2           add_param2 [78]
+                0.00    0.00     203/256         list_member [87]
+                0.00    0.00     203/203         get_int_variable [92]
+                0.00    0.00     203/203         get_address_of_int_variable [91]
+                0.00    0.00     108/108         add_param [95]
+                                 314             evaluate [77]
+-----------------------------------------------
+                0.00    0.00       2/2           evaluate [77]
+[78]     0.0    0.00    0.00       2         add_param2 [78]
+                0.00    0.00       2/1552399     alloc_mem [55]
+-----------------------------------------------
+                0.00    0.00       1/1           create_input [62]
+[79]     0.0    0.00    0.00       1         add_input_to_input_list [79]
+                0.00    0.00       1/1552399     alloc_mem [55]
+-----------------------------------------------
+                0.00    0.00       1/1           build_network [25]
+[80]     0.0    0.00    0.00       1         initialise_memory [80]
+                0.00    0.00       1/1552399     alloc_mem [55]
+                0.00    0.00       6/2053        get_num_neurons [84]
+                0.00    0.00       1/1           initialise_neuron_memory [123]
+-----------------------------------------------
+                0.00    0.00       1/1           init_visual_search [47]
+[81]     0.0    0.00    0.00       1         make_input_image_visual_search [81]
+                0.00    0.00       1/1552399     alloc_mem [55]
+                0.00    0.00       2/8           nearest_power_of_2 [100]
+-----------------------------------------------
+                0.00    0.00     172/3196        output_handler_max_value_position [60]
+                0.00    0.00    3024/3196        connect_neuron_layers_log_polar [35]
+[82]     0.0    0.00    0.00    3196         map_v1_to_image [82]
+                0.00    0.00    3183/3183        distance_from_image_center [83]
+-----------------------------------------------
+                0.00    0.00    3183/3183        map_v1_to_image [82]
+[83]     0.0    0.00    0.00    3183         distance_from_image_center [83]
+-----------------------------------------------
+                0.00    0.00       1/2053        train_neuron_layer [49]
+                0.00    0.00       6/2053        initialise_memory [80]
+                0.00    0.00       6/2053        count_num_neurons [117]
+                0.00    0.00    1020/2053        all_neurons_update [32]
+                0.00    0.00    1020/2053        all_dendrites_update [6]
+[84]     0.0    0.00    0.00    2053         get_num_neurons [84]
+-----------------------------------------------
+                0.00    0.00       3/1041        output_reshape [432]
+                0.00    0.00    1038/1041        output_display [59]
+[85]     0.0    0.00    0.00    1041         get_output_by_win [85]
+-----------------------------------------------
+                0.00    0.00       1/508         f_keyboard [13]
+                0.00    0.00     507/508         input_generator [4]
+[86]     0.0    0.00    0.00     508         get_filter_by_name [86]
+-----------------------------------------------
+                0.00    0.00      53/256         exec_command [3]
+                0.00    0.00     203/256         evaluate [77]
+[87]     0.0    0.00    0.00     256         list_member [87]
+-----------------------------------------------
+                0.00    0.00       1/222         input_reshape [390]
+                0.00    0.00     221/222         input_display [90]
+[88]     0.0    0.00    0.00     222         get_input_by_win [88]
+-----------------------------------------------
+                0.00    0.00       1/220         GetFace [46]
+                0.00    0.00      50/220         GetRandomFace [23]
+                0.00    0.00     169/220         input_generator [4]
+[89]     0.0    0.00    0.00     220         check_input_bounds [89]
+-----------------------------------------------
+                0.00    0.00      51/220         update_input_image [44]
+                0.00    0.00     169/220         input_generator [4]
+[90]     0.0    0.00    0.00     220         input_display [90]
+                0.00    0.00     221/222         get_input_by_win [88]
+-----------------------------------------------
+                0.00    0.00     203/203         evaluate [77]
+[91]     0.0    0.00    0.00     203         get_address_of_int_variable [91]
+-----------------------------------------------
+                0.00    0.00     203/203         evaluate [77]
+[92]     0.0    0.00    0.00     203         get_int_variable [92]
+-----------------------------------------------
+                0.00    0.00       1/173         train_neuron_layer [49]
+                0.00    0.00     172/173         output_handler_max_value_position [60]
+[93]     0.0    0.00    0.00     173         get_neuron_layer_by_name [93]
+-----------------------------------------------
+                0.00    0.00     169/169         move_input_window [5]
+[94]     0.0    0.00    0.00     169         get_input_by_name [94]
+-----------------------------------------------
+                0.00    0.00     108/108         evaluate [77]
+[95]     0.0    0.00    0.00     108         add_param [95]
+-----------------------------------------------
+                0.00    0.00      53/53          call_function [21]
+[96]     0.0    0.00    0.00      53         destroy_param_list [96]
+-----------------------------------------------
+                0.00    0.00      53/53          exec_command [3]
+[97]     0.0    0.00    0.00      53         set_int_variable [97]
+-----------------------------------------------
+                0.00    0.00      52/52          ReadFaceInput [24]
+[98]     0.0    0.00    0.00      52         GetGroundTruths [98]
+-----------------------------------------------
+                0.00    0.00       1/9           yylex [67]
+                0.00    0.00       4/9           yyrestart [108]
+                0.00    0.00       4/9           yy_flush_buffer [103]
+[99]     0.0    0.00    0.00       9         yy_load_buffer_state [99]
+-----------------------------------------------
+                0.00    0.00       2/8           make_input_image_visual_search [81]
+                0.00    0.00       6/8           make_output_image [57]
+[100]    0.0    0.00    0.00       8         nearest_power_of_2 [100]
+-----------------------------------------------
+                0.00    0.00       8/8           yylex [67]
+[101]    0.0    0.00    0.00       8         yy_get_next_buffer [101]
+                0.00    0.00       4/4           yyrestart [108]
+-----------------------------------------------
+                0.00    0.00       1/5           init_visual_search [47]
+                0.00    0.00       1/5           main [11]
+                0.00    0.00       3/5           create_output_window [56]
+[102]    0.0    0.00    0.00       5         read_window_position [102]
+-----------------------------------------------
+                0.00    0.00       5/5           yy_init_buffer [104]
+[103]    0.0    0.00    0.00       5         yy_flush_buffer [103]
+                0.00    0.00       4/9           yy_load_buffer_state [99]
+-----------------------------------------------
+                0.00    0.00       1/5           yy_create_buffer [131]
+                0.00    0.00       4/5           yyrestart [108]
+[104]    0.0    0.00    0.00       5         yy_init_buffer [104]
+                0.00    0.00       5/5           yy_flush_buffer [103]
+-----------------------------------------------
+                0.00    0.00       4/4           interpreter [1]
+[105]    0.0    0.00    0.00       4         addto_browser [105]
+-----------------------------------------------
+                0.00    0.00       4/4           interpreter [1]
+[106]    0.0    0.00    0.00       4         init_interpreter_pipe [106]
+-----------------------------------------------
+                0.00    0.00       4/4           yylex [67]
+[107]    0.0    0.00    0.00       4         yy_get_previous_state [107]
+-----------------------------------------------
+                0.00    0.00       4/4           yy_get_next_buffer [101]
+[108]    0.0    0.00    0.00       4         yyrestart [108]
+                0.00    0.00       4/5           yy_init_buffer [104]
+                0.00    0.00       4/9           yy_load_buffer_state [99]
+-----------------------------------------------
+                                   2             free_tree [109]
+                0.00    0.00       3/3           yyparse [2]
+[109]    0.0    0.00    0.00       3+2       free_tree [109]
+                                   2             free_tree [109]
+-----------------------------------------------
+                0.00    0.00       3/3           build_network [25]
+[110]    0.0    0.00    0.00       3         output_connect [110]
+-----------------------------------------------
+                0.00    0.00       3/3           create_output_window [56]
+[111]    0.0    0.00    0.00       3         output_init [111]
+-----------------------------------------------
+                0.00    0.00       1/3           yyensure_buffer_stack [132]
+                0.00    0.00       2/3           yy_create_buffer [131]
+[112]    0.0    0.00    0.00       3         yyalloc [112]
+-----------------------------------------------
+                0.00    0.00       1/1           init_visual_search [47]
+[113]    0.0    0.00    0.00       1         GetNextFileName [113]
+-----------------------------------------------
+                0.00    0.00       1/1           call_function [21]
+[114]    0.0    0.00    0.00       1         SetNetworkStatus [114]
+-----------------------------------------------
+                0.00    0.00       1/1           build_network [25]
+[115]    0.0    0.00    0.00       1         associate_neurons [115]
+                0.00    0.00       1/1           same_dimentions [127]
+-----------------------------------------------
+                0.00    0.00       1/1           main [11]
+[116]    0.0    0.00    0.00       1         check_forms [116]
+-----------------------------------------------
+                0.00    0.00       1/1           build_network [25]
+[117]    0.0    0.00    0.00       1         count_num_neurons [117]
+                0.00    0.00       6/2053        get_num_neurons [84]
+-----------------------------------------------
+                0.00    0.00       1/1           create_the_forms [119]
+[118]    0.0    0.00    0.00       1         create_form_mae_control [118]
+-----------------------------------------------
+                0.00    0.00       1/1           main [11]
+[119]    0.0    0.00    0.00       1         create_the_forms [119]
+                0.00    0.00       1/1           create_form_mae_control [118]
+-----------------------------------------------
+                0.00    0.00       1/1           execute_script [15]
+[120]    0.0    0.00    0.00       1         get_file_size [120]
+-----------------------------------------------
+                0.00    0.00       1/1           main [11]
+[121]    0.0    0.00    0.00       1         init_measuraments [121]
+-----------------------------------------------
+                0.00    0.00       1/1           main [11]
+[122]    0.0    0.00    0.00       1         init_pattern_xor_table [122]
+-----------------------------------------------
+                0.00    0.00       1/1           initialise_memory [80]
+[123]    0.0    0.00    0.00       1         initialise_neuron_memory [123]
+-----------------------------------------------
+                0.00    0.00       1/1           input_update [30]
+[124]    0.0    0.00    0.00       1         input_controler [124]
+-----------------------------------------------
+                0.00    0.00       1/1           init_visual_search [47]
+[125]    0.0    0.00    0.00       1         input_init [125]
+-----------------------------------------------
+                0.00    0.00       1/1           build_network [25]
+[126]    0.0    0.00    0.00       1         map_layers2id [126]
+-----------------------------------------------
+                0.00    0.00       1/1           associate_neurons [115]
+[127]    0.0    0.00    0.00       1         same_dimentions [127]
+-----------------------------------------------
+                0.00    0.00       1/1           f_keyboard [13]
+[128]    0.0    0.00    0.00       1         set_neuron_layer_band [128]
+-----------------------------------------------
+                0.00    0.00       1/1           exec_command [3]
+[129]    0.0    0.00    0.00       1         toggle_draw_active [129]
+-----------------------------------------------
+                0.00    0.00       1/1           exec_command [3]
+[130]    0.0    0.00    0.00       1         toggle_move_active [130]
+-----------------------------------------------
+                0.00    0.00       1/1           yylex [67]
+[131]    0.0    0.00    0.00       1         yy_create_buffer [131]
+                0.00    0.00       2/3           yyalloc [112]
+                0.00    0.00       1/5           yy_init_buffer [104]
+-----------------------------------------------
+                0.00    0.00       1/1           yylex [67]
+[132]    0.0    0.00    0.00       1         yyensure_buffer_stack [132]
+                0.00    0.00       1/3           yyalloc [112]
+-----------------------------------------------
+                0.00    0.00       1/1           yyparse [2]
+[133]    0.0    0.00    0.00       1         yygrowstack [133]
+-----------------------------------------------
+
+ This table describes the call tree of the program, and was sorted by
+ the total amount of time spent in each function and its children.
+
+ Each entry in this table consists of several lines.  The line with the
+ index number at the left hand margin lists the current function.
+ The lines above it list the functions that called this function,
+ and the lines below it list the functions this one called.
+ This line lists:
+     index	A unique number given to each element of the table.
+		Index numbers are sorted numerically.
+		The index number is printed next to every function name so
+		it is easier to look up where the function in the table.
+
+     % time	This is the percentage of the `total' time that was spent
+		in this function and its children.  Note that due to
+		different viewpoints, functions excluded by options, etc,
+		these numbers will NOT add up to 100%.
+
+     self	This is the total amount of time spent in this function.
+
+     children	This is the total amount of time propagated into this
+		function by its children.
+
+     called	This is the number of times the function was called.
+		If the function called itself recursively, the number
+		only includes non-recursive calls, and is followed by
+		a `+' and the number of recursive calls.
+
+     name	The name of the current function.  The index number is
+		printed after it.  If the function is a member of a
+		cycle, the cycle number is printed between the
+		function's name and the index number.
+
+
+ For the function's parents, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the function into this parent.
+
+     children	This is the amount of time that was propagated from
+		the function's children into this parent.
+
+     called	This is the number of times this parent called the
+		function `/' the total number of times the function
+		was called.  Recursive calls to the function are not
+		included in the number after the `/'.
+
+     name	This is the name of the parent.  The parent's index
+		number is printed after it.  If the parent is a
+		member of a cycle, the cycle number is printed between
+		the name and the index number.
+
+ If the parents of the function cannot be determined, the word
+ `<spontaneous>' is printed in the `name' field, and all the other
+ fields are blank.
+
+ For the function's children, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the child into the function.
+
+     children	This is the amount of time that was propagated from the
+		child's children to the function.
+
+     called	This is the number of times the function called
+		this child `/' the total number of times the child
+		was called.  Recursive calls by the child are not
+		listed in the number after the `/'.
+
+     name	This is the name of the child.  The child's index
+		number is printed after it.  If the child is a
+		member of a cycle, the cycle number is printed
+		between the name and the index number.
+
+ If there are any cycles (circles) in the call graph, there is an
+ entry for the cycle-as-a-whole.  This entry shows who called the
+ cycle (as parents) and the members of the cycle (as children.)
+ The `+' recursive calls entry shows the number of function calls that
+ were internal to the cycle, and the calls entry for each member shows,
+ for that member, how many times it was called from other members of
+ the cycle.
+
+
+Index by function name
+
+  [64] CC                     [56] create_output_window   [87] list_member
+  [61] Erro                  [119] create_the_forms       [81] make_input_image_visual_search
+  [46] GetFace                [96] destroy_param_list     [57] make_output_image
+  [98] GetGroundTruths        [83] distance_from_image_center [126] map_layers2id
+ [113] GetNextFileName        [77] evaluate               [82] map_v1_to_image
+  [23] GetRandomFace           [7] evaluate_dendrite       [5] move_input_window
+  [27] Move2Nose               [3] exec_command          [100] nearest_power_of_2
+  [24] ReadFaceInput          [15] execute_script          [8] neuron_memory_read
+ [114] SetNetworkStatus       [13] f_keyboard             [54] neuron_memory_write
+  [70] add_filter_to_filter_list [17] filter_update       [19] optimized_2d_point_convolution
+  [79] add_input_to_input_list [9] find_nearest_pattern   [20] optimized_2d_point_convolution_color
+  [73] add_neuron_layer      [109] free_tree              [43] optimized_2d_point_convolution_greyscale_float
+  [75] add_output_to_output_list [18] gaussian_filter    [110] output_connect
+  [95] add_param              [50] gaussrand              [59] output_display
+  [78] add_param2             [91] get_address_of_int_variable [60] output_handler_max_value_position
+  [76] add_symbol            [120] get_file_size         [111] output_init
+  [42] add_synapse            [86] get_filter_by_name     [39] output_update
+  [71] add_to_command_list    [94] get_input_by_name      [63] rand_output_image
+ [105] addto_browser          [88] get_input_by_win      [102] read_window_position
+   [6] all_dendrites_update   [92] get_int_variable       [14] saccade
+  [45] all_filters_update     [93] get_neuron_layer_by_name [127] same_dimentions
+  [28] all_inputs_update      [38] get_neuron_output_from_image [97] set_int_variable
+  [32] all_neurons_update     [84] get_num_neurons       [128] set_neuron_layer_band
+  [40] all_outputs_update     [85] get_output_by_win     [129] toggle_draw_active
+  [55] alloc_mem              [69] get_param_list        [130] toggle_move_active
+ [115] associate_neurons      [65] get_param_list_from_command [48] train_neuron
+  [25] build_network          [10] hamming_distance       [49] train_neuron_layer
+  [21] call_function          [31] hamming_distance_correlate [34] translate_nl_filter
+ [116] check_forms           [106] init_interpreter_pipe  [44] update_input_image
+  [89] check_input_bounds    [121] init_measuraments      [33] update_input_neurons
+  [74] compute_gaussian_kernel2 [122] init_pattern_xor_table [41] update_output_image
+  [22] compute_input_pattern_minchinton [12] init_user_functions [131] yy_create_buffer
+  [37] connect_2_neurons      [47] init_visual_search    [103] yy_flush_buffer
+  [35] connect_neuron_layers_log_polar [80] initialise_memory [101] yy_get_next_buffer (lex.yy.c)
+  [36] connect_neurons        [52] initialise_neuron     [107] yy_get_previous_state (lex.yy.c)
+ [117] count_num_neurons     [123] initialise_neuron_memory [104] yy_init_buffer (lex.yy.c)
+  [68] create_filter          [51] initialise_neuron_vector [99] yy_load_buffer_state (lex.yy.c)
+ [118] create_form_mae_control [58] initialise_synapse   [112] yyalloc
+  [62] create_input          [124] input_controler       [132] yyensure_buffer_stack (lex.yy.c)
+  [29] create_input_window    [90] input_display         [133] yygrowstack (y.tab.c)
+  [66] create_interpreter_user_function [4] input_generator [67] yylex
+  [26] create_io_windows     [125] input_init              [2] yyparse
+  [53] create_neuron_layer    [30] input_update          [108] yyrestart
+  [72] create_output           [1] interpreter

@@ -1,0 +1,10 @@
+face_recog 3 49
+nl_face_recog_red_out 895 48
+nl_face_recog_green_out 895 277
+nl_face_recog_blue_out 895 506
+out_face_recog_lp 399 367
+out_face_recog_lp_f 536 368
+out_landmark_red 1031 48
+out_landmark_green 1031 277
+out_landmark_blue 1031 506
+mae_control_window 397 48

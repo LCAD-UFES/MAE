@@ -1,0 +1,5473 @@
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 30 Train squared error:  5.056 Test squared error:  8.180 	 	 
+epoch 30 batch 1
+Linesearch      1;  Value 6.393740e+01
+Linesearch      2;  Value 6.373172e+01
+Linesearch      3;  Value 6.355229e+01
+
+epoch 30 batch 2
+Linesearch      1;  Value 6.373465e+01
+Linesearch      2;  Value 6.356391e+01
+Linesearch      3;  Value 6.335155e+01
+
+epoch 30 batch 3
+Linesearch      1;  Value 6.458301e+01
+Linesearch      2;  Value 6.441297e+01
+Linesearch      3;  Value 6.420440e+01
+
+epoch 30 batch 4
+Linesearch      1;  Value 6.426788e+01
+Linesearch      2;  Value 6.410280e+01
+Linesearch      3;  Value 6.392067e+01
+
+epoch 30 batch 5
+Linesearch      1;  Value 6.383757e+01
+Linesearch      2;  Value 6.363996e+01
+Linesearch      3;  Value 6.342089e+01
+
+epoch 30 batch 6
+Linesearch      1;  Value 6.339548e+01
+Linesearch      2;  Value 6.321035e+01
+Linesearch      3;  Value 6.302295e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 31 Train squared error:  5.031 Test squared error:  8.170 	 	 
+epoch 31 batch 1
+Linesearch      1;  Value 6.385451e+01
+Linesearch      2;  Value 6.367864e+01
+Linesearch      3;  Value 6.346028e+01
+
+epoch 31 batch 2
+Linesearch      1;  Value 6.359159e+01
+Linesearch      2;  Value 6.338898e+01
+Linesearch      3;  Value 6.311927e+01
+
+epoch 31 batch 3
+Linesearch      1;  Value 6.456533e+01
+Linesearch      2;  Value 6.436115e+01
+Linesearch      3;  Value 6.407856e+01
+
+epoch 31 batch 4
+Linesearch      1;  Value 6.428068e+01
+Linesearch      2;  Value 6.405346e+01
+Linesearch      3;  Value 6.386148e+01
+
+epoch 31 batch 5
+Linesearch      1;  Value 6.381754e+01
+Linesearch      2;  Value 6.358827e+01
+Linesearch      3;  Value 6.329100e+01
+
+epoch 31 batch 6
+Linesearch      1;  Value 6.339657e+01
+Linesearch      2;  Value 6.320646e+01
+Linesearch      3;  Value 6.300662e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 32 Train squared error:  4.997 Test squared error:  8.148 	 	 
+epoch 32 batch 1
+Linesearch      1;  Value 6.376065e+01
+Linesearch      2;  Value 6.354826e+01
+Linesearch      3;  Value 6.339951e+01
+
+epoch 32 batch 2
+Linesearch      1;  Value 6.351027e+01
+Linesearch      2;  Value 6.333262e+01
+Linesearch      3;  Value 6.315176e+01
+
+epoch 32 batch 3
+Linesearch      1;  Value 6.433400e+01
+Linesearch      2;  Value 6.413699e+01
+Linesearch      3;  Value 6.396961e+01
+
+epoch 32 batch 4
+Linesearch      1;  Value 6.417298e+01
+Linesearch      2;  Value 6.396831e+01
+Linesearch      3;  Value 6.375424e+01
+
+epoch 32 batch 5
+Linesearch      1;  Value 6.359644e+01
+Linesearch      2;  Value 6.331631e+01
+Linesearch      3;  Value 6.314460e+01
+
+epoch 32 batch 6
+Linesearch      1;  Value 6.337876e+01
+Linesearch      2;  Value 6.317113e+01
+Linesearch      3;  Value 6.293683e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 33 Train squared error:  4.980 Test squared error:  8.141 	 	 
+epoch 33 batch 1
+Linesearch      1;  Value 6.366564e+01
+Linesearch      2;  Value 6.349508e+01
+Linesearch      3;  Value 6.332181e+01
+
+epoch 33 batch 2
+Linesearch      1;  Value 6.339871e+01
+Linesearch      2;  Value 6.322391e+01
+Linesearch      3;  Value 6.306358e+01
+
+epoch 33 batch 3
+Linesearch      1;  Value 6.428367e+01
+Linesearch      2;  Value 6.409363e+01
+Linesearch      3;  Value 6.387498e+01
+
+epoch 33 batch 4
+Linesearch      1;  Value 6.405798e+01
+Linesearch      2;  Value 6.384752e+01
+Linesearch      3;  Value 6.368886e+01
+
+epoch 33 batch 5
+Linesearch      1;  Value 6.344709e+01
+Linesearch      2;  Value 6.327006e+01
+Linesearch      3;  Value 6.304825e+01
+
+epoch 33 batch 6
+Linesearch      1;  Value 6.322165e+01
+Linesearch      2;  Value 6.302744e+01
+Linesearch      3;  Value 6.286167e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 34 Train squared error:  4.955 Test squared error:  8.129 	 	 
+epoch 34 batch 1
+Linesearch      1;  Value 6.366822e+01
+Linesearch      2;  Value 6.347491e+01
+Linesearch      3;  Value 6.328066e+01
+
+epoch 34 batch 2
+Linesearch      1;  Value 6.329630e+01
+Linesearch      2;  Value 6.307718e+01
+Linesearch      3;  Value 6.287253e+01
+
+epoch 34 batch 3
+Linesearch      1;  Value 6.429833e+01
+Linesearch      2;  Value 6.403352e+01
+Linesearch      3;  Value 6.380369e+01
+
+epoch 34 batch 4
+Linesearch      1;  Value 6.398833e+01
+Linesearch      2;  Value 6.376251e+01
+Linesearch      3;  Value 6.358601e+01
+
+epoch 34 batch 5
+Linesearch      1;  Value 6.343304e+01
+Linesearch      2;  Value 6.325805e+01
+Linesearch      3;  Value 6.298084e+01
+
+epoch 34 batch 6
+Linesearch      1;  Value 6.316456e+01
+Linesearch      2;  Value 6.291784e+01
+Linesearch      3;  Value 6.273169e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 35 Train squared error:  4.939 Test squared error:  8.125 	 	 
+epoch 35 batch 1
+Linesearch      1;  Value 6.369056e+01
+Linesearch      2;  Value 6.345965e+01
+Linesearch      3;  Value 6.325237e+01
+
+epoch 35 batch 2
+Linesearch      1;  Value 6.317029e+01
+Linesearch      2;  Value 6.297081e+01
+Linesearch      3;  Value 6.280139e+01
+
+epoch 35 batch 3
+Linesearch      1;  Value 6.418575e+01
+Linesearch      2;  Value 6.392161e+01
+Linesearch      3;  Value 6.371097e+01
+
+epoch 35 batch 4
+Linesearch      1;  Value 6.386709e+01
+Linesearch      2;  Value 6.367125e+01
+Linesearch      3;  Value 6.350348e+01
+
+epoch 35 batch 5
+Linesearch      1;  Value 6.334347e+01
+Linesearch      2;  Value 6.316723e+01
+Linesearch      3;  Value 6.291705e+01
+
+epoch 35 batch 6
+Linesearch      1;  Value 6.305159e+01
+Linesearch      2;  Value 6.279932e+01
+Linesearch      3;  Value 6.260949e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 36 Train squared error:  4.913 Test squared error:  8.112 	 	 
+epoch 36 batch 1
+Linesearch      1;  Value 6.360293e+01
+Linesearch      2;  Value 6.339146e+01
+Linesearch      3;  Value 6.317280e+01
+
+epoch 36 batch 2
+Linesearch      1;  Value 6.309639e+01
+Linesearch      2;  Value 6.288146e+01
+Linesearch      3;  Value 6.267598e+01
+
+epoch 36 batch 3
+Linesearch      1;  Value 6.403861e+01
+Linesearch      2;  Value 6.382891e+01
+Linesearch      3;  Value 6.359770e+01
+
+epoch 36 batch 4
+Linesearch      1;  Value 6.381178e+01
+Linesearch      2;  Value 6.363459e+01
+Linesearch      3;  Value 6.343537e+01
+
+epoch 36 batch 5
+Linesearch      1;  Value 6.326994e+01
+Linesearch      2;  Value 6.309119e+01
+Linesearch      3;  Value 6.283059e+01
+
+epoch 36 batch 6
+Linesearch      1;  Value 6.296791e+01
+Linesearch      2;  Value 6.281873e+01
+Linesearch      3;  Value 6.259787e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 37 Train squared error:  4.877 Test squared error:  8.083 	 	 
+epoch 37 batch 1
+Linesearch      1;  Value 6.347863e+01
+Linesearch      2;  Value 6.325809e+01
+Linesearch      3;  Value 6.309037e+01
+
+epoch 37 batch 2
+Linesearch      1;  Value 6.304668e+01
+Linesearch      2;  Value 6.287192e+01
+Linesearch      3;  Value 6.263545e+01
+
+epoch 37 batch 3
+Linesearch      1;  Value 6.388552e+01
+Linesearch      2;  Value 6.368828e+01
+Linesearch      3;  Value 6.350469e+01
+
+epoch 37 batch 4
+Linesearch      1;  Value 6.376375e+01
+Linesearch      2;  Value 6.357847e+01
+Linesearch      3;  Value 6.336945e+01
+
+epoch 37 batch 5
+Linesearch      1;  Value 6.312588e+01
+Linesearch      2;  Value 6.286976e+01
+Linesearch      3;  Value 6.269557e+01
+
+epoch 37 batch 6
+Linesearch      1;  Value 6.297245e+01
+Linesearch      2;  Value 6.278963e+01
+Linesearch      3;  Value 6.255200e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 38 Train squared error:  4.843 Test squared error:  8.065 	 	 
+epoch 38 batch 1
+Linesearch      1;  Value 6.340000e+01
+Linesearch      2;  Value 6.323260e+01
+Linesearch      3;  Value 6.301573e+01
+
+epoch 38 batch 2
+Linesearch      1;  Value 6.295723e+01
+Linesearch      2;  Value 6.276201e+01
+Linesearch      3;  Value 6.261605e+01
+
+epoch 38 batch 3
+Linesearch      1;  Value 6.386125e+01
+Linesearch      2;  Value 6.366185e+01
+Linesearch      3;  Value 6.341490e+01
+
+epoch 38 batch 4
+Linesearch      1;  Value 6.365853e+01
+Linesearch      2;  Value 6.341034e+01
+Linesearch      3;  Value 6.316373e+01
+
+epoch 38 batch 5
+Linesearch      1;  Value 6.311575e+01
+Linesearch      2;  Value 6.291859e+01
+Linesearch      3;  Value 6.266185e+01
+
+epoch 38 batch 6
+Linesearch      1;  Value 6.288335e+01
+Linesearch      2;  Value 6.265408e+01
+Linesearch      3;  Value 6.247038e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 39 Train squared error:  4.846 Test squared error:  8.078 	 	 
+epoch 39 batch 1
+Linesearch      1;  Value 6.339961e+01
+Linesearch      2;  Value 6.321476e+01
+Linesearch      3;  Value 6.298711e+01
+
+epoch 39 batch 2
+Linesearch      1;  Value 6.290622e+01
+Linesearch      2;  Value 6.272025e+01
+Linesearch      3;  Value 6.255587e+01
+
+epoch 39 batch 3
+Linesearch      1;  Value 6.380007e+01
+Linesearch      2;  Value 6.357557e+01
+Linesearch      3;  Value 6.335679e+01
+
+epoch 39 batch 4
+Linesearch      1;  Value 6.346835e+01
+Linesearch      2;  Value 6.331638e+01
+Linesearch      3;  Value 6.312831e+01
+
+epoch 39 batch 5
+Linesearch      1;  Value 6.299044e+01
+Linesearch      2;  Value 6.281110e+01
+Linesearch      3;  Value 6.258747e+01
+
+epoch 39 batch 6
+Linesearch      1;  Value 6.276952e+01
+Linesearch      2;  Value 6.264536e+01
+Linesearch      3;  Value 6.238611e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 40 Train squared error:  4.805 Test squared error:  8.046 	 	 
+epoch 40 batch 1
+Linesearch      1;  Value 6.324154e+01
+Linesearch      2;  Value 6.301291e+01
+Linesearch      3;  Value 6.285068e+01
+
+epoch 40 batch 2
+Linesearch      1;  Value 6.287155e+01
+Linesearch      2;  Value 6.270117e+01
+Linesearch      3;  Value 6.246426e+01
+
+epoch 40 batch 3
+Linesearch      1;  Value 6.364800e+01
+Linesearch      2;  Value 6.345841e+01
+Linesearch      3;  Value 6.326802e+01
+
+epoch 40 batch 4
+Linesearch      1;  Value 6.346642e+01
+Linesearch      2;  Value 6.329868e+01
+Linesearch      3;  Value 6.312094e+01
+
+epoch 40 batch 5
+Linesearch      1;  Value 6.289966e+01
+Linesearch      2;  Value 6.264117e+01
+Linesearch      3;  Value 6.240389e+01
+
+epoch 40 batch 6
+Linesearch      1;  Value 6.278681e+01
+Linesearch      2;  Value 6.249690e+01
+Linesearch      3;  Value 6.233363e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 41 Train squared error:  4.791 Test squared error:  8.044 	 	 
+epoch 41 batch 1
+Linesearch      1;  Value 6.323967e+01
+Linesearch      2;  Value 6.303903e+01
+Linesearch      3;  Value 6.282056e+01
+
+epoch 41 batch 2
+Linesearch      1;  Value 6.278250e+01
+Linesearch      2;  Value 6.264804e+01
+Linesearch      3;  Value 6.244115e+01
+
+epoch 41 batch 3
+Linesearch      1;  Value 6.355998e+01
+Linesearch      2;  Value 6.334394e+01
+Linesearch      3;  Value 6.317614e+01
+
+epoch 41 batch 4
+Linesearch      1;  Value 6.344226e+01
+Linesearch      2;  Value 6.327583e+01
+Linesearch      3;  Value 6.305105e+01
+
+epoch 41 batch 5
+Linesearch      1;  Value 6.272535e+01
+Linesearch      2;  Value 6.250799e+01
+Linesearch      3;  Value 6.234227e+01
+
+epoch 41 batch 6
+Linesearch      1;  Value 6.266192e+01
+Linesearch      2;  Value 6.252720e+01
+Linesearch      3;  Value 6.227583e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 42 Train squared error:  4.761 Test squared error:  8.026 	 	 
+epoch 42 batch 1
+Linesearch      1;  Value 6.311688e+01
+Linesearch      2;  Value 6.291942e+01
+Linesearch      3;  Value 6.274898e+01
+
+epoch 42 batch 2
+Linesearch      1;  Value 6.275335e+01
+Linesearch      2;  Value 6.260598e+01
+Linesearch      3;  Value 6.238901e+01
+
+epoch 42 batch 3
+Linesearch      1;  Value 6.347667e+01
+Linesearch      2;  Value 6.331751e+01
+Linesearch      3;  Value 6.312789e+01
+
+epoch 42 batch 4
+Linesearch      1;  Value 6.334700e+01
+Linesearch      2;  Value 6.319677e+01
+Linesearch      3;  Value 6.300059e+01
+
+epoch 42 batch 5
+Linesearch      1;  Value 6.265321e+01
+Linesearch      2;  Value 6.249798e+01
+Linesearch      3;  Value 6.229320e+01
+
+epoch 42 batch 6
+Linesearch      1;  Value 6.255336e+01
+Linesearch      2;  Value 6.242332e+01
+Linesearch      3;  Value 6.220935e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 43 Train squared error:  4.746 Test squared error:  8.024 	 	 
+epoch 43 batch 1
+Linesearch      1;  Value 6.305813e+01
+Linesearch      2;  Value 6.292075e+01
+Linesearch      3;  Value 6.270796e+01
+
+epoch 43 batch 2
+Linesearch      1;  Value 6.262944e+01
+Linesearch      2;  Value 6.246794e+01
+Linesearch      3;  Value 6.221083e+01
+
+epoch 43 batch 3
+Linesearch      1;  Value 6.351965e+01
+Linesearch      2;  Value 6.331130e+01
+Linesearch      3;  Value 6.309175e+01
+
+epoch 43 batch 4
+Linesearch      1;  Value 6.326993e+01
+Linesearch      2;  Value 6.308571e+01
+Linesearch      3;  Value 6.292051e+01
+
+epoch 43 batch 5
+Linesearch      1;  Value 6.265818e+01
+Linesearch      2;  Value 6.250680e+01
+Linesearch      3;  Value 6.226859e+01
+
+epoch 43 batch 6
+Linesearch      1;  Value 6.250026e+01
+Linesearch      2;  Value 6.235230e+01
+Linesearch      3;  Value 6.216798e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 44 Train squared error:  4.709 Test squared error:  7.998 	 	 
+epoch 44 batch 1
+Linesearch      1;  Value 6.298021e+01
+Linesearch      2;  Value 6.281254e+01
+Linesearch      3;  Value 6.262197e+01
+
+epoch 44 batch 2
+Linesearch      1;  Value 6.251753e+01
+Linesearch      2;  Value 6.239148e+01
+Linesearch      3;  Value 6.219209e+01
+
+epoch 44 batch 3
+Linesearch      1;  Value 6.336375e+01
+Linesearch      2;  Value 6.318913e+01
+Linesearch      3;  Value 6.304588e+01
+
+epoch 44 batch 4
+Linesearch      1;  Value 6.322636e+01
+Linesearch      2;  Value 6.306350e+01
+Linesearch      3;  Value 6.289539e+01
+
+epoch 44 batch 5
+Linesearch      1;  Value 6.250721e+01
+Linesearch      2;  Value 6.230077e+01
+Linesearch      3;  Value 6.216414e+01
+
+epoch 44 batch 6
+Linesearch      1;  Value 6.247040e+01
+Linesearch      2;  Value 6.231123e+01
+Linesearch      3;  Value 6.210668e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 45 Train squared error:  4.701 Test squared error:  8.001 	 	 
+epoch 45 batch 1
+Linesearch      1;  Value 6.288163e+01
+Linesearch      2;  Value 6.272387e+01
+Linesearch      3;  Value 6.253959e+01
+
+epoch 45 batch 2
+Linesearch      1;  Value 6.246585e+01
+Linesearch      2;  Value 6.233906e+01
+Linesearch      3;  Value 6.214157e+01
+
+epoch 45 batch 3
+Linesearch      1;  Value 6.331892e+01
+Linesearch      2;  Value 6.315045e+01
+Linesearch      3;  Value 6.298601e+01
+
+epoch 45 batch 4
+Linesearch      1;  Value 6.317967e+01
+Linesearch      2;  Value 6.301334e+01
+Linesearch      3;  Value 6.286828e+01
+
+epoch 45 batch 5
+Linesearch      1;  Value 6.246798e+01
+Linesearch      2;  Value 6.231089e+01
+Linesearch      3;  Value 6.216934e+01
+
+epoch 45 batch 6
+Linesearch      1;  Value 6.234038e+01
+Linesearch      2;  Value 6.220501e+01
+Linesearch      3;  Value 6.203243e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 46 Train squared error:  4.683 Test squared error:  7.995 	 	 
+epoch 46 batch 1
+Linesearch      1;  Value 6.283532e+01
+Linesearch      2;  Value 6.269305e+01
+Linesearch      3;  Value 6.248314e+01
+
+epoch 46 batch 2
+Linesearch      1;  Value 6.237390e+01
+Linesearch      2;  Value 6.220737e+01
+Linesearch      3;  Value 6.198161e+01
+
+epoch 46 batch 3
+Linesearch      1;  Value 6.329210e+01
+Linesearch      2;  Value 6.310179e+01
+Linesearch      3;  Value 6.294479e+01
+
+epoch 46 batch 4
+Linesearch      1;  Value 6.311315e+01
+Linesearch      2;  Value 6.292884e+01
+Linesearch      3;  Value 6.279654e+01
+
+epoch 46 batch 5
+Linesearch      1;  Value 6.251086e+01
+Linesearch      2;  Value 6.234925e+01
+Linesearch      3;  Value 6.217696e+01
+
+epoch 46 batch 6
+Linesearch      1;  Value 6.227494e+01
+Linesearch      2;  Value 6.208948e+01
+Linesearch      3;  Value 6.190024e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 47 Train squared error:  4.698 Test squared error:  8.005 	 	 
+epoch 47 batch 1
+Linesearch      1;  Value 6.286371e+01
+Linesearch      2;  Value 6.267451e+01
+Linesearch      3;  Value 6.248467e+01
+
+epoch 47 batch 2
+Linesearch      1;  Value 6.223935e+01
+Linesearch      2;  Value 6.211657e+01
+Linesearch      3;  Value 6.191031e+01
+
+epoch 47 batch 3
+Linesearch      1;  Value 6.325600e+01
+Linesearch      2;  Value 6.307128e+01
+Linesearch      3;  Value 6.289401e+01
+
+epoch 47 batch 4
+Linesearch      1;  Value 6.307356e+01
+Linesearch      2;  Value 6.292779e+01
+Linesearch      3;  Value 6.270960e+01
+
+epoch 47 batch 5
+Linesearch      1;  Value 6.247787e+01
+Linesearch      2;  Value 6.225614e+01
+Linesearch      3;  Value 6.205201e+01
+
+epoch 47 batch 6
+Linesearch      1;  Value 6.216169e+01
+Linesearch      2;  Value 6.193176e+01
+Linesearch      3;  Value 6.178532e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 48 Train squared error:  4.660 Test squared error:  7.979 	 	 
+epoch 48 batch 1
+Linesearch      1;  Value 6.280702e+01
+Linesearch      2;  Value 6.264337e+01
+Linesearch      3;  Value 6.241296e+01
+
+epoch 48 batch 2
+Linesearch      1;  Value 6.220916e+01
+Linesearch      2;  Value 6.208605e+01
+Linesearch      3;  Value 6.185720e+01
+
+epoch 48 batch 3
+Linesearch      1;  Value 6.321803e+01
+Linesearch      2;  Value 6.301085e+01
+Linesearch      3;  Value 6.283416e+01
+
+epoch 48 batch 4
+Linesearch      1;  Value 6.303391e+01
+Linesearch      2;  Value 6.288552e+01
+Linesearch      3;  Value 6.270158e+01
+
+epoch 48 batch 5
+Linesearch      1;  Value 6.236329e+01
+Linesearch      2;  Value 6.217225e+01
+Linesearch      3;  Value 6.204642e+01
+
+epoch 48 batch 6
+Linesearch      1;  Value 6.209426e+01
+Linesearch      2;  Value 6.196620e+01
+Linesearch      3;  Value 6.177934e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 49 Train squared error:  4.621 Test squared error:  7.956 	 	 
+epoch 49 batch 1
+Linesearch      1;  Value 6.267975e+01
+Linesearch      2;  Value 6.252057e+01
+Linesearch      3;  Value 6.235900e+01
+
+epoch 49 batch 2
+Linesearch      1;  Value 6.214848e+01
+Linesearch      2;  Value 6.203827e+01
+Linesearch      3;  Value 6.185224e+01
+
+epoch 49 batch 3
+Linesearch      1;  Value 6.308444e+01
+Linesearch      2;  Value 6.293048e+01
+Linesearch      3;  Value 6.272074e+01
+
+epoch 49 batch 4
+Linesearch      1;  Value 6.297096e+01
+Linesearch      2;  Value 6.281418e+01
+Linesearch      3;  Value 6.264693e+01
+
+epoch 49 batch 5
+Linesearch      1;  Value 6.233395e+01
+Linesearch      2;  Value 6.219742e+01
+Linesearch      3;  Value 6.203749e+01
+
+epoch 49 batch 6
+Linesearch      1;  Value 6.203440e+01
+Linesearch      2;  Value 6.191217e+01
+Linesearch      3;  Value 6.175406e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 50 Train squared error:  4.613 Test squared error:  7.958 	 	 
+epoch 50 batch 1
+Linesearch      1;  Value 6.261283e+01
+Linesearch      2;  Value 6.247600e+01
+Linesearch      3;  Value 6.229478e+01
+
+epoch 50 batch 2
+Linesearch      1;  Value 6.207602e+01
+Linesearch      2;  Value 6.192237e+01
+Linesearch      3;  Value 6.168717e+01
+
+epoch 50 batch 3
+Linesearch      1;  Value 6.309863e+01
+Linesearch      2;  Value 6.287830e+01
+Linesearch      3;  Value 6.267411e+01
+
+epoch 50 batch 4
+Linesearch      1;  Value 6.291085e+01
+Linesearch      2;  Value 6.271474e+01
+Linesearch      3;  Value 6.253988e+01
+
+epoch 50 batch 5
+Linesearch      1;  Value 6.239495e+01
+Linesearch      2;  Value 6.223512e+01
+Linesearch      3;  Value 6.204001e+01
+
+epoch 50 batch 6
+Linesearch      1;  Value 6.201266e+01
+Linesearch      2;  Value 6.184301e+01
+Linesearch      3;  Value 6.158706e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 51 Train squared error:  4.626 Test squared error:  7.974 	 	 
+epoch 51 batch 1
+Linesearch      1;  Value 6.269901e+01
+Linesearch      2;  Value 6.253468e+01
+Linesearch      3;  Value 6.230388e+01
+
+epoch 51 batch 2
+Linesearch      1;  Value 6.199140e+01
+Linesearch      2;  Value 6.183884e+01
+Linesearch      3;  Value 6.162289e+01
+
+epoch 51 batch 3
+Linesearch      1;  Value 6.304249e+01
+Linesearch      2;  Value 6.280900e+01
+Linesearch      3;  Value 6.259494e+01
+
+epoch 51 batch 4
+Linesearch      1;  Value 6.282733e+01
+Linesearch      2;  Value 6.260990e+01
+Linesearch      3;  Value 6.242069e+01
+
+epoch 51 batch 5
+Linesearch      1;  Value 6.238438e+01
+Linesearch      2;  Value 6.221818e+01
+Linesearch      3;  Value 6.199990e+01
+
+epoch 51 batch 6
+Linesearch      1;  Value 6.189188e+01
+Linesearch      2;  Value 6.171771e+01
+Linesearch      3;  Value 6.151923e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 52 Train squared error:  4.582 Test squared error:  7.941 	 	 
+epoch 52 batch 1
+Linesearch      1;  Value 6.260573e+01
+Linesearch      2;  Value 6.244133e+01
+Linesearch      3;  Value 6.223178e+01
+
+epoch 52 batch 2
+Linesearch      1;  Value 6.195750e+01
+Linesearch      2;  Value 6.183407e+01
+Linesearch      3;  Value 6.164197e+01
+
+epoch 52 batch 3
+Linesearch      1;  Value 6.289696e+01
+Linesearch      2;  Value 6.272178e+01
+Linesearch      3;  Value 6.253862e+01
+
+epoch 52 batch 4
+Linesearch      1;  Value 6.271923e+01
+Linesearch      2;  Value 6.259482e+01
+Linesearch      3;  Value 6.235156e+01
+
+epoch 52 batch 5
+Linesearch      1;  Value 6.227921e+01
+Linesearch      2;  Value 6.205016e+01
+Linesearch      3;  Value 6.189319e+01
+
+epoch 52 batch 6
+Linesearch      1;  Value 6.185434e+01
+Linesearch      2;  Value 6.170516e+01
+Linesearch      3;  Value 6.152697e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 53 Train squared error:  4.544 Test squared error:  7.916 	 	 
+epoch 53 batch 1
+Linesearch      1;  Value 6.248736e+01
+Linesearch      2;  Value 6.234162e+01
+Linesearch      3;  Value 6.214794e+01
+
+epoch 53 batch 2
+Linesearch      1;  Value 6.192490e+01
+Linesearch      2;  Value 6.181313e+01
+Linesearch      3;  Value 6.162521e+01
+
+epoch 53 batch 3
+Linesearch      1;  Value 6.283627e+01
+Linesearch      2;  Value 6.270090e+01
+Linesearch      3;  Value 6.246296e+01
+
+epoch 53 batch 4
+Linesearch      1;  Value 6.267413e+01
+Linesearch      2;  Value 6.248881e+01
+Linesearch      3;  Value 6.226288e+01
+
+epoch 53 batch 5
+Linesearch      1;  Value 6.223509e+01
+Linesearch      2;  Value 6.207122e+01
+Linesearch      3;  Value 6.190052e+01
+
+epoch 53 batch 6
+Linesearch      1;  Value 6.179255e+01
+Linesearch      2;  Value 6.164983e+01
+Linesearch      3;  Value 6.148019e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 54 Train squared error:  4.546 Test squared error:  7.930 	 	 
+epoch 54 batch 1
+Linesearch      1;  Value 6.247710e+01
+Linesearch      2;  Value 6.231971e+01
+Linesearch      3;  Value 6.212102e+01
+
+epoch 54 batch 2
+Linesearch      1;  Value 6.186870e+01
+Linesearch      2;  Value 6.170436e+01
+Linesearch      3;  Value 6.147033e+01
+
+epoch 54 batch 3
+Linesearch      1;  Value 6.278831e+01
+Linesearch      2;  Value 6.254219e+01
+Linesearch      3;  Value 6.241049e+01
+
+epoch 54 batch 4
+Linesearch      1;  Value 6.258850e+01
+Linesearch      2;  Value 6.243922e+01
+Linesearch      3;  Value 6.225800e+01
+
+epoch 54 batch 5
+Linesearch      1;  Value 6.219075e+01
+Linesearch      2;  Value 6.204554e+01
+Linesearch      3;  Value 6.188537e+01
+
+epoch 54 batch 6
+Linesearch      1;  Value 6.175097e+01
+Linesearch      2;  Value 6.162939e+01
+Linesearch      3;  Value 6.147977e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 55 Train squared error:  4.517 Test squared error:  7.909 	 	 
+epoch 55 batch 1
+Linesearch      1;  Value 6.240714e+01
+Linesearch      2;  Value 6.225677e+01
+Linesearch      3;  Value 6.204826e+01
+
+epoch 55 batch 2
+Linesearch      1;  Value 6.171872e+01
+Linesearch      2;  Value 6.152630e+01
+Linesearch      3;  Value 6.130853e+01
+
+epoch 55 batch 3
+Linesearch      1;  Value 6.274089e+01
+Linesearch      2;  Value 6.252337e+01
+Linesearch      3;  Value 6.232898e+01
+
+epoch 55 batch 4
+Linesearch      1;  Value 6.254962e+01
+Linesearch      2;  Value 6.240892e+01
+Linesearch      3;  Value 6.220075e+01
+
+epoch 55 batch 5
+Linesearch      1;  Value 6.217518e+01
+Linesearch      2;  Value 6.196793e+01
+Linesearch      3;  Value 6.181157e+01
+
+epoch 55 batch 6
+Linesearch      1;  Value 6.179808e+01
+Linesearch      2;  Value 6.165749e+01
+Linesearch      3;  Value 6.145531e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 56 Train squared error:  4.497 Test squared error:  7.899 	 	 
+epoch 56 batch 1
+Linesearch      1;  Value 6.236221e+01
+Linesearch      2;  Value 6.222975e+01
+Linesearch      3;  Value 6.202437e+01
+
+epoch 56 batch 2
+Linesearch      1;  Value 6.161586e+01
+Linesearch      2;  Value 6.149159e+01
+Linesearch      3;  Value 6.133949e+01
+
+epoch 56 batch 3
+Linesearch      1;  Value 6.263190e+01
+Linesearch      2;  Value 6.249152e+01
+Linesearch      3;  Value 6.224134e+01
+
+epoch 56 batch 4
+Linesearch      1;  Value 6.247125e+01
+Linesearch      2;  Value 6.227169e+01
+Linesearch      3;  Value 6.211537e+01
+
+epoch 56 batch 5
+Linesearch      1;  Value 6.213200e+01
+Linesearch      2;  Value 6.196034e+01
+Linesearch      3;  Value 6.175242e+01
+
+epoch 56 batch 6
+Linesearch      1;  Value 6.171054e+01
+Linesearch      2;  Value 6.159215e+01
+Linesearch      3;  Value 6.140873e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 57 Train squared error:  4.487 Test squared error:  7.895 	 	 
+epoch 57 batch 1
+Linesearch      1;  Value 6.228915e+01
+Linesearch      2;  Value 6.212770e+01
+Linesearch      3;  Value 6.196629e+01
+
+epoch 57 batch 2
+Linesearch      1;  Value 6.164065e+01
+Linesearch      2;  Value 6.153502e+01
+Linesearch      3;  Value 6.131332e+01
+
+epoch 57 batch 3
+Linesearch      1;  Value 6.253328e+01
+Linesearch      2;  Value 6.230601e+01
+Linesearch      3;  Value 6.210684e+01
+
+epoch 57 batch 4
+Linesearch      1;  Value 6.246941e+01
+Linesearch      2;  Value 6.228938e+01
+Linesearch      3;  Value 6.212199e+01
+
+epoch 57 batch 5
+Linesearch      1;  Value 6.204089e+01
+Linesearch      2;  Value 6.190444e+01
+Linesearch      3;  Value 6.171898e+01
+
+epoch 57 batch 6
+Linesearch      1;  Value 6.167219e+01
+Linesearch      2;  Value 6.151093e+01
+Linesearch      3;  Value 6.131068e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 58 Train squared error:  4.498 Test squared error:  7.916 	 	 
+epoch 58 batch 1
+Linesearch      1;  Value 6.232521e+01
+Linesearch      2;  Value 6.215058e+01
+Linesearch      3;  Value 6.194752e+01
+
+epoch 58 batch 2
+Linesearch      1;  Value 6.158837e+01
+Linesearch      2;  Value 6.141915e+01
+Linesearch      3;  Value 6.119891e+01
+
+epoch 58 batch 3
+Linesearch      1;  Value 6.245510e+01
+Linesearch      2;  Value 6.222158e+01
+Linesearch      3;  Value 6.210880e+01
+
+epoch 58 batch 4
+Linesearch      1;  Value 6.243942e+01
+Linesearch      2;  Value 6.226961e+01
+Linesearch      3;  Value 6.209149e+01
+
+epoch 58 batch 5
+Linesearch      1;  Value 6.199667e+01
+Linesearch      2;  Value 6.178129e+01
+Linesearch      3;  Value 6.162160e+01
+
+epoch 58 batch 6
+Linesearch      1;  Value 6.162291e+01
+Linesearch      2;  Value 6.146465e+01
+Linesearch      3;  Value 6.129537e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 59 Train squared error:  4.446 Test squared error:  7.873 	 	 
+epoch 59 batch 1
+Linesearch      1;  Value 6.219435e+01
+Linesearch      2;  Value 6.206023e+01
+Linesearch      3;  Value 6.186880e+01
+
+epoch 59 batch 2
+Linesearch      1;  Value 6.148502e+01
+Linesearch      2;  Value 6.135345e+01
+Linesearch      3;  Value 6.118367e+01
+
+epoch 59 batch 3
+Linesearch      1;  Value 6.242734e+01
+Linesearch      2;  Value 6.225695e+01
+Linesearch      3;  Value 6.202729e+01
+
+epoch 59 batch 4
+Linesearch      1;  Value 6.238305e+01
+Linesearch      2;  Value 6.221558e+01
+Linesearch      3;  Value 6.207592e+01
+
+epoch 59 batch 5
+Linesearch      1;  Value 6.191775e+01
+Linesearch      2;  Value 6.177265e+01
+Linesearch      3;  Value 6.159269e+01
+
+epoch 59 batch 6
+Linesearch      1;  Value 6.155791e+01
+Linesearch      2;  Value 6.144489e+01
+Linesearch      3;  Value 6.126999e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 60 Train squared error:  4.444 Test squared error:  7.875 	 	 
+epoch 60 batch 1
+Linesearch      1;  Value 6.210470e+01
+Linesearch      2;  Value 6.195799e+01
+Linesearch      3;  Value 6.180329e+01
+
+epoch 60 batch 2
+Linesearch      1;  Value 6.144760e+01
+Linesearch      2;  Value 6.135610e+01
+Linesearch      3;  Value 6.113384e+01
+
+epoch 60 batch 3
+Linesearch      1;  Value 6.230075e+01
+Linesearch      2;  Value 6.210736e+01
+Linesearch      3;  Value 6.187451e+01
+
+epoch 60 batch 4
+Linesearch      1;  Value 6.241303e+01
+Linesearch      2;  Value 6.224205e+01
+Linesearch      3;  Value 6.202263e+01
+
+epoch 60 batch 5
+Linesearch      1;  Value 6.188670e+01
+Linesearch      2;  Value 6.174607e+01
+Linesearch      3;  Value 6.154268e+01
+
+epoch 60 batch 6
+Linesearch      1;  Value 6.155947e+01
+Linesearch      2;  Value 6.142892e+01
+Linesearch      3;  Value 6.126115e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 61 Train squared error:  4.427 Test squared error:  7.872 	 	 
+epoch 61 batch 1
+Linesearch      1;  Value 6.211749e+01
+Linesearch      2;  Value 6.198975e+01
+Linesearch      3;  Value 6.175805e+01
+
+epoch 61 batch 2
+Linesearch      1;  Value 6.142157e+01
+Linesearch      2;  Value 6.128070e+01
+Linesearch      3;  Value 6.105344e+01
+
+epoch 61 batch 3
+Linesearch      1;  Value 6.227226e+01
+Linesearch      2;  Value 6.210187e+01
+Linesearch      3;  Value 6.188237e+01
+
+epoch 61 batch 4
+Linesearch      1;  Value 6.226824e+01
+Linesearch      2;  Value 6.211269e+01
+Linesearch      3;  Value 6.195040e+01
+
+epoch 61 batch 5
+Linesearch      1;  Value 6.184834e+01
+Linesearch      2;  Value 6.172410e+01
+Linesearch      3;  Value 6.147548e+01
+
+epoch 61 batch 6
+Linesearch      1;  Value 6.152465e+01
+Linesearch      2;  Value 6.142199e+01
+Linesearch      3;  Value 6.120637e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 62 Train squared error:  4.408 Test squared error:  7.857 	 	 
+epoch 62 batch 1
+Linesearch      1;  Value 6.202476e+01
+Linesearch      2;  Value 6.185669e+01
+Linesearch      3;  Value 6.165139e+01
+
+epoch 62 batch 2
+Linesearch      1;  Value 6.139265e+01
+Linesearch      2;  Value 6.126449e+01
+Linesearch      3;  Value 6.108115e+01
+
+epoch 62 batch 3
+Linesearch      1;  Value 6.216604e+01
+Linesearch      2;  Value 6.201722e+01
+Linesearch      3;  Value 6.176431e+01
+
+epoch 62 batch 4
+Linesearch      1;  Value 6.226985e+01
+Linesearch      2;  Value 6.207014e+01
+Linesearch      3;  Value 6.190043e+01
+
+epoch 62 batch 5
+Linesearch      1;  Value 6.182097e+01
+Linesearch      2;  Value 6.167006e+01
+Linesearch      3;  Value 6.145659e+01
+
+epoch 62 batch 6
+Linesearch      1;  Value 6.146348e+01
+Linesearch      2;  Value 6.125865e+01
+Linesearch      3;  Value 6.105574e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 63 Train squared error:  4.422 Test squared error:  7.873 	 	 
+epoch 63 batch 1
+Linesearch      1;  Value 6.197794e+01
+Linesearch      2;  Value 6.175731e+01
+Linesearch      3;  Value 6.159736e+01
+
+epoch 63 batch 2
+Linesearch      1;  Value 6.137379e+01
+Linesearch      2;  Value 6.125632e+01
+Linesearch      3;  Value 6.106786e+01
+
+epoch 63 batch 3
+Linesearch      1;  Value 6.207756e+01
+Linesearch      2;  Value 6.192916e+01
+Linesearch      3;  Value 6.179543e+01
+
+epoch 63 batch 4
+Linesearch      1;  Value 6.218982e+01
+Linesearch      2;  Value 6.205758e+01
+Linesearch      3;  Value 6.189454e+01
+
+epoch 63 batch 5
+Linesearch      1;  Value 6.173166e+01
+Linesearch      2;  Value 6.157811e+01
+Linesearch      3;  Value 6.140992e+01
+
+epoch 63 batch 6
+Linesearch      1;  Value 6.133049e+01
+Linesearch      2;  Value 6.122213e+01
+Linesearch      3;  Value 6.106510e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 64 Train squared error:  4.371 Test squared error:  7.835 	 	 
+epoch 64 batch 1
+Linesearch      1;  Value 6.183605e+01
+Linesearch      2;  Value 6.171128e+01
+Linesearch      3;  Value 6.155466e+01
+
+epoch 64 batch 2
+Linesearch      1;  Value 6.130742e+01
+Linesearch      2;  Value 6.119947e+01
+Linesearch      3;  Value 6.106076e+01
+
+epoch 64 batch 3
+Linesearch      1;  Value 6.200961e+01
+Linesearch      2;  Value 6.187205e+01
+Linesearch      3;  Value 6.173023e+01
+
+epoch 64 batch 4
+Linesearch      1;  Value 6.215349e+01
+Linesearch      2;  Value 6.202241e+01
+Linesearch      3;  Value 6.185975e+01
+
+epoch 64 batch 5
+Linesearch      1;  Value 6.164572e+01
+Linesearch      2;  Value 6.150336e+01
+Linesearch      3;  Value 6.134367e+01
+
+epoch 64 batch 6
+Linesearch      1;  Value 6.133488e+01
+Linesearch      2;  Value 6.122619e+01
+Linesearch      3;  Value 6.106098e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 65 Train squared error:  4.359 Test squared error:  7.830 	 	 
+epoch 65 batch 1
+Linesearch      1;  Value 6.177169e+01
+Linesearch      2;  Value 6.162301e+01
+Linesearch      3;  Value 6.146717e+01
+
+epoch 65 batch 2
+Linesearch      1;  Value 6.133379e+01
+Linesearch      2;  Value 6.120684e+01
+Linesearch      3;  Value 6.105437e+01
+
+epoch 65 batch 3
+Linesearch      1;  Value 6.196190e+01
+Linesearch      2;  Value 6.184493e+01
+Linesearch      3;  Value 6.169871e+01
+
+epoch 65 batch 4
+Linesearch      1;  Value 6.210476e+01
+Linesearch      2;  Value 6.198034e+01
+Linesearch      3;  Value 6.181211e+01
+
+epoch 65 batch 5
+Linesearch      1;  Value 6.158692e+01
+Linesearch      2;  Value 6.142895e+01
+Linesearch      3;  Value 6.128428e+01
+
+epoch 65 batch 6
+Linesearch      1;  Value 6.130862e+01
+Linesearch      2;  Value 6.119755e+01
+Linesearch      3;  Value 6.101117e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 66 Train squared error:  4.359 Test squared error:  7.838 	 	 
+epoch 66 batch 1
+Linesearch      1;  Value 6.172829e+01
+Linesearch      2;  Value 6.161975e+01
+Linesearch      3;  Value 6.144675e+01
+
+epoch 66 batch 2
+Linesearch      1;  Value 6.126570e+01
+Linesearch      2;  Value 6.113978e+01
+Linesearch      3;  Value 6.101279e+01
+
+epoch 66 batch 3
+Linesearch      1;  Value 6.197433e+01
+Linesearch      2;  Value 6.185456e+01
+Linesearch      3;  Value 6.168470e+01
+
+epoch 66 batch 4
+Linesearch      1;  Value 6.202529e+01
+Linesearch      2;  Value 6.186221e+01
+Linesearch      3;  Value 6.163940e+01
+
+epoch 66 batch 5
+Linesearch      1;  Value 6.162147e+01
+Linesearch      2;  Value 6.144333e+01
+Linesearch      3;  Value 6.126609e+01
+
+epoch 66 batch 6
+Linesearch      1;  Value 6.128037e+01
+Linesearch      2;  Value 6.117852e+01
+Linesearch      3;  Value 6.096529e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 67 Train squared error:  4.343 Test squared error:  7.828 	 	 
+epoch 67 batch 1
+Linesearch      1;  Value 6.173730e+01
+Linesearch      2;  Value 6.155931e+01
+Linesearch      3;  Value 6.139284e+01
+
+epoch 67 batch 2
+Linesearch      1;  Value 6.129236e+01
+Linesearch      2;  Value 6.116725e+01
+Linesearch      3;  Value 6.099144e+01
+
+epoch 67 batch 3
+Linesearch      1;  Value 6.196347e+01
+Linesearch      2;  Value 6.183374e+01
+Linesearch      3;  Value 6.169224e+01
+
+epoch 67 batch 4
+Linesearch      1;  Value 6.189285e+01
+Linesearch      2;  Value 6.178762e+01
+Linesearch      3;  Value 6.162930e+01
+
+epoch 67 batch 5
+Linesearch      1;  Value 6.150266e+01
+Linesearch      2;  Value 6.134684e+01
+Linesearch      3;  Value 6.120513e+01
+
+epoch 67 batch 6
+Linesearch      1;  Value 6.122047e+01
+Linesearch      2;  Value 6.110455e+01
+Linesearch      3;  Value 6.092423e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 68 Train squared error:  4.349 Test squared error:  7.839 	 	 
+epoch 68 batch 1
+Linesearch      1;  Value 6.163334e+01
+Linesearch      2;  Value 6.152404e+01
+Linesearch      3;  Value 6.135799e+01
+
+epoch 68 batch 2
+Linesearch      1;  Value 6.121388e+01
+Linesearch      2;  Value 6.110523e+01
+Linesearch      3;  Value 6.096300e+01
+
+epoch 68 batch 3
+Linesearch      1;  Value 6.194882e+01
+Linesearch      2;  Value 6.183860e+01
+Linesearch      3;  Value 6.168850e+01
+
+epoch 68 batch 4
+Linesearch      1;  Value 6.185644e+01
+Linesearch      2;  Value 6.174693e+01
+Linesearch      3;  Value 6.160024e+01
+
+epoch 68 batch 5
+Linesearch      1;  Value 6.145617e+01
+Linesearch      2;  Value 6.132519e+01
+Linesearch      3;  Value 6.117163e+01
+
+epoch 68 batch 6
+Linesearch      1;  Value 6.112224e+01
+Linesearch      2;  Value 6.103347e+01
+Linesearch      3;  Value 6.084184e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 69 Train squared error:  4.320 Test squared error:  7.821 	 	 
+epoch 69 batch 1
+Linesearch      1;  Value 6.160997e+01
+Linesearch      2;  Value 6.150264e+01
+Linesearch      3;  Value 6.133423e+01
+
+epoch 69 batch 2
+Linesearch      1;  Value 6.117047e+01
+Linesearch      2;  Value 6.104676e+01
+Linesearch      3;  Value 6.091599e+01
+
+epoch 69 batch 3
+Linesearch      1;  Value 6.194819e+01
+Linesearch      2;  Value 6.182737e+01
+Linesearch      3;  Value 6.166606e+01
+
+epoch 69 batch 4
+Linesearch      1;  Value 6.180926e+01
+Linesearch      2;  Value 6.166057e+01
+Linesearch      3;  Value 6.145274e+01
+
+epoch 69 batch 5
+Linesearch      1;  Value 6.149400e+01
+Linesearch      2;  Value 6.134105e+01
+Linesearch      3;  Value 6.112118e+01
+
+epoch 69 batch 6
+Linesearch      1;  Value 6.109934e+01
+Linesearch      2;  Value 6.094869e+01
+Linesearch      3;  Value 6.078425e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 70 Train squared error:  4.304 Test squared error:  7.809 	 	 
+epoch 70 batch 1
+Linesearch      1;  Value 6.162784e+01
+Linesearch      2;  Value 6.149820e+01
+Linesearch      3;  Value 6.128888e+01
+
+epoch 70 batch 2
+Linesearch      1;  Value 6.116718e+01
+Linesearch      2;  Value 6.108180e+01
+Linesearch      3;  Value 6.090109e+01
+
+epoch 70 batch 3
+Linesearch      1;  Value 6.194109e+01
+Linesearch      2;  Value 6.181319e+01
+Linesearch      3;  Value 6.167839e+01
+
+epoch 70 batch 4
+Linesearch      1;  Value 6.171516e+01
+Linesearch      2;  Value 6.162111e+01
+Linesearch      3;  Value 6.144573e+01
+
+epoch 70 batch 5
+Linesearch      1;  Value 6.137908e+01
+Linesearch      2;  Value 6.120745e+01
+Linesearch      3;  Value 6.107060e+01
+
+epoch 70 batch 6
+Linesearch      1;  Value 6.105588e+01
+Linesearch      2;  Value 6.094790e+01
+Linesearch      3;  Value 6.073313e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 71 Train squared error:  4.293 Test squared error:  7.809 	 	 
+epoch 71 batch 1
+Linesearch      1;  Value 6.153188e+01
+Linesearch      2;  Value 6.140843e+01
+Linesearch      3;  Value 6.124950e+01
+
+epoch 71 batch 2
+Linesearch      1;  Value 6.112020e+01
+Linesearch      2;  Value 6.102999e+01
+Linesearch      3;  Value 6.084436e+01
+
+epoch 71 batch 3
+Linesearch      1;  Value 6.190788e+01
+Linesearch      2;  Value 6.180648e+01
+Linesearch      3;  Value 6.163480e+01
+
+epoch 71 batch 4
+Linesearch      1;  Value 6.170040e+01
+Linesearch      2;  Value 6.159031e+01
+Linesearch      3;  Value 6.145382e+01
+
+epoch 71 batch 5
+Linesearch      1;  Value 6.132252e+01
+Linesearch      2;  Value 6.121775e+01
+Linesearch      3;  Value 6.104021e+01
+
+epoch 71 batch 6
+Linesearch      1;  Value 6.096825e+01
+Linesearch      2;  Value 6.085556e+01
+Linesearch      3;  Value 6.071174e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 72 Train squared error:  4.280 Test squared error:  7.809 	 	 
+epoch 72 batch 1
+Linesearch      1;  Value 6.151095e+01
+Linesearch      2;  Value 6.140386e+01
+Linesearch      3;  Value 6.123774e+01
+
+epoch 72 batch 2
+Linesearch      1;  Value 6.102826e+01
+Linesearch      2;  Value 6.091110e+01
+Linesearch      3;  Value 6.071360e+01
+
+epoch 72 batch 3
+Linesearch      1;  Value 6.194068e+01
+Linesearch      2;  Value 6.178116e+01
+Linesearch      3;  Value 6.161531e+01
+
+epoch 72 batch 4
+Linesearch      1;  Value 6.167756e+01
+Linesearch      2;  Value 6.154537e+01
+Linesearch      3;  Value 6.136222e+01
+
+epoch 72 batch 5
+Linesearch      1;  Value 6.134259e+01
+Linesearch      2;  Value 6.120675e+01
+Linesearch      3;  Value 6.103926e+01
+
+epoch 72 batch 6
+Linesearch      1;  Value 6.096191e+01
+Linesearch      2;  Value 6.088022e+01
+Linesearch      3;  Value 6.066082e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 73 Train squared error:  4.267 Test squared error:  7.797 	 	 
+epoch 73 batch 1
+Linesearch      1;  Value 6.149061e+01
+Linesearch      2;  Value 6.134442e+01
+Linesearch      3;  Value 6.117840e+01
+
+epoch 73 batch 2
+Linesearch      1;  Value 6.097689e+01
+Linesearch      2;  Value 6.088673e+01
+Linesearch      3;  Value 6.072097e+01
+
+epoch 73 batch 3
+Linesearch      1;  Value 6.186177e+01
+Linesearch      2;  Value 6.175070e+01
+Linesearch      3;  Value 6.160442e+01
+
+epoch 73 batch 4
+Linesearch      1;  Value 6.160603e+01
+Linesearch      2;  Value 6.150427e+01
+Linesearch      3;  Value 6.136041e+01
+
+epoch 73 batch 5
+Linesearch      1;  Value 6.126818e+01
+Linesearch      2;  Value 6.115107e+01
+Linesearch      3;  Value 6.099637e+01
+
+epoch 73 batch 6
+Linesearch      1;  Value 6.087474e+01
+Linesearch      2;  Value 6.079011e+01
+Linesearch      3;  Value 6.061804e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 74 Train squared error:  4.257 Test squared error:  7.798 	 	 
+epoch 74 batch 1
+Linesearch      1;  Value 6.142398e+01
+Linesearch      2;  Value 6.132492e+01
+Linesearch      3;  Value 6.115647e+01
+
+epoch 74 batch 2
+Linesearch      1;  Value 6.091813e+01
+Linesearch      2;  Value 6.081034e+01
+Linesearch      3;  Value 6.063982e+01
+
+epoch 74 batch 3
+Linesearch      1;  Value 6.187838e+01
+Linesearch      2;  Value 6.173564e+01
+Linesearch      3;  Value 6.155756e+01
+
+epoch 74 batch 4
+Linesearch      1;  Value 6.158164e+01
+Linesearch      2;  Value 6.144912e+01
+Linesearch      3;  Value 6.129725e+01
+
+epoch 74 batch 5
+Linesearch      1;  Value 6.128175e+01
+Linesearch      2;  Value 6.115601e+01
+Linesearch      3;  Value 6.098568e+01
+
+epoch 74 batch 6
+Linesearch      1;  Value 6.084962e+01
+Linesearch      2;  Value 6.075350e+01
+Linesearch      3;  Value 6.059554e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 75 Train squared error:  4.234 Test squared error:  7.778 	 	 
+epoch 75 batch 1
+Linesearch      1;  Value 6.139536e+01
+Linesearch      2;  Value 6.128366e+01
+Linesearch      3;  Value 6.111185e+01
+
+epoch 75 batch 2
+Linesearch      1;  Value 6.088845e+01
+Linesearch      2;  Value 6.080171e+01
+Linesearch      3;  Value 6.064347e+01
+
+epoch 75 batch 3
+Linesearch      1;  Value 6.177858e+01
+Linesearch      2;  Value 6.164503e+01
+Linesearch      3;  Value 6.151344e+01
+
+epoch 75 batch 4
+Linesearch      1;  Value 6.154483e+01
+Linesearch      2;  Value 6.143655e+01
+Linesearch      3;  Value 6.129010e+01
+
+epoch 75 batch 5
+Linesearch      1;  Value 6.117951e+01
+Linesearch      2;  Value 6.102364e+01
+Linesearch      3;  Value 6.088362e+01
+
+epoch 75 batch 6
+Linesearch      1;  Value 6.085709e+01
+Linesearch      2;  Value 6.075319e+01
+Linesearch      3;  Value 6.057954e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 76 Train squared error:  4.226 Test squared error:  7.779 	 	 
+epoch 76 batch 1
+Linesearch      1;  Value 6.132883e+01
+Linesearch      2;  Value 6.120550e+01
+Linesearch      3;  Value 6.105334e+01
+
+epoch 76 batch 2
+Linesearch      1;  Value 6.088387e+01
+Linesearch      2;  Value 6.079141e+01
+Linesearch      3;  Value 6.060754e+01
+
+epoch 76 batch 3
+Linesearch      1;  Value 6.174266e+01
+Linesearch      2;  Value 6.163306e+01
+Linesearch      3;  Value 6.147042e+01
+
+epoch 76 batch 4
+Linesearch      1;  Value 6.153561e+01
+Linesearch      2;  Value 6.143417e+01
+Linesearch      3;  Value 6.128498e+01
+
+epoch 76 batch 5
+Linesearch      1;  Value 6.111977e+01
+Linesearch      2;  Value 6.102135e+01
+Linesearch      3;  Value 6.085835e+01
+
+epoch 76 batch 6
+Linesearch      1;  Value 6.079308e+01
+Linesearch      2;  Value 6.070404e+01
+Linesearch      3;  Value 6.054600e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 77 Train squared error:  4.226 Test squared error:  7.788 	 	 
+epoch 77 batch 1
+Linesearch      1;  Value 6.130455e+01
+Linesearch      2;  Value 6.120853e+01
+Linesearch      3;  Value 6.105227e+01
+
+epoch 77 batch 2
+Linesearch      1;  Value 6.079303e+01
+Linesearch      2;  Value 6.068715e+01
+Linesearch      3;  Value 6.047498e+01
+
+epoch 77 batch 3
+Linesearch      1;  Value 6.177814e+01
+Linesearch      2;  Value 6.161686e+01
+Linesearch      3;  Value 6.140782e+01
+
+epoch 77 batch 4
+Linesearch      1;  Value 6.150522e+01
+Linesearch      2;  Value 6.135408e+01
+Linesearch      3;  Value 6.119486e+01
+
+epoch 77 batch 5
+Linesearch      1;  Value 6.116385e+01
+Linesearch      2;  Value 6.104705e+01
+Linesearch      3;  Value 6.085278e+01
+
+epoch 77 batch 6
+Linesearch      1;  Value 6.078168e+01
+Linesearch      2;  Value 6.070544e+01
+Linesearch      3;  Value 6.051267e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 78 Train squared error:  4.205 Test squared error:  7.769 	 	 
+epoch 78 batch 1
+Linesearch      1;  Value 6.130018e+01
+Linesearch      2;  Value 6.116332e+01
+Linesearch      3;  Value 6.098815e+01
+
+epoch 78 batch 2
+Linesearch      1;  Value 6.079167e+01
+Linesearch      2;  Value 6.068047e+01
+Linesearch      3;  Value 6.049735e+01
+
+epoch 78 batch 3
+Linesearch      1;  Value 6.165266e+01
+Linesearch      2;  Value 6.144879e+01
+Linesearch      3;  Value 6.128776e+01
+
+epoch 78 batch 4
+Linesearch      1;  Value 6.152567e+01
+Linesearch      2;  Value 6.136766e+01
+Linesearch      3;  Value 6.121019e+01
+
+epoch 78 batch 5
+Linesearch      1;  Value 6.108399e+01
+Linesearch      2;  Value 6.096722e+01
+Linesearch      3;  Value 6.081816e+01
+
+epoch 78 batch 6
+Linesearch      1;  Value 6.076055e+01
+Linesearch      2;  Value 6.064272e+01
+Linesearch      3;  Value 6.052259e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 79 Train squared error:  4.189 Test squared error:  7.765 	 	 
+epoch 79 batch 1
+Linesearch      1;  Value 6.122508e+01
+Linesearch      2;  Value 6.110816e+01
+Linesearch      3;  Value 6.092855e+01
+
+epoch 79 batch 2
+Linesearch      1;  Value 6.072215e+01
+Linesearch      2;  Value 6.058586e+01
+Linesearch      3;  Value 6.039681e+01
+
+epoch 79 batch 3
+Linesearch      1;  Value 6.159298e+01
+Linesearch      2;  Value 6.142848e+01
+Linesearch      3;  Value 6.127041e+01
+
+epoch 79 batch 4
+Linesearch      1;  Value 6.145825e+01
+Linesearch      2;  Value 6.135234e+01
+Linesearch      3;  Value 6.119193e+01
+
+epoch 79 batch 5
+Linesearch      1;  Value 6.106784e+01
+Linesearch      2;  Value 6.095009e+01
+Linesearch      3;  Value 6.082681e+01
+
+epoch 79 batch 6
+Linesearch      1;  Value 6.074579e+01
+Linesearch      2;  Value 6.065658e+01
+Linesearch      3;  Value 6.051516e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 80 Train squared error:  4.177 Test squared error:  7.753 	 	 
+epoch 80 batch 1
+Linesearch      1;  Value 6.113659e+01
+Linesearch      2;  Value 6.101980e+01
+Linesearch      3;  Value 6.087434e+01
+
+epoch 80 batch 2
+Linesearch      1;  Value 6.064808e+01
+Linesearch      2;  Value 6.055380e+01
+Linesearch      3;  Value 6.040049e+01
+
+epoch 80 batch 3
+Linesearch      1;  Value 6.148174e+01
+Linesearch      2;  Value 6.132732e+01
+Linesearch      3;  Value 6.110419e+01
+
+epoch 80 batch 4
+Linesearch      1;  Value 6.149704e+01
+Linesearch      2;  Value 6.135173e+01
+Linesearch      3;  Value 6.117192e+01
+
+epoch 80 batch 5
+Linesearch      1;  Value 6.104672e+01
+Linesearch      2;  Value 6.090978e+01
+Linesearch      3;  Value 6.074319e+01
+
+epoch 80 batch 6
+Linesearch      1;  Value 6.080432e+01
+Linesearch      2;  Value 6.067514e+01
+Linesearch      3;  Value 6.053427e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 81 Train squared error:  4.162 Test squared error:  7.746 	 	 
+epoch 81 batch 1
+Linesearch      1;  Value 6.111023e+01
+Linesearch      2;  Value 6.100806e+01
+Linesearch      3;  Value 6.086923e+01
+
+epoch 81 batch 2
+Linesearch      1;  Value 6.063948e+01
+Linesearch      2;  Value 6.055039e+01
+Linesearch      3;  Value 6.039611e+01
+
+epoch 81 batch 3
+Linesearch      1;  Value 6.136139e+01
+Linesearch      2;  Value 6.125726e+01
+Linesearch      3;  Value 6.107771e+01
+
+epoch 81 batch 4
+Linesearch      1;  Value 6.141678e+01
+Linesearch      2;  Value 6.127356e+01
+Linesearch      3;  Value 6.107339e+01
+
+epoch 81 batch 5
+Linesearch      1;  Value 6.100541e+01
+Linesearch      2;  Value 6.088897e+01
+Linesearch      3;  Value 6.075197e+01
+
+epoch 81 batch 6
+Linesearch      1;  Value 6.074064e+01
+Linesearch      2;  Value 6.065385e+01
+Linesearch      3;  Value 6.049204e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 82 Train squared error:  4.162 Test squared error:  7.752 	 	 
+epoch 82 batch 1
+Linesearch      1;  Value 6.111811e+01
+Linesearch      2;  Value 6.101252e+01
+Linesearch      3;  Value 6.087994e+01
+
+epoch 82 batch 2
+Linesearch      1;  Value 6.059087e+01
+Linesearch      2;  Value 6.048858e+01
+Linesearch      3;  Value 6.034796e+01
+
+epoch 82 batch 3
+Linesearch      1;  Value 6.133850e+01
+Linesearch      2;  Value 6.123090e+01
+Linesearch      3;  Value 6.105225e+01
+
+epoch 82 batch 4
+Linesearch      1;  Value 6.128291e+01
+Linesearch      2;  Value 6.118500e+01
+Linesearch      3;  Value 6.102049e+01
+
+epoch 82 batch 5
+Linesearch      1;  Value 6.099279e+01
+Linesearch      2;  Value 6.086729e+01
+Linesearch      3;  Value 6.075428e+01
+
+epoch 82 batch 6
+Linesearch      1;  Value 6.070257e+01
+Linesearch      2;  Value 6.060759e+01
+Linesearch      3;  Value 6.045026e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 83 Train squared error:  4.147 Test squared error:  7.743 	 	 
+epoch 83 batch 1
+Linesearch      1;  Value 6.109521e+01
+Linesearch      2;  Value 6.098883e+01
+Linesearch      3;  Value 6.085855e+01
+
+epoch 83 batch 2
+Linesearch      1;  Value 6.053753e+01
+Linesearch      2;  Value 6.045163e+01
+Linesearch      3;  Value 6.030015e+01
+
+epoch 83 batch 3
+Linesearch      1;  Value 6.130188e+01
+Linesearch      2;  Value 6.119620e+01
+Linesearch      3;  Value 6.102109e+01
+
+epoch 83 batch 4
+Linesearch      1;  Value 6.124020e+01
+Linesearch      2;  Value 6.115125e+01
+Linesearch      3;  Value 6.097966e+01
+
+epoch 83 batch 5
+Linesearch      1;  Value 6.097395e+01
+Linesearch      2;  Value 6.083655e+01
+Linesearch      3;  Value 6.072131e+01
+
+epoch 83 batch 6
+Linesearch      1;  Value 6.068046e+01
+Linesearch      2;  Value 6.057810e+01
+Linesearch      3;  Value 6.043007e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 84 Train squared error:  4.136 Test squared error:  7.738 	 	 
+epoch 84 batch 1
+Linesearch      1;  Value 6.106738e+01
+Linesearch      2;  Value 6.096186e+01
+Linesearch      3;  Value 6.083140e+01
+
+epoch 84 batch 2
+Linesearch      1;  Value 6.050025e+01
+Linesearch      2;  Value 6.041755e+01
+Linesearch      3;  Value 6.026651e+01
+
+epoch 84 batch 3
+Linesearch      1;  Value 6.125910e+01
+Linesearch      2;  Value 6.116226e+01
+Linesearch      3;  Value 6.097792e+01
+
+epoch 84 batch 4
+Linesearch      1;  Value 6.120485e+01
+Linesearch      2;  Value 6.110617e+01
+Linesearch      3;  Value 6.095383e+01
+
+epoch 84 batch 5
+Linesearch      1;  Value 6.093661e+01
+Linesearch      2;  Value 6.083084e+01
+Linesearch      3;  Value 6.069570e+01
+
+epoch 84 batch 6
+Linesearch      1;  Value 6.063745e+01
+Linesearch      2;  Value 6.054832e+01
+Linesearch      3;  Value 6.042318e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 85 Train squared error:  4.126 Test squared error:  7.736 	 	 
+epoch 85 batch 1
+Linesearch      1;  Value 6.104618e+01
+Linesearch      2;  Value 6.094681e+01
+Linesearch      3;  Value 6.080314e+01
+
+epoch 85 batch 2
+Linesearch      1;  Value 6.045573e+01
+Linesearch      2;  Value 6.035753e+01
+Linesearch      3;  Value 6.021895e+01
+
+epoch 85 batch 3
+Linesearch      1;  Value 6.123191e+01
+Linesearch      2;  Value 6.113028e+01
+Linesearch      3;  Value 6.093592e+01
+
+epoch 85 batch 4
+Linesearch      1;  Value 6.116547e+01
+Linesearch      2;  Value 6.103563e+01
+Linesearch      3;  Value 6.084408e+01
+
+epoch 85 batch 5
+Linesearch      1;  Value 6.097926e+01
+Linesearch      2;  Value 6.085205e+01
+Linesearch      3;  Value 6.067083e+01
+
+epoch 85 batch 6
+Linesearch      1;  Value 6.062849e+01
+Linesearch      2;  Value 6.051231e+01
+Linesearch      3;  Value 6.034872e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 86 Train squared error:  4.132 Test squared error:  7.749 	 	 
+epoch 86 batch 1
+Linesearch      1;  Value 6.109218e+01
+Linesearch      2;  Value 6.096263e+01
+Linesearch      3;  Value 6.080481e+01
+
+epoch 86 batch 2
+Linesearch      1;  Value 6.044132e+01
+Linesearch      2;  Value 6.031663e+01
+Linesearch      3;  Value 6.013095e+01
+
+epoch 86 batch 3
+Linesearch      1;  Value 6.124082e+01
+Linesearch      2;  Value 6.107996e+01
+Linesearch      3;  Value 6.092132e+01
+
+epoch 86 batch 4
+Linesearch      1;  Value 6.112729e+01
+Linesearch      2;  Value 6.100848e+01
+Linesearch      3;  Value 6.088032e+01
+
+epoch 86 batch 5
+Linesearch      1;  Value 6.090934e+01
+Linesearch      2;  Value 6.080379e+01
+Linesearch      3;  Value 6.063161e+01
+
+epoch 86 batch 6
+Linesearch      1;  Value 6.059161e+01
+Linesearch      2;  Value 6.049314e+01
+Linesearch      3;  Value 6.037364e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 87 Train squared error:  4.100 Test squared error:  7.719 	 	 
+epoch 87 batch 1
+Linesearch      1;  Value 6.098831e+01
+Linesearch      2;  Value 6.088405e+01
+Linesearch      3;  Value 6.073992e+01
+
+epoch 87 batch 2
+Linesearch      1;  Value 6.035177e+01
+Linesearch      2;  Value 6.027205e+01
+Linesearch      3;  Value 6.013465e+01
+
+epoch 87 batch 3
+Linesearch      1;  Value 6.112274e+01
+Linesearch      2;  Value 6.098832e+01
+Linesearch      3;  Value 6.083156e+01
+
+epoch 87 batch 4
+Linesearch      1;  Value 6.114246e+01
+Linesearch      2;  Value 6.104455e+01
+Linesearch      3;  Value 6.086364e+01
+
+epoch 87 batch 5
+Linesearch      1;  Value 6.083766e+01
+Linesearch      2;  Value 6.071404e+01
+Linesearch      3;  Value 6.057043e+01
+
+epoch 87 batch 6
+Linesearch      1;  Value 6.061291e+01
+Linesearch      2;  Value 6.051660e+01
+Linesearch      3;  Value 6.037871e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 88 Train squared error:  4.092 Test squared error:  7.718 	 	 
+epoch 88 batch 1
+Linesearch      1;  Value 6.093387e+01
+Linesearch      2;  Value 6.080941e+01
+Linesearch      3;  Value 6.062113e+01
+
+epoch 88 batch 2
+Linesearch      1;  Value 6.041923e+01
+Linesearch      2;  Value 6.030281e+01
+Linesearch      3;  Value 6.013095e+01
+
+epoch 88 batch 3
+Linesearch      1;  Value 6.108128e+01
+Linesearch      2;  Value 6.093619e+01
+Linesearch      3;  Value 6.078196e+01
+
+epoch 88 batch 4
+Linesearch      1;  Value 6.112548e+01
+Linesearch      2;  Value 6.102425e+01
+Linesearch      3;  Value 6.084360e+01
+
+epoch 88 batch 5
+Linesearch      1;  Value 6.080161e+01
+Linesearch      2;  Value 6.066386e+01
+Linesearch      3;  Value 6.045865e+01
+
+epoch 88 batch 6
+Linesearch      1;  Value 6.066147e+01
+Linesearch      2;  Value 6.053479e+01
+Linesearch      3;  Value 6.037358e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 89 Train squared error:  4.087 Test squared error:  7.719 	 	 
+epoch 89 batch 1
+Linesearch      1;  Value 6.086787e+01
+Linesearch      2;  Value 6.072980e+01
+Linesearch      3;  Value 6.056713e+01
+
+epoch 89 batch 2
+Linesearch      1;  Value 6.040814e+01
+Linesearch      2;  Value 6.029673e+01
+Linesearch      3;  Value 6.015424e+01
+
+epoch 89 batch 3
+Linesearch      1;  Value 6.104903e+01
+Linesearch      2;  Value 6.093897e+01
+Linesearch      3;  Value 6.079687e+01
+
+epoch 89 batch 4
+Linesearch      1;  Value 6.106559e+01
+Linesearch      2;  Value 6.096575e+01
+Linesearch      3;  Value 6.081763e+01
+
+epoch 89 batch 5
+Linesearch      1;  Value 6.068236e+01
+Linesearch      2;  Value 6.054214e+01
+Linesearch      3;  Value 6.040679e+01
+
+epoch 89 batch 6
+Linesearch      1;  Value 6.059290e+01
+Linesearch      2;  Value 6.047675e+01
+Linesearch      3;  Value 6.031002e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 90 Train squared error:  4.083 Test squared error:  7.722 	 	 
+epoch 90 batch 1
+Linesearch      1;  Value 6.078205e+01
+Linesearch      2;  Value 6.068630e+01
+Linesearch      3;  Value 6.053928e+01
+
+epoch 90 batch 2
+Linesearch      1;  Value 6.034550e+01
+Linesearch      2;  Value 6.024016e+01
+Linesearch      3;  Value 6.011974e+01
+
+epoch 90 batch 3
+Linesearch      1;  Value 6.104412e+01
+Linesearch      2;  Value 6.094370e+01
+Linesearch      3;  Value 6.077923e+01
+
+epoch 90 batch 4
+Linesearch      1;  Value 6.102426e+01
+Linesearch      2;  Value 6.087972e+01
+Linesearch      3;  Value 6.070818e+01
+
+epoch 90 batch 5
+Linesearch      1;  Value 6.072185e+01
+Linesearch      2;  Value 6.058884e+01
+Linesearch      3;  Value 6.040691e+01
+
+epoch 90 batch 6
+Linesearch      1;  Value 6.052906e+01
+Linesearch      2;  Value 6.043921e+01
+Linesearch      3;  Value 6.025387e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 91 Train squared error:  4.072 Test squared error:  7.716 	 	 
+epoch 91 batch 1
+Linesearch      1;  Value 6.079803e+01
+Linesearch      2;  Value 6.065890e+01
+Linesearch      3;  Value 6.053004e+01
+
+epoch 91 batch 2
+Linesearch      1;  Value 6.036631e+01
+Linesearch      2;  Value 6.026826e+01
+Linesearch      3;  Value 6.011641e+01
+
+epoch 91 batch 3
+Linesearch      1;  Value 6.101777e+01
+Linesearch      2;  Value 6.088900e+01
+Linesearch      3;  Value 6.073258e+01
+
+epoch 91 batch 4
+Linesearch      1;  Value 6.097883e+01
+Linesearch      2;  Value 6.084961e+01
+Linesearch      3;  Value 6.070555e+01
+
+epoch 91 batch 5
+Linesearch      1;  Value 6.062264e+01
+Linesearch      2;  Value 6.045696e+01
+Linesearch      3;  Value 6.030838e+01
+
+epoch 91 batch 6
+Linesearch      1;  Value 6.052864e+01
+Linesearch      2;  Value 6.040245e+01
+Linesearch      3;  Value 6.023220e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 92 Train squared error:  4.051 Test squared error:  7.706 	 	 
+epoch 92 batch 1
+Linesearch      1;  Value 6.075860e+01
+Linesearch      2;  Value 6.066036e+01
+Linesearch      3;  Value 6.048231e+01
+
+epoch 92 batch 2
+Linesearch      1;  Value 6.032563e+01
+Linesearch      2;  Value 6.022414e+01
+Linesearch      3;  Value 6.008706e+01
+
+epoch 92 batch 3
+Linesearch      1;  Value 6.101295e+01
+Linesearch      2;  Value 6.089946e+01
+Linesearch      3;  Value 6.074234e+01
+
+epoch 92 batch 4
+Linesearch      1;  Value 6.093375e+01
+Linesearch      2;  Value 6.081151e+01
+Linesearch      3;  Value 6.069854e+01
+
+epoch 92 batch 5
+Linesearch      1;  Value 6.056009e+01
+Linesearch      2;  Value 6.044880e+01
+Linesearch      3;  Value 6.027645e+01
+
+epoch 92 batch 6
+Linesearch      1;  Value 6.045410e+01
+Linesearch      2;  Value 6.035944e+01
+Linesearch      3;  Value 6.020763e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 93 Train squared error:  4.046 Test squared error:  7.706 	 	 
+epoch 93 batch 1
+Linesearch      1;  Value 6.070473e+01
+Linesearch      2;  Value 6.059947e+01
+Linesearch      3;  Value 6.046824e+01
+
+epoch 93 batch 2
+Linesearch      1;  Value 6.028696e+01
+Linesearch      2;  Value 6.020486e+01
+Linesearch      3;  Value 6.004014e+01
+
+epoch 93 batch 3
+Linesearch      1;  Value 6.095834e+01
+Linesearch      2;  Value 6.082622e+01
+Linesearch      3;  Value 6.063966e+01
+
+epoch 93 batch 4
+Linesearch      1;  Value 6.096635e+01
+Linesearch      2;  Value 6.084773e+01
+Linesearch      3;  Value 6.070977e+01
+
+epoch 93 batch 5
+Linesearch      1;  Value 6.050748e+01
+Linesearch      2;  Value 6.040005e+01
+Linesearch      3;  Value 6.025660e+01
+
+epoch 93 batch 6
+Linesearch      1;  Value 6.042829e+01
+Linesearch      2;  Value 6.030850e+01
+Linesearch      3;  Value 6.018929e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 94 Train squared error:  4.031 Test squared error:  7.696 	 	 
+epoch 94 batch 1
+Linesearch      1;  Value 6.068833e+01
+Linesearch      2;  Value 6.058398e+01
+Linesearch      3;  Value 6.040657e+01
+
+epoch 94 batch 2
+Linesearch      1;  Value 6.026277e+01
+Linesearch      2;  Value 6.016769e+01
+Linesearch      3;  Value 6.003701e+01
+
+epoch 94 batch 3
+Linesearch      1;  Value 6.088429e+01
+Linesearch      2;  Value 6.078053e+01
+Linesearch      3;  Value 6.066332e+01
+
+epoch 94 batch 4
+Linesearch      1;  Value 6.091217e+01
+Linesearch      2;  Value 6.081319e+01
+Linesearch      3;  Value 6.068473e+01
+
+epoch 94 batch 5
+Linesearch      1;  Value 6.045216e+01
+Linesearch      2;  Value 6.034150e+01
+Linesearch      3;  Value 6.022440e+01
+
+epoch 94 batch 6
+Linesearch      1;  Value 6.037309e+01
+Linesearch      2;  Value 6.028455e+01
+Linesearch      3;  Value 6.014593e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 95 Train squared error:  4.025 Test squared error:  7.697 	 	 
+epoch 95 batch 1
+Linesearch      1;  Value 6.062111e+01
+Linesearch      2;  Value 6.051216e+01
+Linesearch      3;  Value 6.038791e+01
+
+epoch 95 batch 2
+Linesearch      1;  Value 6.023662e+01
+Linesearch      2;  Value 6.015620e+01
+Linesearch      3;  Value 6.000223e+01
+
+epoch 95 batch 3
+Linesearch      1;  Value 6.087654e+01
+Linesearch      2;  Value 6.074674e+01
+Linesearch      3;  Value 6.062641e+01
+
+epoch 95 batch 4
+Linesearch      1;  Value 6.091954e+01
+Linesearch      2;  Value 6.081091e+01
+Linesearch      3;  Value 6.067110e+01
+
+epoch 95 batch 5
+Linesearch      1;  Value 6.041739e+01
+Linesearch      2;  Value 6.028555e+01
+Linesearch      3;  Value 6.016935e+01
+
+epoch 95 batch 6
+Linesearch      1;  Value 6.037365e+01
+Linesearch      2;  Value 6.026698e+01
+Linesearch      3;  Value 6.010737e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 96 Train squared error:  4.020 Test squared error:  7.698 	 	 
+epoch 96 batch 1
+Linesearch      1;  Value 6.059864e+01
+Linesearch      2;  Value 6.049632e+01
+Linesearch      3;  Value 6.036333e+01
+
+epoch 96 batch 2
+Linesearch      1;  Value 6.020794e+01
+Linesearch      2;  Value 6.012826e+01
+Linesearch      3;  Value 5.998041e+01
+
+epoch 96 batch 3
+Linesearch      1;  Value 6.084198e+01
+Linesearch      2;  Value 6.074999e+01
+Linesearch      3;  Value 6.060718e+01
+
+epoch 96 batch 4
+Linesearch      1;  Value 6.088075e+01
+Linesearch      2;  Value 6.078232e+01
+Linesearch      3;  Value 6.065197e+01
+
+epoch 96 batch 5
+Linesearch      1;  Value 6.039391e+01
+Linesearch      2;  Value 6.030571e+01
+Linesearch      3;  Value 6.016753e+01
+
+epoch 96 batch 6
+Linesearch      1;  Value 6.028643e+01
+Linesearch      2;  Value 6.019020e+01
+Linesearch      3;  Value 6.005678e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 97 Train squared error:  4.018 Test squared error:  7.705 	 	 
+epoch 97 batch 1
+Linesearch      1;  Value 6.059543e+01
+Linesearch      2;  Value 6.049615e+01
+Linesearch      3;  Value 6.035578e+01
+
+epoch 97 batch 2
+Linesearch      1;  Value 6.014685e+01
+Linesearch      2;  Value 6.004437e+01
+Linesearch      3;  Value 5.984492e+01
+
+epoch 97 batch 3
+Linesearch      1;  Value 6.090177e+01
+Linesearch      2;  Value 6.075380e+01
+Linesearch      3;  Value 6.058287e+01
+
+epoch 97 batch 4
+Linesearch      1;  Value 6.086170e+01
+Linesearch      2;  Value 6.076778e+01
+Linesearch      3;  Value 6.060789e+01
+
+epoch 97 batch 5
+Linesearch      1;  Value 6.043062e+01
+Linesearch      2;  Value 6.032410e+01
+Linesearch      3;  Value 6.020079e+01
+
+epoch 97 batch 6
+Linesearch      1;  Value 6.027017e+01
+Linesearch      2;  Value 6.019274e+01
+Linesearch      3;  Value 6.005315e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 98 Train squared error:  3.994 Test squared error:  7.682 	 	 
+epoch 98 batch 1
+Linesearch      1;  Value 6.055340e+01
+Linesearch      2;  Value 6.045123e+01
+Linesearch      3;  Value 6.031293e+01
+
+epoch 98 batch 2
+Linesearch      1;  Value 6.007418e+01
+Linesearch      2;  Value 5.999191e+01
+Linesearch      3;  Value 5.984725e+01
+
+epoch 98 batch 3
+Linesearch      1;  Value 6.078503e+01
+Linesearch      2;  Value 6.064099e+01
+Linesearch      3;  Value 6.043986e+01
+
+epoch 98 batch 4
+Linesearch      1;  Value 6.086218e+01
+Linesearch      2;  Value 6.073177e+01
+Linesearch      3;  Value 6.059176e+01
+
+epoch 98 batch 5
+Linesearch      1;  Value 6.041312e+01
+Linesearch      2;  Value 6.031030e+01
+Linesearch      3;  Value 6.016484e+01
+
+epoch 98 batch 6
+Linesearch      1;  Value 6.027587e+01
+Linesearch      2;  Value 6.018197e+01
+Linesearch      3;  Value 6.006369e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 99 Train squared error:  3.989 Test squared error:  7.681 	 	 
+epoch 99 batch 1
+Linesearch      1;  Value 6.052958e+01
+Linesearch      2;  Value 6.042781e+01
+Linesearch      3;  Value 6.031128e+01
+
+epoch 99 batch 2
+Linesearch      1;  Value 6.007501e+01
+Linesearch      2;  Value 5.999858e+01
+Linesearch      3;  Value 5.984658e+01
+
+epoch 99 batch 3
+Linesearch      1;  Value 6.066242e+01
+Linesearch      2;  Value 6.051730e+01
+Linesearch      3;  Value 6.035332e+01
+
+epoch 99 batch 4
+Linesearch      1;  Value 6.086109e+01
+Linesearch      2;  Value 6.072897e+01
+Linesearch      3;  Value 6.057583e+01
+
+epoch 99 batch 5
+Linesearch      1;  Value 6.036406e+01
+Linesearch      2;  Value 6.024350e+01
+Linesearch      3;  Value 6.012087e+01
+
+epoch 99 batch 6
+Linesearch      1;  Value 6.029421e+01
+Linesearch      2;  Value 6.019573e+01
+Linesearch      3;  Value 6.006472e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 100 Train squared error:  3.977 Test squared error:  7.676 	 	 
+epoch 100 batch 1
+Linesearch      1;  Value 6.050535e+01
+Linesearch      2;  Value 6.039896e+01
+Linesearch      3;  Value 6.025387e+01
+
+epoch 100 batch 2
+Linesearch      1;  Value 6.008228e+01
+Linesearch      2;  Value 5.999131e+01
+Linesearch      3;  Value 5.982591e+01
+
+epoch 100 batch 3
+Linesearch      1;  Value 6.060108e+01
+Linesearch      2;  Value 6.047771e+01
+Linesearch      3;  Value 6.033391e+01
+
+epoch 100 batch 4
+Linesearch      1;  Value 6.082010e+01
+Linesearch      2;  Value 6.071508e+01
+Linesearch      3;  Value 6.055707e+01
+
+epoch 100 batch 5
+Linesearch      1;  Value 6.032206e+01
+Linesearch      2;  Value 6.023261e+01
+Linesearch      3;  Value 6.010793e+01
+
+epoch 100 batch 6
+Linesearch      1;  Value 6.027114e+01
+Linesearch      2;  Value 6.017621e+01
+Linesearch      3;  Value 6.006158e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 101 Train squared error:  3.972 Test squared error:  7.678 	 	 
+epoch 101 batch 1
+Linesearch      1;  Value 6.046748e+01
+Linesearch      2;  Value 6.037808e+01
+Linesearch      3;  Value 6.023063e+01
+
+epoch 101 batch 2
+Linesearch      1;  Value 5.998663e+01
+Linesearch      2;  Value 5.986209e+01
+Linesearch      3;  Value 5.968128e+01
+
+epoch 101 batch 3
+Linesearch      1;  Value 6.064358e+01
+Linesearch      2;  Value 6.050750e+01
+Linesearch      3;  Value 6.033329e+01
+
+epoch 101 batch 4
+Linesearch      1;  Value 6.076027e+01
+Linesearch      2;  Value 6.063067e+01
+Linesearch      3;  Value 6.048022e+01
+
+epoch 101 batch 5
+Linesearch      1;  Value 6.037110e+01
+Linesearch      2;  Value 6.026725e+01
+Linesearch      3;  Value 6.012495e+01
+
+epoch 101 batch 6
+Linesearch      1;  Value 6.024015e+01
+Linesearch      2;  Value 6.014238e+01
+Linesearch      3;  Value 6.000021e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 102 Train squared error:  3.972 Test squared error:  7.686 	 	 
+epoch 102 batch 1
+Linesearch      1;  Value 6.050292e+01
+Linesearch      2;  Value 6.039082e+01
+Linesearch      3;  Value 6.023835e+01
+
+epoch 102 batch 2
+Linesearch      1;  Value 5.989444e+01
+Linesearch      2;  Value 5.978009e+01
+Linesearch      3;  Value 5.962111e+01
+
+epoch 102 batch 3
+Linesearch      1;  Value 6.062223e+01
+Linesearch      2;  Value 6.047548e+01
+Linesearch      3;  Value 6.030362e+01
+
+epoch 102 batch 4
+Linesearch      1;  Value 6.071171e+01
+Linesearch      2;  Value 6.060857e+01
+Linesearch      3;  Value 6.044276e+01
+
+epoch 102 batch 5
+Linesearch      1;  Value 6.036956e+01
+Linesearch      2;  Value 6.026730e+01
+Linesearch      3;  Value 6.013157e+01
+
+epoch 102 batch 6
+Linesearch      1;  Value 6.020795e+01
+Linesearch      2;  Value 6.012956e+01
+Linesearch      3;  Value 6.000426e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 103 Train squared error:  3.949 Test squared error:  7.665 	 	 
+epoch 103 batch 1
+Linesearch      1;  Value 6.044992e+01
+Linesearch      2;  Value 6.033788e+01
+Linesearch      3;  Value 6.022716e+01
+
+epoch 103 batch 2
+Linesearch      1;  Value 5.985509e+01
+Linesearch      2;  Value 5.977708e+01
+Linesearch      3;  Value 5.961577e+01
+
+epoch 103 batch 3
+Linesearch      1;  Value 6.052134e+01
+Linesearch      2;  Value 6.041875e+01
+Linesearch      3;  Value 6.024921e+01
+
+epoch 103 batch 4
+Linesearch      1;  Value 6.065891e+01
+Linesearch      2;  Value 6.057177e+01
+Linesearch      3;  Value 6.040696e+01
+
+epoch 103 batch 5
+Linesearch      1;  Value 6.032648e+01
+Linesearch      2;  Value 6.022574e+01
+Linesearch      3;  Value 6.009195e+01
+
+epoch 103 batch 6
+Linesearch      1;  Value 6.020889e+01
+Linesearch      2;  Value 6.012342e+01
+Linesearch      3;  Value 6.000913e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 104 Train squared error:  3.945 Test squared error:  7.668 	 	 
+epoch 104 batch 1
+Linesearch      1;  Value 6.042460e+01
+Linesearch      2;  Value 6.034002e+01
+Linesearch      3;  Value 6.020003e+01
+
+epoch 104 batch 2
+Linesearch      1;  Value 5.981417e+01
+Linesearch      2;  Value 5.972889e+01
+Linesearch      3;  Value 5.959878e+01
+
+epoch 104 batch 3
+Linesearch      1;  Value 6.050595e+01
+Linesearch      2;  Value 6.041528e+01
+Linesearch      3;  Value 6.024630e+01
+
+epoch 104 batch 4
+Linesearch      1;  Value 6.060202e+01
+Linesearch      2;  Value 6.048174e+01
+Linesearch      3;  Value 6.028527e+01
+
+epoch 104 batch 5
+Linesearch      1;  Value 6.036487e+01
+Linesearch      2;  Value 6.024254e+01
+Linesearch      3;  Value 6.006704e+01
+
+epoch 104 batch 6
+Linesearch      1;  Value 6.019598e+01
+Linesearch      2;  Value 6.007734e+01
+Linesearch      3;  Value 5.990372e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 105 Train squared error:  3.957 Test squared error:  7.685 	 	 
+epoch 105 batch 1
+Linesearch      1;  Value 6.048150e+01
+Linesearch      2;  Value 6.035970e+01
+Linesearch      3;  Value 6.018271e+01
+
+epoch 105 batch 2
+Linesearch      1;  Value 5.982458e+01
+Linesearch      2;  Value 5.971282e+01
+Linesearch      3;  Value 5.952171e+01
+
+epoch 105 batch 3
+Linesearch      1;  Value 6.056787e+01
+Linesearch      2;  Value 6.042761e+01
+Linesearch      3;  Value 6.027940e+01
+
+epoch 105 batch 4
+Linesearch      1;  Value 6.053571e+01
+Linesearch      2;  Value 6.043213e+01
+Linesearch      3;  Value 6.030865e+01
+
+epoch 105 batch 5
+Linesearch      1;  Value 6.031004e+01
+Linesearch      2;  Value 6.019990e+01
+Linesearch      3;  Value 6.006121e+01
+
+epoch 105 batch 6
+Linesearch      1;  Value 6.012134e+01
+Linesearch      2;  Value 6.001963e+01
+Linesearch      3;  Value 5.990541e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 106 Train squared error:  3.926 Test squared error:  7.656 	 	 
+epoch 106 batch 1
+Linesearch      1;  Value 6.039678e+01
+Linesearch      2;  Value 6.029179e+01
+Linesearch      3;  Value 6.014742e+01
+
+epoch 106 batch 2
+Linesearch      1;  Value 5.971570e+01
+Linesearch      2;  Value 5.964852e+01
+Linesearch      3;  Value 5.950871e+01
+
+epoch 106 batch 3
+Linesearch      1;  Value 6.046814e+01
+Linesearch      2;  Value 6.031449e+01
+Linesearch      3;  Value 6.015076e+01
+
+epoch 106 batch 4
+Linesearch      1;  Value 6.056395e+01
+Linesearch      2;  Value 6.044132e+01
+Linesearch      3;  Value 6.031292e+01
+
+epoch 106 batch 5
+Linesearch      1;  Value 6.025119e+01
+Linesearch      2;  Value 6.015207e+01
+Linesearch      3;  Value 5.997364e+01
+
+epoch 106 batch 6
+Linesearch      1;  Value 6.014817e+01
+Linesearch      2;  Value 6.003881e+01
+Linesearch      3;  Value 5.992084e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 107 Train squared error:  3.915 Test squared error:  7.653 	 	 
+epoch 107 batch 1
+Linesearch      1;  Value 6.035552e+01
+Linesearch      2;  Value 6.026250e+01
+Linesearch      3;  Value 6.010550e+01
+
+epoch 107 batch 2
+Linesearch      1;  Value 5.974334e+01
+Linesearch      2;  Value 5.966879e+01
+Linesearch      3;  Value 5.954403e+01
+
+epoch 107 batch 3
+Linesearch      1;  Value 6.036662e+01
+Linesearch      2;  Value 6.025807e+01
+Linesearch      3;  Value 6.014137e+01
+
+epoch 107 batch 4
+Linesearch      1;  Value 6.054089e+01
+Linesearch      2;  Value 6.044718e+01
+Linesearch      3;  Value 6.031121e+01
+
+epoch 107 batch 5
+Linesearch      1;  Value 6.016123e+01
+Linesearch      2;  Value 6.005313e+01
+Linesearch      3;  Value 5.991507e+01
+
+epoch 107 batch 6
+Linesearch      1;  Value 6.013340e+01
+Linesearch      2;  Value 6.004940e+01
+Linesearch      3;  Value 5.990745e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 108 Train squared error:  3.908 Test squared error:  7.653 	 	 
+epoch 108 batch 1
+Linesearch      1;  Value 6.029091e+01
+Linesearch      2;  Value 6.019873e+01
+Linesearch      3;  Value 6.007244e+01
+
+epoch 108 batch 2
+Linesearch      1;  Value 5.975154e+01
+Linesearch      2;  Value 5.967641e+01
+Linesearch      3;  Value 5.955956e+01
+
+epoch 108 batch 3
+Linesearch      1;  Value 6.033036e+01
+Linesearch      2;  Value 6.022438e+01
+Linesearch      3;  Value 6.004626e+01
+
+epoch 108 batch 4
+Linesearch      1;  Value 6.055286e+01
+Linesearch      2;  Value 6.043626e+01
+Linesearch      3;  Value 6.027811e+01
+
+epoch 108 batch 5
+Linesearch      1;  Value 6.011674e+01
+Linesearch      2;  Value 5.996953e+01
+Linesearch      3;  Value 5.984169e+01
+
+epoch 108 batch 6
+Linesearch      1;  Value 6.014597e+01
+Linesearch      2;  Value 6.004149e+01
+Linesearch      3;  Value 5.986650e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 109 Train squared error:  3.907 Test squared error:  7.658 	 	 
+epoch 109 batch 1
+Linesearch      1;  Value 6.029295e+01
+Linesearch      2;  Value 6.017932e+01
+Linesearch      3;  Value 6.002776e+01
+
+epoch 109 batch 2
+Linesearch      1;  Value 5.980004e+01
+Linesearch      2;  Value 5.971255e+01
+Linesearch      3;  Value 5.957998e+01
+
+epoch 109 batch 3
+Linesearch      1;  Value 6.029893e+01
+Linesearch      2;  Value 6.021739e+01
+Linesearch      3;  Value 6.011996e+01
+
+epoch 109 batch 4
+Linesearch      1;  Value 6.047768e+01
+Linesearch      2;  Value 6.039041e+01
+Linesearch      3;  Value 6.025996e+01
+
+epoch 109 batch 5
+Linesearch      1;  Value 6.004572e+01
+Linesearch      2;  Value 5.994813e+01
+Linesearch      3;  Value 5.982398e+01
+
+epoch 109 batch 6
+Linesearch      1;  Value 6.002939e+01
+Linesearch      2;  Value 5.994486e+01
+Linesearch      3;  Value 5.978894e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 110 Train squared error:  3.906 Test squared error:  7.664 	 	 
+epoch 110 batch 1
+Linesearch      1;  Value 6.023314e+01
+Linesearch      2;  Value 6.014845e+01
+Linesearch      3;  Value 6.001016e+01
+
+epoch 110 batch 2
+Linesearch      1;  Value 5.973701e+01
+Linesearch      2;  Value 5.964193e+01
+Linesearch      3;  Value 5.948098e+01
+
+epoch 110 batch 3
+Linesearch      1;  Value 6.038695e+01
+Linesearch      2;  Value 6.026935e+01
+Linesearch      3;  Value 6.014889e+01
+
+epoch 110 batch 4
+Linesearch      1;  Value 6.043577e+01
+Linesearch      2;  Value 6.032155e+01
+Linesearch      3;  Value 6.020629e+01
+
+epoch 110 batch 5
+Linesearch      1;  Value 6.007653e+01
+Linesearch      2;  Value 5.997719e+01
+Linesearch      3;  Value 5.983105e+01
+
+epoch 110 batch 6
+Linesearch      1;  Value 5.997723e+01
+Linesearch      2;  Value 5.990183e+01
+Linesearch      3;  Value 5.974877e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 111 Train squared error:  3.886 Test squared error:  7.648 	 	 
+epoch 111 batch 1
+Linesearch      1;  Value 6.021367e+01
+Linesearch      2;  Value 6.010006e+01
+Linesearch      3;  Value 5.997192e+01
+
+epoch 111 batch 2
+Linesearch      1;  Value 5.968868e+01
+Linesearch      2;  Value 5.961006e+01
+Linesearch      3;  Value 5.947290e+01
+
+epoch 111 batch 3
+Linesearch      1;  Value 6.033313e+01
+Linesearch      2;  Value 6.020816e+01
+Linesearch      3;  Value 6.004549e+01
+
+epoch 111 batch 4
+Linesearch      1;  Value 6.046630e+01
+Linesearch      2;  Value 6.034036e+01
+Linesearch      3;  Value 6.021165e+01
+
+epoch 111 batch 5
+Linesearch      1;  Value 6.001767e+01
+Linesearch      2;  Value 5.987362e+01
+Linesearch      3;  Value 5.977935e+01
+
+epoch 111 batch 6
+Linesearch      1;  Value 5.999013e+01
+Linesearch      2;  Value 5.988325e+01
+Linesearch      3;  Value 5.974911e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 112 Train squared error:  3.881 Test squared error:  7.648 	 	 
+epoch 112 batch 1
+Linesearch      1;  Value 6.017251e+01
+Linesearch      2;  Value 6.007139e+01
+Linesearch      3;  Value 5.994358e+01
+
+epoch 112 batch 2
+Linesearch      1;  Value 5.968423e+01
+Linesearch      2;  Value 5.960570e+01
+Linesearch      3;  Value 5.946157e+01
+
+epoch 112 batch 3
+Linesearch      1;  Value 6.025933e+01
+Linesearch      2;  Value 6.016278e+01
+Linesearch      3;  Value 6.005394e+01
+
+epoch 112 batch 4
+Linesearch      1;  Value 6.041950e+01
+Linesearch      2;  Value 6.031343e+01
+Linesearch      3;  Value 6.020600e+01
+
+epoch 112 batch 5
+Linesearch      1;  Value 5.997602e+01
+Linesearch      2;  Value 5.988562e+01
+Linesearch      3;  Value 5.976387e+01
+
+epoch 112 batch 6
+Linesearch      1;  Value 5.990639e+01
+Linesearch      2;  Value 5.980805e+01
+Linesearch      3;  Value 5.968767e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 113 Train squared error:  3.875 Test squared error:  7.653 	 	 
+epoch 113 batch 1
+Linesearch      1;  Value 6.016115e+01
+Linesearch      2;  Value 6.006415e+01
+Linesearch      3;  Value 5.993095e+01
+
+epoch 113 batch 2
+Linesearch      1;  Value 5.961906e+01
+Linesearch      2;  Value 5.952306e+01
+Linesearch      3;  Value 5.935047e+01
+
+epoch 113 batch 3
+Linesearch      1;  Value 6.032628e+01
+Linesearch      2;  Value 6.019586e+01
+Linesearch      3;  Value 6.005630e+01
+
+epoch 113 batch 4
+Linesearch      1;  Value 6.039912e+01
+Linesearch      2;  Value 6.030745e+01
+Linesearch      3;  Value 6.017562e+01
+
+epoch 113 batch 5
+Linesearch      1;  Value 6.000263e+01
+Linesearch      2;  Value 5.990264e+01
+Linesearch      3;  Value 5.978476e+01
+
+epoch 113 batch 6
+Linesearch      1;  Value 5.988484e+01
+Linesearch      2;  Value 5.980769e+01
+Linesearch      3;  Value 5.968324e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 114 Train squared error:  3.857 Test squared error:  7.634 	 	 
+epoch 114 batch 1
+Linesearch      1;  Value 6.011291e+01
+Linesearch      2;  Value 6.003014e+01
+Linesearch      3;  Value 5.988105e+01
+
+epoch 114 batch 2
+Linesearch      1;  Value 5.955830e+01
+Linesearch      2;  Value 5.948387e+01
+Linesearch      3;  Value 5.936635e+01
+
+epoch 114 batch 3
+Linesearch      1;  Value 6.025099e+01
+Linesearch      2;  Value 6.015947e+01
+Linesearch      3;  Value 6.001952e+01
+
+epoch 114 batch 4
+Linesearch      1;  Value 6.037933e+01
+Linesearch      2;  Value 6.029907e+01
+Linesearch      3;  Value 6.016791e+01
+
+epoch 114 batch 5
+Linesearch      1;  Value 5.997072e+01
+Linesearch      2;  Value 5.988479e+01
+Linesearch      3;  Value 5.976426e+01
+
+epoch 114 batch 6
+Linesearch      1;  Value 5.987254e+01
+Linesearch      2;  Value 5.979570e+01
+Linesearch      3;  Value 5.968800e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 115 Train squared error:  3.847 Test squared error:  7.628 	 	 
+epoch 115 batch 1
+Linesearch      1;  Value 6.004390e+01
+Linesearch      2;  Value 5.996701e+01
+Linesearch      3;  Value 5.983822e+01
+
+epoch 115 batch 2
+Linesearch      1;  Value 5.955214e+01
+Linesearch      2;  Value 5.948541e+01
+Linesearch      3;  Value 5.935772e+01
+
+epoch 115 batch 3
+Linesearch      1;  Value 6.019851e+01
+Linesearch      2;  Value 6.009039e+01
+Linesearch      3;  Value 5.995310e+01
+
+epoch 115 batch 4
+Linesearch      1;  Value 6.038344e+01
+Linesearch      2;  Value 6.029978e+01
+Linesearch      3;  Value 6.014658e+01
+
+epoch 115 batch 5
+Linesearch      1;  Value 5.994659e+01
+Linesearch      2;  Value 5.984794e+01
+Linesearch      3;  Value 5.972578e+01
+
+epoch 115 batch 6
+Linesearch      1;  Value 5.989935e+01
+Linesearch      2;  Value 5.981576e+01
+Linesearch      3;  Value 5.970197e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 116 Train squared error:  3.841 Test squared error:  7.627 	 	 
+epoch 116 batch 1
+Linesearch      1;  Value 6.001617e+01
+Linesearch      2;  Value 5.991740e+01
+Linesearch      3;  Value 5.975289e+01
+
+epoch 116 batch 2
+Linesearch      1;  Value 5.959393e+01
+Linesearch      2;  Value 5.949999e+01
+Linesearch      3;  Value 5.934203e+01
+
+epoch 116 batch 3
+Linesearch      1;  Value 6.017057e+01
+Linesearch      2;  Value 6.005664e+01
+Linesearch      3;  Value 5.991522e+01
+
+epoch 116 batch 4
+Linesearch      1;  Value 6.037273e+01
+Linesearch      2;  Value 6.028802e+01
+Linesearch      3;  Value 6.011631e+01
+
+epoch 116 batch 5
+Linesearch      1;  Value 5.992728e+01
+Linesearch      2;  Value 5.982775e+01
+Linesearch      3;  Value 5.967984e+01
+
+epoch 116 batch 6
+Linesearch      1;  Value 5.992793e+01
+Linesearch      2;  Value 5.983615e+01
+Linesearch      3;  Value 5.971360e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 117 Train squared error:  3.841 Test squared error:  7.632 	 	 
+epoch 117 batch 1
+Linesearch      1;  Value 5.996411e+01
+Linesearch      2;  Value 5.989344e+01
+Linesearch      3;  Value 5.975799e+01
+
+epoch 117 batch 2
+Linesearch      1;  Value 5.953056e+01
+Linesearch      2;  Value 5.944413e+01
+Linesearch      3;  Value 5.933083e+01
+
+epoch 117 batch 3
+Linesearch      1;  Value 6.014411e+01
+Linesearch      2;  Value 6.006184e+01
+Linesearch      3;  Value 5.990631e+01
+
+epoch 117 batch 4
+Linesearch      1;  Value 6.029191e+01
+Linesearch      2;  Value 6.017583e+01
+Linesearch      3;  Value 5.998361e+01
+
+epoch 117 batch 5
+Linesearch      1;  Value 5.992409e+01
+Linesearch      2;  Value 5.980525e+01
+Linesearch      3;  Value 5.965336e+01
+
+epoch 117 batch 6
+Linesearch      1;  Value 5.989479e+01
+Linesearch      2;  Value 5.981788e+01
+Linesearch      3;  Value 5.964370e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 118 Train squared error:  3.844 Test squared error:  7.641 	 	 
+epoch 118 batch 1
+Linesearch      1;  Value 6.000511e+01
+Linesearch      2;  Value 5.990288e+01
+Linesearch      3;  Value 5.980041e+01
+
+epoch 118 batch 2
+Linesearch      1;  Value 5.951549e+01
+Linesearch      2;  Value 5.945190e+01
+Linesearch      3;  Value 5.929401e+01
+
+epoch 118 batch 3
+Linesearch      1;  Value 6.014578e+01
+Linesearch      2;  Value 6.005849e+01
+Linesearch      3;  Value 5.993194e+01
+
+epoch 118 batch 4
+Linesearch      1;  Value 6.019496e+01
+Linesearch      2;  Value 6.011924e+01
+Linesearch      3;  Value 5.997204e+01
+
+epoch 118 batch 5
+Linesearch      1;  Value 5.987049e+01
+Linesearch      2;  Value 5.975813e+01
+Linesearch      3;  Value 5.964374e+01
+
+epoch 118 batch 6
+Linesearch      1;  Value 5.983107e+01
+Linesearch      2;  Value 5.975252e+01
+Linesearch      3;  Value 5.960393e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 119 Train squared error:  3.830 Test squared error:  7.633 	 	 
+epoch 119 batch 1
+Linesearch      1;  Value 5.999655e+01
+Linesearch      2;  Value 5.990432e+01
+Linesearch      3;  Value 5.979832e+01
+
+epoch 119 batch 2
+Linesearch      1;  Value 5.945857e+01
+Linesearch      2;  Value 5.939660e+01
+Linesearch      3;  Value 5.926241e+01
+
+epoch 119 batch 3
+Linesearch      1;  Value 6.012585e+01
+Linesearch      2;  Value 6.004930e+01
+Linesearch      3;  Value 5.992196e+01
+
+epoch 119 batch 4
+Linesearch      1;  Value 6.015747e+01
+Linesearch      2;  Value 6.008281e+01
+Linesearch      3;  Value 5.995190e+01
+
+epoch 119 batch 5
+Linesearch      1;  Value 5.983082e+01
+Linesearch      2;  Value 5.973388e+01
+Linesearch      3;  Value 5.961032e+01
+
+epoch 119 batch 6
+Linesearch      1;  Value 5.978680e+01
+Linesearch      2;  Value 5.971380e+01
+Linesearch      3;  Value 5.957425e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 120 Train squared error:  3.823 Test squared error:  7.633 	 	 
+epoch 120 batch 1
+Linesearch      1;  Value 5.998746e+01
+Linesearch      2;  Value 5.990537e+01
+Linesearch      3;  Value 5.979852e+01
+
+epoch 120 batch 2
+Linesearch      1;  Value 5.942408e+01
+Linesearch      2;  Value 5.936450e+01
+Linesearch      3;  Value 5.924287e+01
+
+epoch 120 batch 3
+Linesearch      1;  Value 6.011120e+01
+Linesearch      2;  Value 6.003373e+01
+Linesearch      3;  Value 5.992166e+01
+
+epoch 120 batch 4
+Linesearch      1;  Value 6.012721e+01
+Linesearch      2;  Value 6.005180e+01
+Linesearch      3;  Value 5.992797e+01
+
+epoch 120 batch 5
+Linesearch      1;  Value 5.979241e+01
+Linesearch      2;  Value 5.970143e+01
+Linesearch      3;  Value 5.957878e+01
+
+epoch 120 batch 6
+Linesearch      1;  Value 5.973807e+01
+Linesearch      2;  Value 5.966785e+01
+Linesearch      3;  Value 5.952970e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 121 Train squared error:  3.817 Test squared error:  7.633 	 	 
+epoch 121 batch 1
+Linesearch      1;  Value 5.998239e+01
+Linesearch      2;  Value 5.990286e+01
+Linesearch      3;  Value 5.979103e+01
+
+epoch 121 batch 2
+Linesearch      1;  Value 5.939653e+01
+Linesearch      2;  Value 5.933598e+01
+Linesearch      3;  Value 5.922119e+01
+
+epoch 121 batch 3
+Linesearch      1;  Value 6.011287e+01
+Linesearch      2;  Value 6.003227e+01
+Linesearch      3;  Value 5.992048e+01
+
+epoch 121 batch 4
+Linesearch      1;  Value 6.009856e+01
+Linesearch      2;  Value 6.001667e+01
+Linesearch      3;  Value 5.990329e+01
+
+epoch 121 batch 5
+Linesearch      1;  Value 5.976731e+01
+Linesearch      2;  Value 5.968441e+01
+Linesearch      3;  Value 5.955260e+01
+
+epoch 121 batch 6
+Linesearch      1;  Value 5.968693e+01
+Linesearch      2;  Value 5.960754e+01
+Linesearch      3;  Value 5.947839e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 122 Train squared error:  3.811 Test squared error:  7.634 	 	 
+epoch 122 batch 1
+Linesearch      1;  Value 5.998173e+01
+Linesearch      2;  Value 5.989959e+01
+Linesearch      3;  Value 5.977564e+01
+
+epoch 122 batch 2
+Linesearch      1;  Value 5.937192e+01
+Linesearch      2;  Value 5.929357e+01
+Linesearch      3;  Value 5.915217e+01
+
+epoch 122 batch 3
+Linesearch      1;  Value 6.016008e+01
+Linesearch      2;  Value 6.004873e+01
+Linesearch      3;  Value 5.991326e+01
+
+epoch 122 batch 4
+Linesearch      1;  Value 6.008509e+01
+Linesearch      2;  Value 5.999233e+01
+Linesearch      3;  Value 5.988173e+01
+
+epoch 122 batch 5
+Linesearch      1;  Value 5.977589e+01
+Linesearch      2;  Value 5.968939e+01
+Linesearch      3;  Value 5.953072e+01
+
+epoch 122 batch 6
+Linesearch      1;  Value 5.967007e+01
+Linesearch      2;  Value 5.960208e+01
+Linesearch      3;  Value 5.944887e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 123 Train squared error:  3.796 Test squared error:  7.619 	 	 
+epoch 123 batch 1
+Linesearch      1;  Value 5.995534e+01
+Linesearch      2;  Value 5.984906e+01
+Linesearch      3;  Value 5.971731e+01
+
+epoch 123 batch 2
+Linesearch      1;  Value 5.938147e+01
+Linesearch      2;  Value 5.930075e+01
+Linesearch      3;  Value 5.918539e+01
+
+epoch 123 batch 3
+Linesearch      1;  Value 6.008601e+01
+Linesearch      2;  Value 5.996857e+01
+Linesearch      3;  Value 5.984115e+01
+
+epoch 123 batch 4
+Linesearch      1;  Value 6.011019e+01
+Linesearch      2;  Value 6.000157e+01
+Linesearch      3;  Value 5.988067e+01
+
+epoch 123 batch 5
+Linesearch      1;  Value 5.970109e+01
+Linesearch      2;  Value 5.958631e+01
+Linesearch      3;  Value 5.947854e+01
+
+epoch 123 batch 6
+Linesearch      1;  Value 5.965872e+01
+Linesearch      2;  Value 5.957528e+01
+Linesearch      3;  Value 5.942890e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 124 Train squared error:  3.791 Test squared error:  7.617 	 	 
+epoch 124 batch 1
+Linesearch      1;  Value 5.987770e+01
+Linesearch      2;  Value 5.976845e+01
+Linesearch      3;  Value 5.959511e+01
+
+epoch 124 batch 2
+Linesearch      1;  Value 5.942776e+01
+Linesearch      2;  Value 5.933903e+01
+Linesearch      3;  Value 5.920223e+01
+
+epoch 124 batch 3
+Linesearch      1;  Value 6.007387e+01
+Linesearch      2;  Value 5.998062e+01
+Linesearch      3;  Value 5.986556e+01
+
+epoch 124 batch 4
+Linesearch      1;  Value 6.009117e+01
+Linesearch      2;  Value 6.000321e+01
+Linesearch      3;  Value 5.989074e+01
+
+epoch 124 batch 5
+Linesearch      1;  Value 5.969619e+01
+Linesearch      2;  Value 5.960895e+01
+Linesearch      3;  Value 5.948882e+01
+
+epoch 124 batch 6
+Linesearch      1;  Value 5.960821e+01
+Linesearch      2;  Value 5.952077e+01
+Linesearch      3;  Value 5.940018e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 125 Train squared error:  3.785 Test squared error:  7.621 	 	 
+epoch 125 batch 1
+Linesearch      1;  Value 5.979679e+01
+Linesearch      2;  Value 5.970104e+01
+Linesearch      3;  Value 5.954078e+01
+
+epoch 125 batch 2
+Linesearch      1;  Value 5.936641e+01
+Linesearch      2;  Value 5.928471e+01
+Linesearch      3;  Value 5.913950e+01
+
+epoch 125 batch 3
+Linesearch      1;  Value 6.007590e+01
+Linesearch      2;  Value 5.998719e+01
+Linesearch      3;  Value 5.985615e+01
+
+epoch 125 batch 4
+Linesearch      1;  Value 6.007695e+01
+Linesearch      2;  Value 6.000410e+01
+Linesearch      3;  Value 5.985959e+01
+
+epoch 125 batch 5
+Linesearch      1;  Value 5.969560e+01
+Linesearch      2;  Value 5.958335e+01
+Linesearch      3;  Value 5.948308e+01
+
+epoch 125 batch 6
+Linesearch      1;  Value 5.959802e+01
+Linesearch      2;  Value 5.952215e+01
+Linesearch      3;  Value 5.937954e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 126 Train squared error:  3.771 Test squared error:  7.607 	 	 
+epoch 126 batch 1
+Linesearch      1;  Value 5.973255e+01
+Linesearch      2;  Value 5.963342e+01
+Linesearch      3;  Value 5.950375e+01
+
+epoch 126 batch 2
+Linesearch      1;  Value 5.935434e+01
+Linesearch      2;  Value 5.927455e+01
+Linesearch      3;  Value 5.915758e+01
+
+epoch 126 batch 3
+Linesearch      1;  Value 6.005032e+01
+Linesearch      2;  Value 5.997091e+01
+Linesearch      3;  Value 5.982936e+01
+
+epoch 126 batch 4
+Linesearch      1;  Value 6.005347e+01
+Linesearch      2;  Value 5.996495e+01
+Linesearch      3;  Value 5.985366e+01
+
+epoch 126 batch 5
+Linesearch      1;  Value 5.967258e+01
+Linesearch      2;  Value 5.959297e+01
+Linesearch      3;  Value 5.946721e+01
+
+epoch 126 batch 6
+Linesearch      1;  Value 5.955153e+01
+Linesearch      2;  Value 5.946459e+01
+Linesearch      3;  Value 5.934521e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 127 Train squared error:  3.775 Test squared error:  7.619 	 	 
+epoch 127 batch 1
+Linesearch      1;  Value 5.971149e+01
+Linesearch      2;  Value 5.962044e+01
+Linesearch      3;  Value 5.948324e+01
+
+epoch 127 batch 2
+Linesearch      1;  Value 5.932347e+01
+Linesearch      2;  Value 5.923929e+01
+Linesearch      3;  Value 5.911703e+01
+
+epoch 127 batch 3
+Linesearch      1;  Value 6.004414e+01
+Linesearch      2;  Value 5.995113e+01
+Linesearch      3;  Value 5.980009e+01
+
+epoch 127 batch 4
+Linesearch      1;  Value 6.003493e+01
+Linesearch      2;  Value 5.996100e+01
+Linesearch      3;  Value 5.982861e+01
+
+epoch 127 batch 5
+Linesearch      1;  Value 5.967550e+01
+Linesearch      2;  Value 5.959433e+01
+Linesearch      3;  Value 5.947789e+01
+
+epoch 127 batch 6
+Linesearch      1;  Value 5.952129e+01
+Linesearch      2;  Value 5.946041e+01
+Linesearch      3;  Value 5.933000e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 128 Train squared error:  3.759 Test squared error:  7.603 	 	 
+epoch 128 batch 1
+Linesearch      1;  Value 5.966476e+01
+Linesearch      2;  Value 5.957104e+01
+Linesearch      3;  Value 5.945673e+01
+
+epoch 128 batch 2
+Linesearch      1;  Value 5.930628e+01
+Linesearch      2;  Value 5.923329e+01
+Linesearch      3;  Value 5.909265e+01
+
+epoch 128 batch 3
+Linesearch      1;  Value 5.997305e+01
+Linesearch      2;  Value 5.985245e+01
+Linesearch      3;  Value 5.970013e+01
+
+epoch 128 batch 4
+Linesearch      1;  Value 6.004803e+01
+Linesearch      2;  Value 5.994511e+01
+Linesearch      3;  Value 5.978249e+01
+
+epoch 128 batch 5
+Linesearch      1;  Value 5.966221e+01
+Linesearch      2;  Value 5.955094e+01
+Linesearch      3;  Value 5.935155e+01
+
+epoch 128 batch 6
+Linesearch      1;  Value 5.958058e+01
+Linesearch      2;  Value 5.945655e+01
+Linesearch      3;  Value 5.935432e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 129 Train squared error:  3.762 Test squared error:  7.605 	 	 
+epoch 129 batch 1
+Linesearch      1;  Value 5.969626e+01
+Linesearch      2;  Value 5.961411e+01
+Linesearch      3;  Value 5.949741e+01
+
+epoch 129 batch 2
+Linesearch      1;  Value 5.929041e+01
+Linesearch      2;  Value 5.922859e+01
+Linesearch      3;  Value 5.908259e+01
+
+epoch 129 batch 3
+Linesearch      1;  Value 5.993473e+01
+Linesearch      2;  Value 5.978150e+01
+Linesearch      3;  Value 5.966017e+01
+
+epoch 129 batch 4
+Linesearch      1;  Value 6.003078e+01
+Linesearch      2;  Value 5.992978e+01
+Linesearch      3;  Value 5.979557e+01
+
+epoch 129 batch 5
+Linesearch      1;  Value 5.953138e+01
+Linesearch      2;  Value 5.942685e+01
+Linesearch      3;  Value 5.925371e+01
+
+epoch 129 batch 6
+Linesearch      1;  Value 5.959529e+01
+Linesearch      2;  Value 5.948112e+01
+Linesearch      3;  Value 5.936090e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 130 Train squared error:  3.743 Test squared error:  7.596 	 	 
+epoch 130 batch 1
+Linesearch      1;  Value 5.966746e+01
+Linesearch      2;  Value 5.954987e+01
+Linesearch      3;  Value 5.941303e+01
+
+epoch 130 batch 2
+Linesearch      1;  Value 5.932104e+01
+Linesearch      2;  Value 5.923519e+01
+Linesearch      3;  Value 5.908414e+01
+
+epoch 130 batch 3
+Linesearch      1;  Value 5.990619e+01
+Linesearch      2;  Value 5.981642e+01
+Linesearch      3;  Value 5.967471e+01
+
+epoch 130 batch 4
+Linesearch      1;  Value 6.002195e+01
+Linesearch      2;  Value 5.994930e+01
+Linesearch      3;  Value 5.980630e+01
+
+epoch 130 batch 5
+Linesearch      1;  Value 5.946646e+01
+Linesearch      2;  Value 5.938326e+01
+Linesearch      3;  Value 5.928413e+01
+
+epoch 130 batch 6
+Linesearch      1;  Value 5.955975e+01
+Linesearch      2;  Value 5.946927e+01
+Linesearch      3;  Value 5.936311e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 131 Train squared error:  3.736 Test squared error:  7.595 	 	 
+epoch 131 batch 1
+Linesearch      1;  Value 5.957788e+01
+Linesearch      2;  Value 5.950935e+01
+Linesearch      3;  Value 5.938400e+01
+
+epoch 131 batch 2
+Linesearch      1;  Value 5.923168e+01
+Linesearch      2;  Value 5.913028e+01
+Linesearch      3;  Value 5.901678e+01
+
+epoch 131 batch 3
+Linesearch      1;  Value 5.988589e+01
+Linesearch      2;  Value 5.978405e+01
+Linesearch      3;  Value 5.960364e+01
+
+epoch 131 batch 4
+Linesearch      1;  Value 5.998456e+01
+Linesearch      2;  Value 5.984818e+01
+Linesearch      3;  Value 5.969609e+01
+
+epoch 131 batch 5
+Linesearch      1;  Value 5.952376e+01
+Linesearch      2;  Value 5.938794e+01
+Linesearch      3;  Value 5.929142e+01
+
+epoch 131 batch 6
+Linesearch      1;  Value 5.958014e+01
+Linesearch      2;  Value 5.948469e+01
+Linesearch      3;  Value 5.935999e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 132 Train squared error:  3.725 Test squared error:  7.590 	 	 
+epoch 132 batch 1
+Linesearch      1;  Value 5.960666e+01
+Linesearch      2;  Value 5.949268e+01
+Linesearch      3;  Value 5.939844e+01
+
+epoch 132 batch 2
+Linesearch      1;  Value 5.921659e+01
+Linesearch      2;  Value 5.914040e+01
+Linesearch      3;  Value 5.899909e+01
+
+epoch 132 batch 3
+Linesearch      1;  Value 5.982507e+01
+Linesearch      2;  Value 5.974162e+01
+Linesearch      3;  Value 5.961319e+01
+
+epoch 132 batch 4
+Linesearch      1;  Value 5.988540e+01
+Linesearch      2;  Value 5.981099e+01
+Linesearch      3;  Value 5.968538e+01
+
+epoch 132 batch 5
+Linesearch      1;  Value 5.947675e+01
+Linesearch      2;  Value 5.939281e+01
+Linesearch      3;  Value 5.926847e+01
+
+epoch 132 batch 6
+Linesearch      1;  Value 5.954593e+01
+Linesearch      2;  Value 5.946186e+01
+Linesearch      3;  Value 5.933162e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 133 Train squared error:  3.724 Test squared error:  7.593 	 	 
+epoch 133 batch 1
+Linesearch      1;  Value 5.958059e+01
+Linesearch      2;  Value 5.947393e+01
+Linesearch      3;  Value 5.937562e+01
+
+epoch 133 batch 2
+Linesearch      1;  Value 5.919866e+01
+Linesearch      2;  Value 5.911529e+01
+Linesearch      3;  Value 5.900622e+01
+
+epoch 133 batch 3
+Linesearch      1;  Value 5.979796e+01
+Linesearch      2;  Value 5.969802e+01
+Linesearch      3;  Value 5.958434e+01
+
+epoch 133 batch 4
+Linesearch      1;  Value 5.987411e+01
+Linesearch      2;  Value 5.978317e+01
+Linesearch      3;  Value 5.965494e+01
+
+epoch 133 batch 5
+Linesearch      1;  Value 5.944285e+01
+Linesearch      2;  Value 5.929840e+01
+Linesearch      3;  Value 5.916795e+01
+
+epoch 133 batch 6
+Linesearch      1;  Value 5.956099e+01
+Linesearch      2;  Value 5.945781e+01
+Linesearch      3;  Value 5.931825e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 134 Train squared error:  3.733 Test squared error:  7.606 	 	 
+epoch 134 batch 1
+Linesearch      1;  Value 5.956252e+01
+Linesearch      2;  Value 5.946318e+01
+Linesearch      3;  Value 5.935017e+01
+
+epoch 134 batch 2
+Linesearch      1;  Value 5.920582e+01
+Linesearch      2;  Value 5.913263e+01
+Linesearch      3;  Value 5.900818e+01
+
+epoch 134 batch 3
+Linesearch      1;  Value 5.979845e+01
+Linesearch      2;  Value 5.972237e+01
+Linesearch      3;  Value 5.961804e+01
+
+epoch 134 batch 4
+Linesearch      1;  Value 5.985019e+01
+Linesearch      2;  Value 5.977292e+01
+Linesearch      3;  Value 5.965530e+01
+
+epoch 134 batch 5
+Linesearch      1;  Value 5.936206e+01
+Linesearch      2;  Value 5.927263e+01
+Linesearch      3;  Value 5.916048e+01
+
+epoch 134 batch 6
+Linesearch      1;  Value 5.947025e+01
+Linesearch      2;  Value 5.939321e+01
+Linesearch      3;  Value 5.925424e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 135 Train squared error:  3.721 Test squared error:  7.601 	 	 
+epoch 135 batch 1
+Linesearch      1;  Value 5.953296e+01
+Linesearch      2;  Value 5.946476e+01
+Linesearch      3;  Value 5.932831e+01
+
+epoch 135 batch 2
+Linesearch      1;  Value 5.916094e+01
+Linesearch      2;  Value 5.907225e+01
+Linesearch      3;  Value 5.893977e+01
+
+epoch 135 batch 3
+Linesearch      1;  Value 5.984588e+01
+Linesearch      2;  Value 5.974600e+01
+Linesearch      3;  Value 5.962803e+01
+
+epoch 135 batch 4
+Linesearch      1;  Value 5.982045e+01
+Linesearch      2;  Value 5.970678e+01
+Linesearch      3;  Value 5.959036e+01
+
+epoch 135 batch 5
+Linesearch      1;  Value 5.940433e+01
+Linesearch      2;  Value 5.931156e+01
+Linesearch      3;  Value 5.915923e+01
+
+epoch 135 batch 6
+Linesearch      1;  Value 5.943691e+01
+Linesearch      2;  Value 5.936700e+01
+Linesearch      3;  Value 5.921343e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 136 Train squared error:  3.709 Test squared error:  7.594 	 	 
+epoch 136 batch 1
+Linesearch      1;  Value 5.953818e+01
+Linesearch      2;  Value 5.944029e+01
+Linesearch      3;  Value 5.933402e+01
+
+epoch 136 batch 2
+Linesearch      1;  Value 5.912580e+01
+Linesearch      2;  Value 5.905754e+01
+Linesearch      3;  Value 5.893084e+01
+
+epoch 136 batch 3
+Linesearch      1;  Value 5.980259e+01
+Linesearch      2;  Value 5.969484e+01
+Linesearch      3;  Value 5.956405e+01
+
+epoch 136 batch 4
+Linesearch      1;  Value 5.981474e+01
+Linesearch      2;  Value 5.971132e+01
+Linesearch      3;  Value 5.959544e+01
+
+epoch 136 batch 5
+Linesearch      1;  Value 5.933372e+01
+Linesearch      2;  Value 5.922086e+01
+Linesearch      3;  Value 5.911651e+01
+
+epoch 136 batch 6
+Linesearch      1;  Value 5.941879e+01
+Linesearch      2;  Value 5.932633e+01
+Linesearch      3;  Value 5.920873e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 137 Train squared error:  3.697 Test squared error:  7.590 	 	 
+epoch 137 batch 1
+Linesearch      1;  Value 5.952636e+01
+Linesearch      2;  Value 5.945332e+01
+Linesearch      3;  Value 5.930647e+01
+
+epoch 137 batch 2
+Linesearch      1;  Value 5.909641e+01
+Linesearch      2;  Value 5.900776e+01
+Linesearch      3;  Value 5.887390e+01
+
+epoch 137 batch 3
+Linesearch      1;  Value 5.980944e+01
+Linesearch      2;  Value 5.969130e+01
+Linesearch      3;  Value 5.958930e+01
+
+epoch 137 batch 4
+Linesearch      1;  Value 5.977771e+01
+Linesearch      2;  Value 5.966595e+01
+Linesearch      3;  Value 5.956527e+01
+
+epoch 137 batch 5
+Linesearch      1;  Value 5.934439e+01
+Linesearch      2;  Value 5.924612e+01
+Linesearch      3;  Value 5.913933e+01
+
+epoch 137 batch 6
+Linesearch      1;  Value 5.937378e+01
+Linesearch      2;  Value 5.929920e+01
+Linesearch      3;  Value 5.917226e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 138 Train squared error:  3.693 Test squared error:  7.583 	 	 
+epoch 138 batch 1
+Linesearch      1;  Value 5.949193e+01
+Linesearch      2;  Value 5.940870e+01
+Linesearch      3;  Value 5.928813e+01
+
+epoch 138 batch 2
+Linesearch      1;  Value 5.904752e+01
+Linesearch      2;  Value 5.898231e+01
+Linesearch      3;  Value 5.887960e+01
+
+epoch 138 batch 3
+Linesearch      1;  Value 5.978162e+01
+Linesearch      2;  Value 5.969209e+01
+Linesearch      3;  Value 5.957171e+01
+
+epoch 138 batch 4
+Linesearch      1;  Value 5.973774e+01
+Linesearch      2;  Value 5.966193e+01
+Linesearch      3;  Value 5.956234e+01
+
+epoch 138 batch 5
+Linesearch      1;  Value 5.930575e+01
+Linesearch      2;  Value 5.922633e+01
+Linesearch      3;  Value 5.911128e+01
+
+epoch 138 batch 6
+Linesearch      1;  Value 5.933549e+01
+Linesearch      2;  Value 5.926461e+01
+Linesearch      3;  Value 5.915960e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 139 Train squared error:  3.684 Test squared error:  7.580 	 	 
+epoch 139 batch 1
+Linesearch      1;  Value 5.943875e+01
+Linesearch      2;  Value 5.935886e+01
+Linesearch      3;  Value 5.926085e+01
+
+epoch 139 batch 2
+Linesearch      1;  Value 5.904315e+01
+Linesearch      2;  Value 5.898248e+01
+Linesearch      3;  Value 5.885761e+01
+
+epoch 139 batch 3
+Linesearch      1;  Value 5.973464e+01
+Linesearch      2;  Value 5.961535e+01
+Linesearch      3;  Value 5.945851e+01
+
+epoch 139 batch 4
+Linesearch      1;  Value 5.977462e+01
+Linesearch      2;  Value 5.967224e+01
+Linesearch      3;  Value 5.953594e+01
+
+epoch 139 batch 5
+Linesearch      1;  Value 5.929136e+01
+Linesearch      2;  Value 5.918255e+01
+Linesearch      3;  Value 5.907933e+01
+
+epoch 139 batch 6
+Linesearch      1;  Value 5.938271e+01
+Linesearch      2;  Value 5.929084e+01
+Linesearch      3;  Value 5.917895e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 140 Train squared error:  3.673 Test squared error:  7.575 	 	 
+epoch 140 batch 1
+Linesearch      1;  Value 5.943734e+01
+Linesearch      2;  Value 5.934761e+01
+Linesearch      3;  Value 5.922868e+01
+
+epoch 140 batch 2
+Linesearch      1;  Value 5.906312e+01
+Linesearch      2;  Value 5.899289e+01
+Linesearch      3;  Value 5.886002e+01
+
+epoch 140 batch 3
+Linesearch      1;  Value 5.967731e+01
+Linesearch      2;  Value 5.959463e+01
+Linesearch      3;  Value 5.946656e+01
+
+epoch 140 batch 4
+Linesearch      1;  Value 5.973824e+01
+Linesearch      2;  Value 5.965253e+01
+Linesearch      3;  Value 5.955833e+01
+
+epoch 140 batch 5
+Linesearch      1;  Value 5.923122e+01
+Linesearch      2;  Value 5.916816e+01
+Linesearch      3;  Value 5.905772e+01
+
+epoch 140 batch 6
+Linesearch      1;  Value 5.932983e+01
+Linesearch      2;  Value 5.924511e+01
+Linesearch      3;  Value 5.914759e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 141 Train squared error:  3.673 Test squared error:  7.584 	 	 
+epoch 141 batch 1
+Linesearch      1;  Value 5.940171e+01
+Linesearch      2;  Value 5.931874e+01
+Linesearch      3;  Value 5.920873e+01
+
+epoch 141 batch 2
+Linesearch      1;  Value 5.899087e+01
+Linesearch      2;  Value 5.889109e+01
+Linesearch      3;  Value 5.874310e+01
+
+epoch 141 batch 3
+Linesearch      1;  Value 5.970332e+01
+Linesearch      2;  Value 5.958915e+01
+Linesearch      3;  Value 5.943451e+01
+
+epoch 141 batch 4
+Linesearch      1;  Value 5.974521e+01
+Linesearch      2;  Value 5.966416e+01
+Linesearch      3;  Value 5.952484e+01
+
+epoch 141 batch 5
+Linesearch      1;  Value 5.928085e+01
+Linesearch      2;  Value 5.919902e+01
+Linesearch      3;  Value 5.908718e+01
+
+epoch 141 batch 6
+Linesearch      1;  Value 5.932742e+01
+Linesearch      2;  Value 5.925822e+01
+Linesearch      3;  Value 5.915308e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 142 Train squared error:  3.661 Test squared error:  7.570 	 	 
+epoch 142 batch 1
+Linesearch      1;  Value 5.939024e+01
+Linesearch      2;  Value 5.931906e+01
+Linesearch      3;  Value 5.917928e+01
+
+epoch 142 batch 2
+Linesearch      1;  Value 5.894752e+01
+Linesearch      2;  Value 5.888012e+01
+Linesearch      3;  Value 5.877790e+01
+
+epoch 142 batch 3
+Linesearch      1;  Value 5.961384e+01
+Linesearch      2;  Value 5.953582e+01
+Linesearch      3;  Value 5.939977e+01
+
+epoch 142 batch 4
+Linesearch      1;  Value 5.970825e+01
+Linesearch      2;  Value 5.964133e+01
+Linesearch      3;  Value 5.952334e+01
+
+epoch 142 batch 5
+Linesearch      1;  Value 5.925142e+01
+Linesearch      2;  Value 5.918052e+01
+Linesearch      3;  Value 5.907169e+01
+
+epoch 142 batch 6
+Linesearch      1;  Value 5.931765e+01
+Linesearch      2;  Value 5.924587e+01
+Linesearch      3;  Value 5.915381e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 143 Train squared error:  3.654 Test squared error:  7.567 	 	 
+epoch 143 batch 1
+Linesearch      1;  Value 5.932735e+01
+Linesearch      2;  Value 5.926211e+01
+Linesearch      3;  Value 5.912497e+01
+
+epoch 143 batch 2
+Linesearch      1;  Value 5.895144e+01
+Linesearch      2;  Value 5.888657e+01
+Linesearch      3;  Value 5.877670e+01
+
+epoch 143 batch 3
+Linesearch      1;  Value 5.957059e+01
+Linesearch      2;  Value 5.949208e+01
+Linesearch      3;  Value 5.936337e+01
+
+epoch 143 batch 4
+Linesearch      1;  Value 5.970117e+01
+Linesearch      2;  Value 5.963717e+01
+Linesearch      3;  Value 5.951491e+01
+
+epoch 143 batch 5
+Linesearch      1;  Value 5.923335e+01
+Linesearch      2;  Value 5.916509e+01
+Linesearch      3;  Value 5.904886e+01
+
+epoch 143 batch 6
+Linesearch      1;  Value 5.932303e+01
+Linesearch      2;  Value 5.925150e+01
+Linesearch      3;  Value 5.915774e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 144 Train squared error:  3.649 Test squared error:  7.566 	 	 
+epoch 144 batch 1
+Linesearch      1;  Value 5.928604e+01
+Linesearch      2;  Value 5.922292e+01
+Linesearch      3;  Value 5.909222e+01
+
+epoch 144 batch 2
+Linesearch      1;  Value 5.894077e+01
+Linesearch      2;  Value 5.887867e+01
+Linesearch      3;  Value 5.877021e+01
+
+epoch 144 batch 3
+Linesearch      1;  Value 5.953425e+01
+Linesearch      2;  Value 5.945535e+01
+Linesearch      3;  Value 5.933752e+01
+
+epoch 144 batch 4
+Linesearch      1;  Value 5.968424e+01
+Linesearch      2;  Value 5.962028e+01
+Linesearch      3;  Value 5.949775e+01
+
+epoch 144 batch 5
+Linesearch      1;  Value 5.920511e+01
+Linesearch      2;  Value 5.913656e+01
+Linesearch      3;  Value 5.901251e+01
+
+epoch 144 batch 6
+Linesearch      1;  Value 5.932507e+01
+Linesearch      2;  Value 5.925448e+01
+Linesearch      3;  Value 5.915437e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 145 Train squared error:  3.644 Test squared error:  7.566 	 	 
+epoch 145 batch 1
+Linesearch      1;  Value 5.925705e+01
+Linesearch      2;  Value 5.919521e+01
+Linesearch      3;  Value 5.907189e+01
+
+epoch 145 batch 2
+Linesearch      1;  Value 5.892937e+01
+Linesearch      2;  Value 5.886983e+01
+Linesearch      3;  Value 5.876587e+01
+
+epoch 145 batch 3
+Linesearch      1;  Value 5.950767e+01
+Linesearch      2;  Value 5.942752e+01
+Linesearch      3;  Value 5.932184e+01
+
+epoch 145 batch 4
+Linesearch      1;  Value 5.966378e+01
+Linesearch      2;  Value 5.959762e+01
+Linesearch      3;  Value 5.947730e+01
+
+epoch 145 batch 5
+Linesearch      1;  Value 5.916563e+01
+Linesearch      2;  Value 5.909305e+01
+Linesearch      3;  Value 5.896684e+01
+
+epoch 145 batch 6
+Linesearch      1;  Value 5.931990e+01
+Linesearch      2;  Value 5.924954e+01
+Linesearch      3;  Value 5.914051e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 146 Train squared error:  3.640 Test squared error:  7.567 	 	 
+epoch 146 batch 1
+Linesearch      1;  Value 5.923554e+01
+Linesearch      2;  Value 5.917379e+01
+Linesearch      3;  Value 5.905792e+01
+
+epoch 146 batch 2
+Linesearch      1;  Value 5.892219e+01
+Linesearch      2;  Value 5.886352e+01
+Linesearch      3;  Value 5.876331e+01
+
+epoch 146 batch 3
+Linesearch      1;  Value 5.948976e+01
+Linesearch      2;  Value 5.940345e+01
+Linesearch      3;  Value 5.930369e+01
+
+epoch 146 batch 4
+Linesearch      1;  Value 5.964904e+01
+Linesearch      2;  Value 5.957561e+01
+Linesearch      3;  Value 5.945365e+01
+
+epoch 146 batch 5
+Linesearch      1;  Value 5.912284e+01
+Linesearch      2;  Value 5.903761e+01
+Linesearch      3;  Value 5.891862e+01
+
+epoch 146 batch 6
+Linesearch      1;  Value 5.931291e+01
+Linesearch      2;  Value 5.924030e+01
+Linesearch      3;  Value 5.912245e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 147 Train squared error:  3.636 Test squared error:  7.567 	 	 
+epoch 147 batch 1
+Linesearch      1;  Value 5.922203e+01
+Linesearch      2;  Value 5.915698e+01
+Linesearch      3;  Value 5.904614e+01
+
+epoch 147 batch 2
+Linesearch      1;  Value 5.892482e+01
+Linesearch      2;  Value 5.886358e+01
+Linesearch      3;  Value 5.876242e+01
+
+epoch 147 batch 3
+Linesearch      1;  Value 5.947354e+01
+Linesearch      2;  Value 5.937672e+01
+Linesearch      3;  Value 5.922601e+01
+
+epoch 147 batch 4
+Linesearch      1;  Value 5.966333e+01
+Linesearch      2;  Value 5.955971e+01
+Linesearch      3;  Value 5.941939e+01
+
+epoch 147 batch 5
+Linesearch      1;  Value 5.908514e+01
+Linesearch      2;  Value 5.895447e+01
+Linesearch      3;  Value 5.885387e+01
+
+epoch 147 batch 6
+Linesearch      1;  Value 5.933231e+01
+Linesearch      2;  Value 5.923657e+01
+Linesearch      3;  Value 5.908741e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 148 Train squared error:  3.643 Test squared error:  7.577 	 	 
+epoch 148 batch 1
+Linesearch      1;  Value 5.924740e+01
+Linesearch      2;  Value 5.915808e+01
+Linesearch      3;  Value 5.903649e+01
+
+epoch 148 batch 2
+Linesearch      1;  Value 5.895755e+01
+Linesearch      2;  Value 5.888646e+01
+Linesearch      3;  Value 5.874509e+01
+
+epoch 148 batch 3
+Linesearch      1;  Value 5.946352e+01
+Linesearch      2;  Value 5.938510e+01
+Linesearch      3;  Value 5.928613e+01
+
+epoch 148 batch 4
+Linesearch      1;  Value 5.960089e+01
+Linesearch      2;  Value 5.950772e+01
+Linesearch      3;  Value 5.939782e+01
+
+epoch 148 batch 5
+Linesearch      1;  Value 5.905615e+01
+Linesearch      2;  Value 5.897617e+01
+Linesearch      3;  Value 5.886043e+01
+
+epoch 148 batch 6
+Linesearch      1;  Value 5.922188e+01
+Linesearch      2;  Value 5.913632e+01
+Linesearch      3;  Value 5.900089e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 149 Train squared error:  3.639 Test squared error:  7.580 	 	 
+epoch 149 batch 1
+Linesearch      1;  Value 5.923910e+01
+Linesearch      2;  Value 5.915830e+01
+Linesearch      3;  Value 5.903207e+01
+
+epoch 149 batch 2
+Linesearch      1;  Value 5.889128e+01
+Linesearch      2;  Value 5.880762e+01
+Linesearch      3;  Value 5.865217e+01
+
+epoch 149 batch 3
+Linesearch      1;  Value 5.953342e+01
+Linesearch      2;  Value 5.943034e+01
+Linesearch      3;  Value 5.932044e+01
+
+epoch 149 batch 4
+Linesearch      1;  Value 5.956680e+01
+Linesearch      2;  Value 5.949282e+01
+Linesearch      3;  Value 5.938833e+01
+
+epoch 149 batch 5
+Linesearch      1;  Value 5.907162e+01
+Linesearch      2;  Value 5.899619e+01
+Linesearch      3;  Value 5.886523e+01
+
+epoch 149 batch 6
+Linesearch      1;  Value 5.918094e+01
+Linesearch      2;  Value 5.911705e+01
+Linesearch      3;  Value 5.897825e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 150 Train squared error:  3.616 Test squared error:  7.563 	 	 
+epoch 150 batch 1
+Linesearch      1;  Value 5.921087e+01
+Linesearch      2;  Value 5.912740e+01
+Linesearch      3;  Value 5.901710e+01
+
+epoch 150 batch 2
+Linesearch      1;  Value 5.883009e+01
+Linesearch      2;  Value 5.876589e+01
+Linesearch      3;  Value 5.866059e+01
+
+epoch 150 batch 3
+Linesearch      1;  Value 5.946020e+01
+Linesearch      2;  Value 5.935455e+01
+Linesearch      3;  Value 5.919436e+01
+
+epoch 150 batch 4
+Linesearch      1;  Value 5.959491e+01
+Linesearch      2;  Value 5.948144e+01
+Linesearch      3;  Value 5.938315e+01
+
+epoch 150 batch 5
+Linesearch      1;  Value 5.905857e+01
+Linesearch      2;  Value 5.897367e+01
+Linesearch      3;  Value 5.883795e+01
+
+epoch 150 batch 6
+Linesearch      1;  Value 5.916838e+01
+Linesearch      2;  Value 5.908394e+01
+Linesearch      3;  Value 5.897072e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 151 Train squared error:  3.611 Test squared error:  7.559 	 	 
+epoch 151 batch 1
+Linesearch      1;  Value 5.920099e+01
+Linesearch      2;  Value 5.911362e+01
+Linesearch      3;  Value 5.900031e+01
+
+epoch 151 batch 2
+Linesearch      1;  Value 5.884997e+01
+Linesearch      2;  Value 5.878570e+01
+Linesearch      3;  Value 5.866023e+01
+
+epoch 151 batch 3
+Linesearch      1;  Value 5.938674e+01
+Linesearch      2;  Value 5.927556e+01
+Linesearch      3;  Value 5.917145e+01
+
+epoch 151 batch 4
+Linesearch      1;  Value 5.958281e+01
+Linesearch      2;  Value 5.948008e+01
+Linesearch      3;  Value 5.936981e+01
+
+epoch 151 batch 5
+Linesearch      1;  Value 5.899766e+01
+Linesearch      2;  Value 5.888327e+01
+Linesearch      3;  Value 5.877608e+01
+
+epoch 151 batch 6
+Linesearch      1;  Value 5.918974e+01
+Linesearch      2;  Value 5.909357e+01
+Linesearch      3;  Value 5.897506e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 152 Train squared error:  3.605 Test squared error:  7.558 	 	 
+epoch 152 batch 1
+Linesearch      1;  Value 5.916659e+01
+Linesearch      2;  Value 5.906717e+01
+Linesearch      3;  Value 5.893915e+01
+
+epoch 152 batch 2
+Linesearch      1;  Value 5.886328e+01
+Linesearch      2;  Value 5.878595e+01
+Linesearch      3;  Value 5.864468e+01
+
+epoch 152 batch 3
+Linesearch      1;  Value 5.939572e+01
+Linesearch      2;  Value 5.931026e+01
+Linesearch      3;  Value 5.920456e+01
+
+epoch 152 batch 4
+Linesearch      1;  Value 5.956268e+01
+Linesearch      2;  Value 5.948871e+01
+Linesearch      3;  Value 5.937339e+01
+
+epoch 152 batch 5
+Linesearch      1;  Value 5.895680e+01
+Linesearch      2;  Value 5.888630e+01
+Linesearch      3;  Value 5.879023e+01
+
+epoch 152 batch 6
+Linesearch      1;  Value 5.912631e+01
+Linesearch      2;  Value 5.904288e+01
+Linesearch      3;  Value 5.893662e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 153 Train squared error:  3.605 Test squared error:  7.566 	 	 
+epoch 153 batch 1
+Linesearch      1;  Value 5.913271e+01
+Linesearch      2;  Value 5.904429e+01
+Linesearch      3;  Value 5.889449e+01
+
+epoch 153 batch 2
+Linesearch      1;  Value 5.879882e+01
+Linesearch      2;  Value 5.872973e+01
+Linesearch      3;  Value 5.856993e+01
+
+epoch 153 batch 3
+Linesearch      1;  Value 5.941040e+01
+Linesearch      2;  Value 5.929404e+01
+Linesearch      3;  Value 5.918206e+01
+
+epoch 153 batch 4
+Linesearch      1;  Value 5.955059e+01
+Linesearch      2;  Value 5.948064e+01
+Linesearch      3;  Value 5.929694e+01
+
+epoch 153 batch 5
+Linesearch      1;  Value 5.900432e+01
+Linesearch      2;  Value 5.887826e+01
+Linesearch      3;  Value 5.875055e+01
+
+epoch 153 batch 6
+Linesearch      1;  Value 5.914497e+01
+Linesearch      2;  Value 5.905072e+01
+Linesearch      3;  Value 5.894790e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 154 Train squared error:  3.602 Test squared error:  7.563 	 	 
+epoch 154 batch 1
+Linesearch      1;  Value 5.911717e+01
+Linesearch      2;  Value 5.904843e+01
+Linesearch      3;  Value 5.894374e+01
+
+epoch 154 batch 2
+Linesearch      1;  Value 5.874295e+01
+Linesearch      2;  Value 5.867751e+01
+Linesearch      3;  Value 5.855062e+01
+
+epoch 154 batch 3
+Linesearch      1;  Value 5.940460e+01
+Linesearch      2;  Value 5.931202e+01
+Linesearch      3;  Value 5.919080e+01
+
+epoch 154 batch 4
+Linesearch      1;  Value 5.948208e+01
+Linesearch      2;  Value 5.939224e+01
+Linesearch      3;  Value 5.929154e+01
+
+epoch 154 batch 5
+Linesearch      1;  Value 5.895081e+01
+Linesearch      2;  Value 5.887029e+01
+Linesearch      3;  Value 5.876205e+01
+
+epoch 154 batch 6
+Linesearch      1;  Value 5.908208e+01
+Linesearch      2;  Value 5.899232e+01
+Linesearch      3;  Value 5.882125e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 155 Train squared error:  3.605 Test squared error:  7.568 	 	 
+epoch 155 batch 1
+Linesearch      1;  Value 5.914478e+01
+Linesearch      2;  Value 5.905772e+01
+Linesearch      3;  Value 5.892007e+01
+
+epoch 155 batch 2
+Linesearch      1;  Value 5.874699e+01
+Linesearch      2;  Value 5.868536e+01
+Linesearch      3;  Value 5.856043e+01
+
+epoch 155 batch 3
+Linesearch      1;  Value 5.938356e+01
+Linesearch      2;  Value 5.928209e+01
+Linesearch      3;  Value 5.916196e+01
+
+epoch 155 batch 4
+Linesearch      1;  Value 5.949593e+01
+Linesearch      2;  Value 5.942641e+01
+Linesearch      3;  Value 5.926388e+01
+
+epoch 155 batch 5
+Linesearch      1;  Value 5.895995e+01
+Linesearch      2;  Value 5.886499e+01
+Linesearch      3;  Value 5.876434e+01
+
+epoch 155 batch 6
+Linesearch      1;  Value 5.902099e+01
+Linesearch      2;  Value 5.894339e+01
+Linesearch      3;  Value 5.884545e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 156 Train squared error:  3.579 Test squared error:  7.550 	 	 
+epoch 156 batch 1
+Linesearch      1;  Value 5.907593e+01
+Linesearch      2;  Value 5.900969e+01
+Linesearch      3;  Value 5.889347e+01
+
+epoch 156 batch 2
+Linesearch      1;  Value 5.871305e+01
+Linesearch      2;  Value 5.864292e+01
+Linesearch      3;  Value 5.852684e+01
+
+epoch 156 batch 3
+Linesearch      1;  Value 5.935647e+01
+Linesearch      2;  Value 5.928011e+01
+Linesearch      3;  Value 5.912706e+01
+
+epoch 156 batch 4
+Linesearch      1;  Value 5.944433e+01
+Linesearch      2;  Value 5.934541e+01
+Linesearch      3;  Value 5.919748e+01
+
+epoch 156 batch 5
+Linesearch      1;  Value 5.898123e+01
+Linesearch      2;  Value 5.890154e+01
+Linesearch      3;  Value 5.879509e+01
+
+epoch 156 batch 6
+Linesearch      1;  Value 5.901371e+01
+Linesearch      2;  Value 5.893771e+01
+Linesearch      3;  Value 5.883734e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 157 Train squared error:  3.579 Test squared error:  7.559 	 	 
+epoch 157 batch 1
+Linesearch      1;  Value 5.909819e+01
+Linesearch      2;  Value 5.901774e+01
+Linesearch      3;  Value 5.891454e+01
+
+epoch 157 batch 2
+Linesearch      1;  Value 5.867176e+01
+Linesearch      2;  Value 5.857342e+01
+Linesearch      3;  Value 5.842402e+01
+
+epoch 157 batch 3
+Linesearch      1;  Value 5.937261e+01
+Linesearch      2;  Value 5.925684e+01
+Linesearch      3;  Value 5.911748e+01
+
+epoch 157 batch 4
+Linesearch      1;  Value 5.939132e+01
+Linesearch      2;  Value 5.932172e+01
+Linesearch      3;  Value 5.919364e+01
+
+epoch 157 batch 5
+Linesearch      1;  Value 5.896951e+01
+Linesearch      2;  Value 5.889584e+01
+Linesearch      3;  Value 5.878741e+01
+
+epoch 157 batch 6
+Linesearch      1;  Value 5.902550e+01
+Linesearch      2;  Value 5.894769e+01
+Linesearch      3;  Value 5.886355e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 158 Train squared error:  3.566 Test squared error:  7.546 	 	 
+epoch 158 batch 1
+Linesearch      1;  Value 5.908164e+01
+Linesearch      2;  Value 5.901160e+01
+Linesearch      3;  Value 5.887604e+01
+
+epoch 158 batch 2
+Linesearch      1;  Value 5.859143e+01
+Linesearch      2;  Value 5.850321e+01
+Linesearch      3;  Value 5.839821e+01
+
+epoch 158 batch 3
+Linesearch      1;  Value 5.931578e+01
+Linesearch      2;  Value 5.922062e+01
+Linesearch      3;  Value 5.909452e+01
+
+epoch 158 batch 4
+Linesearch      1;  Value 5.935824e+01
+Linesearch      2;  Value 5.926747e+01
+Linesearch      3;  Value 5.916937e+01
+
+epoch 158 batch 5
+Linesearch      1;  Value 5.897625e+01
+Linesearch      2;  Value 5.888926e+01
+Linesearch      3;  Value 5.878850e+01
+
+epoch 158 batch 6
+Linesearch      1;  Value 5.903741e+01
+Linesearch      2;  Value 5.896567e+01
+Linesearch      3;  Value 5.885939e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 159 Train squared error:  3.560 Test squared error:  7.544 	 	 
+epoch 159 batch 1
+Linesearch      1;  Value 5.905399e+01
+Linesearch      2;  Value 5.896828e+01
+Linesearch      3;  Value 5.888176e+01
+
+epoch 159 batch 2
+Linesearch      1;  Value 5.857009e+01
+Linesearch      2;  Value 5.851524e+01
+Linesearch      3;  Value 5.841794e+01
+
+epoch 159 batch 3
+Linesearch      1;  Value 5.924490e+01
+Linesearch      2;  Value 5.912982e+01
+Linesearch      3;  Value 5.897849e+01
+
+epoch 159 batch 4
+Linesearch      1;  Value 5.936201e+01
+Linesearch      2;  Value 5.922798e+01
+Linesearch      3;  Value 5.914297e+01
+
+epoch 159 batch 5
+Linesearch      1;  Value 5.896548e+01
+Linesearch      2;  Value 5.887766e+01
+Linesearch      3;  Value 5.874988e+01
+
+epoch 159 batch 6
+Linesearch      1;  Value 5.903212e+01
+Linesearch      2;  Value 5.893252e+01
+Linesearch      3;  Value 5.883810e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 160 Train squared error:  3.566 Test squared error:  7.556 	 	 
+epoch 160 batch 1
+Linesearch      1;  Value 5.906755e+01
+Linesearch      2;  Value 5.897871e+01
+Linesearch      3;  Value 5.888145e+01
+
+epoch 160 batch 2
+Linesearch      1;  Value 5.858738e+01
+Linesearch      2;  Value 5.850476e+01
+Linesearch      3;  Value 5.841619e+01
+
+epoch 160 batch 3
+Linesearch      1;  Value 5.917571e+01
+Linesearch      2;  Value 5.910097e+01
+Linesearch      3;  Value 5.898857e+01
+
+epoch 160 batch 4
+Linesearch      1;  Value 5.929454e+01
+Linesearch      2;  Value 5.922186e+01
+Linesearch      3;  Value 5.910949e+01
+
+epoch 160 batch 5
+Linesearch      1;  Value 5.893717e+01
+Linesearch      2;  Value 5.885586e+01
+Linesearch      3;  Value 5.873966e+01
+
+epoch 160 batch 6
+Linesearch      1;  Value 5.899904e+01
+Linesearch      2;  Value 5.890745e+01
+Linesearch      3;  Value 5.880799e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 161 Train squared error:  3.552 Test squared error:  7.543 	 	 
+epoch 161 batch 1
+Linesearch      1;  Value 5.905136e+01
+Linesearch      2;  Value 5.896772e+01
+Linesearch      3;  Value 5.885641e+01
+
+epoch 161 batch 2
+Linesearch      1;  Value 5.858095e+01
+Linesearch      2;  Value 5.852712e+01
+Linesearch      3;  Value 5.841979e+01
+
+epoch 161 batch 3
+Linesearch      1;  Value 5.916458e+01
+Linesearch      2;  Value 5.906979e+01
+Linesearch      3;  Value 5.894914e+01
+
+epoch 161 batch 4
+Linesearch      1;  Value 5.931835e+01
+Linesearch      2;  Value 5.923173e+01
+Linesearch      3;  Value 5.911868e+01
+
+epoch 161 batch 5
+Linesearch      1;  Value 5.887335e+01
+Linesearch      2;  Value 5.876361e+01
+Linesearch      3;  Value 5.863763e+01
+
+epoch 161 batch 6
+Linesearch      1;  Value 5.903715e+01
+Linesearch      2;  Value 5.895396e+01
+Linesearch      3;  Value 5.883037e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 162 Train squared error:  3.550 Test squared error:  7.547 	 	 
+epoch 162 batch 1
+Linesearch      1;  Value 5.902726e+01
+Linesearch      2;  Value 5.895377e+01
+Linesearch      3;  Value 5.884408e+01
+
+epoch 162 batch 2
+Linesearch      1;  Value 5.860405e+01
+Linesearch      2;  Value 5.854220e+01
+Linesearch      3;  Value 5.844508e+01
+
+epoch 162 batch 3
+Linesearch      1;  Value 5.910843e+01
+Linesearch      2;  Value 5.901941e+01
+Linesearch      3;  Value 5.885774e+01
+
+epoch 162 batch 4
+Linesearch      1;  Value 5.932772e+01
+Linesearch      2;  Value 5.923810e+01
+Linesearch      3;  Value 5.910320e+01
+
+epoch 162 batch 5
+Linesearch      1;  Value 5.882566e+01
+Linesearch      2;  Value 5.872813e+01
+Linesearch      3;  Value 5.859076e+01
+
+epoch 162 batch 6
+Linesearch      1;  Value 5.901503e+01
+Linesearch      2;  Value 5.891884e+01
+Linesearch      3;  Value 5.879840e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 163 Train squared error:  3.546 Test squared error:  7.550 	 	 
+epoch 163 batch 1
+Linesearch      1;  Value 5.903929e+01
+Linesearch      2;  Value 5.896710e+01
+Linesearch      3;  Value 5.883328e+01
+
+epoch 163 batch 2
+Linesearch      1;  Value 5.860455e+01
+Linesearch      2;  Value 5.853240e+01
+Linesearch      3;  Value 5.838983e+01
+
+epoch 163 batch 3
+Linesearch      1;  Value 5.913461e+01
+Linesearch      2;  Value 5.903696e+01
+Linesearch      3;  Value 5.892563e+01
+
+epoch 163 batch 4
+Linesearch      1;  Value 5.927993e+01
+Linesearch      2;  Value 5.917520e+01
+Linesearch      3;  Value 5.907635e+01
+
+epoch 163 batch 5
+Linesearch      1;  Value 5.882046e+01
+Linesearch      2;  Value 5.873809e+01
+Linesearch      3;  Value 5.861423e+01
+
+epoch 163 batch 6
+Linesearch      1;  Value 5.895874e+01
+Linesearch      2;  Value 5.889400e+01
+Linesearch      3;  Value 5.876757e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 164 Train squared error:  3.538 Test squared error:  7.543 	 	 
+epoch 164 batch 1
+Linesearch      1;  Value 5.900454e+01
+Linesearch      2;  Value 5.892541e+01
+Linesearch      3;  Value 5.882401e+01
+
+epoch 164 batch 2
+Linesearch      1;  Value 5.854311e+01
+Linesearch      2;  Value 5.848836e+01
+Linesearch      3;  Value 5.836563e+01
+
+epoch 164 batch 3
+Linesearch      1;  Value 5.909741e+01
+Linesearch      2;  Value 5.899554e+01
+Linesearch      3;  Value 5.889297e+01
+
+epoch 164 batch 4
+Linesearch      1;  Value 5.926476e+01
+Linesearch      2;  Value 5.917021e+01
+Linesearch      3;  Value 5.906973e+01
+
+epoch 164 batch 5
+Linesearch      1;  Value 5.876463e+01
+Linesearch      2;  Value 5.867034e+01
+Linesearch      3;  Value 5.857830e+01
+
+epoch 164 batch 6
+Linesearch      1;  Value 5.893297e+01
+Linesearch      2;  Value 5.885140e+01
+Linesearch      3;  Value 5.874959e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 165 Train squared error:  3.530 Test squared error:  7.544 	 	 
+epoch 165 batch 1
+Linesearch      1;  Value 5.898683e+01
+Linesearch      2;  Value 5.891577e+01
+Linesearch      3;  Value 5.878615e+01
+
+epoch 165 batch 2
+Linesearch      1;  Value 5.851801e+01
+Linesearch      2;  Value 5.843011e+01
+Linesearch      3;  Value 5.830023e+01
+
+epoch 165 batch 3
+Linesearch      1;  Value 5.910769e+01
+Linesearch      2;  Value 5.899220e+01
+Linesearch      3;  Value 5.892315e+01
+
+epoch 165 batch 4
+Linesearch      1;  Value 5.926077e+01
+Linesearch      2;  Value 5.918120e+01
+Linesearch      3;  Value 5.906467e+01
+
+epoch 165 batch 5
+Linesearch      1;  Value 5.874925e+01
+Linesearch      2;  Value 5.864556e+01
+Linesearch      3;  Value 5.856373e+01
+
+epoch 165 batch 6
+Linesearch      1;  Value 5.893356e+01
+Linesearch      2;  Value 5.884939e+01
+Linesearch      3;  Value 5.873770e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 166 Train squared error:  3.521 Test squared error:  7.536 	 	 
+epoch 166 batch 1
+Linesearch      1;  Value 5.894047e+01
+Linesearch      2;  Value 5.884601e+01
+Linesearch      3;  Value 5.873754e+01
+
+epoch 166 batch 2
+Linesearch      1;  Value 5.847796e+01
+Linesearch      2;  Value 5.841118e+01
+Linesearch      3;  Value 5.829394e+01
+
+epoch 166 batch 3
+Linesearch      1;  Value 5.910900e+01
+Linesearch      2;  Value 5.903429e+01
+Linesearch      3;  Value 5.892865e+01
+
+epoch 166 batch 4
+Linesearch      1;  Value 5.923727e+01
+Linesearch      2;  Value 5.916762e+01
+Linesearch      3;  Value 5.906089e+01
+
+epoch 166 batch 5
+Linesearch      1;  Value 5.872643e+01
+Linesearch      2;  Value 5.865790e+01
+Linesearch      3;  Value 5.855416e+01
+
+epoch 166 batch 6
+Linesearch      1;  Value 5.888266e+01
+Linesearch      2;  Value 5.879636e+01
+Linesearch      3;  Value 5.869001e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 167 Train squared error:  3.524 Test squared error:  7.548 	 	 
+epoch 167 batch 1
+Linesearch      1;  Value 5.893371e+01
+Linesearch      2;  Value 5.884745e+01
+Linesearch      3;  Value 5.872198e+01
+
+epoch 167 batch 2
+Linesearch      1;  Value 5.845088e+01
+Linesearch      2;  Value 5.838630e+01
+Linesearch      3;  Value 5.827123e+01
+
+epoch 167 batch 3
+Linesearch      1;  Value 5.911039e+01
+Linesearch      2;  Value 5.903026e+01
+Linesearch      3;  Value 5.892779e+01
+
+epoch 167 batch 4
+Linesearch      1;  Value 5.922007e+01
+Linesearch      2;  Value 5.915452e+01
+Linesearch      3;  Value 5.903936e+01
+
+epoch 167 batch 5
+Linesearch      1;  Value 5.872970e+01
+Linesearch      2;  Value 5.864821e+01
+Linesearch      3;  Value 5.855825e+01
+
+epoch 167 batch 6
+Linesearch      1;  Value 5.884414e+01
+Linesearch      2;  Value 5.877872e+01
+Linesearch      3;  Value 5.867803e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 168 Train squared error:  3.511 Test squared error:  7.532 	 	 
+epoch 168 batch 1
+Linesearch      1;  Value 5.889470e+01
+Linesearch      2;  Value 5.882707e+01
+Linesearch      3;  Value 5.872526e+01
+
+epoch 168 batch 2
+Linesearch      1;  Value 5.842761e+01
+Linesearch      2;  Value 5.837783e+01
+Linesearch      3;  Value 5.826722e+01
+
+epoch 168 batch 3
+Linesearch      1;  Value 5.907813e+01
+Linesearch      2;  Value 5.897676e+01
+Linesearch      3;  Value 5.887506e+01
+
+epoch 168 batch 4
+Linesearch      1;  Value 5.921166e+01
+Linesearch      2;  Value 5.913376e+01
+Linesearch      3;  Value 5.901391e+01
+
+epoch 168 batch 5
+Linesearch      1;  Value 5.869153e+01
+Linesearch      2;  Value 5.858686e+01
+Linesearch      3;  Value 5.847938e+01
+
+epoch 168 batch 6
+Linesearch      1;  Value 5.887617e+01
+Linesearch      2;  Value 5.879632e+01
+Linesearch      3;  Value 5.868179e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 169 Train squared error:  3.508 Test squared error:  7.533 	 	 
+epoch 169 batch 1
+Linesearch      1;  Value 5.888131e+01
+Linesearch      2;  Value 5.879517e+01
+Linesearch      3;  Value 5.865724e+01
+
+epoch 169 batch 2
+Linesearch      1;  Value 5.847952e+01
+Linesearch      2;  Value 5.840951e+01
+Linesearch      3;  Value 5.828544e+01
+
+epoch 169 batch 3
+Linesearch      1;  Value 5.908468e+01
+Linesearch      2;  Value 5.901166e+01
+Linesearch      3;  Value 5.890140e+01
+
+epoch 169 batch 4
+Linesearch      1;  Value 5.920351e+01
+Linesearch      2;  Value 5.913707e+01
+Linesearch      3;  Value 5.903535e+01
+
+epoch 169 batch 5
+Linesearch      1;  Value 5.864929e+01
+Linesearch      2;  Value 5.859136e+01
+Linesearch      3;  Value 5.848611e+01
+
+epoch 169 batch 6
+Linesearch      1;  Value 5.882961e+01
+Linesearch      2;  Value 5.875164e+01
+Linesearch      3;  Value 5.864777e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 170 Train squared error:  3.509 Test squared error:  7.543 	 	 
+epoch 170 batch 1
+Linesearch      1;  Value 5.882608e+01
+Linesearch      2;  Value 5.874759e+01
+Linesearch      3;  Value 5.862140e+01
+
+epoch 170 batch 2
+Linesearch      1;  Value 5.842475e+01
+Linesearch      2;  Value 5.835492e+01
+Linesearch      3;  Value 5.824885e+01
+
+epoch 170 batch 3
+Linesearch      1;  Value 5.908124e+01
+Linesearch      2;  Value 5.900963e+01
+Linesearch      3;  Value 5.887706e+01
+
+epoch 170 batch 4
+Linesearch      1;  Value 5.918806e+01
+Linesearch      2;  Value 5.912670e+01
+Linesearch      3;  Value 5.900752e+01
+
+epoch 170 batch 5
+Linesearch      1;  Value 5.867375e+01
+Linesearch      2;  Value 5.861190e+01
+Linesearch      3;  Value 5.851747e+01
+
+epoch 170 batch 6
+Linesearch      1;  Value 5.879777e+01
+Linesearch      2;  Value 5.874370e+01
+Linesearch      3;  Value 5.863489e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 171 Train squared error:  3.496 Test squared error:  7.528 	 	 
+epoch 171 batch 1
+Linesearch      1;  Value 5.878257e+01
+Linesearch      2;  Value 5.870896e+01
+Linesearch      3;  Value 5.861885e+01
+
+epoch 171 batch 2
+Linesearch      1;  Value 5.840275e+01
+Linesearch      2;  Value 5.834769e+01
+Linesearch      3;  Value 5.823220e+01
+
+epoch 171 batch 3
+Linesearch      1;  Value 5.902390e+01
+Linesearch      2;  Value 5.893233e+01
+Linesearch      3;  Value 5.881974e+01
+
+epoch 171 batch 4
+Linesearch      1;  Value 5.917975e+01
+Linesearch      2;  Value 5.911392e+01
+Linesearch      3;  Value 5.898682e+01
+
+epoch 171 batch 5
+Linesearch      1;  Value 5.865960e+01
+Linesearch      2;  Value 5.858783e+01
+Linesearch      3;  Value 5.847259e+01
+
+epoch 171 batch 6
+Linesearch      1;  Value 5.881670e+01
+Linesearch      2;  Value 5.874839e+01
+Linesearch      3;  Value 5.864802e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 172 Train squared error:  3.495 Test squared error:  7.532 	 	 
+epoch 172 batch 1
+Linesearch      1;  Value 5.878265e+01
+Linesearch      2;  Value 5.872232e+01
+Linesearch      3;  Value 5.862450e+01
+
+epoch 172 batch 2
+Linesearch      1;  Value 5.838347e+01
+Linesearch      2;  Value 5.832527e+01
+Linesearch      3;  Value 5.822991e+01
+
+epoch 172 batch 3
+Linesearch      1;  Value 5.899482e+01
+Linesearch      2;  Value 5.893136e+01
+Linesearch      3;  Value 5.881481e+01
+
+epoch 172 batch 4
+Linesearch      1;  Value 5.912855e+01
+Linesearch      2;  Value 5.904197e+01
+Linesearch      3;  Value 5.893788e+01
+
+epoch 172 batch 5
+Linesearch      1;  Value 5.864254e+01
+Linesearch      2;  Value 5.857904e+01
+Linesearch      3;  Value 5.846086e+01
+
+epoch 172 batch 6
+Linesearch      1;  Value 5.878180e+01
+Linesearch      2;  Value 5.869733e+01
+Linesearch      3;  Value 5.855084e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 173 Train squared error:  3.508 Test squared error:  7.551 	 	 
+epoch 173 batch 1
+Linesearch      1;  Value 5.884205e+01
+Linesearch      2;  Value 5.874951e+01
+Linesearch      3;  Value 5.863233e+01
+
+epoch 173 batch 2
+Linesearch      1;  Value 5.838132e+01
+Linesearch      2;  Value 5.830877e+01
+Linesearch      3;  Value 5.820293e+01
+
+epoch 173 batch 3
+Linesearch      1;  Value 5.902807e+01
+Linesearch      2;  Value 5.894855e+01
+Linesearch      3;  Value 5.884258e+01
+
+epoch 173 batch 4
+Linesearch      1;  Value 5.908739e+01
+Linesearch      2;  Value 5.902096e+01
+Linesearch      3;  Value 5.890689e+01
+
+epoch 173 batch 5
+Linesearch      1;  Value 5.865085e+01
+Linesearch      2;  Value 5.857860e+01
+Linesearch      3;  Value 5.845911e+01
+
+epoch 173 batch 6
+Linesearch      1;  Value 5.871995e+01
+Linesearch      2;  Value 5.866039e+01
+Linesearch      3;  Value 5.854742e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 174 Train squared error:  3.481 Test squared error:  7.526 	 	 
+epoch 174 batch 1
+Linesearch      1;  Value 5.878205e+01
+Linesearch      2;  Value 5.870375e+01
+Linesearch      3;  Value 5.861478e+01
+
+epoch 174 batch 2
+Linesearch      1;  Value 5.835428e+01
+Linesearch      2;  Value 5.829595e+01
+Linesearch      3;  Value 5.819852e+01
+
+epoch 174 batch 3
+Linesearch      1;  Value 5.897984e+01
+Linesearch      2;  Value 5.889715e+01
+Linesearch      3;  Value 5.880786e+01
+
+epoch 174 batch 4
+Linesearch      1;  Value 5.906664e+01
+Linesearch      2;  Value 5.899908e+01
+Linesearch      3;  Value 5.889015e+01
+
+epoch 174 batch 5
+Linesearch      1;  Value 5.858985e+01
+Linesearch      2;  Value 5.850749e+01
+Linesearch      3;  Value 5.839439e+01
+
+epoch 174 batch 6
+Linesearch      1;  Value 5.873330e+01
+Linesearch      2;  Value 5.863669e+01
+Linesearch      3;  Value 5.854484e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 175 Train squared error:  3.483 Test squared error:  7.536 	 	 
+epoch 175 batch 1
+Linesearch      1;  Value 5.879909e+01
+Linesearch      2;  Value 5.872353e+01
+Linesearch      3;  Value 5.862551e+01
+
+epoch 175 batch 2
+Linesearch      1;  Value 5.834259e+01
+Linesearch      2;  Value 5.827888e+01
+Linesearch      3;  Value 5.819123e+01
+
+epoch 175 batch 3
+Linesearch      1;  Value 5.899654e+01
+Linesearch      2;  Value 5.892037e+01
+Linesearch      3;  Value 5.882733e+01
+
+epoch 175 batch 4
+Linesearch      1;  Value 5.902930e+01
+Linesearch      2;  Value 5.896262e+01
+Linesearch      3;  Value 5.885952e+01
+
+epoch 175 batch 5
+Linesearch      1;  Value 5.855145e+01
+Linesearch      2;  Value 5.848646e+01
+Linesearch      3;  Value 5.836282e+01
+
+epoch 175 batch 6
+Linesearch      1;  Value 5.869550e+01
+Linesearch      2;  Value 5.863881e+01
+Linesearch      3;  Value 5.850921e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 176 Train squared error:  3.476 Test squared error:  7.529 	 	 
+epoch 176 batch 1
+Linesearch      1;  Value 5.878673e+01
+Linesearch      2;  Value 5.870645e+01
+Linesearch      3;  Value 5.861992e+01
+
+epoch 176 batch 2
+Linesearch      1;  Value 5.834611e+01
+Linesearch      2;  Value 5.828595e+01
+Linesearch      3;  Value 5.819494e+01
+
+epoch 176 batch 3
+Linesearch      1;  Value 5.896521e+01
+Linesearch      2;  Value 5.887856e+01
+Linesearch      3;  Value 5.878048e+01
+
+epoch 176 batch 4
+Linesearch      1;  Value 5.903826e+01
+Linesearch      2;  Value 5.895764e+01
+Linesearch      3;  Value 5.884779e+01
+
+epoch 176 batch 5
+Linesearch      1;  Value 5.850744e+01
+Linesearch      2;  Value 5.838562e+01
+Linesearch      3;  Value 5.828160e+01
+
+epoch 176 batch 6
+Linesearch      1;  Value 5.871300e+01
+Linesearch      2;  Value 5.863303e+01
+Linesearch      3;  Value 5.850553e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 177 Train squared error:  3.474 Test squared error:  7.531 	 	 
+epoch 177 batch 1
+Linesearch      1;  Value 5.878375e+01
+Linesearch      2;  Value 5.872344e+01
+Linesearch      3;  Value 5.858777e+01
+
+epoch 177 batch 2
+Linesearch      1;  Value 5.835199e+01
+Linesearch      2;  Value 5.829652e+01
+Linesearch      3;  Value 5.819695e+01
+
+epoch 177 batch 3
+Linesearch      1;  Value 5.897590e+01
+Linesearch      2;  Value 5.890219e+01
+Linesearch      3;  Value 5.880453e+01
+
+epoch 177 batch 4
+Linesearch      1;  Value 5.902131e+01
+Linesearch      2;  Value 5.891562e+01
+Linesearch      3;  Value 5.881690e+01
+
+epoch 177 batch 5
+Linesearch      1;  Value 5.849719e+01
+Linesearch      2;  Value 5.841725e+01
+Linesearch      3;  Value 5.830116e+01
+
+epoch 177 batch 6
+Linesearch      1;  Value 5.865331e+01
+Linesearch      2;  Value 5.858352e+01
+Linesearch      3;  Value 5.846361e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 178 Train squared error:  3.470 Test squared error:  7.528 	 	 
+epoch 178 batch 1
+Linesearch      1;  Value 5.876028e+01
+Linesearch      2;  Value 5.868886e+01
+Linesearch      3;  Value 5.857978e+01
+
+epoch 178 batch 2
+Linesearch      1;  Value 5.833704e+01
+Linesearch      2;  Value 5.828750e+01
+Linesearch      3;  Value 5.817841e+01
+
+epoch 178 batch 3
+Linesearch      1;  Value 5.897061e+01
+Linesearch      2;  Value 5.888034e+01
+Linesearch      3;  Value 5.879254e+01
+
+epoch 178 batch 4
+Linesearch      1;  Value 5.898464e+01
+Linesearch      2;  Value 5.891443e+01
+Linesearch      3;  Value 5.880128e+01
+
+epoch 178 batch 5
+Linesearch      1;  Value 5.846635e+01
+Linesearch      2;  Value 5.837245e+01
+Linesearch      3;  Value 5.828598e+01
+
+epoch 178 batch 6
+Linesearch      1;  Value 5.864722e+01
+Linesearch      2;  Value 5.857644e+01
+Linesearch      3;  Value 5.846768e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 179 Train squared error:  3.454 Test squared error:  7.520 	 	 
+epoch 179 batch 1
+Linesearch      1;  Value 5.871902e+01
+Linesearch      2;  Value 5.863122e+01
+Linesearch      3;  Value 5.847790e+01
+
+epoch 179 batch 2
+Linesearch      1;  Value 5.837367e+01
+Linesearch      2;  Value 5.829767e+01
+Linesearch      3;  Value 5.818190e+01
+
+epoch 179 batch 3
+Linesearch      1;  Value 5.897776e+01
+Linesearch      2;  Value 5.890642e+01
+Linesearch      3;  Value 5.880222e+01
+
+epoch 179 batch 4
+Linesearch      1;  Value 5.897910e+01
+Linesearch      2;  Value 5.891268e+01
+Linesearch      3;  Value 5.881294e+01
+
+epoch 179 batch 5
+Linesearch      1;  Value 5.844627e+01
+Linesearch      2;  Value 5.838211e+01
+Linesearch      3;  Value 5.828367e+01
+
+epoch 179 batch 6
+Linesearch      1;  Value 5.861740e+01
+Linesearch      2;  Value 5.854522e+01
+Linesearch      3;  Value 5.843965e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 180 Train squared error:  3.458 Test squared error:  7.529 	 	 
+epoch 180 batch 1
+Linesearch      1;  Value 5.865462e+01
+Linesearch      2;  Value 5.857803e+01
+Linesearch      3;  Value 5.843949e+01
+
+epoch 180 batch 2
+Linesearch      1;  Value 5.832314e+01
+Linesearch      2;  Value 5.825822e+01
+Linesearch      3;  Value 5.814231e+01
+
+epoch 180 batch 3
+Linesearch      1;  Value 5.896920e+01
+Linesearch      2;  Value 5.888428e+01
+Linesearch      3;  Value 5.878663e+01
+
+epoch 180 batch 4
+Linesearch      1;  Value 5.897394e+01
+Linesearch      2;  Value 5.891453e+01
+Linesearch      3;  Value 5.878953e+01
+
+epoch 180 batch 5
+Linesearch      1;  Value 5.845799e+01
+Linesearch      2;  Value 5.836607e+01
+Linesearch      3;  Value 5.828530e+01
+
+epoch 180 batch 6
+Linesearch      1;  Value 5.861052e+01
+Linesearch      2;  Value 5.854421e+01
+Linesearch      3;  Value 5.842991e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 181 Train squared error:  3.443 Test squared error:  7.516 	 	 
+epoch 181 batch 1
+Linesearch      1;  Value 5.860324e+01
+Linesearch      2;  Value 5.852318e+01
+Linesearch      3;  Value 5.841635e+01
+
+epoch 181 batch 2
+Linesearch      1;  Value 5.831333e+01
+Linesearch      2;  Value 5.824863e+01
+Linesearch      3;  Value 5.813822e+01
+
+epoch 181 batch 3
+Linesearch      1;  Value 5.894992e+01
+Linesearch      2;  Value 5.888346e+01
+Linesearch      3;  Value 5.876567e+01
+
+epoch 181 batch 4
+Linesearch      1;  Value 5.895207e+01
+Linesearch      2;  Value 5.888319e+01
+Linesearch      3;  Value 5.878660e+01
+
+epoch 181 batch 5
+Linesearch      1;  Value 5.844138e+01
+Linesearch      2;  Value 5.838424e+01
+Linesearch      3;  Value 5.827837e+01
+
+epoch 181 batch 6
+Linesearch      1;  Value 5.857837e+01
+Linesearch      2;  Value 5.850300e+01
+Linesearch      3;  Value 5.839595e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 182 Train squared error:  3.450 Test squared error:  7.529 	 	 
+epoch 182 batch 1
+Linesearch      1;  Value 5.860011e+01
+Linesearch      2;  Value 5.852579e+01
+Linesearch      3;  Value 5.841781e+01
+
+epoch 182 batch 2
+Linesearch      1;  Value 5.827046e+01
+Linesearch      2;  Value 5.820077e+01
+Linesearch      3;  Value 5.809197e+01
+
+epoch 182 batch 3
+Linesearch      1;  Value 5.895019e+01
+Linesearch      2;  Value 5.887431e+01
+Linesearch      3;  Value 5.875213e+01
+
+epoch 182 batch 4
+Linesearch      1;  Value 5.893600e+01
+Linesearch      2;  Value 5.887422e+01
+Linesearch      3;  Value 5.875906e+01
+
+epoch 182 batch 5
+Linesearch      1;  Value 5.845585e+01
+Linesearch      2;  Value 5.839486e+01
+Linesearch      3;  Value 5.829800e+01
+
+epoch 182 batch 6
+Linesearch      1;  Value 5.854506e+01
+Linesearch      2;  Value 5.849423e+01
+Linesearch      3;  Value 5.839264e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 183 Train squared error:  3.435 Test squared error:  7.513 	 	 
+epoch 183 batch 1
+Linesearch      1;  Value 5.857785e+01
+Linesearch      2;  Value 5.850858e+01
+Linesearch      3;  Value 5.842196e+01
+
+epoch 183 batch 2
+Linesearch      1;  Value 5.823930e+01
+Linesearch      2;  Value 5.818644e+01
+Linesearch      3;  Value 5.806680e+01
+
+epoch 183 batch 3
+Linesearch      1;  Value 5.889655e+01
+Linesearch      2;  Value 5.881292e+01
+Linesearch      3;  Value 5.870176e+01
+
+epoch 183 batch 4
+Linesearch      1;  Value 5.892544e+01
+Linesearch      2;  Value 5.886771e+01
+Linesearch      3;  Value 5.876296e+01
+
+epoch 183 batch 5
+Linesearch      1;  Value 5.843219e+01
+Linesearch      2;  Value 5.837411e+01
+Linesearch      3;  Value 5.826697e+01
+
+epoch 183 batch 6
+Linesearch      1;  Value 5.855295e+01
+Linesearch      2;  Value 5.849193e+01
+Linesearch      3;  Value 5.840606e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 184 Train squared error:  3.434 Test squared error:  7.518 	 	 
+epoch 184 batch 1
+Linesearch      1;  Value 5.857686e+01
+Linesearch      2;  Value 5.851820e+01
+Linesearch      3;  Value 5.842620e+01
+
+epoch 184 batch 2
+Linesearch      1;  Value 5.820299e+01
+Linesearch      2;  Value 5.813799e+01
+Linesearch      3;  Value 5.803477e+01
+
+epoch 184 batch 3
+Linesearch      1;  Value 5.887689e+01
+Linesearch      2;  Value 5.879985e+01
+Linesearch      3;  Value 5.867437e+01
+
+epoch 184 batch 4
+Linesearch      1;  Value 5.890225e+01
+Linesearch      2;  Value 5.880579e+01
+Linesearch      3;  Value 5.864668e+01
+
+epoch 184 batch 5
+Linesearch      1;  Value 5.846759e+01
+Linesearch      2;  Value 5.834047e+01
+Linesearch      3;  Value 5.823383e+01
+
+epoch 184 batch 6
+Linesearch      1;  Value 5.859688e+01
+Linesearch      2;  Value 5.852741e+01
+Linesearch      3;  Value 5.841037e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 185 Train squared error:  3.435 Test squared error:  7.517 	 	 
+epoch 185 batch 1
+Linesearch      1;  Value 5.860085e+01
+Linesearch      2;  Value 5.853963e+01
+Linesearch      3;  Value 5.843335e+01
+
+epoch 185 batch 2
+Linesearch      1;  Value 5.820395e+01
+Linesearch      2;  Value 5.815286e+01
+Linesearch      3;  Value 5.803503e+01
+
+epoch 185 batch 3
+Linesearch      1;  Value 5.887917e+01
+Linesearch      2;  Value 5.881353e+01
+Linesearch      3;  Value 5.869153e+01
+
+epoch 185 batch 4
+Linesearch      1;  Value 5.881977e+01
+Linesearch      2;  Value 5.875551e+01
+Linesearch      3;  Value 5.866299e+01
+
+epoch 185 batch 5
+Linesearch      1;  Value 5.838737e+01
+Linesearch      2;  Value 5.833452e+01
+Linesearch      3;  Value 5.822973e+01
+
+epoch 185 batch 6
+Linesearch      1;  Value 5.854692e+01
+Linesearch      2;  Value 5.846879e+01
+Linesearch      3;  Value 5.835912e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 186 Train squared error:  3.431 Test squared error:  7.526 	 	 
+epoch 186 batch 1
+Linesearch      1;  Value 5.860313e+01
+Linesearch      2;  Value 5.852811e+01
+Linesearch      3;  Value 5.842983e+01
+
+epoch 186 batch 2
+Linesearch      1;  Value 5.815669e+01
+Linesearch      2;  Value 5.807360e+01
+Linesearch      3;  Value 5.794596e+01
+
+epoch 186 batch 3
+Linesearch      1;  Value 5.890154e+01
+Linesearch      2;  Value 5.880788e+01
+Linesearch      3;  Value 5.868892e+01
+
+epoch 186 batch 4
+Linesearch      1;  Value 5.883287e+01
+Linesearch      2;  Value 5.874830e+01
+Linesearch      3;  Value 5.862810e+01
+
+epoch 186 batch 5
+Linesearch      1;  Value 5.844336e+01
+Linesearch      2;  Value 5.836586e+01
+Linesearch      3;  Value 5.825156e+01
+
+epoch 186 batch 6
+Linesearch      1;  Value 5.853687e+01
+Linesearch      2;  Value 5.847709e+01
+Linesearch      3;  Value 5.837856e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 187 Train squared error:  3.414 Test squared error:  7.507 	 	 
+epoch 187 batch 1
+Linesearch      1;  Value 5.859517e+01
+Linesearch      2;  Value 5.851960e+01
+Linesearch      3;  Value 5.842637e+01
+
+epoch 187 batch 2
+Linesearch      1;  Value 5.809598e+01
+Linesearch      2;  Value 5.804719e+01
+Linesearch      3;  Value 5.794986e+01
+
+epoch 187 batch 3
+Linesearch      1;  Value 5.881612e+01
+Linesearch      2;  Value 5.869140e+01
+Linesearch      3;  Value 5.855567e+01
+
+epoch 187 batch 4
+Linesearch      1;  Value 5.883187e+01
+Linesearch      2;  Value 5.873262e+01
+Linesearch      3;  Value 5.863357e+01
+
+epoch 187 batch 5
+Linesearch      1;  Value 5.839686e+01
+Linesearch      2;  Value 5.829914e+01
+Linesearch      3;  Value 5.821095e+01
+
+epoch 187 batch 6
+Linesearch      1;  Value 5.856481e+01
+Linesearch      2;  Value 5.848360e+01
+Linesearch      3;  Value 5.838810e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 188 Train squared error:  3.413 Test squared error:  7.510 	 	 
+epoch 188 batch 1
+Linesearch      1;  Value 5.857194e+01
+Linesearch      2;  Value 5.848493e+01
+Linesearch      3;  Value 5.839977e+01
+
+epoch 188 batch 2
+Linesearch      1;  Value 5.812459e+01
+Linesearch      2;  Value 5.806611e+01
+Linesearch      3;  Value 5.796096e+01
+
+epoch 188 batch 3
+Linesearch      1;  Value 5.873682e+01
+Linesearch      2;  Value 5.866865e+01
+Linesearch      3;  Value 5.855426e+01
+
+epoch 188 batch 4
+Linesearch      1;  Value 5.879242e+01
+Linesearch      2;  Value 5.871900e+01
+Linesearch      3;  Value 5.862098e+01
+
+epoch 188 batch 5
+Linesearch      1;  Value 5.835940e+01
+Linesearch      2;  Value 5.829146e+01
+Linesearch      3;  Value 5.818375e+01
+
+epoch 188 batch 6
+Linesearch      1;  Value 5.853927e+01
+Linesearch      2;  Value 5.844857e+01
+Linesearch      3;  Value 5.837073e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 189 Train squared error:  3.409 Test squared error:  7.513 	 	 
+epoch 189 batch 1
+Linesearch      1;  Value 5.855825e+01
+Linesearch      2;  Value 5.847588e+01
+Linesearch      3;  Value 5.837385e+01
+
+epoch 189 batch 2
+Linesearch      1;  Value 5.809683e+01
+Linesearch      2;  Value 5.801969e+01
+Linesearch      3;  Value 5.793104e+01
+
+epoch 189 batch 3
+Linesearch      1;  Value 5.873934e+01
+Linesearch      2;  Value 5.866874e+01
+Linesearch      3;  Value 5.856447e+01
+
+epoch 189 batch 4
+Linesearch      1;  Value 5.877416e+01
+Linesearch      2;  Value 5.870883e+01
+Linesearch      3;  Value 5.860174e+01
+
+epoch 189 batch 5
+Linesearch      1;  Value 5.835676e+01
+Linesearch      2;  Value 5.828847e+01
+Linesearch      3;  Value 5.817801e+01
+
+epoch 189 batch 6
+Linesearch      1;  Value 5.852677e+01
+Linesearch      2;  Value 5.846332e+01
+Linesearch      3;  Value 5.836108e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 190 Train squared error:  3.402 Test squared error:  7.507 	 	 
+epoch 190 batch 1
+Linesearch      1;  Value 5.853660e+01
+Linesearch      2;  Value 5.846075e+01
+Linesearch      3;  Value 5.837273e+01
+
+epoch 190 batch 2
+Linesearch      1;  Value 5.808122e+01
+Linesearch      2;  Value 5.802885e+01
+Linesearch      3;  Value 5.793650e+01
+
+epoch 190 batch 3
+Linesearch      1;  Value 5.870608e+01
+Linesearch      2;  Value 5.861955e+01
+Linesearch      3;  Value 5.850055e+01
+
+epoch 190 batch 4
+Linesearch      1;  Value 5.879610e+01
+Linesearch      2;  Value 5.871362e+01
+Linesearch      3;  Value 5.860730e+01
+
+epoch 190 batch 5
+Linesearch      1;  Value 5.831653e+01
+Linesearch      2;  Value 5.818019e+01
+Linesearch      3;  Value 5.805178e+01
+
+epoch 190 batch 6
+Linesearch      1;  Value 5.860258e+01
+Linesearch      2;  Value 5.849868e+01
+Linesearch      3;  Value 5.836444e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 191 Train squared error:  3.406 Test squared error:  7.516 	 	 
+epoch 191 batch 1
+Linesearch      1;  Value 5.855517e+01
+Linesearch      2;  Value 5.848645e+01
+Linesearch      3;  Value 5.837244e+01
+
+epoch 191 batch 2
+Linesearch      1;  Value 5.811504e+01
+Linesearch      2;  Value 5.806603e+01
+Linesearch      3;  Value 5.795501e+01
+
+epoch 191 batch 3
+Linesearch      1;  Value 5.869522e+01
+Linesearch      2;  Value 5.863296e+01
+Linesearch      3;  Value 5.854191e+01
+
+epoch 191 batch 4
+Linesearch      1;  Value 5.877875e+01
+Linesearch      2;  Value 5.870315e+01
+Linesearch      3;  Value 5.860236e+01
+
+epoch 191 batch 5
+Linesearch      1;  Value 5.821462e+01
+Linesearch      2;  Value 5.815797e+01
+Linesearch      3;  Value 5.804262e+01
+
+epoch 191 batch 6
+Linesearch      1;  Value 5.849467e+01
+Linesearch      2;  Value 5.839621e+01
+Linesearch      3;  Value 5.824780e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 192 Train squared error:  3.409 Test squared error:  7.525 	 	 
+epoch 192 batch 1
+Linesearch      1;  Value 5.855883e+01
+Linesearch      2;  Value 5.847538e+01
+Linesearch      3;  Value 5.835476e+01
+
+epoch 192 batch 2
+Linesearch      1;  Value 5.809529e+01
+Linesearch      2;  Value 5.802222e+01
+Linesearch      3;  Value 5.787228e+01
+
+epoch 192 batch 3
+Linesearch      1;  Value 5.874679e+01
+Linesearch      2;  Value 5.866034e+01
+Linesearch      3;  Value 5.857566e+01
+
+epoch 192 batch 4
+Linesearch      1;  Value 5.878697e+01
+Linesearch      2;  Value 5.871377e+01
+Linesearch      3;  Value 5.861134e+01
+
+epoch 192 batch 5
+Linesearch      1;  Value 5.823338e+01
+Linesearch      2;  Value 5.814072e+01
+Linesearch      3;  Value 5.803998e+01
+
+epoch 192 batch 6
+Linesearch      1;  Value 5.843972e+01
+Linesearch      2;  Value 5.837830e+01
+Linesearch      3;  Value 5.826349e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 193 Train squared error:  3.388 Test squared error:  7.505 	 	 
+epoch 193 batch 1
+Linesearch      1;  Value 5.851247e+01
+Linesearch      2;  Value 5.843528e+01
+Linesearch      3;  Value 5.833011e+01
+
+epoch 193 batch 2
+Linesearch      1;  Value 5.802918e+01
+Linesearch      2;  Value 5.797773e+01
+Linesearch      3;  Value 5.788211e+01
+
+epoch 193 batch 3
+Linesearch      1;  Value 5.870900e+01
+Linesearch      2;  Value 5.860612e+01
+Linesearch      3;  Value 5.848535e+01
+
+epoch 193 batch 4
+Linesearch      1;  Value 5.877581e+01
+Linesearch      2;  Value 5.865691e+01
+Linesearch      3;  Value 5.858304e+01
+
+epoch 193 batch 5
+Linesearch      1;  Value 5.823709e+01
+Linesearch      2;  Value 5.816125e+01
+Linesearch      3;  Value 5.806984e+01
+
+epoch 193 batch 6
+Linesearch      1;  Value 5.841908e+01
+Linesearch      2;  Value 5.835869e+01
+Linesearch      3;  Value 5.825440e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 194 Train squared error:  3.380 Test squared error:  7.500 	 	 
+epoch 194 batch 1
+Linesearch      1;  Value 5.847443e+01
+Linesearch      2;  Value 5.839196e+01
+Linesearch      3;  Value 5.830233e+01
+
+epoch 194 batch 2
+Linesearch      1;  Value 5.804191e+01
+Linesearch      2;  Value 5.798939e+01
+Linesearch      3;  Value 5.787038e+01
+
+epoch 194 batch 3
+Linesearch      1;  Value 5.865166e+01
+Linesearch      2;  Value 5.855256e+01
+Linesearch      3;  Value 5.848107e+01
+
+epoch 194 batch 4
+Linesearch      1;  Value 5.874167e+01
+Linesearch      2;  Value 5.866909e+01
+Linesearch      3;  Value 5.857330e+01
+
+epoch 194 batch 5
+Linesearch      1;  Value 5.820027e+01
+Linesearch      2;  Value 5.813623e+01
+Linesearch      3;  Value 5.805450e+01
+
+epoch 194 batch 6
+Linesearch      1;  Value 5.840173e+01
+Linesearch      2;  Value 5.832686e+01
+Linesearch      3;  Value 5.825087e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 195 Train squared error:  3.379 Test squared error:  7.505 	 	 
+epoch 195 batch 1
+Linesearch      1;  Value 5.845415e+01
+Linesearch      2;  Value 5.839074e+01
+Linesearch      3;  Value 5.828170e+01
+
+epoch 195 batch 2
+Linesearch      1;  Value 5.799909e+01
+Linesearch      2;  Value 5.792024e+01
+Linesearch      3;  Value 5.780827e+01
+
+epoch 195 batch 3
+Linesearch      1;  Value 5.869214e+01
+Linesearch      2;  Value 5.859075e+01
+Linesearch      3;  Value 5.848588e+01
+
+epoch 195 batch 4
+Linesearch      1;  Value 5.872811e+01
+Linesearch      2;  Value 5.865557e+01
+Linesearch      3;  Value 5.857107e+01
+
+epoch 195 batch 5
+Linesearch      1;  Value 5.822523e+01
+Linesearch      2;  Value 5.815805e+01
+Linesearch      3;  Value 5.807845e+01
+
+epoch 195 batch 6
+Linesearch      1;  Value 5.839577e+01
+Linesearch      2;  Value 5.833925e+01
+Linesearch      3;  Value 5.824071e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 196 Train squared error:  3.369 Test squared error:  7.497 	 	 
+epoch 196 batch 1
+Linesearch      1;  Value 5.842286e+01
+Linesearch      2;  Value 5.835455e+01
+Linesearch      3;  Value 5.825026e+01
+
+epoch 196 batch 2
+Linesearch      1;  Value 5.796439e+01
+Linesearch      2;  Value 5.791224e+01
+Linesearch      3;  Value 5.781092e+01
+
+epoch 196 batch 3
+Linesearch      1;  Value 5.863061e+01
+Linesearch      2;  Value 5.852090e+01
+Linesearch      3;  Value 5.840206e+01
+
+epoch 196 batch 4
+Linesearch      1;  Value 5.875440e+01
+Linesearch      2;  Value 5.867014e+01
+Linesearch      3;  Value 5.856101e+01
+
+epoch 196 batch 5
+Linesearch      1;  Value 5.822009e+01
+Linesearch      2;  Value 5.814595e+01
+Linesearch      3;  Value 5.806415e+01
+
+epoch 196 batch 6
+Linesearch      1;  Value 5.840937e+01
+Linesearch      2;  Value 5.834154e+01
+Linesearch      3;  Value 5.824931e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 197 Train squared error:  3.369 Test squared error:  7.501 	 	 
+epoch 197 batch 1
+Linesearch      1;  Value 5.840182e+01
+Linesearch      2;  Value 5.834108e+01
+Linesearch      3;  Value 5.824738e+01
+
+epoch 197 batch 2
+Linesearch      1;  Value 5.796045e+01
+Linesearch      2;  Value 5.791000e+01
+Linesearch      3;  Value 5.779549e+01
+
+epoch 197 batch 3
+Linesearch      1;  Value 5.858819e+01
+Linesearch      2;  Value 5.852214e+01
+Linesearch      3;  Value 5.841046e+01
+
+epoch 197 batch 4
+Linesearch      1;  Value 5.870757e+01
+Linesearch      2;  Value 5.863115e+01
+Linesearch      3;  Value 5.854827e+01
+
+epoch 197 batch 5
+Linesearch      1;  Value 5.820199e+01
+Linesearch      2;  Value 5.814549e+01
+Linesearch      3;  Value 5.806415e+01
+
+epoch 197 batch 6
+Linesearch      1;  Value 5.837591e+01
+Linesearch      2;  Value 5.830628e+01
+Linesearch      3;  Value 5.822307e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 198 Train squared error:  3.367 Test squared error:  7.505 	 	 
+epoch 198 batch 1
+Linesearch      1;  Value 5.840187e+01
+Linesearch      2;  Value 5.833602e+01
+Linesearch      3;  Value 5.824327e+01
+
+epoch 198 batch 2
+Linesearch      1;  Value 5.791307e+01
+Linesearch      2;  Value 5.783600e+01
+Linesearch      3;  Value 5.770091e+01
+
+epoch 198 batch 3
+Linesearch      1;  Value 5.862853e+01
+Linesearch      2;  Value 5.852790e+01
+Linesearch      3;  Value 5.842813e+01
+
+epoch 198 batch 4
+Linesearch      1;  Value 5.870980e+01
+Linesearch      2;  Value 5.865194e+01
+Linesearch      3;  Value 5.851621e+01
+
+epoch 198 batch 5
+Linesearch      1;  Value 5.823543e+01
+Linesearch      2;  Value 5.816637e+01
+Linesearch      3;  Value 5.809007e+01
+
+epoch 198 batch 6
+Linesearch      1;  Value 5.838474e+01
+Linesearch      2;  Value 5.832079e+01
+Linesearch      3;  Value 5.823546e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 199 Train squared error:  3.361 Test squared error:  7.499 	 	 
+epoch 199 batch 1
+Linesearch      1;  Value 5.839702e+01
+Linesearch      2;  Value 5.833935e+01
+Linesearch      3;  Value 5.821515e+01
+
+epoch 199 batch 2
+Linesearch      1;  Value 5.784621e+01
+Linesearch      2;  Value 5.777390e+01
+Linesearch      3;  Value 5.765228e+01
+
+epoch 199 batch 3
+Linesearch      1;  Value 5.861699e+01
+Linesearch      2;  Value 5.849667e+01
+Linesearch      3;  Value 5.840139e+01
+
+epoch 199 batch 4
+Linesearch      1;  Value 5.869644e+01
+Linesearch      2;  Value 5.862488e+01
+Linesearch      3;  Value 5.849763e+01
+
+epoch 199 batch 5
+Linesearch      1;  Value 5.822355e+01
+Linesearch      2;  Value 5.814964e+01
+Linesearch      3;  Value 5.805261e+01
+
+epoch 199 batch 6
+Linesearch      1;  Value 5.841186e+01
+Linesearch      2;  Value 5.834080e+01
+Linesearch      3;  Value 5.825664e+01
+
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 200 Train squared error:  3.356 Test squared error:  7.498 	 	 
+epoch 200 batch 1
+Linesearch      1;  Value 5.838011e+01
+Linesearch      2;  Value 5.832122e+01
+Linesearch      3;  Value 5.822198e+01
+
+epoch 200 batch 2
+Linesearch      1;  Value 5.780091e+01
+Linesearch      2;  Value 5.775151e+01
+Linesearch      3;  Value 5.764726e+01
+
+epoch 200 batch 3
+Linesearch      1;  Value 5.857476e+01
+Linesearch      2;  Value 5.850402e+01
+Linesearch      3;  Value 5.837964e+01
+
+epoch 200 batch 4
+Linesearch      1;  Value 5.866049e+01
+Linesearch      2;  Value 5.858054e+01
+Linesearch      3;  Value 5.848051e+01
+
+epoch 200 batch 5
+Linesearch      1;  Value 5.821136e+01
+Linesearch      2;  Value 5.814573e+01
+Linesearch      3;  Value 5.804880e+01
+
+epoch 200 batch 6
+Linesearch      1;  Value 5.838018e+01
+Linesearch      2;  Value 5.830197e+01
+Linesearch      3;  Value 5.818694e+01
+

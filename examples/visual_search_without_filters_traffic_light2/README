@@ -1,0 +1,12 @@
+Para rodar os experimentos no cluster:
+
+- Acesse o cluster com a conta avelino:
+ssh avelino@10.50.2.253
+senha: p0o9i8u7
+
+- Entre no diretório do exemplo:
+cd MAE/examples/visual_search_without_filters_tfd
+
+- Para rodar todos os exeprimentos execute:
+./run.sh
+

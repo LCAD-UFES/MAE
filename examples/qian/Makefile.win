@@ -1,0 +1,15 @@
+CC=gcc
+CCFLAGS=-g
+RM=del
+LIBRARYS=-Lc:\mingw32\lib -L../../lib -L"C:\Arquivos de programas\GnuWin32\lib"
+INCLUDES=-I../../include -I./
+
+all:
+	netcomp < qian.con > qian.c
+	$(CC) $(CCFLAGS) -c $(INCLUDES) qian.c
+	$(CC) $(CCFLAGS) -c $(INCLUDES) qian_user_functions/qian_user_functions.c
+	$(CC) $(CCFLAGS) -o qian $(INCLUDES) qian.o qian_user_functions.o $(LIBRARYS) -lnet_conn -lGA -lgw32c -lole32 -luuid -lglut32 -lglu32 -lopengl32 -lm -lfl
+clean:
+	$(RM) qian
+	$(RM) qian.c
+	$(RM) *.o

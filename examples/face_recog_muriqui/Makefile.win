@@ -1,0 +1,57 @@
+CC=gcc
+CCFLAGS= -Wall -g -D NO_INTERFACE 
+DEL=del /F /Q 
+LIBRARYS=-L../../lib -L"C:\Program Files\GnuWin32\lib" -lnet_conn -lGA -lTsai -lgw32c -lole32 -luuid -lglut32 -lglu32 -lopengl32 -lm -lfl
+INCLUDES=-I../../include -I./
+LIB_DIR = ..\..\lib
+
+DLLWRAP=dllwrap.exe
+DEFFILE=face_recog.def
+STATICLIB=face_recog.a
+
+##########################################################
+
+EXECUTABLE = face_recog.exe
+DLL = face_recog.dll
+OBJECTS = face_recog.o \
+	  face_recog_user_functions/face_recog_user_functions.o \
+	  face_recog_user_functions/face_recog_filters.o \
+	  face_recog_user_functions/face_recog_api.o
+
+##########################################################
+
+.c.o:
+	$(CC) $(CCFLAGS) -c $(INCLUDES) -o $@ $*.c
+
+.cpp.o:	
+	g++ $(CCFLAGS) -c -I$(INCLUDES) -o $@ $*.cpp
+	
+##########################################################
+
+build: $(EXECUTABLE) $(DLL)
+	@echo OK
+
+$(EXECUTABLE): $(OBJECTS)
+	gcc $(CCFLAGS) -o $(EXECUTABLE) $(INCLUDES) $(OBJECTS) $(LIBRARYS)
+
+$(DLL): $(OBJECTS)
+	gcc -shared $(OBJECTS) $(LIBRARYS) -o $(LIB_DIR)\$(DLL)
+
+##########################################################
+
+face_recog.o:
+	netcomp -o $* < $*.con
+	$(CC) $(CCFLAGS) -c $(INCLUDES) -o $@ $*.c
+face_recog_user_functions/face_recog_user_functions.o: face_recog_user_functions/face_recog_user_functions.h
+face_recog_user_functions/face_recog.o: face_recog_user_functions/face_recog.c
+face_recog_user_functions/face_recog_api.o: face_recog_user_functions/face_recog_api.c
+
+##########################################################
+
+clean:
+	$(DEL) face_recog.exe
+	$(DEL) face_recog.c
+	$(DEL) face_recog.h
+	$(DEL) *.o
+	$(DEL) *.out
+	$(DEL) face_recog_user_functions\*.o

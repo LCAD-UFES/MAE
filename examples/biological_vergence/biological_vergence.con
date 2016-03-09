@@ -1,0 +1,94 @@
+################################################ Set Global Variables #################################################
+
+# Neuron Setup
+set NEURON_MEMORY_SIZE = 32;
+
+# Kernel Size (Must be an odd number)
+set KERNEL_SIZE = 33;		# Default: 9
+
+# Complex Cells Params
+#set RANGE = 5.0 * pi;  	# Default: 3.0 * pi
+#set SIGMA = 3.0 * pi / 6.0; 	# Default: 5.0 * pi / 6.0
+#set CUT_POINT = 25.0;
+
+# Camera Parameters			
+set CAMERA_DISTANCE = 0.15;
+set FOCAL_DISTANCE  = 500.0;
+
+######################################################## Constants ####################################################
+
+################################################## Inputs #############################################################
+
+# Stereo Pair
+input 		image_left  [256][256]	with color outputs produced by input_generator() controled by input_controler();
+					
+input 		image_right [256][256]	with color outputs produced by input_generator() controled by input_controler();
+
+############################################### Neuron Layers #########################################################
+
+# Disparity Map
+neuronlayer	disparity[64][16] 			with greyscale_float outputs;
+
+# Complex Cells Distribution
+neuronlayer	complex_cells_distribution[64][16] 	with greyscale outputs;
+
+# Simple Cells
+neuronlayer	simple_cell_nl_1[64][16]		with greyscale_float outputs;
+neuronlayer	simple_cell_nl_2[64][16]		with greyscale_float outputs;
+neuronlayer	simple_cell_nl_3[64][16]		with greyscale_float outputs;
+neuronlayer	simple_cell_nl_4[64][16]		with greyscale_float outputs;
+neuronlayer	simple_cell_nl_5[64][16]		with greyscale_float outputs;
+neuronlayer	simple_cell_nl_6[64][16]		with greyscale_float outputs;
+neuronlayer	simple_cell_nl_7[64][16]		with greyscale_float outputs;
+neuronlayer	simple_cell_nl_8[64][16]		with greyscale_float outputs;
+
+############################################### Outputs #########################################################
+
+output  	disparity_out[64][16];
+
+#output		complex_cells_distribution_out[64][16];
+
+#output		simple_cell_nl_1_out[64][16];
+#output         	simple_cell_nl_2_out[64][16];
+#output         	simple_cell_nl_3_out[64][16];
+#output         	simple_cell_nl_4_out[64][16];
+#output         	simple_cell_nl_5_out[64][16];
+#output         	simple_cell_nl_6_out[64][16];
+#output         	simple_cell_nl_7_out[64][16];
+#output         	simple_cell_nl_8_out[64][16];
+
+############################################### Filters #########################################################
+
+# Simple Cells Filters
+filter 		image_left 	   with simple_cells_distribution ("%d %d %d %f", MCELLS, ONCENTER, RGB, -pi/4.0	  ) producing simple_cell_nl_1;
+filter 		image_right	   with simple_cells_distribution ("%d %d %d %f", MCELLS, ONCENTER, RGB, 0.0 	          ) producing simple_cell_nl_2;
+filter 		image_left	   with simple_cells_distribution ("%d %d %d %f", MCELLS, ONCENTER, RGB, -pi/4.0 + pi/2.0 ) producing simple_cell_nl_3;
+filter 		image_right	   with simple_cells_distribution ("%d %d %d %f", MCELLS, ONCENTER, RGB, 0.0 + pi/2.0     ) producing simple_cell_nl_4;
+filter 		image_left 	   with simple_cells_distribution ("%d %d %d %f", MCELLS, ONCENTER, RGB, 0.0 	          ) producing simple_cell_nl_5;
+filter 		image_right	   with simple_cells_distribution ("%d %d %d %f", MCELLS, ONCENTER, RGB, -pi/4.0	  ) producing simple_cell_nl_6;
+filter 		image_left 	   with simple_cells_distribution ("%d %d %d %f", MCELLS, ONCENTER, RGB, 0.0 + pi/2.0     ) producing simple_cell_nl_7;
+filter 		image_right	   with simple_cells_distribution ("%d %d %d %f", MCELLS, ONCENTER, RGB, -pi/4.0 + pi/2.0 ) producing simple_cell_nl_8;
+
+# Complex Cells Filter
+filter 		simple_cell_nl_1, simple_cell_nl_2, simple_cell_nl_3, simple_cell_nl_4, 
+		simple_cell_nl_5, simple_cell_nl_6, simple_cell_nl_7, simple_cell_nl_8
+		with near_cells ("%f %f %f %f", -pi/4.0, 0.0, 0.0, -pi/4.0) producing disparity;
+
+################################## Connect Neuron Layers to Outputs #############################################
+
+outputconnect	disparity 			 to disparity_out;
+
+#outputconnect	complex_cells_distribution 	 to complex_cells_distribution_out;
+
+#outputconnect  simple_cell_nl_1		 to simple_cell_nl_1_out;
+#outputconnect  simple_cell_nl_2		 to simple_cell_nl_2_out;
+#outputconnect  simple_cell_nl_3		 to simple_cell_nl_3_out;
+#outputconnect  simple_cell_nl_4		 to simple_cell_nl_4_out;
+#outputconnect  simple_cell_nl_5		 to simple_cell_nl_5_out;
+#outputconnect  simple_cell_nl_6		 to simple_cell_nl_6_out;
+#outputconnect  simple_cell_nl_7		 to simple_cell_nl_7_out;
+#outputconnect  simple_cell_nl_8		 to simple_cell_nl_8_out;
+
+################################################# User Functions ################################################
+
+float verge_left_to_right_image_point ("%d %d");

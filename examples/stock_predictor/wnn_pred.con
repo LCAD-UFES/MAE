@@ -1,0 +1,71 @@
+################################################ Set Global Variables #################################################
+set NEURON_MEMORY_SIZE = 4*104;
+set TYPE_SHOW = SHOW_FRAME;
+set TYPE_MOVING_FRAME = STOP;
+
+######################################################## Constants ####################################################
+const IN_WIDTH			= 17*2; # deixar fixo, senão o dado futuro pode acabar sendo utilizado (números maiores que 17)
+const IN_HEIGHT			= 44*2;
+
+const NL_WIDTH 			= 16;
+const NL_HEIGHT			= 32;
+
+const SYNAPSES			= 128;
+
+const GAUSSIAN_DISTRIBUITON	= 1;
+
+const TT_PATH			= "TT_TEMP/";
+const DATA_PATH			= "DATA_TEMP/"; 
+
+
+const SAMPLE_SIZE		= 4;
+
+const MIN_RETURN		= -0.1;
+const MAX_RETURN		= 0.1;
+
+const STOP_GAIN  		= 0.02;
+const STOP_LOSS 		= -0.30;
+
+const POINTS			= 0;
+const BY_ON_CLOSE_PRICE 	= 0;
+
+const SAMPLES2CALIBRATE		= 104;
+const SAMPLES2TEST		= 52;
+
+############################################### Neuron Layers #########################################################
+neuronlayer	nl_wnn_pred[NL_WIDTH][NL_HEIGHT]	of minchinton neurons with greyscale outputs;
+
+neuronlayer	sample_gaussian[IN_WIDTH][IN_HEIGHT]	of minchinton neurons with greyscale_float outputs;
+
+############################################### Outputs #########################################################
+#output		nl_wnn_pred_out[NL_WIDTH][NL_HEIGHT] handled by output_handler();
+output		nl_wnn_pred_out[NL_WIDTH][NL_HEIGHT] handled by output_handler_average();
+
+output		sample_gaussian_out[IN_WIDTH][IN_HEIGHT];
+
+################################################## Inputs #############################################################
+input 		sample[IN_WIDTH][IN_HEIGHT]	with greyscale_float outputs produced by input_generator() controled by input_controler();
+
+############################################### Filters #########################################################
+filter		sample 	with gaussian_filter ("%d %f", 5, 1.0) producing sample_gaussian;
+
+
+################################## Connect Neuron Layers to Outputs #############################################
+outputconnect	nl_wnn_pred 		to nl_wnn_pred_out;
+outputconnect	sample_gaussian 	to sample_gaussian_out;
+
+############################################### Associations ####################################################
+associate	nl_wnn_pred		with nl_wnn_pred;
+
+################################################ Connections ####################################################
+#connect	sample		to nl_wnn_pred	with SYNAPSES random inputs per neuron;
+connect		sample_gaussian	to nl_wnn_pred	with SYNAPSES random inputs per neuron and gaussian distribution with radius GAUSSIAN_DISTRIBUITON;
+
+
+################################################ User Functions #################################################
+int GetSample ("%d");
+int ShowStatistics ("%d");
+int ResetStatistics ("%d");
+int SetNetworkStatus ("%d");
+int GetSamplebyDate ("%s");
+int GetNumWeeks ("%d");

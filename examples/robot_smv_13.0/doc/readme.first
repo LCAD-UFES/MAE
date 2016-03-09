@@ -1,0 +1,209 @@
+Roteiro Completo de Instalação e Configuração para o SMV 13.0 (Ambiente Linux)
+
+O Sistema de Medição de Volumes - SMV 13 - faz parte dos exemplos desenvolvidos sobre o Framework da MAE (Máquina Associadora de Eventos) e cujo propósito é medir volume de troncos de madeiras a partir de imagens estéreo.
+
+A arquitetura de componentes do SMV inclui, além da MAE e suas dependências, alguns scripts implementados em Matlab necessários para o cálculo de disparidades citado na dissertação do Hallyson.
+
+Em seguida veremos os passos necessários para montar o ambiente de desenvolvimento C/C++ e MATLAB no Linux partindo de uma instalação básica do Fedora Core 8 (padrão do LCAD – Laboratório de Computação de Alto Desempenho do DI-UFES).
+
+Nota: o caracter # deve ser entendido como um comentário a respeito do comando colocado em seguida e iniciado pelo caracter > (o que estiver escrito a sua frente pode ser digitado diretamente no terminal do Linux).
+
+1) Instalação do Matlab R14 (7.0.0.19901)
+
+Executar a instalação padrão dos CD’s seguindo orientações de instalação contidas nos CD’s e, ao final, copiar todos os arquivos de licença contidos no cd1 para /usr/local/matlab7/etc/
+
+Apesar das restrições de compatibilidade do compilador do Matlab (MCR) com o GCC, encontradas no site http://www.mathworks.com/support/compilers/current_release/linux.html foi possível compilar os scripts do Matlab em C e carregá-los como biblioteca dinâmica. Para tal foi necessário instalar bibliotecas de compatibilidade que veremos na seção seguinte.
+
+1.1) Instalação MATLAB
+(1)Obtenha os três CD's de instalação (cd1.iso, cd2.iso, cd3.iso)
+ com a equipe do suporte da Mogai.
+
+(2)Crie três diretórios em /mnt como /mnt/cdrom1 , /mnt/cdrom2 , /mnt/cdrom3
+
+>mount -o loop ~/cd1.iso /mnt/cdrom1
+
+>mount -o loop ~/cd2.iso /mnt/cdrom2
+
+>mount -o loop ~/cd3.iso /mnt/cdrom3
+
+
+(3)Crie o diretório para o software
+>mkdir /usr/local/matlab7
+
+
+(4)Copie o arquivo license.dat;
+
+>cp /cdrom1/crack/license.dat /usr/local/matlab7/
+
+
+(5)Inicie a instalação e escolha o diretório criado no passo (4) como local de instalação e prossiga com a instalação aceitando as opções default.
+>/mnt/cdrom1/install
+
+
+Nota: Aqui pode ocorrer um erro com a seguinte mendagem: “error while loading shared libraries: libXp.so.6: cannot open
+ shared object file: No such file or directory
+”
+Você pode corrigir esse problema executando o seguinte comando de instalação: 
+>yum install libXp-devel
+
+
+(6)Edite o arquivo /cdrom1/crack/license.lic
+ trocando o parâmetro "your_host_name" pelo nome completo do computador (ex.:
+ localhost.localdomain, para confirmar o nome digite >hostname no terminal) onde está sendo feita a instalação e copie-o para "/usr/local/matlab7/etc"
+.
+
+(7)Ao final execute >/usr/local/matlab7/install_matlab
+ e mantenha todas as opções default.
+
+(8)O processo de instalação está concluído, mas ainda serão necessários alguns tratamentos e configurações para executar o MATLAB sem problemas. Estes procedimentos serão detalhados na seção seguinte.
+
+1.2) Configurações do MATLAB
+Incluir no ~/.bashrc o diretório raiz do MATLAB
+export MATLAB=/usr/local/matlab7
+
+Incluir no ~/.bashrc a configuração de PATH do compilador do MATLAB utilizado nos scripts de geração da libstereo
+export MCRROOT=$MATLAB
+
+Incluir no ~/.bashrc as bibliotecas do MATLAB no classpath. Para isso digite o comando abaixo e anote o LD_LIBRARY_PATH
+> matlab -n 
+
+Inicializar a variável "MATLAB_JAVA" que esta apontando para a versão antiga do java (no caso presente jre1.4.2). Para isso, basta trocar no arquivo ~/.bashrc as referencias ao diretório da versão antiga para a nova, como por exemplo:
+export MATLAB_JAVA=/usr/lib/jvm/java-1.7.0-icedtea-1.7.0.0/jre
+
+Incluir o ponto (.) para carregar a libstereo.so gerada no diretório raiz do SMV e demais bibliotecas obtidas a partir do comando “matlab -n” observando as variáveis $MATLAB e $MATLAB_JAVA definidas anteriormente.
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib:.
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$MATLAB/bin/glnx86
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$MATLAB/sys/os/glnx86
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$MATLAB/sys/opengl/lib/glnx86
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$MATLAB_JAVA/lib/i386/native_threads
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$MATLAB_JAVA/lib/i386/client
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$MATLAB_JAVA/lib/i386
+
+export XAPPLRESDIR=$MATLAB/X11/app-defaults
+
+1.3) Tratamentos para alguns BUG’s conhecidos do Matlab:
+
+Para utilizar o Matlab foi necessário resolver os seguintes bugs:
+
+Um relativo a seguinte msg "Matlab shell widget has zero width and/or zero height", que foi resolvido criando um arquivo chamado ".matlab.xresource" dentro do seu diretório home contendo as seguintes linhas:
+MATLAB*height: 1
+MATLAB*width: 1
+
+	Adicionar no arquivo ~/.bashrc o seguinte comando:
+xrdb -merge .matlab.xresource 
+
+Caso encontre o erro “xcb_xlib.c:50: xcb_xlib_unlock: Assertion `c-xlib.lock' failed” ao executar o Matlab digite:
+>matlab -nojvm
+
+Caso encontre o erro “Failed to start the Desktop: Failure loading desktop class” ao executar o Matlab digite:
+>matlab -nodesktop
+
+	Nota: os comandos acima podem ser utilizados em conjunto, se necessário.
+
+Mensagem: “Warning: Could not access OpenGL library”
+>yum install libXpm-devel mesa-libGL-devel mesa-libGLU-devel
+
+Problemas de dependências para o GCC 3.4:
+[...]
+
+/usr/local/matlab/bin/glnx86/glren.so:
+
+/usr/local/matlab/bin/glnx86/../../sys/os/glnx86/libgcc_s.so.1:
+
+version `GCC_4.2.0' not found (required by /usr/lib/libstdc++.so.6)
+
+/usr/local/matlab/bin/glnx86/glren.so:
+
+/usr/local/matlab/bin/glnx86/../../sys/os/glnx86/libgcc_s.so.1: version `GCC_3.3' not found (required by
+
+/usr/lib/libstdc++.so.6)
+
+[...]
+
+Execute os seguintes comandos:
+>yum install compat-gcc*
+>cd /usr/local/matlab/sys/os/glnx86
+
+>mv libgcc_s.so.1 libgcc_s.so.1_back
+
+>ln -s /lib/libgcc_s.so.1 libgcc_s.so.1
+
+2) Instalação de pacotes no Fedora:
+
+Nota: Caso esteja utilizando o Fedora Core 6, será necessário remover os repositórios extras e updates do Yum, pois estes foram descontinuados e, portanto, estão dando erros.
+
+2.1) Instalação do driver da placa de video Nvidia
+Baixar driver linux do site http://www.nvidia.com/object/unix.html correspondente a arquitetura e placa de video instaladas e executá-lo mantendo as opções default.
+
+2.1) Instalação do Eclipse
+Execute os seguintes comandos para instalar o Fedora Eclipse CDT como ambiente de desenvolvimento C/C++.
+>yum install eclipse-cdt*
+>yum install eclipse-subeclipse*
+
+2.3) Instalação dos pacotes para compilar a MAE:
+> yum install w3c-libwww
+> yum install w3c-libwww-devel
+> yum install xmlrpc-c
+> yum install xmlrpc-c-devel
+> yum install xforms xforms-devel freeglut freeglut-devel libnet-devel byacc flex
+> yum install libXmu-devel libtiff-devel libXi-devel
+> yum install gsl gsl-devel
+> yum install subversion
+> yum install doxygen
+
+Nota: É necessário instalar o pacote abaixo para evitar o erro “libXp.so.6:cannot open shared object file” ao executar o Matlab
+> yum install libXp
+
+Nota: Por garantia instalou-se a seguinte biblioteca para manter a compatibilidade com a versão suportada pelo MCR (provavelmente, já instalado anteriormente).
+> yum install compat-libstdc++-33
+
+Nota: Não é necessário instalar o mawk. Basta fazer link simbólico para gawk como a seguir:
+> ln -s /usr/bin/gawk /usr/bin/mawk
+
+2.4) Ajuste do fuso horário
+Caso utilize o Linux e Windows num Dual Boot não marque a opção UTC, conforme orientações tiradas do site http://www.projetofedora.org/arquivos/fedora4-install-guide/sn-utc.html.
+
+3) Instalação e Configuração da MAE
+3.1) Instalação da MAE
+
+- Baixar MAE utilizando SVN (na ocasião foi utilizada a versão 122)
+> svn co http://www.lcad.inf.ufes.br/svn/MAE
+
+- Importar biblioteca cstring no arquivo MAEHOME/src/libstereo/include/matrix.hpp para manter compatibilidade com outros compiladores.
+
+- Incluir no ~/.bashrc o diretório raiz da MAE
+export MAEHOME=<local_onde_baixou_a_MAE>/MAE
+
+- Incluir a MAE no PATH dentro do ~/.bashrc 
+export PATH=$PATH:$MAEHOME/bin
+
+3.2) Compilar exemplos da MAE no terminal
+
+-Ler ./doc/readme.txt
+
+-Compilar exemplo robot_smv_13.0
+
+-Copiar arquivos de imagens do smv_12, solicitados no readme.txt do smv_13 e renomear conforme parâmetro image.basename configurado no arquivo config.txt.
+
+-Rodar o exemplo (./robot)
+
+# Se receber um erro de "cannot restore segment prot after reloc: Permission denied" digite:
+> /usr/sbin/setenforce 0
+
+3.3) Compilar exemplos da MAE no Eclipse
+
+ 1.Para compilar a MAE e o SMV no Eclipse basta seguir os passos abaixo sem necessidade de alterar o Makefile:
+ 1.1.Abra o eclipse e crie um novo projeto (File > New > C++ Project)
+ 1.2.Escreva um nome qualquer para o projeto do eclipse
+ 1.3.Desmarque a opção “use default location” e selecione o diretório raiz da MAE e após concluir os passos abaixo repita esse procedimento para o exemplo robot_smv_13.0
+ 1.4.Selecione “Empty Project” no tipo de projeto “Makefile Project”
+ 1.5.Selecione “GNU Autotools Toolchain” na lista ao lado e clique em “Finish”
+ 1.6.Na aba “Project Explorer” do Eclipse selecione o Projeto criado e clique com o botão direito, “Properties”
+ 1.7.Selecione C/C++ Build, em “Builder Settings” certifique-se que o make esteja sendo utilizado como “Build command” e na aba “Behavior” certifique-se que os targets estejam de acordo com os existentes no Makefile.
+ 1.8.Pronto. Com isso é possível compilar o projeto.
+ 2.Para rodar e debugar siga as instruções abaixo:
+ 2.1.Clique com o botão direito sobre o projeto do SMV e vá em “Debug > Debug Configurations”
+ 2.2.Selecione C/C++ Local Application e clique em “New”
+ 2.3.Selecione robot no campo “C/C++ Application”	Apply e Debug.
+ 2.4.Pronto. Para rodar sem Debug basta clicar em Run;
+ 2.5.Para definir os breakpoint basta dar um clique-duplo na barra lateral esquerda do editor de código fonte em frente a linha de código de interesse.

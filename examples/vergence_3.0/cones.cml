@@ -1,0 +1,38 @@
+int x;
+int y;
+float disp_real;
+float disp_calc;
+
+load in_right from cones_imR.ppm ;
+load in_left  from cones_imL.ppm ;
+load in_disparity from cones_dispR.pgm ;
+clear nl_disparity_out;
+
+x = 0;
+while (x < 450)
+{
+	y = 0;
+	while (y < 375)
+	{
+		move_right_eye(x, y);
+		move_left_eye (x, y);
+	
+		forward inputs;
+		forward filters;
+		forward neural_layers;
+		forward outputs;
+
+		run_vergence(0);
+
+		disp_calc = get_disparity_computed(0);
+		disp_real = get_disparity_benchmark(x, y, 4);
+		set_disparity_output(x, y, 4, disp_real);
+		
+		y = y + 1;
+	}
+	x = x + 1;
+}
+
+save nl_disparity to cones_disparity_map.ppm;
+
+quit;

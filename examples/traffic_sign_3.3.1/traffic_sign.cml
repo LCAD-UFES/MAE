@@ -1,0 +1,80 @@
+int SIGNS2TRAINING;
+int SIGNS2TESTING;
+
+#Full dataset
+#SIGNS2TRAINING = 39209;
+#SIGNS2TESTING = 12630;
+
+#Minimal dataset
+SIGNS2TRAINING = 860;
+SIGNS2TESTING = 860/2;
+
+/* Network Status */
+int MOVING;
+MOVING = 0;
+int TRAINING;
+TRAINING = 1;
+int TESTING;
+TESTING = 2;
+
+/* Iterators */
+int i;
+int j;
+
+/* Training Phase */
+SetNetworkStatus (TRAINING);
+
+i = 1;
+while (i <= SIGNS2TRAINING)
+{
+#	print ("training",i);
+
+	GetSignByIndex (i);
+	
+	j = 1;
+	while (j <= 3)
+	{
+		if (j == 1) #training with original image shape
+			SetReshapeFilterParams(0);
+		else
+			SetReshapeFilterParams(1);
+	
+		forward filters;
+#		forward outputs;
+		draw out_landmark based on out_traffic_sign_f move;
+		train network;
+		
+		j = j + 1;
+	}
+	i = i + 1;
+}
+
+/* Testing phase */
+SetNetworkStatus (TESTING);
+i = 1;
+while (i <= SIGNS2TESTING)
+{
+	/*WaitKey(0);*/
+
+#	print ("testing",i);
+
+	GetSignByIndex (i);
+
+	j = 1;
+	while (j <= 3)
+	{
+		if (j == 1) #training with original image shape
+			SetReshapeFilterParams(0);
+		else
+			SetReshapeFilterParams(1);
+
+		forward network;
+		
+		j = j + 1;
+	}
+	i = i + 1;
+}
+
+PrintResults(0);
+
+quit;

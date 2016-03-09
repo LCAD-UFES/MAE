@@ -1,0 +1,101 @@
+/* Image Coordinates */
+int xi;
+int yi;
+
+/* Image Dimentions */
+int wi;
+int hi;
+
+wi = 128;
+hi = 96;
+
+/* V1 Coordinates */
+int u;
+int v;
+
+/* V1 Dimentions */
+int w;
+int h;
+
+w = 30;
+h = 30;
+
+/* Persons Number */
+int PERSON_MAX; 		
+PERSON_MAX = 10;
+
+/* Photos Per Person */
+int PHOTOS_PER_PERSON;
+PHOTOS_PER_PERSON = 13;
+
+/* Counters */
+int i;
+int j;
+
+/* Training Phase */
+i = 0;
+while (i < PERSON_MAX)
+{
+	j = 0;
+	while (j < PHOTOS_PER_PERSON/2)
+	{
+		/* Mark the Target Point */
+		key 'M';
+		
+		/* Walk Along the Image */
+		v = 0;
+		while (v < h)
+		{
+			u = 0;
+			while (u < w)
+			{
+				v1_to_image_mapping (xi, yi, wi, hi, u, v, w, h);
+				move in_pattern to xi, yi;
+				draw out_gaussian_v1 based on in_pattern move;
+				train network;
+				
+				u = u + 8;
+			}
+			
+		v = v + 8;
+		}
+		
+		/* Move to the Next Photo */ 
+		key 'n';
+		
+		j = j + 1;
+	}
+	
+	/* Move to the Next Person */ 
+	key 'N';
+	
+	i = i + 1;
+}
+
+/* Testing Phase */
+i = 0;
+while (i < PERSON_MAX)
+{
+	j = 0;
+	while (j < PHOTOS_PER_PERSON)
+	{
+	
+		/* Move to Default Point */
+		move in_pattern to 100, 100;
+	
+		/* Saccade */
+		key 'S';
+		
+		/* Report the Partial Error */
+		key 'E';
+		
+		/* Move to the Next Photo */ 
+		key 'n';
+		
+		j = j + 1;
+	}	
+		
+	i = i + 1;
+}
+
+quit;

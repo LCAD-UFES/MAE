@@ -1,0 +1,25 @@
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-060-15.raw
+Eyes:[173,154][225,151] - Nose:[200,121] - Mouth:[201,095]
+confidence = 0.015625
+confidence = 0.000000
+confidence = 0.062500
+confidence = 0.250000
+confidence = 0.000000
+Sample: 236     Match: Yes      Rightness: 86.9%
+*************************************************
+*            Final Statistics                   *
+*************************************************
+Face Type                       Rightness
+ 1) Normal                      88.1%
+ 2) Smiling                     99.2%
+ 3) Serious                     82.6%
+ 4) Open Mouth                  88.1%
+ 5) Left Light                  82.6%
+ 6) Right Light                 82.6%
+ 7) Both Sides Light            88.1%
+ 8) Sunglasses                  77.1%
+ 9) Left Light an Sunglasses    82.6%
+10) Right Light and Sunglasses  82.6%
+11) Cap                         88.1%
+12) Left Light and Cap          93.6%
+13) Right Light and Cap         93.6%

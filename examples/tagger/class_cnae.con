@@ -1,0 +1,54 @@
+################################################ Set Global Variables #################################################
+set NEURON_MEMORY_SIZE = 977200;
+set TYPE_SHOW = SHOW_FRAME;
+set TYPE_MOVING_FRAME = STOP;
+set N_SYNAPSES = SYNAPSES;
+
+######################################################## Constants ####################################################
+const NL_WIDTH			= 8;
+const NL_HEIGHT			= 8;
+const IN_WIDTH			= 54;
+const IN_HEIGHT			= 6;
+const CNAE_TABLE_PATH		= "REPOSITORY/";
+const OBJETOS_SOCIAIS_PATH	= "REPOSITORY/";
+const CNAE_TABLE_ID		= 0;
+const OBJETOS_SOCIAIS_ID	= 1;
+const SYNAPSES			= 256;
+
+const TRAIN_PATH		= "TTV_BIN/TTV_TTV_TAGGER_TRAIN.bin";
+const TEST_PATH			= "TTV_BIN/TTV_TTV_TAGGER_TEST.bin";
+const WORDS_BEFORE		= 3;
+const WORDS_AFTER		= 2;
+const TAGSET_SIZE		= 54;
+
+############################################### Neuron Layers #########################################################
+#neuronlayer	nl_class_cnae[NL_WIDTH][NL_HEIGHT] 	with greyscale outputs;
+neuronlayer	nl_class_cnae[NL_WIDTH][NL_HEIGHT]	of minchinton neurons greyscale_float sensitive with greyscale outputs;
+
+############################################### Outputs #########################################################
+output		nl_class_cnae_out[NL_WIDTH][NL_HEIGHT] handled by output_handler();
+
+################################################## Inputs #############################################################
+input 		document[IN_WIDTH][IN_HEIGHT]	with greyscale_float outputs produced by input_generator() controled by input_controler();
+
+############################################### Filters #########################################################
+
+################################## Connect Neuron Layers to Outputs #############################################
+outputconnect	nl_class_cnae 		to nl_class_cnae_out;
+
+############################################### Associations ####################################################
+associate	nl_class_cnae		with nl_class_cnae;
+
+################################################ Connections ####################################################
+#fullconnect	document		to nl_class_cnae;
+connect		document		to nl_class_cnae	with SYNAPSES random inputs per neuron;
+
+
+################################################ User Functions #################################################
+int GetDoc("%d");
+int ShowStatistics ("%d");
+int ResetStatistics ("%d");
+int SetNetworkStatus ("%d");
+int TestStatus ("%d");
+int save_memory ("%d");
+int reload_memory ("%d");

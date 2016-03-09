@@ -1,0 +1,53 @@
+###########################################################################
+# (c) Copyright Arthur L. Corcoran, 1992, 1993.  All rights reserved.
+#
+#  LibGA runs VERY SLOW on my poor little '286.  However, you can compile
+#  for DOS under Borland C using the following:
+#
+#                          make -fmakefile.tc 
+#
+###########################################################################
+#
+# Macro definitions
+#
+CC=bcc
+CFLAGS=-w-rvl -2 -mh
+
+#
+# Files in LibGA
+#
+GALIB=ga.obj select.obj cross.obj mutate.obj replace.obj config.obj \
+      pool.obj chrom.obj report.obj function.obj
+
+#
+# Default target
+#
+all: GA.lib ga-test.exe
+
+#
+# How to make .c into .obj
+#
+.c.obj: 
+	$(CC) $(CFLAGS) -c {$< }
+
+#
+# LibGA 
+#
+GA.lib: $(GALIB) ga.h
+	-del GA.lib
+	tlib GA.lib + ga + select + cross + mutate + replace + config \
+	            + pool + chrom + report + function
+
+#
+# LibGA test program
+#
+ga-test.exe: ga-test.obj GA.lib
+	$(CC) $(CFLAGS) -ega-test.exe ga-test.obj GA.lib
+
+#
+# Clean
+#
+clean:
+	-del *.obj
+	-del GA.lib
+	-del ga-test.exe 

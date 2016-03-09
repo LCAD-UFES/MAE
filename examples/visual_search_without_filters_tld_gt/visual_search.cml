@@ -1,0 +1,16 @@
+/* Counters */
+int i;
+int NUM_IMAGES;
+
+/* Testing */
+SetCriterion(1); /* NONE */
+
+NUM_IMAGES = GetNumImages(0);
+i = 2;
+
+while (i < NUM_IMAGES)
+{
+	GetImage(i);	
+	i = i + 1;
+}
+quit;

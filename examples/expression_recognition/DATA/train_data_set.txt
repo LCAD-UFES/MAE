@@ -1,0 +1,19 @@
+# Dados de treino.
+#
+# Uma linha de dados cont�m uma senten�a e o controle de aten��o associado, separados por $.
+# - Uma senten�a � uma sequencia de tr�s strings separadas por |.
+# - Um controle de aten��o � composto de tr�s partes separadas por |. Cada uma pode conter zero, um ou dois caracteres d ou u.
+#   As tr�s partes de um comando de aten��o s�o a parte de cima, a do meio e a de baixo do alvo da 
+#   Camada Neural, sendo os alvos poss�veis uma Camada Neural abaixo (d - down) ou acima (u - up) na hierarquia do NC.
+#   O caracter d significa que a Camada Neural abaixo (down) na hierarquia n�o prestar� aten��o na parte correspondente � posi��o
+#   onde est� o caracter d. O caracter u significa que a Camada Neural acima (up) na hierarquia n�o prestar� aten��o na 
+#   parte correspondente � posi��o do caracter u. Partes que n�o devem receber aten��o do tipo u aparecem em vermelho.
+#   Partes que n�o devem receber aten��o do tipo d aparecem em azul.
+#
+#
+$expression_name_input
+ | | $ | |  
+ |FELIZ| $ | | 
+ |TRISTE| $ | | 
+ |RAIVA| $ | | 
+ |GRITANDO| $ | | 

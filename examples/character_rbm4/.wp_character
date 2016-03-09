@@ -1,0 +1,6 @@
+character 0 372
+character_RBM_out 0 542
+character_VGRAM_out 281 369
+character_gaussian_out 283 540
+character_scaled_out 145 540
+mae_control_window 0 55

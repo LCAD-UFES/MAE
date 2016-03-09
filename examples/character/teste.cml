@@ -1,0 +1,26 @@
+int num_char_train;
+int num_char_test;
+int i;
+
+num_char_train = 60000;
+num_char_test = 10000/10;
+
+destroy network;
+reload from "netmem";
+
+SetNetworkStatus(1); # Test data set
+i = 0;
+move character to 4, 17; /* volta um para comeccar do zero */
+while (i < num_char_test)
+{
+	move character to 20, 14; /* avancca um */
+	forward network;
+	EvaluateChar(0.5);
+#	if (EvaluateChar(0.5) == 0)
+#		EvaluateCharInRangePixels(1);
+
+	UpdateStats(0);
+	i = i + 1;
+}
+
+quit;

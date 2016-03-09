@@ -1,0 +1,127 @@
+################################################ Set Global Variables #################################################
+set NEURON_MEMORY_SIZE = 10*104;
+set TYPE_SHOW = SHOW_FRAME;
+set TYPE_MOVING_FRAME = STOP;
+
+######################################################## Constants ####################################################
+#const VERBOSE			= 1;
+
+const SAMPLE_SIZE		= 4;
+
+const IN_WIDTH			= 4 * SAMPLE_SIZE + 1;
+const IN_HEIGHT			= 44;
+
+const NL_WIDTH 			= 10;
+const NL_HEIGHT			= 15;
+
+const SYNAPSES			= 256;
+
+const TT_PATH			= "TT_TEMP/";
+const DATA_PATH			= "DATA/"; 
+const REF_STOCK			= "DATA/PETR3/petr3"; 
+const PEIXE_PILOTO_DATA_PATH	= "DADOS_PEIXE_PILOTO/COM_VOLUME/";
+
+
+const TARGET_DAY_WEEK		= "Wed";
+const TRADING_OPENING_HOUR	= 10;
+
+const BUY_SELL_GAIN_DIVIDER	= 2000.0;
+const SELL_BUY_GAIN_DIVIDER	= 2000.0;
+
+const STOP_GAIN  		= 0.02;
+const STOP_LOSS 		= -0.1;
+const START_BUYING_RETURN	= 0.01;
+const START_SELLING_RETURN	= -0.01;
+
+const ALAVANCAGEM				= 2.0;
+const TRADING_SYSTEM_STOP_GAIN  		= 0.03;
+const TRADING_SYSTEM_STOP_LOSS 			= -0.1;
+const TRADING_SYSTEM_START_BUYING_RETURN	= 0.01;
+const TRADING_SYSTEM_BUY_SELL_DELTA_RETURN	= 0.0015;
+
+const MOVING_AVERAGE_NUM_PERIODS 		= 20;
+const SLOW_MOVING_AVERAGE_NUM_PERIODS 		= 120;
+const EXPONENTIAL_MOVING_AVERAGE		= 0;
+
+
+const MOVING_AVERAGE_PRED_NUM_PERIODS 		= 5;
+const NO_EXTRA_INPUT			= 1;
+
+const POINTS2				= 0;
+const TYPE_OF_WNN_INPUT2	 	= 1;
+const POINTS				= 0;
+
+# 1=retorno diario com relacao a quinta anterior; 2=retorno semanal com referencia movel; 
+# 3=razao entre o preco da acao e uma acao/indice de referencia; # 4=diferenca entre a acao e sua moving average;
+# 5=retorno da media movel semanal com referencia movel; 
+# 6=diferenca semanal entre o preco de uma acao e uma acao/indice de referencia (normalizados por referencia movel)
+# 7=diferenca diaria entre o preco de uma acao e uma acao/indice de referencia (normalizados pela quinta anterior)
+# 8=retorno semanal simples;
+const TYPE_OF_WNN_INPUT		 	= 6;
+
+# 3=Retorno aproximado com compra no preco medio na quinta/sexta; 
+#   so compra com retorno contra a quarta anterior menor que START_BUYING_RETURN (se nao ocorrer, pula a semana);
+#   vende se o preco medio no periodo de sexta/segunda levar a um retorno > STOP_GAIN ou < STOP_LOSS;
+#   se nao sair por STOP_GAIN ou STOP_LOSS vende no fechamento da semana.
+#
+# 8=Retorno aproximado com compra de uma acao e venda de uma acao/indice de referencia na quinta,
+#   e venda da acao e recompra da acao/indice se o preco medio no periodo de sexta/segunda levar a um retorno > STOP_GAIN ou < STOP_LOSS;
+#   se nao sair por STOP_GAIN ou STOP_LOSS vende/recompra no fechamento da semana.
+#
+# 9=Retorno aproximado com compra de uma acao e venda de uma acao/indice de referencia na abertura de quinta,
+#   e venda da acao e recompra da acao/indice se o preco de fechamento no periodo de quinta/segunda levar a um retorno > STOP_GAIN ou < STOP_LOSS;
+#   se nao sair por STOP_GAIN ou STOP_LOSS vende/recompra no fechamento da semana.
+const TYPE_OF_RETURN_AND_AVERAGE	= 9;
+const RELEARN_RETURN	 		= 1; # a principio, so deve ser usado se output_handler nao for output_handler_average
+
+const SAMPLES2CALIBRATE		= 1;
+
+
+############################################### Neuron Layers #########################################################
+neuronlayer	nl_wnn_pred[NL_WIDTH][NL_HEIGHT]	of minchinton neurons greyscale_float sensitive with greyscale outputs;
+
+neuronlayer	sample_gaussian[IN_WIDTH][IN_HEIGHT]	of minchinton neurons with greyscale_float outputs;
+#neuronlayer	sample_gaussian2[IN_WIDTH][IN_HEIGHT]	of minchinton neurons with greyscale_float outputs;
+
+############################################### Outputs #########################################################
+#output		nl_wnn_pred_out[NL_WIDTH][NL_HEIGHT] handled by output_handler();
+output		nl_wnn_pred_out[NL_WIDTH][NL_HEIGHT] handled by output_handler_average();
+
+output		sample_gaussian_out[IN_WIDTH][IN_HEIGHT];
+#output		sample_gaussian2_out[IN_WIDTH][IN_HEIGHT];
+
+################################################## Inputs #############################################################
+input 		sample[IN_WIDTH][IN_HEIGHT]	with greyscale_float outputs produced by input_generator() controled by input_controler();
+#input 		sample2[IN_WIDTH][IN_HEIGHT]	with greyscale_float outputs produced by input_generator2() controled by input_controler();
+
+############################################### Filters #########################################################
+filter		sample 	with gaussian_filter ("%d %f", 5, 1.0) producing sample_gaussian;
+#filter		sample2	with gaussian_filter ("%d %f", 5, 1.0) producing sample_gaussian2;
+
+
+################################## Connect Neuron Layers to Outputs #############################################
+outputconnect	nl_wnn_pred 		to nl_wnn_pred_out;
+outputconnect	sample_gaussian 	to sample_gaussian_out;
+#outputconnect	sample_gaussian2 	to sample_gaussian2_out;
+
+############################################### Associations ####################################################
+associate	nl_wnn_pred		with nl_wnn_pred;
+
+################################################ Connections ####################################################
+connect		sample		to nl_wnn_pred	with SYNAPSES random inputs per neuron;
+connect		sample_gaussian	to nl_wnn_pred	with SYNAPSES random inputs per neuron;
+connect		sample_gaussian	to nl_wnn_pred	with SYNAPSES random inputs per neuron and gaussian distribution with radius 3.0;
+
+#connect		sample2			to nl_wnn_pred	with SYNAPSES random inputs per neuron;
+#connect		sample_gaussian2	to nl_wnn_pred	with SYNAPSES random inputs per neuron;
+#connect		sample_gaussian2	to nl_wnn_pred	with SYNAPSES random inputs per neuron and gaussian distribution with radius 1.0;
+
+################################################ User Functions #################################################
+int GetSample ("%d");
+int ShowStatistics ("%d");
+int ResetStatistics ("%d");
+int SetNetworkStatus ("%d");
+int GetSamplebyDate ("%s");
+int GetNumWeeks ("%d");
+int ComputeTrainReturnAverageAndStadardDeviation ("%d %d");
+int GetSamplesToDiscard ("%d");

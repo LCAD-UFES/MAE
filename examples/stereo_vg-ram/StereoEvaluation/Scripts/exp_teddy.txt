@@ -1,0 +1,4 @@
+reset
+evaluate_only	1
+depth_map results/teddy.pgm
+

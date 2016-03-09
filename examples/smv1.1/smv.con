@@ -1,0 +1,112 @@
+################################################ Set Global Variables #################################################
+
+set NEURON_MEMORY_SIZE = 32;
+set TYPE_SHOW = SHOW_WINDOW;
+set TYPE_MOVING_FRAME = STOP;
+set FOCAL_DISTANCE = 2135.6917400103075124;
+set CAMERA_DISTANCE = 6.5828951236724853;
+set KERNEL_SIZE = 7;
+
+######################################################## Constants ####################################################
+
+int IMG_WIDTH  = 1280;
+int IMG_HEIGHT = 960;
+
+int NL_WIDTH  = 64;
+int NL_HEIGHT = 32;
+
+int SHAPE_WIDTH  = 320;
+int SHAPE_HEIGHT = ((SHAPE_WIDTH * 1.0) * (IMG_HEIGHT * 1.0) / (IMG_WIDTH * 1.0)) + 0.5;
+
+int READ_FROM_IMAGE_FILE     = 0;
+int PASS_BY_PARAMETER        = 1;
+int CAPTURED_FROM_CAMERA     = 2;
+int CAPTURED_FROM_IP_ADDRESS = 3;
+
+############################################### Outputs ########################################################
+#output  shape_out[SHAPE_WIDTH][SHAPE_HEIGHT];
+
+output  logpolar_righteye_out[NL_WIDTH][NL_HEIGHT]  handled by output_handler_logpolar_righteye();
+output  logpolar_lefteye_out[NL_WIDTH][NL_HEIGHT]   handled by output_handler_get_current_output();
+output  right_minus_left_out[NL_WIDTH][NL_HEIGHT]   handled by output_handler_get_current_output();
+#output  te_out[128][32]		 handled by output_handler_get_current_output();
+#output  te1_out[128][32]		 handled by output_handler_get_current_output();
+#output  te2_out[128][32]		 handled by output_handler_get_current_output();
+
+#output	move_left_out[32][32] 		handled by output_handler_left();
+#output	move_right_out[32][32] 		handled by output_handler_right();
+
+#neuronlayer    teste[1280][960]         with greyscale outputs;
+#neuronlayer    teste2[1280][960]        with greyscale outputs;
+#output 	teste_out[1280][960];
+#output 	teste2_out[1280][960];
+#outputconnect  teste to teste_out;
+#outputconnect  teste2 to teste2_out;
+################################################## Inputs #######################################################
+
+input 	image_right[IMG_WIDTH][IMG_HEIGHT]	with color outputs produced by input_generator("%d %d",READ_FROM_IMAGE_FILE, P3) controled by input_controler();
+input 	image_left[IMG_WIDTH][IMG_HEIGHT]	with color outputs produced by input_generator("%d %d",READ_FROM_IMAGE_FILE, P3) controled by input_controler();
+
+############################################### Neuron Layers ##################################################
+
+neuronlayer	logpolar_righteye[NL_WIDTH][NL_HEIGHT] 	with greyscale_float outputs;
+neuronlayer	logpolar_lefteye[NL_WIDTH][NL_HEIGHT]	with greyscale_float outputs;
+neuronlayer	right_minus_left[NL_WIDTH][NL_HEIGHT] 	with greyscale_float outputs;
+#neuronlayer	shape[SHAPE_WIDTH][SHAPE_HEIGHT] 	with greyscale_float outputs;
+#neuronlayer	te[128][32] 			with greyscale_float outputs;
+#neuronlayer	te1[128][32] 			with greyscale_float outputs;
+#neuronlayer	te2[128][32] 			with greyscale_float outputs;
+#neuronlayer	move_left[32][32] 		greyscale sensitive with b&w outputs;
+#neuronlayer	move_right[32][32] 		greyscale sensitive with b&w outputs;
+
+############################################### Filters #########################################################
+
+filter 		image_right with my_v1_filter("%d %d %d %d %f", MCELLS, ONCENTER, RGB, STATISTIC_DISTRIBUTION, 400.0) producing logpolar_righteye;
+filter 		image_left  with my_v1_filter("%d %d %d %d %f", MCELLS, ONCENTER, RGB, STATISTIC_DISTRIBUTION, 400.0) producing logpolar_lefteye;
+filter 		logpolar_righteye, logpolar_lefteye with minus_filter() producing right_minus_left;
+#filter 		logpolar_righteye, logpolar_lefteye with te_filter() producing te;
+#filter 		logpolar_righteye, logpolar_lefteye with te_filter("%d",2) producing te1;
+#filter 		logpolar_righteye, logpolar_lefteye with te_filter("%d",-2) producing te2;
+
+######################################### Connect Neuron Layers #################################################
+
+#connect 	right_minus_left to move_left with 32 random inputs per neuron;
+#connect 	right_minus_left to move_right with 32 random inputs per neuron;
+#connect 	te to move_left with 16 random inputs per neuron;
+#connect 	te to move_right with 16 random inputs per neuron;
+#connect 	te1 to move_left with 16 random inputs per neuron;
+#connect 	te1 to move_right with 16 random inputs per neuron;
+#connect 	te2 to move_left with 16 random inputs per neuron;
+#connect 	te2 to move_right with 16 random inputs per neuron;
+
+################################## Connect Neuron Layers to Outputs #############################################
+
+outputconnect   logpolar_righteye	to logpolar_righteye_out;
+outputconnect   logpolar_lefteye	to logpolar_lefteye_out;
+outputconnect   right_minus_left 	to right_minus_left_out;
+#outputconnect   te to te_out;
+#outputconnect   te1 to te1_out;
+#outputconnect   te2 to te2_out;
+
+#outputconnect	move_left to move_left_out;
+#outputconnect	move_right to move_right_out;
+#outputconnect  shape to shape_out;
+
+############################################### Associate ########################################################
+
+#associate	move_left with move_left;
+#associate	move_right with move_right;
+
+############################################### User Functions ########################################################
+int moveDominantEye ("%d %d");
+int compute_point_error ("%d %d %d");
+int evaluate_error("%d");
+int make_vergence("%d");
+int drawWorldPoint("%d");
+int generateShapeMesh ("%d");
+int setBreakLineFactor ("%f");
+int addBreakLineFactor ("%f");
+int subtractBreakLineFactor ("%f");
+int multiplyBreakLineFactor ("%f");
+int divideBreakLineFactor ("%f");
+

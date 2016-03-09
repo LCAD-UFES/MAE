@@ -1,0 +1,276 @@
+################################################ Set Global Variables #################################################
+
+# Neuron Setup
+set NEURON_MEMORY_SIZE = 32;
+
+######################################################## Constants ####################################################
+
+# Kernel Sizes (Must be an odd number)
+int BIG_KERNEL    = 51;
+int MEDIUM_KERNEL = 31;
+int SMALL_KERNEL  = 7;
+
+################################################## Inputs #############################################################
+
+input 		stimulus_left[256][256]		with color outputs produced by input_generator() controled by input_controler();					
+input 		stimulus_right[256][256]	with color outputs produced by input_generator() controled by input_controler();					
+
+############################################### Neuron Layers #########################################################
+
+# Big kernels group 
+neuronlayer	big_kernel_left_1[256][1]	with greyscale_float outputs;
+neuronlayer	big_kernel_left_2[256][1]	with greyscale_float outputs;
+neuronlayer	big_kernel_left_3[256][1]	with greyscale_float outputs;
+neuronlayer	big_kernel_left_4[256][1]	with greyscale_float outputs;
+neuronlayer	big_kernel_left_5[256][1]	with greyscale_float outputs;
+neuronlayer	big_kernel_left_6[256][1]	with greyscale_float outputs;
+neuronlayer	big_kernel_left_7[256][1]	with greyscale_float outputs;
+
+neuronlayer	big_kernel_right_1[256][1]	with greyscale_float outputs;
+neuronlayer	big_kernel_right_2[256][1]	with greyscale_float outputs;
+neuronlayer	big_kernel_right_3[256][1]	with greyscale_float outputs;
+neuronlayer	big_kernel_right_4[256][1]	with greyscale_float outputs;
+neuronlayer	big_kernel_right_5[256][1]	with greyscale_float outputs;
+neuronlayer	big_kernel_right_6[256][1]	with greyscale_float outputs;
+neuronlayer	big_kernel_right_7[256][1]	with greyscale_float outputs;
+
+# Medium kernels group
+neuronlayer	medium_kernel_left_1[256][1]	with greyscale_float outputs;
+neuronlayer	medium_kernel_left_2[256][1]	with greyscale_float outputs;
+neuronlayer	medium_kernel_left_3[256][1]	with greyscale_float outputs;
+neuronlayer	medium_kernel_left_4[256][1]	with greyscale_float outputs;
+neuronlayer	medium_kernel_left_5[256][1]	with greyscale_float outputs;
+neuronlayer	medium_kernel_left_6[256][1]	with greyscale_float outputs;
+neuronlayer	medium_kernel_left_7[256][1]	with greyscale_float outputs;
+
+neuronlayer	medium_kernel_right_1[256][1]	with greyscale_float outputs;
+neuronlayer	medium_kernel_right_2[256][1]	with greyscale_float outputs;
+neuronlayer	medium_kernel_right_3[256][1]	with greyscale_float outputs;
+neuronlayer	medium_kernel_right_4[256][1]	with greyscale_float outputs;
+neuronlayer	medium_kernel_right_5[256][1]	with greyscale_float outputs;
+neuronlayer	medium_kernel_right_6[256][1]	with greyscale_float outputs;
+neuronlayer	medium_kernel_right_7[256][1]	with greyscale_float outputs;
+
+# Small kernels group
+neuronlayer	small_kernel_left_1[256][1]	with greyscale_float outputs;
+neuronlayer	small_kernel_left_2[256][1]	with greyscale_float outputs;
+neuronlayer	small_kernel_left_3[256][1]	with greyscale_float outputs;
+neuronlayer	small_kernel_left_4[256][1]	with greyscale_float outputs;
+neuronlayer	small_kernel_left_5[256][1]	with greyscale_float outputs;
+neuronlayer	small_kernel_left_6[256][1]	with greyscale_float outputs;
+neuronlayer	small_kernel_left_7[256][1]	with greyscale_float outputs;
+
+neuronlayer	small_kernel_right_1[256][1]	with greyscale_float outputs;
+neuronlayer	small_kernel_right_2[256][1]	with greyscale_float outputs;
+neuronlayer	small_kernel_right_3[256][1]	with greyscale_float outputs;
+neuronlayer	small_kernel_right_4[256][1]	with greyscale_float outputs;
+neuronlayer	small_kernel_right_5[256][1]	with greyscale_float outputs;
+neuronlayer	small_kernel_right_6[256][1]	with greyscale_float outputs;
+neuronlayer	small_kernel_right_7[256][1]	with greyscale_float outputs;
+
+# Big simple cells
+neuronlayer	big_simple_cell_1[256][1]	with greyscale_float outputs;
+neuronlayer	big_simple_cell_2[256][1]	with greyscale_float outputs;
+neuronlayer	big_simple_cell_3[256][1]	with greyscale_float outputs;
+neuronlayer	big_simple_cell_4[256][1]	with greyscale_float outputs;
+neuronlayer	big_simple_cell_5[256][1]	with greyscale_float outputs;
+neuronlayer	big_simple_cell_6[256][1]	with greyscale_float outputs;
+neuronlayer	big_simple_cell_7[256][1]	with greyscale_float outputs;
+neuronlayer	big_simple_cell_8[256][1]	with greyscale_float outputs;
+neuronlayer	big_simple_cell_9[256][1]	with greyscale_float outputs;
+neuronlayer	big_simple_cell_0[256][1]	with greyscale_float outputs;
+
+# Medium simple cells
+neuronlayer	medium_simple_cell_1[256][1]    with greyscale_float outputs;
+neuronlayer	medium_simple_cell_2[256][1]	with greyscale_float outputs;
+neuronlayer	medium_simple_cell_3[256][1]	with greyscale_float outputs;
+neuronlayer	medium_simple_cell_4[256][1]	with greyscale_float outputs;
+neuronlayer	medium_simple_cell_5[256][1]	with greyscale_float outputs;
+neuronlayer	medium_simple_cell_6[256][1]	with greyscale_float outputs;
+neuronlayer	medium_simple_cell_7[256][1]	with greyscale_float outputs;
+neuronlayer	medium_simple_cell_8[256][1]	with greyscale_float outputs;
+neuronlayer	medium_simple_cell_9[256][1]	with greyscale_float outputs;
+neuronlayer	medium_simple_cell_0[256][1]	with greyscale_float outputs;
+
+# Small simple cells
+neuronlayer	small_simple_cell_1[256][1] 	with greyscale_float outputs;
+neuronlayer	small_simple_cell_2[256][1] 	with greyscale_float outputs;
+neuronlayer	small_simple_cell_3[256][1]	with greyscale_float outputs;
+neuronlayer	small_simple_cell_4[256][1]	with greyscale_float outputs;
+neuronlayer	small_simple_cell_5[256][1]	with greyscale_float outputs;
+neuronlayer	small_simple_cell_6[256][1]	with greyscale_float outputs;
+neuronlayer	small_simple_cell_7[256][1]	with greyscale_float outputs;
+neuronlayer	small_simple_cell_8[256][1]	with greyscale_float outputs;
+neuronlayer	small_simple_cell_9[256][1]	with greyscale_float outputs;
+neuronlayer	small_simple_cell_0[256][1]	with greyscale_float outputs;
+
+# Big complex cells
+neuronlayer	big_complex_cell_1[256][1]	  with greyscale_float outputs;
+neuronlayer	big_complex_cell_2[256][1]	  with greyscale_float outputs;
+neuronlayer	big_complex_cell_3[256][1]	  with greyscale_float outputs;
+neuronlayer	big_complex_cell_4[256][1]	  with greyscale_float outputs;
+neuronlayer	big_complex_cell_5[256][1]	  with greyscale_float outputs;
+
+# Big complex cells
+neuronlayer	medium_complex_cell_1[256][1]	  with greyscale_float outputs;
+neuronlayer	medium_complex_cell_2[256][1]	  with greyscale_float outputs;
+neuronlayer	medium_complex_cell_3[256][1]	  with greyscale_float outputs;
+neuronlayer	medium_complex_cell_4[256][1]	  with greyscale_float outputs;
+neuronlayer	medium_complex_cell_5[256][1]	  with greyscale_float outputs;
+
+# Big complex cells
+neuronlayer	small_complex_cell_1[256][1]	  with greyscale_float outputs;
+neuronlayer	small_complex_cell_2[256][1]	  with greyscale_float outputs;
+neuronlayer	small_complex_cell_3[256][1]	  with greyscale_float outputs;
+neuronlayer	small_complex_cell_4[256][1]	  with greyscale_float outputs;
+neuronlayer	small_complex_cell_5[256][1]	  with greyscale_float outputs;
+
+# Simple cells graphs
+neuronlayer	graph_big_simple_cell[400][200]		with greyscale_float outputs;
+neuronlayer	graph_medium_simple_cell[400][200]	with greyscale_float outputs;
+neuronlayer	graph_small_simple_cell[400][200]	with greyscale_float outputs;
+
+# Simple cells graphs
+neuronlayer	graph_big_complex_cell[400][200]	with greyscale_float outputs;
+neuronlayer	graph_medium_complex_cell[400][200]	with greyscale_float outputs;
+neuronlayer	graph_small_complex_cell[400][200]	with greyscale_float outputs;
+
+############################################### Outputs #########################################################
+
+output		graph_big_simple_cell_out[400][200];
+output		graph_medium_simple_cell_out[400][200];
+output		graph_small_simple_cell_out[400][200];
+
+output		graph_big_complex_cell_out[400][200];
+output		graph_medium_complex_cell_out[400][200];
+output		graph_small_complex_cell_out[400][200];
+
+############################################### Filters #########################################################
+#params: gabor_filter ("%f %f %f %f %f %d %d", <sigma_x>, <sigma_y>, <phase_x>, <cycles_x>, <theta>, <kernel_size>, <mapping>)
+
+# Kernels
+filter 		stimulus_left 	   with gabor_filter ("%f %f %f %f %f %d %d", 2.7, 2.3, -pi/2.0, 1.5, 0.0, BIG_KERNEL, MAP_PLAN) producing big_kernel_left_1;
+filter 		stimulus_left 	   with gabor_filter ("%f %f %f %f %f %d %d", 2.7, 2.3, -pi/4.0, 1.5, 0.0, BIG_KERNEL, MAP_PLAN) producing big_kernel_left_2;
+filter 		stimulus_left 	   with gabor_filter ("%f %f %f %f %f %d %d", 2.7, 2.3,     0.0, 1.5, 0.0, BIG_KERNEL, MAP_PLAN) producing big_kernel_left_3;
+filter 		stimulus_left 	   with gabor_filter ("%f %f %f %f %f %d %d", 2.7, 2.3,  pi/4.0, 1.5, 0.0, BIG_KERNEL, MAP_PLAN) producing big_kernel_left_4;
+filter 		stimulus_left 	   with gabor_filter ("%f %f %f %f %f %d %d", 2.7, 2.3,  pi/2.0, 1.5, 0.0, BIG_KERNEL, MAP_PLAN) producing big_kernel_left_5;
+filter 		stimulus_left 	   with gabor_filter ("%f %f %f %f %f %d %d", 2.7, 2.3, 0.75*pi, 1.5, 0.0, BIG_KERNEL, MAP_PLAN) producing big_kernel_left_6;
+filter 		stimulus_left 	   with gabor_filter ("%f %f %f %f %f %d %d", 2.7, 2.3,      pi, 1.5, 0.0, BIG_KERNEL, MAP_PLAN) producing big_kernel_left_7;
+
+filter 		stimulus_right 	   with gabor_filter ("%f %f %f %f %f %d %d", 2.7, 2.3, -pi/2.0, 1.5, 0.0, BIG_KERNEL, MAP_PLAN) producing big_kernel_right_1;
+filter 		stimulus_right 	   with gabor_filter ("%f %f %f %f %f %d %d", 2.7, 2.3, -pi/4.0, 1.5, 0.0, BIG_KERNEL, MAP_PLAN) producing big_kernel_right_2;
+filter 		stimulus_right 	   with gabor_filter ("%f %f %f %f %f %d %d", 2.7, 2.3,     0.0, 1.5, 0.0, BIG_KERNEL, MAP_PLAN) producing big_kernel_right_3;
+filter 		stimulus_right 	   with gabor_filter ("%f %f %f %f %f %d %d", 2.7, 2.3,  pi/4.0, 1.5, 0.0, BIG_KERNEL, MAP_PLAN) producing big_kernel_right_4;
+filter 		stimulus_right 	   with gabor_filter ("%f %f %f %f %f %d %d", 2.7, 2.3,  pi/2.0, 1.5, 0.0, BIG_KERNEL, MAP_PLAN) producing big_kernel_right_5;
+filter 		stimulus_right 	   with gabor_filter ("%f %f %f %f %f %d %d", 2.7, 2.3, 0.75*pi, 1.5, 0.0, BIG_KERNEL, MAP_PLAN) producing big_kernel_right_6;
+filter 		stimulus_right 	   with gabor_filter ("%f %f %f %f %f %d %d", 2.7, 2.3,      pi, 1.5, 0.0, BIG_KERNEL, MAP_PLAN) producing big_kernel_right_7;
+
+filter 		stimulus_left 	   with gabor_filter ("%f %f %f %f %f %d %d", 2.7, 2.3, -pi/2.0, 1.5, 0.0, MEDIUM_KERNEL, MAP_PLAN) producing medium_kernel_left_1;
+filter 		stimulus_left 	   with gabor_filter ("%f %f %f %f %f %d %d", 2.7, 2.3, -pi/4.0, 1.5, 0.0, MEDIUM_KERNEL, MAP_PLAN) producing medium_kernel_left_2;
+filter 		stimulus_left 	   with gabor_filter ("%f %f %f %f %f %d %d", 2.7, 2.3,     0.0, 1.5, 0.0, MEDIUM_KERNEL, MAP_PLAN) producing medium_kernel_left_3;
+filter 		stimulus_left 	   with gabor_filter ("%f %f %f %f %f %d %d", 2.7, 2.3,  pi/4.0, 1.5, 0.0, MEDIUM_KERNEL, MAP_PLAN) producing medium_kernel_left_4;
+filter 		stimulus_left 	   with gabor_filter ("%f %f %f %f %f %d %d", 2.7, 2.3,  pi/2.0, 1.5, 0.0, MEDIUM_KERNEL, MAP_PLAN) producing medium_kernel_left_5;
+filter 		stimulus_left 	   with gabor_filter ("%f %f %f %f %f %d %d", 2.7, 2.3, 0.75*pi, 1.5, 0.0, MEDIUM_KERNEL, MAP_PLAN) producing medium_kernel_left_6;
+filter 		stimulus_left 	   with gabor_filter ("%f %f %f %f %f %d %d", 2.7, 2.3,      pi, 1.5, 0.0, MEDIUM_KERNEL, MAP_PLAN) producing medium_kernel_left_7;
+
+filter 		stimulus_right     with gabor_filter ("%f %f %f %f %f %d %d", 2.7, 2.3, -pi/2.0, 1.5, 0.0, MEDIUM_KERNEL, MAP_PLAN) producing medium_kernel_right_1;
+filter 		stimulus_right     with gabor_filter ("%f %f %f %f %f %d %d", 2.7, 2.3, -pi/4.0, 1.5, 0.0, MEDIUM_KERNEL, MAP_PLAN) producing medium_kernel_right_2;
+filter 		stimulus_right     with gabor_filter ("%f %f %f %f %f %d %d", 2.7, 2.3,     0.0, 1.5, 0.0, MEDIUM_KERNEL, MAP_PLAN) producing medium_kernel_right_3;
+filter 		stimulus_right     with gabor_filter ("%f %f %f %f %f %d %d", 2.7, 2.3,  pi/4.0, 1.5, 0.0, MEDIUM_KERNEL, MAP_PLAN) producing medium_kernel_right_4;
+filter 		stimulus_right     with gabor_filter ("%f %f %f %f %f %d %d", 2.7, 2.3,  pi/2.0, 1.5, 0.0, MEDIUM_KERNEL, MAP_PLAN) producing medium_kernel_right_5;
+filter 		stimulus_right     with gabor_filter ("%f %f %f %f %f %d %d", 2.7, 2.3, 0.75*pi, 1.5, 0.0, MEDIUM_KERNEL, MAP_PLAN) producing medium_kernel_right_6;
+filter 		stimulus_right     with gabor_filter ("%f %f %f %f %f %d %d", 2.7, 2.3,      pi, 1.5, 0.0, MEDIUM_KERNEL, MAP_PLAN) producing medium_kernel_right_7;
+
+filter 		stimulus_left 	   with gabor_filter ("%f %f %f %f %f %d %d", 2.3, 2.3, -pi/2.0, 1.5, 0.0, SMALL_KERNEL, MAP_PLAN) producing small_kernel_left_1;
+filter 		stimulus_left 	   with gabor_filter ("%f %f %f %f %f %d %d", 2.3, 2.3, -pi/4.0, 1.5, 0.0, SMALL_KERNEL, MAP_PLAN) producing small_kernel_left_2;
+filter 		stimulus_left 	   with gabor_filter ("%f %f %f %f %f %d %d", 2.3, 2.3,     0.0, 1.5, 0.0, SMALL_KERNEL, MAP_PLAN) producing small_kernel_left_3;
+filter 		stimulus_left 	   with gabor_filter ("%f %f %f %f %f %d %d", 2.3, 2.3,  pi/4.0, 1.5, 0.0, SMALL_KERNEL, MAP_PLAN) producing small_kernel_left_4;
+filter 		stimulus_left 	   with gabor_filter ("%f %f %f %f %f %d %d", 2.3, 2.3,  pi/2.0, 1.5, 0.0, SMALL_KERNEL, MAP_PLAN) producing small_kernel_left_5;
+filter 		stimulus_left 	   with gabor_filter ("%f %f %f %f %f %d %d", 2.3, 2.3, 0.75*pi, 1.5, 0.0, SMALL_KERNEL, MAP_PLAN) producing small_kernel_left_6;
+filter 		stimulus_left 	   with gabor_filter ("%f %f %f %f %f %d %d", 2.3, 2.3,      pi, 1.5, 0.0, SMALL_KERNEL, MAP_PLAN) producing small_kernel_left_7;
+
+filter 		stimulus_right     with gabor_filter ("%f %f %f %f %f %d %d", 2.3, 2.3, -pi/2.0, 1.5, 0.0, SMALL_KERNEL, MAP_PLAN) producing small_kernel_right_1;
+filter 		stimulus_right     with gabor_filter ("%f %f %f %f %f %d %d", 2.3, 2.3, -pi/4.0, 1.5, 0.0, SMALL_KERNEL, MAP_PLAN) producing small_kernel_right_2;
+filter 		stimulus_right     with gabor_filter ("%f %f %f %f %f %d %d", 2.3, 2.3,     0.0, 1.5, 0.0, SMALL_KERNEL, MAP_PLAN) producing small_kernel_right_3;
+filter 		stimulus_right     with gabor_filter ("%f %f %f %f %f %d %d", 2.3, 2.3,  pi/4.0, 1.5, 0.0, SMALL_KERNEL, MAP_PLAN) producing small_kernel_right_4;
+filter 		stimulus_right     with gabor_filter ("%f %f %f %f %f %d %d", 2.3, 2.3,  pi/2.0, 1.5, 0.0, SMALL_KERNEL, MAP_PLAN) producing small_kernel_right_5;
+filter 		stimulus_right     with gabor_filter ("%f %f %f %f %f %d %d", 2.3, 2.3, 0.75*pi, 1.5, 0.0, SMALL_KERNEL, MAP_PLAN) producing small_kernel_right_6;
+filter 		stimulus_right     with gabor_filter ("%f %f %f %f %f %d %d", 2.3, 2.3,      pi, 1.5, 0.0, SMALL_KERNEL, MAP_PLAN) producing small_kernel_right_7;
+
+# Simple cells
+filter 		big_kernel_left_1,big_kernel_right_3	      with add_filter () producing big_simple_cell_1;
+filter 		big_kernel_left_2,big_kernel_right_3	      with add_filter () producing big_simple_cell_2;
+filter 		big_kernel_left_3,big_kernel_right_3	      with add_filter () producing big_simple_cell_3;
+filter 		big_kernel_left_4,big_kernel_right_3	      with add_filter () producing big_simple_cell_4;
+filter 		big_kernel_left_5,big_kernel_right_3	      with add_filter () producing big_simple_cell_5;
+filter 		big_kernel_left_3,big_kernel_right_5	      with add_filter () producing big_simple_cell_6;
+filter 		big_kernel_left_4,big_kernel_right_5	      with add_filter () producing big_simple_cell_7;
+filter 		big_kernel_left_5,big_kernel_right_5	      with add_filter () producing big_simple_cell_8;
+filter 		big_kernel_left_6,big_kernel_right_5	      with add_filter () producing big_simple_cell_9;
+filter 		big_kernel_left_7,big_kernel_right_5	      with add_filter () producing big_simple_cell_0;
+
+filter 		medium_kernel_left_1,medium_kernel_right_3    with add_filter () producing medium_simple_cell_1;
+filter 		medium_kernel_left_2,medium_kernel_right_3    with add_filter () producing medium_simple_cell_2;
+filter 		medium_kernel_left_3,medium_kernel_right_3    with add_filter () producing medium_simple_cell_3;
+filter 		medium_kernel_left_4,medium_kernel_right_3    with add_filter () producing medium_simple_cell_4;
+filter 		medium_kernel_left_5,medium_kernel_right_3    with add_filter () producing medium_simple_cell_5;
+filter 		medium_kernel_left_3,medium_kernel_right_5    with add_filter () producing medium_simple_cell_6;
+filter 		medium_kernel_left_4,medium_kernel_right_5    with add_filter () producing medium_simple_cell_7;
+filter 		medium_kernel_left_5,medium_kernel_right_5    with add_filter () producing medium_simple_cell_8;
+filter 		medium_kernel_left_6,medium_kernel_right_5    with add_filter () producing medium_simple_cell_9;
+filter 		medium_kernel_left_7,medium_kernel_right_5    with add_filter () producing medium_simple_cell_0;
+
+filter 		small_kernel_left_1,small_kernel_right_3      with add_filter () producing small_simple_cell_1;
+filter 		small_kernel_left_2,small_kernel_right_3      with add_filter () producing small_simple_cell_2;
+filter 		small_kernel_left_3,small_kernel_right_3      with add_filter () producing small_simple_cell_3;
+filter 		small_kernel_left_4,small_kernel_right_3      with add_filter () producing small_simple_cell_4;
+filter 		small_kernel_left_5,small_kernel_right_3      with add_filter () producing small_simple_cell_5;
+filter 		small_kernel_left_3,small_kernel_right_5      with add_filter () producing small_simple_cell_6;
+filter 		small_kernel_left_4,small_kernel_right_5      with add_filter () producing small_simple_cell_7;
+filter 		small_kernel_left_5,small_kernel_right_5      with add_filter () producing small_simple_cell_8;
+filter 		small_kernel_left_6,small_kernel_right_5      with add_filter () producing small_simple_cell_9;
+filter 		small_kernel_left_7,small_kernel_right_5      with add_filter () producing small_simple_cell_0;
+
+# Complex cells
+filter		big_simple_cell_1, big_simple_cell_6		with sum_square_outputs () producing big_complex_cell_1;
+filter		big_simple_cell_2, big_simple_cell_7		with sum_square_outputs () producing big_complex_cell_2;
+filter		big_simple_cell_3, big_simple_cell_8		with sum_square_outputs () producing big_complex_cell_3;
+filter		big_simple_cell_4, big_simple_cell_9		with sum_square_outputs () producing big_complex_cell_4;
+filter		big_simple_cell_5, big_simple_cell_0		with sum_square_outputs () producing big_complex_cell_5;
+
+filter		medium_simple_cell_1, medium_simple_cell_6	with sum_square_outputs () producing medium_complex_cell_1;
+filter		medium_simple_cell_2, medium_simple_cell_7	with sum_square_outputs () producing medium_complex_cell_2;
+filter		medium_simple_cell_3, medium_simple_cell_8	with sum_square_outputs () producing medium_complex_cell_3;
+filter		medium_simple_cell_4, medium_simple_cell_9	with sum_square_outputs () producing medium_complex_cell_4;
+filter		medium_simple_cell_5, medium_simple_cell_0	with sum_square_outputs () producing medium_complex_cell_5;
+
+filter		small_simple_cell_1, small_simple_cell_6	with sum_square_outputs () producing small_complex_cell_1;
+filter		small_simple_cell_2, small_simple_cell_7	with sum_square_outputs () producing small_complex_cell_2;
+filter		small_simple_cell_3, small_simple_cell_8	with sum_square_outputs () producing small_complex_cell_3;
+filter		small_simple_cell_4, small_simple_cell_9	with sum_square_outputs () producing small_complex_cell_4;
+filter		small_simple_cell_5, small_simple_cell_0	with sum_square_outputs () producing small_complex_cell_5;
+
+# Graphs
+filter		big_simple_cell_1, big_simple_cell_2, big_simple_cell_3, big_simple_cell_4, big_simple_cell_5 
+		with graph_filter ("%f %f %f %f", -pi/2.0, pi/2.0, -50.0, 50.0) producing graph_big_simple_cell;		
+filter		medium_simple_cell_1, medium_simple_cell_2, medium_simple_cell_3, medium_simple_cell_4, medium_simple_cell_5 
+		with graph_filter ("%f %f %f %f", -pi/2.0, pi/2.0, -50.0, 50.0) producing graph_medium_simple_cell;		
+filter		small_simple_cell_1, small_simple_cell_2, small_simple_cell_3, small_simple_cell_4, small_simple_cell_5
+		with graph_filter ("%f %f %f %f", -pi/2.0, pi/2.0, -50.0, 50.0) producing graph_small_simple_cell;
+		
+filter		big_complex_cell_1, big_complex_cell_2, big_complex_cell_3, big_complex_cell_4, big_complex_cell_5 
+		with graph_filter ("%f %f %f %f", -pi/2.0, pi/2.0, 0.0, 2000.0) producing graph_big_complex_cell;
+filter		medium_complex_cell_1, medium_complex_cell_2, medium_complex_cell_3, medium_complex_cell_4, medium_complex_cell_5 
+		with graph_filter ("%f %f %f %f", -pi/2.0, pi/2.0, 0.0, 2000.0) producing graph_medium_complex_cell;
+filter		small_complex_cell_1, small_complex_cell_2, small_complex_cell_3, small_complex_cell_4, small_complex_cell_5
+		with graph_filter ("%f %f %f %f", -pi/2.0, pi/2.0, 0.0, 2000.0) producing graph_small_complex_cell;
+		
+################################## Connect Neuron Layers to Outputs #############################################
+
+outputconnect	graph_big_simple_cell 			to graph_big_simple_cell_out;
+outputconnect	graph_medium_simple_cell 		to graph_medium_simple_cell_out;
+outputconnect	graph_small_simple_cell 		to graph_small_simple_cell_out;
+
+outputconnect	graph_big_complex_cell 			to graph_big_complex_cell_out;
+outputconnect	graph_medium_complex_cell 		to graph_medium_complex_cell_out;
+outputconnect	graph_small_complex_cell 		to graph_small_complex_cell_out;

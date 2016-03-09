@@ -1,0 +1,57 @@
+toggle move_active;
+toggle draw_active;
+
+/* Image Coordinates */
+int xi;
+int yi;
+
+/* Image Dimentions */
+int wi;
+int hi;
+
+wi = 512;
+hi = 512;
+
+/* V1 Coordinates */
+int u;
+int v;
+
+/* V1 Dimentions */
+int w;
+int h;
+
+w = 128;
+h = 32;
+
+/* Disparity */
+int disparity;
+
+/* Walk Along the Image */
+u = w/2 - 1;
+while (u >= 0)
+{
+	v = 0;
+	while (v < h)
+	{
+		v1_to_image_mapping (xi, yi, wi, hi, u, v, w, h);
+		disparity = verge_left_to_right_image_point (xi, yi);
+		map_disparity (u, v, disparity);
+		v = v + 1;
+	}
+	
+	v = h - 1;
+	while (v >= 0)
+	{
+		v1_to_image_mapping (xi, yi, wi, hi, w - u - 1, v, w, h);
+		disparity = verge_left_to_right_image_point (xi, yi);
+		map_disparity (w - u - 1, v, disparity);
+		v = v - 1;
+	}
+	
+	u = u - 1;
+}
+
+save image_right       to color_map;
+save disparity_map_out to disparity_map;
+
+quit;

@@ -1,0 +1,3 @@
+tld4 - usando apenas a informacao do ground truth (so do objeto)
+
+tld5 - usando foreground e background (colorindo tudo)

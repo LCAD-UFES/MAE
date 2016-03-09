@@ -1,0 +1,2804 @@
+Please wait, building network...
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-001-1.raw
+Eyes:[166,150][219,150] - Nose:[197,116] - Mouth:[197,087]
+LOG_POLAR_SCALE_FACTOR = 0,865851 [], LOG_POLAR_THETA_CORRECTION = 8,365886 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-001-1.raw
+Eyes:[166,150][219,150] - Nose:[197,116] - Mouth:[197,087]
+LOG_POLAR_SCALE_FACTOR = 0,865851 [], LOG_POLAR_THETA_CORRECTION = 8,365886 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-001-4.raw
+Eyes:[162,157][217,158] - Nose:[194,132] - Mouth:[194,084]
+LOG_POLAR_SCALE_FACTOR = 0,898673 [], LOG_POLAR_THETA_CORRECTION = 11,309933 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-001-6.raw
+Eyes:[157,154][211,156] - Nose:[190,128] - Mouth:[190,094]
+LOG_POLAR_SCALE_FACTOR = 0,882792 [], LOG_POLAR_THETA_CORRECTION = 12,528808 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-001-14.raw
+Eyes:[156,155][210,154] - Nose:[188,121] - Mouth:[185,091]
+LOG_POLAR_SCALE_FACTOR = 0,882339 [], LOG_POLAR_THETA_CORRECTION = 8,615648 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-001-16.raw
+Eyes:[149,148][204,148] - Nose:[180,111] - Mouth:[179,081]
+LOG_POLAR_SCALE_FACTOR = 0,898524 [], LOG_POLAR_THETA_CORRECTION = 6,170175 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-001-17.raw
+Eyes:[150,161][207,162] - Nose:[183,134] - Mouth:[182,089]
+LOG_POLAR_SCALE_FACTOR = 0,931341 [], LOG_POLAR_THETA_CORRECTION = 10,491477 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-001-20.raw
+Eyes:[148,150][203,151] - Nose:[179,118] - Mouth:[179,086]
+LOG_POLAR_SCALE_FACTOR = 0,898673 [], LOG_POLAR_THETA_CORRECTION = 7,125016 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-002-2.raw
+Eyes:[144,160][200,162] - Nose:[174,134] - Mouth:[173,104]
+LOG_POLAR_SCALE_FACTOR = 0,915444 [], LOG_POLAR_THETA_CORRECTION = 4,236395 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-002-4.raw
+Eyes:[187,158][245,147] - Nose:[216,131] - Mouth:[205,092]
+LOG_POLAR_SCALE_FACTOR = 0,964425 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-002-6.raw
+Eyes:[165,158][220,158] - Nose:[193,132] - Mouth:[191,103]
+LOG_POLAR_SCALE_FACTOR = 0,898524 [], LOG_POLAR_THETA_CORRECTION = 2,202598 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-002-7.raw
+Eyes:[163,157][219,157] - Nose:[191,131] - Mouth:[189,101]
+LOG_POLAR_SCALE_FACTOR = 0,914861 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-002-14.raw
+Eyes:[165,162][219,163] - Nose:[191,138] - Mouth:[192,111]
+LOG_POLAR_SCALE_FACTOR = 0,882339 [], LOG_POLAR_THETA_CORRECTION = -2,385944 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-002-15.raw
+Eyes:[159,160][215,162] - Nose:[188,134] - Mouth:[187,108]
+LOG_POLAR_SCALE_FACTOR = 0,915444 [], LOG_POLAR_THETA_CORRECTION = 2,121096 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-002-16.raw
+Eyes:[172,153][227,149] - Nose:[199,117] - Mouth:[195,092]
+LOG_POLAR_SCALE_FACTOR = 0,900897 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-003-3.raw
+Eyes:[166,152][223,151] - Nose:[195,116] - Mouth:[194,088]
+LOG_POLAR_SCALE_FACTOR = 0,931341 [], LOG_POLAR_THETA_CORRECTION = 1,636577 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-003-4.raw
+Eyes:[170,168][226,167] - Nose:[199,147] - Mouth:[198,097]
+LOG_POLAR_SCALE_FACTOR = 0,915007 [], LOG_POLAR_THETA_CORRECTION = 2,862405 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-003-5.raw
+Eyes:[161,155][218,154] - Nose:[188,125] - Mouth:[188,095]
+LOG_POLAR_SCALE_FACTOR = 0,931341 [], LOG_POLAR_THETA_CORRECTION = -1,974934 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-003-6.raw
+Eyes:[165,158][222,156] - Nose:[194,123] - Mouth:[193,095]
+LOG_POLAR_SCALE_FACTOR = 0,931771 [], LOG_POLAR_THETA_CORRECTION = 1,684684 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-003-14.raw
+Eyes:[158,161][216,160] - Nose:[187,127] - Mouth:[186,098]
+LOG_POLAR_SCALE_FACTOR = 0,947676 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-003-16.raw
+Eyes:[161,151][219,150] - Nose:[191,112] - Mouth:[189,085]
+LOG_POLAR_SCALE_FACTOR = 0,947676 [], LOG_POLAR_THETA_CORRECTION = 1,507436 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-003-17.raw
+Eyes:[159,171][219,168] - Nose:[188,147] - Mouth:[187,096]
+LOG_POLAR_SCALE_FACTOR = 0,981433 [], LOG_POLAR_THETA_CORRECTION = -2,602562 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-005-1.raw
+Eyes:[157,155][220,157] - Nose:[189,125] - Mouth:[190,092]
+LOG_POLAR_SCALE_FACTOR = 1,029737 [], LOG_POLAR_THETA_CORRECTION = 1,847610 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-005-3.raw
+Eyes:[156,145][219,148] - Nose:[189,110] - Mouth:[192,079]
+LOG_POLAR_SCALE_FACTOR = 1,030385 [], LOG_POLAR_THETA_CORRECTION = 3,179830 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-005-7.raw
+Eyes:[157,156][219,159] - Nose:[190,127] - Mouth:[193,093]
+LOG_POLAR_SCALE_FACTOR = 1,014067 [], LOG_POLAR_THETA_CORRECTION = 3,814075 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-005-14.raw
+Eyes:[158,154][218,153] - Nose:[190,122] - Mouth:[190,091]
+LOG_POLAR_SCALE_FACTOR = 0,980344 [], LOG_POLAR_THETA_CORRECTION = 3,691386 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-005-15.raw
+Eyes:[149,154][210,152] - Nose:[181,121] - Mouth:[180,092]
+LOG_POLAR_SCALE_FACTOR = 0,997081 [], LOG_POLAR_THETA_CORRECTION = 3,576334 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-005-18.raw
+Eyes:[155,156][216,155] - Nose:[188,127] - Mouth:[188,095]
+LOG_POLAR_SCALE_FACTOR = 0,996679 [], LOG_POLAR_THETA_CORRECTION = 6,115504 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-005-20.raw
+Eyes:[156,154][217,154] - Nose:[189,125] - Mouth:[190,092]
+LOG_POLAR_SCALE_FACTOR = 0,996545 [], LOG_POLAR_THETA_CORRECTION = 5,906141 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-006-1.raw
+Eyes:[160,161][214,160] - Nose:[188,127] - Mouth:[187,100]
+LOG_POLAR_SCALE_FACTOR = 0,882339 [], LOG_POLAR_THETA_CORRECTION = 1,735705 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-006-3.raw
+Eyes:[162,152][217,151] - Nose:[192,117] - Mouth:[190,091]
+LOG_POLAR_SCALE_FACTOR = 0,898673 [], LOG_POLAR_THETA_CORRECTION = 5,042451 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-006-6.raw
+Eyes:[161,156][215,154] - Nose:[190,123] - Mouth:[188,096]
+LOG_POLAR_SCALE_FACTOR = 0,882792 [], LOG_POLAR_THETA_CORRECTION = 3,576334 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-006-16.raw
+Eyes:[157,161][214,160] - Nose:[189,124] - Mouth:[186,098]
+LOG_POLAR_SCALE_FACTOR = 0,931341 [], LOG_POLAR_THETA_CORRECTION = 6,340192 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-006-17.raw
+Eyes:[156,162][214,161] - Nose:[187,132] - Mouth:[185,094]
+LOG_POLAR_SCALE_FACTOR = 0,947676 [], LOG_POLAR_THETA_CORRECTION = 3,945186 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-006-18.raw
+Eyes:[163,164][219,162] - Nose:[194,130] - Mouth:[191,103]
+LOG_POLAR_SCALE_FACTOR = 0,915444 [], LOG_POLAR_THETA_CORRECTION = 5,194429 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-006-20.raw
+Eyes:[159,161][216,160] - Nose:[190,127] - Mouth:[189,099]
+LOG_POLAR_SCALE_FACTOR = 0,931341 [], LOG_POLAR_THETA_CORRECTION = 5,194429 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-007-1.raw
+Eyes:[171,169][229,164] - Nose:[198,145] - Mouth:[194,110]
+LOG_POLAR_SCALE_FACTOR = 0,951049 [], LOG_POLAR_THETA_CORRECTION = -5,440332 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-007-2.raw
+Eyes:[170,163][228,158] - Nose:[198,135] - Mouth:[194,104]
+LOG_POLAR_SCALE_FACTOR = 0,951049 [], LOG_POLAR_THETA_CORRECTION = -2,290610 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-007-4.raw
+Eyes:[163,161][224,157] - Nose:[191,136] - Mouth:[187,091]
+LOG_POLAR_SCALE_FACTOR = 0,998685 [], LOG_POLAR_THETA_CORRECTION = -4,969741 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-007-15.raw
+Eyes:[154,160][211,160] - Nose:[180,133] - Mouth:[180,103]
+LOG_POLAR_SCALE_FACTOR = 0,931198 [], LOG_POLAR_THETA_CORRECTION = -4,236395 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-007-16.raw
+Eyes:[153,158][210,158] - Nose:[179,131] - Mouth:[178,100]
+LOG_POLAR_SCALE_FACTOR = 0,931198 [], LOG_POLAR_THETA_CORRECTION = -4,236395 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-007-17.raw
+Eyes:[151,154][210,153] - Nose:[177,130] - Mouth:[178,087]
+LOG_POLAR_SCALE_FACTOR = 0,964010 [], LOG_POLAR_THETA_CORRECTION = -7,431408 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-007-20.raw
+Eyes:[144,155][201,157] - Nose:[170,128] - Mouth:[171,096]
+LOG_POLAR_SCALE_FACTOR = 0,931771 [], LOG_POLAR_THETA_CORRECTION = -4,085617 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-010-1.raw
+Eyes:[146,164][205,161] - Nose:[177,127] - Mouth:[176,092]
+LOG_POLAR_SCALE_FACTOR = 0,965117 [], LOG_POLAR_THETA_CORRECTION = 3,270488 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-010-3.raw
+Eyes:[146,160][204,158] - Nose:[175,122] - Mouth:[173,091]
+LOG_POLAR_SCALE_FACTOR = 0,948098 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-010-5.raw
+Eyes:[143,164][201,161] - Nose:[172,127] - Mouth:[169,093]
+LOG_POLAR_SCALE_FACTOR = 0,948801 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-010-7.raw
+Eyes:[144,163][201,160] - Nose:[172,127] - Mouth:[169,093]
+LOG_POLAR_SCALE_FACTOR = 0,932487 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-010-16.raw
+Eyes:[168,152][225,149] - Nose:[197,115] - Mouth:[194,084]
+LOG_POLAR_SCALE_FACTOR = 0,932487 [], LOG_POLAR_THETA_CORRECTION = 1,636577 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-010-17.raw
+Eyes:[166,146][224,144] - Nose:[197,115] - Mouth:[191,073]
+LOG_POLAR_SCALE_FACTOR = 0,948098 [], LOG_POLAR_THETA_CORRECTION = 3,814075 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-010-18.raw
+Eyes:[169,148][226,144] - Nose:[198,109] - Mouth:[194,076]
+LOG_POLAR_SCALE_FACTOR = 0,933488 [], LOG_POLAR_THETA_CORRECTION = 1,548158 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-013-2.raw
+Eyes:[170,165][228,162] - Nose:[199,127] - Mouth:[197,103]
+LOG_POLAR_SCALE_FACTOR = 0,948801 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-013-4.raw
+Eyes:[169,148][229,151] - Nose:[199,116] - Mouth:[201,079]
+LOG_POLAR_SCALE_FACTOR = 0,981433 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-013-6.raw
+Eyes:[168,164][226,162] - Nose:[198,127] - Mouth:[197,101]
+LOG_POLAR_SCALE_FACTOR = 0,948098 [], LOG_POLAR_THETA_CORRECTION = 1,591140 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-013-7.raw
+Eyes:[169,164][226,162] - Nose:[198,128] - Mouth:[197,101]
+LOG_POLAR_SCALE_FACTOR = 0,931771 [], LOG_POLAR_THETA_CORRECTION = 1,636577 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-013-14.raw
+Eyes:[166,161][222,159] - Nose:[194,126] - Mouth:[192,100]
+LOG_POLAR_SCALE_FACTOR = 0,915444 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-013-17.raw
+Eyes:[177,156][235,158] - Nose:[209,128] - Mouth:[209,088]
+LOG_POLAR_SCALE_FACTOR = 0,948098 [], LOG_POLAR_THETA_CORRECTION = 5,906141 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-013-19.raw
+Eyes:[167,160][224,159] - Nose:[198,125] - Mouth:[197,099]
+LOG_POLAR_SCALE_FACTOR = 0,931341 [], LOG_POLAR_THETA_CORRECTION = 5,042451 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-014-1.raw
+Eyes:[158,157][222,155] - Nose:[188,124] - Mouth:[189,091]
+LOG_POLAR_SCALE_FACTOR = 1,046066 [], LOG_POLAR_THETA_CORRECTION = -3,576334 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-014-2.raw
+Eyes:[158,157][222,159] - Nose:[190,125] - Mouth:[192,097]
+LOG_POLAR_SCALE_FACTOR = 1,046066 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-014-7.raw
+Eyes:[164,150][230,148] - Nose:[196,112] - Mouth:[196,081]
+LOG_POLAR_SCALE_FACTOR = 1,078724 [], LOG_POLAR_THETA_CORRECTION = -1,548158 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-014-14.raw
+Eyes:[169,162][230,158] - Nose:[200,129] - Mouth:[200,099]
+LOG_POLAR_SCALE_FACTOR = 0,998685 [], LOG_POLAR_THETA_CORRECTION = 1,847610 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-014-16.raw
+Eyes:[164,160][224,158] - Nose:[193,127] - Mouth:[193,099]
+LOG_POLAR_SCALE_FACTOR = 0,980753 [], LOG_POLAR_THETA_CORRECTION = -1,789911 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-014-18.raw
+Eyes:[161,162][222,161] - Nose:[192,133] - Mouth:[193,103]
+LOG_POLAR_SCALE_FACTOR = 0,996679 [], LOG_POLAR_THETA_CORRECTION = 2,045409 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-014-20.raw
+Eyes:[162,158][222,157] - Nose:[193,127] - Mouth:[194,096]
+LOG_POLAR_SCALE_FACTOR = 0,980344 [], LOG_POLAR_THETA_CORRECTION = 1,909153 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-015-2.raw
+Eyes:[160,155][221,156] - Nose:[192,119] - Mouth:[191,091]
+LOG_POLAR_SCALE_FACTOR = 0,996679 [], LOG_POLAR_THETA_CORRECTION = 3,179830 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-015-3.raw
+Eyes:[159,148][219,149] - Nose:[192,109] - Mouth:[194,080]
+LOG_POLAR_SCALE_FACTOR = 0,980344 [], LOG_POLAR_THETA_CORRECTION = 4,398706 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-015-4.raw
+Eyes:[161,166][222,167] - Nose:[190,133] - Mouth:[190,089]
+LOG_POLAR_SCALE_FACTOR = 0,996679 [], LOG_POLAR_THETA_CORRECTION = -1,735705 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-015-14.raw
+Eyes:[155,158][213,160] - Nose:[185,124] - Mouth:[186,094]
+LOG_POLAR_SCALE_FACTOR = 0,948098 [], LOG_POLAR_THETA_CORRECTION = 1,636577 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-015-16.raw
+Eyes:[157,157][215,155] - Nose:[186,122] - Mouth:[187,093]
+LOG_POLAR_SCALE_FACTOR = 0,948098 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-015-17.raw
+Eyes:[160,156][217,155] - Nose:[189,123] - Mouth:[192,084]
+LOG_POLAR_SCALE_FACTOR = 0,931341 [], LOG_POLAR_THETA_CORRECTION = 1,789911 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-015-18.raw
+Eyes:[157,156][216,156] - Nose:[187,120] - Mouth:[186,090]
+LOG_POLAR_SCALE_FACTOR = 0,963872 [], LOG_POLAR_THETA_CORRECTION = 1,591140 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-016-1.raw
+Eyes:[166,160][225,157] - Nose:[193,127] - Mouth:[195,098]
+LOG_POLAR_SCALE_FACTOR = 0,965117 [], LOG_POLAR_THETA_CORRECTION = -3,691386 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-016-6.raw
+Eyes:[173,155][231,154] - Nose:[199,118] - Mouth:[198,091]
+LOG_POLAR_SCALE_FACTOR = 0,947676 [], LOG_POLAR_THETA_CORRECTION = -4,763642 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-016-14.raw
+Eyes:[173,156][232,154] - Nose:[200,118] - Mouth:[199,090]
+LOG_POLAR_SCALE_FACTOR = 0,964425 [], LOG_POLAR_THETA_CORRECTION = -3,094058 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-016-17.raw
+Eyes:[172,164][229,162] - Nose:[198,136] - Mouth:[196,089]
+LOG_POLAR_SCALE_FACTOR = 0,931771 [], LOG_POLAR_THETA_CORRECTION = -4,236395 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-016-18.raw
+Eyes:[172,153][229,149] - Nose:[197,114] - Mouth:[196,086]
+LOG_POLAR_SCALE_FACTOR = 0,933488 [], LOG_POLAR_THETA_CORRECTION = -4,635463 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-016-19.raw
+Eyes:[174,151][232,148] - Nose:[200,112] - Mouth:[199,085]
+LOG_POLAR_SCALE_FACTOR = 0,948801 [], LOG_POLAR_THETA_CORRECTION = -4,635463 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-016-20.raw
+Eyes:[173,150][232,147] - Nose:[200,110] - Mouth:[199,084]
+LOG_POLAR_SCALE_FACTOR = 0,965117 [], LOG_POLAR_THETA_CORRECTION = -3,012788 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-020-1.raw
+Eyes:[160,157][211,157] - Nose:[185,119] - Mouth:[186,091]
+LOG_POLAR_SCALE_FACTOR = 0,833177 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-020-2.raw
+Eyes:[158,156][211,156] - Nose:[184,117] - Mouth:[185,091]
+LOG_POLAR_SCALE_FACTOR = 0,865851 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-020-3.raw
+Eyes:[158,155][211,155] - Nose:[185,116] - Mouth:[185,089]
+LOG_POLAR_SCALE_FACTOR = 0,865851 [], LOG_POLAR_THETA_CORRECTION = 1,468801 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-020-4.raw
+Eyes:[157,160][216,162] - Nose:[186,130] - Mouth:[188,081]
+LOG_POLAR_SCALE_FACTOR = 0,964425 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-020-5.raw
+Eyes:[158,155][212,155] - Nose:[184,115] - Mouth:[184,088]
+LOG_POLAR_SCALE_FACTOR = 0,882187 [], LOG_POLAR_THETA_CORRECTION = -1,432096 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-020-14.raw
+Eyes:[146,160][200,160] - Nose:[174,120] - Mouth:[172,092]
+LOG_POLAR_SCALE_FACTOR = 0,882187 [], LOG_POLAR_THETA_CORRECTION = 1,432096 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-020-20.raw
+Eyes:[144,156][200,157] - Nose:[173,115] - Mouth:[173,087]
+LOG_POLAR_SCALE_FACTOR = 0,915007 [], LOG_POLAR_THETA_CORRECTION = 1,397181 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-021-1.raw
+Eyes:[147,163][206,158] - Nose:[176,129] - Mouth:[172,097]
+LOG_POLAR_SCALE_FACTOR = 0,967327 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-021-3.raw
+Eyes:[150,148][207,145] - Nose:[181,108] - Mouth:[177,080]
+LOG_POLAR_SCALE_FACTOR = 0,932487 [], LOG_POLAR_THETA_CORRECTION = 4,513988 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-021-6.raw
+Eyes:[154,158][211,152] - Nose:[183,123] - Mouth:[179,093]
+LOG_POLAR_SCALE_FACTOR = 0,936343 [], LOG_POLAR_THETA_CORRECTION = 1,789911 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-021-7.raw
+Eyes:[153,158][210,152] - Nose:[181,123] - Mouth:[179,093]
+LOG_POLAR_SCALE_FACTOR = 0,936343 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-021-15.raw
+Eyes:[166,152][224,150] - Nose:[196,116] - Mouth:[192,082]
+LOG_POLAR_SCALE_FACTOR = 0,948098 [], LOG_POLAR_THETA_CORRECTION = 1,636577 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-021-16.raw
+Eyes:[167,145][225,142] - Nose:[196,104] - Mouth:[194,073]
+LOG_POLAR_SCALE_FACTOR = 0,948801 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-021-17.raw
+Eyes:[163,162][218,162] - Nose:[192,135] - Mouth:[190,091]
+LOG_POLAR_SCALE_FACTOR = 0,898524 [], LOG_POLAR_THETA_CORRECTION = 4,236395 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-022-2.raw
+Eyes:[177,156][228,159] - Nose:[208,132] - Mouth:[207,104]
+LOG_POLAR_SCALE_FACTOR = 0,834617 [], LOG_POLAR_THETA_CORRECTION = 13,495733 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-022-4.raw
+Eyes:[175,151][228,150] - Nose:[202,127] - Mouth:[201,091]
+LOG_POLAR_SCALE_FACTOR = 0,866005 [], LOG_POLAR_THETA_CORRECTION = 2,489553 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-022-6.raw
+Eyes:[174,148][225,149] - Nose:[204,119] - Mouth:[204,097]
+LOG_POLAR_SCALE_FACTOR = 0,833337 [], LOG_POLAR_THETA_CORRECTION = 9,782407 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-022-7.raw
+Eyes:[175,148][226,149] - Nose:[204,118] - Mouth:[204,095]
+LOG_POLAR_SCALE_FACTOR = 0,833337 [], LOG_POLAR_THETA_CORRECTION = 7,594644 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-022-17.raw
+Eyes:[177,162][230,162] - Nose:[206,138] - Mouth:[202,097]
+LOG_POLAR_SCALE_FACTOR = 0,865851 [], LOG_POLAR_THETA_CORRECTION = 7,125016 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-022-18.raw
+Eyes:[168,154][221,156] - Nose:[199,124] - Mouth:[199,101]
+LOG_POLAR_SCALE_FACTOR = 0,866467 [], LOG_POLAR_THETA_CORRECTION = 9,162347 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-022-20.raw
+Eyes:[167,154][219,156] - Nose:[199,123] - Mouth:[195,100]
+LOG_POLAR_SCALE_FACTOR = 0,850142 [], LOG_POLAR_THETA_CORRECTION = 10,619655 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-025-5.raw
+Eyes:[154,152][208,152] - Nose:[182,120] - Mouth:[182,092]
+LOG_POLAR_SCALE_FACTOR = 0,882187 [], LOG_POLAR_THETA_CORRECTION = 1,789911 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-025-6.raw
+Eyes:[157,151][211,151] - Nose:[185,118] - Mouth:[184,088]
+LOG_POLAR_SCALE_FACTOR = 0,882187 [], LOG_POLAR_THETA_CORRECTION = 1,735705 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-025-7.raw
+Eyes:[157,150][211,149] - Nose:[184,118] - Mouth:[183,086]
+LOG_POLAR_SCALE_FACTOR = 0,882339 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-025-14.raw
+Eyes:[173,153][226,151] - Nose:[198,119] - Mouth:[198,088]
+LOG_POLAR_SCALE_FACTOR = 0,866467 [], LOG_POLAR_THETA_CORRECTION = -1,735705 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-025-15.raw
+Eyes:[174,152][226,150] - Nose:[200,116] - Mouth:[198,089]
+LOG_POLAR_SCALE_FACTOR = 0,850142 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-025-16.raw
+Eyes:[176,149][231,146] - Nose:[202,112] - Mouth:[199,083]
+LOG_POLAR_SCALE_FACTOR = 0,899860 [], LOG_POLAR_THETA_CORRECTION = -1,636577 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-025-19.raw
+Eyes:[176,150][231,148] - Nose:[203,115] - Mouth:[203,085]
+LOG_POLAR_SCALE_FACTOR = 0,899118 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-026-1.raw
+Eyes:[167,164][223,158] - Nose:[193,130] - Mouth:[191,101]
+LOG_POLAR_SCALE_FACTOR = 0,920097 [], LOG_POLAR_THETA_CORRECTION = -3,691386 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-026-2.raw
+Eyes:[160,164][217,160] - Nose:[186,132] - Mouth:[183,106]
+LOG_POLAR_SCALE_FACTOR = 0,933488 [], LOG_POLAR_THETA_CORRECTION = -3,814075 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-026-4.raw
+Eyes:[160,158][214,154] - Nose:[188,132] - Mouth:[183,092]
+LOG_POLAR_SCALE_FACTOR = 0,884604 [], LOG_POLAR_THETA_CORRECTION = 2,385944 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-026-6.raw
+Eyes:[159,165][214,161] - Nose:[187,134] - Mouth:[184,103]
+LOG_POLAR_SCALE_FACTOR = 0,900897 [], LOG_POLAR_THETA_CORRECTION = 1,974934 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-026-14.raw
+Eyes:[164,159][220,155] - Nose:[193,125] - Mouth:[190,100]
+LOG_POLAR_SCALE_FACTOR = 0,917192 [], LOG_POLAR_THETA_CORRECTION = 1,789911 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-026-18.raw
+Eyes:[160,156][216,155] - Nose:[191,123] - Mouth:[189,096]
+LOG_POLAR_SCALE_FACTOR = 0,915007 [], LOG_POLAR_THETA_CORRECTION = 5,355825 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-026-20.raw
+Eyes:[164,156][219,154] - Nose:[194,124] - Mouth:[192,098]
+LOG_POLAR_SCALE_FACTOR = 0,899118 [], LOG_POLAR_THETA_CORRECTION = 5,527540 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-027-1.raw
+Eyes:[163,160][213,158] - Nose:[188,127] - Mouth:[185,092]
+LOG_POLAR_SCALE_FACTOR = 0,817493 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-027-2.raw
+Eyes:[166,155][215,152] - Nose:[191,120] - Mouth:[189,092]
+LOG_POLAR_SCALE_FACTOR = 0,802002 [], LOG_POLAR_THETA_CORRECTION = 1,735705 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-027-5.raw
+Eyes:[165,154][216,150] - Nose:[191,119] - Mouth:[191,087]
+LOG_POLAR_SCALE_FACTOR = 0,835736 [], LOG_POLAR_THETA_CORRECTION = 1,735705 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-027-14.raw
+Eyes:[175,159][225,157] - Nose:[201,129] - Mouth:[196,088]
+LOG_POLAR_SCALE_FACTOR = 0,817493 [], LOG_POLAR_THETA_CORRECTION = 1,974934 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-027-15.raw
+Eyes:[171,158][221,155] - Nose:[198,126] - Mouth:[195,091]
+LOG_POLAR_SCALE_FACTOR = 0,818309 [], LOG_POLAR_THETA_CORRECTION = 3,814075 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-027-18.raw
+Eyes:[170,154][221,154] - Nose:[197,121] - Mouth:[193,090]
+LOG_POLAR_SCALE_FACTOR = 0,833177 [], LOG_POLAR_THETA_CORRECTION = 3,468229 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-027-20.raw
+Eyes:[168,155][219,151] - Nose:[194,122] - Mouth:[190,090]
+LOG_POLAR_SCALE_FACTOR = 0,835736 [], LOG_POLAR_THETA_CORRECTION = 1,847610 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-033-1.raw
+Eyes:[167,154][222,158] - Nose:[198,110] - Mouth:[196,086]
+LOG_POLAR_SCALE_FACTOR = 0,900897 [], LOG_POLAR_THETA_CORRECTION = 4,969741 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-033-3.raw
+Eyes:[174,144][228,153] - Nose:[205,101] - Mouth:[211,080]
+LOG_POLAR_SCALE_FACTOR = 0,894356 [], LOG_POLAR_THETA_CORRECTION = 4,864514 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-033-5.raw
+Eyes:[175,153][227,156] - Nose:[204,109] - Mouth:[208,088]
+LOG_POLAR_SCALE_FACTOR = 0,850926 [], LOG_POLAR_THETA_CORRECTION = 3,814075 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-033-6.raw
+Eyes:[173,153][228,158] - Nose:[205,110] - Mouth:[206,083]
+LOG_POLAR_SCALE_FACTOR = 0,902230 [], LOG_POLAR_THETA_CORRECTION = 6,340192 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-033-15.raw
+Eyes:[165,158][219,161] - Nose:[195,119] - Mouth:[197,098]
+LOG_POLAR_SCALE_FACTOR = 0,883548 [], LOG_POLAR_THETA_CORRECTION = 4,289153 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-033-16.raw
+Eyes:[168,150][221,153] - Nose:[197,107] - Mouth:[199,085]
+LOG_POLAR_SCALE_FACTOR = 0,867237 [], LOG_POLAR_THETA_CORRECTION = 3,900494 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-033-20.raw
+Eyes:[171,154][223,156] - Nose:[201,112] - Mouth:[200,087]
+LOG_POLAR_SCALE_FACTOR = 0,850142 [], LOG_POLAR_THETA_CORRECTION = 5,314546 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-039-3.raw
+Eyes:[163,141][216,142] - Nose:[188,107] - Mouth:[186,080]
+LOG_POLAR_SCALE_FACTOR = 0,866005 [], LOG_POLAR_THETA_CORRECTION = -1,684684 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-039-5.raw
+Eyes:[164,156][215,153] - Nose:[188,127] - Mouth:[186,098]
+LOG_POLAR_SCALE_FACTOR = 0,834617 [], LOG_POLAR_THETA_CORRECTION = -2,121096 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-039-6.raw
+Eyes:[163,155][216,153] - Nose:[188,126] - Mouth:[188,098]
+LOG_POLAR_SCALE_FACTOR = 0,866467 [], LOG_POLAR_THETA_CORRECTION = -2,045409 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-039-14.raw
+Eyes:[179,153][231,153] - Nose:[207,122] - Mouth:[209,091]
+LOG_POLAR_SCALE_FACTOR = 0,849514 [], LOG_POLAR_THETA_CORRECTION = 3,691386 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-039-15.raw
+Eyes:[179,151][232,150] - Nose:[206,118] - Mouth:[207,093]
+LOG_POLAR_SCALE_FACTOR = 0,866005 [], LOG_POLAR_THETA_CORRECTION = 1,789911 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-039-16.raw
+Eyes:[171,140][224,143] - Nose:[199,106] - Mouth:[203,080]
+LOG_POLAR_SCALE_FACTOR = 0,867237 [], LOG_POLAR_THETA_CORRECTION = 3,270488 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-039-18.raw
+Eyes:[178,155][231,151] - Nose:[204,123] - Mouth:[204,095]
+LOG_POLAR_SCALE_FACTOR = 0,868313 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-046-1.raw
+Eyes:[155,155][210,152] - Nose:[181,118] - Mouth:[178,086]
+LOG_POLAR_SCALE_FACTOR = 0,899860 [], LOG_POLAR_THETA_CORRECTION = -1,636577 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-046-2.raw
+Eyes:[162,154][217,151] - Nose:[188,116] - Mouth:[188,090]
+LOG_POLAR_SCALE_FACTOR = 0,899860 [], LOG_POLAR_THETA_CORRECTION = -1,591140 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-046-14.raw
+Eyes:[165,162][217,158] - Nose:[194,130] - Mouth:[190,101]
+LOG_POLAR_SCALE_FACTOR = 0,852024 [], LOG_POLAR_THETA_CORRECTION = 5,710593 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-046-15.raw
+Eyes:[162,159][217,159] - Nose:[192,127] - Mouth:[190,101]
+LOG_POLAR_SCALE_FACTOR = 0,898524 [], LOG_POLAR_THETA_CORRECTION = 5,355825 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-046-17.raw
+Eyes:[170,155][219,154] - Nose:[198,123] - Mouth:[193,082]
+LOG_POLAR_SCALE_FACTOR = 0,800670 [], LOG_POLAR_THETA_CORRECTION = 7,352379 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-046-18.raw
+Eyes:[170,157][222,153] - Nose:[200,122] - Mouth:[194,092]
+LOG_POLAR_SCALE_FACTOR = 0,852024 [], LOG_POLAR_THETA_CORRECTION = 6,911227 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-046-20.raw
+Eyes:[175,155][226,151] - Nose:[204,119] - Mouth:[197,089]
+LOG_POLAR_SCALE_FACTOR = 0,835736 [], LOG_POLAR_THETA_CORRECTION = 6,709837 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-048-1.raw
+Eyes:[161,155][217,153] - Nose:[192,118] - Mouth:[189,090]
+LOG_POLAR_SCALE_FACTOR = 0,915444 [], LOG_POLAR_THETA_CORRECTION = 4,763642 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-048-2.raw
+Eyes:[164,157][220,156] - Nose:[195,119] - Mouth:[191,093]
+LOG_POLAR_SCALE_FACTOR = 0,915007 [], LOG_POLAR_THETA_CORRECTION = 4,635463 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-048-3.raw
+Eyes:[165,152][220,151] - Nose:[196,114] - Mouth:[193,089]
+LOG_POLAR_SCALE_FACTOR = 0,898673 [], LOG_POLAR_THETA_CORRECTION = 6,170175 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-048-14.raw
+Eyes:[160,144][216,142] - Nose:[191,107] - Mouth:[187,080]
+LOG_POLAR_SCALE_FACTOR = 0,915444 [], LOG_POLAR_THETA_CORRECTION = 4,763642 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-048-15.raw
+Eyes:[154,146][210,143] - Nose:[185,109] - Mouth:[181,081]
+LOG_POLAR_SCALE_FACTOR = 0,916173 [], LOG_POLAR_THETA_CORRECTION = 4,899093 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-048-17.raw
+Eyes:[157,145][212,146] - Nose:[188,115] - Mouth:[182,081]
+LOG_POLAR_SCALE_FACTOR = 0,898673 [], LOG_POLAR_THETA_CORRECTION = 7,594644 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-048-18.raw
+Eyes:[154,146][211,145] - Nose:[185,110] - Mouth:[183,084]
+LOG_POLAR_SCALE_FACTOR = 0,931341 [], LOG_POLAR_THETA_CORRECTION = 4,899093 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-049-3.raw
+Eyes:[162,148][221,149] - Nose:[194,114] - Mouth:[197,088]
+LOG_POLAR_SCALE_FACTOR = 0,964010 [], LOG_POLAR_THETA_CORRECTION = 5,042451 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-049-4.raw
+Eyes:[169,148][229,150] - Nose:[201,120] - Mouth:[203,085]
+LOG_POLAR_SCALE_FACTOR = 0,980753 [], LOG_POLAR_THETA_CORRECTION = 3,945186 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-049-6.raw
+Eyes:[166,152][228,154] - Nose:[199,120] - Mouth:[199,091]
+LOG_POLAR_SCALE_FACTOR = 1,013409 [], LOG_POLAR_THETA_CORRECTION = 3,468229 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-049-7.raw
+Eyes:[170,150][229,154] - Nose:[201,120] - Mouth:[203,089]
+LOG_POLAR_SCALE_FACTOR = 0,966084 [], LOG_POLAR_THETA_CORRECTION = 3,576334 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-049-14.raw
+Eyes:[168,156][228,156] - Nose:[200,122] - Mouth:[200,088]
+LOG_POLAR_SCALE_FACTOR = 0,980208 [], LOG_POLAR_THETA_CORRECTION = 3,366461 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-049-17.raw
+Eyes:[182,154][246,157] - Nose:[212,123] - Mouth:[212,090]
+LOG_POLAR_SCALE_FACTOR = 1,046704 [], LOG_POLAR_THETA_CORRECTION = -3,576334 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-049-18.raw
+Eyes:[178,157][240,156] - Nose:[207,123] - Mouth:[207,093]
+LOG_POLAR_SCALE_FACTOR = 1,013014 [], LOG_POLAR_THETA_CORRECTION = -3,468229 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-056-3.raw
+Eyes:[162,160][218,154] - Nose:[194,128] - Mouth:[189,097]
+LOG_POLAR_SCALE_FACTOR = 0,920097 [], LOG_POLAR_THETA_CORRECTION = 7,853313 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-056-5.raw
+Eyes:[161,159][215,154] - Nose:[190,127] - Mouth:[185,099]
+LOG_POLAR_SCALE_FACTOR = 0,885961 [], LOG_POLAR_THETA_CORRECTION = 3,945186 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-056-6.raw
+Eyes:[160,160][215,154] - Nose:[188,127] - Mouth:[185,098]
+LOG_POLAR_SCALE_FACTOR = 0,903855 [], LOG_POLAR_THETA_CORRECTION = 1,909153 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-056-7.raw
+Eyes:[160,160][213,154] - Nose:[189,128] - Mouth:[188,100]
+LOG_POLAR_SCALE_FACTOR = 0,871381 [], LOG_POLAR_THETA_CORRECTION = 5,906141 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-056-14.raw
+Eyes:[169,152][218,146] - Nose:[197,122] - Mouth:[193,095]
+LOG_POLAR_SCALE_FACTOR = 0,806482 [], LOG_POLAR_THETA_CORRECTION = 8,426969 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-056-15.raw
+Eyes:[166,151][219,145] - Nose:[193,118] - Mouth:[191,093]
+LOG_POLAR_SCALE_FACTOR = 0,871381 [], LOG_POLAR_THETA_CORRECTION = 1,909153 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-056-18.raw
+Eyes:[165,148][219,146] - Nose:[193,117] - Mouth:[190,089]
+LOG_POLAR_SCALE_FACTOR = 0,882792 [], LOG_POLAR_THETA_CORRECTION = 1,909153 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-059-3.raw
+Eyes:[160,138][217,136] - Nose:[182,100] - Mouth:[183,075]
+LOG_POLAR_SCALE_FACTOR = 0,931771 [], LOG_POLAR_THETA_CORRECTION = -9,211026 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-059-4.raw
+Eyes:[169,142][225,142] - Nose:[194,114] - Mouth:[195,075]
+LOG_POLAR_SCALE_FACTOR = 0,914861 [], LOG_POLAR_THETA_CORRECTION = -6,115504 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-059-5.raw
+Eyes:[162,152][217,151] - Nose:[185,118] - Mouth:[184,093]
+LOG_POLAR_SCALE_FACTOR = 0,898673 [], LOG_POLAR_THETA_CORRECTION = -6,911227 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-059-6.raw
+Eyes:[159,150][214,147] - Nose:[180,115] - Mouth:[185,089]
+LOG_POLAR_SCALE_FACTOR = 0,899860 [], LOG_POLAR_THETA_CORRECTION = -10,304847 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-059-18.raw
+Eyes:[157,148][212,145] - Nose:[184,112] - Mouth:[185,087]
+LOG_POLAR_SCALE_FACTOR = 0,899860 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-059-19.raw
+Eyes:[156,147][210,145] - Nose:[182,111] - Mouth:[183,083]
+LOG_POLAR_SCALE_FACTOR = 0,882792 [], LOG_POLAR_THETA_CORRECTION = -1,636577 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-059-20.raw
+Eyes:[154,147][210,144] - Nose:[181,111] - Mouth:[182,084]
+LOG_POLAR_SCALE_FACTOR = 0,916173 [], LOG_POLAR_THETA_CORRECTION = -1,684684 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-060-1.raw
+Eyes:[162,143][222,143] - Nose:[192,104] - Mouth:[194,073]
+LOG_POLAR_SCALE_FACTOR = 0,980208 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-060-4.raw
+Eyes:[163,129][224,130] - Nose:[192,093] - Mouth:[193,054]
+LOG_POLAR_SCALE_FACTOR = 0,996679 [], LOG_POLAR_THETA_CORRECTION = -1,591140 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-060-6.raw
+Eyes:[150,135][210,136] - Nose:[179,094] - Mouth:[185,065]
+LOG_POLAR_SCALE_FACTOR = 0,980344 [], LOG_POLAR_THETA_CORRECTION = -1,397181 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-060-7.raw
+Eyes:[152,137][213,138] - Nose:[181,096] - Mouth:[184,068]
+LOG_POLAR_SCALE_FACTOR = 0,996679 [], LOG_POLAR_THETA_CORRECTION = -1,397181 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-060-17.raw
+Eyes:[157,152][221,154] - Nose:[191,125] - Mouth:[191,076]
+LOG_POLAR_SCALE_FACTOR = 1,046066 [], LOG_POLAR_THETA_CORRECTION = 4,085617 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-060-18.raw
+Eyes:[154,144][216,145] - Nose:[187,107] - Mouth:[190,073]
+LOG_POLAR_SCALE_FACTOR = 1,013014 [], LOG_POLAR_THETA_CORRECTION = 3,094058 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-060-20.raw
+Eyes:[155,144][216,146] - Nose:[188,107] - Mouth:[192,075]
+LOG_POLAR_SCALE_FACTOR = 0,997081 [], LOG_POLAR_THETA_CORRECTION = 4,513988 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-061-5.raw
+Eyes:[163,162][222,159] - Nose:[189,129] - Mouth:[189,099]
+LOG_POLAR_SCALE_FACTOR = 0,965117 [], LOG_POLAR_THETA_CORRECTION = -5,527540 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-061-6.raw
+Eyes:[162,161][218,157] - Nose:[187,126] - Mouth:[189,095]
+LOG_POLAR_SCALE_FACTOR = 0,917192 [], LOG_POLAR_THETA_CORRECTION = -5,194429 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-061-7.raw
+Eyes:[164,161][220,157] - Nose:[189,127] - Mouth:[190,099]
+LOG_POLAR_SCALE_FACTOR = 0,917192 [], LOG_POLAR_THETA_CORRECTION = -5,355825 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-061-15.raw
+Eyes:[162,157][218,154] - Nose:[190,125] - Mouth:[191,100]
+LOG_POLAR_SCALE_FACTOR = 0,916173 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-061-17.raw
+Eyes:[163,150][221,148] - Nose:[192,121] - Mouth:[191,084]
+LOG_POLAR_SCALE_FACTOR = 0,948098 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-061-18.raw
+Eyes:[164,157][219,153] - Nose:[191,126] - Mouth:[193,099]
+LOG_POLAR_SCALE_FACTOR = 0,900897 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-061-20.raw
+Eyes:[164,159][218,155] - Nose:[191,128] - Mouth:[192,101]
+LOG_POLAR_SCALE_FACTOR = 0,884604 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-065-1.raw
+Eyes:[159,168][217,165] - Nose:[189,144] - Mouth:[187,110]
+LOG_POLAR_SCALE_FACTOR = 0,948801 [], LOG_POLAR_THETA_CORRECTION = 2,602562 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-065-5.raw
+Eyes:[158,163][218,161] - Nose:[188,136] - Mouth:[186,101]
+LOG_POLAR_SCALE_FACTOR = 0,980753 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-065-7.raw
+Eyes:[156,161][215,160] - Nose:[185,135] - Mouth:[184,100]
+LOG_POLAR_SCALE_FACTOR = 0,964010 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-065-15.raw
+Eyes:[165,157][224,154] - Nose:[195,126] - Mouth:[194,093]
+LOG_POLAR_SCALE_FACTOR = 0,965117 [], LOG_POLAR_THETA_CORRECTION = 1,974934 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-065-16.raw
+Eyes:[168,148][228,146] - Nose:[200,114] - Mouth:[196,080]
+LOG_POLAR_SCALE_FACTOR = 0,980753 [], LOG_POLAR_THETA_CORRECTION = 3,468229 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-065-17.raw
+Eyes:[156,149][217,150] - Nose:[187,123] - Mouth:[190,075]
+LOG_POLAR_SCALE_FACTOR = 0,996679 [], LOG_POLAR_THETA_CORRECTION = 2,202598 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-065-19.raw
+Eyes:[161,153][222,154] - Nose:[191,124] - Mouth:[192,091]
+LOG_POLAR_SCALE_FACTOR = 0,996679 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-069-1.raw
+Eyes:[159,155][217,151] - Nose:[187,115] - Mouth:[183,086]
+LOG_POLAR_SCALE_FACTOR = 0,949785 [], LOG_POLAR_THETA_CORRECTION = -1,507436 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-069-5.raw
+Eyes:[158,155][217,150] - Nose:[187,114] - Mouth:[182,083]
+LOG_POLAR_SCALE_FACTOR = 0,967327 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-069-7.raw
+Eyes:[159,153][218,149] - Nose:[188,111] - Mouth:[182,082]
+LOG_POLAR_SCALE_FACTOR = 0,966084 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-069-14.raw
+Eyes:[162,149][216,149] - Nose:[190,111] - Mouth:[187,083]
+LOG_POLAR_SCALE_FACTOR = 0,882187 [], LOG_POLAR_THETA_CORRECTION = 1,507436 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-069-15.raw
+Eyes:[157,151][213,151] - Nose:[185,115] - Mouth:[182,089]
+LOG_POLAR_SCALE_FACTOR = 0,914861 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-069-17.raw
+Eyes:[164,135][221,133] - Nose:[192,097] - Mouth:[187,067]
+LOG_POLAR_SCALE_FACTOR = 0,931771 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-069-20.raw
+Eyes:[160,149][215,147] - Nose:[189,111] - Mouth:[185,081]
+LOG_POLAR_SCALE_FACTOR = 0,899118 [], LOG_POLAR_THETA_CORRECTION = 3,094058 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-072-3.raw
+Eyes:[157,151][213,147] - Nose:[185,113] - Mouth:[185,085]
+LOG_POLAR_SCALE_FACTOR = 0,917192 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-072-6.raw
+Eyes:[157,158][213,155] - Nose:[185,124] - Mouth:[184,097]
+LOG_POLAR_SCALE_FACTOR = 0,916173 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-072-7.raw
+Eyes:[158,158][216,154] - Nose:[185,125] - Mouth:[185,096]
+LOG_POLAR_SCALE_FACTOR = 0,949785 [], LOG_POLAR_THETA_CORRECTION = -3,691386 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-072-14.raw
+Eyes:[166,150][224,148] - Nose:[196,115] - Mouth:[193,085]
+LOG_POLAR_SCALE_FACTOR = 0,948098 [], LOG_POLAR_THETA_CORRECTION = 1,684684 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-072-16.raw
+Eyes:[165,142][222,140] - Nose:[196,103] - Mouth:[194,077]
+LOG_POLAR_SCALE_FACTOR = 0,931771 [], LOG_POLAR_THETA_CORRECTION = 4,513988 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-072-17.raw
+Eyes:[166,155][223,154] - Nose:[194,129] - Mouth:[193,082]
+LOG_POLAR_SCALE_FACTOR = 0,931341 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-072-18.raw
+Eyes:[165,152][223,151] - Nose:[195,121] - Mouth:[193,091]
+LOG_POLAR_SCALE_FACTOR = 0,947676 [], LOG_POLAR_THETA_CORRECTION = 1,909153 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-074-2.raw
+Eyes:[157,148][218,145] - Nose:[185,103] - Mouth:[184,079]
+LOG_POLAR_SCALE_FACTOR = 0,997750 [], LOG_POLAR_THETA_CORRECTION = -2,663001 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-074-3.raw
+Eyes:[157,142][216,139] - Nose:[186,097] - Mouth:[185,073]
+LOG_POLAR_SCALE_FACTOR = 0,965117 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-074-4.raw
+Eyes:[158,138][216,140] - Nose:[188,099] - Mouth:[186,065]
+LOG_POLAR_SCALE_FACTOR = 0,948098 [], LOG_POLAR_THETA_CORRECTION = 1,432096 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-074-5.raw
+Eyes:[158,147][217,142] - Nose:[187,103] - Mouth:[187,078]
+LOG_POLAR_SCALE_FACTOR = 0,967327 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-074-7.raw
+Eyes:[157,144][216,142] - Nose:[186,099] - Mouth:[185,073]
+LOG_POLAR_SCALE_FACTOR = 0,964425 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-074-18.raw
+Eyes:[158,150][214,149] - Nose:[186,113] - Mouth:[187,088]
+LOG_POLAR_SCALE_FACTOR = 0,915007 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-074-20.raw
+Eyes:[157,147][214,143] - Nose:[185,107] - Mouth:[185,081]
+LOG_POLAR_SCALE_FACTOR = 0,933488 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-005-2.raw
+Eyes:[161,156][216,153] - Nose:[187,118] - Mouth:[185,088]
+LOG_POLAR_SCALE_FACTOR = 0,899860 [], LOG_POLAR_THETA_CORRECTION = -1,591140 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-005-3.raw
+Eyes:[149,146][206,146] - Nose:[175,108] - Mouth:[176,082]
+LOG_POLAR_SCALE_FACTOR = 0,931198 [], LOG_POLAR_THETA_CORRECTION = -3,012788 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-005-4.raw
+Eyes:[158,145][216,141] - Nose:[185,111] - Mouth:[184,081]
+LOG_POLAR_SCALE_FACTOR = 0,949785 [], LOG_POLAR_THETA_CORRECTION = -3,576334 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-005-7.raw
+Eyes:[154,150][208,150] - Nose:[181,113] - Mouth:[181,085]
+LOG_POLAR_SCALE_FACTOR = 0,882187 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-005-15.raw
+Eyes:[166,146][223,144] - Nose:[193,106] - Mouth:[193,077]
+LOG_POLAR_SCALE_FACTOR = 0,931771 [], LOG_POLAR_THETA_CORRECTION = -1,468801 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-005-19.raw
+Eyes:[161,145][217,146] - Nose:[188,106] - Mouth:[191,081]
+LOG_POLAR_SCALE_FACTOR = 0,915007 [], LOG_POLAR_THETA_CORRECTION = -1,468801 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-005-20.raw
+Eyes:[162,145][218,146] - Nose:[189,107] - Mouth:[193,081]
+LOG_POLAR_SCALE_FACTOR = 0,915007 [], LOG_POLAR_THETA_CORRECTION = -1,507436 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-012-2.raw
+Eyes:[175,147][225,149] - Nose:[202,117] - Mouth:[203,089]
+LOG_POLAR_SCALE_FACTOR = 0,817493 [], LOG_POLAR_THETA_CORRECTION = 3,691386 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-012-3.raw
+Eyes:[176,131][229,132] - Nose:[205,096] - Mouth:[204,068]
+LOG_POLAR_SCALE_FACTOR = 0,866005 [], LOG_POLAR_THETA_CORRECTION = 4,899093 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-012-5.raw
+Eyes:[181,149][232,148] - Nose:[207,123] - Mouth:[204,093]
+LOG_POLAR_SCALE_FACTOR = 0,833337 [], LOG_POLAR_THETA_CORRECTION = 2,290610 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-012-15.raw
+Eyes:[169,159][221,156] - Nose:[195,127] - Mouth:[191,099]
+LOG_POLAR_SCALE_FACTOR = 0,850926 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-012-17.raw
+Eyes:[176,151][232,148] - Nose:[204,124] - Mouth:[199,083]
+LOG_POLAR_SCALE_FACTOR = 0,916173 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-012-18.raw
+Eyes:[174,163][226,161] - Nose:[200,134] - Mouth:[196,106]
+LOG_POLAR_SCALE_FACTOR = 0,850142 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-012-20.raw
+Eyes:[172,161][225,161] - Nose:[198,133] - Mouth:[197,105]
+LOG_POLAR_SCALE_FACTOR = 0,865851 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-014-1.raw
+Eyes:[170,161][219,160] - Nose:[197,130] - Mouth:[198,104]
+LOG_POLAR_SCALE_FACTOR = 0,800670 [], LOG_POLAR_THETA_CORRECTION = 5,710593 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-014-3.raw
+Eyes:[168,151][217,151] - Nose:[195,117] - Mouth:[195,092]
+LOG_POLAR_SCALE_FACTOR = 0,800503 [], LOG_POLAR_THETA_CORRECTION = 5,042451 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-014-4.raw
+Eyes:[173,158][224,157] - Nose:[201,129] - Mouth:[199,096]
+LOG_POLAR_SCALE_FACTOR = 0,833337 [], LOG_POLAR_THETA_CORRECTION = 6,115504 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-014-6.raw
+Eyes:[167,151][218,150] - Nose:[193,116] - Mouth:[193,091]
+LOG_POLAR_SCALE_FACTOR = 0,833337 [], LOG_POLAR_THETA_CORRECTION = 1,684684 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-014-7.raw
+Eyes:[167,154][217,153] - Nose:[194,120] - Mouth:[191,096]
+LOG_POLAR_SCALE_FACTOR = 0,817004 [], LOG_POLAR_THETA_CORRECTION = 3,468229 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-014-16.raw
+Eyes:[157,151][209,152] - Nose:[189,114] - Mouth:[186,089]
+LOG_POLAR_SCALE_FACTOR = 0,849671 [], LOG_POLAR_THETA_CORRECTION = 9,211026 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-014-20.raw
+Eyes:[151,160][202,161] - Nose:[180,126] - Mouth:[180,100]
+LOG_POLAR_SCALE_FACTOR = 0,833337 [], LOG_POLAR_THETA_CORRECTION = 6,709837 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-018-2.raw
+Eyes:[156,157][205,153] - Nose:[177,127] - Mouth:[178,100]
+LOG_POLAR_SCALE_FACTOR = 0,803166 [], LOG_POLAR_THETA_CORRECTION = -6,115504 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-018-3.raw
+Eyes:[154,149][207,147] - Nose:[176,115] - Mouth:[176,091]
+LOG_POLAR_SCALE_FACTOR = 0,866467 [], LOG_POLAR_THETA_CORRECTION = -6,911227 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-018-5.raw
+Eyes:[150,153][201,150] - Nose:[171,123] - Mouth:[173,099]
+LOG_POLAR_SCALE_FACTOR = 0,834617 [], LOG_POLAR_THETA_CORRECTION = -8,130103 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-018-6.raw
+Eyes:[150,154][201,150] - Nose:[172,124] - Mouth:[174,098]
+LOG_POLAR_SCALE_FACTOR = 0,835736 [], LOG_POLAR_THETA_CORRECTION = -6,115504 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-018-7.raw
+Eyes:[150,154][203,151] - Nose:[171,125] - Mouth:[173,099]
+LOG_POLAR_SCALE_FACTOR = 0,867237 [], LOG_POLAR_THETA_CORRECTION = -10,491477 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-018-18.raw
+Eyes:[161,156][213,155] - Nose:[186,130] - Mouth:[187,102]
+LOG_POLAR_SCALE_FACTOR = 0,849671 [], LOG_POLAR_THETA_CORRECTION = -2,290610 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-018-19.raw
+Eyes:[163,155][215,153] - Nose:[187,127] - Mouth:[188,099]
+LOG_POLAR_SCALE_FACTOR = 0,850142 [], LOG_POLAR_THETA_CORRECTION = -4,236395 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-019-1.raw
+Eyes:[166,150][216,151] - Nose:[190,125] - Mouth:[190,100]
+LOG_POLAR_SCALE_FACTOR = 0,817004 [], LOG_POLAR_THETA_CORRECTION = -2,290610 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-019-2.raw
+Eyes:[167,149][215,151] - Nose:[193,124] - Mouth:[192,101]
+LOG_POLAR_SCALE_FACTOR = 0,784847 [], LOG_POLAR_THETA_CORRECTION = 4,398706 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-019-3.raw
+Eyes:[165,137][215,139] - Nose:[191,106] - Mouth:[192,084]
+LOG_POLAR_SCALE_FACTOR = 0,817493 [], LOG_POLAR_THETA_CORRECTION = 1,789911 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-019-5.raw
+Eyes:[166,149][215,149] - Nose:[190,123] - Mouth:[188,099]
+LOG_POLAR_SCALE_FACTOR = 0,800503 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-019-7.raw
+Eyes:[169,149][220,149] - Nose:[192,123] - Mouth:[192,099]
+LOG_POLAR_SCALE_FACTOR = 0,833177 [], LOG_POLAR_THETA_CORRECTION = -4,398706 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-019-14.raw
+Eyes:[170,142][222,142] - Nose:[195,115] - Mouth:[194,089]
+LOG_POLAR_SCALE_FACTOR = 0,849514 [], LOG_POLAR_THETA_CORRECTION = -2,121096 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-019-18.raw
+Eyes:[168,143][220,141] - Nose:[194,115] - Mouth:[195,091]
+LOG_POLAR_SCALE_FACTOR = 0,850142 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-024-2.raw
+Eyes:[162,151][216,148] - Nose:[191,121] - Mouth:[186,091]
+LOG_POLAR_SCALE_FACTOR = 0,883548 [], LOG_POLAR_THETA_CORRECTION = 4,085617 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-024-3.raw
+Eyes:[158,139][214,137] - Nose:[187,104] - Mouth:[184,076]
+LOG_POLAR_SCALE_FACTOR = 0,915444 [], LOG_POLAR_THETA_CORRECTION = 1,684684 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-024-5.raw
+Eyes:[151,141][207,141] - Nose:[177,110] - Mouth:[177,083]
+LOG_POLAR_SCALE_FACTOR = 0,914861 [], LOG_POLAR_THETA_CORRECTION = -3,691386 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-024-6.raw
+Eyes:[152,146][208,146] - Nose:[179,119] - Mouth:[180,092]
+LOG_POLAR_SCALE_FACTOR = 0,914861 [], LOG_POLAR_THETA_CORRECTION = -2,121096 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-024-7.raw
+Eyes:[145,152][201,150] - Nose:[172,123] - Mouth:[171,096]
+LOG_POLAR_SCALE_FACTOR = 0,915444 [], LOG_POLAR_THETA_CORRECTION = -2,045409 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-024-15.raw
+Eyes:[166,160][219,162] - Nose:[193,135] - Mouth:[195,108]
+LOG_POLAR_SCALE_FACTOR = 0,866467 [], LOG_POLAR_THETA_CORRECTION = 2,202598 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-024-19.raw
+Eyes:[163,150][218,152] - Nose:[190,122] - Mouth:[192,096]
+LOG_POLAR_SCALE_FACTOR = 0,899118 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-025-1.raw
+Eyes:[170,149][226,151] - Nose:[200,115] - Mouth:[202,093]
+LOG_POLAR_SCALE_FACTOR = 0,915444 [], LOG_POLAR_THETA_CORRECTION = 3,270488 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-025-4.raw
+Eyes:[166,155][218,159] - Nose:[194,131] - Mouth:[198,098]
+LOG_POLAR_SCALE_FACTOR = 0,852024 [], LOG_POLAR_THETA_CORRECTION = 4,398706 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-025-16.raw
+Eyes:[164,150][224,153] - Nose:[194,115] - Mouth:[199,092]
+LOG_POLAR_SCALE_FACTOR = 0,981433 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-025-17.raw
+Eyes:[165,145][224,146] - Nose:[193,118] - Mouth:[197,090]
+LOG_POLAR_SCALE_FACTOR = 0,964010 [], LOG_POLAR_THETA_CORRECTION = -2,121096 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-025-18.raw
+Eyes:[163,156][220,157] - Nose:[192,124] - Mouth:[195,101]
+LOG_POLAR_SCALE_FACTOR = 0,931341 [], LOG_POLAR_THETA_CORRECTION = 1,789911 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-025-19.raw
+Eyes:[164,154][221,153] - Nose:[193,120] - Mouth:[195,096]
+LOG_POLAR_SCALE_FACTOR = 0,931341 [], LOG_POLAR_THETA_CORRECTION = 1,735705 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-025-20.raw
+Eyes:[163,152][223,153] - Nose:[192,118] - Mouth:[193,097]
+LOG_POLAR_SCALE_FACTOR = 0,980344 [], LOG_POLAR_THETA_CORRECTION = -1,684684 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-028-1.raw
+Eyes:[151,151][208,156] - Nose:[185,119] - Mouth:[181,091]
+LOG_POLAR_SCALE_FACTOR = 0,934774 [], LOG_POLAR_THETA_CORRECTION = 10,007980 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-028-4.raw
+Eyes:[160,145][219,147] - Nose:[191,112] - Mouth:[189,072]
+LOG_POLAR_SCALE_FACTOR = 0,964425 [], LOG_POLAR_THETA_CORRECTION = 3,366461 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-028-6.raw
+Eyes:[153,144][213,147] - Nose:[184,110] - Mouth:[184,082]
+LOG_POLAR_SCALE_FACTOR = 0,981433 [], LOG_POLAR_THETA_CORRECTION = 1,636577 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-028-14.raw
+Eyes:[167,154][223,155] - Nose:[199,121] - Mouth:[198,094]
+LOG_POLAR_SCALE_FACTOR = 0,915007 [], LOG_POLAR_THETA_CORRECTION = 6,911227 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-028-15.raw
+Eyes:[172,156][227,157] - Nose:[202,121] - Mouth:[200,097]
+LOG_POLAR_SCALE_FACTOR = 0,898673 [], LOG_POLAR_THETA_CORRECTION = 4,899093 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-028-16.raw
+Eyes:[175,143][231,145] - Nose:[207,104] - Mouth:[206,078]
+LOG_POLAR_SCALE_FACTOR = 0,915444 [], LOG_POLAR_THETA_CORRECTION = 5,710593 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-028-20.raw
+Eyes:[168,148][226,148] - Nose:[199,113] - Mouth:[198,087]
+LOG_POLAR_SCALE_FACTOR = 0,947535 [], LOG_POLAR_THETA_CORRECTION = 3,270488 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-030-1.raw
+Eyes:[159,159][219,158] - Nose:[191,121] - Mouth:[189,095]
+LOG_POLAR_SCALE_FACTOR = 0,980344 [], LOG_POLAR_THETA_CORRECTION = 3,094058 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-030-4.raw
+Eyes:[149,167][207,168] - Nose:[182,139] - Mouth:[180,098]
+LOG_POLAR_SCALE_FACTOR = 0,947676 [], LOG_POLAR_THETA_CORRECTION = 8,130103 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-030-6.raw
+Eyes:[150,155][211,156] - Nose:[184,117] - Mouth:[184,092]
+LOG_POLAR_SCALE_FACTOR = 0,996679 [], LOG_POLAR_THETA_CORRECTION = 6,009006 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-030-7.raw
+Eyes:[152,155][211,156] - Nose:[185,116] - Mouth:[184,091]
+LOG_POLAR_SCALE_FACTOR = 0,964010 [], LOG_POLAR_THETA_CORRECTION = 5,856014 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-030-17.raw
+Eyes:[168,147][226,148] - Nose:[202,115] - Mouth:[195,078]
+LOG_POLAR_SCALE_FACTOR = 0,947676 [], LOG_POLAR_THETA_CORRECTION = 8,880659 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-030-19.raw
+Eyes:[169,149][230,148] - Nose:[205,110] - Mouth:[201,085]
+LOG_POLAR_SCALE_FACTOR = 0,996679 [], LOG_POLAR_THETA_CORRECTION = 8,972626 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-030-20.raw
+Eyes:[169,150][230,148] - Nose:[206,111] - Mouth:[203,087]
+LOG_POLAR_SCALE_FACTOR = 0,997081 [], LOG_POLAR_THETA_CORRECTION = 10,437475 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-031-1.raw
+Eyes:[172,158][223,155] - Nose:[197,127] - Mouth:[196,105]
+LOG_POLAR_SCALE_FACTOR = 0,834617 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-031-2.raw
+Eyes:[164,159][216,157] - Nose:[189,127] - Mouth:[191,103]
+LOG_POLAR_SCALE_FACTOR = 0,850142 [], LOG_POLAR_THETA_CORRECTION = -1,847610 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-031-3.raw
+Eyes:[170,152][219,151] - Nose:[196,116] - Mouth:[195,095]
+LOG_POLAR_SCALE_FACTOR = 0,800670 [], LOG_POLAR_THETA_CORRECTION = 3,270488 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-031-4.raw
+Eyes:[174,159][223,160] - Nose:[200,135] - Mouth:[200,102]
+LOG_POLAR_SCALE_FACTOR = 0,800670 [], LOG_POLAR_THETA_CORRECTION = 4,763642 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-031-6.raw
+Eyes:[169,156][219,153] - Nose:[193,124] - Mouth:[196,101]
+LOG_POLAR_SCALE_FACTOR = 0,818309 [], LOG_POLAR_THETA_CORRECTION = -1,909153 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-031-7.raw
+Eyes:[167,155][217,154] - Nose:[193,123] - Mouth:[191,099]
+LOG_POLAR_SCALE_FACTOR = 0,817004 [], LOG_POLAR_THETA_CORRECTION = 1,847610 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-031-17.raw
+Eyes:[169,158][220,160] - Nose:[195,131] - Mouth:[195,105]
+LOG_POLAR_SCALE_FACTOR = 0,833817 [], LOG_POLAR_THETA_CORRECTION = 2,045409 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-041-1.raw
+Eyes:[166,160][221,161] - Nose:[200,128] - Mouth:[200,104]
+LOG_POLAR_SCALE_FACTOR = 0,898673 [], LOG_POLAR_THETA_CORRECTION = 12,339087 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-041-6.raw
+Eyes:[150,159][206,162] - Nose:[185,129] - Mouth:[186,103]
+LOG_POLAR_SCALE_FACTOR = 0,916173 [], LOG_POLAR_THETA_CORRECTION = 12,724355 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-041-7.raw
+Eyes:[150,158][205,159] - Nose:[184,126] - Mouth:[183,101]
+LOG_POLAR_SCALE_FACTOR = 0,898673 [], LOG_POLAR_THETA_CORRECTION = 12,339087 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-041-14.raw
+Eyes:[153,162][211,161] - Nose:[187,130] - Mouth:[184,102]
+LOG_POLAR_SCALE_FACTOR = 0,947676 [], LOG_POLAR_THETA_CORRECTION = 9,162347 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-041-16.raw
+Eyes:[155,146][214,147] - Nose:[194,112] - Mouth:[191,088]
+LOG_POLAR_SCALE_FACTOR = 0,964010 [], LOG_POLAR_THETA_CORRECTION = 16,389541 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-041-17.raw
+Eyes:[156,147][213,152] - Nose:[193,119] - Mouth:[190,088]
+LOG_POLAR_SCALE_FACTOR = 0,934774 [], LOG_POLAR_THETA_CORRECTION = 16,699245 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-041-20.raw
+Eyes:[153,148][213,151] - Nose:[190,114] - Mouth:[189,089]
+LOG_POLAR_SCALE_FACTOR = 0,981433 [], LOG_POLAR_THETA_CORRECTION = 11,309933 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-042-4.raw
+Eyes:[185,149][244,150] - Nose:[214,122] - Mouth:[214,085]
+LOG_POLAR_SCALE_FACTOR = 0,964010 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-042-5.raw
+Eyes:[173,151][227,155] - Nose:[198,121] - Mouth:[200,091]
+LOG_POLAR_SCALE_FACTOR = 0,884604 [], LOG_POLAR_THETA_CORRECTION = -3,576334 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-042-6.raw
+Eyes:[173,152][228,159] - Nose:[197,123] - Mouth:[200,093]
+LOG_POLAR_SCALE_FACTOR = 0,905772 [], LOG_POLAR_THETA_CORRECTION = -5,355825 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-042-7.raw
+Eyes:[171,152][225,156] - Nose:[196,122] - Mouth:[198,091]
+LOG_POLAR_SCALE_FACTOR = 0,884604 [], LOG_POLAR_THETA_CORRECTION = -3,576334 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-042-16.raw
+Eyes:[159,150][217,149] - Nose:[186,113] - Mouth:[188,085]
+LOG_POLAR_SCALE_FACTOR = 0,947676 [], LOG_POLAR_THETA_CORRECTION = -3,179830 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-042-17.raw
+Eyes:[158,153][219,153] - Nose:[187,125] - Mouth:[188,088]
+LOG_POLAR_SCALE_FACTOR = 0,996545 [], LOG_POLAR_THETA_CORRECTION = -2,045409 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-042-20.raw
+Eyes:[153,155][209,154] - Nose:[181,119] - Mouth:[183,089]
+LOG_POLAR_SCALE_FACTOR = 0,915007 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-043-1.raw
+Eyes:[170,158][228,159] - Nose:[197,128] - Mouth:[197,101]
+LOG_POLAR_SCALE_FACTOR = 0,947676 [], LOG_POLAR_THETA_CORRECTION = -3,814075 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-043-2.raw
+Eyes:[164,155][218,155] - Nose:[192,122] - Mouth:[194,095]
+LOG_POLAR_SCALE_FACTOR = 0,882187 [], LOG_POLAR_THETA_CORRECTION = 1,735705 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-043-7.raw
+Eyes:[158,156][213,156] - Nose:[186,125] - Mouth:[187,095]
+LOG_POLAR_SCALE_FACTOR = 0,898524 [], LOG_POLAR_THETA_CORRECTION = 1,847610 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-043-15.raw
+Eyes:[168,153][224,152] - Nose:[198,122] - Mouth:[199,092]
+LOG_POLAR_SCALE_FACTOR = 0,915007 [], LOG_POLAR_THETA_CORRECTION = 3,814075 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-043-16.raw
+Eyes:[172,152][227,151] - Nose:[201,120] - Mouth:[203,092]
+LOG_POLAR_SCALE_FACTOR = 0,898673 [], LOG_POLAR_THETA_CORRECTION = 3,691386 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-043-19.raw
+Eyes:[174,155][229,151] - Nose:[204,124] - Mouth:[201,094]
+LOG_POLAR_SCALE_FACTOR = 0,900897 [], LOG_POLAR_THETA_CORRECTION = 5,906141 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-043-20.raw
+Eyes:[172,155][228,155] - Nose:[202,124] - Mouth:[201,099]
+LOG_POLAR_SCALE_FACTOR = 0,914861 [], LOG_POLAR_THETA_CORRECTION = 3,691386 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-044-1.raw
+Eyes:[166,165][221,166] - Nose:[194,130] - Mouth:[195,105]
+LOG_POLAR_SCALE_FACTOR = 0,898673 [], LOG_POLAR_THETA_CORRECTION = 1,636577 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-044-2.raw
+Eyes:[160,161][217,163] - Nose:[188,127] - Mouth:[194,102]
+LOG_POLAR_SCALE_FACTOR = 0,931771 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-044-5.raw
+Eyes:[166,164][221,167] - Nose:[195,131] - Mouth:[198,105]
+LOG_POLAR_SCALE_FACTOR = 0,899860 [], LOG_POLAR_THETA_CORRECTION = 3,366461 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-044-7.raw
+Eyes:[167,160][225,164] - Nose:[196,126] - Mouth:[196,101]
+LOG_POLAR_SCALE_FACTOR = 0,949785 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-044-14.raw
+Eyes:[156,148][211,143] - Nose:[181,109] - Mouth:[179,086]
+LOG_POLAR_SCALE_FACTOR = 0,902230 [], LOG_POLAR_THETA_CORRECTION = -3,179830 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-044-16.raw
+Eyes:[155,150][213,148] - Nose:[184,114] - Mouth:[185,090]
+LOG_POLAR_SCALE_FACTOR = 0,948098 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-044-18.raw
+Eyes:[151,144][206,139] - Nose:[177,105] - Mouth:[175,081]
+LOG_POLAR_SCALE_FACTOR = 0,902230 [], LOG_POLAR_THETA_CORRECTION = -1,591140 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-045-3.raw
+Eyes:[146,139][213,135] - Nose:[178,104] - Mouth:[179,079]
+LOG_POLAR_SCALE_FACTOR = 1,096515 [], LOG_POLAR_THETA_CORRECTION = -1,735705 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-045-4.raw
+Eyes:[147,131][210,133] - Nose:[178,108] - Mouth:[178,063]
+LOG_POLAR_SCALE_FACTOR = 1,029737 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-045-5.raw
+Eyes:[152,149][210,146] - Nose:[179,119] - Mouth:[178,094]
+LOG_POLAR_SCALE_FACTOR = 0,948801 [], LOG_POLAR_THETA_CORRECTION = -4,085617 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-045-6.raw
+Eyes:[160,155][220,153] - Nose:[190,128] - Mouth:[189,100]
+LOG_POLAR_SCALE_FACTOR = 0,980753 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-045-7.raw
+Eyes:[155,149][219,149] - Nose:[186,120] - Mouth:[185,093]
+LOG_POLAR_SCALE_FACTOR = 1,045556 [], LOG_POLAR_THETA_CORRECTION = -1,974934 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-045-14.raw
+Eyes:[159,153][216,149] - Nose:[187,122] - Mouth:[187,098]
+LOG_POLAR_SCALE_FACTOR = 0,933488 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-045-17.raw
+Eyes:[158,138][219,138] - Nose:[191,113] - Mouth:[190,076]
+LOG_POLAR_SCALE_FACTOR = 0,996545 [], LOG_POLAR_THETA_CORRECTION = 6,842773 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-046-1.raw
+Eyes:[154,151][208,155] - Nose:[178,116] - Mouth:[183,093]
+LOG_POLAR_SCALE_FACTOR = 0,884604 [], LOG_POLAR_THETA_CORRECTION = -4,635463 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-046-2.raw
+Eyes:[157,152][208,150] - Nose:[180,115] - Mouth:[179,092]
+LOG_POLAR_SCALE_FACTOR = 0,833817 [], LOG_POLAR_THETA_CORRECTION = -3,179830 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-046-4.raw
+Eyes:[153,149][204,152] - Nose:[175,122] - Mouth:[185,091]
+LOG_POLAR_SCALE_FACTOR = 0,834617 [], LOG_POLAR_THETA_CORRECTION = -6,115504 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-046-5.raw
+Eyes:[150,147][199,150] - Nose:[175,111] - Mouth:[180,093]
+LOG_POLAR_SCALE_FACTOR = 0,802002 [], LOG_POLAR_THETA_CORRECTION = 1,548158 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-046-16.raw
+Eyes:[165,141][217,144] - Nose:[189,103] - Mouth:[192,080]
+LOG_POLAR_SCALE_FACTOR = 0,850926 [], LOG_POLAR_THETA_CORRECTION = -2,935673 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-046-18.raw
+Eyes:[159,146][211,145] - Nose:[181,110] - Mouth:[181,089]
+LOG_POLAR_SCALE_FACTOR = 0,849671 [], LOG_POLAR_THETA_CORRECTION = -6,519802 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-046-20.raw
+Eyes:[162,148][211,150] - Nose:[185,114] - Mouth:[193,095]
+LOG_POLAR_SCALE_FACTOR = 0,801170 [], LOG_POLAR_THETA_CORRECTION = -1,636577 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-051-1.raw
+Eyes:[165,158][215,159] - Nose:[190,126] - Mouth:[189,100]
+LOG_POLAR_SCALE_FACTOR = 0,817004 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-051-2.raw
+Eyes:[170,158][224,159] - Nose:[195,126] - Mouth:[197,102]
+LOG_POLAR_SCALE_FACTOR = 0,882339 [], LOG_POLAR_THETA_CORRECTION = -3,576334 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-051-3.raw
+Eyes:[168,148][222,149] - Nose:[192,110] - Mouth:[194,086]
+LOG_POLAR_SCALE_FACTOR = 0,882339 [], LOG_POLAR_THETA_CORRECTION = -4,513988 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-051-4.raw
+Eyes:[170,143][224,145] - Nose:[197,112] - Mouth:[196,087]
+LOG_POLAR_SCALE_FACTOR = 0,882792 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-051-6.raw
+Eyes:[166,161][218,166] - Nose:[192,134] - Mouth:[195,106]
+LOG_POLAR_SCALE_FACTOR = 0,853432 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-051-14.raw
+Eyes:[157,154][208,153] - Nose:[181,122] - Mouth:[180,097]
+LOG_POLAR_SCALE_FACTOR = 0,833337 [], LOG_POLAR_THETA_CORRECTION = -1,847610 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-051-15.raw
+Eyes:[156,157][208,157] - Nose:[179,126] - Mouth:[178,099]
+LOG_POLAR_SCALE_FACTOR = 0,849514 [], LOG_POLAR_THETA_CORRECTION = -5,527540 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-053-3.raw
+Eyes:[153,149][207,149] - Nose:[180,120] - Mouth:[180,089]
+LOG_POLAR_SCALE_FACTOR = 0,882187 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-053-4.raw
+Eyes:[150,145][205,151] - Nose:[180,121] - Mouth:[183,083]
+LOG_POLAR_SCALE_FACTOR = 0,903855 [], LOG_POLAR_THETA_CORRECTION = 6,340192 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-053-14.raw
+Eyes:[159,151][212,153] - Nose:[185,126] - Mouth:[186,098]
+LOG_POLAR_SCALE_FACTOR = 0,866467 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-053-17.raw
+Eyes:[154,147][206,150] - Nose:[181,123] - Mouth:[180,086]
+LOG_POLAR_SCALE_FACTOR = 0,850926 [], LOG_POLAR_THETA_CORRECTION = 2,290610 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-053-18.raw
+Eyes:[152,149][204,148] - Nose:[175,122] - Mouth:[178,091]
+LOG_POLAR_SCALE_FACTOR = 0,849671 [], LOG_POLAR_THETA_CORRECTION = -6,581945 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-053-19.raw
+Eyes:[153,149][205,150] - Nose:[176,122] - Mouth:[177,096]
+LOG_POLAR_SCALE_FACTOR = 0,849671 [], LOG_POLAR_THETA_CORRECTION = -6,340192 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-053-20.raw
+Eyes:[153,149][205,149] - Nose:[176,124] - Mouth:[180,096]
+LOG_POLAR_SCALE_FACTOR = 0,849514 [], LOG_POLAR_THETA_CORRECTION = -6,842773 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-055-2.raw
+Eyes:[160,148][223,149] - Nose:[190,111] - Mouth:[192,082]
+LOG_POLAR_SCALE_FACTOR = 1,029348 [], LOG_POLAR_THETA_CORRECTION = -1,548158 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-055-4.raw
+Eyes:[153,143][214,150] - Nose:[182,113] - Mouth:[185,075]
+LOG_POLAR_SCALE_FACTOR = 1,003085 [], LOG_POLAR_THETA_CORRECTION = -1,735705 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-055-6.raw
+Eyes:[156,153][217,155] - Nose:[185,117] - Mouth:[189,090]
+LOG_POLAR_SCALE_FACTOR = 0,997081 [], LOG_POLAR_THETA_CORRECTION = -1,548158 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-055-15.raw
+Eyes:[166,155][227,156] - Nose:[194,118] - Mouth:[196,089]
+LOG_POLAR_SCALE_FACTOR = 0,996679 [], LOG_POLAR_THETA_CORRECTION = -3,094058 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-055-17.raw
+Eyes:[166,149][220,149] - Nose:[194,116] - Mouth:[196,083]
+LOG_POLAR_SCALE_FACTOR = 0,882187 [], LOG_POLAR_THETA_CORRECTION = 1,735705 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-055-19.raw
+Eyes:[162,151][223,153] - Nose:[191,118] - Mouth:[193,090]
+LOG_POLAR_SCALE_FACTOR = 0,997081 [], LOG_POLAR_THETA_CORRECTION = -1,684684 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-055-20.raw
+Eyes:[163,151][224,155] - Nose:[194,119] - Mouth:[197,092]
+LOG_POLAR_SCALE_FACTOR = 0,998685 [], LOG_POLAR_THETA_CORRECTION = 1,684684 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-059-1.raw
+Eyes:[160,144][218,145] - Nose:[189,111] - Mouth:[190,082]
+LOG_POLAR_SCALE_FACTOR = 0,947676 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-059-2.raw
+Eyes:[154,147][211,148] - Nose:[184,116] - Mouth:[184,089]
+LOG_POLAR_SCALE_FACTOR = 0,931341 [], LOG_POLAR_THETA_CORRECTION = 3,691386 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-059-6.raw
+Eyes:[155,136][213,135] - Nose:[180,101] - Mouth:[180,080]
+LOG_POLAR_SCALE_FACTOR = 0,947676 [], LOG_POLAR_THETA_CORRECTION = -6,709837 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-059-7.raw
+Eyes:[155,134][213,134] - Nose:[182,097] - Mouth:[185,072]
+LOG_POLAR_SCALE_FACTOR = 0,947535 [], LOG_POLAR_THETA_CORRECTION = -3,094058 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-059-14.raw
+Eyes:[176,153][233,151] - Nose:[205,119] - Mouth:[204,092]
+LOG_POLAR_SCALE_FACTOR = 0,931771 [], LOG_POLAR_THETA_CORRECTION = 1,735705 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-059-16.raw
+Eyes:[164,143][223,143] - Nose:[194,105] - Mouth:[194,081]
+LOG_POLAR_SCALE_FACTOR = 0,963872 [], LOG_POLAR_THETA_CORRECTION = 1,507436 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-059-17.raw
+Eyes:[153,159][208,157] - Nose:[182,133] - Mouth:[181,099]
+LOG_POLAR_SCALE_FACTOR = 0,899118 [], LOG_POLAR_THETA_CORRECTION = 4,573921 [deg]
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-001-2.raw
+Eyes:[158,152][212,153] - Nose:[190,121] - Mouth:[190,089]
+LOG_POLAR_SCALE_FACTOR = 0,882339 [], LOG_POLAR_THETA_CORRECTION = 9,162347 [deg]
+Person:   1 - Correct Person:   1 - Tested:   1 - Correct:   1 - Confidence: 0,96 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-001-3.raw
+Eyes:[165,142][219,142] - Nose:[196,105] - Mouth:[195,076]
+LOG_POLAR_SCALE_FACTOR = 0,882187 [], LOG_POLAR_THETA_CORRECTION = 6,170175 [deg]
+Person:   1 - Correct Person:   1 - Tested:   2 - Correct:   2 - Confidence: 0,98 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-001-5.raw
+Eyes:[158,156][212,157] - Nose:[190,130] - Mouth:[190,097]
+LOG_POLAR_SCALE_FACTOR = 0,882339 [], LOG_POLAR_THETA_CORRECTION = 10,885527 [deg]
+Person:   1 - Correct Person:   1 - Tested:   3 - Correct:   3 - Confidence: 0,86 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-001-7.raw
+Eyes:[158,151][212,153] - Nose:[191,123] - Mouth:[190,091]
+LOG_POLAR_SCALE_FACTOR = 0,882792 [], LOG_POLAR_THETA_CORRECTION = 11,689370 [deg]
+Person:   1 - Correct Person:   1 - Tested:   4 - Correct:   4 - Confidence: 0,98 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-001-15.raw
+Eyes:[146,155][200,157] - Nose:[177,124] - Mouth:[176,096]
+LOG_POLAR_SCALE_FACTOR = 0,882792 [], LOG_POLAR_THETA_CORRECTION = 7,125016 [deg]
+Person:   1 - Correct Person:   1 - Tested:   5 - Correct:   5 - Confidence: 0,47 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-001-18.raw
+Eyes:[146,151][200,152] - Nose:[176,118] - Mouth:[175,088]
+LOG_POLAR_SCALE_FACTOR = 0,882339 [], LOG_POLAR_THETA_CORRECTION = 5,194429 [deg]
+Person:   1 - Correct Person:   1 - Tested:   6 - Correct:   6 - Confidence: 0,82 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-001-19.raw
+Eyes:[147,151][202,152] - Nose:[178,118] - Mouth:[178,087]
+LOG_POLAR_SCALE_FACTOR = 0,898673 [], LOG_POLAR_THETA_CORRECTION = 6,911227 [deg]
+Person:   1 - Correct Person:   1 - Tested:   7 - Correct:   7 - Confidence: 1,00 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-002-1.raw
+Eyes:[164,158][220,156] - Nose:[191,130] - Mouth:[189,100]
+LOG_POLAR_SCALE_FACTOR = 0,915444 [], LOG_POLAR_THETA_CORRECTION = -2,121096 [deg]
+Person:   2 - Correct Person:   2 - Tested:   8 - Correct:   8 - Confidence: 0,98 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-002-3.raw
+Eyes:[180,151][235,141] - Nose:[205,115] - Mouth:[200,089]
+LOG_POLAR_SCALE_FACTOR = 0,913255 [], LOG_POLAR_THETA_CORRECTION = -3,691386 [deg]
+Person:   2 - Correct Person:   2 - Tested:   9 - Correct:   9 - Confidence: 0,88 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-002-5.raw
+Eyes:[156,153][213,155] - Nose:[184,125] - Mouth:[185,097]
+LOG_POLAR_SCALE_FACTOR = 0,931771 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+Person:   2 - Correct Person:   2 - Tested:  10 - Correct:  10 - Confidence: 0,65 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-002-17.raw
+Eyes:[169,152][229,150] - Nose:[199,125] - Mouth:[195,085]
+LOG_POLAR_SCALE_FACTOR = 0,980753 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+Person:   2 - Correct Person:   2 - Tested:  11 - Correct:  11 - Confidence: 0,94 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-002-18.raw
+Eyes:[166,156][223,154] - Nose:[194,124] - Mouth:[192,096]
+LOG_POLAR_SCALE_FACTOR = 0,931771 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+Person:   2 - Correct Person:   2 - Tested:  12 - Correct:  12 - Confidence: 0,57 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-002-19.raw
+Eyes:[169,158][225,156] - Nose:[197,127] - Mouth:[195,099]
+LOG_POLAR_SCALE_FACTOR = 0,915444 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+Person:   2 - Correct Person:   2 - Tested:  13 - Correct:  13 - Confidence: 1,00 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-002-20.raw
+Eyes:[169,157][225,155] - Nose:[198,127] - Mouth:[195,098]
+LOG_POLAR_SCALE_FACTOR = 0,915444 [], LOG_POLAR_THETA_CORRECTION = 1,974934 [deg]
+Person:   2 - Correct Person:   2 - Tested:  14 - Correct:  14 - Confidence: 0,88 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-003-1.raw
+Eyes:[165,160][222,159] - Nose:[194,128] - Mouth:[193,098]
+LOG_POLAR_SCALE_FACTOR = 0,931341 [], LOG_POLAR_THETA_CORRECTION = 1,847610 [deg]
+Person:   3 - Correct Person:   3 - Tested:  15 - Correct:  15 - Confidence: 0,98 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-003-2.raw
+Eyes:[167,160][224,158] - Nose:[195,127] - Mouth:[194,099]
+LOG_POLAR_SCALE_FACTOR = 0,931771 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+Person:   3 - Correct Person:   3 - Tested:  16 - Correct:  16 - Confidence: 1,00 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-003-7.raw
+Eyes:[168,156][225,154] - Nose:[196,122] - Mouth:[195,093]
+LOG_POLAR_SCALE_FACTOR = 0,931771 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+Person:   3 - Correct Person:   3 - Tested:  17 - Correct:  17 - Confidence: 1,00 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-003-15.raw
+Eyes:[158,161][216,159] - Nose:[186,126] - Mouth:[185,098]
+LOG_POLAR_SCALE_FACTOR = 0,948098 [], LOG_POLAR_THETA_CORRECTION = -1,684684 [deg]
+Person:   3 - Correct Person:   3 - Tested:  18 - Correct:  18 - Confidence: 1,00 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-003-18.raw
+Eyes:[160,161][218,159] - Nose:[189,127] - Mouth:[186,097]
+LOG_POLAR_SCALE_FACTOR = 0,948098 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+Person:   3 - Correct Person:   3 - Tested:  19 - Correct:  19 - Confidence: 1,00 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-003-19.raw
+Eyes:[161,159][219,158] - Nose:[191,123] - Mouth:[189,094]
+LOG_POLAR_SCALE_FACTOR = 0,947676 [], LOG_POLAR_THETA_CORRECTION = 1,636577 [deg]
+Person:   3 - Correct Person:   3 - Tested:  20 - Correct:  20 - Confidence: 1,00 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-003-20.raw
+Eyes:[161,159][220,158] - Nose:[191,123] - Mouth:[189,095]
+LOG_POLAR_SCALE_FACTOR = 0,964010 [], LOG_POLAR_THETA_CORRECTION = 1,636577 [deg]
+Person:   3 - Correct Person:   3 - Tested:  21 - Correct:  21 - Confidence: 0,71 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-005-2.raw
+Eyes:[151,148][214,150] - Nose:[184,112] - Mouth:[185,083]
+LOG_POLAR_SCALE_FACTOR = 1,029737 [], LOG_POLAR_THETA_CORRECTION = 3,094058 [deg]
+Person:   4 - Correct Person:   4 - Tested:  22 - Correct:  22 - Confidence: 0,96 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-005-4.raw
+Eyes:[146,163][209,172] - Nose:[179,146] - Mouth:[186,103]
+LOG_POLAR_SCALE_FACTOR = 1,039668 [], LOG_POLAR_THETA_CORRECTION = 5,440332 [deg]
+Person:   4 - Correct Person:   4 - Tested:  23 - Correct:  23 - Confidence: 0,33 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-005-5.raw
+Eyes:[156,158][219,161] - Nose:[190,131] - Mouth:[191,095]
+LOG_POLAR_SCALE_FACTOR = 1,030385 [], LOG_POLAR_THETA_CORRECTION = 6,115504 [deg]
+Person:   4 - Correct Person:   4 - Tested:  24 - Correct:  24 - Confidence: 1,00 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-005-6.raw
+Eyes:[157,157][220,159] - Nose:[191,128] - Mouth:[194,094]
+LOG_POLAR_SCALE_FACTOR = 1,029737 [], LOG_POLAR_THETA_CORRECTION = 5,710593 [deg]
+Person:   4 - Correct Person:   4 - Tested:  25 - Correct:  25 - Confidence: 0,98 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-005-16.raw
+Eyes:[149,151][210,151] - Nose:[181,117] - Mouth:[182,086]
+LOG_POLAR_SCALE_FACTOR = 0,996545 [], LOG_POLAR_THETA_CORRECTION = 3,366461 [deg]
+Person:   4 - Correct Person:   4 - Tested:  26 - Correct:  26 - Confidence: 1,00 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-005-17.raw
+Eyes:[154,159][213,161] - Nose:[184,137] - Mouth:[185,097]
+LOG_POLAR_SCALE_FACTOR = 0,964425 [], LOG_POLAR_THETA_CORRECTION = 2,489553 [deg]
+Person:   4 - Correct Person:   4 - Tested:  27 - Correct:  27 - Confidence: 0,65 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-005-19.raw
+Eyes:[155,154][215,154] - Nose:[187,123] - Mouth:[189,092]
+LOG_POLAR_SCALE_FACTOR = 0,980208 [], LOG_POLAR_THETA_CORRECTION = 3,691386 [deg]
+Person:   4 - Correct Person:   4 - Tested:  28 - Correct:  28 - Confidence: 1,00 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-006-2.raw
+Eyes:[162,160][216,159] - Nose:[191,129] - Mouth:[190,103]
+LOG_POLAR_SCALE_FACTOR = 0,882339 [], LOG_POLAR_THETA_CORRECTION = 3,814075 [deg]
+Person:   5 - Correct Person:   5 - Tested:  29 - Correct:  29 - Confidence: 0,94 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-006-4.raw
+Eyes:[160,149][219,147] - Nose:[191,119] - Mouth:[188,080]
+LOG_POLAR_SCALE_FACTOR = 0,964425 [], LOG_POLAR_THETA_CORRECTION = 3,945186 [deg]
+Person:   5 - Correct Person:   5 - Tested:  30 - Correct:  30 - Confidence: 0,43 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-006-5.raw
+Eyes:[159,153][214,152] - Nose:[189,119] - Mouth:[186,092]
+LOG_POLAR_SCALE_FACTOR = 0,898673 [], LOG_POLAR_THETA_CORRECTION = 5,194429 [deg]
+Person:   5 - Correct Person:   5 - Tested:  31 - Correct:  31 - Confidence: 1,00 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-006-7.raw
+Eyes:[159,155][214,153] - Nose:[189,122] - Mouth:[187,095]
+LOG_POLAR_SCALE_FACTOR = 0,899118 [], LOG_POLAR_THETA_CORRECTION = 5,355825 [deg]
+Person:   5 - Correct Person:   5 - Tested:  32 - Correct:  32 - Confidence: 1,00 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-006-14.raw
+Eyes:[156,163][212,162] - Nose:[186,129] - Mouth:[185,102]
+LOG_POLAR_SCALE_FACTOR = 0,915007 [], LOG_POLAR_THETA_CORRECTION = 3,468229 [deg]
+Person:   5 - Correct Person:   5 - Tested:  33 - Correct:  33 - Confidence: 1,00 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-006-15.raw
+Eyes:[156,162][212,160] - Nose:[186,127] - Mouth:[184,101]
+LOG_POLAR_SCALE_FACTOR = 0,915444 [], LOG_POLAR_THETA_CORRECTION = 3,366461 [deg]
+Person:   5 - Correct Person:   5 - Tested:  34 - Correct:  34 - Confidence: 0,78 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-006-19.raw
+Eyes:[157,161][214,161] - Nose:[189,127] - Mouth:[187,100]
+LOG_POLAR_SCALE_FACTOR = 0,931198 [], LOG_POLAR_THETA_CORRECTION = 6,709837 [deg]
+Person:   5 - Correct Person:   5 - Tested:  35 - Correct:  35 - Confidence: 1,00 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-007-3.raw
+Eyes:[170,162][228,158] - Nose:[198,136] - Mouth:[195,102]
+LOG_POLAR_SCALE_FACTOR = 0,949785 [], LOG_POLAR_THETA_CORRECTION = -2,385944 [deg]
+Person:   6 - Correct Person:   6 - Tested:  36 - Correct:  36 - Confidence: 1,00 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-007-5.raw
+Eyes:[163,161][222,158] - Nose:[189,134] - Mouth:[186,100]
+LOG_POLAR_SCALE_FACTOR = 0,965117 [], LOG_POLAR_THETA_CORRECTION = -6,842773 [deg]
+Person:   6 - Correct Person:   6 - Tested:  37 - Correct:  37 - Confidence: 0,78 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-007-6.raw
+Eyes:[161,160][220,158] - Nose:[187,133] - Mouth:[185,100]
+LOG_POLAR_SCALE_FACTOR = 0,964425 [], LOG_POLAR_THETA_CORRECTION = -6,581945 [deg]
+Person:   6 - Correct Person:   6 - Tested:  38 - Correct:  38 - Confidence: 0,98 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-007-7.raw
+Eyes:[161,160][221,157] - Nose:[188,132] - Mouth:[186,099]
+LOG_POLAR_SCALE_FACTOR = 0,981433 [], LOG_POLAR_THETA_CORRECTION = -6,581945 [deg]
+Person:   6 - Correct Person:   6 - Tested:  39 - Correct:  39 - Confidence: 0,88 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-007-14.raw
+Eyes:[157,160][214,158] - Nose:[182,132] - Mouth:[181,098]
+LOG_POLAR_SCALE_FACTOR = 0,931771 [], LOG_POLAR_THETA_CORRECTION = -6,340192 [deg]
+Person:   6 - Correct Person:   6 - Tested:  40 - Correct:  40 - Confidence: 1,00 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-007-18.raw
+Eyes:[149,155][206,156] - Nose:[174,127] - Mouth:[176,094]
+LOG_POLAR_SCALE_FACTOR = 0,931341 [], LOG_POLAR_THETA_CORRECTION = -6,115504 [deg]
+Person:   6 - Correct Person:   6 - Tested:  41 - Correct:  41 - Confidence: 1,00 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-007-19.raw
+Eyes:[144,155][201,157] - Nose:[168,129] - Mouth:[171,097]
+LOG_POLAR_SCALE_FACTOR = 0,931771 [], LOG_POLAR_THETA_CORRECTION = -8,426969 [deg]
+Person:   6 - Correct Person:   6 - Tested:  42 - Correct:  42 - Confidence: 0,94 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-010-2.raw
+Eyes:[148,164][206,161] - Nose:[177,124] - Mouth:[174,095]
+LOG_POLAR_SCALE_FACTOR = 0,948801 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+Person:   7 - Correct Person:   7 - Tested:  43 - Correct:  43 - Confidence: 0,47 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-010-4.raw
+Eyes:[150,162][208,158] - Nose:[180,131] - Mouth:[175,089]
+LOG_POLAR_SCALE_FACTOR = 0,949785 [], LOG_POLAR_THETA_CORRECTION = 1,974934 [deg]
+Person:   7 - Correct Person:   7 - Tested:  44 - Correct:  44 - Confidence: 0,98 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-010-6.raw
+Eyes:[143,163][201,161] - Nose:[172,127] - Mouth:[170,092]
+LOG_POLAR_SCALE_FACTOR = 0,948098 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+Person:   7 - Correct Person:   7 - Tested:  45 - Correct:  45 - Confidence: 0,98 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-010-14.raw
+Eyes:[166,149][223,145] - Nose:[194,111] - Mouth:[191,077]
+LOG_POLAR_SCALE_FACTOR = 0,933488 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+Person:   7 - Correct Person:   7 - Tested:  46 - Correct:  46 - Confidence: 1,00 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-010-15.raw
+Eyes:[166,155][223,152] - Nose:[195,121] - Mouth:[192,089]
+LOG_POLAR_SCALE_FACTOR = 0,932487 [], LOG_POLAR_THETA_CORRECTION = 1,789911 [deg]
+Person:   7 - Correct Person:   7 - Tested:  47 - Correct:  47 - Confidence: 0,92 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-010-19.raw
+Eyes:[170,147][227,143] - Nose:[199,108] - Mouth:[197,075]
+LOG_POLAR_SCALE_FACTOR = 0,933488 [], LOG_POLAR_THETA_CORRECTION = 1,548158 [deg]
+Person:   7 - Correct Person:   7 - Tested:  48 - Correct:  48 - Confidence: 1,00 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-010-20.raw
+Eyes:[169,147][227,144] - Nose:[199,108] - Mouth:[197,075]
+LOG_POLAR_SCALE_FACTOR = 0,948801 [], LOG_POLAR_THETA_CORRECTION = 1,548158 [deg]
+Person:   7 - Correct Person:   7 - Tested:  49 - Correct:  49 - Confidence: 1,00 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-013-1.raw
+Eyes:[170,163][228,160] - Nose:[200,126] - Mouth:[197,100]
+LOG_POLAR_SCALE_FACTOR = 0,948801 [], LOG_POLAR_THETA_CORRECTION = 1,636577 [deg]
+Person:   8 - Correct Person:   8 - Tested:  50 - Correct:  50 - Confidence: 1,00 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-013-3.raw
+Eyes:[172,147][230,147] - Nose:[202,105] - Mouth:[202,082]
+LOG_POLAR_SCALE_FACTOR = 0,947535 [], LOG_POLAR_THETA_CORRECTION = 1,363928 [deg]
+Person:   8 - Correct Person:   8 - Tested:  51 - Correct:  51 - Confidence: 0,39 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-013-5.raw
+Eyes:[167,166][225,164] - Nose:[195,129] - Mouth:[194,103]
+LOG_POLAR_SCALE_FACTOR = 0,948098 [], LOG_POLAR_THETA_CORRECTION = -1,591140 [deg]
+Person:   8 - Correct Person:   8 - Tested:  52 - Correct:  52 - Confidence: 1,00 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-013-15.raw
+Eyes:[170,159][227,158] - Nose:[199,122] - Mouth:[198,100]
+LOG_POLAR_SCALE_FACTOR = 0,931341 [], LOG_POLAR_THETA_CORRECTION = 1,591140 [deg]
+Person:   8 - Correct Person:   8 - Tested:  53 - Correct:  53 - Confidence: 1,00 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-013-16.raw
+Eyes:[174,152][231,151] - Nose:[204,113] - Mouth:[203,088]
+LOG_POLAR_SCALE_FACTOR = 0,931341 [], LOG_POLAR_THETA_CORRECTION = 3,012788 [deg]
+Person:   8 - Correct Person:   8 - Tested:  54 - Correct:  54 - Confidence: 0,67 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-013-18.raw
+Eyes:[167,160][223,159] - Nose:[197,125] - Mouth:[196,099]
+LOG_POLAR_SCALE_FACTOR = 0,915007 [], LOG_POLAR_THETA_CORRECTION = 3,366461 [deg]
+Person:   8 - Correct Person:   8 - Tested:  55 - Correct:  55 - Confidence: 0,94 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-013-20.raw
+Eyes:[167,160][224,159] - Nose:[198,126] - Mouth:[196,100]
+LOG_POLAR_SCALE_FACTOR = 0,931341 [], LOG_POLAR_THETA_CORRECTION = 5,194429 [deg]
+Person:   8 - Correct Person:   8 - Tested:  56 - Correct:  56 - Confidence: 1,00 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-014-3.raw
+Eyes:[160,151][224,154] - Nose:[191,115] - Mouth:[194,084]
+LOG_POLAR_SCALE_FACTOR = 1,046704 [], LOG_POLAR_THETA_CORRECTION = -1,548158 [deg]
+Person:   9 - Correct Person:   9 - Tested:  57 - Correct:  57 - Confidence: 0,73 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-014-4.raw
+Eyes:[161,141][231,141] - Nose:[196,110] - Mouth:[196,070]
+LOG_POLAR_SCALE_FACTOR = 1,143576 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+Person:   9 - Correct Person:   9 - Tested:  58 - Correct:  58 - Confidence: 0,24 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-014-5.raw
+Eyes:[158,148][223,149] - Nose:[188,111] - Mouth:[191,079]
+LOG_POLAR_SCALE_FACTOR = 1,062018 [], LOG_POLAR_THETA_CORRECTION = -3,094058 [deg]
+Person:   9 - Correct Person:   9 - Tested:  59 - Correct:  59 - Confidence: 0,53 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-014-6.raw
+Eyes:[164,153][229,151] - Nose:[196,116] - Mouth:[196,085]
+LOG_POLAR_SCALE_FACTOR = 1,062395 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+Person:   9 - Correct Person:   9 - Tested:  60 - Correct:  60 - Confidence: 0,90 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-014-15.raw
+Eyes:[168,163][228,160] - Nose:[199,130] - Mouth:[199,098]
+LOG_POLAR_SCALE_FACTOR = 0,981433 [], LOG_POLAR_THETA_CORRECTION = 1,847610 [deg]
+Person:   9 - Correct Person:   9 - Tested:  61 - Correct:  61 - Confidence: 0,65 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-014-17.raw
+Eyes:[163,152][230,150] - Nose:[197,120] - Mouth:[196,080]
+LOG_POLAR_SCALE_FACTOR = 1,095054 [], LOG_POLAR_THETA_CORRECTION = 1,847610 [deg]
+Person:   9 - Correct Person:   9 - Tested:  62 - Correct:  62 - Confidence: 0,35 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-014-19.raw
+Eyes:[161,160][222,160] - Nose:[192,129] - Mouth:[193,098]
+LOG_POLAR_SCALE_FACTOR = 0,996545 [], LOG_POLAR_THETA_CORRECTION = 1,847610 [deg]
+Person:   9 - Correct Person:   9 - Tested:  63 - Correct:  63 - Confidence: 1,00 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-015-1.raw
+Eyes:[161,155][221,156] - Nose:[193,119] - Mouth:[194,086]
+LOG_POLAR_SCALE_FACTOR = 0,980344 [], LOG_POLAR_THETA_CORRECTION = 3,179830 [deg]
+Person:  10 - Correct Person:  10 - Tested:  64 - Correct:  64 - Confidence: 1,00 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-015-5.raw
+Eyes:[158,164][217,163] - Nose:[188,129] - Mouth:[189,096]
+LOG_POLAR_SCALE_FACTOR = 0,964010 [], LOG_POLAR_THETA_CORRECTION = 1,684684 [deg]
+Person:  10 - Correct Person:  10 - Tested:  65 - Correct:  65 - Confidence: 1,00 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-015-6.raw
+Eyes:[157,161][216,161] - Nose:[188,126] - Mouth:[188,096]
+LOG_POLAR_SCALE_FACTOR = 0,963872 [], LOG_POLAR_THETA_CORRECTION = 3,270488 [deg]
+Person:  10 - Correct Person:  10 - Tested:  66 - Correct:  66 - Confidence: 0,96 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-015-7.raw
+Eyes:[157,162][215,162] - Nose:[188,126] - Mouth:[188,096]
+LOG_POLAR_SCALE_FACTOR = 0,947535 [], LOG_POLAR_THETA_CORRECTION = 3,179830 [deg]
+Person:  10 - Correct Person:  10 - Tested:  67 - Correct:  67 - Confidence: 0,73 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-015-15.raw
+Eyes:[156,158][215,158] - Nose:[186,124] - Mouth:[186,095]
+LOG_POLAR_SCALE_FACTOR = 0,963872 [], LOG_POLAR_THETA_CORRECTION = 1,684684 [deg]
+Person:  10 - Correct Person:  10 - Tested:  68 - Correct:  68 - Confidence: 1,00 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-015-19.raw
+Eyes:[157,155][215,155] - Nose:[187,119] - Mouth:[186,091]
+LOG_POLAR_SCALE_FACTOR = 0,947535 [], LOG_POLAR_THETA_CORRECTION = 1,591140 [deg]
+Person:  10 - Correct Person:  10 - Tested:  69 - Correct:  69 - Confidence: 1,00 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-015-20.raw
+Eyes:[155,155][214,154] - Nose:[186,119] - Mouth:[186,091]
+LOG_POLAR_SCALE_FACTOR = 0,964010 [], LOG_POLAR_THETA_CORRECTION = 3,270488 [deg]
+Person:  10 - Correct Person:  10 - Tested:  70 - Correct:  70 - Confidence: 1,00 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-016-2.raw
+Eyes:[169,161][229,158] - Nose:[197,127] - Mouth:[197,102]
+LOG_POLAR_SCALE_FACTOR = 0,981433 [], LOG_POLAR_THETA_CORRECTION = -3,576334 [deg]
+Person:  11 - Correct Person:  11 - Tested:  71 - Correct:  71 - Confidence: 0,98 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-016-3.raw
+Eyes:[167,151][227,148] - Nose:[194,113] - Mouth:[194,085]
+LOG_POLAR_SCALE_FACTOR = 0,981433 [], LOG_POLAR_THETA_CORRECTION = -4,763642 [deg]
+Person:  11 - Correct Person:  11 - Tested:  72 - Correct:  72 - Confidence: 1,00 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-016-4.raw
+Eyes:[172,163][231,163] - Nose:[198,134] - Mouth:[195,091]
+LOG_POLAR_SCALE_FACTOR = 0,963872 [], LOG_POLAR_THETA_CORRECTION = -5,906141 [deg]
+Person:  11 - Correct Person:  11 - Tested:  73 - Correct:  73 - Confidence: 1,00 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-016-5.raw
+Eyes:[171,154][228,152] - Nose:[197,115] - Mouth:[197,089]
+LOG_POLAR_SCALE_FACTOR = 0,931771 [], LOG_POLAR_THETA_CORRECTION = -3,012788 [deg]
+Person:  11 - Correct Person:  11 - Tested:  74 - Correct:  74 - Confidence: 1,00 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-016-7.raw
+Eyes:[169,154][227,154] - Nose:[196,118] - Mouth:[197,092]
+LOG_POLAR_SCALE_FACTOR = 0,947535 [], LOG_POLAR_THETA_CORRECTION = -3,179830 [deg]
+Person:  11 - Correct Person:  11 - Tested:  75 - Correct:  75 - Confidence: 1,00 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-016-15.raw
+Eyes:[171,168][226,165] - Nose:[197,139] - Mouth:[195,105]
+LOG_POLAR_SCALE_FACTOR = 0,899860 [], LOG_POLAR_THETA_CORRECTION = -2,121096 [deg]
+Person:  11 - Correct Person:  11 - Tested:  76 - Correct:  76 - Confidence: 0,94 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-016-16.raw
+Eyes:[169,153][227,149] - Nose:[195,114] - Mouth:[195,091]
+LOG_POLAR_SCALE_FACTOR = 0,949785 [], LOG_POLAR_THETA_CORRECTION = -4,635463 [deg]
+Person:  11 - Correct Person:  11 - Tested:  77 - Correct:  77 - Confidence: 1,00 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-020-6.raw
+Eyes:[157,154][211,154] - Nose:[182,114] - Mouth:[184,086]
+LOG_POLAR_SCALE_FACTOR = 0,882187 [], LOG_POLAR_THETA_CORRECTION = -2,862405 [deg]
+Person:  12 - Correct Person:  12 - Tested:  78 - Correct:  78 - Confidence: 0,88 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-020-7.raw
+Eyes:[158,153][212,154] - Nose:[183,114] - Mouth:[182,086]
+LOG_POLAR_SCALE_FACTOR = 0,882339 [], LOG_POLAR_THETA_CORRECTION = -2,935673 [deg]
+Person:  12 - Correct Person:  12 - Tested:  79 - Correct:  79 - Confidence: 1,00 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-020-15.raw
+Eyes:[144,162][200,163] - Nose:[173,123] - Mouth:[172,095]
+LOG_POLAR_SCALE_FACTOR = 0,915007 [], LOG_POLAR_THETA_CORRECTION = 1,468801 [deg]
+Person:  12 - Correct Person:  12 - Tested:  80 - Correct:  80 - Confidence: 0,98 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-020-16.raw
+Eyes:[144,160][200,161] - Nose:[174,122] - Mouth:[174,093]
+LOG_POLAR_SCALE_FACTOR = 0,915007 [], LOG_POLAR_THETA_CORRECTION = 3,012788 [deg]
+Person:  12 - Correct Person:  12 - Tested:  81 - Correct:  81 - Confidence: 0,90 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-020-17.raw
+Eyes:[143,171][203,175] - Nose:[173,143] - Mouth:[175,092]
+LOG_POLAR_SCALE_FACTOR = 0,982384 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+Person:  12 - Correct Person:  12 - Tested:  82 - Correct:  82 - Confidence: 0,94 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-020-18.raw
+Eyes:[145,159][200,159] - Nose:[174,120] - Mouth:[174,091]
+LOG_POLAR_SCALE_FACTOR = 0,898524 [], LOG_POLAR_THETA_CORRECTION = 2,935673 [deg]
+Person:  12 - Correct Person:  12 - Tested:  83 - Correct:  83 - Confidence: 1,00 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-020-19.raw
+Eyes:[145,157][201,158] - Nose:[174,116] - Mouth:[174,087]
+LOG_POLAR_SCALE_FACTOR = 0,915007 [], LOG_POLAR_THETA_CORRECTION = 1,397181 [deg]
+Person:  12 - Correct Person:  12 - Tested:  84 - Correct:  84 - Confidence: 1,00 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-021-2.raw
+Eyes:[150,156][206,157] - Nose:[182,123] - Mouth:[178,094]
+LOG_POLAR_SCALE_FACTOR = 0,915007 [], LOG_POLAR_THETA_CORRECTION = 6,911227 [deg]
+Person:  13 - Correct Person:  13 - Tested:  85 - Correct:  85 - Confidence: 0,98 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-021-4.raw
+Eyes:[159,163][215,160] - Nose:[189,133] - Mouth:[181,092]
+LOG_POLAR_SCALE_FACTOR = 0,916173 [], LOG_POLAR_THETA_CORRECTION = 4,085617 [deg]
+Person:  13 - Correct Person:  13 - Tested:  86 - Correct:  86 - Confidence: 0,96 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-021-5.raw
+Eyes:[146,157][203,154] - Nose:[176,124] - Mouth:[173,093]
+LOG_POLAR_SCALE_FACTOR = 0,932487 [], LOG_POLAR_THETA_CORRECTION = 3,691386 [deg]
+Person:  13 - Correct Person:  13 - Tested:  87 - Correct:  87 - Confidence: 1,00 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-021-14.raw
+Eyes:[169,156][227,151] - Nose:[198,121] - Mouth:[195,090]
+LOG_POLAR_SCALE_FACTOR = 0,951049 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+Person:  13 - Correct Person:  13 - Tested:  88 - Correct:  88 - Confidence: 1,00 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-021-18.raw
+Eyes:[163,151][220,147] - Nose:[190,116] - Mouth:[187,085]
+LOG_POLAR_SCALE_FACTOR = 0,933488 [], LOG_POLAR_THETA_CORRECTION = -1,735705 [deg]
+Person:  13 - Correct Person:  13 - Tested:  89 - Correct:  89 - Confidence: 0,35 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-021-19.raw
+Eyes:[164,151][222,145] - Nose:[192,114] - Mouth:[191,083]
+LOG_POLAR_SCALE_FACTOR = 0,952591 [], LOG_POLAR_THETA_CORRECTION = -1,684684 [deg]
+Person:  13 - Correct Person:  13 - Tested:  90 - Correct:  90 - Confidence: 0,92 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-021-20.raw
+Eyes:[162,151][220,147] - Nose:[189,115] - Mouth:[187,083]
+LOG_POLAR_SCALE_FACTOR = 0,949785 [], LOG_POLAR_THETA_CORRECTION = -3,366461 [deg]
+Person:  13 - Correct Person:  13 - Tested:  91 - Correct:  91 - Confidence: 0,82 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-022-1.raw
+Eyes:[172,153][222,155] - Nose:[202,128] - Mouth:[202,104]
+LOG_POLAR_SCALE_FACTOR = 0,817493 [], LOG_POLAR_THETA_CORRECTION = 10,885527 [deg]
+Person:  14 - Correct Person:  14 - Tested:  92 - Correct:  92 - Confidence: 0,73 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-022-3.raw
+Eyes:[176,148][227,150] - Nose:[206,119] - Mouth:[207,096]
+LOG_POLAR_SCALE_FACTOR = 0,833817 [], LOG_POLAR_THETA_CORRECTION = 9,462322 [deg]
+Person:  14 - Correct Person:  14 - Tested:  93 - Correct:  93 - Confidence: 0,98 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-022-5.raw
+Eyes:[178,148][229,148] - Nose:[208,117] - Mouth:[206,095]
+LOG_POLAR_SCALE_FACTOR = 0,833177 [], LOG_POLAR_THETA_CORRECTION = 9,162347 [deg]
+Person:  14 - Correct Person:  14 - Tested:  94 - Correct:  94 - Confidence: 1,00 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-022-14.raw
+Eyes:[167,160][220,155] - Nose:[195,126] - Mouth:[194,102]
+LOG_POLAR_SCALE_FACTOR = 0,869695 [], LOG_POLAR_THETA_CORRECTION = 3,691386 [deg]
+Person:  14 - Correct Person:  14 - Tested:  95 - Correct:  95 - Confidence: 1,00 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-022-15.raw
+Eyes:[176,159][228,159] - Nose:[206,128] - Mouth:[204,102]
+LOG_POLAR_SCALE_FACTOR = 0,849514 [], LOG_POLAR_THETA_CORRECTION = 7,352379 [deg]
+Person:  14 - Correct Person:  14 - Tested:  96 - Correct:  96 - Confidence: 0,78 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-022-16.raw
+Eyes:[172,150][225,149] - Nose:[202,114] - Mouth:[199,094]
+LOG_POLAR_SCALE_FACTOR = 0,866005 [], LOG_POLAR_THETA_CORRECTION = 6,519802 [deg]
+Person:  14 - Correct Person:  14 - Tested:  97 - Correct:  97 - Confidence: 0,53 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-022-19.raw
+Eyes:[166,156][218,157] - Nose:[197,125] - Mouth:[196,103]
+LOG_POLAR_SCALE_FACTOR = 0,849671 [], LOG_POLAR_THETA_CORRECTION = 9,162347 [deg]
+Person:  14 - Correct Person:  14 - Tested:  98 - Correct:  98 - Confidence: 1,00 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-025-1.raw
+Eyes:[162,157][215,155] - Nose:[191,126] - Mouth:[189,097]
+LOG_POLAR_SCALE_FACTOR = 0,866467 [], LOG_POLAR_THETA_CORRECTION = 5,710593 [deg]
+Person:  15 - Correct Person:  15 - Tested:  99 - Correct:  99 - Confidence: 0,55 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-025-2.raw
+Eyes:[166,156][218,154] - Nose:[194,122] - Mouth:[192,094]
+LOG_POLAR_SCALE_FACTOR = 0,850142 [], LOG_POLAR_THETA_CORRECTION = 3,468229 [deg]
+Person:  15 - Correct Person:  15 - Tested: 100 - Correct: 100 - Confidence: 0,94 - Hit Percent: 100,00
+100,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-025-3.raw
+Eyes:[163,145][218,142] - Nose:[194,106] - Mouth:[193,079]
+LOG_POLAR_SCALE_FACTOR = 0,899860 [], LOG_POLAR_THETA_CORRECTION = 6,170175 [deg]
+Person:  21 - Correct Person:  15 - Tested: 101 - Correct: 100 - Confidence: 0,22 - Hit Percent: 99,01 ***
+99,01
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-025-4.raw
+Eyes:[156,141][212,143] - Nose:[184,110] - Mouth:[184,071]
+LOG_POLAR_SCALE_FACTOR = 0,915444 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+Person:  15 - Correct Person:  15 - Tested: 102 - Correct: 101 - Confidence: 0,47 - Hit Percent: 99,02
+99,02
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-025-17.raw
+Eyes:[175,144][230,143] - Nose:[201,111] - Mouth:[200,070]
+LOG_POLAR_SCALE_FACTOR = 0,898673 [], LOG_POLAR_THETA_CORRECTION = -1,789911 [deg]
+Person:  15 - Correct Person:  15 - Tested: 103 - Correct: 102 - Confidence: 0,73 - Hit Percent: 99,03
+99,03
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-025-18.raw
+Eyes:[174,150][229,148] - Nose:[202,115] - Mouth:[199,085]
+LOG_POLAR_SCALE_FACTOR = 0,899118 [], LOG_POLAR_THETA_CORRECTION = 1,684684 [deg]
+Person:  15 - Correct Person:  15 - Tested: 104 - Correct: 103 - Confidence: 1,00 - Hit Percent: 99,04
+99,04
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-025-20.raw
+Eyes:[177,150][233,146] - Nose:[204,114] - Mouth:[204,084]
+LOG_POLAR_SCALE_FACTOR = 0,917192 [], LOG_POLAR_THETA_CORRECTION = -1,684684 [deg]
+Person:  15 - Correct Person:  15 - Tested: 105 - Correct: 104 - Confidence: 1,00 - Hit Percent: 99,05
+99,05
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-026-3.raw
+Eyes:[162,160][218,156] - Nose:[189,125] - Mouth:[186,100]
+LOG_POLAR_SCALE_FACTOR = 0,917192 [], LOG_POLAR_THETA_CORRECTION = -1,735705 [deg]
+Person:  16 - Correct Person:  16 - Tested: 106 - Correct: 105 - Confidence: 1,00 - Hit Percent: 99,06
+99,06
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-026-5.raw
+Eyes:[159,164][214,158] - Nose:[186,133] - Mouth:[183,106]
+LOG_POLAR_SCALE_FACTOR = 0,903855 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+Person:  16 - Correct Person:  16 - Tested: 107 - Correct: 106 - Confidence: 0,98 - Hit Percent: 99,07
+99,07
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-026-7.raw
+Eyes:[162,164][217,160] - Nose:[190,134] - Mouth:[189,107]
+LOG_POLAR_SCALE_FACTOR = 0,900897 [], LOG_POLAR_THETA_CORRECTION = 2,045409 [deg]
+Person:  16 - Correct Person:  16 - Tested: 108 - Correct: 107 - Confidence: 1,00 - Hit Percent: 99,07
+99,07
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-026-15.raw
+Eyes:[161,157][218,155] - Nose:[191,125] - Mouth:[191,100]
+LOG_POLAR_SCALE_FACTOR = 0,931771 [], LOG_POLAR_THETA_CORRECTION = 3,691386 [deg]
+Person:  16 - Correct Person:  16 - Tested: 109 - Correct: 108 - Confidence: 1,00 - Hit Percent: 99,08
+99,08
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-026-16.raw
+Eyes:[160,154][216,154] - Nose:[191,120] - Mouth:[189,095]
+LOG_POLAR_SCALE_FACTOR = 0,914861 [], LOG_POLAR_THETA_CORRECTION = 5,042451 [deg]
+Person:  16 - Correct Person:  16 - Tested: 110 - Correct: 109 - Confidence: 1,00 - Hit Percent: 99,09
+99,09
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-026-17.raw
+Eyes:[165,154][221,153] - Nose:[195,127] - Mouth:[191,092]
+LOG_POLAR_SCALE_FACTOR = 0,915007 [], LOG_POLAR_THETA_CORRECTION = 4,398706 [deg]
+Person:  16 - Correct Person:  16 - Tested: 111 - Correct: 110 - Confidence: 0,94 - Hit Percent: 99,10
+99,10
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-026-19.raw
+Eyes:[163,157][219,156] - Nose:[193,124] - Mouth:[192,097]
+LOG_POLAR_SCALE_FACTOR = 0,915007 [], LOG_POLAR_THETA_CORRECTION = 3,576334 [deg]
+Person:  16 - Correct Person:  16 - Tested: 112 - Correct: 111 - Confidence: 1,00 - Hit Percent: 99,11
+99,11
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-027-3.raw
+Eyes:[163,142][214,138] - Nose:[190,103] - Mouth:[185,073]
+LOG_POLAR_SCALE_FACTOR = 0,835736 [], LOG_POLAR_THETA_CORRECTION = 3,094058 [deg]
+Person:  17 - Correct Person:  17 - Tested: 113 - Correct: 112 - Confidence: 0,78 - Hit Percent: 99,12
+99,12
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-027-4.raw
+Eyes:[166,143][218,143] - Nose:[192,114] - Mouth:[192,067]
+LOG_POLAR_SCALE_FACTOR = 0,849514 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+Person:  17 - Correct Person:  17 - Tested: 114 - Correct: 113 - Confidence: 0,37 - Hit Percent: 99,12
+99,12
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-027-6.raw
+Eyes:[161,157][212,157] - Nose:[186,125] - Mouth:[187,091]
+LOG_POLAR_SCALE_FACTOR = 0,833177 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+Person:  17 - Correct Person:  17 - Tested: 115 - Correct: 114 - Confidence: 0,82 - Hit Percent: 99,13
+99,13
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-027-7.raw
+Eyes:[162,155][212,153] - Nose:[188,123] - Mouth:[185,089]
+LOG_POLAR_SCALE_FACTOR = 0,817493 [], LOG_POLAR_THETA_CORRECTION = 1,847610 [deg]
+Person:  17 - Correct Person:  17 - Tested: 116 - Correct: 115 - Confidence: 1,00 - Hit Percent: 99,14
+99,14
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-027-16.raw
+Eyes:[172,154][221,153] - Nose:[198,121] - Mouth:[196,089]
+LOG_POLAR_SCALE_FACTOR = 0,800670 [], LOG_POLAR_THETA_CORRECTION = 3,576334 [deg]
+Person:  17 - Correct Person:  17 - Tested: 117 - Correct: 116 - Confidence: 1,00 - Hit Percent: 99,15
+99,15
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-027-17.raw
+Eyes:[169,146][222,146] - Nose:[196,119] - Mouth:[197,081]
+LOG_POLAR_SCALE_FACTOR = 0,865851 [], LOG_POLAR_THETA_CORRECTION = 2,121096 [deg]
+Person:  17 - Correct Person:  17 - Tested: 118 - Correct: 117 - Confidence: 0,80 - Hit Percent: 99,15
+99,15
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-027-19.raw
+Eyes:[169,154][222,151] - Nose:[196,121] - Mouth:[194,088]
+LOG_POLAR_SCALE_FACTOR = 0,867237 [], LOG_POLAR_THETA_CORRECTION = 1,847610 [deg]
+Person:  17 - Correct Person:  17 - Tested: 119 - Correct: 118 - Confidence: 0,55 - Hit Percent: 99,16
+99,16
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-033-2.raw
+Eyes:[184,157][239,155] - Nose:[210,112] - Mouth:[208,091]
+LOG_POLAR_SCALE_FACTOR = 0,899118 [], LOG_POLAR_THETA_CORRECTION = -1,301953 [deg]
+Person:  18 - Correct Person:  18 - Tested: 120 - Correct: 119 - Confidence: 1,00 - Hit Percent: 99,17
+99,17
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-033-4.raw
+Eyes:[167,146][223,153] - Nose:[196,110] - Mouth:[200,074]
+LOG_POLAR_SCALE_FACTOR = 0,921981 [], LOG_POLAR_THETA_CORRECTION = 1,468801 [deg]
+Person:  18 - Correct Person:  18 - Tested: 121 - Correct: 120 - Confidence: 0,65 - Hit Percent: 99,17
+99,17
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-033-7.raw
+Eyes:[174,152][230,156] - Nose:[205,109] - Mouth:[203,087]
+LOG_POLAR_SCALE_FACTOR = 0,917192 [], LOG_POLAR_THETA_CORRECTION = 3,814075 [deg]
+Person:  18 - Correct Person:  18 - Tested: 122 - Correct: 121 - Confidence: 1,00 - Hit Percent: 99,18
+99,18
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-033-14.raw
+Eyes:[168,151][222,156] - Nose:[197,110] - Mouth:[196,087]
+LOG_POLAR_SCALE_FACTOR = 0,885961 [], LOG_POLAR_THETA_CORRECTION = 2,663001 [deg]
+Person:  18 - Correct Person:  18 - Tested: 123 - Correct: 122 - Confidence: 1,00 - Hit Percent: 99,19
+99,19
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-033-17.raw
+Eyes:[169,161][222,163] - Nose:[197,129] - Mouth:[201,090]
+LOG_POLAR_SCALE_FACTOR = 0,866467 [], LOG_POLAR_THETA_CORRECTION = 3,468229 [deg]
+Person:  18 - Correct Person:  18 - Tested: 124 - Correct: 123 - Confidence: 0,47 - Hit Percent: 99,19
+99,19
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-033-18.raw
+Eyes:[170,153][224,156] - Nose:[199,111] - Mouth:[197,085]
+LOG_POLAR_SCALE_FACTOR = 0,883548 [], LOG_POLAR_THETA_CORRECTION = 2,663001 [deg]
+Person:  18 - Correct Person:  18 - Tested: 125 - Correct: 124 - Confidence: 1,00 - Hit Percent: 99,20
+99,20
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-033-19.raw
+Eyes:[169,154][222,157] - Nose:[201,112] - Mouth:[203,084]
+LOG_POLAR_SCALE_FACTOR = 0,867237 [], LOG_POLAR_THETA_CORRECTION = 7,943472 [deg]
+Person:  18 - Correct Person:  18 - Tested: 126 - Correct: 125 - Confidence: 1,00 - Hit Percent: 99,21
+99,21
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-039-1.raw
+Eyes:[161,158][213,156] - Nose:[184,134] - Mouth:[185,105]
+LOG_POLAR_SCALE_FACTOR = 0,850142 [], LOG_POLAR_THETA_CORRECTION = -7,431408 [deg]
+Person:  19 - Correct Person:  19 - Tested: 127 - Correct: 126 - Confidence: 0,14 - Hit Percent: 99,21
+99,21
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-039-2.raw
+Eyes:[162,153][212,154] - Nose:[185,125] - Mouth:[188,100]
+LOG_POLAR_SCALE_FACTOR = 0,817004 [], LOG_POLAR_THETA_CORRECTION = -4,085617 [deg]
+Person:  19 - Correct Person:  19 - Tested: 128 - Correct: 127 - Confidence: 0,51 - Hit Percent: 99,22
+99,22
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-039-4.raw
+Eyes:[159,154][210,154] - Nose:[182,131] - Mouth:[183,096]
+LOG_POLAR_SCALE_FACTOR = 0,833177 [], LOG_POLAR_THETA_CORRECTION = -4,969741 [deg]
+Person:  19 - Correct Person:  19 - Tested: 129 - Correct: 128 - Confidence: 0,59 - Hit Percent: 99,22
+99,22
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-039-7.raw
+Eyes:[163,156][215,152] - Nose:[187,126] - Mouth:[186,097]
+LOG_POLAR_SCALE_FACTOR = 0,852024 [], LOG_POLAR_THETA_CORRECTION = -4,085617 [deg]
+Person:  19 - Correct Person:  19 - Tested: 130 - Correct: 129 - Confidence: 1,00 - Hit Percent: 99,23
+99,23
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-039-17.raw
+Eyes:[176,155][228,158] - Nose:[205,133] - Mouth:[205,097]
+LOG_POLAR_SCALE_FACTOR = 0,850926 [], LOG_POLAR_THETA_CORRECTION = 7,431408 [deg]
+Person:  19 - Correct Person:  19 - Tested: 131 - Correct: 130 - Confidence: 0,92 - Hit Percent: 99,24
+99,24
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-039-19.raw
+Eyes:[180,155][233,152] - Nose:[206,124] - Mouth:[207,097]
+LOG_POLAR_SCALE_FACTOR = 0,867237 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+Person:  19 - Correct Person:  19 - Tested: 132 - Correct: 131 - Confidence: 0,98 - Hit Percent: 99,24
+99,24
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-039-20.raw
+Eyes:[179,154][232,152] - Nose:[206,122] - Mouth:[208,093]
+LOG_POLAR_SCALE_FACTOR = 0,866467 [], LOG_POLAR_THETA_CORRECTION = 1,847610 [deg]
+Person:  19 - Correct Person:  19 - Tested: 133 - Correct: 132 - Confidence: 0,98 - Hit Percent: 99,25
+99,25
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-046-3.raw
+Eyes:[165,153][218,150] - Nose:[191,114] - Mouth:[192,085]
+LOG_POLAR_SCALE_FACTOR = 0,867237 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+Person:  20 - Correct Person:  20 - Tested: 134 - Correct: 133 - Confidence: 0,82 - Hit Percent: 99,25
+99,25
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-046-4.raw
+Eyes:[170,150][226,147] - Nose:[198,115] - Mouth:[194,071]
+LOG_POLAR_SCALE_FACTOR = 0,916173 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+Person:  20 - Correct Person:  20 - Tested: 135 - Correct: 134 - Confidence: 0,35 - Hit Percent: 99,26
+99,26
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-046-5.raw
+Eyes:[171,152][225,149] - Nose:[198,113] - Mouth:[192,083]
+LOG_POLAR_SCALE_FACTOR = 0,883548 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+Person:  20 - Correct Person:  20 - Tested: 136 - Correct: 135 - Confidence: 0,67 - Hit Percent: 99,26
+99,26
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-046-6.raw
+Eyes:[172,150][224,146] - Nose:[199,111] - Mouth:[197,081]
+LOG_POLAR_SCALE_FACTOR = 0,852024 [], LOG_POLAR_THETA_CORRECTION = 1,548158 [deg]
+Person:  20 - Correct Person:  20 - Tested: 137 - Correct: 136 - Confidence: 0,18 - Hit Percent: 99,27
+99,27
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-046-7.raw
+Eyes:[173,149][227,143] - Nose:[200,110] - Mouth:[196,081]
+LOG_POLAR_SCALE_FACTOR = 0,887616 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+Person:  20 - Correct Person:  20 - Tested: 138 - Correct: 137 - Confidence: 0,45 - Hit Percent: 99,28
+99,28
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-046-16.raw
+Eyes:[166,157][220,155] - Nose:[196,123] - Mouth:[197,093]
+LOG_POLAR_SCALE_FACTOR = 0,882792 [], LOG_POLAR_THETA_CORRECTION = 5,194429 [deg]
+Person:  20 - Correct Person:  20 - Tested: 139 - Correct: 138 - Confidence: 1,00 - Hit Percent: 99,28
+99,28
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-046-19.raw
+Eyes:[172,156][228,153] - Nose:[202,120] - Mouth:[198,090]
+LOG_POLAR_SCALE_FACTOR = 0,916173 [], LOG_POLAR_THETA_CORRECTION = 3,366461 [deg]
+Person:  20 - Correct Person:  20 - Tested: 140 - Correct: 139 - Confidence: 0,43 - Hit Percent: 99,29
+99,29
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-048-4.raw
+Eyes:[164,159][219,159] - Nose:[194,130] - Mouth:[190,091]
+LOG_POLAR_SCALE_FACTOR = 0,898524 [], LOG_POLAR_THETA_CORRECTION = 5,906141 [deg]
+Person:  21 - Correct Person:  21 - Tested: 141 - Correct: 140 - Confidence: 0,65 - Hit Percent: 99,29
+99,29
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-048-5.raw
+Eyes:[161,157][219,156] - Nose:[192,120] - Mouth:[187,092]
+LOG_POLAR_SCALE_FACTOR = 0,947676 [], LOG_POLAR_THETA_CORRECTION = 3,179830 [deg]
+Person:  21 - Correct Person:  21 - Tested: 142 - Correct: 141 - Confidence: 1,00 - Hit Percent: 99,30
+99,30
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-048-6.raw
+Eyes:[160,157][217,155] - Nose:[191,120] - Mouth:[189,093]
+LOG_POLAR_SCALE_FACTOR = 0,931771 [], LOG_POLAR_THETA_CORRECTION = 4,763642 [deg]
+Person:  21 - Correct Person:  21 - Tested: 143 - Correct: 142 - Confidence: 0,98 - Hit Percent: 99,30
+99,30
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-048-7.raw
+Eyes:[162,158][218,157] - Nose:[193,122] - Mouth:[189,091]
+LOG_POLAR_SCALE_FACTOR = 0,915007 [], LOG_POLAR_THETA_CORRECTION = 4,899093 [deg]
+Person:  21 - Correct Person:  21 - Tested: 144 - Correct: 143 - Confidence: 0,88 - Hit Percent: 99,31
+99,31
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-048-16.raw
+Eyes:[152,140][206,138] - Nose:[183,102] - Mouth:[181,076]
+LOG_POLAR_SCALE_FACTOR = 0,882792 [], LOG_POLAR_THETA_CORRECTION = 6,170175 [deg]
+Person:  21 - Correct Person:  21 - Tested: 145 - Correct: 144 - Confidence: 1,00 - Hit Percent: 99,31
+99,31
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-048-19.raw
+Eyes:[155,146][211,143] - Nose:[186,110] - Mouth:[183,084]
+LOG_POLAR_SCALE_FACTOR = 0,916173 [], LOG_POLAR_THETA_CORRECTION = 5,042451 [deg]
+Person:  21 - Correct Person:  21 - Tested: 146 - Correct: 145 - Confidence: 1,00 - Hit Percent: 99,32
+99,32
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-048-20.raw
+Eyes:[154,147][210,147] - Nose:[185,111] - Mouth:[179,087]
+LOG_POLAR_SCALE_FACTOR = 0,914861 [], LOG_POLAR_THETA_CORRECTION = 4,763642 [deg]
+Person:  21 - Correct Person:  21 - Tested: 147 - Correct: 146 - Confidence: 1,00 - Hit Percent: 99,32
+99,32
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-049-1.raw
+Eyes:[157,159][216,161] - Nose:[188,130] - Mouth:[190,099]
+LOG_POLAR_SCALE_FACTOR = 0,964425 [], LOG_POLAR_THETA_CORRECTION = 3,814075 [deg]
+Person:  22 - Correct Person:  22 - Tested: 148 - Correct: 147 - Confidence: 0,65 - Hit Percent: 99,32
+99,32
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-049-2.raw
+Eyes:[158,159][220,161] - Nose:[189,129] - Mouth:[190,102]
+LOG_POLAR_SCALE_FACTOR = 1,013409 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+Person:  22 - Correct Person:  22 - Tested: 149 - Correct: 148 - Confidence: 0,41 - Hit Percent: 99,33
+99,33
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-049-5.raw
+Eyes:[163,153][225,157] - Nose:[195,123] - Mouth:[197,091]
+LOG_POLAR_SCALE_FACTOR = 1,014988 [], LOG_POLAR_THETA_CORRECTION = 1,789911 [deg]
+Person:  22 - Correct Person:  22 - Tested: 150 - Correct: 149 - Confidence: 0,90 - Hit Percent: 99,33
+99,33
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-049-15.raw
+Eyes:[175,156][238,156] - Nose:[206,121] - Mouth:[205,094]
+LOG_POLAR_SCALE_FACTOR = 1,029219 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+Person:  22 - Correct Person:  22 - Tested: 151 - Correct: 150 - Confidence: 0,84 - Hit Percent: 99,34
+99,34
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-049-16.raw
+Eyes:[177,150][240,148] - Nose:[209,112] - Mouth:[209,084]
+LOG_POLAR_SCALE_FACTOR = 1,029737 [], LOG_POLAR_THETA_CORRECTION = 1,548158 [deg]
+Person:  22 - Correct Person:  22 - Tested: 152 - Correct: 151 - Confidence: 0,96 - Hit Percent: 99,34
+99,34
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-049-19.raw
+Eyes:[176,158][237,156] - Nose:[206,124] - Mouth:[206,094]
+LOG_POLAR_SCALE_FACTOR = 0,997081 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+Person:  22 - Correct Person:  22 - Tested: 153 - Correct: 152 - Confidence: 1,00 - Hit Percent: 99,35
+99,35
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-049-20.raw
+Eyes:[177,158][239,158] - Nose:[206,124] - Mouth:[206,094]
+LOG_POLAR_SCALE_FACTOR = 1,012882 [], LOG_POLAR_THETA_CORRECTION = -3,366461 [deg]
+Person:  22 - Correct Person:  22 - Tested: 154 - Correct: 153 - Confidence: 1,00 - Hit Percent: 99,35
+99,35
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-056-1.raw
+Eyes:[163,160][216,154] - Nose:[193,128] - Mouth:[188,098]
+LOG_POLAR_SCALE_FACTOR = 0,871381 [], LOG_POLAR_THETA_CORRECTION = 7,853313 [deg]
+Person:  23 - Correct Person:  23 - Tested: 155 - Correct: 154 - Confidence: 1,00 - Hit Percent: 99,35
+99,35
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-056-2.raw
+Eyes:[162,160][218,154] - Nose:[192,126] - Mouth:[190,100]
+LOG_POLAR_SCALE_FACTOR = 0,920097 [], LOG_POLAR_THETA_CORRECTION = 3,691386 [deg]
+Person:  23 - Correct Person:  23 - Tested: 156 - Correct: 155 - Confidence: 1,00 - Hit Percent: 99,36
+99,36
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-056-4.raw
+Eyes:[159,161][216,155] - Nose:[188,127] - Mouth:[184,089]
+LOG_POLAR_SCALE_FACTOR = 0,936343 [], LOG_POLAR_THETA_CORRECTION = 1,847610 [deg]
+Person:  23 - Correct Person:  23 - Tested: 157 - Correct: 156 - Confidence: 0,84 - Hit Percent: 99,36
+99,36
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-056-16.raw
+Eyes:[167,151][218,145] - Nose:[195,120] - Mouth:[193,093]
+LOG_POLAR_SCALE_FACTOR = 0,838923 [], LOG_POLAR_THETA_CORRECTION = 6,115504 [deg]
+Person:  23 - Correct Person:  23 - Tested: 158 - Correct: 157 - Confidence: 1,00 - Hit Percent: 99,37
+99,37
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-056-17.raw
+Eyes:[167,152][220,149] - Nose:[196,121] - Mouth:[193,086]
+LOG_POLAR_SCALE_FACTOR = 0,867237 [], LOG_POLAR_THETA_CORRECTION = 5,906141 [deg]
+Person:  23 - Correct Person:  23 - Tested: 159 - Correct: 158 - Confidence: 0,49 - Hit Percent: 99,37
+99,37
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-056-19.raw
+Eyes:[166,148][219,142] - Nose:[194,115] - Mouth:[191,087]
+LOG_POLAR_SCALE_FACTOR = 0,871381 [], LOG_POLAR_THETA_CORRECTION = 3,814075 [deg]
+Person:  23 - Correct Person:  23 - Tested: 160 - Correct: 159 - Confidence: 1,00 - Hit Percent: 99,38
+99,38
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-056-20.raw
+Eyes:[166,147][219,142] - Nose:[194,116] - Mouth:[190,089]
+LOG_POLAR_SCALE_FACTOR = 0,869695 [], LOG_POLAR_THETA_CORRECTION = 4,085617 [deg]
+Person:  23 - Correct Person:  23 - Tested: 161 - Correct: 160 - Confidence: 1,00 - Hit Percent: 99,38
+99,38
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-059-1.raw
+Eyes:[153,150][211,150] - Nose:[177,114] - Mouth:[181,089]
+LOG_POLAR_SCALE_FACTOR = 0,947535 [], LOG_POLAR_THETA_CORRECTION = -7,907163 [deg]
+Person:  24 - Correct Person:  24 - Tested: 162 - Correct: 161 - Confidence: 1,00 - Hit Percent: 99,38
+99,38
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-059-2.raw
+Eyes:[159,154][213,152] - Nose:[181,123] - Mouth:[185,096]
+LOG_POLAR_SCALE_FACTOR = 0,882792 [], LOG_POLAR_THETA_CORRECTION = -9,462322 [deg]
+Person:  24 - Correct Person:  24 - Tested: 163 - Correct: 162 - Confidence: 0,90 - Hit Percent: 99,39
+99,39
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-059-7.raw
+Eyes:[158,149][213,147] - Nose:[180,114] - Mouth:[182,087]
+LOG_POLAR_SCALE_FACTOR = 0,899118 [], LOG_POLAR_THETA_CORRECTION = -8,365886 [deg]
+Person:  24 - Correct Person:  24 - Tested: 164 - Correct: 163 - Confidence: 1,00 - Hit Percent: 99,39
+99,39
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-059-14.raw
+Eyes:[159,151][216,149] - Nose:[184,116] - Mouth:[188,087]
+LOG_POLAR_SCALE_FACTOR = 0,931771 [], LOG_POLAR_THETA_CORRECTION = -5,042451 [deg]
+Person:  24 - Correct Person:  24 - Tested: 165 - Correct: 164 - Confidence: 0,35 - Hit Percent: 99,39
+99,39
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-059-15.raw
+Eyes:[155,155][210,152] - Nose:[181,122] - Mouth:[180,093]
+LOG_POLAR_SCALE_FACTOR = 0,899860 [], LOG_POLAR_THETA_CORRECTION = -1,847610 [deg]
+Person:  24 - Correct Person:  24 - Tested: 166 - Correct: 165 - Confidence: 0,29 - Hit Percent: 99,40
+99,40
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-059-16.raw
+Eyes:[160,140][216,137] - Nose:[187,101] - Mouth:[186,077]
+LOG_POLAR_SCALE_FACTOR = 0,916173 [], LOG_POLAR_THETA_CORRECTION = -1,548158 [deg]
+Person:  24 - Correct Person:  24 - Tested: 167 - Correct: 166 - Confidence: 0,51 - Hit Percent: 99,40
+99,40
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-059-17.raw
+Eyes:[163,145][216,143] - Nose:[190,117] - Mouth:[187,079]
+LOG_POLAR_SCALE_FACTOR = 0,866467 [], LOG_POLAR_THETA_CORRECTION = 2,121096 [deg]
+Person:  28 - Correct Person:  24 - Tested: 168 - Correct: 166 - Confidence: 0,33 - Hit Percent: 98,81 ***
+98,81
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-060-2.raw
+Eyes:[163,143][225,144] - Nose:[194,101] - Mouth:[196,076]
+LOG_POLAR_SCALE_FACTOR = 1,013014 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+Person:  25 - Correct Person:  25 - Tested: 169 - Correct: 167 - Confidence: 0,94 - Hit Percent: 98,82
+98,82
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-060-3.raw
+Eyes:[160,137][220,137] - Nose:[190,095] - Mouth:[194,068]
+LOG_POLAR_SCALE_FACTOR = 0,980208 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+Person:  25 - Correct Person:  25 - Tested: 170 - Correct: 168 - Confidence: 0,88 - Hit Percent: 98,82
+98,82
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-060-5.raw
+Eyes:[150,138][212,139] - Nose:[179,098] - Mouth:[181,066]
+LOG_POLAR_SCALE_FACTOR = 1,013014 [], LOG_POLAR_THETA_CORRECTION = -2,862405 [deg]
+Person:  25 - Correct Person:  25 - Tested: 171 - Correct: 169 - Confidence: 0,69 - Hit Percent: 98,83
+98,83
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-060-14.raw
+Eyes:[156,145][214,142] - Nose:[188,106] - Mouth:[192,074]
+LOG_POLAR_SCALE_FACTOR = 0,948801 [], LOG_POLAR_THETA_CORRECTION = 4,635463 [deg]
+Person:  25 - Correct Person:  25 - Tested: 172 - Correct: 170 - Confidence: 0,51 - Hit Percent: 98,84
+98,84
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-060-15.raw
+Eyes:[153,145][214,143] - Nose:[184,106] - Mouth:[184,078]
+LOG_POLAR_SCALE_FACTOR = 0,997081 [], LOG_POLAR_THETA_CORRECTION = 1,507436 [deg]
+Person:  25 - Correct Person:  25 - Tested: 173 - Correct: 171 - Confidence: 0,65 - Hit Percent: 98,84
+98,84
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-060-16.raw
+Eyes:[162,141][222,141] - Nose:[196,102] - Mouth:[197,073]
+LOG_POLAR_SCALE_FACTOR = 0,980208 [], LOG_POLAR_THETA_CORRECTION = 5,856014 [deg]
+Person:  25 - Correct Person:  25 - Tested: 174 - Correct: 172 - Confidence: 0,33 - Hit Percent: 98,85
+98,85
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-060-19.raw
+Eyes:[158,144][219,144] - Nose:[190,107] - Mouth:[192,077]
+LOG_POLAR_SCALE_FACTOR = 0,996545 [], LOG_POLAR_THETA_CORRECTION = 3,094058 [deg]
+Person:  25 - Correct Person:  25 - Tested: 175 - Correct: 173 - Confidence: 1,00 - Hit Percent: 98,86
+98,86
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-061-1.raw
+Eyes:[163,159][220,157] - Nose:[190,126] - Mouth:[191,098]
+LOG_POLAR_SCALE_FACTOR = 0,931771 [], LOG_POLAR_THETA_CORRECTION = -1,789911 [deg]
+Person:  26 - Correct Person:  26 - Tested: 176 - Correct: 174 - Confidence: 0,82 - Hit Percent: 98,86
+98,86
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-061-2.raw
+Eyes:[158,158][216,154] - Nose:[187,123] - Mouth:[188,097]
+LOG_POLAR_SCALE_FACTOR = 0,949785 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+Person:  26 - Correct Person:  26 - Tested: 177 - Correct: 175 - Confidence: 0,41 - Hit Percent: 98,87
+98,87
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-061-3.raw
+Eyes:[164,142][221,139] - Nose:[192,098] - Mouth:[194,076]
+LOG_POLAR_SCALE_FACTOR = 0,932487 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+Person:  50 - Correct Person:  26 - Tested: 178 - Correct: 175 - Confidence: 0,12 - Hit Percent: 98,31 ***
+98,31
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-061-4.raw
+Eyes:[156,135][216,136] - Nose:[184,101] - Mouth:[185,065]
+LOG_POLAR_SCALE_FACTOR = 0,980344 [], LOG_POLAR_THETA_CORRECTION = -3,366461 [deg]
+Person:  47 - Correct Person:  26 - Tested: 179 - Correct: 175 - Confidence: 0,14 - Hit Percent: 97,77 ***
+97,77
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-061-14.raw
+Eyes:[167,160][222,158] - Nose:[195,131] - Mouth:[196,103]
+LOG_POLAR_SCALE_FACTOR = 0,899118 [], LOG_POLAR_THETA_CORRECTION = 2,045409 [deg]
+Person:  26 - Correct Person:  26 - Tested: 180 - Correct: 176 - Confidence: 0,90 - Hit Percent: 97,78
+97,78
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-061-16.raw
+Eyes:[164,149][220,146] - Nose:[192,111] - Mouth:[192,084]
+LOG_POLAR_SCALE_FACTOR = 0,916173 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+Person:  28 - Correct Person:  26 - Tested: 181 - Correct: 176 - Confidence: 0,22 - Hit Percent: 97,24 ***
+97,24
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-061-19.raw
+Eyes:[164,159][219,155] - Nose:[191,128] - Mouth:[191,101]
+LOG_POLAR_SCALE_FACTOR = 0,900897 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+Person:  26 - Correct Person:  26 - Tested: 182 - Correct: 177 - Confidence: 1,00 - Hit Percent: 97,25
+97,25
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-065-2.raw
+Eyes:[164,165][223,159] - Nose:[192,134] - Mouth:[190,101]
+LOG_POLAR_SCALE_FACTOR = 0,968843 [], LOG_POLAR_THETA_CORRECTION = -2,045409 [deg]
+Person:  27 - Correct Person:  27 - Tested: 183 - Correct: 178 - Confidence: 1,00 - Hit Percent: 97,27
+97,27
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-065-3.raw
+Eyes:[166,156][227,152] - Nose:[195,122] - Mouth:[191,089]
+LOG_POLAR_SCALE_FACTOR = 0,998685 [], LOG_POLAR_THETA_CORRECTION = -1,789911 [deg]
+Person:  27 - Correct Person:  27 - Tested: 184 - Correct: 179 - Confidence: 0,96 - Hit Percent: 97,28
+97,28
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-065-4.raw
+Eyes:[166,156][228,155] - Nose:[196,130] - Mouth:[193,081]
+LOG_POLAR_SCALE_FACTOR = 1,013014 [], LOG_POLAR_THETA_CORRECTION = -2,290610 [deg]
+Person:  27 - Correct Person:  27 - Tested: 185 - Correct: 180 - Confidence: 0,98 - Hit Percent: 97,30
+97,30
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-065-6.raw
+Eyes:[156,161][217,162] - Nose:[185,135] - Mouth:[185,101]
+LOG_POLAR_SCALE_FACTOR = 0,996679 [], LOG_POLAR_THETA_CORRECTION = -2,202598 [deg]
+Person:  27 - Correct Person:  27 - Tested: 186 - Correct: 181 - Confidence: 1,00 - Hit Percent: 97,31
+97,31
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-065-14.raw
+Eyes:[160,160][220,157] - Nose:[190,132] - Mouth:[189,101]
+LOG_POLAR_SCALE_FACTOR = 0,981433 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+Person:  27 - Correct Person:  27 - Tested: 187 - Correct: 182 - Confidence: 1,00 - Hit Percent: 97,33
+97,33
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-065-18.raw
+Eyes:[159,156][218,156] - Nose:[189,129] - Mouth:[189,096]
+LOG_POLAR_SCALE_FACTOR = 0,963872 [], LOG_POLAR_THETA_CORRECTION = 2,121096 [deg]
+Person:  27 - Correct Person:  27 - Tested: 188 - Correct: 183 - Confidence: 1,00 - Hit Percent: 97,34
+97,34
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-065-20.raw
+Eyes:[162,152][221,154] - Nose:[192,123] - Mouth:[191,092]
+LOG_POLAR_SCALE_FACTOR = 0,964425 [], LOG_POLAR_THETA_CORRECTION = 1,909153 [deg]
+Person:  27 - Correct Person:  27 - Tested: 189 - Correct: 184 - Confidence: 1,00 - Hit Percent: 97,35
+97,35
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-069-2.raw
+Eyes:[167,166][224,161] - Nose:[196,129] - Mouth:[189,102]
+LOG_POLAR_SCALE_FACTOR = 0,934774 [], LOG_POLAR_THETA_CORRECTION = 1,684684 [deg]
+Person:  28 - Correct Person:  28 - Tested: 190 - Correct: 185 - Confidence: 0,35 - Hit Percent: 97,37
+97,37
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-069-3.raw
+Eyes:[162,147][221,142] - Nose:[192,099] - Mouth:[184,074]
+LOG_POLAR_SCALE_FACTOR = 0,967327 [], LOG_POLAR_THETA_CORRECTION = 1,273030 [deg]
+Person:  28 - Correct Person:  28 - Tested: 191 - Correct: 186 - Confidence: 0,39 - Hit Percent: 97,38
+97,38
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-069-4.raw
+Eyes:[163,146][222,142] - Nose:[192,105] - Mouth:[185,070]
+LOG_POLAR_SCALE_FACTOR = 0,966084 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+Person:  28 - Correct Person:  28 - Tested: 192 - Correct: 187 - Confidence: 0,78 - Hit Percent: 97,40
+97,40
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-069-6.raw
+Eyes:[160,151][219,147] - Nose:[189,108] - Mouth:[184,080]
+LOG_POLAR_SCALE_FACTOR = 0,966084 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+Person:  28 - Correct Person:  28 - Tested: 193 - Correct: 188 - Confidence: 1,00 - Hit Percent: 97,41
+97,41
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-069-16.raw
+Eyes:[162,144][217,141] - Nose:[191,103] - Mouth:[189,075]
+LOG_POLAR_SCALE_FACTOR = 0,899860 [], LOG_POLAR_THETA_CORRECTION = 2,935673 [deg]
+Person:  28 - Correct Person:  28 - Tested: 194 - Correct: 189 - Confidence: 0,98 - Hit Percent: 97,42
+97,42
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-069-18.raw
+Eyes:[159,147][215,143] - Nose:[188,108] - Mouth:[186,079]
+LOG_POLAR_SCALE_FACTOR = 0,917192 [], LOG_POLAR_THETA_CORRECTION = 1,548158 [deg]
+Person:  28 - Correct Person:  28 - Tested: 195 - Correct: 190 - Confidence: 1,00 - Hit Percent: 97,44
+97,44
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-069-19.raw
+Eyes:[160,147][216,145] - Nose:[190,108] - Mouth:[187,079]
+LOG_POLAR_SCALE_FACTOR = 0,915444 [], LOG_POLAR_THETA_CORRECTION = 3,012788 [deg]
+Person:  28 - Correct Person:  28 - Tested: 196 - Correct: 191 - Confidence: 1,00 - Hit Percent: 97,45
+97,45
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-072-1.raw
+Eyes:[156,157][212,155] - Nose:[183,124] - Mouth:[184,094]
+LOG_POLAR_SCALE_FACTOR = 0,915444 [], LOG_POLAR_THETA_CORRECTION = -1,789911 [deg]
+Person:  29 - Correct Person:  29 - Tested: 197 - Correct: 192 - Confidence: 0,90 - Hit Percent: 97,46
+97,46
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-072-2.raw
+Eyes:[157,157][214,153] - Nose:[185,122] - Mouth:[183,096]
+LOG_POLAR_SCALE_FACTOR = 0,933488 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+Person:  29 - Correct Person:  29 - Tested: 198 - Correct: 193 - Confidence: 0,49 - Hit Percent: 97,47
+97,47
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-072-4.raw
+Eyes:[162,151][223,153] - Nose:[193,121] - Mouth:[190,079]
+LOG_POLAR_SCALE_FACTOR = 0,997081 [], LOG_POLAR_THETA_CORRECTION = 1,847610 [deg]
+Person:  29 - Correct Person:  29 - Tested: 199 - Correct: 194 - Confidence: 0,69 - Hit Percent: 97,49
+97,49
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-072-5.raw
+Eyes:[159,157][216,155] - Nose:[186,123] - Mouth:[186,096]
+LOG_POLAR_SCALE_FACTOR = 0,931771 [], LOG_POLAR_THETA_CORRECTION = -1,735705 [deg]
+Person:  29 - Correct Person:  29 - Tested: 200 - Correct: 195 - Confidence: 0,88 - Hit Percent: 97,50
+97,50
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-072-15.raw
+Eyes:[164,152][222,148] - Nose:[194,116] - Mouth:[191,086]
+LOG_POLAR_SCALE_FACTOR = 0,949785 [], LOG_POLAR_THETA_CORRECTION = 1,684684 [deg]
+Person:  29 - Correct Person:  29 - Tested: 201 - Correct: 196 - Confidence: 0,94 - Hit Percent: 97,51
+97,51
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-072-19.raw
+Eyes:[167,153][222,151] - Nose:[196,122] - Mouth:[194,092]
+LOG_POLAR_SCALE_FACTOR = 0,899118 [], LOG_POLAR_THETA_CORRECTION = 3,814075 [deg]
+Person:  29 - Correct Person:  29 - Tested: 202 - Correct: 197 - Confidence: 0,45 - Hit Percent: 97,52
+97,52
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-072-20.raw
+Eyes:[166,154][223,151] - Nose:[197,121] - Mouth:[195,092]
+LOG_POLAR_SCALE_FACTOR = 0,932487 [], LOG_POLAR_THETA_CORRECTION = 5,527540 [deg]
+Person:  16 - Correct Person:  29 - Tested: 203 - Correct: 197 - Confidence: 0,31 - Hit Percent: 97,04 ***
+97,04
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-074-1.raw
+Eyes:[158,148][217,146] - Nose:[185,104] - Mouth:[186,079]
+LOG_POLAR_SCALE_FACTOR = 0,964425 [], LOG_POLAR_THETA_CORRECTION = -2,663001 [deg]
+Person:  30 - Correct Person:  30 - Tested: 204 - Correct: 198 - Confidence: 1,00 - Hit Percent: 97,06
+97,06
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-074-6.raw
+Eyes:[157,145][216,143] - Nose:[187,101] - Mouth:[187,075]
+LOG_POLAR_SCALE_FACTOR = 0,964425 [], LOG_POLAR_THETA_CORRECTION = 1,332220 [deg]
+Person:  30 - Correct Person:  30 - Tested: 205 - Correct: 199 - Confidence: 1,00 - Hit Percent: 97,07
+97,07
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-074-14.raw
+Eyes:[159,150][215,149] - Nose:[187,113] - Mouth:[187,087]
+LOG_POLAR_SCALE_FACTOR = 0,915007 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+Person:  30 - Correct Person:  30 - Tested: 206 - Correct: 200 - Confidence: 0,69 - Hit Percent: 97,09
+97,09
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-074-15.raw
+Eyes:[153,147][209,147] - Nose:[179,107] - Mouth:[180,087]
+LOG_POLAR_SCALE_FACTOR = 0,914861 [], LOG_POLAR_THETA_CORRECTION = -2,862405 [deg]
+Person:  30 - Correct Person:  30 - Tested: 207 - Correct: 201 - Confidence: 0,78 - Hit Percent: 97,10
+97,10
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-074-16.raw
+Eyes:[159,144][215,143] - Nose:[186,106] - Mouth:[186,084]
+LOG_POLAR_SCALE_FACTOR = 0,915007 [], LOG_POLAR_THETA_CORRECTION = -1,548158 [deg]
+Person:  30 - Correct Person:  30 - Tested: 208 - Correct: 202 - Confidence: 0,35 - Hit Percent: 97,12
+97,12
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-074-17.raw
+Eyes:[155,151][211,151] - Nose:[182,119] - Mouth:[182,078]
+LOG_POLAR_SCALE_FACTOR = 0,914861 [], LOG_POLAR_THETA_CORRECTION = -1,789911 [deg]
+Person:  30 - Correct Person:  30 - Tested: 209 - Correct: 203 - Confidence: 0,12 - Hit Percent: 97,13
+97,13
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/m-074-19.raw
+Eyes:[160,147][216,146] - Nose:[188,108] - Mouth:[187,082]
+LOG_POLAR_SCALE_FACTOR = 0,915007 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+Person:  30 - Correct Person:  30 - Tested: 210 - Correct: 204 - Confidence: 0,98 - Hit Percent: 97,14
+97,14
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-005-1.raw
+Eyes:[157,157][213,156] - Nose:[184,122] - Mouth:[186,094]
+LOG_POLAR_SCALE_FACTOR = 0,915007 [], LOG_POLAR_THETA_CORRECTION = -1,684684 [deg]
+Person:  31 - Correct Person:  31 - Tested: 211 - Correct: 205 - Confidence: 0,90 - Hit Percent: 97,16
+97,16
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-005-5.raw
+Eyes:[154,151][210,151] - Nose:[179,115] - Mouth:[179,088]
+LOG_POLAR_SCALE_FACTOR = 0,914861 [], LOG_POLAR_THETA_CORRECTION = -4,763642 [deg]
+Person:  31 - Correct Person:  31 - Tested: 212 - Correct: 206 - Confidence: 0,94 - Hit Percent: 97,17
+97,17
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-005-6.raw
+Eyes:[154,150][210,149] - Nose:[181,113] - Mouth:[183,087]
+LOG_POLAR_SCALE_FACTOR = 0,915007 [], LOG_POLAR_THETA_CORRECTION = -1,591140 [deg]
+Person:  31 - Correct Person:  31 - Tested: 213 - Correct: 207 - Confidence: 0,98 - Hit Percent: 97,18
+97,18
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-005-14.raw
+Eyes:[160,147][215,148] - Nose:[185,110] - Mouth:[188,083]
+LOG_POLAR_SCALE_FACTOR = 0,898673 [], LOG_POLAR_THETA_CORRECTION = -3,094058 [deg]
+Person:  31 - Correct Person:  31 - Tested: 214 - Correct: 208 - Confidence: 0,98 - Hit Percent: 97,20
+97,20
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-005-16.raw
+Eyes:[162,146][217,145] - Nose:[188,108] - Mouth:[190,081]
+LOG_POLAR_SCALE_FACTOR = 0,898673 [], LOG_POLAR_THETA_CORRECTION = -1,548158 [deg]
+Person:  31 - Correct Person:  31 - Tested: 215 - Correct: 209 - Confidence: 1,00 - Hit Percent: 97,21
+97,21
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-005-17.raw
+Eyes:[168,150][226,150] - Nose:[198,120] - Mouth:[196,081]
+LOG_POLAR_SCALE_FACTOR = 0,947535 [], LOG_POLAR_THETA_CORRECTION = 1,909153 [deg]
+Person:  26 - Correct Person:  31 - Tested: 216 - Correct: 209 - Confidence: 0,16 - Hit Percent: 96,76 ***
+96,76
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-005-18.raw
+Eyes:[160,144][217,145] - Nose:[187,105] - Mouth:[189,079]
+LOG_POLAR_SCALE_FACTOR = 0,931341 [], LOG_POLAR_THETA_CORRECTION = -1,468801 [deg]
+Person:  31 - Correct Person:  31 - Tested: 217 - Correct: 210 - Confidence: 1,00 - Hit Percent: 96,77
+96,77
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-012-1.raw
+Eyes:[183,153][233,152] - Nose:[209,126] - Mouth:[206,099]
+LOG_POLAR_SCALE_FACTOR = 0,817004 [], LOG_POLAR_THETA_CORRECTION = 2,202598 [deg]
+Person:  32 - Correct Person:  32 - Tested: 218 - Correct: 211 - Confidence: 0,90 - Hit Percent: 96,79
+96,79
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-012-4.raw
+Eyes:[182,145][233,143] - Nose:[209,122] - Mouth:[205,077]
+LOG_POLAR_SCALE_FACTOR = 0,833817 [], LOG_POLAR_THETA_CORRECTION = 5,194429 [deg]
+Person:  32 - Correct Person:  32 - Tested: 219 - Correct: 212 - Confidence: 0,31 - Hit Percent: 96,80
+96,80
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-012-6.raw
+Eyes:[181,153][233,151] - Nose:[208,127] - Mouth:[207,098]
+LOG_POLAR_SCALE_FACTOR = 0,850142 [], LOG_POLAR_THETA_CORRECTION = 2,290610 [deg]
+Person:  32 - Correct Person:  32 - Tested: 220 - Correct: 213 - Confidence: 0,71 - Hit Percent: 96,82
+96,82
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-012-7.raw
+Eyes:[180,154][231,152] - Nose:[207,128] - Mouth:[205,099]
+LOG_POLAR_SCALE_FACTOR = 0,833817 [], LOG_POLAR_THETA_CORRECTION = 4,573921 [deg]
+Person:  32 - Correct Person:  32 - Tested: 221 - Correct: 214 - Confidence: 0,94 - Hit Percent: 96,83
+96,83
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-012-14.raw
+Eyes:[172,157][225,156] - Nose:[199,128] - Mouth:[196,099]
+LOG_POLAR_SCALE_FACTOR = 0,866005 [], LOG_POLAR_THETA_CORRECTION = 2,045409 [deg]
+Person:  32 - Correct Person:  32 - Tested: 222 - Correct: 215 - Confidence: 1,00 - Hit Percent: 96,85
+96,85
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-012-16.raw
+Eyes:[182,142][235,136] - Nose:[204,100] - Mouth:[199,076]
+LOG_POLAR_SCALE_FACTOR = 0,871381 [], LOG_POLAR_THETA_CORRECTION = -5,856014 [deg]
+Person:  32 - Correct Person:  32 - Tested: 223 - Correct: 216 - Confidence: 0,41 - Hit Percent: 96,86
+96,86
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-012-19.raw
+Eyes:[171,162][223,162] - Nose:[198,134] - Mouth:[196,106]
+LOG_POLAR_SCALE_FACTOR = 0,849514 [], LOG_POLAR_THETA_CORRECTION = 2,045409 [deg]
+Person:  32 - Correct Person:  32 - Tested: 224 - Correct: 217 - Confidence: 1,00 - Hit Percent: 96,88
+96,88
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-014-2.raw
+Eyes:[169,163][219,164] - Nose:[197,132] - Mouth:[197,106]
+LOG_POLAR_SCALE_FACTOR = 0,817004 [], LOG_POLAR_THETA_CORRECTION = 5,527540 [deg]
+Person:  33 - Correct Person:  33 - Tested: 225 - Correct: 218 - Confidence: 0,94 - Hit Percent: 96,89
+96,89
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-014-5.raw
+Eyes:[167,156][218,154] - Nose:[193,123] - Mouth:[192,098]
+LOG_POLAR_SCALE_FACTOR = 0,833817 [], LOG_POLAR_THETA_CORRECTION = 1,789911 [deg]
+Person:  33 - Correct Person:  33 - Tested: 226 - Correct: 219 - Confidence: 0,88 - Hit Percent: 96,90
+96,90
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-014-14.raw
+Eyes:[153,162][205,164] - Nose:[182,130] - Mouth:[182,105]
+LOG_POLAR_SCALE_FACTOR = 0,850142 [], LOG_POLAR_THETA_CORRECTION = 5,194429 [deg]
+Person:  33 - Correct Person:  33 - Tested: 227 - Correct: 220 - Confidence: 1,00 - Hit Percent: 96,92
+96,92
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-014-15.raw
+Eyes:[152,163][203,165] - Nose:[182,130] - Mouth:[181,107]
+LOG_POLAR_SCALE_FACTOR = 0,833817 [], LOG_POLAR_THETA_CORRECTION = 8,365886 [deg]
+Person:  33 - Correct Person:  33 - Tested: 228 - Correct: 221 - Confidence: 0,88 - Hit Percent: 96,93
+96,93
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-014-17.raw
+Eyes:[157,155][208,156] - Nose:[188,123] - Mouth:[183,090]
+LOG_POLAR_SCALE_FACTOR = 0,833337 [], LOG_POLAR_THETA_CORRECTION = 10,619655 [deg]
+Person:  33 - Correct Person:  33 - Tested: 229 - Correct: 222 - Confidence: 0,61 - Hit Percent: 96,94
+96,94
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-014-18.raw
+Eyes:[152,162][203,161] - Nose:[182,129] - Mouth:[180,102]
+LOG_POLAR_SCALE_FACTOR = 0,833337 [], LOG_POLAR_THETA_CORRECTION = 8,880659 [deg]
+Person:  33 - Correct Person:  33 - Tested: 230 - Correct: 223 - Confidence: 0,59 - Hit Percent: 96,96
+96,96
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-014-19.raw
+Eyes:[149,160][203,161] - Nose:[179,126] - Mouth:[178,100]
+LOG_POLAR_SCALE_FACTOR = 0,882339 [], LOG_POLAR_THETA_CORRECTION = 5,042451 [deg]
+Person:  33 - Correct Person:  33 - Tested: 231 - Correct: 224 - Confidence: 1,00 - Hit Percent: 96,97
+96,97
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-018-1.raw
+Eyes:[159,156][211,152] - Nose:[181,126] - Mouth:[179,100]
+LOG_POLAR_SCALE_FACTOR = 0,852024 [], LOG_POLAR_THETA_CORRECTION = -8,130103 [deg]
+Person:  34 - Correct Person:  34 - Tested: 232 - Correct: 225 - Confidence: 0,92 - Hit Percent: 96,98
+96,98
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-018-4.raw
+Eyes:[150,154][204,153] - Nose:[174,132] - Mouth:[175,096]
+LOG_POLAR_SCALE_FACTOR = 0,882339 [], LOG_POLAR_THETA_CORRECTION = -8,130103 [deg]
+Person:  34 - Correct Person:  34 - Tested: 233 - Correct: 226 - Confidence: 0,41 - Hit Percent: 97,00
+97,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-018-14.raw
+Eyes:[159,156][210,153] - Nose:[184,130] - Mouth:[182,104]
+LOG_POLAR_SCALE_FACTOR = 0,834617 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+Person:  34 - Correct Person:  34 - Tested: 234 - Correct: 227 - Confidence: 0,90 - Hit Percent: 97,01
+97,01
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-018-15.raw
+Eyes:[164,156][216,153] - Nose:[186,129] - Mouth:[185,101]
+LOG_POLAR_SCALE_FACTOR = 0,850926 [], LOG_POLAR_THETA_CORRECTION = -9,090277 [deg]
+Person:  34 - Correct Person:  34 - Tested: 235 - Correct: 228 - Confidence: 0,88 - Hit Percent: 97,02
+97,02
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-018-16.raw
+Eyes:[163,147][213,142] - Nose:[187,115] - Mouth:[186,090]
+LOG_POLAR_SCALE_FACTOR = 0,820914 [], LOG_POLAR_THETA_CORRECTION = -1,974934 [deg]
+Person:  15 - Correct Person:  34 - Tested: 236 - Correct: 228 - Confidence: 0,18 - Hit Percent: 96,61 ***
+96,61
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-018-17.raw
+Eyes:[162,138][215,138] - Nose:[186,111] - Mouth:[184,079]
+LOG_POLAR_SCALE_FACTOR = 0,865851 [], LOG_POLAR_THETA_CORRECTION = -4,236395 [deg]
+Person:  34 - Correct Person:  34 - Tested: 237 - Correct: 229 - Confidence: 0,71 - Hit Percent: 96,62
+96,62
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-018-20.raw
+Eyes:[162,156][213,153] - Nose:[186,129] - Mouth:[186,101]
+LOG_POLAR_SCALE_FACTOR = 0,834617 [], LOG_POLAR_THETA_CORRECTION = -2,290610 [deg]
+Person:  34 - Correct Person:  34 - Tested: 238 - Correct: 230 - Confidence: 1,00 - Hit Percent: 96,64
+96,64
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-019-4.raw
+Eyes:[163,139][213,143] - Nose:[188,116] - Mouth:[190,087]
+LOG_POLAR_SCALE_FACTOR = 0,819450 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+Person:  35 - Correct Person:  35 - Tested: 239 - Correct: 231 - Confidence: 0,71 - Hit Percent: 96,65
+96,65
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-019-6.raw
+Eyes:[168,148][218,149] - Nose:[191,122] - Mouth:[194,098]
+LOG_POLAR_SCALE_FACTOR = 0,817004 [], LOG_POLAR_THETA_CORRECTION = -4,398706 [deg]
+Person:  35 - Correct Person:  35 - Tested: 240 - Correct: 232 - Confidence: 0,88 - Hit Percent: 96,67
+96,67
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-019-15.raw
+Eyes:[165,140][218,144] - Nose:[192,113] - Mouth:[194,091]
+LOG_POLAR_SCALE_FACTOR = 0,868313 [], LOG_POLAR_THETA_CORRECTION = 1,974934 [deg]
+Person:  35 - Correct Person:  35 - Tested: 241 - Correct: 233 - Confidence: 0,98 - Hit Percent: 96,68
+96,68
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-019-16.raw
+Eyes:[168,138][221,139] - Nose:[193,109] - Mouth:[195,086]
+LOG_POLAR_SCALE_FACTOR = 0,866005 [], LOG_POLAR_THETA_CORRECTION = -1,974934 [deg]
+Person:  35 - Correct Person:  35 - Tested: 242 - Correct: 234 - Confidence: 1,00 - Hit Percent: 96,69
+96,69
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-019-17.raw
+Eyes:[168,141][218,146] - Nose:[193,121] - Mouth:[194,085]
+LOG_POLAR_SCALE_FACTOR = 0,820914 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+Person:  35 - Correct Person:  35 - Tested: 243 - Correct: 235 - Confidence: 0,63 - Hit Percent: 96,71
+96,71
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-019-19.raw
+Eyes:[168,142][220,142] - Nose:[194,114] - Mouth:[197,089]
+LOG_POLAR_SCALE_FACTOR = 0,849514 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+Person:  35 - Correct Person:  35 - Tested: 244 - Correct: 236 - Confidence: 0,94 - Hit Percent: 96,72
+96,72
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-019-20.raw
+Eyes:[167,143][218,143] - Nose:[192,115] - Mouth:[194,090]
+LOG_POLAR_SCALE_FACTOR = 0,833177 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+Person:  35 - Correct Person:  35 - Tested: 245 - Correct: 237 - Confidence: 0,96 - Hit Percent: 96,73
+96,73
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-024-1.raw
+Eyes:[158,161][211,158] - Nose:[186,136] - Mouth:[185,106]
+LOG_POLAR_SCALE_FACTOR = 0,867237 [], LOG_POLAR_THETA_CORRECTION = 4,969741 [deg]
+Person:  36 - Correct Person:  36 - Tested: 246 - Correct: 238 - Confidence: 0,37 - Hit Percent: 96,75
+96,75
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-024-4.raw
+Eyes:[166,154][222,152] - Nose:[195,131] - Mouth:[193,091]
+LOG_POLAR_SCALE_FACTOR = 0,915444 [], LOG_POLAR_THETA_CORRECTION = 2,602562 [deg]
+Person:  36 - Correct Person:  36 - Tested: 247 - Correct: 239 - Confidence: 0,29 - Hit Percent: 96,76
+96,76
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-024-14.raw
+Eyes:[172,157][224,153] - Nose:[201,127] - Mouth:[200,103]
+LOG_POLAR_SCALE_FACTOR = 0,852024 [], LOG_POLAR_THETA_CORRECTION = 6,115504 [deg]
+Person:  36 - Correct Person:  36 - Tested: 248 - Correct: 240 - Confidence: 0,84 - Hit Percent: 96,77
+96,77
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-024-16.raw
+Eyes:[165,148][220,148] - Nose:[193,115] - Mouth:[193,092]
+LOG_POLAR_SCALE_FACTOR = 0,898524 [], LOG_POLAR_THETA_CORRECTION = 1,735705 [deg]
+Person:  36 - Correct Person:  36 - Tested: 249 - Correct: 241 - Confidence: 0,67 - Hit Percent: 96,79
+96,79
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-024-17.raw
+Eyes:[189,159][239,157] - Nose:[214,136] - Mouth:[211,098]
+LOG_POLAR_SCALE_FACTOR = 0,817493 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+Person:  36 - Correct Person:  36 - Tested: 250 - Correct: 242 - Confidence: 0,22 - Hit Percent: 96,80
+96,80
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-024-18.raw
+Eyes:[163,153][217,154] - Nose:[190,125] - Mouth:[190,097]
+LOG_POLAR_SCALE_FACTOR = 0,882339 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+Person:  36 - Correct Person:  36 - Tested: 251 - Correct: 243 - Confidence: 0,86 - Hit Percent: 96,81
+96,81
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-024-20.raw
+Eyes:[159,151][217,151] - Nose:[187,123] - Mouth:[188,094]
+LOG_POLAR_SCALE_FACTOR = 0,947535 [], LOG_POLAR_THETA_CORRECTION = -2,045409 [deg]
+Person:  36 - Correct Person:  36 - Tested: 252 - Correct: 244 - Confidence: 1,00 - Hit Percent: 96,83
+96,83
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-025-2.raw
+Eyes:[175,150][233,151] - Nose:[205,119] - Mouth:[206,095]
+LOG_POLAR_SCALE_FACTOR = 0,947676 [], LOG_POLAR_THETA_CORRECTION = 1,847610 [deg]
+Person:  37 - Correct Person:  37 - Tested: 253 - Correct: 245 - Confidence: 0,80 - Hit Percent: 96,84
+96,84
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-025-3.raw
+Eyes:[169,141][227,141] - Nose:[199,105] - Mouth:[201,085]
+LOG_POLAR_SCALE_FACTOR = 0,947535 [], LOG_POLAR_THETA_CORRECTION = 1,591140 [deg]
+Person:  37 - Correct Person:  37 - Tested: 254 - Correct: 246 - Confidence: 0,92 - Hit Percent: 96,85
+96,85
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-025-5.raw
+Eyes:[170,148][227,148] - Nose:[198,113] - Mouth:[197,092]
+LOG_POLAR_SCALE_FACTOR = 0,931198 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+Person:  37 - Correct Person:  37 - Tested: 255 - Correct: 247 - Confidence: 0,96 - Hit Percent: 96,86
+96,86
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-025-6.raw
+Eyes:[169,150][224,150] - Nose:[197,116] - Mouth:[203,093]
+LOG_POLAR_SCALE_FACTOR = 0,898524 [], LOG_POLAR_THETA_CORRECTION = 1,684684 [deg]
+Person:  37 - Correct Person:  37 - Tested: 256 - Correct: 248 - Confidence: 1,00 - Hit Percent: 96,88
+96,88
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-025-7.raw
+Eyes:[171,148][227,147] - Nose:[198,114] - Mouth:[198,090]
+LOG_POLAR_SCALE_FACTOR = 0,915007 [], LOG_POLAR_THETA_CORRECTION = -1,735705 [deg]
+Person:  37 - Correct Person:  37 - Tested: 257 - Correct: 249 - Confidence: 0,96 - Hit Percent: 96,89
+96,89
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-025-14.raw
+Eyes:[167,156][226,155] - Nose:[197,122] - Mouth:[202,099]
+LOG_POLAR_SCALE_FACTOR = 0,964010 [], LOG_POLAR_THETA_CORRECTION = 1,735705 [deg]
+Person:  37 - Correct Person:  37 - Tested: 258 - Correct: 250 - Confidence: 1,00 - Hit Percent: 96,90
+96,90
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-025-15.raw
+Eyes:[160,153][217,159] - Nose:[190,122] - Mouth:[196,100]
+LOG_POLAR_SCALE_FACTOR = 0,936343 [], LOG_POLAR_THETA_CORRECTION = 3,366461 [deg]
+Person:  37 - Correct Person:  37 - Tested: 259 - Correct: 251 - Confidence: 0,96 - Hit Percent: 96,91
+96,91
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-028-2.raw
+Eyes:[161,143][217,148] - Nose:[195,108] - Mouth:[194,082]
+LOG_POLAR_SCALE_FACTOR = 0,918500 [], LOG_POLAR_THETA_CORRECTION = 9,211026 [deg]
+Person:  38 - Correct Person:  38 - Tested: 260 - Correct: 252 - Confidence: 1,00 - Hit Percent: 96,92
+96,92
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-028-3.raw
+Eyes:[162,133][219,135] - Nose:[195,092] - Mouth:[194,066]
+LOG_POLAR_SCALE_FACTOR = 0,931771 [], LOG_POLAR_THETA_CORRECTION = 6,788975 [deg]
+Person:  38 - Correct Person:  38 - Tested: 261 - Correct: 253 - Confidence: 0,55 - Hit Percent: 96,93
+96,93
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-028-5.raw
+Eyes:[156,145][214,148] - Nose:[186,112] - Mouth:[184,084]
+LOG_POLAR_SCALE_FACTOR = 0,948801 [], LOG_POLAR_THETA_CORRECTION = 1,684684 [deg]
+Person:  10 - Correct Person:  38 - Tested: 262 - Correct: 253 - Confidence: 0,27 - Hit Percent: 96,56 ***
+96,56
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-028-7.raw
+Eyes:[154,142][210,145] - Nose:[185,107] - Mouth:[185,081]
+LOG_POLAR_SCALE_FACTOR = 0,916173 [], LOG_POLAR_THETA_CORRECTION = 4,763642 [deg]
+Person:  38 - Correct Person:  38 - Tested: 263 - Correct: 254 - Confidence: 0,57 - Hit Percent: 96,58
+96,58
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-028-17.raw
+Eyes:[173,138][230,141] - Nose:[204,103] - Mouth:[200,070]
+LOG_POLAR_SCALE_FACTOR = 0,932487 [], LOG_POLAR_THETA_CORRECTION = 4,763642 [deg]
+Person:  38 - Correct Person:  38 - Tested: 264 - Correct: 255 - Confidence: 0,80 - Hit Percent: 96,59
+96,59
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-028-18.raw
+Eyes:[174,152][231,152] - Nose:[205,117] - Mouth:[203,090]
+LOG_POLAR_SCALE_FACTOR = 0,931198 [], LOG_POLAR_THETA_CORRECTION = 4,899093 [deg]
+Person:  38 - Correct Person:  38 - Tested: 265 - Correct: 256 - Confidence: 1,00 - Hit Percent: 96,60
+96,60
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-028-19.raw
+Eyes:[169,150][228,150] - Nose:[200,115] - Mouth:[199,090]
+LOG_POLAR_SCALE_FACTOR = 0,963872 [], LOG_POLAR_THETA_CORRECTION = 3,270488 [deg]
+Person:  38 - Correct Person:  38 - Tested: 266 - Correct: 257 - Confidence: 1,00 - Hit Percent: 96,62
+96,62
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-030-2.raw
+Eyes:[159,161][218,160] - Nose:[194,123] - Mouth:[191,099]
+LOG_POLAR_SCALE_FACTOR = 0,964010 [], LOG_POLAR_THETA_CORRECTION = 9,211026 [deg]
+Person:  39 - Correct Person:  39 - Tested: 267 - Correct: 258 - Confidence: 0,31 - Hit Percent: 96,63
+96,63
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-030-3.raw
+Eyes:[151,152][211,154] - Nose:[185,112] - Mouth:[183,089]
+LOG_POLAR_SCALE_FACTOR = 0,980753 [], LOG_POLAR_THETA_CORRECTION = 5,572198 [deg]
+Person:  39 - Correct Person:  39 - Tested: 268 - Correct: 259 - Confidence: 0,98 - Hit Percent: 96,64
+96,64
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-030-5.raw
+Eyes:[152,157][211,157] - Nose:[186,118] - Mouth:[186,092]
+LOG_POLAR_SCALE_FACTOR = 0,963872 [], LOG_POLAR_THETA_CORRECTION = 7,305760 [deg]
+Person:  39 - Correct Person:  39 - Tested: 269 - Correct: 260 - Confidence: 0,90 - Hit Percent: 96,65
+96,65
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-030-14.raw
+Eyes:[165,154][226,154] - Nose:[199,116] - Mouth:[195,090]
+LOG_POLAR_SCALE_FACTOR = 0,996545 [], LOG_POLAR_THETA_CORRECTION = 6,009006 [deg]
+Person:  39 - Correct Person:  39 - Tested: 270 - Correct: 261 - Confidence: 0,76 - Hit Percent: 96,67
+96,67
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-030-15.raw
+Eyes:[167,153][226,150] - Nose:[201,114] - Mouth:[196,092]
+LOG_POLAR_SCALE_FACTOR = 0,965117 [], LOG_POLAR_THETA_CORRECTION = 7,696051 [deg]
+Person:  39 - Correct Person:  39 - Tested: 271 - Correct: 262 - Confidence: 0,59 - Hit Percent: 96,68
+96,68
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-030-16.raw
+Eyes:[163,148][223,149] - Nose:[197,108] - Mouth:[196,084]
+LOG_POLAR_SCALE_FACTOR = 0,980344 [], LOG_POLAR_THETA_CORRECTION = 5,710593 [deg]
+Person:  39 - Correct Person:  39 - Tested: 272 - Correct: 263 - Confidence: 0,86 - Hit Percent: 96,69
+96,69
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-030-18.raw
+Eyes:[168,147][227,146] - Nose:[205,109] - Mouth:[201,086]
+LOG_POLAR_SCALE_FACTOR = 0,964010 [], LOG_POLAR_THETA_CORRECTION = 12,200469 [deg]
+Person:  39 - Correct Person:  39 - Tested: 273 - Correct: 264 - Confidence: 0,27 - Hit Percent: 96,70
+96,70
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-031-5.raw
+Eyes:[167,156][217,152] - Nose:[193,126] - Mouth:[195,101]
+LOG_POLAR_SCALE_FACTOR = 0,819450 [], LOG_POLAR_THETA_CORRECTION = 2,045409 [deg]
+Person:  40 - Correct Person:  40 - Tested: 274 - Correct: 265 - Confidence: 0,96 - Hit Percent: 96,72
+96,72
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-031-14.raw
+Eyes:[170,162][220,161] - Nose:[194,132] - Mouth:[195,110]
+LOG_POLAR_SCALE_FACTOR = 0,817004 [], LOG_POLAR_THETA_CORRECTION = -1,974934 [deg]
+Person:  40 - Correct Person:  40 - Tested: 275 - Correct: 266 - Confidence: 0,82 - Hit Percent: 96,73
+96,73
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-031-15.raw
+Eyes:[171,168][219,168] - Nose:[197,139] - Mouth:[197,117]
+LOG_POLAR_SCALE_FACTOR = 0,784167 [], LOG_POLAR_THETA_CORRECTION = 3,945186 [deg]
+Person:  40 - Correct Person:  40 - Tested: 276 - Correct: 267 - Confidence: 0,84 - Hit Percent: 96,74
+96,74
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-031-16.raw
+Eyes:[167,153][218,154] - Nose:[193,118] - Mouth:[194,097]
+LOG_POLAR_SCALE_FACTOR = 0,833337 [], LOG_POLAR_THETA_CORRECTION = 1,636577 [deg]
+Person:  40 - Correct Person:  40 - Tested: 277 - Correct: 268 - Confidence: 0,59 - Hit Percent: 96,75
+96,75
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-031-18.raw
+Eyes:[168,160][218,159] - Nose:[194,129] - Mouth:[193,106]
+LOG_POLAR_SCALE_FACTOR = 0,817004 [], LOG_POLAR_THETA_CORRECTION = 1,909153 [deg]
+Person:  40 - Correct Person:  40 - Tested: 278 - Correct: 269 - Confidence: 0,96 - Hit Percent: 96,76
+96,76
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-031-19.raw
+Eyes:[165,160][214,160] - Nose:[192,129] - Mouth:[191,111]
+LOG_POLAR_SCALE_FACTOR = 0,800503 [], LOG_POLAR_THETA_CORRECTION = 5,527540 [deg]
+Person:  40 - Correct Person:  40 - Tested: 279 - Correct: 270 - Confidence: 1,00 - Hit Percent: 96,77
+96,77
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-031-20.raw
+Eyes:[166,161][217,159] - Nose:[191,131] - Mouth:[190,108]
+LOG_POLAR_SCALE_FACTOR = 0,833817 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+Person:  40 - Correct Person:  40 - Tested: 280 - Correct: 271 - Confidence: 0,73 - Hit Percent: 96,79
+96,79
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-041-2.raw
+Eyes:[160,160][214,161] - Nose:[195,127] - Mouth:[192,103]
+LOG_POLAR_SCALE_FACTOR = 0,882339 [], LOG_POLAR_THETA_CORRECTION = 13,626995 [deg]
+Person:  41 - Correct Person:  41 - Tested: 281 - Correct: 272 - Confidence: 0,73 - Hit Percent: 96,80
+96,80
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-041-3.raw
+Eyes:[156,154][213,157] - Nose:[191,121] - Mouth:[186,097]
+LOG_POLAR_SCALE_FACTOR = 0,932487 [], LOG_POLAR_THETA_CORRECTION = 11,633634 [deg]
+Person:  41 - Correct Person:  41 - Tested: 282 - Correct: 273 - Confidence: 1,00 - Hit Percent: 96,81
+96,81
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-041-4.raw
+Eyes:[152,157][208,159] - Nose:[186,132] - Mouth:[184,103]
+LOG_POLAR_SCALE_FACTOR = 0,915444 [], LOG_POLAR_THETA_CORRECTION = 12,994617 [deg]
+Person:  41 - Correct Person:  41 - Tested: 283 - Correct: 274 - Confidence: 0,98 - Hit Percent: 96,82
+96,82
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-041-5.raw
+Eyes:[151,162][211,162] - Nose:[186,131] - Mouth:[185,107]
+LOG_POLAR_SCALE_FACTOR = 0,980208 [], LOG_POLAR_THETA_CORRECTION = 9,162347 [deg]
+Person:  41 - Correct Person:  41 - Tested: 284 - Correct: 275 - Confidence: 0,76 - Hit Percent: 96,83
+96,83
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-041-15.raw
+Eyes:[157,166][214,166] - Nose:[193,136] - Mouth:[188,111]
+LOG_POLAR_SCALE_FACTOR = 0,931198 [], LOG_POLAR_THETA_CORRECTION = 14,931418 [deg]
+Person:  41 - Correct Person:  41 - Tested: 285 - Correct: 276 - Confidence: 0,94 - Hit Percent: 96,84
+96,84
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-041-18.raw
+Eyes:[159,151][219,150] - Nose:[196,116] - Mouth:[194,091]
+LOG_POLAR_SCALE_FACTOR = 0,980344 [], LOG_POLAR_THETA_CORRECTION = 11,633634 [deg]
+Person:  41 - Correct Person:  41 - Tested: 286 - Correct: 277 - Confidence: 1,00 - Hit Percent: 96,85
+96,85
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-041-19.raw
+Eyes:[156,149][215,150] - Nose:[194,114] - Mouth:[195,088]
+LOG_POLAR_SCALE_FACTOR = 0,964010 [], LOG_POLAR_THETA_CORRECTION = 14,420774 [deg]
+Person:  41 - Correct Person:  41 - Tested: 287 - Correct: 278 - Confidence: 1,00 - Hit Percent: 96,86
+96,86
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-042-1.raw
+Eyes:[171,151][224,155] - Nose:[195,119] - Mouth:[198,090]
+LOG_POLAR_SCALE_FACTOR = 0,868313 [], LOG_POLAR_THETA_CORRECTION = -3,366461 [deg]
+Person:  42 - Correct Person:  42 - Tested: 288 - Correct: 279 - Confidence: 0,86 - Hit Percent: 96,88
+96,88
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-042-2.raw
+Eyes:[173,153][228,156] - Nose:[198,122] - Mouth:[206,098]
+LOG_POLAR_SCALE_FACTOR = 0,899860 [], LOG_POLAR_THETA_CORRECTION = -3,576334 [deg]
+Person:  42 - Correct Person:  42 - Tested: 289 - Correct: 280 - Confidence: 0,55 - Hit Percent: 96,89
+96,89
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-042-3.raw
+Eyes:[176,147][231,148] - Nose:[200,112] - Mouth:[205,083]
+LOG_POLAR_SCALE_FACTOR = 0,898673 [], LOG_POLAR_THETA_CORRECTION = -4,899093 [deg]
+Person:  42 - Correct Person:  42 - Tested: 290 - Correct: 281 - Confidence: 0,65 - Hit Percent: 96,90
+96,90
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-042-14.raw
+Eyes:[160,155][215,155] - Nose:[187,121] - Mouth:[191,092]
+LOG_POLAR_SCALE_FACTOR = 0,898524 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+Person:  42 - Correct Person:  42 - Tested: 291 - Correct: 282 - Confidence: 0,98 - Hit Percent: 96,91
+96,91
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-042-15.raw
+Eyes:[158,156][214,158] - Nose:[186,123] - Mouth:[188,093]
+LOG_POLAR_SCALE_FACTOR = 0,915444 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+Person:  42 - Correct Person:  42 - Tested: 292 - Correct: 283 - Confidence: 0,67 - Hit Percent: 96,92
+96,92
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-042-18.raw
+Eyes:[160,156][217,155] - Nose:[187,120] - Mouth:[189,090]
+LOG_POLAR_SCALE_FACTOR = 0,931341 [], LOG_POLAR_THETA_CORRECTION = -1,636577 [deg]
+Person:  42 - Correct Person:  42 - Tested: 293 - Correct: 284 - Confidence: 0,88 - Hit Percent: 96,93
+96,93
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-042-19.raw
+Eyes:[156,155][214,153] - Nose:[183,119] - Mouth:[185,090]
+LOG_POLAR_SCALE_FACTOR = 0,948098 [], LOG_POLAR_THETA_CORRECTION = -3,270488 [deg]
+Person:  42 - Correct Person:  42 - Tested: 294 - Correct: 285 - Confidence: 0,86 - Hit Percent: 96,94
+96,94
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-043-3.raw
+Eyes:[161,154][218,155] - Nose:[188,122] - Mouth:[189,095]
+LOG_POLAR_SCALE_FACTOR = 0,931341 [], LOG_POLAR_THETA_CORRECTION = -1,789911 [deg]
+Person:  43 - Correct Person:  43 - Tested: 295 - Correct: 286 - Confidence: 1,00 - Hit Percent: 96,95
+96,95
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-043-4.raw
+Eyes:[161,156][218,156] - Nose:[191,128] - Mouth:[193,092]
+LOG_POLAR_SCALE_FACTOR = 0,931198 [], LOG_POLAR_THETA_CORRECTION = 4,085617 [deg]
+Person:  43 - Correct Person:  43 - Tested: 296 - Correct: 287 - Confidence: 0,82 - Hit Percent: 96,96
+96,96
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-043-5.raw
+Eyes:[160,156][217,153] - Nose:[187,123] - Mouth:[188,094]
+LOG_POLAR_SCALE_FACTOR = 0,932487 [], LOG_POLAR_THETA_CORRECTION = -1,847610 [deg]
+Person:  43 - Correct Person:  43 - Tested: 297 - Correct: 288 - Confidence: 0,98 - Hit Percent: 96,97
+96,97
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-043-6.raw
+Eyes:[159,155][215,154] - Nose:[186,124] - Mouth:[187,096]
+LOG_POLAR_SCALE_FACTOR = 0,915007 [], LOG_POLAR_THETA_CORRECTION = -1,909153 [deg]
+Person:  43 - Correct Person:  43 - Tested: 298 - Correct: 289 - Confidence: 0,96 - Hit Percent: 96,98
+96,98
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-043-14.raw
+Eyes:[169,155][226,156] - Nose:[199,124] - Mouth:[201,093]
+LOG_POLAR_SCALE_FACTOR = 0,931341 [], LOG_POLAR_THETA_CORRECTION = 3,691386 [deg]
+Person:  43 - Correct Person:  43 - Tested: 299 - Correct: 290 - Confidence: 1,00 - Hit Percent: 96,99
+96,99
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-043-17.raw
+Eyes:[168,152][225,156] - Nose:[197,127] - Mouth:[200,090]
+LOG_POLAR_SCALE_FACTOR = 0,933488 [], LOG_POLAR_THETA_CORRECTION = 2,121096 [deg]
+Person:  43 - Correct Person:  43 - Tested: 300 - Correct: 291 - Confidence: 0,67 - Hit Percent: 97,00
+97,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-043-18.raw
+Eyes:[172,156][231,153] - Nose:[202,124] - Mouth:[200,097]
+LOG_POLAR_SCALE_FACTOR = 0,965117 [], LOG_POLAR_THETA_CORRECTION = 1,909153 [deg]
+Person:  43 - Correct Person:  43 - Tested: 301 - Correct: 292 - Confidence: 0,35 - Hit Percent: 97,01
+97,01
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-044-3.raw
+Eyes:[169,151][227,153] - Nose:[197,113] - Mouth:[197,092]
+LOG_POLAR_SCALE_FACTOR = 0,948098 [], LOG_POLAR_THETA_CORRECTION = -1,468801 [deg]
+Person:  44 - Correct Person:  44 - Tested: 302 - Correct: 293 - Confidence: 0,82 - Hit Percent: 97,02
+97,02
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-044-4.raw
+Eyes:[166,141][229,140] - Nose:[197,108] - Mouth:[198,073]
+LOG_POLAR_SCALE_FACTOR = 1,029348 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+Person:  31 - Correct Person:  44 - Tested: 303 - Correct: 293 - Confidence: 0,08 - Hit Percent: 96,70 ***
+96,70
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-044-6.raw
+Eyes:[167,163][224,162] - Nose:[197,129] - Mouth:[203,102]
+LOG_POLAR_SCALE_FACTOR = 0,931341 [], LOG_POLAR_THETA_CORRECTION = 3,468229 [deg]
+Person:  44 - Correct Person:  44 - Tested: 304 - Correct: 294 - Confidence: 1,00 - Hit Percent: 96,71
+96,71
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-044-15.raw
+Eyes:[151,145][208,142] - Nose:[177,105] - Mouth:[176,083]
+LOG_POLAR_SCALE_FACTOR = 0,932487 [], LOG_POLAR_THETA_CORRECTION = -3,012788 [deg]
+Person:  44 - Correct Person:  44 - Tested: 305 - Correct: 295 - Confidence: 1,00 - Hit Percent: 96,72
+96,72
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-044-17.raw
+Eyes:[153,138][215,139] - Nose:[183,106] - Mouth:[181,071]
+LOG_POLAR_SCALE_FACTOR = 1,013014 [], LOG_POLAR_THETA_CORRECTION = -1,789911 [deg]
+Person:  44 - Correct Person:  44 - Tested: 306 - Correct: 296 - Confidence: 0,80 - Hit Percent: 96,73
+96,73
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-044-19.raw
+Eyes:[152,145][210,140] - Nose:[179,105] - Mouth:[178,080]
+LOG_POLAR_SCALE_FACTOR = 0,951049 [], LOG_POLAR_THETA_CORRECTION = -3,094058 [deg]
+Person:  44 - Correct Person:  44 - Tested: 307 - Correct: 297 - Confidence: 1,00 - Hit Percent: 96,74
+96,74
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-044-20.raw
+Eyes:[150,145][205,143] - Nose:[176,107] - Mouth:[176,081]
+LOG_POLAR_SCALE_FACTOR = 0,899118 [], LOG_POLAR_THETA_CORRECTION = -1,548158 [deg]
+Person:  44 - Correct Person:  44 - Tested: 308 - Correct: 298 - Confidence: 1,00 - Hit Percent: 96,75
+96,75
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-045-1.raw
+Eyes:[157,151][219,150] - Nose:[190,118] - Mouth:[189,092]
+LOG_POLAR_SCALE_FACTOR = 1,013014 [], LOG_POLAR_THETA_CORRECTION = 3,576334 [deg]
+Person:  45 - Correct Person:  45 - Tested: 309 - Correct: 299 - Confidence: 1,00 - Hit Percent: 96,76
+96,76
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-045-2.raw
+Eyes:[157,152][220,150] - Nose:[189,120] - Mouth:[190,090]
+LOG_POLAR_SCALE_FACTOR = 1,029737 [], LOG_POLAR_THETA_CORRECTION = 1,847610 [deg]
+Person:  45 - Correct Person:  45 - Tested: 310 - Correct: 300 - Confidence: 0,80 - Hit Percent: 96,77
+96,77
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-045-15.raw
+Eyes:[164,154][218,147] - Nose:[194,123] - Mouth:[191,095]
+LOG_POLAR_SCALE_FACTOR = 0,889569 [], LOG_POLAR_THETA_CORRECTION = 6,340192 [deg]
+Person:  45 - Correct Person:  45 - Tested: 311 - Correct: 301 - Confidence: 0,41 - Hit Percent: 96,78
+96,78
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-045-16.raw
+Eyes:[160,147][219,148] - Nose:[189,115] - Mouth:[191,091]
+LOG_POLAR_SCALE_FACTOR = 0,964010 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+Person:  45 - Correct Person:  45 - Tested: 312 - Correct: 302 - Confidence: 0,92 - Hit Percent: 96,79
+96,79
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-045-18.raw
+Eyes:[158,151][216,145] - Nose:[187,120] - Mouth:[183,095]
+LOG_POLAR_SCALE_FACTOR = 0,952591 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+Person:  45 - Correct Person:  45 - Tested: 313 - Correct: 303 - Confidence: 0,92 - Hit Percent: 96,81
+96,81
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-045-19.raw
+Eyes:[158,150][216,147] - Nose:[188,119] - Mouth:[190,097]
+LOG_POLAR_SCALE_FACTOR = 0,948801 [], LOG_POLAR_THETA_CORRECTION = 1,974934 [deg]
+Person:  45 - Correct Person:  45 - Tested: 314 - Correct: 304 - Confidence: 1,00 - Hit Percent: 96,82
+96,82
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-045-20.raw
+Eyes:[159,150][220,148] - Nose:[188,119] - Mouth:[187,092]
+LOG_POLAR_SCALE_FACTOR = 0,997081 [], LOG_POLAR_THETA_CORRECTION = -1,909153 [deg]
+Person:  45 - Correct Person:  45 - Tested: 315 - Correct: 305 - Confidence: 0,86 - Hit Percent: 96,83
+96,83
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-046-3.raw
+Eyes:[152,141][206,145] - Nose:[176,102] - Mouth:[184,081]
+LOG_POLAR_SCALE_FACTOR = 0,884604 [], LOG_POLAR_THETA_CORRECTION = -4,184916 [deg]
+Person:  46 - Correct Person:  46 - Tested: 316 - Correct: 306 - Confidence: 0,96 - Hit Percent: 96,84
+96,84
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-046-6.raw
+Eyes:[150,149][199,152] - Nose:[176,114] - Mouth:[181,097]
+LOG_POLAR_SCALE_FACTOR = 0,802002 [], LOG_POLAR_THETA_CORRECTION = 3,179830 [deg]
+Person:  46 - Correct Person:  46 - Tested: 317 - Correct: 307 - Confidence: 0,86 - Hit Percent: 96,85
+96,85
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-046-7.raw
+Eyes:[152,151][202,156] - Nose:[176,116] - Mouth:[180,095]
+LOG_POLAR_SCALE_FACTOR = 0,820914 [], LOG_POLAR_THETA_CORRECTION = -1,548158 [deg]
+Person:  46 - Correct Person:  46 - Tested: 318 - Correct: 308 - Confidence: 1,00 - Hit Percent: 96,86
+96,86
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-046-14.raw
+Eyes:[165,144][217,149] - Nose:[191,109] - Mouth:[195,091]
+LOG_POLAR_SCALE_FACTOR = 0,853432 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+Person:  46 - Correct Person:  46 - Tested: 319 - Correct: 309 - Confidence: 0,92 - Hit Percent: 96,87
+96,87
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-046-15.raw
+Eyes:[162,150][215,149] - Nose:[186,116] - Mouth:[187,092]
+LOG_POLAR_SCALE_FACTOR = 0,866005 [], LOG_POLAR_THETA_CORRECTION = -3,468229 [deg]
+Person:  46 - Correct Person:  46 - Tested: 320 - Correct: 310 - Confidence: 0,94 - Hit Percent: 96,88
+96,88
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-046-17.raw
+Eyes:[166,142][216,142] - Nose:[190,114] - Mouth:[196,084]
+LOG_POLAR_SCALE_FACTOR = 0,816840 [], LOG_POLAR_THETA_CORRECTION = -2,045409 [deg]
+Person:  46 - Correct Person:  46 - Tested: 321 - Correct: 311 - Confidence: 0,57 - Hit Percent: 96,88
+96,88
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-046-19.raw
+Eyes:[164,145][216,146] - Nose:[187,109] - Mouth:[194,088]
+LOG_POLAR_SCALE_FACTOR = 0,849671 [], LOG_POLAR_THETA_CORRECTION = -4,763642 [deg]
+Person:  46 - Correct Person:  46 - Tested: 322 - Correct: 312 - Confidence: 0,96 - Hit Percent: 96,89
+96,89
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-051-5.raw
+Eyes:[164,160][219,164] - Nose:[191,133] - Mouth:[193,106]
+LOG_POLAR_SCALE_FACTOR = 0,900897 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+Person:  47 - Correct Person:  47 - Tested: 323 - Correct: 313 - Confidence: 0,37 - Hit Percent: 96,90
+96,90
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-051-7.raw
+Eyes:[169,159][224,162] - Nose:[196,131] - Mouth:[198,104]
+LOG_POLAR_SCALE_FACTOR = 0,899860 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+Person:  47 - Correct Person:  47 - Tested: 324 - Correct: 314 - Confidence: 0,53 - Hit Percent: 96,91
+96,91
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-051-16.raw
+Eyes:[151,146][204,147] - Nose:[174,109] - Mouth:[174,085]
+LOG_POLAR_SCALE_FACTOR = 0,866005 [], LOG_POLAR_THETA_CORRECTION = -4,635463 [deg]
+Person:  47 - Correct Person:  47 - Tested: 325 - Correct: 315 - Confidence: 1,00 - Hit Percent: 96,92
+96,92
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-051-17.raw
+Eyes:[157,151][209,151] - Nose:[185,125] - Mouth:[183,090]
+LOG_POLAR_SCALE_FACTOR = 0,849514 [], LOG_POLAR_THETA_CORRECTION = 4,398706 [deg]
+Person:  47 - Correct Person:  47 - Tested: 326 - Correct: 316 - Confidence: 0,49 - Hit Percent: 96,93
+96,93
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-051-18.raw
+Eyes:[155,147][208,143] - Nose:[178,112] - Mouth:[174,088]
+LOG_POLAR_SCALE_FACTOR = 0,868313 [], LOG_POLAR_THETA_CORRECTION = -5,194429 [deg]
+Person:  47 - Correct Person:  47 - Tested: 327 - Correct: 317 - Confidence: 0,76 - Hit Percent: 96,94
+96,94
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-051-19.raw
+Eyes:[153,145][206,147] - Nose:[178,113] - Mouth:[178,087]
+LOG_POLAR_SCALE_FACTOR = 0,866467 [], LOG_POLAR_THETA_CORRECTION = -1,735705 [deg]
+Person:  47 - Correct Person:  47 - Tested: 328 - Correct: 318 - Confidence: 0,84 - Hit Percent: 96,95
+96,95
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-051-20.raw
+Eyes:[153,145][208,148] - Nose:[178,114] - Mouth:[177,088]
+LOG_POLAR_SCALE_FACTOR = 0,899860 [], LOG_POLAR_THETA_CORRECTION = -3,576334 [deg]
+Person:  47 - Correct Person:  47 - Tested: 329 - Correct: 319 - Confidence: 0,22 - Hit Percent: 96,96
+96,96
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-053-1.raw
+Eyes:[152,148][205,152] - Nose:[178,120] - Mouth:[180,089]
+LOG_POLAR_SCALE_FACTOR = 0,868313 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+Person:  48 - Correct Person:  48 - Tested: 330 - Correct: 320 - Confidence: 0,98 - Hit Percent: 96,97
+96,97
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-053-2.raw
+Eyes:[152,148][210,151] - Nose:[181,121] - Mouth:[184,091]
+LOG_POLAR_SCALE_FACTOR = 0,948801 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+Person:  48 - Correct Person:  48 - Tested: 331 - Correct: 321 - Confidence: 0,20 - Hit Percent: 96,98
+96,98
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-053-5.raw
+Eyes:[157,150][213,148] - Nose:[184,118] - Mouth:[186,090]
+LOG_POLAR_SCALE_FACTOR = 0,915444 [], LOG_POLAR_THETA_CORRECTION = -1,847610 [deg]
+Person:  48 - Correct Person:  48 - Tested: 332 - Correct: 322 - Confidence: 0,63 - Hit Percent: 96,99
+96,99
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-053-6.raw
+Eyes:[160,150][217,151] - Nose:[189,122] - Mouth:[193,092]
+LOG_POLAR_SCALE_FACTOR = 0,931341 [], LOG_POLAR_THETA_CORRECTION = 2,045409 [deg]
+Person:  48 - Correct Person:  48 - Tested: 333 - Correct: 323 - Confidence: 0,78 - Hit Percent: 97,00
+97,00
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-053-7.raw
+Eyes:[155,151][210,148] - Nose:[180,119] - Mouth:[180,090]
+LOG_POLAR_SCALE_FACTOR = 0,899860 [], LOG_POLAR_THETA_CORRECTION = -3,814075 [deg]
+Person:  48 - Correct Person:  48 - Tested: 334 - Correct: 324 - Confidence: 0,65 - Hit Percent: 97,01
+97,01
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-053-15.raw
+Eyes:[160,147][211,151] - Nose:[188,121] - Mouth:[189,091]
+LOG_POLAR_SCALE_FACTOR = 0,835736 [], LOG_POLAR_THETA_CORRECTION = 6,115504 [deg]
+Person:  48 - Correct Person:  48 - Tested: 335 - Correct: 325 - Confidence: 0,33 - Hit Percent: 97,01
+97,01
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-053-16.raw
+Eyes:[157,148][210,147] - Nose:[183,120] - Mouth:[183,091]
+LOG_POLAR_SCALE_FACTOR = 0,866005 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+Person:  48 - Correct Person:  48 - Tested: 336 - Correct: 326 - Confidence: 0,98 - Hit Percent: 97,02
+97,02
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-055-1.raw
+Eyes:[154,153][215,157] - Nose:[182,119] - Mouth:[183,092]
+LOG_POLAR_SCALE_FACTOR = 0,998685 [], LOG_POLAR_THETA_CORRECTION = -3,179830 [deg]
+Person:  49 - Correct Person:  49 - Tested: 337 - Correct: 327 - Confidence: 0,94 - Hit Percent: 97,03
+97,03
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-055-3.raw
+Eyes:[159,146][220,147] - Nose:[189,108] - Mouth:[191,080]
+LOG_POLAR_SCALE_FACTOR = 0,996679 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+Person:  49 - Correct Person:  49 - Tested: 338 - Correct: 328 - Confidence: 0,96 - Hit Percent: 97,04
+97,04
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-055-5.raw
+Eyes:[159,157][218,156] - Nose:[188,122] - Mouth:[188,096]
+LOG_POLAR_SCALE_FACTOR = 0,964010 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+Person:  49 - Correct Person:  49 - Tested: 339 - Correct: 329 - Confidence: 0,20 - Hit Percent: 97,05
+97,05
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-055-7.raw
+Eyes:[157,156][220,157] - Nose:[187,121] - Mouth:[188,093]
+LOG_POLAR_SCALE_FACTOR = 1,029348 [], LOG_POLAR_THETA_CORRECTION = -1,636577 [deg]
+Person:  49 - Correct Person:  49 - Tested: 340 - Correct: 330 - Confidence: 1,00 - Hit Percent: 97,06
+97,06
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-055-14.raw
+Eyes:[158,158][217,160] - Nose:[187,126] - Mouth:[186,098]
+LOG_POLAR_SCALE_FACTOR = 0,964425 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+Person:  49 - Correct Person:  49 - Tested: 341 - Correct: 331 - Confidence: 0,86 - Hit Percent: 97,07
+97,07
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-055-16.raw
+Eyes:[171,145][229,147] - Nose:[201,106] - Mouth:[199,081]
+LOG_POLAR_SCALE_FACTOR = 0,948098 [], LOG_POLAR_THETA_CORRECTION = 1,432096 [deg]
+Person:  49 - Correct Person:  49 - Tested: 342 - Correct: 332 - Confidence: 0,31 - Hit Percent: 97,08
+97,08
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-055-18.raw
+Eyes:[164,153][220,155] - Nose:[194,121] - Mouth:[195,092]
+LOG_POLAR_SCALE_FACTOR = 0,915444 [], LOG_POLAR_THETA_CORRECTION = 3,468229 [deg]
+Person:  25 - Correct Person:  49 - Tested: 343 - Correct: 332 - Confidence: 0,12 - Hit Percent: 96,79 ***
+96,79
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-059-3.raw
+Eyes:[159,136][218,135] - Nose:[187,098] - Mouth:[187,076]
+LOG_POLAR_SCALE_FACTOR = 0,964010 [], LOG_POLAR_THETA_CORRECTION = -1,548158 [deg]
+Person:  50 - Correct Person:  50 - Tested: 344 - Correct: 333 - Confidence: 0,98 - Hit Percent: 96,80
+96,80
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-059-4.raw
+Eyes:[167,141][220,142] - Nose:[194,114] - Mouth:[193,081]
+LOG_POLAR_SCALE_FACTOR = 0,866005 [], LOG_POLAR_THETA_CORRECTION = 2,121096 [deg]
+Person:  50 - Correct Person:  50 - Tested: 345 - Correct: 334 - Confidence: 1,00 - Hit Percent: 96,81
+96,81
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-059-5.raw
+Eyes:[162,144][221,143] - Nose:[190,115] - Mouth:[190,088]
+LOG_POLAR_SCALE_FACTOR = 0,964010 [], LOG_POLAR_THETA_CORRECTION = -2,045409 [deg]
+Person:  44 - Correct Person:  50 - Tested: 346 - Correct: 334 - Confidence: 0,39 - Hit Percent: 96,53 ***
+96,53
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-059-15.raw
+Eyes:[168,156][225,155] - Nose:[196,122] - Mouth:[194,097]
+LOG_POLAR_SCALE_FACTOR = 0,931341 [], LOG_POLAR_THETA_CORRECTION = 0,000000 [deg]
+Person:  50 - Correct Person:  50 - Tested: 347 - Correct: 335 - Confidence: 1,00 - Hit Percent: 96,54
+96,54
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-059-18.raw
+Eyes:[162,154][221,153] - Nose:[193,121] - Mouth:[192,096]
+LOG_POLAR_SCALE_FACTOR = 0,964010 [], LOG_POLAR_THETA_CORRECTION = 3,576334 [deg]
+Person:  50 - Correct Person:  50 - Tested: 348 - Correct: 336 - Confidence: 0,67 - Hit Percent: 96,55
+96,55
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-059-19.raw
+Eyes:[161,150][220,151] - Nose:[192,117] - Mouth:[193,091]
+LOG_POLAR_SCALE_FACTOR = 0,964010 [], LOG_POLAR_THETA_CORRECTION = 3,468229 [deg]
+Person:  50 - Correct Person:  50 - Tested: 349 - Correct: 337 - Confidence: 0,82 - Hit Percent: 96,56
+96,56
+FileName: /home/hallysson/img/ARDataBase/ARPhotoDataBase/w-059-20.raw
+Eyes:[164,150][224,148] - Nose:[195,116] - Mouth:[193,089]
+LOG_POLAR_SCALE_FACTOR = 0,980753 [], LOG_POLAR_THETA_CORRECTION = 1,735705 [deg]
+Person:  14 - Correct Person:  50 - Tested: 350 - Correct: 337 - Confidence: 0,20 - Hit Percent: 96,29 ***
+96,29

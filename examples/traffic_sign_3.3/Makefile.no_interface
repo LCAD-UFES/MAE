@@ -1,0 +1,51 @@
+LIBMAE =-L$(MAEHOME)/lib
+LIBPATH =-L/usr/local/lib -L/usr/X11R6/lib $(LIBMAE)
+AR = ar
+ARFLAGS = -rc
+CC=gcc
+CCFLAGS=-D NO_INTERFACE -O3 -Wall -fopenmp
+LIBRARYS=-lnet_conn -lforms -lGA -lX11 -lglut -lGLU -lGL -lm -lfl
+
+##########################################################
+
+EXECUTABLE = traffic_sign
+LIBRARY = libtraffic_sign.a
+OBJECTS = traffic_sign.o \
+	  traffic_sign_user_functions/traffic_sign_user_functions.o \
+	  traffic_sign_user_functions/traffic_sign_filters.o \
+	  traffic_sign_user_functions/traffic_sign_utils.o
+
+##########################################################
+
+.c.o:
+	@echo OK
+	$(CC) $(CCFLAGS) -c -I$(MAEHOME)/include -o $@ $*.c
+
+##########################################################
+
+build: $(EXECUTABLE) $(LIBRARY)
+	@echo OK
+
+$(EXECUTABLE): $(OBJECTS)
+	$(CC) $(CCFLAGS) -o $(EXECUTABLE) $(OBJECTS) $(LIBPATH) $(LIBRARYS)
+
+$(LIBRARY): $(OBJECTS)
+	$(AR) $(ARFLAGS) $(LIBRARY) $(OBJECTS)
+	ranlib $(LIBRARY) 
+
+##########################################################
+
+traffic_sign_user_functions.o : ../traffic_sign.h
+
+##########################################################
+
+traffic_sign.o:
+	$(MAEHOME)/bin/netcomp -o $* < $*.con	
+	$(CC) $(CCFLAGS) -c -I$(MAEHOME)/include -o $@ $*.c
+
+##########################################################
+clean:
+	rm -f *.o traffic_sign_user_functions/*.o
+	rm -f traffic_sign traffic_sign.c traffic_sign.h
+	rm -f *.out
+	rm -f $(LIBRARY)

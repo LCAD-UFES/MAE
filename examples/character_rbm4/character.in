@@ -1,0 +1,4 @@
+/dados/MNIST/train-images-idx3-ubyte
+/dados/MNIST/train-labels-idx1-ubyte
+/dados/MNIST/t10k-images-idx3-ubyte
+/dados/MNIST/t10k-labels-idx1-ubyte  

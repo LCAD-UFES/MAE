@@ -1,0 +1,15 @@
+nc_input 4 25
+nc_program_input1 310 202
+nc_program_input2 616 202
+nc_function_input1 310 379
+nc_function_input2 616 379
+nc_command_input1 310 556
+nc_command_input2 616 556
+nc_sensors_input1 973 384
+nc_image_memory_input 974 597
+nc_program_out 4 202
+nc_function_out 4 379
+nc_command_out 4 556
+nc_sensors_out 973 560
+nc_image_memory_out 974 203
+mae_control_window 708 47

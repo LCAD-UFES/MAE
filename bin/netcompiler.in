@@ -1,0 +1,35 @@
+#!/bin/csh
+
+set LIBMAE = ( -L{$MAEHOME}/lib )
+set LIBPATH = ( @LIBCONF@ {$LIBMAE} )
+
+if ((-e $1.con) && (-r $1.con)) then
+	echo $MAEHOME/bin/netcomp -o $1 < $1.con
+	$MAEHOME/bin/netcomp -o $1 < $1.con
+	if ($status) exit 1
+	echo @CC@ @CFLAGSNET@ -c -I{$MAEHOME}/include $1.c
+	@CC@ @CFLAGSNET@ -c -I{$MAEHOME}/include $1.c
+	if ($status) exit 1
+
+	if ((-d $1_user_functions) && (-r $1_user_functions)) then
+		cd $1_user_functions
+		foreach ARQ ( `ls  *.c` )
+			echo @CC@ @CFLAGSNET@ -c -I{$MAEHOME}/include $ARQ
+			@CC@ @CFLAGSNET@ -c -I{$MAEHOME}/include $ARQ
+			if ($status) exit 1
+		end
+		cd ..
+		echo @CC@ @CFLAGSNET@ -o $1 -I{$MAEHOME}/include $1.o $1_user_functions/*.o $LIBPATH @LIBS@
+		@CC@ @CFLAGSNET@ -o $1 -I{$MAEHOME}/include $1.o $1_user_functions/*.o $LIBPATH @LIBS@
+		if ($status) exit 1
+		echo OK.
+	else
+		echo @CC@ @CFLAGSNET@ -o $1 -I{$MAEHOME}/include $1.o $LIBPATH @LIBS@
+		@CC@ @CFLAGSNET@ -o $1 -I{$MAEHOME}/include $1.o $LIBPATH @LIBS@
+		if ($status) exit 1
+		echo OK.
+	endif
+else
+	echo erro: file $1.con not found or without read permition
+	exit 1
+endif

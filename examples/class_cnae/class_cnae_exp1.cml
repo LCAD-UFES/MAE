@@ -1,0 +1,61 @@
+/******************************************/
+
+/* Network Status */
+int TRAINING_PHASE;
+TRAINING_PHASE = 1;
+int RECALL_PHASE;
+RECALL_PHASE = 2;
+
+/* Database identifiers */
+int CNAE_TABLE_ID;
+int OBJETOS_SOCIAIS_ID;
+CNAE_TABLE_ID = 0; 	/* Must be equal to that specified in the class_cnae.con */
+OBJETOS_SOCIAIS_ID = 1;	/* Must be equal to that specified in the class_cnae.con */
+
+/* Database sizes */
+int CNAE_TABLE_SIZE; 		
+CNAE_TABLE_SIZE = 764;
+
+int NUMBER_OF_OBJETOS_SOCIAIS;
+NUMBER_OF_OBJETOS_SOCIAIS = 3264;
+
+/******************************************/
+
+/* Counters */
+int i;
+
+ResetStatistics (0);
+
+/* Training Phase */
+SetNetworkStatus (TRAINING_PHASE);
+
+i = 1;
+while (i <= CNAE_TABLE_SIZE)
+{
+	GetItem (i, CNAE_TABLE_ID);
+	
+	/* Draws the landmark neuron layer output */
+	draw nl_class_cnae_out based on class_cnae move;
+
+	train network;
+	
+	i = i + 1;
+}
+
+	
+/* Testing phase */
+SetNetworkStatus (RECALL_PHASE);
+
+i = 1;
+while (i <= NUMBER_OF_OBJETOS_SOCIAIS)
+{
+	GetItem (i, OBJETOS_SOCIAIS_ID);
+
+	forward network;
+	
+	ShowStatistics (0);
+
+	i = i + 1;
+}
+
+quit;

@@ -1,0 +1,39 @@
+.wp_visual_search
+# Please wait, building network...
+.wp_visual_search
+.wp_visual_search
+.wp_visual_search
+.wp_visual_search
+.wp_visual_search
+.wp_visual_search
+Locale set to C.
+Number of images with traffic signs within criterion = 100
+Image file name: /dados/TrainIJCNN2013/00001.ppm
+33
+Image file name: /dados/TrainIJCNN2013/00219.ppm
+/dados/TrainIJCNN2013/00219.ppm 33
+34
+Image file name: /dados/TrainIJCNN2013/00200.ppm
+/dados/TrainIJCNN2013/00200.ppm 34
+35
+Image file name: /dados/TrainIJCNN2013/00116.ppm
+/dados/TrainIJCNN2013/00116.ppm 35
+36
+Image file name: /dados/TrainIJCNN2013/00043.ppm
+/dados/TrainIJCNN2013/00043.ppm 36
+37
+Image file name: /dados/TrainIJCNN2013/00049.ppm
+/dados/TrainIJCNN2013/00049.ppm 37
+38
+Image file name: /dados/TrainIJCNN2013/00066.ppm
+/dados/TrainIJCNN2013/00066.ppm 38
+39
+Image file name: /dados/TrainIJCNN2013/00159.ppm
+/dados/TrainIJCNN2013/00159.ppm 39
+40
+Image file name: /dados/TrainIJCNN2013/00001.ppm
+/dados/TrainIJCNN2013/00001.ppm 40
+Image file name: /dados/TrainIJCNN2013/00259.ppm
+image = 00259; scale_factor = 0.27344; x =  319; y = 190; confidence = 0.23; T.S. Type = -1; x_g = -001; y_g = -01; width -01; hight -01; MISS
+image = 00259; scale_factor = 0.27344; x =  727; y = 165; confidence = 0.10; T.S. Type = -1; x_g = -001; y_g = -01; width -01; hight -01; MISS
+image = 00259; scale_factor = 0.27344; x = 1079; y = 432; confidence = 0.19; T.S. Type = -1; x_g = -001; y_g = -01; width -01; hight -01; MISS

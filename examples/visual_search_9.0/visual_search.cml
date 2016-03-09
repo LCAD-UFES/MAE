@@ -1,0 +1,70 @@
+/* Persons Number */
+int PERSON_MAX; 		
+PERSON_MAX = 67;
+
+int PHOTOS_PER_PERSON; 		
+PHOTOS_PER_PERSON = 2;
+
+/* Target Coordinates */
+int x;
+int y;
+
+/* Counters */
+int i;
+int j;
+
+key 'P';
+
+/* Training Phase */
+i = 0;
+while (i < 1)
+{
+	j = 0;
+	while (j < PHOTOS_PER_PERSON)
+	{
+		/* Memorize the Target Features */
+		get_target_coordinates(x,y);
+		move in_pattern to x,y;
+		key 'M';
+		
+		/* Move to the Next Photo */ 
+		key 'n';
+		
+		j = j + 1;
+	}
+		
+	i = i + 1;
+}
+
+/* Move to the First Person */ 
+key 'P';
+	
+/* Test Phase */
+i = 0;
+while (i < PERSON_MAX)
+{
+	j = 0;
+	while (j < PHOTOS_PER_PERSON)
+	{
+		/* Move to Default Point */
+		move in_pattern to 100, 100;
+	
+		/* Saccade */
+		key 's';
+
+		/* Report the Partial Error */
+		key 'e';
+	
+		/* Move to the Next Photo */ 
+		key 'n';
+		
+		j = j + 1;
+	}
+	
+	i = i + 1;
+}
+
+/* Report the Final Error */
+key 'E';
+
+quit;

@@ -1,0 +1,65 @@
+################################################ Set Global Variables #################################################
+
+set NEURON_MEMORY_SIZE = 3000;
+
+######################################################## Constants ####################################################
+
+const INPUT_WIDTH 	= 28;
+const INPUT_HEIGHT	= 28;
+
+const NL_WIDTH 		= 64;
+const NL_HEIGHT		= 64;
+
+const OUT_WIDTH		= 32;	#Not used in calibration tests
+const OUT_HEIGHT	= 32;	#Not used in calibration tests
+
+const NL_UNIDIM_SIZE	= 2;
+const SYNAPSES	= 8;
+const GAUSS_RAD	= 1.0;
+
+############################################### Neuron Layers #########################################################
+
+neuronlayer	char_discr[NL_UNIDIM_SIZE][NL_UNIDIM_SIZE] 		of minchinton neurons greyscale sensitive with greyscale outputs;
+neuronlayer	character_scaled[NL_WIDTH][NL_HEIGHT] 		with greyscale outputs;
+neuronlayer	character_gaussian[NL_WIDTH][NL_HEIGHT] 	with greyscale outputs;
+
+############################################### Outputs #########################################################
+
+output		char_discr_out[NL_UNIDIM_SIZE][NL_UNIDIM_SIZE]	handled by output_handler();
+output		character_gaussian_out[NL_WIDTH][NL_HEIGHT];
+
+################################################## Inputs #############################################################
+
+input 		character[INPUT_WIDTH][INPUT_HEIGHT]	with greyscale outputs produced by input_generator("%p", char_discr_out)
+									       controled by input_controler("%p", char_discr_out);
+
+############################################### Filters ###############################################################   
+
+filter 		character 		with scale_and_translate_filter() producing character_scaled;
+filter 		character_scaled	with gaussian_filter("%d %f", 5, 1.0) producing character_gaussian;
+
+################################## Connect Neuron Layers to Outputs #############################################
+
+outputconnect	char_discr		to char_discr_out;
+outputconnect	character_gaussian	to character_gaussian_out;
+
+############################################### Associations ####################################################
+
+associate	char_discr 		with char_discr;
+
+################################################ Connections ####################################################
+
+#connect 	character_gaussian 		to char_discr with SYNAPSES / 2 random inputs per neuron;
+connect 	character_gaussian 		to char_discr with SYNAPSES random inputs per neuron and gaussian distribution with radius GAUSS_RAD;
+#connect 	character_gaussian 		to char_discr with SYNAPSES random inputs per neuron and gaussian distribution with radii 3.0 and 15.0 and angle 45.0;
+#connect 	character_gaussian 		to char_discr with SYNAPSES random inputs per neuron and gaussian distribution with radii 3.0 and 15.0 and angle -45.0;
+#connect 	character_gaussian 		to char_discr with SYNAPSES random inputs per neuron and gaussian distribution with radii 3.0 and 15.0 and angle 0.0;
+#connect 	character_gaussian 		to char_discr with SYNAPSES random inputs per neuron and gaussian distribution with radii 3.0 and 15.0 and angle 90.0;
+
+################################################# User Functions ################################################
+
+int SetNetworkStatus("%d");
+int GetCharOrderN("%d");
+int GetCharN("%d");
+int GetNextChar("");
+int RewindCharInput("");

@@ -1,0 +1,35 @@
+/* Counters */
+int i;
+int NUM_IMAGES;
+
+/* Testing */
+SetCriterion(1); /* NONE */
+
+NUM_IMAGES = GetNumImages(0);
+i = NUM_IMAGES / 2 + 1;
+
+while (i < NUM_IMAGES)
+{
+	GetImage(i);	
+	MoveToTrafficSign(0);
+	key t;
+	
+	#pause;
+
+	MoveToNearTrafficSign(i);
+	key s;
+	CheckTrafficSignDetection(i);
+	
+	#pause;
+	
+	MoveToFarTrafficSign(i);
+	key s;
+	CheckTrafficSignDetection(i);
+	
+	#pause;	
+	
+	key f;
+
+	i = i + 1;
+}
+quit;

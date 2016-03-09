@@ -1,0 +1,64 @@
+################################################ Set Global Variables #################################################
+set NEURON_MEMORY_SIZE = 350;
+set TYPE_SHOW = SHOW_FRAME;
+set TYPE_MOVING_FRAME = STOP;
+
+######################################################## Constants ####################################################
+const NL_SIZE		= {64 128 256};
+const NL_WIDTH 		= NL_SIZE;
+const NL_HEIGHT		= NL_SIZE;
+
+const TOTAL_PERSONS		= 50;
+const OUT_SIZE			= {16 32 64};
+const OUT_WIDTH			= OUT_SIZE;
+const OUT_HEIGHT		= OUT_SIZE;
+const OUT_NEURONS_BY_PERSON	= 3*OUT_WIDTH;
+
+const FOV_HORIZONTAL    = 47.05;
+const LOG_FACTOR	= {2.0 5.0 10.0};
+const CYCLES_PER_DEGREE	= 0.85;
+const BAND_WITH		= 2.0;
+const ASPECT_RATIO	= 1.0;
+const PHASE		= 0.0;
+const SYNAPSES		= {64 128 256};
+const EYE_BASELINE	= 6.5;
+
+const INPUT_PATH	= "/home/hallysson/img/ARDataBase/ARPhotoDataBase/";
+#const INPUT_PATH	= "/dados/DataBaseFaces/ARDataBase/";
+
+############################################### Neuron Layers #########################################################
+neuronlayer	nl_face_recog_lp[NL_WIDTH][NL_WIDTH]	with greyscale_float outputs;
+neuronlayer	nl_landmark[OUT_WIDTH][OUT_HEIGHT]	of minchinton_black_white neurons with greyscale outputs;
+
+############################################### Outputs #########################################################
+output		out_face_recog_lp[NL_WIDTH][NL_WIDTH];
+output		out_landmark[OUT_WIDTH][OUT_HEIGHT] handled by output_handler();
+
+################################################## Inputs #############################################################
+input 		face_recog[384][288]	with color outputs produced by input_generator() controled by input_controler();
+
+############################################### Filters #########################################################
+filter		face_recog		with map_image_v1("%s %f","face_recog", LOG_FACTOR) producing nl_face_recog_lp;
+
+################################## Connect Neuron Layers to Outputs #############################################
+outputconnect	nl_face_recog_lp 	to out_face_recog_lp;
+outputconnect	nl_landmark		to out_landmark;
+
+############################################### Associations ####################################################
+associate	nl_landmark		with	nl_landmark;
+
+################################################ Connections ####################################################
+connect		nl_face_recog_lp	to nl_landmark 	with SYNAPSES random inputs per neuron and gaussian distribution with radius 10.0;
+connect		nl_landmark		to nl_landmark 	with SYNAPSES random inputs per neuron;
+
+################################################ User Functions #################################################
+int GetFace("%d %d %d");
+int GetRandomFace("%d");
+int Move2Eye ("%d");
+int Move2Nose ("%d");
+int Move2Nose2 ("%d %d");
+int Move2Mouth ("%d");
+int ShowStatistics ("%d");
+int ResetStatistics ("%d");
+int SetNetworkStatus ("%d");
+int SetNetworkStatus2 ("%d %d");

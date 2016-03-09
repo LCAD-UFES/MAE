@@ -1,0 +1,29 @@
+This file contains any messages produced by compilers while
+running configure, to aid debugging if configure makes a mistake.
+
+configure:531: checking for gcc
+configure:644: checking whether the C compiler (gcc  ) works
+configure:660: gcc -o conftest    conftest.c  1>&5
+configure:686: checking whether the C compiler (gcc  ) is a cross-compiler
+configure:691: checking whether we are using GNU C
+configure:719: checking whether gcc accepts -g
+configure:753: checking for flex
+configure:787: checking for yywrap in -lfl
+configure:831: checking for ranlib
+configure:863: checking for bison
+configure:895: checking for main in -lfl
+configure:939: checking how to run the C preprocessor
+configure:1023: checking for X
+configure:1257: checking for dirent.h that defines DIR
+configure:1295: checking for opendir in -ldir
+configure:1378: checking for ANSI C header files
+configure:1485: checking for limits.h
+configure:1485: checking for malloc.h
+configure:1485: checking for strings.h
+configure:1485: checking for sys/time.h
+configure:1485: checking for unistd.h
+configure:1536: checking for working const
+configure:1611: checking for size_t
+configure:1695: checking host system type
+configure:1716: checking target system type
+configure:1734: checking build system type

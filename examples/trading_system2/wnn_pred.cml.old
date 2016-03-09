@@ -1,0 +1,82 @@
+int NUM_SAMPLE_GROUPS;
+NUM_SAMPLE_GROUPS = GetNumSampleGroups (0);
+
+int SAMPLE_GROUPS2TEST; 		
+SAMPLE_GROUPS2TEST = 3*60*7/4;
+
+/* SAMPLE_GROUPS to discard after everything. Allows leaving data to the final test. */
+int SAMPLE_GROUPS2DISCARD_AFTER;
+SAMPLE_GROUPS2DISCARD_AFTER = 0;
+
+int SAMPLE_GROUPS2TRAIN; 		
+SAMPLE_GROUPS2TRAIN = 60*7/4;
+
+int SAMPLE_GROUPS2CALIBRATE; 		
+SAMPLE_GROUPS2CALIBRATE = 0;
+
+
+/* Network Status */
+int TRAINING_PHASE;
+TRAINING_PHASE = 1;
+int RECALL_PHASE;
+RECALL_PHASE = 2;
+
+/* Counters */
+int i;
+
+ResetStatistics (0);
+
+/* Training Phase */
+SetNetworkStatus (TRAINING_PHASE);
+i = NUM_SAMPLE_GROUPS - SAMPLE_GROUPS2DISCARD_AFTER - SAMPLE_GROUPS2TEST - SAMPLE_GROUPS2CALIBRATE - SAMPLE_GROUPS2TRAIN;
+while (i < NUM_SAMPLE_GROUPS - SAMPLE_GROUPS2DISCARD_AFTER - SAMPLE_GROUPS2TEST - SAMPLE_GROUPS2CALIBRATE)
+{
+	GetSampleGroup (i);
+	
+	forward network;
+	
+	/* Draws nl_wnn_pred layer output */
+	draw nl_wnn_pred_out based on sample move;
+
+	train network;
+	
+	i = i + 1;
+}
+
+	
+/* Calibrating phase */
+SetNetworkStatus (RECALL_PHASE);
+#i = 0;
+while (i < NUM_SAMPLE_GROUPS - SAMPLE_GROUPS2DISCARD_AFTER - SAMPLE_GROUPS2TEST)
+{
+	GetSampleGroup(i);
+	
+	forward network;
+	
+	/* Draws nl_wnn_pred layer output */
+	draw nl_wnn_pred_out based on sample move;
+	train network;
+	
+	i = i + 1;
+}
+
+	
+/* Testing phase */
+SetNetworkStatus (RECALL_PHASE);
+#i = 0;
+while (i < NUM_SAMPLE_GROUPS - SAMPLE_GROUPS2DISCARD_AFTER)
+{
+	GetSampleGroup(i);
+	
+	forward network;
+	
+	/* Draws nl_wnn_pred layer output */
+	draw nl_wnn_pred_out based on sample move;
+	train network; 
+	
+	i = i + 1;
+}
+
+ShowStatistics (0);
+
+quit; 

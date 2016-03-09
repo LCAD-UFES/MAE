@@ -1,0 +1,109 @@
+/* Counters */
+int i;
+int retrain;
+int numRetrain;
+int numLastRetrained;
+int JustTrained;
+int num_pixels;
+int x;
+int y;
+int x_retrain;
+int y_retrain;
+int best_x;
+int best_y;
+float confidence;
+float best_confidence;
+float confidenceToRetrain;
+float confidenceLevel;
+float scale_factor_in_train;
+float scale_zoom;
+
+i = 0;
+/* Trainning */
+#Treinando com a imagem 0
+GetImage(i);
+MoveToTargetCenter(0);
+key t;
+ForwardVisualSearchNetwork(0);
+
+/* Testing */
+numLastRetrained = -1;
+i = i + 1;
+GetImage(i);
+MoveToTargetCenter(0);
+JustTrained = 1;
+while (i < 8576)
+{
+	GetImage(i);
+	key s;
+
+	x_retrain = GetX(i); 
+	y_retrain = GetY(i);
+	confidence = GetConfidence(0);
+	retrain = EvaluateDetection(0);
+
+	if (JustTrained == 1)
+	{
+		JustTrained = 0;
+		retrain = 0;
+	}
+
+	if (retrain == 1)
+	{
+		numRetrain = ImageToRetrain(0);
+		GetImage(numRetrain);
+		num_pixels = GetNumPixels(0);
+		x_retrain = GetX(numRetrain); 
+		y_retrain = GetY(numRetrain);
+
+		if (x_retrain >= 0 && y_retrain >= 0 && numLastRetrained + 10 < numRetrain)
+		{
+			x = x_retrain - (num_pixels / 2); 
+			y = y_retrain - (num_pixels / 2);
+			best_x = x;
+			best_y = y; 
+			best_confidence = 0.0;
+			confidence = 0.0;
+
+			while (y <= (y_retrain + (num_pixels / 2)))
+			{
+				while (x <= (x_retrain + (num_pixels / 2)))
+				{
+					MoveToPoint(x, y);
+					ForwardVisualSearchNetwork(0);
+					SetImageOrder(i);
+					confidence = GetConfidence(0);
+					if (confidence > best_confidence)
+					{
+						best_x = x;
+						best_y = y;
+						best_confidence = confidence;
+					}
+					x = x + 1;
+				}
+				x = x_retrain - (num_pixels / 2);
+				y = y + 1;
+			}
+
+			confidenceLevel = GetConfidenceLevel(0);
+			if ( best_confidence > confidenceLevel )
+			{
+				MoveToPoint(best_x, best_y);
+				key t;
+				ForwardVisualSearchNetwork(0);
+				JustTrained = 1;
+				numLastRetrained = numRetrain;
+				i = i - 1;
+			}
+		}
+		else
+			CheckTrafficSignDetection(0);
+	}
+	else
+		CheckTrafficSignDetection(0);
+
+	i = i + 1;
+}
+SaveTLDReasultsFile(0);
+quit;
+

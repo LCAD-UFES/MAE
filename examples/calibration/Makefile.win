@@ -1,0 +1,44 @@
+CC=gcc
+CCFLAGS=-Wall -g -D WINDOWS
+DEL=del /F /Q 
+LIBRARYS=-L../../lib -L"C:\Arquivos de Programas\GnuWin32\lib" -lnet_conn -lGA -lStereo -lTsai -lgw32c -lole32 -luuid -lglut32 -lglu32 -lopengl32 -lm -lfl
+INCLUDES=-I../../include -I./ -I../../src/libstereo/include
+LIB_DIR = ..\..\lib
+
+##########################################################
+
+EXECUTABLE = calibration.exe
+OBJECTS = calibration.o \
+	  calibration_user_functions/calibration_user_functions.o \
+	  calibration_user_functions/smv_filters.o
+
+##########################################################
+
+.c.o:
+	$(CC) $(CCFLAGS) -c $(INCLUDES) -o $@ $*.c
+	
+##########################################################
+
+build: $(EXECUTABLE)
+	@echo OK
+
+	
+$(EXECUTABLE): $(OBJECTS)
+	g++ $(CCFLAGS) -o $(EXECUTABLE) $(INCLUDES) $(OBJECTS) $(LIBRARYS)
+
+##########################################################
+
+calibration.o:
+	netcomp -o $* < $*.con
+	$(CC) $(CCFLAGS) -c $(INCLUDES) -o $@ $*.c
+calibration_user_functions/calibration_user_functions.o: calibration_user_functions/calibration_user_functions.h
+calibration_user_functions/smv_filters.o: ../../include/filter.h
+
+##########################################################
+
+clean:
+	$(DEL) calibration.exe
+	$(DEL) calibration.c
+	$(DEL) calibration.h
+	$(DEL) *.o
+	$(DEL) calibration_user_functions\*.o

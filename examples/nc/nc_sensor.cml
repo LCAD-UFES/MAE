@@ -1,0 +1,15 @@
+int i;
+
+i = 1000;
+
+while(i>0)
+
+{
+
+	LoadInputSensor("nc_sensors_input1");
+
+	forward network;
+
+	i = i - 1;
+
+}

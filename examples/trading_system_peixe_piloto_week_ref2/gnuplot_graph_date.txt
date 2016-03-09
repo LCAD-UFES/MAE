@@ -1,0 +1,17 @@
+# Para rodar: gnuplot -persist < gnuplot_graph_date.txt
+
+set datafile separator " "
+set xdata time
+set timefmt "%Y-%m-%d"
+
+#Para plotar uma barra numa (data) ordenada X
+#
+#set arrow from "2010-12-30 17:54:00", graph 0 rto 0, graph 1 lt 63  nohead
+#set label "17:54" at "2010-12-30 17:54:00", graph 0 offset -5
+
+#Para setar range X por datas  e plotar usando data (coluna 1) como X
+#(ver arquivode dados no anexo)
+
+plot ["2010-01-01" : "2011-01-05"] 'capital_evolution2.txt' using 1:2 with lines
+
+

@@ -1,0 +1,3 @@
+load nl_disparity_map from disparity_map;
+load nl_trunk_segmentation_map from segmentation_map;
+	

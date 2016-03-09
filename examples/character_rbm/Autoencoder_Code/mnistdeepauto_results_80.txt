@@ -1,0 +1,404 @@
+Fine-tuning deep autoencoder by minimizing cross entropy error. 
+60 batches of 1000 cases each. 
+Size of the training dataset=   800 
+Size of the test dataset= 10000 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 1 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 2 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 3 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 4 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 5 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 6 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 7 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 8 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 9 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 10 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 11 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 12 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 13 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 14 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 15 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 16 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 17 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 18 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 19 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 20 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 21 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 22 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 23 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 24 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 25 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 26 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 27 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 28 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 29 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 30 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 31 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 32 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 33 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 34 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 35 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 36 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 37 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 38 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 39 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 40 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 41 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 42 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 43 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 44 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 45 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 46 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 47 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 48 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 49 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 50 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 51 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 52 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 53 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 54 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 55 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 56 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 57 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 58 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 59 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 60 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 61 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 62 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 63 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 64 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 65 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 66 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 67 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 68 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 69 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 70 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 71 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 72 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 73 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 74 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 75 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 76 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 77 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 78 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 79 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 80 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 81 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 82 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 83 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 84 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 85 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 86 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 87 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 88 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 89 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 90 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 91 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 92 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 93 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 94 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 95 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 96 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 97 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 98 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 99 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 100 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 101 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 102 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 103 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 104 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 105 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 106 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 107 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 108 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 109 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 110 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 111 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 112 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 113 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 114 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 115 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 116 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 117 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 118 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 119 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 120 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 121 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 122 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 123 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 124 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 125 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 126 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 127 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 128 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 129 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 130 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 131 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 132 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 133 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 134 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 135 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 136 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 137 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 138 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 139 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 140 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 141 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 142 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 143 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 144 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 145 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 146 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 147 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 148 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 149 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 150 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 151 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 152 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 153 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 154 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 155 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 156 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 157 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 158 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 159 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 160 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 161 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 162 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 163 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 164 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 165 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 166 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 167 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 168 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 169 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 170 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 171 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 172 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 173 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 174 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 175 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 176 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 177 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 178 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 179 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 180 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 181 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 182 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 183 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 184 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 185 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 186 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 187 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 188 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 189 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 190 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 191 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 192 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 193 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 194 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 195 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 196 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 197 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 198 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 199 Train squared error: 17.295 Test squared error: 26.234 	 	 
+Displaying in figure 1: Top row - real data, Bottom row -- reconstructions 
+Before epoch 200 Train squared error: 17.295 Test squared error: 26.234 	

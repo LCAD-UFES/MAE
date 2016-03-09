@@ -1,0 +1,43 @@
+LIBMAE =-L$(MAEHOME)/lib
+LIBPATH =-L/usr/local/lib -L/usr/X11R6/lib $(LIBMAE)
+CC=gcc
+CCFLAGS= -O4 -D NO_INTERFACE -Wall
+LIBRARYS=-lnet_conn -lforms -lGA -lTsai -lX11 -lglut -lGLU -lGL -lm -lfl
+ 
+##########################################################
+
+EXECUTABLE = inflection_point
+OBJECTS = inflection_point.o \
+	  inflection_point_user_functions/inflection_point_user_functions.o \
+	 inflection_point_user_functions/wnn_input_output.o \
+	  inflection_point_user_functions/pwb_analyse_series.o 
+
+##########################################################
+
+.c.o:
+	@echo OK
+	$(CC) $(CCFLAGS) -c -I$(MAEHOME)/include -o $@ $*.c
+
+##########################################################
+
+build: $(EXECUTABLE)
+$(EXECUTABLE): $(OBJECTS) inflection_point.con TRADING_SYSTEM/trading_system.c
+	netcomp -o inflection_point < inflection_point.con
+	$(CC) $(CCFLAGS) -o $(EXECUTABLE) $(OBJECTS) $(LIBPATH) $(LIBRARYS)
+	gcc -g -Wall -o TRADING_SYSTEM/trading_system TRADING_SYSTEM/trading_system.c -I${MAEHOME}/include -I./TRADING_SYSTEM TRADING_SYSTEM/timeutil.c -lm
+
+##########################################################
+
+inflection_point_user_functions.o : ../inflection_point.h
+
+##########################################################
+
+inflection_point.o:
+	$(MAEHOME)/bin/netcomp -o $* < $*.con	
+	$(CC) $(CCFLAGS) -c -I$(MAEHOME)/include -o $@ $*.c
+
+##########################################################
+clean:
+	rm -f *.o inflection_point_user_functions/*.o
+	rm -f inflection_point inflection_point.c inflection_point.h
+	rm -f *.out

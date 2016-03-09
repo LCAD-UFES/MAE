@@ -1,0 +1,18 @@
+train network;
+
+SetSentence("nc_command_input1", 	"|circulo|$ | |");
+SetSentence("nc_image_memory_input", 	"|C|$ | |");
+train nc_command;
+train nc_image_memory;
+
+SetSentence("nc_command_input1", 	"|quadrado|$ | |");
+SetSentence("nc_image_memory_input", 	"|Q|$ | |");
+train nc_command;
+train nc_image_memory;
+
+SetSentence("nc_command_input1", 	"|triangulo|$ | |");
+SetSentence("nc_image_memory_input", 	"|T|$ | |");
+train nc_command;
+train nc_image_memory;
+
+

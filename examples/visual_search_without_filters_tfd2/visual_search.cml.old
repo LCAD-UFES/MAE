@@ -1,0 +1,37 @@
+/* Counters */
+int i;
+int NUM_PROHIBITORY_TRAFFIC_SIGN_TYPES;
+int NUM_IMAGES;
+int x;
+int y;
+int delta_move;
+float scale_factor;
+
+LoadState("state0.bin"); SetCriterion(2);
+
+/* Trainning */
+GetImage(6);
+MoveToTrafficSign(0);
+y = -10;
+while (y <= 10)
+{
+	x = -10;
+	while (x <= 10)
+	{
+		MoveDeltaXY(x, y);
+		TrainDeltaCorrection(x, y);
+		x = x + 1;
+	}
+	y = y + 1;
+}
+
+/* Testing 
+NUM_IMAGES = GetNumImages(0);
+i = 0;
+while (i < (NUM_IMAGES / 2))
+{
+	GetImage(i);
+	i = i + 1;
+}
+quit;
+*/

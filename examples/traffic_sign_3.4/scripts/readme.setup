@@ -1,0 +1,53 @@
+#Baixar as bases de treino e teste e descompactar em GTSRB
+wget http://benchmark.ini.rub.de/Dataset/GTSRB_Final_Training_Images.zip
+wget http://benchmark.ini.rub.de/Dataset/GTSRB_Final_Test_Images.zip
+
+unzip GTSRB_Final_Training_Images.zip
+unzip GTSRB_Final_Test_Images.zip
+
+cd GTSRB
+mkdir _scripts
+mkdir _scripts/testing_set_raw
+mkdir _scripts/training_set_raw
+
+#Copiar script move.py, desc_sets.py e make_samples.py para _scripts e ajustar os caminhos
+
+#Baixar, descompactar e copiar Ground Thruth para ../Final_Test/Images
+
+wget http://benchmark.ini.rub.de/Dataset/GTSRB_Final_Test_GT.zip
+unzip GTSRB_Final_Test_GT.zip
+mv GT-final_test.csv Final_Test/
+mv Final_Test/Images/GT-final_test.test.csv Final_Test/
+
+cd _scripts
+
+#Rodar script para gerar a base de treino
+
+python -c "execfile('move.py'); move_imgs_train()" > training_set_raw/desc_training_set
+
+#Rodar script para gerar a base de teste
+
+python -c "execfile('move.py'); move_imgs_test()" > testing_set_raw/desc_testing_set
+
+mkdir JITTER
+mkdir JITTER/training_set_jittered
+
+cp training_set_raw/*.ppm JITTER/training_set_jittered
+
+#Rodar script para gerar exemplos de treino em diferentes posicões jitter_pos()
+
+python -c "execfile('make_samples.py'); jitter_angle()"
+
+#E rodar novamente para gerar exemplos de treino em diferentes rotacões jitter_angle()
+
+python -c "execfile('make_samples.py'); jitter_pos()"
+
+#Alterar na main o tamanho do conjunto de testes n_testing_samples
+
+#Alterar na user_functions o caminho dos arquivos de testes e treino
+
+#yum install opencv-python
+#export PYTHONPATH=$PYTHONPATH:/usr/local/lib/python2.6/site-packages
+#cuda (http://www.r-tutor.com/gpu-computing/cuda-installation/cuda4.0-fc13)
+
+

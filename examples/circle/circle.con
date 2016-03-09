@@ -1,0 +1,42 @@
+################################################ Set Global Variables #################################################
+
+set NEURON_MEMORY_SIZE 	= 32;
+set TYPE_SHOW		= SHOW_WINDOW;
+set TYPE_MOVING_FRAME	= MOVING_CENTER;
+
+######################################################## Constants ####################################################
+
+############################################### Neuron Layers ########################################################
+			
+neuronlayer	image_cortex[64][64] 		with color outputs;
+neuronlayer	image_control[64][64]		with b&w outputs;
+
+################################################### Outputs ##########################################################
+
+output		image_out[64][64];
+output		image_control_out[64][64];
+output		image_cortex_out[64][64];
+
+################################################## Inputs ############################################################
+
+input 		image[64][64]	with color outputs produced by input_generator("%p %d %f", image_out, 1, 2.0) 
+             			controled by input_controler("%p %p %p", image_control_out, image_cortex_out, image_out);
+				
+########################################### Interconnect Neuron Layers  ##############################################
+
+connect 	image 			to image_cortex with 32 random inputs per neuron and gaussian distribution with radius 3.0;
+connect 	image_cortex	 	to image_cortex with 8 random inputs per neuron;
+
+connect 	image_cortex 		to image_control with 32 random inputs per neuron;
+connect 	image_control	 	to image_control with 8 random inputs per neuron;
+
+################################################### Associate  #######################################################
+
+associate	image with image_cortex;
+associate	image_control with image_control;
+
+###################################### Connect Neuron Layers to Outputs ##############################################
+
+outputconnect	image			to image_out;
+outputconnect	image_control		to image_control_out;
+outputconnect	image_cortex		to image_cortex_out;

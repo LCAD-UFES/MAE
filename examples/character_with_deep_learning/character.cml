@@ -1,0 +1,47 @@
+int num_char_train;
+int num_char_test;
+int i;
+
+int VOID;
+VOID = 0;
+
+/* Network Status */
+int TRAINING;
+int TESTING;
+TRAINING = 0;
+TESTING = 1;
+
+num_char_train = 100;
+num_char_test = 10;
+
+SetNetworkStatus(TRAINING);
+move character to 4, 17; /* volta um para comeccar do zero */
+
+i = 0;
+while (i < num_char_train)
+{
+	move character to 20, 14;
+	
+	RetrainUntilStabilization("nl_encoding");
+	RetrainUntilStabilization("nl_encoding_level_1");
+	RetrainUntilStabilization("nl_encoding_level_2");
+	
+	draw out_nl_label based on character move;
+	
+	train nl_decoding;
+	train nl_decoding_level_1;
+	train nl_decoding_level_2; 
+	train nl_label;
+	train nl_label_decoding;
+	
+	i = i + 1;
+}
+
+SetNetworkStatus(TESTING);
+
+i = 0;
+while (i < num_char_test)
+{
+	move character to 20, 14; /* avancca um */
+	i = i + 1;
+}

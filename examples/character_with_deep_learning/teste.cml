@@ -1,0 +1,15 @@
+toggle move_active;
+toggle draw_active;
+int i;
+i = 0;
+while (i < 100)
+{
+	move character to 23, 12;
+	draw char_discr_out based on character move;
+	train network;
+	move character to 21, 9;
+	draw char_discr_out based on character move;
+	train network;
+	i = i + 1;
+}
+00

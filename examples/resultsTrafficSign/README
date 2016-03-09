@@ -1,0 +1,65 @@
+WISARD
+
+NSCALE 0.25
+NEURONIOS 5x3
+traffic_sign_results_0.25_8_16_32_64_128_256.csv
+
+NSCALE 0.5
+NEURONIOS 9x5
+SYNAPSES 128 e 256, 32 e 64, 8 e 16
+traffic_sign_results_0.5_128_256.csv
+traffic_sign_results_0.5_32_64.csv
+traffic_sign_results_0.5_8_16.csv
+
+
+NSCALE 0
+SYNAPSES 256, 128, 64, 32
+NEURONIOS 18x10
+traffic_sign_results_0_256.csv
+traffic_sign_results_0_128.csv
+traffic_sign_results_0_64.csv
+traffic_sign_results_0_32.csv
+traffic_sign_results_0_16.csv
+traffic_sign_results_0_8.csv
+
+NSCALE 1 2 3
+SYNAPSES 8 16 32 64
+NEURONIOS *NSCALE
+traffic_sign_results_1_8_16_32_64.csv
+traffic_sign_results_2_8_16_32_64.csv
+traffic_sign_results_3_8_16_32_64.csv
+
+NSCALE 1 2 3
+SYNAPSES 128
+traffic_isign_results_1_128.csv
+traffic_sign_results_2_3_128.csv
+
+NSCALE 1 2 3
+SYNAPSE 256
+traffic_sign_results_1_2_3_256.csv
+
+-----------------------------------
+MINCHINTON
+
+
+NSCALE 0
+NEURONIOS 18x10
+SYNAPSES 256 todos
+traffic_sign_results_0_256_minchinton.csv
+traffic_sign_results_0_8_16_32_64_128_minchinton.csv
+
+NSCALE 0.5
+NEURONIO 9x5
+traffic_sign_results_0.5_8_16_32_64_128_256_minchinton.csv
+
+
+NSCALE 0.25
+traffic_sign_results_0.25_256_minchinton.csv
+
+NSCALE 1 2 3
+SYNAPSES 64 128 256 32
+traffic_sign_results_1_2_3_128_minchinton.csv
+traffic_sign_results_1_2_3_256_minchinton.csv
+traffic_sign_results_1_2_3_64_minchinton.csv
+traffic_sign_results_1_2_3_32_minchinton.csv
+traffic_sign_results_1_2_3_16_minchinton.csv

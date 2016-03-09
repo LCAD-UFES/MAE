@@ -1,0 +1,7 @@
+in_pattern 674 35
+nl_v1_pattern_out 275 362
+out_v1_activation_map 476 361
+out_target_coordinates 1090 481
+out_in_pattern_filtered_translated 876 483
+out_v1_activation_map_no_filters 680 489
+mae_control_window 146 31

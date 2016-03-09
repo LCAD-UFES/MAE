@@ -1,0 +1,56 @@
+################################################ Set Global Variables #################################################
+set TYPE_SHOW = SHOW_FRAME;
+set TYPE_MOVING_FRAME = STOP;
+
+set NEURON_MEMORY_SIZE = 10;
+
+######################################################## Constants ####################################################
+const DATA_PATH			= "DATA/";
+
+const INPUT_WIDTH 	= 256;
+const INPUT_HEIGHT	= 256;
+
+const SYNAPSES		= 512;
+
+const NL_WIDTH 		= 256;
+const NL_HEIGHT		= 256;
+
+const GAUSSIAN_RADIUS_DISTRIBUTION = 7.0;
+
+const GAUSSIAN_RADIUS_FILTER 	= 5;
+const GAUSSIAN_SIGMA_FILTER  	= 1.0;
+
+const DATA_PATH = "DATA/";
+
+############################################### Neuron Layers #########################################################
+
+neuronlayer 	nl_expression_name[NL_WIDTH][NL_HEIGHT / 2]    		of minchinton neurons color sensitive with color outputs;
+neuronlayer 	nl_expression_memory [NL_WIDTH][NL_HEIGHT / 2]    		of minchinton neurons color sensitive with color outputs;
+
+############################################### Outputs #########################################################
+
+output			out_nl_expression_memory [NL_WIDTH][NL_HEIGHT / 2] 		handled by output_handler1();
+
+################################## Connect Neuron Layers to Outputs #############################################
+
+outputconnect	nl_expression_memory 	to	out_nl_expression_memory;
+
+################################################## Inputs #############################################################
+
+input 		expression_input [INPUT_WIDTH][INPUT_HEIGHT]			with color outputs produced by input_generator() controled by input_controler();
+input 		expression_name_input[INPUT_WIDTH][INPUT_HEIGHT / 2]			with color outputs produced by input_generator1("%p", nl_expression_memory) controled by input_controler1();
+
+############################################### Filters #########################################################
+
+############################################### Associations ####################################################
+
+associate	nl_expression_name		with	nl_expression_name;
+associate	nl_expression_memory			with 	nl_expression_memory;
+
+################################################ Connections ####################################################
+
+connect		nl_expression_name			to nl_expression_memory	with SYNAPSES random inputs per neuron;
+
+################################################ User Functions #################################################
+
+int SetNetworkStatus ("%d");

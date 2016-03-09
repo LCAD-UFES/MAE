@@ -1,0 +1,69 @@
+int FACES2TRAINING; 		
+FACES2TRAINING = 350;
+
+int FACES2TESTING; 		
+FACES2TESTING = 350;
+
+/* Network Status */
+int TRAINING_FACE;
+TRAINING_FACE = 1;
+int TESTING_FACE;
+TESTING_FACE = 2;
+
+/* Counters */
+int i;
+int l;
+int m;
+
+ResetStatistics (0);
+
+/* Training Phase */
+SetNetworkStatus (TRAINING_FACE);
+i = 1;
+while (i <= FACES2TRAINING)
+{
+	GetRandomFace (i);
+
+	/* Updates the eye, nose and mouth filter's outputs */
+	/* Move2Eye (0); */
+	Move2Nose (0);
+	/* Move2Mouth (0); */
+
+	/* Draws the eye, nose and mouth neuron layer's outputs */
+	/* draw out_eye based on face_recog move; */
+	draw out_nose based on face_recog move;
+	/* draw out_mouth based on face_recog move; */
+
+	forward outputs;
+	train network;
+	
+	i = i + 1;
+}
+
+	
+/* Testing phase */
+SetNetworkStatus2 (TESTING_FACE, 9);
+i = 1;
+while (i <= FACES2TESTING)
+{
+	GetRandomFace (i);
+
+	l = -1;
+	while (l <= 1)
+	{
+		m = -1;
+		while (m <= 1)
+		{
+			/* Updates the eye, nose and mouth filter's outputs */
+			Move2Nose2 (m, l);
+
+			forward neural_layers;
+			forward outputs;
+			m = m + 1;
+		}
+		l = l + 1;
+	}
+	i = i + 1;
+}
+
+quit;

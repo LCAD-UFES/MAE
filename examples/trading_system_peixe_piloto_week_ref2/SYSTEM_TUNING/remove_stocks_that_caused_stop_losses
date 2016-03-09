@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# $1 -> Output of the trading_system.
+# $2 -> Copy of acoes_de_interesse.txt. After execution will not have stocks that caused stop losses.
+
+num_lines=`wc -l $1 | cut --delimiter=' ' -f 1`
+line_number="2"
+stop_loss_happened="false"
+while [ $line_number -lt $num_lines ]; do
+	# get line_number from $1 and replace '+' for ' '
+	line=`sed -n "$line_number s/[+ ]/ /gp" < $1`
+	# get the week return from the line
+	week_return=`echo $line | cut -s --delimiter=':' -f 4 | cut --delimiter='%' -f 1`
+	# check if week return is smaler than the stop loss (-5.0%?)
+	stop_loss=`echo " $week_return < -2.0 " | bc`
+	if [ "$stop_loss" = "1" ]; then
+		stock=`echo $line | cut -s --delimiter=' ' -f 6`
+		cp $2 temp_file
+		sed "/$stock/d" < temp_file > $2
+		rm temp_file
+		stop_loss_happened="true"
+	fi
+	line_number=$[$line_number + 1]
+done
+echo $stop_loss_happened

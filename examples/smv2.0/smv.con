@@ -1,0 +1,61 @@
+################################################ Set Global Variables #################################################
+
+set NEURON_MEMORY_SIZE = 0;
+set TYPE_SHOW = SHOW_WINDOW;
+set TYPE_MOVING_FRAME = STOP;
+#set FOCAL_DISTANCE = 100.0; # [pixels]
+set CAMERA_DISTANCE = 0.50; # [meters]
+set KERNEL_SIZE = 15;
+
+######################################################## Constants ####################################################
+
+const IMG_WIDTH  = 640;
+const IMG_HEIGHT = 480;
+#const IMG_WIDTH  = 1280;
+#const IMG_HEIGHT = 960;
+
+const NL_WIDTH  = 16;
+const NL_HEIGHT = 16;
+
+const READ_FROM_IMAGE_FILE     = 0;
+const PASS_BY_PARAMETER        = 1;
+const CAPTURED_FROM_CAMERA     = 2;
+const CAPTURED_FROM_IP_ADDRESS = 3;
+
+################################################## Inputs #######################################################
+
+input 		image_right[IMG_WIDTH][IMG_HEIGHT]	with color outputs produced by input_generator("%d %d",READ_FROM_IMAGE_FILE, P3) controled by input_controler();
+input 		image_left[IMG_WIDTH][IMG_HEIGHT]	with color outputs produced by input_generator("%d %d",READ_FROM_IMAGE_FILE, P3) controled by input_controler();
+
+#input 		image_right[IMG_WIDTH][IMG_HEIGHT]	with color outputs produced by input_generator("%d %d",PASS_BY_PARAMETER, P3) controled by input_controler();
+#input 		image_left[IMG_WIDTH][IMG_HEIGHT]	with color outputs produced by input_generator("%d %d",PASS_BY_PARAMETER, P3) controled by input_controler();
+
+############################################### Neuron Layers ##################################################
+
+neuronlayer	logpolar_righteye[NL_WIDTH][NL_HEIGHT] 		with greyscale_float outputs;
+neuronlayer	logpolar_lefteye[NL_WIDTH][NL_HEIGHT]		with greyscale_float outputs;
+neuronlayer	right_minus_left[NL_WIDTH][NL_HEIGHT] 		with greyscale_float outputs;
+
+############################################### Filters #########################################################
+
+filter 		image_right with my_v1_filter("%d %d %d %d %f", MCELLS, OFFCENTER, RGB, STATISTIC_DISTRIBUTION, SERENO_MODEL) producing logpolar_righteye;
+filter 		image_left  with my_v1_filter("%d %d %d %d %f", MCELLS, OFFCENTER, RGB, STATISTIC_DISTRIBUTION, SERENO_MODEL) producing logpolar_lefteye;
+filter 		logpolar_righteye, logpolar_lefteye with minus_filter() producing right_minus_left;
+
+######################################### Connect Neuron Layers #################################################
+
+############################################### Outputs ########################################################
+
+#output  	logpolar_righteye_out[NL_WIDTH][NL_HEIGHT];
+#output  	logpolar_lefteye_out[NL_WIDTH][NL_HEIGHT];
+#output  	right_minus_left_out[NL_WIDTH][NL_HEIGHT];
+
+################################## Connect Neuron Layers to Outputs #############################################
+
+#outputconnect   logpolar_righteye	to logpolar_righteye_out;
+#outputconnect   logpolar_lefteye	to logpolar_lefteye_out;
+#outputconnect   right_minus_left 	to right_minus_left_out;
+
+############################################### Associate ########################################################
+
+############################################### User Functions ########################################################

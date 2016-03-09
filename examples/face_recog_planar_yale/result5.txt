@@ -1,0 +1,33 @@
+37 29 - FileName: /home/hallysson/img/ExtendedYaleB/CroppedYale/yaleB39/yaleB39_P00A+035E+40.pgm
+Person:  37 - Correct Person:  37 - Tested: 1201 - Correct: 1193 - Confidence: 0,58 - Hit Percent: 99,33
+37 54 - FileName: /home/hallysson/img/ExtendedYaleB/CroppedYale/yaleB39/yaleB39_P00A-110E-20.pgm
+Person:  37 - Correct Person:  37 - Tested: 1202 - Correct: 1194 - Confidence: 0,40 - Hit Percent: 99,33
+37 47 - FileName: /home/hallysson/img/ExtendedYaleB/CroppedYale/yaleB39/yaleB39_P00A-085E+20.pgm
+Person:  37 - Correct Person:  37 - Tested: 1203 - Correct: 1195 - Confidence: 0,63 - Hit Percent: 99,33
+37 62 - FileName: /home/hallysson/img/ExtendedYaleB/CroppedYale/yaleB39/yaleB39_P00A-130E+20.pgm
+Person:  37 - Correct Person:  37 - Tested: 1204 - Correct: 1196 - Confidence: 0,50 - Hit Percent: 99,34
+37 37 - FileName: /home/hallysson/img/ExtendedYaleB/CroppedYale/yaleB39/yaleB39_P00A-060E+20.pgm
+Person:  37 - Correct Person:  37 - Tested: 1205 - Correct: 1197 - Confidence: 0,40 - Hit Percent: 99,34
+37 45 - FileName: /home/hallysson/img/ExtendedYaleB/CroppedYale/yaleB39/yaleB39_P00A+070E+45.pgm
+Person:  37 - Correct Person:  37 - Tested: 1206 - Correct: 1198 - Confidence: 0,50 - Hit Percent: 99,34
+37 53 - FileName: /home/hallysson/img/ExtendedYaleB/CroppedYale/yaleB39/yaleB39_P00A+110E+15.pgm
+Person:  37 - Correct Person:  37 - Tested: 1207 - Correct: 1199 - Confidence: 0,64 - Hit Percent: 99,34
+37 42 - FileName: /home/hallysson/img/ExtendedYaleB/CroppedYale/yaleB39/yaleB39_P00A-070E-35.pgm
+Person:  37 - Correct Person:  37 - Tested: 1208 - Correct: 1200 - Confidence: 0,38 - Hit Percent: 99,34
+37 16 - FileName: /home/hallysson/img/ExtendedYaleB/CroppedYale/yaleB39/yaleB39_P00A-020E-10.pgm
+Person:  37 - Correct Person:  37 - Tested: 1209 - Correct: 1201 - Confidence: 0,88 - Hit Percent: 99,34
+37 18 - FileName: /home/hallysson/img/ExtendedYaleB/CroppedYale/yaleB39/yaleB39_P00A+020E-10.pgm
+Person:  37 - Correct Person:  37 - Tested: 1210 - Correct: 1202 - Confidence: 0,62 - Hit Percent: 99,34
+37 14 - FileName: /home/hallysson/img/ExtendedYaleB/CroppedYale/yaleB39/yaleB39_P00A-015E+20.pgm
+Person:  37 - Correct Person:  37 - Tested: 1211 - Correct: 1203 - Confidence: 0,88 - Hit Percent: 99,34
+37 35 - FileName: /home/hallysson/img/ExtendedYaleB/CroppedYale/yaleB39/yaleB39_P00A+050E-40.pgm
+Person:  37 - Correct Person:  37 - Tested: 1212 - Correct: 1204 - Confidence: 0,53 - Hit Percent: 99,34
+37 60 - FileName: /home/hallysson/img/ExtendedYaleB/CroppedYale/yaleB39/yaleB39_P00A-120E+00.pgm
+Person:  37 - Correct Person:  37 - Tested: 1213 - Correct: 1205 - Confidence: 0,51 - Hit Percent: 99,34
+37 30 - FileName: /home/hallysson/img/ExtendedYaleB/CroppedYale/yaleB39/yaleB39_P00A-035E+65.pgm
+Person:  37 - Correct Person:  37 - Tested: 1214 - Correct: 1206 - Confidence: 0,39 - Hit Percent: 99,34
+37 44 - FileName: /home/hallysson/img/ExtendedYaleB/CroppedYale/yaleB39/yaleB39_P00A-070E+45.pgm
+Person:  37 - Correct Person:  37 - Tested: 1215 - Correct: 1207 - Confidence: 0,42 - Hit Percent: 99,34
+37 23 - FileName: /home/hallysson/img/ExtendedYaleB/CroppedYale/yaleB39/yaleB39_P00A+025E+00.pgm
+Person:  37 - Correct Person:  37 - Tested: 1216 - Correct: 1208 - Confidence: 0,73 - Hit Percent: 99,34
+Final result: 99,34%

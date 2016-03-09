@@ -1,0 +1,132 @@
+int train_size;
+int test_size;
+int batch_num;
+int char_num;
+
+float initial_time;
+float elapsed_time;
+
+train_size = 60000;
+test_size = 10000;
+
+initial_time = time;
+
+# Pre training
+
+# RBM 1 >>>>>>>
+
+SetNetworkStatus(0); # Reading
+
+char_num = 0;
+while (char_num < train_size )
+{
+	GetCharOrderN( char_num );
+	forward character_rbm1_filter;
+	char_num = char_num + 1;
+}
+
+SetNetworkStatus(2); # Training
+print(">>>>>>>>Pre Training RBM : ", 1);
+forward character_rbm1_filter;
+
+# RBM 1 >>>>>>>
+
+# RBM 2 >>>>>>>
+
+char_num = 0;
+while (char_num < train_size)
+{
+	SetNetworkStatus(5); # Set train data set and test it
+	GetCharOrderN( char_num );
+	forward character_rbm1_filter;
+
+	SetNetworkStatus(0); # Read output from RBM 1
+	forward character_rbm2_filter;
+
+	char_num = char_num + 1;
+}
+
+SetNetworkStatus(2); # Training
+print(">>>>>>>>Pre Training RBM : ", 2);
+forward character_rbm2_filter;
+
+# RBM 2 >>>>>>>
+
+# RBM 3 >>>>>>>
+
+char_num = 0;
+while (char_num < train_size)
+{
+	SetNetworkStatus(5); # Set train data set and test it
+	GetCharOrderN( char_num );
+	forward character_rbm1_filter;
+	forward character_rbm2_filter;
+
+	SetNetworkStatus(0); # Read output from RBM 2
+	forward character_rbm3_filter;
+
+	char_num = char_num + 1;
+}
+
+SetNetworkStatus(2); # Training
+print(">>>>>>>>Pre Training RBM : ", 3);
+forward character_rbm3_filter;
+
+# RBM 3 >>>>>>>
+
+# RBM 4 >>>>>>>
+
+char_num = 0;
+while (char_num < train_size)
+{
+	SetNetworkStatus(5); # Set train data set and test it
+	GetCharOrderN( char_num );
+	forward character_rbm1_filter;
+	forward character_rbm2_filter;
+	forward character_rbm3_filter;
+
+	SetNetworkStatus(0); # Read output from RBM 3
+	forward character_rbm4_filter;
+
+	char_num = char_num + 1;
+}
+
+SetNetworkStatus(2); # Training
+print(">>>>>>>>Pre Training RBM : ", 4);
+forward character_rbm4_filter;
+
+# RBM 4 >>>>>>>
+
+SetNetworkStatus(9); # Create DBN
+print(">>>>>>>>Initializing weights of RBM : ", 1);
+forward character_rbm1_filter;
+print(">>>>>>>>Initializing weights of RBM : ", 2);
+forward character_rbm2_filter;
+print(">>>>>>>>Initializing weights of RBM : ", 3);
+forward character_rbm3_filter;
+print(">>>>>>>>Initializing weights of RBM : ", 4);
+forward character_rbm4_filter;
+
+SetNetworkStatus(10); # Train DBN
+forward character_rbm4_filter;
+
+elapsed_time = time;
+print("Training time in ms:", elapsed_time - initial_time);
+
+/* Testing phase */
+SetNetworkStatus(4); # Set and Test data set
+
+char_num = 0;
+while (char_num < test_size)
+{
+	print("test step set = ", char_num);
+
+	GetCharOrderN( char_num );
+	
+	forward character_rbm4_filter;
+	
+	char_num = char_num + 1;
+	pause;
+}
+
+quit;

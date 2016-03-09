@@ -1,0 +1,43 @@
+LIBMAE =-L$(MAEHOME)/lib
+LIBPATH =-L/usr/local/lib -L/usr/X11R6/lib $(LIBMAE)
+CC=gcc
+CCFLAGS= -O4 -D NO_INTERFACE -Wall
+LIBRARYS=-lnet_conn -lforms -lGA -lTsai -lX11 -lglut -lGLU -lGL -lm -lfl
+ 
+##########################################################
+
+EXECUTABLE = wnn_pred
+OBJECTS = wnn_pred.o \
+	  wnn_pred_user_functions/wnn_pred_user_functions.o \
+	  wnn_pred_user_functions/wnn_input_output.o \
+	  wnn_pred_user_functions/pwb_analyse_series.o 
+
+##########################################################
+
+.c.o:
+	@echo OK
+	$(CC) $(CCFLAGS) -c -I$(MAEHOME)/include -o $@ $*.c
+
+##########################################################
+
+build: $(EXECUTABLE)
+$(EXECUTABLE): $(OBJECTS) wnn_pred.con TRADING_SYSTEM/trading_system.c
+	netcomp -o wnn_pred < wnn_pred.con
+	$(CC) $(CCFLAGS) -o $(EXECUTABLE) $(OBJECTS) $(LIBPATH) $(LIBRARYS)
+	gcc -g -Wall -o TRADING_SYSTEM/trading_system TRADING_SYSTEM/trading_system.c -I${MAEHOME}/include -I./TRADING_SYSTEM TRADING_SYSTEM/timeutil.c -lm
+
+##########################################################
+
+wnn_pred_user_functions.o : ../wnn_pred.h
+
+##########################################################
+
+wnn_pred.o:
+	$(MAEHOME)/bin/netcomp -o $* < $*.con	
+	$(CC) $(CCFLAGS) -c -I$(MAEHOME)/include -o $@ $*.c
+
+##########################################################
+clean:
+	rm -f *.o wnn_pred_user_functions/*.o
+	rm -f wnn_pred wnn_pred.c wnn_pred.h
+	rm -f *.out

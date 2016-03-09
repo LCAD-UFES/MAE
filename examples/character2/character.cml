@@ -1,0 +1,58 @@
+int num_char_train;
+int num_char_test;
+int i;
+
+float time_loading;
+float time_testing;
+
+num_char_train = 60000;
+num_char_test = 10000;
+
+/* Training Phase */
+
+SetNetworkStatus(0); # Train data set
+i = 0;
+move character to 4, 17;		/* volta um para comeccar do zero */
+while (i < num_char_train)
+{
+	move character to 20, 14;	/* avancca um */
+	draw char_discr_out based on character move;
+	train network;
+	i = i + 1;
+}
+
+#unload to "netmem.dump";
+#unload "char_discr" to "netmem.ascii";
+
+#destroy network;
+
+time;
+print("Start timer:", 0);
+
+#reload from "netmem.dump";
+
+#reload "char_discr" from "netmem.ascii";
+
+time_loading = time;
+print("Load time in ms:", time_loading);
+
+/* Testing phase */
+SetNetworkStatus(1); # Test data set
+i = 0;
+move character to 4, 17;		/* volta um para comeccar do zero */
+while (i < num_char_test)
+{
+	move character to 20, 14;	/* avancca um */
+	forward network;
+	if (EvaluateChar(0.0) == 0)
+		EvaluateCharInRangePixels(2);
+
+	UpdateStats(0);
+	i = i + 1;
+}
+
+time_testing = time;
+print("Test time in ms:", time_testing - time_loading);
+WriteTestResultToCSV("");
+
+quit;

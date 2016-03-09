@@ -1,0 +1,16 @@
+- Tem que usar com o sistema do Freitas
+
+- Mudar os tipos dos handlers (ver 4.5 - 4.7)
+- Mensagens devem ser definidas apenas por quem as publica
+- Incluir casos em que precisa imprimir erros do IPC
+- Pensar sobre segurancca (IPs especícifos, maquinas especificas, compilacao do IPC com segurancca embutida (2 - Access control), etc)
+- Trocar os tipos definidos em message.h para upper case
+
+- Checar por que, dependendo da semana inicial (verifiquei com TT_new_all_weeks e TT_new_last_week), o trading system 
+não escolhe a mesma acao
+
+- Tem que fazer testes em que a camada neural prediz um valor real (media da saida dos neuronios)
+	- Verificar que parametros da rede e do trading_system permitem um maior acerto da rede (hr) e melhor retorno acumulado
+	- Verificar se está sensivel ao rand
+	- Verificar a correlacao entre hr e retorno acumulado
+

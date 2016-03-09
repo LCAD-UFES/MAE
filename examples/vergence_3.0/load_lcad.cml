@@ -1,0 +1,3 @@
+load in_left from lcad_left.ppm ;
+load in_right from lcad_right.ppm ;
+
