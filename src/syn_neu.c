@@ -186,7 +186,7 @@ sety_neurons (NEURON *n, int up, int ny, int nx, int num_neurons, int value)
 */
 
 int
-get_bit(int start_bit, const PATTERN *input_pattern)
+get_one_bit(int start_bit, const PATTERN *input_pattern)
 {
 	int desired_bit;
 	int pattern_skip, bit_skip;
@@ -222,7 +222,7 @@ get_bits(int num_bits, int start_bit, PATTERN *input_pattern, int input_pattern_
 	
 	desired_bits = 0;
 	for (i = 0; i < num_bits; i++)
-		desired_bits |= get_bit(start_bit + i, input_pattern) << i;
+		desired_bits |= get_one_bit(start_bit + i, input_pattern) << i;
 	
 	return (desired_bits);
 }

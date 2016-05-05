@@ -995,7 +995,7 @@ print_pattern_string(int memory_bit_group_size, const PATTERN *bit_pattern, char
 
 	for (j=0; j<memory_bit_group_size*PATTERN_UNIT_SIZE; j++)
 	{
-		sprintf(bit, "%d", get_bit(j, bit_pattern));
+		sprintf(bit, "%d", get_one_bit(j, bit_pattern));
 		string_pattern[j] = bit[0];
 	}
 
