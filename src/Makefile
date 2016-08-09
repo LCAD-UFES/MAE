@@ -12,6 +12,7 @@ EXAMPLES_FILES_C := $(EXAMPLES_FILES:%=%.c)
 CC = gcc
 
 CFLAGS = -O4 -fopenmp -mpopcnt -mfpmath=sse -msse2 -msse4.2 -ffast-math -fassociative-math #-mtune=native -march=native
+#CFLAGS += -DNO_INTERFACE
 
 INCPATH = ../include
 LIBS = -lfl
@@ -55,6 +56,32 @@ LIB_OBJS   = 	mae_control.o \
 		interpreter_yacc.o \
 		interpreter_lex.o 
 
+
+LIBRARY2    =   libmae.a
+LIB_OBJS2   =   mae_control.o \
+		mae_control_file_cb.o \
+		io_display.o \
+		mae_control_actions_cb.o \
+		global.o \
+		syn_neu.o \
+		syn_neu_io.o \
+		syn_neu_correlate.o \
+		syn_neu_default.o \
+		syn_neu_label.o \
+		syn_neu_logiredu.o \
+		syn_neu_mem_overwrite.o \
+		syn_neu_minchinton_center_surround.o \
+		syn_neu_minchinton_fat_fast.o \
+		syn_neu_minchinton.o \
+		syn_neu_rnd_mem_type.o \
+		syn_neu_wisard.o \
+		learning.o \
+		connect.o \
+		io.o \
+		filter.o \
+		user_functions.o \
+		interpreter_yacc.o \
+		interpreter_lex.o 
 #############################################################
 #
 
@@ -71,12 +98,16 @@ LIB_OBJS   = 	mae_control.o \
 	mv y.tab.h $*.tab.h
 
 
-build: $(LIBRARY) $(EXECUTABLE) libGA.a libTsai.a libStereo.a libbee.a
+build: $(LIBRARY) $(LIBRARY2) $(EXECUTABLE) libGA.a libTsai.a libStereo.a libbee.a
 	@echo OK
 	
 $(LIBRARY): $(LIB_OBJS) libGA.a
 	$(AR) $(ARFLAGS) $(LIB_DIR)/$(LIBRARY) $(LIB_OBJS)
 	ranlib $(LIB_DIR)/$(LIBRARY)
+
+$(LIBRARY2): $(LIB_OBJS2) libGA.a
+	$(AR) $(ARFLAGS) $(LIB_DIR)/$(LIBRARY2) $(LIB_OBJS2)
+	ranlib $(LIB_DIR)/$(LIBRARY2)
 
 $(EXECUTABLE): $(EXEC_OBJS)
 	$(CC) $(CFLAGS) -o $(BIN_DIR)/$(EXECUTABLE) $(EXEC_OBJS) $(LIBS)
