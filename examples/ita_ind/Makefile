@@ -1,0 +1,11 @@
+CC := gcc296 
+FILES := $(shell ls *.con)
+COMPILE := $(FILES:%.con=%)
+
+run:
+	netcompiler $(COMPILE)
+
+clean:
+	rm -f *.o ita_user_functions/*.o
+	rm -f ita ita.c ita.h
+	rm -f *.out

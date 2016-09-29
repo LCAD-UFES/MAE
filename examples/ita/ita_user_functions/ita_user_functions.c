@@ -584,7 +584,7 @@ EvaluateOutput(OUTPUT_DESC *output)
 	actual_result = test_output->neuron_layer->neuron_vector;
 	result_report = result_output->neuron_layer->neuron_vector;
 
-	int n = output->wh * output->ww;
+	int n = output->ww;
 	compute_prediction_statistics(n, neural_prediction, actual_result, result_report);
 	if (g_nStatus == TEST_PHASE)
 		compute_capital_evolution(n, neural_prediction, actual_result);
