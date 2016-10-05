@@ -20,7 +20,7 @@ const CUSTO_BOVESPA 	= 0.0; # (0.000061 + 0.000017);
 const CUSTO_CORRETORA	= 0.000;
 const CUSTO_CORRETORA_P	= 2.50;
 const CUSTO_TRASACAO 	= 0.0; # (CUSTO_BOVESPA + CUSTO_CORRETORA);
-const CERTAINTY 	= 10.0;
+const CERTAINTY 	= 5.0;
 
 ############################################### Neuron Layers #########################################################
 neuronlayer	nl_ita_lp_f[INPUT_WIDTH][INPUT_HEIGHT]	with greyscale_float outputs;
@@ -62,3 +62,4 @@ int GetRandomReturns("%d");
 int ShowStatistics ("%d");
 int ResetStatistics ("%d");
 int SetNetworkStatus ("%d");
+int LoadReturns ("%s");

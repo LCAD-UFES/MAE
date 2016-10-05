@@ -11,8 +11,7 @@
 // Macros
 #define DIRECTION_FORWARD	1
 #define DIRECTION_REWIND	-1
-#define POSE_MIN		0
-#define POSE_MAX		3755
+#define NO_DIRECTION		0
 
 #define MOVING_PHASE		0
 #define TRAINING_PHASE		1
