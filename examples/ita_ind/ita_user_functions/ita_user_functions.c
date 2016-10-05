@@ -487,31 +487,31 @@ compute_capital_evolution(int n, NEURON* neural_prediction, NEURON* actual_resul
 		double result_sell_buy = -r * a_capital -
 				CUSTO_TRASACAO * (2.0 * a_capital - r * a_capital) - 2.0 * CUSTO_CORRETORA_P;
 
-		if ((s1 == 0) && (expected_result_buy_sell > 0.0) &&
-			(g_mean_correct_positive_pred[i] > CERTAINTY))
-		{
-			g_capital[i] += result_buy_sell;
-			g_buy_sell_count[i] += 1;
-		}
-		else if ((s1 == 0) && (expected_result_sell_buy > 0.0) &&
-			(g_mean_reverse_positive_pred[i] > CERTAINTY))
-		{
-			g_capital[i] += result_sell_buy;
-			g_sell_buy_count[i] += 1;
-		}
-
-//		if ((s1 == 1) && (expected_result_sell_buy > 0.0) &&
-//			(g_mean_correct_negative_pred[i] > CERTAINTY))
-//		{
-//			g_capital[i] += result_sell_buy;
-//			g_sell_buy_count[i] += 1;
-//		}
-//		else if ((s1 == 1) && (expected_result_buy_sell > 0.0) &&
-//			(g_mean_reverse_negative_pred[i] > CERTAINTY))
+//		if ((s1 == 0) && (expected_result_buy_sell > 0.0) &&
+//			(g_mean_correct_positive_pred[i] > CERTAINTY))
 //		{
 //			g_capital[i] += result_buy_sell;
 //			g_buy_sell_count[i] += 1;
 //		}
+//		else if ((s1 == 0) && (expected_result_sell_buy > 0.0) &&
+//			(g_mean_reverse_positive_pred[i] > CERTAINTY))
+//		{
+//			g_capital[i] += result_sell_buy;
+//			g_sell_buy_count[i] += 1;
+//		}
+
+		if ((s1 == 1) && (expected_result_sell_buy > 0.0) &&
+			(g_mean_correct_negative_pred[i] > CERTAINTY))
+		{
+			g_capital[i] += result_sell_buy;
+			g_sell_buy_count[i] += 1;
+		}
+		else if ((s1 == 1) && (expected_result_buy_sell > 0.0) &&
+			(g_mean_reverse_negative_pred[i] > CERTAINTY))
+		{
+			g_capital[i] += result_buy_sell;
+			g_buy_sell_count[i] += 1;
+		}
 	}
 }
 

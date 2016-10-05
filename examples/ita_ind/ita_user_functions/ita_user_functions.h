@@ -18,7 +18,4 @@
 #define TEST_PHASE			2
 #define WARM_UP_PHASE		3
 
-#define TRAIN_SAMPLES	"returns_20160121_0064s.txt"
-#define TEST_SAMPLES	"returns_20160121_0064s.txt"
-
 #endif
