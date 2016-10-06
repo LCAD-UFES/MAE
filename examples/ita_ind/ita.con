@@ -17,10 +17,10 @@ const INPUT_PATH	= "DATA/20160121_FUT_0064s/";
 
 const ALAVANCAGEM		= 1.0;
 const CUSTO_BOVESPA 	= 0.0; # (0.000061 + 0.000017);
-const CUSTO_CORRETORA	= 0.000;
-const CUSTO_CORRETORA_P	= 2.50;
+const CUSTO_CORRETORA	= 0.0;
+const CUSTO_CORRETORA_P	= 0.0; # 2.50;
 const CUSTO_TRASACAO 	= 0.0; # (CUSTO_BOVESPA + CUSTO_CORRETORA);
-const CERTAINTY 	= 10.0;
+const CERTAINTY 	= 5.0;
 
 ############################################### Neuron Layers #########################################################
 neuronlayer	nl_ita_lp_f[INPUT_WIDTH][INPUT_HEIGHT]	with greyscale_float outputs;
@@ -63,3 +63,4 @@ int ShowStatistics ("%d");
 int ResetStatistics ("%d");
 int SetNetworkStatus ("%d");
 int LoadReturns ("%s");
+int SetLongShort ("%d");

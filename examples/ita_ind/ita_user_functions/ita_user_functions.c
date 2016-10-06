@@ -21,16 +21,15 @@ typedef struct _returns RETURNS;
 RETURNS returns[MAX_RETURN_SAMPLES];
 int g_nReturnsNum = 0;
 int g_nStatus;
+int g_LongShort = 1; // 1 = Long, 0 = Short
 int POSE_MIN = 0;
 int POSE_MAX = 0;
-
-char g_strRandomReturnsFileName[256];
 
 int gcc_no_complain;
 char *gcc_no_complain_c;
 
 // Variaveis utilizadas no procedimento de teste
-int g_results[INPUT_WIDTH][9];
+int g_results[INPUT_WIDTH][13];
 int g_buy_sell_count[INPUT_WIDTH];
 int g_sell_buy_count[INPUT_WIDTH];
 double g_capital[INPUT_WIDTH];
@@ -195,13 +194,13 @@ init_ita(INPUT_DESC *input)
 
 	int i, j;
 	for (j = 0; j < INPUT_WIDTH; j++)
-		for (i = 0; i < 9; i++)
+		for (i = 0; i < 13; i++)
 			g_results[j][i] = 0;
 	
 	make_input_image_ita(input, INPUT_WIDTH, INPUT_HEIGHT);
 
 	// Le a primeira imagem
-	ReadReturnsInput(input);
+	//ReadReturnsInput(input);
 	//update_input_image(input);
 
 	input->green_cross = 1;
@@ -268,11 +267,6 @@ init_user_functions(void)
 int
 GetNewReturns(INPUT_DESC *input, int nDirection)
 {
-	if (nDirection == DIRECTION_FORWARD)
-		g_nReturnsNum++;
-	else
-		g_nReturnsNum--;
-
 	GetNextReturns(nDirection);
 	if (ReadReturnsInput(input))
 		return (-1);
@@ -336,7 +330,6 @@ read_current_desired_returns_to_output(OUTPUT_DESC *output)
 {
 	char strFileName[128];
 
-	GetNextReturns(NO_DIRECTION);
 	ReadReturnsOutput(output, strFileName);
 
 	update_output_image(output);
@@ -423,8 +416,12 @@ compute_prediction_statistics(int n, NEURON *neural_prediction,
 	for (i = 0; i < n; i++)
 	{
 		int s1, s2;
-		s1 = signal_of_val (neural_prediction[i].output.fval);
-		s2 = signal_of_val (actual_result[i].output.fval);
+		s1 = signal_of_val(neural_prediction[i].output.fval);
+		s2 = signal_of_val(actual_result[i].output.fval);
+
+		g_results[i][9] = (int) (actual_result[i].output.fval * 1000000.0 + 0.5);
+		g_results[i][10] = (int) (neural_prediction[i].output.fval * 1000000.0 + 0.5);
+
 		result_report[i].output.fval = 0.0;
 
 		if 	((s1 == 0) && (s2 == 0)) {g_results[i][0] += 1; result_report[i].output.fval = 1.0;}
@@ -465,7 +462,7 @@ compute_prediction_statistics(int n, NEURON *neural_prediction,
 
 
 void
-compute_capital_evolution(int n, NEURON* neural_prediction, NEURON* actual_result)
+compute_capital_evolution(int n, NEURON *neural_prediction, NEURON *actual_result)
 {
 	int i;
 
@@ -487,33 +484,42 @@ compute_capital_evolution(int n, NEURON* neural_prediction, NEURON* actual_resul
 		double result_sell_buy = -r * a_capital -
 				CUSTO_TRASACAO * (2.0 * a_capital - r * a_capital) - 2.0 * CUSTO_CORRETORA_P;
 
-//		if ((s1 == 0) && (expected_result_buy_sell > 0.0) &&
-//			(g_mean_correct_positive_pred[i] > CERTAINTY))
-//		{
-//			g_capital[i] += result_buy_sell;
-//			g_buy_sell_count[i] += 1;
-//		}
-//		else if ((s1 == 0) && (expected_result_sell_buy > 0.0) &&
-//			(g_mean_reverse_positive_pred[i] > CERTAINTY))
-//		{
-//			g_capital[i] += result_sell_buy;
-//			g_sell_buy_count[i] += 1;
-//		}
 
-		if ((s1 == 1) && (expected_result_sell_buy > 0.0) &&
-			(g_mean_correct_negative_pred[i] > CERTAINTY))
+		if (g_LongShort == 1)
 		{
-			g_capital[i] += result_sell_buy;
-			g_sell_buy_count[i] += 1;
+			if ((s1 == 0) && (expected_result_buy_sell > 0.0) &&
+				(g_mean_correct_positive_pred[i] > CERTAINTY))
+			{
+				double previous_capital = g_capital[i];
+				g_capital[i] += result_buy_sell;
+				if (g_capital[i] > previous_capital)
+					g_results[i][12] += 1;
+
+				g_buy_sell_count[i] += 1;
+				g_results[i][11] = 1;
+			}
+			else
+				g_results[i][11] = 0;
 		}
-		else if ((s1 == 1) && (expected_result_buy_sell > 0.0) &&
-			(g_mean_reverse_negative_pred[i] > CERTAINTY))
+		else
 		{
-			g_capital[i] += result_buy_sell;
-			g_buy_sell_count[i] += 1;
+			if ((s1 == 1) && (expected_result_sell_buy > 0.0) &&
+				(g_mean_correct_negative_pred[i] > CERTAINTY))
+			{
+				double previous_capital = g_capital[i];
+				g_capital[i] += result_sell_buy;
+				if (g_capital[i] > previous_capital)
+					g_results[i][12] += 1;
+
+				g_sell_buy_count[i] += 1;
+				g_results[i][11] = 1;
+			}
+			else
+				g_results[i][11] = 0;
 		}
 	}
 }
+
 
 /*
 ***********************************************************
@@ -580,6 +586,7 @@ output_handler(OUTPUT_DESC *output, int type_call, int mouse_button, int mouse_s
 //
 // Saida: Nenhuma
 // ----------------------------------------------------
+
 void
 f_keyboard(char *key_value)
 {
@@ -619,7 +626,11 @@ ShowStatistics(PARAM_LIST *pParamList)
 
 		if (total_tested > 0)
 		{
-			printf("st = %02d: ", j);
+			if (j == 0) printf("WIN: ");
+			if (j == 1) printf("IND: ");
+			if (j == 2) printf("WDO: ");
+			if (j == 3) printf("DOL: ");
+
 			for (i = 0; i < 9; i++)
 			{
 				char ch1 = ' ', ch2 = ' ';
@@ -649,10 +660,19 @@ ShowStatistics(PARAM_LIST *pParamList)
 							   (double) (3 * (g_results[j][4] + g_results[j][3] + g_results[j][5])));
 			else
 				printf("g!   ---  ");
-			printf("buy_sell_count = %2d, sell_buy_count = %2d, capital = %.2lf\n",
-					g_buy_sell_count[j], g_sell_buy_count[j], g_capital[j]);
+
+			if ((g_buy_sell_count[j] + g_sell_buy_count[j]) > 0)
+				printf("buy_sell_count = %2d, sell_buy_count = %2d, capital = %.2lf, return = %.4lf, p_return = %.4lf, invest = %d, hit_rate = %6.1lf\n",
+						g_buy_sell_count[j], g_sell_buy_count[j], g_capital[j],
+						(double) g_results[j][9] / 10000.0, (double) g_results[j][10] / 10000.0, g_results[j][11],
+						100.0 * (double) g_results[j][12] / (double) (g_buy_sell_count[j] + g_sell_buy_count[j]));
+			else
+				printf("buy_sell_count = %2d, sell_buy_count = %2d, capital = %.2lf, return = %.4lf, p_return = %.4lf, invest = %d, hit_rate = ---\n",
+						g_buy_sell_count[j], g_sell_buy_count[j], g_capital[j],
+						(double) g_results[j][9] / 10000.0, (double) g_results[j][10] / 10000.0, g_results[j][11]);
 		}
 	}
+
 	double total_capital = 0.0;
 	int total_buy_sell = 0;
 	int total_sell_buy = 0;
@@ -693,7 +713,7 @@ ResetStatistics(PARAM_LIST *pParamList)
 		g_capital[j] = 50000.0;
 		g_buy_sell_count[j] = 0;
 		g_sell_buy_count[j] = 0;
-		for (i = 0; i < 9; i++)
+		for (i = 0; i < 13; i++)
 			g_results[j][i] = 0;
 	}
 
@@ -775,7 +795,7 @@ GetRandomReturns(PARAM_LIST *pParamList)
 
 /*
 ***********************************************************
-* Function: SetNetworkStatus
+* Function: LoadReturns
 * Description:
 * Inputs:
 * Output:
@@ -829,6 +849,27 @@ LoadReturns(PARAM_LIST *pParamList)
 	INPUT_DESC *input;
 	input = get_input_by_name("ita");
 	g_nReturnsNum = POSE_MIN = input->wh;
+
+	output.ival = 0;
+	return (output);
+}
+
+
+/*
+***********************************************************
+* Function: SetLongShort
+* Description:
+* Inputs:
+* Output:
+***********************************************************
+*/
+
+NEURON_OUTPUT
+SetLongShort(PARAM_LIST *pParamList)
+{
+	NEURON_OUTPUT output;
+
+	g_LongShort = pParamList->next->param.ival;
 
 	output.ival = 0;
 	return (output);
