@@ -1,0 +1,95 @@
+int RETURNS2TRAIN;
+int FIRST_RETURNS2TRAIN;
+FIRST_RETURNS2TRAIN = 10;
+RETURNS2TRAIN = 50;
+
+int RETURNS2WARM_UP;	
+int FIRST_RETURNS2WARM_UP;	
+FIRST_RETURNS2WARM_UP = FIRST_RETURNS2TRAIN + RETURNS2TRAIN;
+RETURNS2WARM_UP = 0;
+
+int RETURNS2TEST;	
+int FIRST_RETURNS2TEST;	
+FIRST_RETURNS2TEST = FIRST_RETURNS2TRAIN + RETURNS2TRAIN + RETURNS2WARM_UP;
+RETURNS2TEST = 50;
+
+
+/* Network Status */
+int TRAINING_PHASE;
+TRAINING_PHASE = 1;
+int TESTING_PHASE;
+TESTING_PHASE = 2;
+int WARM_UP_PHASE;
+WARM_UP_PHASE = 3;
+
+clear out_result;
+
+/* Counters */
+int i;
+
+/* Training Phase */
+#SetNetworkStatus(TRAINING_PHASE);
+SetNetworkStatus(TESTING_PHASE);
+i = FIRST_RETURNS2TRAIN;
+while (i < RETURNS2TRAIN + FIRST_RETURNS2TRAIN)
+{
+	GetRandomReturns(i);
+	forward filters;
+	forward outputs;
+
+	/* Draws the landmark neuron layer output */
+	draw out_prediction based on ita move;
+	train network;
+	
+	i = i + 1;
+}
+
+	
+/* Warm up phase */
+ResetStatistics(0);
+
+SetNetworkStatus(WARM_UP_PHASE);
+
+i = FIRST_RETURNS2WARM_UP;
+while (i < RETURNS2WARM_UP + FIRST_RETURNS2WARM_UP)
+{
+	GetRandomReturns(i);
+	forward filters;
+	forward neural_layers;
+	forward outputs;
+
+	/* Draws the landmark neuron layer output */
+	draw out_prediction based on ita move;
+	train network;
+	
+	i = i + 1;
+}
+
+	
+/* Testing phase */
+#ResetStatistics(0);
+
+#SetNetworkStatus(TRAINING_PHASE);
+SetNetworkStatus(TESTING_PHASE);
+
+i = FIRST_RETURNS2TEST;
+while (i < RETURNS2TEST + FIRST_RETURNS2TEST)
+{
+	GetRandomReturns(i);
+
+	forward filters;
+	forward neural_layers;
+	forward outputs;
+
+	ShowStatistics(0);
+
+	/* Draws the landmark neuron layer output */
+#	draw out_prediction based on ita move;
+	copy out_test;
+	paste out_prediction;
+	train network;
+
+	i = i + 1;
+}
+
+quit;
