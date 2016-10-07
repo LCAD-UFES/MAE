@@ -1,7 +1,7 @@
+SetLongShort(1); # Long
+LoadReturns("DATA/20160301_WIN_IND_WDO_DOL_64_LONG.csv");
 #SetLongShort(0); # Short
 #LoadReturns("DATA/20160303_WIN_IND_WDO_DOL_64_SHORT.csv");
-SetLongShort(1); # Long
-LoadReturns("DATA/20160303_WIN_IND_WDO_DOL_64_LONG.csv");
 
 
 int RETURNS2TRAIN;

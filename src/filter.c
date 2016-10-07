@@ -1437,7 +1437,6 @@ void
 graph_filter (FILTER_DESC *filter_desc)
 {
 	NEURON_LAYER_LIST *n_list = (NEURON_LAYER_LIST *) NULL;
-	OUTPUT_DESC *output = (OUTPUT_DESC *) NULL;
 	PARAM_LIST *p_list = (PARAM_LIST *) NULL;
 	int i;
 
@@ -1460,10 +1459,12 @@ graph_filter (FILTER_DESC *filter_desc)
 		return;
 	}
 
-	// Get the filter output
-	output = get_output_by_neural_layer (filter_desc->output);
 
 #ifndef NO_INTERFACE
+	// Get the filter output
+	OUTPUT_DESC *output = (OUTPUT_DESC *) NULL;
+	output = get_output_by_neural_layer (filter_desc->output);
+
 	// Set the handle functions for the graph output
 	glutSetWindow (output->win);
 	glutDisplayFunc (graph_display);
@@ -4134,7 +4135,7 @@ compute_quadrature_pair (QUADRATURE_PAIR *quadrature_pair, double phase_left, do
 */
 
 void
-compute_complex_cell (COMPLEX_CELL *complex_cell, double sigma_w, double phase_left, double phase_right, int kernel_size)
+compute_complex_cell(COMPLEX_CELL *complex_cell, double sigma_w, double phase_left, double phase_right, int kernel_size)
 {
 	int x, y, radius, index = 0;
 
@@ -4175,14 +4176,14 @@ compute_complex_cell (COMPLEX_CELL *complex_cell, double sigma_w, double phase_l
 void
 compute_complex_cells_clustering (COMPLEX_CELLS_CLUSTERING *complex_cells_clustering, double sigma_w, int kernel_size)
 {
-	int i;
+	unsigned int i;
 	double phase_left [] = {-6.0*pi/8.0, -5.0*pi/8.0, -4.0*pi/8.0, -3.0*pi/8.0, -2.0*pi/8.0, -pi/8.0, 0.0, pi/8.0};
 	double phase_right [] = {2.0*pi/8.0, pi/8.0, 0.0, -pi/8.0, -2.0*pi/8.0, -3.0*pi/8.0, -4.0*pi/8.0, -5.0*pi/8.0};
 
 	complex_cells_clustering->complex_cells = (COMPLEX_CELL*) alloc_mem (sizeof(phase_left) * sizeof(COMPLEX_CELL));
 
-	for(i = 0; i < sizeof(phase_left); i++)
-		compute_complex_cell (&(complex_cells_clustering->complex_cells[i]), sigma_w, phase_left[i], phase_right[i], kernel_size);
+	for (i = 0; i < 8; i++)
+		compute_complex_cell(&(complex_cells_clustering->complex_cells[i]), sigma_w, phase_left[i], phase_right[i], kernel_size);
 }
 
 

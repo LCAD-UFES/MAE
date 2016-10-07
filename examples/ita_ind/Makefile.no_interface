@@ -8,12 +8,12 @@ LIBRARYS=-lnet_conn -lforms -lGA -lX11 -lglut -lGLU -lGL -lm -lfl
  
 ##########################################################
 
-EXECUTABLE = face_recog
-LIBRARY = libface_recog.a
-OBJECTS = face_recog.o \
-	  face_recog_user_functions/face_recog_user_functions.o \
-	  face_recog_user_functions/face_recog_filters.o \
-	  face_recog_user_functions/face_recog_api.o
+EXECUTABLE = ita
+LIBRARY = libita.a
+OBJECTS = ita.o \
+	  ita_user_functions/ita_user_functions.o \
+	  ita_user_functions/ita_filters.o \
+	  ita_user_functions/ita_api.o
 
 ##########################################################
 
@@ -35,17 +35,17 @@ $(LIBRARY): $(OBJECTS)
 
 ##########################################################
 
-face_recog_user_functions.o : ../face_recog.h
+ita_user_functions.o : ../ita.h
 
 ##########################################################
 
-face_recog.o:
+ita.o:
 	$(MAEHOME)/bin/netcomp -o $* < $*.con	
 	$(CC) $(CCFLAGS) -c -I$(MAEHOME)/include -o $@ $*.c
 
 ##########################################################
 clean:
-	rm -f *.o face_recog_user_functions/*.o
-	rm -f face_recog face_recog.c face_recog.h
+	rm -f *.o ita_user_functions/*.o
+	rm -f ita ita.c ita.h
 	rm -f *.out
 	rm -f $(LIBRARY)
