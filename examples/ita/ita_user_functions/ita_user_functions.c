@@ -3,7 +3,7 @@
 #include "ita_user_functions.h"
 
 // Global Variables
-int g_nReturnsNum = 0;
+int g_sample = 0;
 int g_nStatus;
 
 char g_strRandomReturnsFileName[256];
@@ -35,13 +35,13 @@ GetNextFileName(char *strFileName, int nDirection)
 {
 	FILE *pFile = NULL;
 
-	if ((nDirection == DIRECTION_FORWARD) && (g_nReturnsNum > POSE_MAX))
+	if ((nDirection == DIRECTION_FORWARD) && (g_sample > POSE_MAX))
 	{
-		g_nReturnsNum = POSE_MIN;
+		g_sample = POSE_MIN;
 	}
-	if ((nDirection == DIRECTION_REWIND) && (g_nReturnsNum < POSE_MIN))
+	if ((nDirection == DIRECTION_REWIND) && (g_sample < POSE_MIN))
 	{
-		g_nReturnsNum = POSE_MAX;
+		g_sample = POSE_MAX;
 	}
 
 	if ((pFile = fopen(g_strRandomReturnsFileName, "r")) == NULL)
@@ -52,7 +52,7 @@ GetNextFileName(char *strFileName, int nDirection)
 
 	int i;
 	strcpy(strFileName, INPUT_PATH);
-	for (i = 0; i <= g_nReturnsNum; i++)
+	for (i = 0; i <= g_sample; i++)
 		if (fgets(strFileName + strlen(INPUT_PATH), 256, pFile) == NULL)
 			break;
 		else
@@ -232,7 +232,7 @@ init_ita(INPUT_DESC *input)
 #endif
 	char strFileName[128];
 
-	g_nReturnsNum = POSE_MIN;
+	g_sample = POSE_MIN;
 	g_nStatus = MOVING_PHASE;
 
 	int i, j;
@@ -315,9 +315,9 @@ GetNewReturns(INPUT_DESC *input, int nDirection)
 	char strFileName[128];
 
 	if (nDirection == DIRECTION_FORWARD)
-		g_nReturnsNum++;
+		g_sample++;
 	else
-		g_nReturnsNum--;
+		g_sample--;
 
 	GetNextFileName(strFileName, nDirection);
 	if (ReadReturnsInput(input, strFileName))
@@ -797,8 +797,8 @@ GetRandomReturns(PARAM_LIST *pParamList)
 	FILE *pFile = NULL;
 	int i;
 	
-	g_nReturnsNum = pParamList->next->param.ival;
-	if ((g_nReturnsNum < POSE_MIN) || (g_nReturnsNum > POSE_MAX))
+	g_sample = pParamList->next->param.ival;
+	if ((g_sample < POSE_MIN) || (g_sample > POSE_MAX))
 	{
 		printf ("Error: Invalid pose ID, it must be within the interval [%d, %d] (GetRandomReturns).\n", POSE_MIN, POSE_MAX);
 		fflush(stdout);
@@ -815,7 +815,7 @@ GetRandomReturns(PARAM_LIST *pParamList)
 	}
 	
 	strcpy(strFileName, INPUT_PATH);
-	for (i = 0; i <= g_nReturnsNum; i++)
+	for (i = 0; i <= g_sample; i++)
 		if (fgets(strFileName + strlen(INPUT_PATH), 256, pFile) == NULL)
 			break;
 		else

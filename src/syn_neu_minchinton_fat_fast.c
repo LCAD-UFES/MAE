@@ -457,7 +457,7 @@ int
 neuron_memory_write_minchinton_fat_fast(NEURON_LAYER *neuron_layer, int n, PATTERN *input_pattern, int connections, OUTPUT_TYPE output_type)
 {
 	int i, j;
-	int mem_line_to_delete, distance;
+	int mem_line_to_delete; //, distance;
 	NEURON *neuron;
 	long long int **wisard_memory;
 	SUB_PATTERN subtable_row;

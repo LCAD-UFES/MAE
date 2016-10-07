@@ -38,6 +38,8 @@ int
 get_bit(int start_bit, const PATTERN *input_pattern);
 int
 get_bits(int num_bits, int start_bit, PATTERN *input_pattern, int input_pattern_size);
+int
+get_one_bit(int start_bit, const PATTERN *input_pattern);
 
 float
 obtain_composed_color_synapse_weighted_value(SYNAPSE *synapse);
