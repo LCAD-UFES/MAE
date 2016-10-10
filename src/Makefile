@@ -11,8 +11,8 @@ EXAMPLES_FILES_C := $(EXAMPLES_FILES:%=%.c)
 
 CC = gcc
 
-CFLAGS = -O4 -fopenmp -mpopcnt -mfpmath=sse -msse2 -msse4.2 -ffast-math -fassociative-math #-mtune=native -march=native
-#CFLAGS += -DNO_INTERFACE
+#CFLAGS = -O4 -fopenmp -mpopcnt -mfpmath=sse -msse2 -msse4.2 -ffast-math -fassociative-math #-mtune=native -march=native
+CFLAGS = -O4
 
 INCPATH = ../include
 LIBS = -lfl

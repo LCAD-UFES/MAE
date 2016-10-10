@@ -2,14 +2,20 @@
 #include <wchar.h>
 #include "ita_user_functions.h"
 
+#if ITA_BUILD
+#include "../ita_signal_driver_vg_ram.h"
+#include "../ita_signal_driver_vg_ram_mae.h"
+#include "../ita_signal_driver_vg_ram_statistics.h"
+#endif
+
 struct _returns
 {
 	int id;
 	char time[256];
-	double WIN;
-	double IND;
-	double WDO;
-	double DOL;
+	float WIN;
+	float IND;
+	float WDO;
+	float DOL;
 };
 
 typedef struct _returns RETURNS;
@@ -36,7 +42,7 @@ typedef struct _returns RETURNS;
 #define NEUTR 2
 
 // Global Variables
-RETURNS returns[MAX_RETURN_SAMPLES];
+RETURNS returns[2][MAX_RETURN_SAMPLES];
 int g_sample = 0;
 int g_nStatus;
 int g_LongShort = 1; // 1 = Long, 0 = Short
@@ -49,12 +55,12 @@ int gcc_no_complain;
 char *gcc_no_complain_c;
 
 // Variaveis utilizadas no procedimento de teste
-int g_results[MAX_RETURN_SAMPLES][INPUT_WIDTH][13];
-int g_buy_sell_count[INPUT_WIDTH];
-int g_sell_buy_count[INPUT_WIDTH];
-double g_capital[INPUT_WIDTH];
-double g_mean_correct_positive_pred[INPUT_WIDTH], g_mean_correct_negative_pred[INPUT_WIDTH];
-double g_mean_reverse_positive_pred[INPUT_WIDTH], g_mean_reverse_negative_pred[INPUT_WIDTH];
+int g_results[2][MAX_RETURN_SAMPLES][INPUT_WIDTH][13];
+int g_buy_sell_count[2][INPUT_WIDTH];
+int g_sell_buy_count[2][INPUT_WIDTH];
+double g_capital[2][INPUT_WIDTH];
+double g_mean_correct_positive_pred[2][INPUT_WIDTH], g_mean_correct_negative_pred[2][INPUT_WIDTH];
+double g_mean_reverse_positive_pred[2][INPUT_WIDTH], g_mean_reverse_negative_pred[2][INPUT_WIDTH];
 
 
 /*
@@ -98,20 +104,20 @@ GetNextReturns(int nDirection)
 */
 
 int
-ReadReturnsInput(INPUT_DESC *input)
+ReadReturnsInput(INPUT_DESC *input, int net)
 {
 	int x, y;
 
-	printf("reading returns %d, time %s\n", returns[g_sample].id, returns[g_sample].time);
+	printf("reading returns %d, time %s\n", returns[net][g_sample].id, returns[net][g_sample].time);
 
 	for (y = 0; y < input->neuron_layer->dimentions.y; y++)
 	{
 		for (x = 0; x < input->neuron_layer->dimentions.x; x++)
 		{
-			if (x == 0) input->neuron_layer->neuron_vector[y * input->neuron_layer->dimentions.x + x].output.fval = returns[g_sample - y].WIN;
-			if (x == 1) input->neuron_layer->neuron_vector[y * input->neuron_layer->dimentions.x + x].output.fval = returns[g_sample - y].IND;
-			if (x == 2) input->neuron_layer->neuron_vector[y * input->neuron_layer->dimentions.x + x].output.fval = returns[g_sample - y].WDO;
-			if (x == 3) input->neuron_layer->neuron_vector[y * input->neuron_layer->dimentions.x + x].output.fval = returns[g_sample - y].DOL;
+			if (x == 0) input->neuron_layer->neuron_vector[y * input->neuron_layer->dimentions.x + x].output.fval = returns[net][g_sample - y].WIN;
+			if (x == 1) input->neuron_layer->neuron_vector[y * input->neuron_layer->dimentions.x + x].output.fval = returns[net][g_sample - y].IND;
+			if (x == 2) input->neuron_layer->neuron_vector[y * input->neuron_layer->dimentions.x + x].output.fval = returns[net][g_sample - y].WDO;
+			if (x == 3) input->neuron_layer->neuron_vector[y * input->neuron_layer->dimentions.x + x].output.fval = returns[net][g_sample - y].DOL;
 		}
 	}
 	
@@ -130,7 +136,7 @@ ReadReturnsInput(INPUT_DESC *input)
 */
 
 int
-ReadReturnsOutput(OUTPUT_DESC *output, char *strFileName)
+ReadReturnsOutput(OUTPUT_DESC *output, int net)
 {
 	int x, y;
 
@@ -138,10 +144,10 @@ ReadReturnsOutput(OUTPUT_DESC *output, char *strFileName)
 	{
 		for (x = 0; x < output->neuron_layer->dimentions.x; x++)
 		{
-			if (x == 0) output->neuron_layer->neuron_vector[y * output->neuron_layer->dimentions.x + x].output.fval = returns[g_sample + 1].WIN;
-			if (x == 1) output->neuron_layer->neuron_vector[y * output->neuron_layer->dimentions.x + x].output.fval = returns[g_sample + 1].IND;
-			if (x == 2) output->neuron_layer->neuron_vector[y * output->neuron_layer->dimentions.x + x].output.fval = returns[g_sample + 1].WDO;
-			if (x == 3) output->neuron_layer->neuron_vector[y * output->neuron_layer->dimentions.x + x].output.fval = returns[g_sample + 1].DOL;
+			if (x == 0) output->neuron_layer->neuron_vector[y * output->neuron_layer->dimentions.x + x].output.fval = returns[net][g_sample + 1].WIN;
+			if (x == 1) output->neuron_layer->neuron_vector[y * output->neuron_layer->dimentions.x + x].output.fval = returns[net][g_sample + 1].IND;
+			if (x == 2) output->neuron_layer->neuron_vector[y * output->neuron_layer->dimentions.x + x].output.fval = returns[net][g_sample + 1].WDO;
+			if (x == 3) output->neuron_layer->neuron_vector[y * output->neuron_layer->dimentions.x + x].output.fval = returns[net][g_sample + 1].DOL;
 		}
 	}
 
@@ -189,7 +195,7 @@ make_input_image_ita(INPUT_DESC *input, int w, int h)
 	input->vpyo = h - input->vph;
 
 	if(input->image == NULL)
-		input->image = (GLubyte *) alloc_mem (input->tfw * input->tfh * 3 * sizeof (GLubyte));
+		input->image = (GLubyte *) alloc_mem ((unsigned int) (input->tfw * input->tfh) * 3 * sizeof (GLubyte));
 }
 
 
@@ -212,16 +218,17 @@ init_ita(INPUT_DESC *input)
 	g_sample = POSE_MIN;
 	g_nStatus = MOVING_PHASE;
 
-	int i, j, k;
-	for (k = 0; k < MAX_RETURN_SAMPLES; k++)
-		for (j = 0; j < INPUT_WIDTH; j++)
-			for (i = 0; i < 13; i++)
-				g_results[k][j][i] = 0;
+	int i, j, k, l;
+	for (l = 0; l < 2; l++)
+		for (k = 0; k < MAX_RETURN_SAMPLES; k++)
+			for (j = 0; j < INPUT_WIDTH; j++)
+				for (i = 0; i < 13; i++)
+					g_results[l][k][j][i] = 0;
 	
 	make_input_image_ita(input, INPUT_WIDTH, INPUT_HEIGHT);
 
 	// Le a primeira imagem
-	//ReadReturnsInput(input);
+	//ReadReturnsInput(input, 0);
 	//update_input_image(input);
 
 	input->green_cross = 1;
@@ -289,7 +296,7 @@ int
 GetNewReturns(INPUT_DESC *input, int nDirection)
 {
 	GetNextReturns(nDirection);
-	if (ReadReturnsInput(input))
+	if (ReadReturnsInput(input, 0))
 		return (-1);
 			
 	check_input_bounds(input, input->wx + input->ww/2, input->wy + input->wh/2);
@@ -349,9 +356,11 @@ input_generator(INPUT_DESC *input, int status)
 void
 read_current_desired_returns_to_output(OUTPUT_DESC *output)
 {
-	char strFileName[128];
+	ReadReturnsOutput(output, 0);
 
-	ReadReturnsOutput(output, strFileName);
+#if ITA_BUILD
+	ItaSignalDriverVgRamMAELoadOutput(output);
+#endif
 
 	update_output_image(output);
 #ifndef NO_INTERFACE
@@ -429,94 +438,115 @@ signal_of_val(float val)
 
 
 int
-r_sum(int stock, int signal)
+r_sum(int net, int stock, int signal)
 {
 	int back_added;
 	int sum = 0;
 
 	for (back_added = 0; back_added < g_runing_sum_size; back_added++)
 		if ((g_sample - back_added) >= 0)
-			sum += g_results[g_sample - back_added][stock][signal];
+			sum += g_results[net][g_sample - back_added][stock][signal];
 
 	return (sum);
 }
 
 
 int
-f_sum(int stock, int parameter)
+f_sum(int net, int stock, int parameter)
 {
 	int i;
 	int sum = 0;
 
 	for (i = POSE_MIN; i <= g_sample; i++)
-		sum += g_results[i][stock][parameter];
+		sum += g_results[net][i][stock][parameter];
 
 	return (sum);
 }
 
 
+#if ITA_BUILD
 void
-compute_prediction_statistics(int n_stocks, NEURON *neural_prediction,
-							   NEURON *actual_result, NEURON *result_report)
+compute_prediction_statistics(int net, int n_stocks, double *neural_prediction, double *actual_result)
 {
 	int stock;
+	OUTPUT_DESC *result_output;
+
+	result_output = get_output_by_name("out_result");
 
 	for (stock = 0; stock < n_stocks; stock++)
 	{
+		float pred_ret = (float) neural_prediction[stock];
+		float actu_ret = (float) actual_result[stock];
+#else
+void
+compute_prediction_statistics(int net, int n_stocks, NEURON *neural_prediction, NEURON *actual_result)
+{
+	int stock;
+	OUTPUT_DESC *result_output;
+
+	result_output = get_output_by_name("out_result");
+
+	for (stock = 0; stock < n_stocks; stock++)
+	{
+		float pred_ret = neural_prediction[stock].output.fval;
+		float actu_ret = actual_result[stock].output.fval;
+#endif
+
 		int s1, s2;
-		s1 = signal_of_val(neural_prediction[stock].output.fval);
-		s2 = signal_of_val(actual_result[stock].output.fval);
+		s1 = signal_of_val(pred_ret);
+		s2 = signal_of_val(actu_ret);
 
-		g_results[g_sample][stock][RETURN] = (int) (actual_result[stock].output.fval * 1000000.0 + 0.5);
-		g_results[g_sample][stock][P_RETURN] = (int) (neural_prediction[stock].output.fval * 1000000.0 + 0.5);
+		g_results[net][g_sample][stock][P_RETURN] = (int) (pred_ret * 1000000.0 + 0.5);
+		g_results[net][g_sample][stock][RETURN] = (int) (actu_ret * 1000000.0 + 0.5);
 
+		NEURON *result_report = result_output->neuron_layer->neuron_vector;
 		result_report[stock].output.fval = 0.0;
 
-		if 	    ((s1 == SUBIU) && (s2 == SUBIU)) {g_results[g_sample][stock][SS] += 1; result_report[stock].output.fval = 1.0;}
-		else if ((s1 == SUBIU) && (s2 == DESCE))  g_results[g_sample][stock][SD] += 1;
-		else if ((s1 == SUBIU) && (s2 == NEUTR))  g_results[g_sample][stock][SN] += 1;
-		else if ((s1 == DESCE) && (s2 == SUBIU))  g_results[g_sample][stock][DS] += 1;
-		else if ((s1 == DESCE) && (s2 == DESCE)) {g_results[g_sample][stock][DD] += 1; result_report[stock].output.fval = 1.0; }
-		else if ((s1 == DESCE) && (s2 == NEUTR))  g_results[g_sample][stock][DN] += 1;
-		else if ((s1 == NEUTR) && (s2 == SUBIU))  g_results[g_sample][stock][NS] += 1;
-		else if ((s1 == NEUTR) && (s2 == DESCE))  g_results[g_sample][stock][ND] += 1;
-		else if ((s1 == NEUTR) && (s2 == NEUTR)) {g_results[g_sample][stock][NN] += 1; result_report[stock].output.fval = -1.0;}
+		if 	    ((s1 == SUBIU) && (s2 == SUBIU)) {g_results[net][g_sample][stock][SS] += 1; result_report[stock].output.fval = 1.0;}
+		else if ((s1 == SUBIU) && (s2 == DESCE))  g_results[net][g_sample][stock][SD] += 1;
+		else if ((s1 == SUBIU) && (s2 == NEUTR))  g_results[net][g_sample][stock][SN] += 1;
+		else if ((s1 == DESCE) && (s2 == SUBIU))  g_results[net][g_sample][stock][DS] += 1;
+		else if ((s1 == DESCE) && (s2 == DESCE)) {g_results[net][g_sample][stock][DD] += 1; result_report[stock].output.fval = 1.0; }
+		else if ((s1 == DESCE) && (s2 == NEUTR))  g_results[net][g_sample][stock][DN] += 1;
+		else if ((s1 == NEUTR) && (s2 == SUBIU))  g_results[net][g_sample][stock][NS] += 1;
+		else if ((s1 == NEUTR) && (s2 == DESCE))  g_results[net][g_sample][stock][ND] += 1;
+		else if ((s1 == NEUTR) && (s2 == NEUTR)) {g_results[net][g_sample][stock][NN] += 1; result_report[stock].output.fval = -1.0;}
 
-		int sum = r_sum(stock, SS) + r_sum(stock, SD) + r_sum(stock, SN);
+		int sum = r_sum(net, stock, SS) + r_sum(net, stock, SD) + r_sum(net, stock, SN);
 		if (sum != 0)
 		{
-			g_mean_correct_positive_pred[stock] = 100.0 *
-				(double) (3 * r_sum(stock, SS) - 3 * r_sum(stock, SD) - r_sum(stock, SN)) / (double) (3 * sum);
+			g_mean_correct_positive_pred[net][stock] = 100.0 *
+				(double) (3 * r_sum(net, stock, SS) - 3 * r_sum(net, stock, SD) - r_sum(net, stock, SN)) / (double) (3 * sum);
 
-			g_mean_reverse_positive_pred[stock] = 100.0 *
-				(double) (3 * r_sum(stock, SD) - 3 * r_sum(stock, SS) - r_sum(stock, SN)) / (double) (3 * sum);
+			g_mean_reverse_positive_pred[net][stock] = 100.0 *
+				(double) (3 * r_sum(net, stock, SD) - 3 * r_sum(net, stock, SS) - r_sum(net, stock, SN)) / (double) (3 * sum);
 		}
 		else
 		{
-			g_mean_correct_positive_pred[stock] = -100.0;
-			g_mean_reverse_positive_pred[stock] = -100.0;
+			g_mean_correct_positive_pred[net][stock] = -100.0;
+			g_mean_reverse_positive_pred[net][stock] = -100.0;
 		}
 
-		sum = r_sum(stock, DD) + r_sum(stock, DS) + r_sum(stock, DN);
+		sum = r_sum(net, stock, DD) + r_sum(net, stock, DS) + r_sum(net, stock, DN);
 		if (sum != 0)
 		{
-			g_mean_correct_negative_pred[stock] = 100.0 *
-				(double) (3 * r_sum(stock, DD) - 3 * r_sum(stock, DS) - r_sum(stock, DN)) / (double) (3 * sum);
+			g_mean_correct_negative_pred[net][stock] = 100.0 *
+				(double) (3 * r_sum(net, stock, DD) - 3 * r_sum(net, stock, DS) - r_sum(net, stock, DN)) / (double) (3 * sum);
 
-			g_mean_reverse_negative_pred[stock] = 100.0 *
-				(double) (3 * r_sum(stock, DS) - 3 * r_sum(stock, DD) - r_sum(stock, DN)) / (double) (3 * sum);
+			g_mean_reverse_negative_pred[net][stock] = 100.0 *
+				(double) (3 * r_sum(net, stock, DS) - 3 * r_sum(net, stock, DD) - r_sum(net, stock, DN)) / (double) (3 * sum);
 		}
 		else
 		{
-			g_mean_correct_negative_pred[stock] = -100.0;
-			g_mean_reverse_negative_pred[stock] = -100.0;
+			g_mean_correct_negative_pred[net][stock] = -100.0;
+			g_mean_reverse_negative_pred[net][stock] = -100.0;
 		}
 	}
 }
 
 
 void
-compute_capital_evolution(int n, NEURON *neural_prediction, NEURON *actual_result)
+compute_capital_evolution(int net, int n, NEURON *neural_prediction, NEURON *actual_result)
 {
 	int i;
 
@@ -526,7 +556,7 @@ compute_capital_evolution(int n, NEURON *neural_prediction, NEURON *actual_resul
 		s1 = signal_of_val(neural_prediction[i].output.fval);
 
 		double r = neural_prediction[i].output.fval;
-		double a_capital = ALAVANCAGEM * g_capital[i];
+		double a_capital = ALAVANCAGEM * g_capital[net][i];
 		double expected_result_buy_sell = r * a_capital -
 				CUSTO_TRASACAO * (2.0 * a_capital + r * a_capital) - 2.0 * CUSTO_CORRETORA_P;
 		double expected_result_sell_buy = -r * a_capital -
@@ -542,35 +572,56 @@ compute_capital_evolution(int n, NEURON *neural_prediction, NEURON *actual_resul
 		if (g_LongShort == 1)
 		{
 			if ((s1 == 0) && (expected_result_buy_sell > 0.0) &&
-				(g_mean_correct_positive_pred[i] > CERTAINTY))
+				(g_mean_correct_positive_pred[net][i] > CERTAINTY))
 			{
-				double previous_capital = g_capital[i];
-				g_capital[i] += result_buy_sell;
-				if (g_capital[i] > previous_capital)
-					g_results[g_sample][i][HITS] += 1;
+				double previous_capital = g_capital[net][i];
+				g_capital[net][i] += result_buy_sell;
+				if (g_capital[net][i] > previous_capital)
+					g_results[net][g_sample][i][HITS] += 1;
 
-				g_buy_sell_count[i] += 1;
-				g_results[g_sample][i][INVEST] = 1;
+				g_buy_sell_count[net][i] += 1;
+				g_results[net][g_sample][i][INVEST] = 1;
 			}
 			else
-				g_results[g_sample][i][INVEST] = 0;
+				g_results[net][g_sample][i][INVEST] = 0;
 		}
 		else
 		{
 			if ((s1 == 1) && (expected_result_sell_buy > 0.0) &&
-				(g_mean_correct_negative_pred[i] > CERTAINTY))
+				(g_mean_correct_negative_pred[net][i] > CERTAINTY))
 			{
-				double previous_capital = g_capital[i];
-				g_capital[i] += result_sell_buy;
-				if (g_capital[i] > previous_capital)
-					g_results[g_sample][i][HITS] += 1;
+				double previous_capital = g_capital[net][i];
+				g_capital[net][i] += result_sell_buy;
+				if (g_capital[net][i] > previous_capital)
+					g_results[net][g_sample][i][HITS] += 1;
 
-				g_sell_buy_count[i] += 1;
-				g_results[g_sample][i][INVEST] = 1;
+				g_sell_buy_count[net][i] += 1;
+				g_results[net][g_sample][i][INVEST] = 1;
 			}
 			else
-				g_results[g_sample][i][INVEST] = 0;
+				g_results[net][g_sample][i][INVEST] = 0;
 		}
+	}
+}
+
+
+int
+buy_or_sell(int net, int stock, double *neural_prediction)
+{
+	int s1;
+	s1 = signal_of_val((float) neural_prediction[stock]);
+
+	if ((s1 == 0) && (g_mean_correct_positive_pred[net][stock] > CERTAINTY))
+	{
+		g_buy_sell_count[net][stock] += 1;
+		//g_results[net][g_sample][i][HITS] += 1; // Tem que fazer isso depois do ciclo, por meio de outra compute_prediction_statistics()...
+		g_results[net][g_sample][stock][INVEST] = 1;
+		return (1);
+	}
+	else
+	{
+		g_results[net][g_sample][stock][INVEST] = 0;
+		return (0);
 	}
 }
 
@@ -584,27 +635,25 @@ compute_capital_evolution(int n, NEURON *neural_prediction, NEURON *actual_resul
 ***********************************************************
 */
 
+#if !ITA_BUILD
 void
 EvaluateOutput(OUTPUT_DESC *output)
 {
-	NEURON *neural_prediction, *actual_result, *result_report;
+	NEURON *neural_prediction, *actual_result;
 	OUTPUT_DESC *test_output;
-	OUTPUT_DESC *result_output;
 
 	test_output = get_output_by_name("out_test");
 	read_current_desired_returns_to_output(test_output);
 
-	result_output = get_output_by_name("out_result");
-
 	neural_prediction = output->neuron_layer->neuron_vector;
 	actual_result = test_output->neuron_layer->neuron_vector;
-	result_report = result_output->neuron_layer->neuron_vector;
 
 	int n_stocks = output->ww;
-	compute_prediction_statistics(n_stocks, neural_prediction, actual_result, result_report);
+	compute_prediction_statistics(0, n_stocks, neural_prediction, actual_result);
 	if (g_nStatus == TEST_PHASE)
-		compute_capital_evolution(n_stocks, neural_prediction, actual_result);
+		compute_capital_evolution(0, n_stocks, neural_prediction, actual_result);
 }
+#endif
 
 
 /*
@@ -619,18 +668,19 @@ EvaluateOutput(OUTPUT_DESC *output)
 void
 output_handler(OUTPUT_DESC *output, int type_call, int mouse_button, int mouse_state)
 {
+#if !ITA_BUILD
 	if ((g_nStatus == TEST_PHASE) || (g_nStatus == WARM_UP_PHASE))
 	{
 		if (strcmp(output->name, out_prediction.name) == 0)
 			EvaluateOutput(output);
 	}
+#endif
 	
 #ifndef NO_INTERFACE
 	glutSetWindow (output->win);
 	output_display (output);
 #endif
 }
-
 
 // ----------------------------------------------------
 // f_keyboard - Funcao chamada quando e pressionada uma
@@ -673,12 +723,14 @@ ShowStatistics(PARAM_LIST *pParamList)
 	int i, stock, k, total_tested;
 	int n_stocks = INPUT_WIDTH;
 
+	int net = 0;
+
 	for (stock = 0; stock < n_stocks; stock++)
 	{
 		total_tested = 0;
 		for (k = 0; k < g_runing_sum_size; k++)
 			for (i = 0; i < 9; i++)
-				total_tested += g_results[g_sample - k][stock][i];
+				total_tested += g_results[net][g_sample - k][stock][i];
 
 		if (total_tested > 0)
 		{
@@ -700,35 +752,35 @@ ShowStatistics(PARAM_LIST *pParamList)
 				if ((i == 2) || (i == 5) || (i == 8)) ch2 = '-';
 
 				printf("%c%c = %5.2lf, ",
-					   ch1, ch2, 100.0 * (double) r_sum(stock, i) / (double) total_tested);
+					   ch1, ch2, 100.0 * (double) r_sum(net, stock, i) / (double) total_tested);
 			}
-			printf("== = %6.2lf:  ", 100.0 * (double) (r_sum(stock, SS) + r_sum(stock, DD) + r_sum(stock, NN)) / (double) total_tested);
+			printf("== = %6.2lf:  ", 100.0 * (double) (r_sum(net, stock, SS) + r_sum(net, stock, DD) + r_sum(net, stock, NN)) / (double) total_tested);
 
-			int sum = r_sum(stock, SS) + r_sum(stock, SD) + r_sum(stock, SN);
+			int sum = r_sum(net, stock, SS) + r_sum(net, stock, SD) + r_sum(net, stock, SN);
 			if (sum != 0)
 				printf("gi %6.1lf  ", 100.0 *
-						(double) (3 * r_sum(stock, SS) - 3 * r_sum(stock, SD) - r_sum(stock, SN)) / (double) (3 * sum));
+						(double) (3 * r_sum(net, stock, SS) - 3 * r_sum(net, stock, SD) - r_sum(net, stock, SN)) / (double) (3 * sum));
 			else
 				printf("gi   ---   ");
 
-			sum = r_sum(stock, DD) + r_sum(stock, DS) + r_sum(stock, DN);
+			sum = r_sum(net, stock, DD) + r_sum(net, stock, DS) + r_sum(net, stock, DN);
 			if (sum != 0)
 				printf("g! %6.1lf  ",100.0 *
-						(double) (3 * r_sum(stock, DD) - 3 * r_sum(stock, DS) - r_sum(stock, DN)) / (double) (3 * sum));
+						(double) (3 * r_sum(net, stock, DD) - 3 * r_sum(net, stock, DS) - r_sum(net, stock, DN)) / (double) (3 * sum));
 			else
 				printf("g!   ---  ");
 
-			if ((g_buy_sell_count[stock] + g_sell_buy_count[stock]) > 0)
+			if ((g_buy_sell_count[net][stock] + g_sell_buy_count[net][stock]) > 0)
 				printf("buy_sell_count = %2d, sell_buy_count = %2d, capital = %.2lf, return = %.4lf, p_return = %.4lf, invest = %d, hit_rate = %6.1lf\n",
-						g_buy_sell_count[stock], g_sell_buy_count[stock], g_capital[stock],
-						(double) g_results[g_sample][stock][RETURN] / 10000.0, (double) g_results[g_sample][stock][P_RETURN] / 10000.0,
-						g_results[g_sample][stock][INVEST],
-						100.0 * (double) f_sum(stock, HITS) / (double) (g_buy_sell_count[stock] + g_sell_buy_count[stock]));
+						g_buy_sell_count[net][stock], g_sell_buy_count[net][stock], g_capital[net][stock],
+						(double) g_results[net][g_sample][stock][RETURN] / 10000.0, (double) g_results[net][g_sample][stock][P_RETURN] / 10000.0,
+						g_results[net][g_sample][stock][INVEST],
+						100.0 * (double) f_sum(net, stock, HITS) / (double) (g_buy_sell_count[net][stock] + g_sell_buy_count[net][stock]));
 			else
 				printf("buy_sell_count = %2d, sell_buy_count = %2d, capital = %.2lf, return = %.4lf, p_return = %.4lf, invest = %d, hit_rate = ---\n",
-						g_buy_sell_count[stock], g_sell_buy_count[stock], g_capital[stock],
-						(double) g_results[g_sample][stock][RETURN] / 10000.0, (double) g_results[g_sample][stock][P_RETURN] / 10000.0,
-						g_results[g_sample][stock][INVEST]);
+						g_buy_sell_count[net][stock], g_sell_buy_count[net][stock], g_capital[net][stock],
+						(double) g_results[net][g_sample][stock][RETURN] / 10000.0, (double) g_results[net][g_sample][stock][P_RETURN] / 10000.0,
+						g_results[net][g_sample][stock][INVEST]);
 		}
 	}
 
@@ -737,9 +789,9 @@ ShowStatistics(PARAM_LIST *pParamList)
 	int total_sell_buy = 0;
 	for (stock = 0; stock < n_stocks; stock++)
 	{
-		total_capital += g_capital[stock];
-		total_buy_sell += g_buy_sell_count[stock];
-		total_sell_buy += g_sell_buy_count[stock];
+		total_capital += g_capital[net][stock];
+		total_buy_sell += g_buy_sell_count[net][stock];
+		total_sell_buy += g_sell_buy_count[net][stock];
 	}
 
 	//printf("total_tested = %d, capital = %.2lf\n", total_tested, capital);
@@ -766,16 +818,21 @@ ResetStatistics(PARAM_LIST *pParamList)
 {
 	NEURON_OUTPUT output;
 
-	int i, j, k;
+	int i, j, k, l;
 	for (j = 0; j < INPUT_WIDTH; j++)
 	{
-		g_capital[j] = 50000.0;
-		g_buy_sell_count[j] = 0;
-		g_sell_buy_count[j] = 0;
-		for (k = 0; k < MAX_RETURN_SAMPLES; k++)
-			for (i = 0; i < 13; i++)
-				g_results[k][j][i] = 0;
+		for (l = 0; l < 2; l++)
+		{
+			g_capital[l][j] = 50000.0;
+			g_buy_sell_count[l][j] = 0;
+			g_sell_buy_count[l][j] = 0;
+			for (k = 0; k < MAX_RETURN_SAMPLES; k++)
+				for (i = 0; i < 13; i++)
+					g_results[l][k][j][i] = 0;
+		}
 	}
+
+	g_sample = POSE_MIN = ita.wh;
 
 	output.ival = 0;
 	return (output);
@@ -791,13 +848,22 @@ ResetStatistics(PARAM_LIST *pParamList)
 ***********************************************************
 */
 
+
+#if ITA_BUILD
+NEURON_OUTPUT
+SetNetworkStatus(int i)
+{
+	NEURON_OUTPUT output;
+
+	g_nStatus = i;
+#else
 NEURON_OUTPUT
 SetNetworkStatus(PARAM_LIST *pParamList)
 {
 	NEURON_OUTPUT output;
 
 	g_nStatus = pParamList->next->param.ival;
-
+#endif
 	switch (g_nStatus)
 	{
 		case TRAINING_PHASE:
@@ -836,7 +902,7 @@ GetRandomReturns(PARAM_LIST *pParamList)
 		return (output);
 	}
 
-	if (ReadReturnsInput(&ita))
+	if (ReadReturnsInput(&ita, 0))
 	{
 		printf ("Error: Cannot read return (GetRandomReturns).\n");
 		output.ival = -1;
@@ -885,20 +951,21 @@ LoadReturns(PARAM_LIST *pParamList)
 	aux = aux;
 	char date[256];
 	char BRT[256];
+	int net = 0;
 	while(fgets(file_line, 256, returns_file) != NULL)
 	{
-		if (sscanf(file_line, "%d; %s %s %s %lf; %lf; %lf; %lf;\n",
-				&returns[numlines].id, date, returns[numlines].time, BRT,
-				&returns[numlines].WIN, &returns[numlines].IND, &returns[numlines].WDO, &returns[numlines].DOL) != 8)
+		if (sscanf(file_line, "%d; %s %s %s %f; %f; %f; %f;\n",
+				&returns[net][numlines].id, date, returns[net][numlines].time, BRT,
+				&returns[net][numlines].WIN, &returns[net][numlines].IND, &returns[net][numlines].WDO, &returns[net][numlines].DOL) != 8)
 		{
-			printf("%d; %s %s %s %lf; %lf; %lf; %lf;\n",
-					returns[numlines].id, date, returns[numlines].time, BRT,
-					returns[numlines].WIN, returns[numlines].IND, returns[numlines].WDO, returns[numlines].DOL);
+			printf("%d; %s %s %s %f; %f; %f; %f;\n",
+					returns[net][numlines].id, date, returns[net][numlines].time, BRT,
+					returns[net][numlines].WIN, returns[net][numlines].IND, returns[net][numlines].WDO, returns[net][numlines].DOL);
 			Erro("Could not read returns, in LoadReturns(), from file: ", returns_file_name, "");
 		}
 //		printf("%d; %s %s %s %lf; %lf; %lf; %lf;\n",
-//				returns[numlines].id, date, returns[numlines].time, BRT,
-//				returns[numlines].WIN, returns[numlines].IND, returns[numlines].WDO, returns[numlines].DOL);
+//				returns[net][numlines].id, date, returns[net][numlines].time, BRT,
+//				returns[net][numlines].WIN, returns[net][numlines].IND, returns[net][numlines].WDO, returns[net][numlines].DOL);
 		numlines++;
 		if (numlines >= MAX_RETURN_SAMPLES)
 			Erro("numlines >= MAX_RETURN_SAMPLES in LoadReturns().", "", "");

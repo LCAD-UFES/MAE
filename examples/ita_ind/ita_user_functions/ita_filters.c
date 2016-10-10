@@ -35,7 +35,7 @@ void copy_window_image_to_neuron_layer (NEURON_LAYER *nl_dest, int img_win)
 	if ((nWidth != nPreviusWidth) || (nHeight != nPreviusHeight))
 	{
 		free (pScreenPixels);
-		if ((pScreenPixels = (GLubyte *) malloc (3 * nWidth * nHeight * sizeof (GLubyte))) == (GLubyte *) NULL)
+		if ((pScreenPixels = (GLubyte *) malloc ((unsigned int) (3 * nWidth * nHeight) * sizeof (GLubyte))) == (GLubyte *) NULL)
 		{
 			Erro ("Cannot allocate more memory", "", "");
 			return;
@@ -82,7 +82,7 @@ void copy_window_image_to_neuron_layer (NEURON_LAYER *nl_dest, int img_win)
 					neuron_vector[yo * wo + xo].output.ival = r > 50? NUM_COLORS - 1: 0;
 					break;
 				case GREYSCALE_FLOAT:
-					neuron_vector[yo * wo + xo].output.fval = (float) (r + g + b) / 3.0; 
+					neuron_vector[yo * wo + xo].output.fval = (float) ((r + g + b) / 3.0); 
 					break;
 			}
 		}
@@ -106,7 +106,7 @@ void scale_nl_filter (FILTER_DESC *filter_desc)
 	NEURON_LAYER_LIST *n_list = NULL;
 	NEURON_LAYER *nl_output = NULL, *nl_input = NULL;
 	int nl_number, p_number;
-	float scale_factor, k;
+	double scale_factor, k;
 	int xi, yi, wi, hi, xo, yo, wo, ho;
 
 	// Checks the Neuron Layers Number
@@ -225,7 +225,7 @@ void rotate_nl_filter (FILTER_DESC *filter_desc)
 	NEURON_LAYER_LIST *n_list = NULL;
 	NEURON_LAYER *nl_output = NULL, *nl_input = NULL;
 	int nl_number, p_number;
-	float angle, cos_angle, sin_angle;
+	double angle, cos_angle, sin_angle;
 	int xi, yi, wi, hi, xo, yo, wo, ho;
 
 	// Checks the Neuron Layers Number
@@ -356,7 +356,7 @@ void translate_nl_filter (FILTER_DESC *filter_desc)
 KERNEL *compute_2d_gaussian_kernel (int kernel_size, float sigma)
 {
 	int i, x, y, index = 0, radius;
-	float k1, k2, *kernel_points = NULL, acc = .0f, num_points;
+	float k1, *kernel_points = NULL, acc = .0f, num_points;
 	KERNEL *gaussian_kernel = NULL;
 
 	if ((kernel_size % 2) == 0)
@@ -373,27 +373,27 @@ KERNEL *compute_2d_gaussian_kernel (int kernel_size, float sigma)
 
 	gaussian_kernel->kernel_size = kernel_size;
 	
-	if ((gaussian_kernel->kernel_points = kernel_points = (float *) alloc_mem (kernel_size * kernel_size * sizeof (float))) == NULL)
+	if ((gaussian_kernel->kernel_points = kernel_points = (float *) alloc_mem ((unsigned int) (kernel_size * kernel_size) * sizeof (float))) == NULL)
 	{
 		Erro ("Cannot allocate more memory (compute_gaussian_kernel2).", "", "");
 		return NULL;
 	}
 
-	k2 = -.5f / (sigma * sigma);
+	//k2 = -.5f / (sigma * sigma);
 	radius = kernel_size >> 1; // kernel_size / 2
 
 	for (y = -radius; y <= radius; y++)
 	{
 		for (x = -radius; x <= radius; x++)
 		{
-			printf("%1.03f ", kernel_points[index] = exp (k2 * (float) (x * x + y * y)));
+			//printf("%1.03f ", kernel_points[index] = exp (k2 * (float) (x * x + y * y)));
 			acc += kernel_points[index];
 			index++;
 		}
 		printf("\n");
 	}
 	
-	num_points = kernel_size * kernel_size;
+	num_points = (float) (kernel_size * kernel_size);
 	k1 = 1.0f/acc;
 	for(i = 0; i < num_points; i++)
 		kernel_points[i] *= k1;
