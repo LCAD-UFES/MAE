@@ -220,10 +220,10 @@ typedef unsigned char byte;
 #define	        KERNEL_2D       1
 
 /* IO Display */
-#define 	RED(pixel)	((pixel & 0x000000ffL) >> 0)
-#define 	GREEN(pixel)	((pixel & 0x0000ff00L) >> 8)
-#define 	BLUE(pixel)	((pixel & 0x00ff0000L) >> 16)
-#define 	PIXEL(r, g, b)  (((r & 0x000000ffL) << 0) | ((g & 0x000000ffL) << 8) | ((b & 0x000000ffL) << 16))
+#define 	RED(pixel)	((pixel & 0x000000ff) >> 0)
+#define 	GREEN(pixel)	((pixel & 0x0000ff00) >> 8)
+#define 	BLUE(pixel)	((pixel & 0x00ff0000) >> 16)
+#define 	PIXEL(r, g, b)  (((r & 0x000000ff) << 0) | ((g & 0x000000ff) << 8) | ((b & 0x000000ff) << 16))
 
 /* Type Show */
 #define		SHOW_FRAME	0
