@@ -16,9 +16,17 @@ struct _returns
 	float IND;
 	float WDO;
 	float DOL;
+
+
+	float result_WIN;
+	float result_IND;
+	float result_WDO;
+	float result_DOL;
 };
 
 typedef struct _returns RETURNS;
+
+#define RESULT	0
 
 #define MAX_RETURN_SAMPLES 5000
 
@@ -562,6 +570,7 @@ compute_capital_evolution(int net, int n, NEURON *neural_prediction, NEURON *act
 		double expected_result_sell_buy = -r * a_capital -
 				CUSTO_TRASACAO * (2.0 * a_capital - r * a_capital) - 2.0 * CUSTO_CORRETORA_P;
 
+#if !RESULT
 		r = actual_result[i].output.fval;
 		double result_buy_sell = r * a_capital -
 				CUSTO_TRASACAO * (2.0 * a_capital + r * a_capital) - 2.0 * CUSTO_CORRETORA_P;
@@ -601,6 +610,50 @@ compute_capital_evolution(int net, int n, NEURON *neural_prediction, NEURON *act
 			else
 				g_results[net][g_sample][i][INVEST] = 0;
 		}
+#else
+		double result = 0.0;
+		if ( i == 0 )
+			result 	= returns[net][g_sample].result_WIN;
+		else if ( i == 1 )
+			result 	= returns[net][g_sample].result_IND;
+		else if ( i == 2 )
+			result 	= returns[net][g_sample].result_WDO;
+		else if ( i == 3 )
+			result 	= returns[net][g_sample].result_DOL;
+
+		if (g_LongShort == 1)
+		{
+			if ((s1 == 0) && (expected_result_buy_sell > 0.0) &&
+				(g_mean_correct_positive_pred[net][i] > CERTAINTY))
+			{
+				double previous_capital = g_capital[net][i];
+				g_capital[net][i] += result;
+				if (g_capital[net][i] > previous_capital)
+					g_results[net][g_sample][i][HITS] += 1;
+
+				g_buy_sell_count[net][i] += 1;
+				g_results[net][g_sample][i][INVEST] = 1;
+			}
+			else
+				g_results[net][g_sample][i][INVEST] = 0;
+		}
+		else
+		{
+			if ((s1 == 1) && (expected_result_sell_buy > 0.0) &&
+				(g_mean_correct_negative_pred[net][i] > CERTAINTY))
+			{
+				double previous_capital = g_capital[net][i];
+				g_capital[net][i] += result;
+				if (g_capital[net][i] > previous_capital)
+					g_results[net][g_sample][i][HITS] += 1;
+
+				g_sell_buy_count[net][i] += 1;
+				g_results[net][g_sample][i][INVEST] = 1;
+			}
+			else
+				g_results[net][g_sample][i][INVEST] = 0;
+		}
+#endif
 	}
 }
 
@@ -722,7 +775,7 @@ ShowStatistics(PARAM_LIST *pParamList)
 	NEURON_OUTPUT output;
 	int i, stock, k, total_tested;
 	int n_stocks = INPUT_WIDTH;
-
+	float result = 0.0;
 	int net = 0;
 
 	for (stock = 0; stock < n_stocks; stock++)
@@ -734,10 +787,26 @@ ShowStatistics(PARAM_LIST *pParamList)
 
 		if (total_tested > 0)
 		{
-			if (stock == 0) printf("WIN: ");
-			if (stock == 1) printf("IND: ");
-			if (stock == 2) printf("WDO: ");
-			if (stock == 3) printf("DOL: ");
+			if (stock == 0) 
+			{
+				printf("WIN: ");
+				result = returns[net][g_sample].result_WIN;
+			}
+			if (stock == 1) 
+			{
+				printf("IND: ");
+				result = returns[net][g_sample].result_IND;
+			}
+			if (stock == 2) 
+			{
+				printf("WDO: ");
+				result = returns[net][g_sample].result_WDO;
+			}
+			if (stock == 3)
+			{
+				printf("DOL: ");
+				result = returns[net][g_sample].result_DOL;
+			}
 
 			for (i = 0; i < 9; i++)
 			{
@@ -771,15 +840,17 @@ ShowStatistics(PARAM_LIST *pParamList)
 				printf("g!   ---  ");
 
 			if ((g_buy_sell_count[net][stock] + g_sell_buy_count[net][stock]) > 0)
-				printf("buy_sell_count = %2d, sell_buy_count = %2d, capital = %.2lf, return = %.4lf, p_return = %.4lf, invest = %d, hit_rate = %6.1lf\n",
+				printf("buy_sell_count = %2d, sell_buy_count = %2d, capital = %.2lf, return = %.4lf, p_return = %.4lf, result=%.2lf, invest = %d, hit_rate = %6.1lf\n",
 						g_buy_sell_count[net][stock], g_sell_buy_count[net][stock], g_capital[net][stock],
 						(double) g_results[net][g_sample][stock][RETURN] / 10000.0, (double) g_results[net][g_sample][stock][P_RETURN] / 10000.0,
+						result,
 						g_results[net][g_sample][stock][INVEST],
 						100.0 * (double) f_sum(net, stock, HITS) / (double) (g_buy_sell_count[net][stock] + g_sell_buy_count[net][stock]));
 			else
-				printf("buy_sell_count = %2d, sell_buy_count = %2d, capital = %.2lf, return = %.4lf, p_return = %.4lf, invest = %d, hit_rate = ---\n",
+				printf("buy_sell_count = %2d, sell_buy_count = %2d, capital = %.2lf, return = %.4lf, p_return = %.4lf, result=%.2lf, invest = %d, hit_rate = ---\n",
 						g_buy_sell_count[net][stock], g_sell_buy_count[net][stock], g_capital[net][stock],
 						(double) g_results[net][g_sample][stock][RETURN] / 10000.0, (double) g_results[net][g_sample][stock][P_RETURN] / 10000.0,
+						result,
 						g_results[net][g_sample][stock][INVEST]);
 		}
 	}
@@ -954,6 +1025,7 @@ LoadReturns(PARAM_LIST *pParamList)
 	int net = 0;
 	while(fgets(file_line, 256, returns_file) != NULL)
 	{
+#if !RESULT
 		if (sscanf(file_line, "%d; %s %s %s %f; %f; %f; %f;\n",
 				&returns[net][numlines].id, date, returns[net][numlines].time, BRT,
 				&returns[net][numlines].WIN, &returns[net][numlines].IND, &returns[net][numlines].WDO, &returns[net][numlines].DOL) != 8)
@@ -966,6 +1038,30 @@ LoadReturns(PARAM_LIST *pParamList)
 //		printf("%d; %s %s %s %lf; %lf; %lf; %lf;\n",
 //				returns[net][numlines].id, date, returns[net][numlines].time, BRT,
 //				returns[net][numlines].WIN, returns[net][numlines].IND, returns[net][numlines].WDO, returns[net][numlines].DOL);
+#else
+		if (sscanf(file_line, "%d; %s %s %s %f; %f; %f; %f; %f; %f; %f; %f;\n",
+				&returns[net][numlines].id, date, returns[net][numlines].time, BRT,
+				&returns[net][numlines].WIN, &returns[net][numlines].result_WIN, 
+				&returns[net][numlines].IND, &returns[net][numlines].result_IND, 
+				&returns[net][numlines].WDO, &returns[net][numlines].result_WDO,
+				&returns[net][numlines].DOL, &returns[net][numlines].result_DOL) != 12)
+		{
+			printf("%d; %s %s %s %f; %f; %f; %f; %f; %f; %f; %f;\n",
+					returns[net][numlines].id, date, returns[net][numlines].time, BRT,
+					returns[net][numlines].WIN, returns[net][numlines].result_WIN, 
+					returns[net][numlines].IND, returns[net][numlines].result_IND, 
+					returns[net][numlines].WDO, returns[net][numlines].result_WDO,
+					returns[net][numlines].DOL, returns[net][numlines].result_DOL);
+
+			Erro("Could not read returns, in LoadReturns(), from file: ", returns_file_name, "");
+		}
+		printf("%d; %s %s %s %f; %f; %f; %f; %f; %f; %f; %f;\n",
+				returns[net][numlines].id, date, returns[net][numlines].time, BRT,
+				returns[net][numlines].WIN, returns[net][numlines].result_WIN, 
+				returns[net][numlines].IND, returns[net][numlines].result_IND, 
+				returns[net][numlines].WDO, returns[net][numlines].result_WDO,
+				returns[net][numlines].DOL, returns[net][numlines].result_DOL);
+#endif
 		numlines++;
 		if (numlines >= MAX_RETURN_SAMPLES)
 			Erro("numlines >= MAX_RETURN_SAMPLES in LoadReturns().", "", "");

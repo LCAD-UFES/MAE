@@ -1,5 +1,6 @@
 SetLongShort(1); # Long
 LoadReturns("DATA/20160301_WIN_IND_WDO_DOL_64_LONG.csv");
+#LoadReturns("DATA/20160301_WIN_IND_WDO_DOL_64_LONG_NOVO.csv");
 #SetLongShort(0); # Short
 #LoadReturns("DATA/20160303_WIN_IND_WDO_DOL_64_SHORT.csv");
 
