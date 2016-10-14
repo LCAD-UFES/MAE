@@ -83,7 +83,7 @@ GetNextFileName(char *strFileName, int nDirection)
 */
 
 int
-ReadReturnsInput(INPUT_DESC *input, char *strFileName)
+LoadReturnsToInput(INPUT_DESC *input, char *strFileName)
 {
 	int x, y;
 	FILE *pFile = NULL;
@@ -138,7 +138,7 @@ ReadReturnsInput(INPUT_DESC *input, char *strFileName)
 */
 
 int
-ReadReturnsOutput(OUTPUT_DESC *output, char *strFileName)
+LoadReturnsToOutput(OUTPUT_DESC *output, char *strFileName)
 {
 	int x, y;
 	FILE *pFile = NULL;
@@ -245,7 +245,7 @@ init_ita(INPUT_DESC *input)
 	// Le a primeira imagem
 	strcpy (g_strRandomReturnsFileName, TEST_SAMPLES);
 	if (!GetNextFileName(strFileName, DIRECTION_FORWARD))
-		ReadReturnsInput(input, strFileName);
+		LoadReturnsToInput(input, strFileName);
 	//update_input_image(input);
 
 	input->green_cross = 1;
@@ -320,7 +320,7 @@ GetNewReturns(INPUT_DESC *input, int nDirection)
 		g_sample--;
 
 	GetNextFileName(strFileName, nDirection);
-	if (ReadReturnsInput(input, strFileName))
+	if (LoadReturnsToInput(input, strFileName))
 		return (-1);
 			
 	check_input_bounds(input, input->wx + input->ww/2, input->wy + input->wh/2);
@@ -383,7 +383,7 @@ read_current_desired_returns_to_output(OUTPUT_DESC *output)
 	char strFileName[128];
 
 	GetNextFileName(strFileName, 0);
-	ReadReturnsOutput(output, strFileName);
+	LoadReturnsToOutput(output, strFileName);
 
 	update_output_image(output);
 #ifndef NO_INTERFACE
@@ -822,7 +822,7 @@ GetRandomReturns(PARAM_LIST *pParamList)
 			strFileName[strlen(strFileName) - 1] = '\0';
 	fclose(pFile);
 
-	if (ReadReturnsInput(&ita, strFileName))
+	if (LoadReturnsToInput(&ita, strFileName))
 	{
 		printf ("Error: Cannot read face (GetRandomReturns).\n");
 		output.ival = -1;

@@ -16,17 +16,9 @@ struct _returns
 	float IND;
 	float WDO;
 	float DOL;
-
-
-	float result_WIN;
-	float result_IND;
-	float result_WDO;
-	float result_DOL;
 };
 
 typedef struct _returns RETURNS;
-
-#define RESULT	0
 
 #define MAX_RETURN_SAMPLES 5000
 
@@ -57,7 +49,7 @@ int g_LongShort = 1; // 1 = Long, 0 = Short
 int POSE_MIN = 0;
 int POSE_MAX = 0;
 
-int g_runing_sum_size = 5;
+int g_runing_sum_size = 25;
 
 int gcc_no_complain;
 char *gcc_no_complain_c;
@@ -98,7 +90,44 @@ GetNextReturns(int nDirection)
 			g_sample = POSE_MAX - 1;
 	}
 	
-	return (1);
+	return (g_sample);
+}
+
+
+int
+GetMAESampleIndex(void)
+{
+	return (g_sample);
+}
+
+
+void
+SetSymbolReturn(int symbol, float symbol_return, int net, int displacement)
+{
+	if (symbol == 0) returns[net][g_sample + displacement].WIN = symbol_return;
+	if (symbol == 1) returns[net][g_sample + displacement].IND = symbol_return;
+	if (symbol == 2) returns[net][g_sample + displacement].WDO = symbol_return;
+	if (symbol == 3) returns[net][g_sample + displacement].DOL = symbol_return;
+}
+
+
+void
+SetSampleIdAndTime(int net, int displacement, int id, char *time)
+{
+	returns[net][g_sample + displacement].id = id;
+	strcpy(returns[net][g_sample + displacement].time, time);
+}
+
+
+double
+GetSymbolReturn(int symbol, int net, int displacement)
+{
+	if (symbol == 0) return ((double) returns[net][g_sample + displacement].WIN);
+	if (symbol == 1) return ((double) returns[net][g_sample + displacement].IND);
+	if (symbol == 2) return ((double) returns[net][g_sample + displacement].WDO);
+	if (symbol == 3) return ((double) returns[net][g_sample + displacement].DOL);
+
+	return (0.0); // This should never occur.
 }
 
 
@@ -112,20 +141,22 @@ GetNextReturns(int nDirection)
 */
 
 int
-ReadReturnsInput(INPUT_DESC *input, int net)
+LoadReturnsToInput(INPUT_DESC *input, int net, int displacement)
 {
 	int x, y;
 
-	printf("reading returns %d, time %s\n", returns[net][g_sample].id, returns[net][g_sample].time);
+//#if ITA_BUILD
+	printf("reading returns %d, time %s\n", returns[net][g_sample].id + displacement, returns[net][g_sample + displacement].time);
+//#endif
 
 	for (y = 0; y < input->neuron_layer->dimentions.y; y++)
 	{
 		for (x = 0; x < input->neuron_layer->dimentions.x; x++)
 		{
-			if (x == 0) input->neuron_layer->neuron_vector[y * input->neuron_layer->dimentions.x + x].output.fval = returns[net][g_sample - y].WIN;
-			if (x == 1) input->neuron_layer->neuron_vector[y * input->neuron_layer->dimentions.x + x].output.fval = returns[net][g_sample - y].IND;
-			if (x == 2) input->neuron_layer->neuron_vector[y * input->neuron_layer->dimentions.x + x].output.fval = returns[net][g_sample - y].WDO;
-			if (x == 3) input->neuron_layer->neuron_vector[y * input->neuron_layer->dimentions.x + x].output.fval = returns[net][g_sample - y].DOL;
+			if (x == 0) input->neuron_layer->neuron_vector[y * input->neuron_layer->dimentions.x + x].output.fval = returns[net][g_sample - y + displacement].WIN;
+			if (x == 1) input->neuron_layer->neuron_vector[y * input->neuron_layer->dimentions.x + x].output.fval = returns[net][g_sample - y + displacement].IND;
+			if (x == 2) input->neuron_layer->neuron_vector[y * input->neuron_layer->dimentions.x + x].output.fval = returns[net][g_sample - y + displacement].WDO;
+			if (x == 3) input->neuron_layer->neuron_vector[y * input->neuron_layer->dimentions.x + x].output.fval = returns[net][g_sample - y + displacement].DOL;
 		}
 	}
 	
@@ -144,7 +175,7 @@ ReadReturnsInput(INPUT_DESC *input, int net)
 */
 
 int
-ReadReturnsOutput(OUTPUT_DESC *output, int net)
+LoadReturnsToOutput(OUTPUT_DESC *output, int net)
 {
 	int x, y;
 
@@ -152,14 +183,23 @@ ReadReturnsOutput(OUTPUT_DESC *output, int net)
 	{
 		for (x = 0; x < output->neuron_layer->dimentions.x; x++)
 		{
-			if (x == 0) output->neuron_layer->neuron_vector[y * output->neuron_layer->dimentions.x + x].output.fval = returns[net][g_sample + 1].WIN;
-			if (x == 1) output->neuron_layer->neuron_vector[y * output->neuron_layer->dimentions.x + x].output.fval = returns[net][g_sample + 1].IND;
-			if (x == 2) output->neuron_layer->neuron_vector[y * output->neuron_layer->dimentions.x + x].output.fval = returns[net][g_sample + 1].WDO;
-			if (x == 3) output->neuron_layer->neuron_vector[y * output->neuron_layer->dimentions.x + x].output.fval = returns[net][g_sample + 1].DOL;
+			if (x == 0) output->neuron_layer->neuron_vector[y * output->neuron_layer->dimentions.x + x].output.fval = returns[net][g_sample].WIN;
+			if (x == 1) output->neuron_layer->neuron_vector[y * output->neuron_layer->dimentions.x + x].output.fval = returns[net][g_sample].IND;
+			if (x == 2) output->neuron_layer->neuron_vector[y * output->neuron_layer->dimentions.x + x].output.fval = returns[net][g_sample].WDO;
+			if (x == 3) output->neuron_layer->neuron_vector[y * output->neuron_layer->dimentions.x + x].output.fval = returns[net][g_sample].DOL;
 		}
 	}
 
 	return (0);
+}
+
+
+float
+GetNeuronOutput(OUTPUT_DESC *output, int out_index)
+{
+	float out = output->neuron_layer->neuron_vector[out_index].output.fval;
+
+	return (out);
 }
 
 
@@ -304,7 +344,7 @@ int
 GetNewReturns(INPUT_DESC *input, int nDirection)
 {
 	GetNextReturns(nDirection);
-	if (ReadReturnsInput(input, 0))
+	if (LoadReturnsToInput(input, 0, -1))
 		return (-1);
 			
 	check_input_bounds(input, input->wx + input->ww/2, input->wy + input->wh/2);
@@ -364,11 +404,7 @@ input_generator(INPUT_DESC *input, int status)
 void
 read_current_desired_returns_to_output(OUTPUT_DESC *output)
 {
-	ReadReturnsOutput(output, 0);
-
-#if ITA_BUILD
-	ItaSignalDriverVgRamMAELoadOutput(output);
-#endif
+	LoadReturnsToOutput(output, 0);
 
 	update_output_image(output);
 #ifndef NO_INTERFACE
@@ -483,8 +519,8 @@ compute_prediction_statistics(int net, int n_stocks, double *neural_prediction, 
 
 	for (stock = 0; stock < n_stocks; stock++)
 	{
-		float pred_ret = (float) neural_prediction[stock];
-		float actu_ret = (float) actual_result[stock];
+		double pred_ret = neural_prediction[stock];
+		double actu_ret = actual_result[stock];
 #else
 void
 compute_prediction_statistics(int net, int n_stocks, NEURON *neural_prediction, NEURON *actual_result)
@@ -501,16 +537,16 @@ compute_prediction_statistics(int net, int n_stocks, NEURON *neural_prediction, 
 #endif
 
 		int s1, s2;
-		s1 = signal_of_val(pred_ret);
-		s2 = signal_of_val(actu_ret);
+		s1 = signal_of_val((float) g_results[net][g_sample - 1][stock][P_RETURN]);
+		s2 = signal_of_val((float) g_results[net][g_sample - 1][stock][RETURN]);
 
-		g_results[net][g_sample][stock][P_RETURN] = (int) (pred_ret * 1000000.0 + 0.5);
-		g_results[net][g_sample][stock][RETURN] = (int) (actu_ret * 1000000.0 + 0.5);
+		g_results[net][g_sample][stock][P_RETURN] = (int) round(pred_ret * 1000000.0);
+		g_results[net][g_sample][stock][RETURN] = (int) round(actu_ret * 1000000.0);
 
 		NEURON *result_report = result_output->neuron_layer->neuron_vector;
 		result_report[stock].output.fval = 0.0;
 
-		if 	    ((s1 == SUBIU) && (s2 == SUBIU)) {g_results[net][g_sample][stock][SS] += 1; result_report[stock].output.fval = 1.0;}
+		if 	((s1 == SUBIU) && (s2 == SUBIU)) {g_results[net][g_sample][stock][SS] += 1; result_report[stock].output.fval = 1.0;}
 		else if ((s1 == SUBIU) && (s2 == DESCE))  g_results[net][g_sample][stock][SD] += 1;
 		else if ((s1 == SUBIU) && (s2 == NEUTR))  g_results[net][g_sample][stock][SN] += 1;
 		else if ((s1 == DESCE) && (s2 == SUBIU))  g_results[net][g_sample][stock][DS] += 1;
@@ -570,7 +606,6 @@ compute_capital_evolution(int net, int n, NEURON *neural_prediction, NEURON *act
 		double expected_result_sell_buy = -r * a_capital -
 				CUSTO_TRASACAO * (2.0 * a_capital - r * a_capital) - 2.0 * CUSTO_CORRETORA_P;
 
-#if !RESULT
 		r = actual_result[i].output.fval;
 		double result_buy_sell = r * a_capital -
 				CUSTO_TRASACAO * (2.0 * a_capital + r * a_capital) - 2.0 * CUSTO_CORRETORA_P;
@@ -610,50 +645,6 @@ compute_capital_evolution(int net, int n, NEURON *neural_prediction, NEURON *act
 			else
 				g_results[net][g_sample][i][INVEST] = 0;
 		}
-#else
-		double result = 0.0;
-		if ( i == 0 )
-			result 	= returns[net][g_sample].result_WIN;
-		else if ( i == 1 )
-			result 	= returns[net][g_sample].result_IND;
-		else if ( i == 2 )
-			result 	= returns[net][g_sample].result_WDO;
-		else if ( i == 3 )
-			result 	= returns[net][g_sample].result_DOL;
-
-		if (g_LongShort == 1)
-		{
-			if ((s1 == 0) && (expected_result_buy_sell > 0.0) &&
-				(g_mean_correct_positive_pred[net][i] > CERTAINTY))
-			{
-				double previous_capital = g_capital[net][i];
-				g_capital[net][i] += result;
-				if (g_capital[net][i] > previous_capital)
-					g_results[net][g_sample][i][HITS] += 1;
-
-				g_buy_sell_count[net][i] += 1;
-				g_results[net][g_sample][i][INVEST] = 1;
-			}
-			else
-				g_results[net][g_sample][i][INVEST] = 0;
-		}
-		else
-		{
-			if ((s1 == 1) && (expected_result_sell_buy > 0.0) &&
-				(g_mean_correct_negative_pred[net][i] > CERTAINTY))
-			{
-				double previous_capital = g_capital[net][i];
-				g_capital[net][i] += result;
-				if (g_capital[net][i] > previous_capital)
-					g_results[net][g_sample][i][HITS] += 1;
-
-				g_sell_buy_count[net][i] += 1;
-				g_results[net][g_sample][i][INVEST] = 1;
-			}
-			else
-				g_results[net][g_sample][i][INVEST] = 0;
-		}
-#endif
 	}
 }
 
@@ -768,45 +759,40 @@ f_keyboard(char *key_value)
 * Output:
 ***********************************************************
 */
+#if ITA_BUILD
+NEURON_OUTPUT
+ShowStatistics(int net)
+{
+	if (net == 0)
+		printf("LONG MAE neural net statistics\n");
+	else
+		printf("SHORT MAE neural net statistics\n");
 
+#else
 NEURON_OUTPUT
 ShowStatistics(PARAM_LIST *pParamList)
 {
+	int net = 0;
+#endif
+
 	NEURON_OUTPUT output;
 	int i, stock, k, total_tested;
 	int n_stocks = INPUT_WIDTH;
-	float result = 0.0;
-	int net = 0;
 
 	for (stock = 0; stock < n_stocks; stock++)
 	{
 		total_tested = 0;
 		for (k = 0; k < g_runing_sum_size; k++)
 			for (i = 0; i < 9; i++)
-				total_tested += g_results[net][g_sample - k][stock][i];
+				if ((g_sample - k) >= 0)
+					total_tested += g_results[net][g_sample - k][stock][i];
 
 		if (total_tested > 0)
 		{
-			if (stock == 0) 
-			{
-				printf("WIN: ");
-				result = returns[net][g_sample].result_WIN;
-			}
-			if (stock == 1) 
-			{
-				printf("IND: ");
-				result = returns[net][g_sample].result_IND;
-			}
-			if (stock == 2) 
-			{
-				printf("WDO: ");
-				result = returns[net][g_sample].result_WDO;
-			}
-			if (stock == 3)
-			{
-				printf("DOL: ");
-				result = returns[net][g_sample].result_DOL;
-			}
+			if (stock == 0) printf("WIN: ");
+			if (stock == 1) printf("IND: ");
+			if (stock == 2) printf("WDO: ");
+			if (stock == 3) printf("DOL: ");
 
 			for (i = 0; i < 9; i++)
 			{
@@ -840,17 +826,15 @@ ShowStatistics(PARAM_LIST *pParamList)
 				printf("g!   ---  ");
 
 			if ((g_buy_sell_count[net][stock] + g_sell_buy_count[net][stock]) > 0)
-				printf("buy_sell_count = %2d, sell_buy_count = %2d, capital = %.2lf, return = %.4lf, p_return = %.4lf, result=%.2lf, invest = %d, hit_rate = %6.1lf\n",
+				printf("buy_sell_count = %2d, sell_buy_count = %2d, capital = %.2lf, return = %.4lf, p_return = %.4lf, invest = %d, hit_rate = %6.1lf\n",
 						g_buy_sell_count[net][stock], g_sell_buy_count[net][stock], g_capital[net][stock],
 						(double) g_results[net][g_sample][stock][RETURN] / 10000.0, (double) g_results[net][g_sample][stock][P_RETURN] / 10000.0,
-						result,
 						g_results[net][g_sample][stock][INVEST],
 						100.0 * (double) f_sum(net, stock, HITS) / (double) (g_buy_sell_count[net][stock] + g_sell_buy_count[net][stock]));
 			else
-				printf("buy_sell_count = %2d, sell_buy_count = %2d, capital = %.2lf, return = %.4lf, p_return = %.4lf, result=%.2lf, invest = %d, hit_rate = ---\n",
+				printf("buy_sell_count = %2d, sell_buy_count = %2d, capital = %.2lf, return = %.4lf, p_return = %.4lf, invest = %d, hit_rate = ---\n",
 						g_buy_sell_count[net][stock], g_sell_buy_count[net][stock], g_capital[net][stock],
 						(double) g_results[net][g_sample][stock][RETURN] / 10000.0, (double) g_results[net][g_sample][stock][P_RETURN] / 10000.0,
-						result,
 						g_results[net][g_sample][stock][INVEST]);
 		}
 	}
@@ -894,7 +878,7 @@ ResetStatistics(PARAM_LIST *pParamList)
 	{
 		for (l = 0; l < 2; l++)
 		{
-			g_capital[l][j] = 50000.0;
+			g_capital[l][j] = 125000.0;
 			g_buy_sell_count[l][j] = 0;
 			g_sell_buy_count[l][j] = 0;
 			for (k = 0; k < MAX_RETURN_SAMPLES; k++)
@@ -903,7 +887,8 @@ ResetStatistics(PARAM_LIST *pParamList)
 		}
 	}
 
-	g_sample = POSE_MIN = ita.wh;
+	g_sample = POSE_MIN = 0; // ita.wh;
+	POSE_MAX = 10000;
 
 	output.ival = 0;
 	return (output);
@@ -973,7 +958,7 @@ GetRandomReturns(PARAM_LIST *pParamList)
 		return (output);
 	}
 
-	if (ReadReturnsInput(&ita, 0))
+	if (LoadReturnsToInput(&ita, 0, -1))
 	{
 		printf ("Error: Cannot read return (GetRandomReturns).\n");
 		output.ival = -1;
@@ -1025,7 +1010,6 @@ LoadReturns(PARAM_LIST *pParamList)
 	int net = 0;
 	while(fgets(file_line, 256, returns_file) != NULL)
 	{
-#if !RESULT
 		if (sscanf(file_line, "%d; %s %s %s %f; %f; %f; %f;\n",
 				&returns[net][numlines].id, date, returns[net][numlines].time, BRT,
 				&returns[net][numlines].WIN, &returns[net][numlines].IND, &returns[net][numlines].WDO, &returns[net][numlines].DOL) != 8)
@@ -1038,30 +1022,6 @@ LoadReturns(PARAM_LIST *pParamList)
 //		printf("%d; %s %s %s %lf; %lf; %lf; %lf;\n",
 //				returns[net][numlines].id, date, returns[net][numlines].time, BRT,
 //				returns[net][numlines].WIN, returns[net][numlines].IND, returns[net][numlines].WDO, returns[net][numlines].DOL);
-#else
-		if (sscanf(file_line, "%d; %s %s %s %f; %f; %f; %f; %f; %f; %f; %f;\n",
-				&returns[net][numlines].id, date, returns[net][numlines].time, BRT,
-				&returns[net][numlines].WIN, &returns[net][numlines].result_WIN, 
-				&returns[net][numlines].IND, &returns[net][numlines].result_IND, 
-				&returns[net][numlines].WDO, &returns[net][numlines].result_WDO,
-				&returns[net][numlines].DOL, &returns[net][numlines].result_DOL) != 12)
-		{
-			printf("%d; %s %s %s %f; %f; %f; %f; %f; %f; %f; %f;\n",
-					returns[net][numlines].id, date, returns[net][numlines].time, BRT,
-					returns[net][numlines].WIN, returns[net][numlines].result_WIN, 
-					returns[net][numlines].IND, returns[net][numlines].result_IND, 
-					returns[net][numlines].WDO, returns[net][numlines].result_WDO,
-					returns[net][numlines].DOL, returns[net][numlines].result_DOL);
-
-			Erro("Could not read returns, in LoadReturns(), from file: ", returns_file_name, "");
-		}
-		printf("%d; %s %s %s %f; %f; %f; %f; %f; %f; %f; %f;\n",
-				returns[net][numlines].id, date, returns[net][numlines].time, BRT,
-				returns[net][numlines].WIN, returns[net][numlines].result_WIN, 
-				returns[net][numlines].IND, returns[net][numlines].result_IND, 
-				returns[net][numlines].WDO, returns[net][numlines].result_WDO,
-				returns[net][numlines].DOL, returns[net][numlines].result_DOL);
-#endif
 		numlines++;
 		if (numlines >= MAX_RETURN_SAMPLES)
 			Erro("numlines >= MAX_RETURN_SAMPLES in LoadReturns().", "", "");
@@ -1069,12 +1029,60 @@ LoadReturns(PARAM_LIST *pParamList)
 
 	POSE_MAX = numlines - 1;
 
-	INPUT_DESC *input;
-	input = get_input_by_name("ita");
-	g_sample = POSE_MIN = input->wh;
+//	INPUT_DESC *input;
+//	input = get_input_by_name("ita");
+	g_sample = POSE_MIN = 0; // input->wh;
 
 	output.ival = 0;
 	return (output);
+}
+
+
+/*
+***********************************************************
+* Function: SaveReturns
+* Description:
+* Inputs:
+* Output:
+***********************************************************
+*/
+
+int
+SaveReturns(int last_return)
+{
+	FILE *returns_file;
+	char returns_file_name[256];
+
+	// Compute file name
+	if (strlen(returns[0][POSE_MIN].time) <= 0)
+		Erro("Error: cannot compute file name in SaveReturns()", "", "");
+
+	strcpy(returns_file_name, returns[0][POSE_MIN].time);
+	char *aux = strchr(returns_file_name, ' ');
+	aux[0] = '\0';
+	strcat(returns_file_name, ".csv");
+	printf("Saving returns observed in: %s\n", returns_file_name);
+	returns_file = fopen(returns_file_name, "w");
+	if (returns_file == NULL)
+		Erro("Error: cannot open file in SaveReturns(). returns_file_name = ", returns_file_name, "");
+
+	fprintf(returns_file, "id; time; WIN<qty=25>; IND<qty=5>; WDO<qty=6>; DOL<qty=5>;\n");
+
+	int net;
+	for (net = 0; net < 2; net++)
+	{
+		int i;
+		for (i = POSE_MIN; i <= last_return; i++)
+		{
+			fprintf(returns_file, "%d; %s; %f; %f; %f; %f;\n",
+					returns[net][i].id, returns[net][i].time,
+					returns[net][i].WIN, returns[net][i].IND, returns[net][i].WDO, returns[net][i].DOL);
+		}
+	}
+
+	fclose(returns_file);
+
+	return (0);
 }
 
 

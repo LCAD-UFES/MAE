@@ -1,5 +1,6 @@
 SetLongShort(1); # Long
-LoadReturns("DATA/20160301_WIN_IND_WDO_DOL_64_LONG.csv");
+LoadReturns("DATA/2016-03-01.csv");
+#LoadReturns("DATA/20160301_WIN_IND_WDO_DOL_64_LONG.csv");
 #LoadReturns("DATA/20160301_WIN_IND_WDO_DOL_64_LONG_NOVO.csv");
 #SetLongShort(0); # Short
 #LoadReturns("DATA/20160303_WIN_IND_WDO_DOL_64_SHORT.csv");
@@ -20,7 +21,7 @@ int FIRST_RETURNS2TEST;
 #FIRST_RETURNS2TEST = FIRST_RETURNS2TRAIN; # sanity test
 FIRST_RETURNS2TEST = FIRST_RETURNS2TRAIN + RETURNS2TRAIN + RETURNS2WARM_UP;
 #RETURNS2TEST = RETURNS2TRAIN; # sanity test
-RETURNS2TEST = 240;
+RETURNS2TEST = 283 - FIRST_RETURNS2TEST;
 
 
 /* Network Status */
@@ -37,36 +38,22 @@ clear out_result;
 int i;
 
 /* Training Phase */
+ResetStatistics(0);
+SetNetworkStatus(WARM_UP_PHASE);
 #SetNetworkStatus(TRAINING_PHASE);
-SetNetworkStatus(TESTING_PHASE);
 i = FIRST_RETURNS2TRAIN;
 #while (i < RETURNS2TRAIN + FIRST_RETURNS2TRAIN + RETURNS2TEST + FIRST_RETURNS2TEST)
 while (i < RETURNS2TRAIN + FIRST_RETURNS2TRAIN)
 {
+	print("train ", 0);
 	GetRandomReturns(i);
-	forward filters;
-	forward outputs;
+	print("train ", i);
 
-	/* Draws the landmark neuron layer output */
-	draw out_prediction based on ita move;
-	train network;
-	
-	i = i + 1;
-}
-
-	
-/* Warm up phase */
-ResetStatistics(0);
-
-SetNetworkStatus(WARM_UP_PHASE);
-
-i = FIRST_RETURNS2WARM_UP;
-while (i < RETURNS2WARM_UP + FIRST_RETURNS2WARM_UP)
-{
-	GetRandomReturns(i);
 	forward filters;
 	forward neural_layers;
 	forward outputs;
+
+	ShowStatistics(0);
 
 	/* Draws the landmark neuron layer output */
 	draw out_prediction based on ita move;
@@ -79,24 +66,25 @@ while (i < RETURNS2WARM_UP + FIRST_RETURNS2WARM_UP)
 /* Testing phase */
 #ResetStatistics(0);
 
-#SetNetworkStatus(TRAINING_PHASE);
 SetNetworkStatus(TESTING_PHASE);
 
 i = FIRST_RETURNS2TEST;
 while (i < RETURNS2TEST + FIRST_RETURNS2TEST)
 {
+	print("test ", 0);
 	GetRandomReturns(i);
+	print("test ", i);
 
 	forward filters;
 	forward neural_layers;
 	forward outputs;
 
-	ShowStatistics(0);
-
 	/* Draws the landmark neuron layer output */
 #	draw out_prediction based on ita move;
 	copy out_test;
 	paste out_prediction;
+
+	ShowStatistics(0);
 	train network;
 
 	i = i + 1;
