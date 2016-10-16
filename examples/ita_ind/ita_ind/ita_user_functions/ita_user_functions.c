@@ -49,7 +49,7 @@ int g_LongShort = 1; // 1 = Long, 0 = Short
 int POSE_MIN = 0;
 int POSE_MAX = 0;
 
-int g_runing_sum_size = 30;
+int g_runing_sum_size = STATISTICS;//25;
 
 int gcc_no_complain;
 char *gcc_no_complain_c;
