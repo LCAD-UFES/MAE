@@ -33,7 +33,7 @@ void SetSampleIdAndTime(int net, int displacement, int id, char *time);
 int LoadReturnsToInput(INPUT_DESC *input, int net, int displacement);
 int LoadReturnsToOutput(OUTPUT_DESC *output, int net);
 int SaveReturns(int last_return);
-float GetNeuronOutput(OUTPUT_DESC *output, int out_index);
+float GetNeuronsOutput(OUTPUT_DESC *output, int out_index);
 int GetMAESampleIndex(void);
 #endif
 

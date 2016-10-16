@@ -49,7 +49,7 @@ int g_LongShort = 1; // 1 = Long, 0 = Short
 int POSE_MIN = 0;
 int POSE_MAX = 0;
 
-int g_runing_sum_size = 25;
+int g_runing_sum_size = 30;
 
 int gcc_no_complain;
 char *gcc_no_complain_c;
@@ -195,11 +195,37 @@ LoadReturnsToOutput(OUTPUT_DESC *output, int net)
 
 
 float
-GetNeuronOutput(OUTPUT_DESC *output, int out_index)
+GetNeuronsOutput(OUTPUT_DESC *output, int x)
 {
-	float out = output->neuron_layer->neuron_vector[out_index].output.fval;
+	int y;
+	float n_up, n_down, n_stable, sum_up, sum_down, result;
 
-	return (out);
+	sum_up = sum_down = n_up = n_down = n_stable = 0.0;
+	for (y = 0; y < output->neuron_layer->dimentions.y; y++)
+	{
+		float val = output->neuron_layer->neuron_vector[y * output->neuron_layer->dimentions.x + x].output.fval;
+		if (val > 0.0)
+		{
+			n_up += 1.0f;
+			sum_up += val;
+		}
+		else if (val < 0.0)
+		{
+			n_down += 1.0f;
+			sum_down += val;
+		}
+		else
+			n_stable += 1.0f;
+	}
+
+	if ((n_up > n_down))// && (n_up > n_stable))
+		result = sum_up / n_up;
+	else if ((n_down > n_up))// && (n_down > n_stable))
+		result = sum_down / n_down;
+	else
+		result = 0.0;
+
+	return (result);
 }
 
 
@@ -523,7 +549,7 @@ compute_prediction_statistics(int net, int n_stocks, double *neural_prediction, 
 		double actu_ret = actual_result[stock];
 #else
 void
-compute_prediction_statistics(int net, int n_stocks, NEURON *neural_prediction, NEURON *actual_result)
+compute_prediction_statistics(int net, int n_stocks, OUTPUT_DESC *neural_prediction, OUTPUT_DESC *actual_result)
 {
 	int stock;
 	OUTPUT_DESC *result_output;
@@ -532,8 +558,8 @@ compute_prediction_statistics(int net, int n_stocks, NEURON *neural_prediction, 
 
 	for (stock = 0; stock < n_stocks; stock++)
 	{
-		float pred_ret = neural_prediction[stock].output.fval;
-		float actu_ret = actual_result[stock].output.fval;
+		float pred_ret = GetNeuronsOutput(neural_prediction, stock);
+		float actu_ret = GetNeuronsOutput(actual_result, stock);
 #endif
 
 		int s1, s2;
@@ -590,23 +616,23 @@ compute_prediction_statistics(int net, int n_stocks, NEURON *neural_prediction, 
 
 
 void
-compute_capital_evolution(int net, int n, NEURON *neural_prediction, NEURON *actual_result)
+compute_capital_evolution(int net, int n, OUTPUT_DESC *neural_prediction, OUTPUT_DESC *actual_result)
 {
 	int i;
 
 	for (i = 0; i < n; i++)
 	{
 		int s1;
-		s1 = signal_of_val(neural_prediction[i].output.fval);
+		s1 = signal_of_val(GetNeuronsOutput(neural_prediction, i));
 
-		double r = neural_prediction[i].output.fval;
+		double r = GetNeuronsOutput(neural_prediction, i);
 		double a_capital = ALAVANCAGEM * g_capital[net][i];
 		double expected_result_buy_sell = r * a_capital -
 				CUSTO_TRASACAO * (2.0 * a_capital + r * a_capital) - 2.0 * CUSTO_CORRETORA_P;
 		double expected_result_sell_buy = -r * a_capital -
 				CUSTO_TRASACAO * (2.0 * a_capital - r * a_capital) - 2.0 * CUSTO_CORRETORA_P;
 
-		r = actual_result[i].output.fval;
+		r = GetNeuronsOutput(actual_result, i);
 		double result_buy_sell = r * a_capital -
 				CUSTO_TRASACAO * (2.0 * a_capital + r * a_capital) - 2.0 * CUSTO_CORRETORA_P;
 		double result_sell_buy = -r * a_capital -
@@ -683,19 +709,15 @@ buy_or_sell(int net, int stock, double *neural_prediction)
 void
 EvaluateOutput(OUTPUT_DESC *output)
 {
-	NEURON *neural_prediction, *actual_result;
-	OUTPUT_DESC *test_output;
+	OUTPUT_DESC *actual_result;
 
-	test_output = get_output_by_name("out_test");
-	read_current_desired_returns_to_output(test_output);
-
-	neural_prediction = output->neuron_layer->neuron_vector;
-	actual_result = test_output->neuron_layer->neuron_vector;
+	actual_result = get_output_by_name("out_test");
+	read_current_desired_returns_to_output(actual_result);
 
 	int n_stocks = output->ww;
-	compute_prediction_statistics(0, n_stocks, neural_prediction, actual_result);
+	compute_prediction_statistics(0, n_stocks, output, actual_result);
 	if (g_nStatus == TEST_PHASE)
-		compute_capital_evolution(0, n_stocks, neural_prediction, actual_result);
+		compute_capital_evolution(0, n_stocks, output, actual_result);
 }
 #endif
 
@@ -744,7 +766,7 @@ f_keyboard(char *key_value)
 	switch (key)
 	{
 		// Moves the input to the next photo
-		case 'N':
+		case 'n':
 			GetNewReturns(&ita, DIRECTION_FORWARD);
 			break;
 	}

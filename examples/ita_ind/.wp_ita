@@ -1,6 +1,6 @@
 ita 555 41
 out_ita_lp_f 690 43
-out_prediction 830 358
-out_test 830 198
-out_result 832 39
+out_prediction 829 43
+out_test 1104 45
+out_result 967 44
 mae_control_window 49 89
