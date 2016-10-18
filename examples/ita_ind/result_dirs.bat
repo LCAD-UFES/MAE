@@ -8,7 +8,7 @@ foreach NEURONS ( 1 )
 			foreach STATISTICS ( 25 )
 				foreach CERTAINTY ( 35. )
 
-					echo ${NEURONS} ${SYNAPSES} ${WINDOW_SIZE} ${STATISTICS} ${CERTAINTY} `tail -n 1 ita_ind_${NEURONS}_${SYNAPSES}_${WINDOW_SIZE}_${STATISTICS}_${CERTAINTY}/ita.test` >>  ita_results.txt
+					echo ${NEURONS} ${SYNAPSES} ${WINDOW_SIZE} ${STATISTICS} ${CERTAINTY} `tail -n 1 ita_ind_${NEURONS}_${SYNAPSES}_${WINDOW_SIZE}_${STATISTICS}_${CERTAINTY}/ita_days_64.test` >>  ita_results_days_64.txt
 
 				end
 			end

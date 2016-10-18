@@ -16,9 +16,29 @@ struct _returns
 	float IND;
 	float WDO;
 	float DOL;
+
+	float result_WIN;
+	float result_IND;
+	float result_WDO;
+	float result_DOL;
 };
 
 typedef struct _returns RETURNS;
+
+typedef struct _statistics_exp
+{
+	int day;
+	double avg_capital;
+	int	n_ops;
+	double capital_win;
+	int	n_ops_win;
+	double capital_ind;
+	int	n_ops_ind;
+	double capital_wdo;
+	int	n_ops_wdo;
+	double capital_dol;
+	int	n_ops_dol;	
+} STATISTICS_EXP;
 
 #define MAX_RETURN_SAMPLES 5000
 
@@ -41,7 +61,13 @@ typedef struct _returns RETURNS;
 #define DESCE 1
 #define NEUTR 2
 
+//TODO:
+#define MAX_DAYS 200
 // Global Variables
+STATISTICS_EXP stat_exp[MAX_DAYS];
+int day_i = 0;
+int g_use_results = 0;
+
 RETURNS returns[2][MAX_RETURN_SAMPLES];
 int g_sample = 0;
 int g_nStatus;
@@ -62,7 +88,7 @@ double g_capital[2][INPUT_WIDTH];
 double g_mean_correct_positive_pred[2][INPUT_WIDTH], g_mean_correct_negative_pred[2][INPUT_WIDTH];
 double g_mean_reverse_positive_pred[2][INPUT_WIDTH], g_mean_reverse_negative_pred[2][INPUT_WIDTH];
 
-
+char days_file_name[257];
 /*
 ***********************************************************
 * Function: GetNextReturns
@@ -146,7 +172,7 @@ LoadReturnsToInput(INPUT_DESC *input, int net, int displacement)
 	int x, y;
 
 //#if ITA_BUILD
-	printf("reading returns %d, time %s\n", returns[net][g_sample].id + displacement, returns[net][g_sample + displacement].time);
+//	printf("reading returns %d, time %s\n", returns[net][g_sample].id + displacement, returns[net][g_sample + displacement].time);
 //#endif
 
 	for (y = 0; y < input->neuron_layer->dimentions.y; y++)
@@ -632,12 +658,24 @@ compute_capital_evolution(int net, int n, OUTPUT_DESC *neural_prediction, OUTPUT
 		double expected_result_sell_buy = -r * a_capital -
 				CUSTO_TRASACAO * (2.0 * a_capital - r * a_capital) - 2.0 * CUSTO_CORRETORA_P;
 
-		r = GetNeuronsOutput(actual_result, i);
-		double result_buy_sell = r * a_capital -
-				CUSTO_TRASACAO * (2.0 * a_capital + r * a_capital) - 2.0 * CUSTO_CORRETORA_P;
-		double result_sell_buy = -r * a_capital -
-				CUSTO_TRASACAO * (2.0 * a_capital - r * a_capital) - 2.0 * CUSTO_CORRETORA_P;
+		double result_buy_sell = 0.0;
+		double result_sell_buy = 0.0;
 
+		if ( g_use_results == 1 )
+		{
+			if (i == 0) result_buy_sell = returns[net][g_sample].result_WIN;
+			if (i == 1) result_buy_sell = returns[net][g_sample].result_IND;
+			if (i == 2) result_buy_sell = returns[net][g_sample].result_WDO;
+			if (i == 3) result_buy_sell = returns[net][g_sample].result_DOL;
+		}
+		else
+		{
+			r = GetNeuronsOutput(actual_result, i);
+			result_buy_sell = r * a_capital -
+					CUSTO_TRASACAO * (2.0 * a_capital + r * a_capital) - 2.0 * CUSTO_CORRETORA_P;
+			result_sell_buy = -r * a_capital -
+					CUSTO_TRASACAO * (2.0 * a_capital - r * a_capital) - 2.0 * CUSTO_CORRETORA_P;
+		}
 
 		if (g_LongShort == 1)
 		{
@@ -880,7 +918,85 @@ ShowStatistics(PARAM_LIST *pParamList)
 	return (output);
 }
 
+NEURON_OUTPUT
+ShowStatisticsExp(PARAM_LIST *pParamList)
+{
+	NEURON_OUTPUT output;
 
+	double total_capital = 0.0;
+	int total_buy_sell = 0;
+	int total_sell_buy = 0;
+	int stock;
+	int n_stocks = 4;
+	for (stock = 0; stock < n_stocks; stock++)
+	{
+		total_capital += g_capital[0][stock];
+		total_buy_sell += g_buy_sell_count[0][stock];
+		total_sell_buy += g_sell_buy_count[0][stock];
+	}
+
+	stat_exp[day_i].day = day_i;
+	stat_exp[day_i].avg_capital = total_capital/(double)n_stocks;
+	stat_exp[day_i].n_ops = total_buy_sell;
+	stat_exp[day_i].capital_win = g_capital[0][0];
+	stat_exp[day_i].n_ops_win = g_buy_sell_count[0][0];
+	stat_exp[day_i].capital_ind = g_capital[0][1];
+	stat_exp[day_i].n_ops_ind = g_buy_sell_count[0][1];
+	stat_exp[day_i].capital_wdo = g_capital[0][2];
+	stat_exp[day_i].n_ops_wdo = g_buy_sell_count[0][2];
+	stat_exp[day_i].capital_dol = g_capital[0][3];
+	stat_exp[day_i].n_ops_dol = g_buy_sell_count[0][3];
+
+	printf("day_i=%d; avg_capital=%.2lf; n_ops=%d; WIN_capital=%.2lf; WIN_n_ops=%d; IND_capital=%.2lf; IND_n_ops=%d; WDO_capital=%.2lf; WDO_n_ops=%d; DOL_capital=%.2lf; DOL_n_ops=%d;\n", stat_exp[day_i].day, stat_exp[day_i].avg_capital, stat_exp[day_i].n_ops, stat_exp[day_i].capital_win, stat_exp[day_i].n_ops_win, stat_exp[day_i].capital_ind, stat_exp[day_i].n_ops_ind, stat_exp[day_i].capital_wdo, stat_exp[day_i].n_ops_wdo, stat_exp[day_i].capital_dol, stat_exp[day_i].n_ops_dol);
+
+	fflush(stdout);
+
+	output.ival = 0;
+	return output;
+}
+
+NEURON_OUTPUT
+MeanStatisticsExp(PARAM_LIST *pParamList)
+{
+	NEURON_OUTPUT output;
+
+	double total_capital = 0.0;
+	double total_capital_win = 0.0;
+	double total_capital_ind = 0.0;
+	double total_capital_wdo = 0.0;
+	double total_capital_dol = 0.0;
+
+	int	n_ops = 0;
+	int	n_ops_win = 0;
+	int	n_ops_ind = 0;
+	int	n_ops_wdo = 0;
+	int	n_ops_dol = 0;
+
+	int i;
+
+	for (i = 0; i <= day_i; i++)
+	{
+		total_capital	+= stat_exp[i].avg_capital;
+		total_capital_win += stat_exp[i].capital_win;
+		total_capital_ind += stat_exp[i].capital_ind;
+		total_capital_wdo += stat_exp[i].capital_wdo;
+		total_capital_dol += stat_exp[i].capital_dol;
+
+		n_ops	+= stat_exp[i].n_ops;
+		n_ops_win	+= stat_exp[i].n_ops_win;
+		n_ops_ind	+= stat_exp[i].n_ops_ind;
+		n_ops_wdo	+= stat_exp[i].n_ops_wdo;
+		n_ops_dol	+= stat_exp[i].n_ops_dol;
+	}
+
+	double n = (double)(day_i+1);
+	printf("day_i=Mean; avg_capital=%.2lf; n_ops=%d; WIN_capital=%.2lf; WIN_n_ops=%d; IND_capital=%.2lf; IND_n_ops=%d; WDO_capital=%.2lf; WDO_n_ops=%d; DOL_capital=%.2lf; DOL_n_ops=%d;\n", total_capital/n, (int)(n_ops/n), total_capital_win/n, (int)(n_ops_win/n), total_capital_ind/n, (int)(n_ops_ind/n), total_capital_wdo/n, (int)(n_ops_wdo/n), total_capital_dol/n, (int)(n_ops_dol/n));
+
+	fflush(stdout);
+
+	output.ival = 0;
+	return output;
+}
 /*
 ***********************************************************
 * Function: ResetStatistics
@@ -996,6 +1112,145 @@ GetRandomReturns(PARAM_LIST *pParamList)
 	return (output);
 }
 
+/*
+***********************************************************
+* Function: LoadDayFileName
+* Description:
+* Inputs:
+* Output:
+***********************************************************
+*/
+
+NEURON_OUTPUT
+LoadDayFileName(PARAM_LIST *pParamList)
+{
+	NEURON_OUTPUT output;
+
+	char *file_name = pParamList->next->param.sval;
+	file_name = file_name + 1; // tira uma aspas no inicio
+	file_name[strlen(file_name) - 1] = '\0'; // tira aspas do fim
+
+	strcpy(days_file_name, file_name);
+
+	output.ival = 0;
+	return output;
+}
+
+/*
+***********************************************************
+* Function: LoadReturns_
+* Description:
+* Inputs:
+* Output:
+***********************************************************
+*/
+
+int
+LoadReturns_(char *returns_file_name)
+{
+	FILE *returns_file;
+
+	g_use_results = 1;
+	//printf("%s\n", returns_file_name);
+
+	returns_file = fopen(returns_file_name, "r");
+
+	if (returns_file == NULL)
+		Erro("Error: cannot open file in LoadReturns(). returns_file_name = ", returns_file_name, "");
+
+	int numlines = 0;
+	char file_line[257];
+	char *aux = fgets(file_line, 256, returns_file); // read header
+	aux = aux;
+	char date[256];
+	char BRT[256];
+	int net = 0;
+	while(fgets(file_line, 256, returns_file) != NULL)
+	{
+		if (sscanf(file_line, "%d; %s %s %s %f; %f; %f; %f; %f; %f; %f; %f;\n",
+				&returns[net][numlines].id, date, returns[net][numlines].time, BRT,
+				&returns[net][numlines].WIN, &returns[net][numlines].result_WIN, &returns[net][numlines].IND, &returns[net][numlines].result_IND, &returns[net][numlines].WDO, &returns[net][numlines].result_WDO, &returns[net][numlines].DOL, &returns[net][numlines].result_DOL) != 12)
+		{
+			printf("%d; %s %s %s %f; %f; %f; %f; %f; %f; %f; %f;\n",
+					returns[net][numlines].id, date, returns[net][numlines].time, BRT,
+					returns[net][numlines].WIN, returns[net][numlines].result_WIN, returns[net][numlines].IND, returns[net][numlines].result_IND, returns[net][numlines].WDO, returns[net][numlines].result_WDO, returns[net][numlines].DOL, returns[net][numlines].result_DOL);
+			Erro("Could not read returns, in LoadReturns(), from file: ", returns_file_name, "");
+		}
+//		printf("%d; %s %s %s %lf; %lf; %lf; %lf;\n",
+//				returns[net][numlines].id, date, returns[net][numlines].time, BRT,
+//				returns[net][numlines].WIN, returns[net][numlines].IND, returns[net][numlines].WDO, returns[net][numlines].DOL);
+		numlines++;
+		if (numlines >= MAX_RETURN_SAMPLES)
+			Erro("numlines >= MAX_RETURN_SAMPLES in LoadReturns().", "", "");
+	}
+
+	POSE_MAX = numlines - 1;
+
+//	INPUT_DESC *input;
+//	input = get_input_by_name("ita");
+	g_sample = POSE_MIN = 0; // input->wh;
+
+	return 0;
+}
+/*
+***********************************************************
+* Function: LoadDay
+* Description:
+* Inputs:
+* Output:
+***********************************************************
+*/
+
+NEURON_OUTPUT
+LoadDay(PARAM_LIST *pParamList)
+{
+	NEURON_OUTPUT output;
+	day_i = pParamList->next->param.ival;
+
+	FILE *days_file;
+
+	char day_i_file_name[257];
+	
+	//printf("%s day_i=%d\n", days_file_name, day_i);
+	days_file = fopen(days_file_name, "r");
+
+	if (days_file == NULL)
+		Erro("Error: cannot open file in LoadDay(). days_file_name = ", days_file_name, "");
+	
+	int numlines = 0;
+	char file_line[257];
+
+	while( numlines <= day_i )
+	{
+		if (feof(days_file))
+		{
+			printf("End of days file\n");
+			exit(0);
+		}
+		//printf("%d\n", numlines);
+		//fgets(file_line, 256, days_file);
+		fscanf(days_file, "%s\n", file_line);
+		//printf("%s\n", file_line);
+		if ( day_i == numlines )
+		{
+			if (sscanf(file_line, "%s\n", day_i_file_name) != 1)
+			{
+				printf("%s\n", day_i_file_name);
+				Erro("Could not read day file name, in LoadDay(), from file: ", day_i_file_name, "");
+			}
+			break;
+		}
+		numlines++;
+	}
+
+	//printf("%s\n", day_i_file_name);
+	fclose(days_file);
+
+	LoadReturns_(day_i_file_name);
+
+	output.ival = 0;
+	return output;
+}
 
 /*
 ***********************************************************
