@@ -1,5 +1,10 @@
 #!/bin/csh
 
+#foreach NEURONS ( 1 )
+#	foreach SYNAPSES ( 32 )
+#		foreach WINDOW_SIZE ( 10 )
+#			foreach STATISTICS ( 32 )
+#				foreach CERTAINTY ( 15. )
 foreach NEURONS ( 1 2 4 8 16 32 )
 	foreach SYNAPSES ( 32 64 128 256 )
 		foreach WINDOW_SIZE ( 5 10 15 20 )

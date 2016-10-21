@@ -1,5 +1,5 @@
 SetLongShort(1); # Long
-LoadDayFileName("days_64_train.txt");
+LoadDayFileName("days_32_train.txt");
 
 int N_DAYS;
 N_DAYS = 30;
@@ -19,9 +19,10 @@ input_height = GetInputHeight(0);
 clear out_result;
 
 /* Counters */
-#int i;
+
 int day_i;
 int a;
+a = 0;
 while ( day_i < N_DAYS )
 {
 	ResetStatistics(0);
@@ -34,8 +35,13 @@ while ( day_i < N_DAYS )
 	SetNetworkStatus(WARM_UP_PHASE);
 	#SetNetworkStatus(TRAINING_PHASE);
 	
-	a = WillTrain(0);
-	#print("train=", a);
+	a = WillTrain(0);	
+/*	while (a == 0)
+	{
+		if (a == 0) Increment(1);
+		a = WillTrain(0);
+	}
+*/	
 	while(a != 0)
 	{
 		forward filters;

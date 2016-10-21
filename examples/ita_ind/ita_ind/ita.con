@@ -84,3 +84,7 @@ int LoadDay("%d");
 int ShowStatisticsExp("%d");
 int MeanStatisticsExp("%d");
 int SetLongShort ("%d");
+int WillTrain("%d");
+int WillTest("%d");
+int Increment("%d");
+int GetInputHeight("%d");

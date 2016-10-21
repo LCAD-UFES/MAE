@@ -1,5 +1,5 @@
 SetLongShort(1); # Long
-LoadDayFileName("days_64_train.txt");
+LoadDayFileName("days_256_train.txt");
 
 int N_DAYS;
 N_DAYS = 30;

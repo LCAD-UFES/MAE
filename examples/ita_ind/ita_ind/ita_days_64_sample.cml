@@ -1,0 +1,113 @@
+SetLongShort(1); # Long
+LoadDayFileName("days_32_train.txt");
+
+int N_DAYS;
+N_DAYS = 1;
+
+int RETURNS2TRAIN;
+int FIRST_RETURNS2TRAIN;
+FIRST_RETURNS2TRAIN = 30;
+RETURNS2TRAIN = 60;
+
+int RETURNS2WARM_UP;	
+int FIRST_RETURNS2WARM_UP;	
+FIRST_RETURNS2WARM_UP = FIRST_RETURNS2TRAIN + RETURNS2TRAIN;
+RETURNS2WARM_UP = 0;
+
+int RETURNS2TEST;	
+int FIRST_RETURNS2TEST;	
+#FIRST_RETURNS2TEST = FIRST_RETURNS2TRAIN; # sanity test
+FIRST_RETURNS2TEST = FIRST_RETURNS2TRAIN + RETURNS2TRAIN + RETURNS2WARM_UP;
+#RETURNS2TEST = RETURNS2TRAIN; # sanity test
+RETURNS2TEST = 283 - FIRST_RETURNS2TEST;
+
+/* Network Status */
+int TRAINING_PHASE;
+TRAINING_PHASE = 1;
+int TESTING_PHASE;
+TESTING_PHASE = 2;
+int WARM_UP_PHASE;
+WARM_UP_PHASE = 3;
+
+clear out_result;
+
+/* Counters */
+int i;
+int day_i;
+int a;
+while ( day_i < N_DAYS )
+{
+	LoadDay(day_i);
+
+	/* Training Phase */
+	ResetStatistics(0);
+	SetNetworkStatus(WARM_UP_PHASE);
+	#SetNetworkStatus(TRAINING_PHASE);
+	i = FIRST_RETURNS2TRAIN;
+	#while (i < RETURNS2TRAIN + FIRST_RETURNS2TRAIN + RETURNS2TEST + FIRST_RETURNS2TEST)
+	while (i < RETURNS2TRAIN + FIRST_RETURNS2TRAIN)
+	{
+	
+	
+#	print("i=", i);
+#GetRandomReturns(i);
+#a = WillTrain(100);
+#print("a=", a);
+
+	
+	
+		#print("train ", 0);
+		GetRandomReturns(i);
+		#print("train ", i);
+
+		forward filters;
+		forward neural_layers;
+		forward outputs;
+
+	#	ShowStatistics(0);
+
+		/* Draws the landmark neuron layer output */
+		draw out_prediction based on ita move;
+		train network;
+	
+		i = i + 1;
+	}
+
+	
+	/* Testing phase */
+	#ResetStatistics(0);
+
+	SetNetworkStatus(TESTING_PHASE);
+
+	i = FIRST_RETURNS2TEST;
+	while (i < RETURNS2TEST + FIRST_RETURNS2TEST)
+	{
+		#print("test ", 0);
+		GetRandomReturns(i);
+		#print("test ", i);
+
+		forward filters;
+		forward neural_layers;
+		forward outputs;
+
+		/* Draws the landmark neuron layer output */
+	#	draw out_prediction based on ita move;
+		copy out_test;
+		paste out_prediction;
+
+	#	ShowStatistics(0);
+		train network;
+
+		i = i + 1;
+	}
+
+	clear network memory;
+	day_i = day_i + 1;
+
+	# save day result in file
+	ShowStatisticsExp(0);
+}
+
+MeanStatisticsExp(0);
+
+quit;

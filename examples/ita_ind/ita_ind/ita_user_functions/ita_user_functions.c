@@ -66,6 +66,13 @@ typedef struct _statistics_exp
 #define NEUTR 2
 
 //TODO:
+#define TRAIN_HOUR 10
+#define TRAIN_MIN 00
+#define TEST_HOUR 11
+#define TEST_MIN 30
+#define TEST_END_HOUR 16
+#define TEST_END_MIN 45
+
 #define MAX_DAYS 200
 // Global Variables
 STATISTICS_EXP stat_exp[MAX_DAYS];
@@ -161,7 +168,6 @@ GetSymbolReturn(int symbol, int net, int displacement)
 	return (0.0); // This should never occur.
 }
 
-
 /*
 ***********************************************************
 * Function: ReadReturnsInput
@@ -184,6 +190,11 @@ LoadReturnsToInput(INPUT_DESC *input, int net, int displacement)
 	{
 		for (x = 0; x < input->neuron_layer->dimentions.x; x++)
 		{
+			/*if (x == 0)
+			{
+				printf("i=%d\n", g_sample - y + displacement);
+				printf("%lf ", returns[net][g_sample - y + displacement].WIN);
+			}*/
 			if (x == 0) input->neuron_layer->neuron_vector[y * input->neuron_layer->dimentions.x + x].output.fval = returns[net][g_sample - y + displacement].WIN;
 			if (x == 1) input->neuron_layer->neuron_vector[y * input->neuron_layer->dimentions.x + x].output.fval = returns[net][g_sample - y + displacement].IND;
 			if (x == 2) input->neuron_layer->neuron_vector[y * input->neuron_layer->dimentions.x + x].output.fval = returns[net][g_sample - y + displacement].WDO;
@@ -1596,3 +1607,140 @@ SetLongShort(PARAM_LIST *pParamList)
 	return (output);
 }
 
+/*
+***********************************************************
+* Function: WillTrain
+* Description:
+* Inputs:
+* Output:
+***********************************************************
+*/
+
+NEURON_OUTPUT
+WillTrain(PARAM_LIST *pParamList)
+{
+	NEURON_OUTPUT output;
+	//TODO:
+	int net = 0;
+
+	//printf("param=%d g_sample=%d\n", param, g_sample);
+	//printf("%s\n", returns[net][g_sample].time);
+	fflush(stdout);
+
+	int hour = 0;
+	int min = 0;
+	float sec = 0.0;
+	sscanf(returns[net][g_sample].time, "%d:%d:%f", &hour, &min, &sec);
+
+	//printf("h=%d m=%d sec=%f\n", hour, min, sec);
+	//printf("g_sample=%d min=%d max=%d\n", g_sample, POSE_MIN, POSE_MAX);
+
+	int ret = 0;
+	if (
+		( ( hour == TRAIN_HOUR && min >= TRAIN_MIN ) ||
+		( hour > TRAIN_HOUR && hour < TEST_HOUR ) ||
+		( hour == TEST_HOUR && min < TEST_MIN ) ) &&
+		g_sample <= POSE_MAX && g_sample >= POSE_MIN
+		)
+	{
+		ret = 1;
+		LoadReturnsToInput(&ita, 0, -1);
+
+		check_input_bounds(&ita, ita.wx + ita.ww/2, ita.wy + ita.wh/2);
+		ita.up2date = 0;
+		update_input_image(&ita);
+	}
+
+	output.ival = ret;
+	return (output);
+}
+
+/*
+***********************************************************
+* Function: WillTest
+* Description:
+* Inputs:
+* Output:
+***********************************************************
+*/
+
+NEURON_OUTPUT
+WillTest(PARAM_LIST *pParamList)
+{
+	NEURON_OUTPUT output;
+	//TODO:
+	int net = 0;
+
+	//printf("param=%d g_sample=%d\n", param, g_sample);
+	//printf("%s\n", returns[net][g_sample].time);
+	fflush(stdout);
+
+	int hour = 0;
+	int min = 0;
+	float sec = 0.0;
+	sscanf(returns[net][g_sample].time, "%d:%d:%f", &hour, &min, &sec);
+
+	//printf("h=%d m=%d sec=%f\n", hour, min, sec);
+	//printf("g_sample=%d min=%d max=%d\n", g_sample, POSE_MIN, POSE_MAX);
+
+	int ret = 0;
+	if (
+		( ( hour == TEST_HOUR && min >= TEST_MIN ) ||
+		  ( hour > TEST_HOUR && hour < TEST_END_HOUR ) ||
+		  ( hour == TEST_END_HOUR && min <= TEST_END_MIN )
+			) &&
+		g_sample <= POSE_MAX && g_sample >= POSE_MIN
+		)
+	{
+		ret = 1;
+		LoadReturnsToInput(&ita, 0, -1);
+
+		check_input_bounds(&ita, ita.wx + ita.ww/2, ita.wy + ita.wh/2);
+		ita.up2date = 0;
+		update_input_image(&ita);
+	}
+
+	output.ival = ret;
+	return (output);
+}
+
+/*
+***********************************************************
+* Function: Increment
+* Description:
+* Inputs:
+* Output:
+***********************************************************
+*/
+
+NEURON_OUTPUT
+Increment(PARAM_LIST *pParamList)
+{
+	NEURON_OUTPUT output;
+	int param = pParamList->next->param.ival;
+
+	g_sample += param;
+
+	//printf("g_sample=%d\n", g_sample);
+	output.ival = 0;
+	return (output);
+}
+
+/*
+***********************************************************
+* Function: GetInputHeight
+* Description:
+* Inputs:
+* Output:
+***********************************************************
+*/
+
+NEURON_OUTPUT
+GetInputHeight(PARAM_LIST *pParamList)
+{
+	NEURON_OUTPUT output;
+
+	output.ival = INPUT_HEIGHT;
+
+	return (output);
+}
