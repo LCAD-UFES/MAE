@@ -57,6 +57,10 @@ typedef struct _statistics_exp
 #define INVEST 11
 #define HITS 12
 
+#define ACC 9
+#define GI 10
+#define Gi 11
+
 #define SUBIU 0
 #define DESCE 1
 #define NEUTR 2
@@ -65,6 +69,7 @@ typedef struct _statistics_exp
 #define MAX_DAYS 200
 // Global Variables
 STATISTICS_EXP stat_exp[MAX_DAYS];
+double stat_day[MAX_DAYS][INPUT_WIDTH][13];
 int day_i = 0;
 int g_use_results = 0;
 
@@ -923,11 +928,107 @@ ShowStatisticsExp(PARAM_LIST *pParamList)
 {
 	NEURON_OUTPUT output;
 
+	//stat_day
+
+	//--------------- stat day
+	//TODO: NET 0
+	int net = 0;
+
+	int i, stock, total_tested;
+	int n_stocks = INPUT_WIDTH;
+
+	for (stock = 0; stock < n_stocks; stock++)
+	{
+		total_tested = 0;
+		for (i = 0; i < 9; i++)
+			total_tested += f_sum(net, stock, i);
+
+		if (total_tested > 0)
+		{
+			//if (stock == 0) printf("WIN: ");
+			//if (stock == 1) printf("IND: ");
+			//if (stock == 2) printf("WDO: ");
+			//if (stock == 3) printf("DOL: ");
+
+			for (i = 0; i < 9; i++)
+			{
+				//char ch1 = ' ', ch2 = ' ';
+				/*
+				if ((i == 0) || (i == 1) || (i == 2)) ch1 = 'i';
+				if ((i == 3) || (i == 4) || (i == 5)) ch1 = '!';
+				if ((i == 6) || (i == 7) || (i == 8)) ch1 = '-';
+
+				if ((i == 0) || (i == 3) || (i == 6)) ch2 = 'i';
+				if ((i == 1) || (i == 4) || (i == 7)) ch2 = '!';
+				if ((i == 2) || (i == 5) || (i == 8)) ch2 = '-';
+				*/
+
+				stat_day[day_i][stock][i] =  100.0 * (double) f_sum(net, stock, i) / (double) total_tested;
+
+				//printf("%c%c = %5.2lf, ",
+				//	   ch1, ch2, 100.0 * (double) f_sum(net, stock, i) / (double) total_tested);
+			}
+			stat_day[day_i][stock][ACC] = 100.0 * (double) (f_sum(net, stock, SS) + f_sum(net, stock, DD) + f_sum(net, stock, NN)) / (double) total_tested;
+			//printf("== = %6.2lf:  ", 100.0 * (double) (f_sum(net, stock, SS) + f_sum(net, stock, DD) + f_sum(net, stock, NN)) / (double) total_tested);
+
+			int sum = f_sum(net, stock, SS) + f_sum(net, stock, SD) + f_sum(net, stock, SN);
+			if (sum != 0)
+			{
+				//printf("gi %6.1lf  ", 100.0 *
+				//		(double) (3 * f_sum(net, stock, SS) - 3 * f_sum(net, stock, SD) - f_sum(net, stock, SN)) / (double) (3 * sum));
+
+				stat_day[day_i][stock][GI] = 100.0 *
+						(double) (3 * f_sum(net, stock, SS) - 3 * f_sum(net, stock, SD) - f_sum(net, stock, SN)) / (double) (3 * sum);
+			}else
+			{
+				//printf("gi   ---   ");
+				stat_day[day_i][stock][GI] = 0.0;
+			}
+
+			sum = f_sum(net, stock, DD) + f_sum(net, stock, DS) + f_sum(net, stock, DN);
+			if (sum != 0)
+			{
+				//printf("g! %6.1lf  ",100.0 *
+				//		(double) (3 * f_sum(net, stock, DD) - 3 * f_sum(net, stock, DS) - f_sum(net, stock, DN)) / (double) (3 * sum));
+
+				stat_day[day_i][stock][Gi] = 100.0 *
+						(double) (3 * f_sum(net, stock, DD) - 3 * f_sum(net, stock, DS) - f_sum(net, stock, DN)) / (double) (3 * sum);
+			}else
+			{
+				//printf("g!   ---  ");
+				stat_day[day_i][stock][Gi] = 0.0;
+			}
+
+			if ((g_buy_sell_count[net][stock] + g_sell_buy_count[net][stock]) > 0)
+			{
+				//printf("buy_sell_count = %2d, sell_buy_count = %2d, capital = %.2lf, hit_rate = %6.1lf\n",
+				//		g_buy_sell_count[net][stock], g_sell_buy_count[net][stock], g_capital[net][stock],
+				//		100.0 * (double) f_sum(net, stock, HITS) / (double) (g_buy_sell_count[net][stock] + g_sell_buy_count[net][stock]));
+
+				//stat_day[day_i][stock][HITS] = 100.0 * (double) f_sum(net, stock, HITS) / (double) (g_buy_sell_count[net][stock] + g_sell_buy_count[net][stock]);
+				stat_day[day_i][stock][HITS] = (double) f_sum(net, stock, HITS) ;
+			}else
+			{
+				//printf("buy_sell_count = %2d, sell_buy_count = %2d, capital = %.2lf, hit_rate = ---\n",
+				//		g_buy_sell_count[net][stock], g_sell_buy_count[net][stock], g_capital[net][stock]);
+
+				//stat_day[day_i][stock][HITS] = 100.0;
+				stat_day[day_i][stock][HITS] = 0.0;
+			}
+		}
+	}
+
+
+
+	//--------------- capital day
+
+	//printf("STAT DAY\n");
 	double total_capital = 0.0;
 	int total_buy_sell = 0;
 	int total_sell_buy = 0;
-	int stock;
-	int n_stocks = 4;
+	//int stock;
+	//int n_stocks = 4;
+	char symbol[6];
 	for (stock = 0; stock < n_stocks; stock++)
 	{
 		total_capital += g_capital[0][stock];
@@ -938,17 +1039,59 @@ ShowStatisticsExp(PARAM_LIST *pParamList)
 	stat_exp[day_i].day = day_i;
 	stat_exp[day_i].avg_capital = total_capital/(double)n_stocks;
 	stat_exp[day_i].n_ops = total_buy_sell;
-	stat_exp[day_i].capital_win = g_capital[0][0];
-	stat_exp[day_i].n_ops_win = g_buy_sell_count[0][0];
-	stat_exp[day_i].capital_ind = g_capital[0][1];
-	stat_exp[day_i].n_ops_ind = g_buy_sell_count[0][1];
-	stat_exp[day_i].capital_wdo = g_capital[0][2];
-	stat_exp[day_i].n_ops_wdo = g_buy_sell_count[0][2];
-	stat_exp[day_i].capital_dol = g_capital[0][3];
-	stat_exp[day_i].n_ops_dol = g_buy_sell_count[0][3];
 
-	printf("day_i=%d; avg_capital=%.2lf; n_ops=%d; WIN_capital=%.2lf; WIN_n_ops=%d; IND_capital=%.2lf; IND_n_ops=%d; WDO_capital=%.2lf; WDO_n_ops=%d; DOL_capital=%.2lf; DOL_n_ops=%d;\n", stat_exp[day_i].day, stat_exp[day_i].avg_capital, stat_exp[day_i].n_ops, stat_exp[day_i].capital_win, stat_exp[day_i].n_ops_win, stat_exp[day_i].capital_ind, stat_exp[day_i].n_ops_ind, stat_exp[day_i].capital_wdo, stat_exp[day_i].n_ops_wdo, stat_exp[day_i].capital_dol, stat_exp[day_i].n_ops_dol);
+	printf("day_i=%d; avg_capital=%.2lf; n_ops=%d; ", day_i, stat_exp[day_i].avg_capital, stat_exp[day_i].n_ops);
 
+	for (stock = 0; stock < n_stocks; stock++)
+	{
+		if (stock == 0) strcpy(symbol, "WIN_");//printf("WIN: ");
+		if (stock == 1) strcpy(symbol, "IND_");//printf("IND: ");
+		if (stock == 2) strcpy(symbol, "WDO_");//printf("WDO: ");
+		if (stock == 3) strcpy(symbol, "DOL_");//printf("DOL: ");
+
+		for (i = 0; i < 9; i++)
+		{
+			char ch1 = ' ', ch2 = ' ';
+
+			if ((i == 0) || (i == 1) || (i == 2)) ch1 = 'i';
+			if ((i == 3) || (i == 4) || (i == 5)) ch1 = '!';
+			if ((i == 6) || (i == 7) || (i == 8)) ch1 = '-';
+
+			if ((i == 0) || (i == 3) || (i == 6)) ch2 = 'i';
+			if ((i == 1) || (i == 4) || (i == 7)) ch2 = '!';
+			if ((i == 2) || (i == 5) || (i == 8)) ch2 = '-';
+
+			printf("%s%c%c=%.2lf; ", symbol, ch1, ch2, stat_day[day_i][stock][i]);
+		}
+		printf("%s===%.2lf; ", symbol, stat_day[day_i][stock][ACC]);
+		printf("%sgi=%.1lf; ",symbol, stat_day[day_i][stock][GI]);
+		printf("%sg!=%.1lf; ",symbol,  stat_day[day_i][stock][Gi]);
+		if (g_buy_sell_count[net][stock] > 0)
+			printf("%shit_rate=%.1lf; ",symbol,  100.0 * stat_day[day_i][stock][HITS]/g_buy_sell_count[net][stock]);
+		else
+			printf("%shit_rate=--; ",symbol);
+		printf("%scapital=%.1lf; ",symbol,  g_capital[net][stock]);
+		printf("%sn_ops=%d; ",symbol,  g_buy_sell_count[net][stock]);
+	}
+	printf("\n");
+
+
+	stat_exp[day_i].capital_win = g_capital[net][0];
+	stat_exp[day_i].n_ops_win = g_buy_sell_count[net][0];
+	stat_exp[day_i].capital_ind = g_capital[net][1];
+	stat_exp[day_i].n_ops_ind = g_buy_sell_count[net][1];
+	stat_exp[day_i].capital_wdo = g_capital[net][2];
+	stat_exp[day_i].n_ops_wdo = g_buy_sell_count[net][2];
+	stat_exp[day_i].capital_dol = g_capital[net][3];
+	stat_exp[day_i].n_ops_dol = g_buy_sell_count[net][3];
+
+	/*
+	printf("day_i=%d; avg_capital=%.2lf; n_ops=%d; WIN_capital=%.2lf; WIN_n_ops=%d; IND_capital=%.2lf; IND_n_ops=%d; WDO_capital=%.2lf;"
+			" WDO_n_ops=%d; DOL_capital=%.2lf; DOL_n_ops=%d;\n", stat_exp[day_i].day, stat_exp[day_i].avg_capital,
+			stat_exp[day_i].n_ops, stat_exp[day_i].capital_win, stat_exp[day_i].n_ops_win, stat_exp[day_i].capital_ind,
+			stat_exp[day_i].n_ops_ind, stat_exp[day_i].capital_wdo, stat_exp[day_i].n_ops_wdo, stat_exp[day_i].capital_dol,
+			stat_exp[day_i].n_ops_dol);
+	 */
 	fflush(stdout);
 
 	output.ival = 0;
@@ -973,6 +1116,10 @@ MeanStatisticsExp(PARAM_LIST *pParamList)
 	int	n_ops_dol = 0;
 
 	int i;
+	int j;
+	int stock, n_stocks = INPUT_WIDTH;
+	double mean_stat_day[INPUT_WIDTH][13];
+	memset(mean_stat_day, 0, INPUT_WIDTH * 13 * sizeof(double));
 
 	for (i = 0; i <= day_i; i++)
 	{
@@ -987,11 +1134,77 @@ MeanStatisticsExp(PARAM_LIST *pParamList)
 		n_ops_ind	+= stat_exp[i].n_ops_ind;
 		n_ops_wdo	+= stat_exp[i].n_ops_wdo;
 		n_ops_dol	+= stat_exp[i].n_ops_dol;
+
+		for (stock = 0; stock < n_stocks; stock++)
+		{
+			for (j = 0; j < 13; j++)
+			{
+				mean_stat_day[stock][j] += stat_day[i][stock][j];
+			}
+		}
 	}
 
-	double n = (double)(day_i+1);
-	printf("day_i=Mean; avg_capital=%.2lf; n_ops=%d; WIN_capital=%.2lf; WIN_n_ops=%d; IND_capital=%.2lf; IND_n_ops=%d; WDO_capital=%.2lf; WDO_n_ops=%d; DOL_capital=%.2lf; DOL_n_ops=%d;\n", total_capital/n, (int)(n_ops/n), total_capital_win/n, (int)(n_ops_win/n), total_capital_ind/n, (int)(n_ops_ind/n), total_capital_wdo/n, (int)(n_ops_wdo/n), total_capital_dol/n, (int)(n_ops_dol/n));
+	double n = (double)(1.0*day_i+1);
+	char symbol[6];
 
+	printf("day_i=Mean; avg_capital=%.2lf; n_ops=%.2lf; ", total_capital/n, (1.0*n_ops)/n);
+	for (stock = 0; stock < n_stocks; stock++)
+	{
+		if (stock == 0) strcpy(symbol, "WIN_");//printf("WIN: ");
+		if (stock == 1) strcpy(symbol, "IND_");//printf("IND: ");
+		if (stock == 2) strcpy(symbol, "WDO_");//printf("WDO: ");
+		if (stock == 3) strcpy(symbol, "DOL_");//printf("DOL: ");
+
+		for (j = 0; j < 9; j++)
+		{
+			char ch1 = ' ', ch2 = ' ';
+
+			if ((j == 0) || (j == 1) || (j == 2)) ch1 = 'i';
+			if ((j == 3) || (j == 4) || (j == 5)) ch1 = '!';
+			if ((j == 6) || (j == 7) || (j == 8)) ch1 = '-';
+
+			if ((j == 0) || (j == 3) || (j == 6)) ch2 = 'i';
+			if ((j == 1) || (j == 4) || (j == 7)) ch2 = '!';
+			if ((j == 2) || (j == 5) || (j == 8)) ch2 = '-';
+
+			printf("%s%c%c=%.2lf; ", symbol, ch1, ch2, mean_stat_day[stock][j]/n);
+		}
+		printf("%s===%.2lf; ", symbol, mean_stat_day[stock][ACC]/n);
+		printf("%sgi=%.1lf; ",symbol, mean_stat_day[stock][GI]/n);
+		printf("%sg!=%.1lf; ",symbol,  mean_stat_day[stock][Gi]/n);
+
+		if (stock == 0)
+		{
+			if (n_ops_win > 0) printf("%shit_rate=%.1lf; ",symbol,  100.0 * mean_stat_day[stock][HITS]/n_ops_win);
+			else printf("%shit_rate=--; ",symbol);
+			printf("%scapital=%.2lf; %sn_ops=%.2lf; ", symbol, total_capital_win/n, symbol, (1.0*n_ops_win)/n);
+		}
+		if (stock == 1)
+		{
+			if (n_ops_ind > 0) printf("%shit_rate=%.1lf; ",symbol,  100.0 * mean_stat_day[stock][HITS]/n_ops_ind);
+			else printf("%shit_rate=--; ",symbol);
+			printf("%scapital=%.2lf; %sn_ops=%.2lf; ", symbol, total_capital_ind/n, symbol, (1.0*n_ops_ind)/n);
+		}
+		if (stock == 2)
+		{
+			if (n_ops_wdo > 0) printf("%shit_rate=%.1lf; ",symbol,  100.0 * mean_stat_day[stock][HITS]/n_ops_wdo);
+			else printf("%shit_rate=--; ",symbol);
+			printf("%scapital=%.2lf; %sn_ops=%.2lf; ", symbol, total_capital_wdo/n, symbol, (1.0*n_ops_wdo)/n);
+		}
+		if (stock == 3)
+		{
+			if (n_ops_dol > 0) printf("%shit_rate=%.1lf; ",symbol,  100.0 * mean_stat_day[stock][HITS]/n_ops_dol);
+			else printf("%shit_rate=--; ",symbol);
+			printf("%scapital=%.2lf; %sn_ops=%.2lf; ", symbol, total_capital_dol/n, symbol, (1.0*n_ops_dol)/n);
+		}
+	}
+	printf("\n");
+/*
+	printf("WIN_capital=%.2lf; WIN_n_ops=%.2lf; IND_capital=%.2lf; "
+			"IND_n_ops=%.2lf; WDO_capital=%.2lf; WDO_n_ops=%.2lf; DOL_capital=%.2lf; DOL_n_ops=%.2lf;\n",
+			total_capital_win/n, (1.0*n_ops_win)/n, total_capital_ind/n,
+			(1.0*n_ops_ind)/n, total_capital_wdo/n, (1.0*n_ops_wdo)/n, total_capital_dol/n, (1.0*n_ops_dol)/n);
+*/
 	fflush(stdout);
 
 	output.ival = 0;
