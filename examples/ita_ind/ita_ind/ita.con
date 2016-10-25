@@ -6,10 +6,10 @@ set TYPE_MOVING_FRAME = STOP;
 ######################################################## Constants ####################################################
  
 const INPUT_WIDTH 	= 4;
-const INPUT_HEIGHT	= 19;
+const INPUT_HEIGHT	= 10;
 
 const OUT_WIDTH		= 4;
-const OUT_HEIGHT	= 11;
+const OUT_HEIGHT	= 1;
 
 const SYNAPSES		= 256;
 
@@ -19,7 +19,7 @@ const CUSTO_CORRETORA	= 0.0;
 const CUSTO_CORRETORA_P	= 0.0; # 2.50;
 const CUSTO_TRASACAO 	= 0.0; # (CUSTO_BOVESPA + CUSTO_CORRETORA);
 const CERTAINTY 	= 20.0;
-const STATISTICS	= 20;
+const STATISTICS	= 30;
 
 ############################################### Neuron Layers #########################################################
 neuronlayer	nl_ita_lp_f[INPUT_WIDTH][INPUT_HEIGHT]	with greyscale_float outputs;
@@ -79,4 +79,12 @@ int ShowStatistics ("%d");
 int ResetStatistics ("%d");
 int SetNetworkStatus ("%d");
 int LoadReturns ("%s");
+int LoadDayFileName("%s");
+int LoadDay("%d");
+int ShowStatisticsExp("%d");
+int MeanStatisticsExp("%d");
 int SetLongShort ("%d");
+int WillTrain("%d");
+int WillTest("%d");
+int Increment("%d");
+int GetInputHeight("%d");

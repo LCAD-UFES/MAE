@@ -16,9 +16,29 @@ struct _returns
 	float IND;
 	float WDO;
 	float DOL;
+
+	float result_WIN;
+	float result_IND;
+	float result_WDO;
+	float result_DOL;
 };
 
 typedef struct _returns RETURNS;
+
+typedef struct _statistics_exp
+{
+	int day;
+	double avg_capital;
+	int	n_ops;
+	double capital_win;
+	int	n_ops_win;
+	double capital_ind;
+	int	n_ops_ind;
+	double capital_wdo;
+	int	n_ops_wdo;
+	double capital_dol;
+	int	n_ops_dol;	
+} STATISTICS_EXP;
 
 #define MAX_RETURN_SAMPLES 5000
 
@@ -37,11 +57,29 @@ typedef struct _returns RETURNS;
 #define INVEST 11
 #define HITS 12
 
+#define ACC 9
+#define GI 10
+#define Gi 11
+
 #define SUBIU 0
 #define DESCE 1
 #define NEUTR 2
 
+//TODO:
+#define TRAIN_HOUR 10
+#define TRAIN_MIN 00
+#define TEST_HOUR 11
+#define TEST_MIN 30
+#define TEST_END_HOUR 16
+#define TEST_END_MIN 45
+
+#define MAX_DAYS 200
 // Global Variables
+STATISTICS_EXP stat_exp[MAX_DAYS];
+double stat_day[MAX_DAYS][INPUT_WIDTH][13];
+int day_i = 0;
+int g_use_results = 0;
+
 RETURNS returns[2][MAX_RETURN_SAMPLES];
 int g_sample = 0;
 int g_nStatus;
@@ -62,7 +100,7 @@ double g_capital[2][INPUT_WIDTH];
 double g_mean_correct_positive_pred[2][INPUT_WIDTH], g_mean_correct_negative_pred[2][INPUT_WIDTH];
 double g_mean_reverse_positive_pred[2][INPUT_WIDTH], g_mean_reverse_negative_pred[2][INPUT_WIDTH];
 
-
+char days_file_name[257];
 /*
 ***********************************************************
 * Function: GetNextReturns
@@ -130,7 +168,6 @@ GetSymbolReturn(int symbol, int net, int displacement)
 	return (0.0); // This should never occur.
 }
 
-
 /*
 ***********************************************************
 * Function: ReadReturnsInput
@@ -146,13 +183,18 @@ LoadReturnsToInput(INPUT_DESC *input, int net, int displacement)
 	int x, y;
 
 //#if ITA_BUILD
-	printf("reading returns %d, time %s\n", returns[net][g_sample].id + displacement, returns[net][g_sample + displacement].time);
+//	printf("reading returns %d, time %s\n", returns[net][g_sample].id + displacement, returns[net][g_sample + displacement].time);
 //#endif
 
 	for (y = 0; y < input->neuron_layer->dimentions.y; y++)
 	{
 		for (x = 0; x < input->neuron_layer->dimentions.x; x++)
 		{
+			/*if (x == 0)
+			{
+				printf("i=%d\n", g_sample - y + displacement);
+				printf("%lf ", returns[net][g_sample - y + displacement].WIN);
+			}*/
 			if (x == 0) input->neuron_layer->neuron_vector[y * input->neuron_layer->dimentions.x + x].output.fval = returns[net][g_sample - y + displacement].WIN;
 			if (x == 1) input->neuron_layer->neuron_vector[y * input->neuron_layer->dimentions.x + x].output.fval = returns[net][g_sample - y + displacement].IND;
 			if (x == 2) input->neuron_layer->neuron_vector[y * input->neuron_layer->dimentions.x + x].output.fval = returns[net][g_sample - y + displacement].WDO;
@@ -632,12 +674,24 @@ compute_capital_evolution(int net, int n, OUTPUT_DESC *neural_prediction, OUTPUT
 		double expected_result_sell_buy = -r * a_capital -
 				CUSTO_TRASACAO * (2.0 * a_capital - r * a_capital) - 2.0 * CUSTO_CORRETORA_P;
 
-		r = GetNeuronsOutput(actual_result, i);
-		double result_buy_sell = r * a_capital -
-				CUSTO_TRASACAO * (2.0 * a_capital + r * a_capital) - 2.0 * CUSTO_CORRETORA_P;
-		double result_sell_buy = -r * a_capital -
-				CUSTO_TRASACAO * (2.0 * a_capital - r * a_capital) - 2.0 * CUSTO_CORRETORA_P;
+		double result_buy_sell = 0.0;
+		double result_sell_buy = 0.0;
 
+		if ( g_use_results == 1 )
+		{
+			if (i == 0) result_buy_sell = returns[net][g_sample].result_WIN;
+			if (i == 1) result_buy_sell = returns[net][g_sample].result_IND;
+			if (i == 2) result_buy_sell = returns[net][g_sample].result_WDO;
+			if (i == 3) result_buy_sell = returns[net][g_sample].result_DOL;
+		}
+		else
+		{
+			r = GetNeuronsOutput(actual_result, i);
+			result_buy_sell = r * a_capital -
+					CUSTO_TRASACAO * (2.0 * a_capital + r * a_capital) - 2.0 * CUSTO_CORRETORA_P;
+			result_sell_buy = -r * a_capital -
+					CUSTO_TRASACAO * (2.0 * a_capital - r * a_capital) - 2.0 * CUSTO_CORRETORA_P;
+		}
 
 		if (g_LongShort == 1)
 		{
@@ -880,7 +934,293 @@ ShowStatistics(PARAM_LIST *pParamList)
 	return (output);
 }
 
+NEURON_OUTPUT
+ShowStatisticsExp(PARAM_LIST *pParamList)
+{
+	NEURON_OUTPUT output;
 
+	//stat_day
+
+	//--------------- stat day
+	//TODO: NET 0
+	int net = 0;
+
+	int i, stock, total_tested;
+	int n_stocks = INPUT_WIDTH;
+
+	for (stock = 0; stock < n_stocks; stock++)
+	{
+		total_tested = 0;
+		for (i = 0; i < 9; i++)
+			total_tested += f_sum(net, stock, i);
+
+		if (total_tested > 0)
+		{
+			//if (stock == 0) printf("WIN: ");
+			//if (stock == 1) printf("IND: ");
+			//if (stock == 2) printf("WDO: ");
+			//if (stock == 3) printf("DOL: ");
+
+			for (i = 0; i < 9; i++)
+			{
+				//char ch1 = ' ', ch2 = ' ';
+				/*
+				if ((i == 0) || (i == 1) || (i == 2)) ch1 = 'i';
+				if ((i == 3) || (i == 4) || (i == 5)) ch1 = '!';
+				if ((i == 6) || (i == 7) || (i == 8)) ch1 = '-';
+
+				if ((i == 0) || (i == 3) || (i == 6)) ch2 = 'i';
+				if ((i == 1) || (i == 4) || (i == 7)) ch2 = '!';
+				if ((i == 2) || (i == 5) || (i == 8)) ch2 = '-';
+				*/
+
+				stat_day[day_i][stock][i] =  100.0 * (double) f_sum(net, stock, i) / (double) total_tested;
+
+				//printf("%c%c = %5.2lf, ",
+				//	   ch1, ch2, 100.0 * (double) f_sum(net, stock, i) / (double) total_tested);
+			}
+			stat_day[day_i][stock][ACC] = 100.0 * (double) (f_sum(net, stock, SS) + f_sum(net, stock, DD) + f_sum(net, stock, NN)) / (double) total_tested;
+			//printf("== = %6.2lf:  ", 100.0 * (double) (f_sum(net, stock, SS) + f_sum(net, stock, DD) + f_sum(net, stock, NN)) / (double) total_tested);
+
+			int sum = f_sum(net, stock, SS) + f_sum(net, stock, SD) + f_sum(net, stock, SN);
+			if (sum != 0)
+			{
+				//printf("gi %6.1lf  ", 100.0 *
+				//		(double) (3 * f_sum(net, stock, SS) - 3 * f_sum(net, stock, SD) - f_sum(net, stock, SN)) / (double) (3 * sum));
+
+				stat_day[day_i][stock][GI] = 100.0 *
+						(double) (3 * f_sum(net, stock, SS) - 3 * f_sum(net, stock, SD) - f_sum(net, stock, SN)) / (double) (3 * sum);
+			}else
+			{
+				//printf("gi   ---   ");
+				stat_day[day_i][stock][GI] = 0.0;
+			}
+
+			sum = f_sum(net, stock, DD) + f_sum(net, stock, DS) + f_sum(net, stock, DN);
+			if (sum != 0)
+			{
+				//printf("g! %6.1lf  ",100.0 *
+				//		(double) (3 * f_sum(net, stock, DD) - 3 * f_sum(net, stock, DS) - f_sum(net, stock, DN)) / (double) (3 * sum));
+
+				stat_day[day_i][stock][Gi] = 100.0 *
+						(double) (3 * f_sum(net, stock, DD) - 3 * f_sum(net, stock, DS) - f_sum(net, stock, DN)) / (double) (3 * sum);
+			}else
+			{
+				//printf("g!   ---  ");
+				stat_day[day_i][stock][Gi] = 0.0;
+			}
+
+			if ((g_buy_sell_count[net][stock] + g_sell_buy_count[net][stock]) > 0)
+			{
+				//printf("buy_sell_count = %2d, sell_buy_count = %2d, capital = %.2lf, hit_rate = %6.1lf\n",
+				//		g_buy_sell_count[net][stock], g_sell_buy_count[net][stock], g_capital[net][stock],
+				//		100.0 * (double) f_sum(net, stock, HITS) / (double) (g_buy_sell_count[net][stock] + g_sell_buy_count[net][stock]));
+
+				//stat_day[day_i][stock][HITS] = 100.0 * (double) f_sum(net, stock, HITS) / (double) (g_buy_sell_count[net][stock] + g_sell_buy_count[net][stock]);
+				stat_day[day_i][stock][HITS] = (double) f_sum(net, stock, HITS) ;
+			}else
+			{
+				//printf("buy_sell_count = %2d, sell_buy_count = %2d, capital = %.2lf, hit_rate = ---\n",
+				//		g_buy_sell_count[net][stock], g_sell_buy_count[net][stock], g_capital[net][stock]);
+
+				//stat_day[day_i][stock][HITS] = 100.0;
+				stat_day[day_i][stock][HITS] = 0.0;
+			}
+		}
+	}
+
+
+
+	//--------------- capital day
+
+	//printf("STAT DAY\n");
+	double total_capital = 0.0;
+	int total_buy_sell = 0;
+	int total_sell_buy = 0;
+	//int stock;
+	//int n_stocks = 4;
+	char symbol[6];
+	for (stock = 0; stock < n_stocks; stock++)
+	{
+		total_capital += g_capital[0][stock];
+		total_buy_sell += g_buy_sell_count[0][stock];
+		total_sell_buy += g_sell_buy_count[0][stock];
+	}
+
+	stat_exp[day_i].day = day_i;
+	stat_exp[day_i].avg_capital = total_capital/(double)n_stocks;
+	stat_exp[day_i].n_ops = total_buy_sell;
+
+	printf("day_i=%d; avg_capital=%.2lf; n_ops=%d; ", day_i, stat_exp[day_i].avg_capital, stat_exp[day_i].n_ops);
+
+	for (stock = 0; stock < n_stocks; stock++)
+	{
+		if (stock == 0) strcpy(symbol, "WIN_");//printf("WIN: ");
+		if (stock == 1) strcpy(symbol, "IND_");//printf("IND: ");
+		if (stock == 2) strcpy(symbol, "WDO_");//printf("WDO: ");
+		if (stock == 3) strcpy(symbol, "DOL_");//printf("DOL: ");
+
+		for (i = 0; i < 9; i++)
+		{
+			char ch1 = ' ', ch2 = ' ';
+
+			if ((i == 0) || (i == 1) || (i == 2)) ch1 = 'i';
+			if ((i == 3) || (i == 4) || (i == 5)) ch1 = '!';
+			if ((i == 6) || (i == 7) || (i == 8)) ch1 = '-';
+
+			if ((i == 0) || (i == 3) || (i == 6)) ch2 = 'i';
+			if ((i == 1) || (i == 4) || (i == 7)) ch2 = '!';
+			if ((i == 2) || (i == 5) || (i == 8)) ch2 = '-';
+
+			printf("%s%c%c=%.2lf; ", symbol, ch1, ch2, stat_day[day_i][stock][i]);
+		}
+		printf("%s===%.2lf; ", symbol, stat_day[day_i][stock][ACC]);
+		printf("%sgi=%.1lf; ",symbol, stat_day[day_i][stock][GI]);
+		printf("%sg!=%.1lf; ",symbol,  stat_day[day_i][stock][Gi]);
+		if (g_buy_sell_count[net][stock] > 0)
+			printf("%shit_rate=%.1lf; ",symbol,  100.0 * stat_day[day_i][stock][HITS]/g_buy_sell_count[net][stock]);
+		else
+			printf("%shit_rate=--; ",symbol);
+		printf("%scapital=%.1lf; ",symbol,  g_capital[net][stock]);
+		printf("%sn_ops=%d; ",symbol,  g_buy_sell_count[net][stock]);
+	}
+	printf("\n");
+
+
+	stat_exp[day_i].capital_win = g_capital[net][0];
+	stat_exp[day_i].n_ops_win = g_buy_sell_count[net][0];
+	stat_exp[day_i].capital_ind = g_capital[net][1];
+	stat_exp[day_i].n_ops_ind = g_buy_sell_count[net][1];
+	stat_exp[day_i].capital_wdo = g_capital[net][2];
+	stat_exp[day_i].n_ops_wdo = g_buy_sell_count[net][2];
+	stat_exp[day_i].capital_dol = g_capital[net][3];
+	stat_exp[day_i].n_ops_dol = g_buy_sell_count[net][3];
+
+	/*
+	printf("day_i=%d; avg_capital=%.2lf; n_ops=%d; WIN_capital=%.2lf; WIN_n_ops=%d; IND_capital=%.2lf; IND_n_ops=%d; WDO_capital=%.2lf;"
+			" WDO_n_ops=%d; DOL_capital=%.2lf; DOL_n_ops=%d;\n", stat_exp[day_i].day, stat_exp[day_i].avg_capital,
+			stat_exp[day_i].n_ops, stat_exp[day_i].capital_win, stat_exp[day_i].n_ops_win, stat_exp[day_i].capital_ind,
+			stat_exp[day_i].n_ops_ind, stat_exp[day_i].capital_wdo, stat_exp[day_i].n_ops_wdo, stat_exp[day_i].capital_dol,
+			stat_exp[day_i].n_ops_dol);
+	 */
+	fflush(stdout);
+
+	output.ival = 0;
+	return output;
+}
+
+NEURON_OUTPUT
+MeanStatisticsExp(PARAM_LIST *pParamList)
+{
+	NEURON_OUTPUT output;
+
+	double total_capital = 0.0;
+	double total_capital_win = 0.0;
+	double total_capital_ind = 0.0;
+	double total_capital_wdo = 0.0;
+	double total_capital_dol = 0.0;
+
+	int	n_ops = 0;
+	int	n_ops_win = 0;
+	int	n_ops_ind = 0;
+	int	n_ops_wdo = 0;
+	int	n_ops_dol = 0;
+
+	int i;
+	int j;
+	int stock, n_stocks = INPUT_WIDTH;
+	double mean_stat_day[INPUT_WIDTH][13];
+	memset(mean_stat_day, 0, INPUT_WIDTH * 13 * sizeof(double));
+
+	for (i = 0; i <= day_i; i++)
+	{
+		total_capital	+= stat_exp[i].avg_capital;
+		total_capital_win += stat_exp[i].capital_win;
+		total_capital_ind += stat_exp[i].capital_ind;
+		total_capital_wdo += stat_exp[i].capital_wdo;
+		total_capital_dol += stat_exp[i].capital_dol;
+
+		n_ops	+= stat_exp[i].n_ops;
+		n_ops_win	+= stat_exp[i].n_ops_win;
+		n_ops_ind	+= stat_exp[i].n_ops_ind;
+		n_ops_wdo	+= stat_exp[i].n_ops_wdo;
+		n_ops_dol	+= stat_exp[i].n_ops_dol;
+
+		for (stock = 0; stock < n_stocks; stock++)
+		{
+			for (j = 0; j < 13; j++)
+			{
+				mean_stat_day[stock][j] += stat_day[i][stock][j];
+			}
+		}
+	}
+
+	double n = (double)(1.0*day_i+1);
+	char symbol[6];
+
+	printf("day_i=Mean; avg_capital=%.2lf; n_ops=%.2lf; ", total_capital/n, (1.0*n_ops)/n);
+	for (stock = 0; stock < n_stocks; stock++)
+	{
+		if (stock == 0) strcpy(symbol, "WIN_");//printf("WIN: ");
+		if (stock == 1) strcpy(symbol, "IND_");//printf("IND: ");
+		if (stock == 2) strcpy(symbol, "WDO_");//printf("WDO: ");
+		if (stock == 3) strcpy(symbol, "DOL_");//printf("DOL: ");
+
+		for (j = 0; j < 9; j++)
+		{
+			char ch1 = ' ', ch2 = ' ';
+
+			if ((j == 0) || (j == 1) || (j == 2)) ch1 = 'i';
+			if ((j == 3) || (j == 4) || (j == 5)) ch1 = '!';
+			if ((j == 6) || (j == 7) || (j == 8)) ch1 = '-';
+
+			if ((j == 0) || (j == 3) || (j == 6)) ch2 = 'i';
+			if ((j == 1) || (j == 4) || (j == 7)) ch2 = '!';
+			if ((j == 2) || (j == 5) || (j == 8)) ch2 = '-';
+
+			printf("%s%c%c=%.2lf; ", symbol, ch1, ch2, mean_stat_day[stock][j]/n);
+		}
+		printf("%s===%.2lf; ", symbol, mean_stat_day[stock][ACC]/n);
+		printf("%sgi=%.1lf; ",symbol, mean_stat_day[stock][GI]/n);
+		printf("%sg!=%.1lf; ",symbol,  mean_stat_day[stock][Gi]/n);
+
+		if (stock == 0)
+		{
+			if (n_ops_win > 0) printf("%shit_rate=%.1lf; ",symbol,  100.0 * mean_stat_day[stock][HITS]/n_ops_win);
+			else printf("%shit_rate=--; ",symbol);
+			printf("%scapital=%.2lf; %sn_ops=%.2lf; ", symbol, total_capital_win/n, symbol, (1.0*n_ops_win)/n);
+		}
+		if (stock == 1)
+		{
+			if (n_ops_ind > 0) printf("%shit_rate=%.1lf; ",symbol,  100.0 * mean_stat_day[stock][HITS]/n_ops_ind);
+			else printf("%shit_rate=--; ",symbol);
+			printf("%scapital=%.2lf; %sn_ops=%.2lf; ", symbol, total_capital_ind/n, symbol, (1.0*n_ops_ind)/n);
+		}
+		if (stock == 2)
+		{
+			if (n_ops_wdo > 0) printf("%shit_rate=%.1lf; ",symbol,  100.0 * mean_stat_day[stock][HITS]/n_ops_wdo);
+			else printf("%shit_rate=--; ",symbol);
+			printf("%scapital=%.2lf; %sn_ops=%.2lf; ", symbol, total_capital_wdo/n, symbol, (1.0*n_ops_wdo)/n);
+		}
+		if (stock == 3)
+		{
+			if (n_ops_dol > 0) printf("%shit_rate=%.1lf; ",symbol,  100.0 * mean_stat_day[stock][HITS]/n_ops_dol);
+			else printf("%shit_rate=--; ",symbol);
+			printf("%scapital=%.2lf; %sn_ops=%.2lf; ", symbol, total_capital_dol/n, symbol, (1.0*n_ops_dol)/n);
+		}
+	}
+	printf("\n");
+/*
+	printf("WIN_capital=%.2lf; WIN_n_ops=%.2lf; IND_capital=%.2lf; "
+			"IND_n_ops=%.2lf; WDO_capital=%.2lf; WDO_n_ops=%.2lf; DOL_capital=%.2lf; DOL_n_ops=%.2lf;\n",
+			total_capital_win/n, (1.0*n_ops_win)/n, total_capital_ind/n,
+			(1.0*n_ops_ind)/n, total_capital_wdo/n, (1.0*n_ops_wdo)/n, total_capital_dol/n, (1.0*n_ops_dol)/n);
+*/
+	fflush(stdout);
+
+	output.ival = 0;
+	return output;
+}
 /*
 ***********************************************************
 * Function: ResetStatistics
@@ -996,6 +1336,145 @@ GetRandomReturns(PARAM_LIST *pParamList)
 	return (output);
 }
 
+/*
+***********************************************************
+* Function: LoadDayFileName
+* Description:
+* Inputs:
+* Output:
+***********************************************************
+*/
+
+NEURON_OUTPUT
+LoadDayFileName(PARAM_LIST *pParamList)
+{
+	NEURON_OUTPUT output;
+
+	char *file_name = pParamList->next->param.sval;
+	file_name = file_name + 1; // tira uma aspas no inicio
+	file_name[strlen(file_name) - 1] = '\0'; // tira aspas do fim
+
+	strcpy(days_file_name, file_name);
+
+	output.ival = 0;
+	return output;
+}
+
+/*
+***********************************************************
+* Function: LoadReturns_
+* Description:
+* Inputs:
+* Output:
+***********************************************************
+*/
+
+int
+LoadReturns_(char *returns_file_name)
+{
+	FILE *returns_file;
+
+	g_use_results = 1;
+	//printf("%s\n", returns_file_name);
+
+	returns_file = fopen(returns_file_name, "r");
+
+	if (returns_file == NULL)
+		Erro("Error: cannot open file in LoadReturns(). returns_file_name = ", returns_file_name, "");
+
+	int numlines = 0;
+	char file_line[257];
+	char *aux = fgets(file_line, 256, returns_file); // read header
+	aux = aux;
+	char date[256];
+	char BRT[256];
+	int net = 0;
+	while(fgets(file_line, 256, returns_file) != NULL)
+	{
+		if (sscanf(file_line, "%d; %s %s %s %f; %f; %f; %f; %f; %f; %f; %f;\n",
+				&returns[net][numlines].id, date, returns[net][numlines].time, BRT,
+				&returns[net][numlines].WIN, &returns[net][numlines].result_WIN, &returns[net][numlines].IND, &returns[net][numlines].result_IND, &returns[net][numlines].WDO, &returns[net][numlines].result_WDO, &returns[net][numlines].DOL, &returns[net][numlines].result_DOL) != 12)
+		{
+			printf("%d; %s %s %s %f; %f; %f; %f; %f; %f; %f; %f;\n",
+					returns[net][numlines].id, date, returns[net][numlines].time, BRT,
+					returns[net][numlines].WIN, returns[net][numlines].result_WIN, returns[net][numlines].IND, returns[net][numlines].result_IND, returns[net][numlines].WDO, returns[net][numlines].result_WDO, returns[net][numlines].DOL, returns[net][numlines].result_DOL);
+			Erro("Could not read returns, in LoadReturns(), from file: ", returns_file_name, "");
+		}
+//		printf("%d; %s %s %s %lf; %lf; %lf; %lf;\n",
+//				returns[net][numlines].id, date, returns[net][numlines].time, BRT,
+//				returns[net][numlines].WIN, returns[net][numlines].IND, returns[net][numlines].WDO, returns[net][numlines].DOL);
+		numlines++;
+		if (numlines >= MAX_RETURN_SAMPLES)
+			Erro("numlines >= MAX_RETURN_SAMPLES in LoadReturns().", "", "");
+	}
+
+	POSE_MAX = numlines - 1;
+
+//	INPUT_DESC *input;
+//	input = get_input_by_name("ita");
+	g_sample = POSE_MIN = 0; // input->wh;
+
+	return 0;
+}
+/*
+***********************************************************
+* Function: LoadDay
+* Description:
+* Inputs:
+* Output:
+***********************************************************
+*/
+
+NEURON_OUTPUT
+LoadDay(PARAM_LIST *pParamList)
+{
+	NEURON_OUTPUT output;
+	day_i = pParamList->next->param.ival;
+
+	FILE *days_file;
+
+	char day_i_file_name[257];
+	
+	//printf("%s day_i=%d\n", days_file_name, day_i);
+	days_file = fopen(days_file_name, "r");
+
+	if (days_file == NULL)
+		Erro("Error: cannot open file in LoadDay(). days_file_name = ", days_file_name, "");
+	
+	int numlines = 0;
+	char file_line[257];
+
+	while( numlines <= day_i )
+	{
+		if (feof(days_file))
+		{
+			printf("End of days file\n");
+			exit(0);
+		}
+		//printf("%d\n", numlines);
+		//fgets(file_line, 256, days_file);
+		fscanf(days_file, "%s\n", file_line);
+		//printf("%s\n", file_line);
+		if ( day_i == numlines )
+		{
+			if (sscanf(file_line, "%s\n", day_i_file_name) != 1)
+			{
+				printf("%s\n", day_i_file_name);
+				Erro("Could not read day file name, in LoadDay(), from file: ", day_i_file_name, "");
+			}
+			break;
+		}
+		numlines++;
+	}
+
+	//printf("%s\n", day_i_file_name);
+	fclose(days_file);
+
+	LoadReturns_(day_i_file_name);
+
+	output.ival = 0;
+	return output;
+}
 
 /*
 ***********************************************************
@@ -1128,3 +1607,140 @@ SetLongShort(PARAM_LIST *pParamList)
 	return (output);
 }
 
+/*
+***********************************************************
+* Function: WillTrain
+* Description:
+* Inputs:
+* Output:
+***********************************************************
+*/
+
+NEURON_OUTPUT
+WillTrain(PARAM_LIST *pParamList)
+{
+	NEURON_OUTPUT output;
+	//TODO:
+	int net = 0;
+
+	//printf("param=%d g_sample=%d\n", param, g_sample);
+	//printf("%s\n", returns[net][g_sample].time);
+	fflush(stdout);
+
+	int hour = 0;
+	int min = 0;
+	float sec = 0.0;
+	sscanf(returns[net][g_sample].time, "%d:%d:%f", &hour, &min, &sec);
+
+	//printf("h=%d m=%d sec=%f\n", hour, min, sec);
+	//printf("g_sample=%d min=%d max=%d\n", g_sample, POSE_MIN, POSE_MAX);
+
+	int ret = 0;
+	if (
+		( ( hour == TRAIN_HOUR && min >= TRAIN_MIN ) ||
+		( hour > TRAIN_HOUR && hour < TEST_HOUR ) ||
+		( hour == TEST_HOUR && min < TEST_MIN ) ) &&
+		g_sample <= POSE_MAX && g_sample >= POSE_MIN
+		)
+	{
+		ret = 1;
+		LoadReturnsToInput(&ita, 0, -1);
+
+		check_input_bounds(&ita, ita.wx + ita.ww/2, ita.wy + ita.wh/2);
+		ita.up2date = 0;
+		update_input_image(&ita);
+	}
+
+	output.ival = ret;
+	return (output);
+}
+
+/*
+***********************************************************
+* Function: WillTest
+* Description:
+* Inputs:
+* Output:
+***********************************************************
+*/
+
+NEURON_OUTPUT
+WillTest(PARAM_LIST *pParamList)
+{
+	NEURON_OUTPUT output;
+	//TODO:
+	int net = 0;
+
+	//printf("param=%d g_sample=%d\n", param, g_sample);
+	//printf("%s\n", returns[net][g_sample].time);
+	fflush(stdout);
+
+	int hour = 0;
+	int min = 0;
+	float sec = 0.0;
+	sscanf(returns[net][g_sample].time, "%d:%d:%f", &hour, &min, &sec);
+
+	//printf("h=%d m=%d sec=%f\n", hour, min, sec);
+	//printf("g_sample=%d min=%d max=%d\n", g_sample, POSE_MIN, POSE_MAX);
+
+	int ret = 0;
+	if (
+		( ( hour == TEST_HOUR && min >= TEST_MIN ) ||
+		  ( hour > TEST_HOUR && hour < TEST_END_HOUR ) ||
+		  ( hour == TEST_END_HOUR && min <= TEST_END_MIN )
+			) &&
+		g_sample <= POSE_MAX && g_sample >= POSE_MIN
+		)
+	{
+		ret = 1;
+		LoadReturnsToInput(&ita, 0, -1);
+
+		check_input_bounds(&ita, ita.wx + ita.ww/2, ita.wy + ita.wh/2);
+		ita.up2date = 0;
+		update_input_image(&ita);
+	}
+
+	output.ival = ret;
+	return (output);
+}
+
+/*
+***********************************************************
+* Function: Increment
+* Description:
+* Inputs:
+* Output:
+***********************************************************
+*/
+
+NEURON_OUTPUT
+Increment(PARAM_LIST *pParamList)
+{
+	NEURON_OUTPUT output;
+	int param = pParamList->next->param.ival;
+
+	g_sample += param;
+
+	//printf("g_sample=%d\n", g_sample);
+	output.ival = 0;
+	return (output);
+}
+
+/*
+***********************************************************
+* Function: GetInputHeight
+* Description:
+* Inputs:
+* Output:
+***********************************************************
+*/
+
+NEURON_OUTPUT
+GetInputHeight(PARAM_LIST *pParamList)
+{
+	NEURON_OUTPUT output;
+
+	output.ival = INPUT_HEIGHT;
+
+	return (output);
+}

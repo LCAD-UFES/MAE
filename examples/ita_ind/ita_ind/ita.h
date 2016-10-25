@@ -11,9 +11,9 @@
 
 // Definitions
 #define INPUT_WIDTH (4)
-#define INPUT_HEIGHT (19)
+#define INPUT_HEIGHT (10)
 #define OUT_WIDTH (4)
-#define OUT_HEIGHT (11)
+#define OUT_HEIGHT (1)
 #define SYNAPSES (256)
 #define ALAVANCAGEM (1.0)
 #define CUSTO_BOVESPA (0.0)
@@ -21,7 +21,7 @@
 #define CUSTO_CORRETORA_P (0.0)
 #define CUSTO_TRASACAO (0.0)
 #define CERTAINTY (20.0)
-#define STATISTICS (20)
+#define STATISTICS (30)
 
 // Macros
 
@@ -42,6 +42,10 @@ extern "C" NEURON_OUTPUT ShowStatistics (PARAM_LIST *);
 extern "C" NEURON_OUTPUT ResetStatistics (PARAM_LIST *);
 extern "C" NEURON_OUTPUT SetNetworkStatus (PARAM_LIST *);
 extern "C" NEURON_OUTPUT LoadReturns (PARAM_LIST *);
+extern "C" NEURON_OUTPUT LoadDayFileName (PARAM_LIST *);
+extern "C" NEURON_OUTPUT LoadDay (PARAM_LIST *);
+extern "C" NEURON_OUTPUT ShowStatisticsExp (PARAM_LIST *);
+extern "C" NEURON_OUTPUT MeanStatisticsExp (PARAM_LIST *);
 extern "C" NEURON_OUTPUT SetLongShort (PARAM_LIST *);
 
 // Global Variables
@@ -73,6 +77,10 @@ extern NEURON_OUTPUT ShowStatistics (PARAM_LIST *);
 extern NEURON_OUTPUT ResetStatistics (PARAM_LIST *);
 extern NEURON_OUTPUT SetNetworkStatus (PARAM_LIST *);
 extern NEURON_OUTPUT LoadReturns (PARAM_LIST *);
+extern NEURON_OUTPUT LoadDayFileName (PARAM_LIST *);
+extern NEURON_OUTPUT LoadDay (PARAM_LIST *);
+extern NEURON_OUTPUT ShowStatisticsExp (PARAM_LIST *);
+extern NEURON_OUTPUT MeanStatisticsExp (PARAM_LIST *);
 extern NEURON_OUTPUT SetLongShort (PARAM_LIST *);
 
 // Global Variables

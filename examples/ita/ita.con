@@ -20,7 +20,7 @@ const CUSTO_BOVESPA 	= 0.0; # (0.00005 + 0.0002);
 const CUSTO_CORRETORA	= 0.000;
 const CUSTO_CORRETORA_P	= 4.5;
 const CUSTO_TRASACAO 	= (CUSTO_BOVESPA + CUSTO_CORRETORA);
-const CERTAINTY 	= 13.5;
+const CERTAINTY 	= 15.0;
 
 ############################################### Neuron Layers #########################################################
 neuronlayer	nl_ita_lp_f[INPUT_WIDTH][INPUT_HEIGHT]	with greyscale_float outputs;
