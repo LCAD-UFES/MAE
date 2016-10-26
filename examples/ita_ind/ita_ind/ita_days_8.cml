@@ -1,0 +1,98 @@
+SetLongShort(1); # Long
+LoadDayFileName("days_8_train.txt");
+
+int N_DAYS;
+N_DAYS = 30;
+
+/* Network Status */
+int TRAINING_PHASE;
+TRAINING_PHASE = 1;
+int TESTING_PHASE;
+TESTING_PHASE = 2;
+int WARM_UP_PHASE;
+WARM_UP_PHASE = 3;
+
+int input_height;
+input_height = GetInputHeight(0);
+#print("input_height=", input_height);
+
+clear out_result;
+
+/* Counters */
+
+int day_i;
+int a;
+a = 0;
+while ( day_i < N_DAYS )
+{
+	ResetStatistics(0);
+
+	LoadDay(day_i);
+
+	Increment(input_height+1);
+
+	/* Training Phase */
+	SetNetworkStatus(WARM_UP_PHASE);
+	#SetNetworkStatus(TRAINING_PHASE);
+	
+	a = WillTrain(0);	
+/*	while (a == 0)
+	{
+		if (a == 0) Increment(1);
+		a = WillTrain(0);
+	}
+*/	
+	while(a != 0)
+	{
+		forward filters;
+		forward neural_layers;
+		forward outputs;
+
+#		ShowStatistics(0);
+
+		/* Draws the landmark neuron layer output */
+		draw out_prediction based on ita move;
+		train network;
+
+		if (a != 0) Increment(1);
+		
+		a = WillTrain(0);
+		#print("train=", a);
+	}
+
+	/* Testing phase */
+	#ResetStatistics(0);
+	SetNetworkStatus(TESTING_PHASE);
+	
+	a = WillTest(0);
+	#print("test=", a);
+	while(a != 0)
+	{
+		forward filters;
+		forward neural_layers;
+		forward outputs;
+
+		/* Draws the landmark neuron layer output */
+		#draw out_prediction based on ita move;
+		copy out_test;
+		paste out_prediction;
+
+		ShowStatistics(0);
+		train network;
+
+		if (a != 0) Increment(1);
+		
+		a = WillTest(0);
+		#print("test=", a);
+	}
+	
+	clear network memory;
+	day_i = day_i + 1;
+
+	# save day result in file
+	ShowStatisticsExp(0);
+}
+
+MeanStatisticsExp(0);
+
+quit;

@@ -7,11 +7,15 @@ rm -rf ita_results_days.csv
 #		foreach WINDOW_SIZE ( 10 )
 #			foreach STATISTICS ( 32 )
 #				foreach CERTAINTY ( 15. )
-foreach NEURONS ( 1 2 4 8 16 32 )
-	foreach SYNAPSES ( 32 64 128 256 )
+foreach NEURONS ( 1 3 5 9 17 33 )
+	foreach SYNAPSES ( 8 16 32 64 128 256 )
 		foreach WINDOW_SIZE ( 5 10 15 20 )
-			foreach STATISTICS ( 1 2 4 8 16 32 64 )
+			foreach STATISTICS ( 0 1 2 4 )
 				foreach CERTAINTY ( 10. 15. 20. 25. 30. 35. )
+
+					echo "8; ${NEURONS}; ${SYNAPSES}; ${WINDOW_SIZE}; ${STATISTICS}; ${CERTAINTY};" `tail -n 1 ita_ind_${NEURONS}_${SYNAPSES}_${WINDOW_SIZE}_${STATISTICS}_${CERTAINTY}/ita_days_8.csv` >>  ita_results_days.csv
+
+					echo "16; ${NEURONS}; ${SYNAPSES}; ${WINDOW_SIZE}; ${STATISTICS}; ${CERTAINTY};" `tail -n 1 ita_ind_${NEURONS}_${SYNAPSES}_${WINDOW_SIZE}_${STATISTICS}_${CERTAINTY}/ita_days_16.csv` >>  ita_results_days.csv
 
 					echo "32; ${NEURONS}; ${SYNAPSES}; ${WINDOW_SIZE}; ${STATISTICS}; ${CERTAINTY};" `tail -n 1 ita_ind_${NEURONS}_${SYNAPSES}_${WINDOW_SIZE}_${STATISTICS}_${CERTAINTY}/ita_days_32.csv` >>  ita_results_days.csv
 

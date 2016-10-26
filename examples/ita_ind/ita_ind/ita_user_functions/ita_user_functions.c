@@ -79,6 +79,7 @@ STATISTICS_EXP stat_exp[MAX_DAYS];
 double stat_day[MAX_DAYS][INPUT_WIDTH][13];
 int day_i = 0;
 int g_use_results = 0;
+char date[256];
 
 RETURNS returns[2][MAX_RETURN_SAMPLES];
 int g_sample = 0;
@@ -695,8 +696,9 @@ compute_capital_evolution(int net, int n, OUTPUT_DESC *neural_prediction, OUTPUT
 
 		if (g_LongShort == 1)
 		{
-			if ((s1 == 0) && (expected_result_buy_sell > 0.0) &&
-				(g_mean_correct_positive_pred[net][i] > CERTAINTY))
+			if ( ( g_runing_sum_size > 0 && (s1 == 0) && (expected_result_buy_sell > 0.0) && (g_mean_correct_positive_pred[net][i] > CERTAINTY) ) ||
+				 ( g_runing_sum_size == 0 && (s1 == 0) && (expected_result_buy_sell > 0.0) ) 
+				)
 			{
 				double previous_capital = g_capital[net][i];
 				g_capital[net][i] += result_buy_sell;
@@ -711,8 +713,9 @@ compute_capital_evolution(int net, int n, OUTPUT_DESC *neural_prediction, OUTPUT
 		}
 		else
 		{
-			if ((s1 == 1) && (expected_result_sell_buy > 0.0) &&
-				(g_mean_correct_negative_pred[net][i] > CERTAINTY))
+			if ( ( g_runing_sum_size > 0 &&  (s1 == 1) && (expected_result_sell_buy > 0.0) && (g_mean_correct_negative_pred[net][i] > CERTAINTY) ) ||
+				 ( g_runing_sum_size == 0 && (s1 == 0) && (expected_result_sell_buy > 0.0) )
+				)
 			{
 				double previous_capital = g_capital[net][i];
 				g_capital[net][i] += result_sell_buy;
@@ -855,6 +858,7 @@ ShowStatistics(PARAM_LIST *pParamList)
 	int i, stock, k, total_tested;
 	int n_stocks = INPUT_WIDTH;
 
+	printf("%s %s\n", date, returns[0][g_sample].time);
 	for (stock = 0; stock < n_stocks; stock++)
 	{
 		total_tested = 0;
@@ -1386,7 +1390,7 @@ LoadReturns_(char *returns_file_name)
 	char file_line[257];
 	char *aux = fgets(file_line, 256, returns_file); // read header
 	aux = aux;
-	char date[256];
+	//char date[256];
 	char BRT[256];
 	int net = 0;
 	while(fgets(file_line, 256, returns_file) != NULL)
@@ -1506,7 +1510,7 @@ LoadReturns(PARAM_LIST *pParamList)
 	char file_line[257];
 	char *aux = fgets(file_line, 256, returns_file); // read header
 	aux = aux;
-	char date[256];
+	//char date[256];
 	char BRT[256];
 	int net = 0;
 	while(fgets(file_line, 256, returns_file) != NULL)
