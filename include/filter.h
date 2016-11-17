@@ -157,6 +157,7 @@ double map_image_to_v1_old (int *xi, int *yi, int wi, int hi, int u, int v, int 
 void map_image_to_v1(int xi, int yi, double wi, double hi, int *u, int *v, double w, double h, double x_center, double y_center, double correction, double log_factor);
 NEURON_OUTPUT bidimentional_convolution (RECEPTIVE_FIELD_DESCRIPTION *receptive_field_descriptor, NEURON *image_n_l, int x_center, int y_center, int w, int h);
 void compute_gaussian_kernel (RECEPTIVE_FIELD_DESCRIPTION *receptive_field_descriptor, int nKernelSize, float fltSigma);
+KERNEL *compute_gaussian_kernel2 (int kernel_size, float sigma);
 float apply_gaussian_kernel (RECEPTIVE_FIELD_DESCRIPTION *receptive_field_descriptor, NEURON_LAYER *image_n_l, int x0, int y0);
 void compute_receptive_field_points (RECEPTIVE_FIELD_DESCRIPTION *receptive_field_descriptor, int radius);
 void compute_v1_spatial_receptive_field (RECEPTIVE_FIELD_DESCRIPTION *receptive_field, float frequency, float width, float aspect_ratio, float orientation, float phase, int kernel_type);
