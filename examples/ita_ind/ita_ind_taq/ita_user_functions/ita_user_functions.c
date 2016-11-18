@@ -78,9 +78,9 @@ typedef struct _statistics_exp
 #define TRAIN_HOUR 10
 #define TRAIN_MIN 00
 #define TEST_HOUR 11
-#define TEST_MIN 30
-#define TEST_END_HOUR 16
-#define TEST_END_MIN 45
+#define TEST_MIN 30//00
+#define TEST_END_HOUR 16//12
+#define TEST_END_MIN 45//30
 
 
 #define MAX_DAYS 200
@@ -110,6 +110,9 @@ int g_sell_buy_count[2][INPUT_WIDTH];
 double g_capital[2][INPUT_WIDTH];
 double g_mean_correct_positive_pred[2][INPUT_WIDTH], g_mean_correct_negative_pred[2][INPUT_WIDTH];
 double g_mean_reverse_positive_pred[2][INPUT_WIDTH], g_mean_reverse_negative_pred[2][INPUT_WIDTH];
+
+double g_confidence_up[2][INPUT_WIDTH], g_confidence_down[2][INPUT_WIDTH];
+int use_confiance = 1;
 
 char days_file_name[257];
 /*
@@ -203,8 +206,8 @@ LoadReturnsToInput(INPUT_DESC *input, int net, int displacement)
 		{
 			/*if (x == 0)
 			{
-				printf("i=%d\n", g_sample - y + displacement);
-				printf("%lf ", returns[net][g_sample - y + displacement].WIN);
+				printf("i=%d y=%d x=%d ", g_sample - y + displacement, y, x);
+				printf("%lf \n", returns[net][g_sample - y + displacement].WIN);
 			}*/
 			if (x == 0) input->neuron_layer->neuron_vector[y * input->neuron_layer->dimentions.x + x].output.fval = returns[net][g_sample - y + displacement].WIN;
 			if (x == 1) input->neuron_layer->neuron_vector[y * input->neuron_layer->dimentions.x + x].output.fval = returns[net][g_sample - y + displacement].IND;
@@ -278,8 +281,52 @@ GetNeuronsOutput(OUTPUT_DESC *output, int x)
 	else
 		result = 0.0;
 
+
+	//g_confidence_up[0][x] = 100. * (n_up - n_down) / n_up;
+	//g_confidence_down[0][x] = 100. * (n_down - n_up) / n_down;
+	//printf("x=%d n_up=%.0lf n_down=%.0lf c_up=%.2lf c_down=%.2lf\n", x, n_up, n_down, g_confidence_up[0][x], g_confidence_down[0][x]);
+
+
 	return (result);
 }
+
+void
+GetNeuronsOutputConfidence(OUTPUT_DESC *output, int x)
+{
+	int y;
+	float n_up, n_down, n_stable, sum_up, sum_down;
+
+	sum_up = sum_down = n_up = n_down = n_stable = 0.0;
+	for (y = 0; y < output->neuron_layer->dimentions.y; y++)
+	{
+		float val = output->neuron_layer->neuron_vector[y * output->neuron_layer->dimentions.x + x].output.fval;
+		if (val > 0.0)
+		{
+			n_up += 1.0f;
+			sum_up += val;
+		}
+		else if (val < 0.0)
+		{
+			n_down += 1.0f;
+			sum_down += val;
+		}
+		else
+			n_stable += 1.0f;
+	}
+
+/*	if ((n_up > n_down))// && (n_up > n_stable))
+		result = sum_up / n_up;
+	else if ((n_down > n_up))// && (n_down > n_stable))
+		result = sum_down / n_down;
+	else
+		result = 0.0;
+*/
+
+	g_confidence_up[0][x] = 100. * (n_up - n_down) / n_up;
+	g_confidence_down[0][x] = 100. * (n_down - n_up) / n_down;
+	//printf("x=%d n_up=%.0lf n_down=%.0lf c_up=%.2lf c_down=%.2lf\n", x, n_up, n_down, g_confidence_up[0][x], g_confidence_down[0][x]);
+}
+
 
 
 /*
@@ -677,6 +724,7 @@ compute_capital_evolution(int net, int n, OUTPUT_DESC *neural_prediction, OUTPUT
 	{
 		int s1;
 		s1 = signal_of_val(GetNeuronsOutput(neural_prediction, i));
+		GetNeuronsOutputConfidence(neural_prediction, i);
 
 		double r = GetNeuronsOutput(neural_prediction, i);
 		double a_capital = ALAVANCAGEM * g_capital[net][i];
@@ -706,7 +754,8 @@ compute_capital_evolution(int net, int n, OUTPUT_DESC *neural_prediction, OUTPUT
 
 		if (g_LongShort == 1)
 		{
-			if ( ( g_runing_sum_size > 0 && (s1 == 0) && (expected_result_buy_sell > 0.0) && (g_mean_correct_positive_pred[net][i] > CERTAINTY) ) ||
+			if ( ( g_runing_sum_size > 0 && (s1 == 0) && (expected_result_buy_sell > 0.0) && (g_confidence_up[net][i] > CERTAINTY) && (use_confiance = 1) ) ||
+				 ( g_runing_sum_size > 0 && (s1 == 0) && (expected_result_buy_sell > 0.0) && (g_mean_correct_positive_pred[net][i] > CERTAINTY) && (use_confiance = 0) ) ||
 				 ( g_runing_sum_size == 0 && (s1 == 0) && (expected_result_buy_sell > 0.0) ) 
 				)
 			{
@@ -723,7 +772,8 @@ compute_capital_evolution(int net, int n, OUTPUT_DESC *neural_prediction, OUTPUT
 		}
 		else
 		{
-			if ( ( g_runing_sum_size > 0 &&  (s1 == 1) && (expected_result_sell_buy > 0.0) && (g_mean_correct_negative_pred[net][i] > CERTAINTY) ) ||
+			if ( ( g_runing_sum_size > 0 &&  (s1 == 1) && (expected_result_sell_buy > 0.0) && (g_confidence_up[net][i] > CERTAINTY) && (use_confiance = 1) ) ||
+				 ( g_runing_sum_size > 0 &&  (s1 == 1) && (expected_result_sell_buy > 0.0) && (g_mean_correct_negative_pred[net][i] > CERTAINTY) && (use_confiance = 0) ) ||
 				 ( g_runing_sum_size == 0 && (s1 == 0) && (expected_result_sell_buy > 0.0) )
 				)
 			{
@@ -916,16 +966,16 @@ ShowStatistics(PARAM_LIST *pParamList)
 				printf("g!   ---  ");
 
 			if ((g_buy_sell_count[net][stock] + g_sell_buy_count[net][stock]) > 0)
-				printf("buy_sell_count = %2d, sell_buy_count = %2d, capital = %.2lf, return = %.4lf, p_return = %.4lf, invest = %d, hit_rate = %6.1lf\n",
+				printf("buy_sell_count = %2d, sell_buy_count = %2d, capital = %.2lf, return = %.4lf, p_return = %.4lf, invest = %d, hit_rate = %6.1lf, g_confidence_up=%.2lf\n",
 						g_buy_sell_count[net][stock], g_sell_buy_count[net][stock], g_capital[net][stock],
 						(double) g_results[net][g_sample][stock][RETURN] / 10000.0, (double) g_results[net][g_sample][stock][P_RETURN] / 10000.0,
 						g_results[net][g_sample][stock][INVEST],
-						100.0 * (double) f_sum(net, stock, HITS) / (double) (g_buy_sell_count[net][stock] + g_sell_buy_count[net][stock]));
+						100.0 * (double) f_sum(net, stock, HITS) / (double) (g_buy_sell_count[net][stock] + g_sell_buy_count[net][stock]), g_confidence_up[net][stock]);
 			else
-				printf("buy_sell_count = %2d, sell_buy_count = %2d, capital = %.2lf, return = %.4lf, p_return = %.4lf, invest = %d, hit_rate = ---\n",
+				printf("buy_sell_count = %2d, sell_buy_count = %2d, capital = %.2lf, return = %.4lf, p_return = %.4lf, invest = %d, hit_rate = ---, g_confidence_up=%.2lf\n",
 						g_buy_sell_count[net][stock], g_sell_buy_count[net][stock], g_capital[net][stock],
 						(double) g_results[net][g_sample][stock][RETURN] / 10000.0, (double) g_results[net][g_sample][stock][P_RETURN] / 10000.0,
-						g_results[net][g_sample][stock][INVEST]);
+						g_results[net][g_sample][stock][INVEST], g_confidence_up[net][stock]);
 		}
 	}
 

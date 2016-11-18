@@ -2,7 +2,7 @@ SetLongShort(1); # Long
 LoadDayFileName("days_64_train.txt");
 
 int N_DAYS;
-N_DAYS = 30;
+N_DAYS = 1;
 
 /* Network Status */
 int TRAINING_PHASE;
@@ -32,8 +32,8 @@ while ( day_i < N_DAYS )
 	Increment(input_height+1);
 
 	/* Training Phase */
-	SetNetworkStatus(WARM_UP_PHASE);
-	#SetNetworkStatus(TRAINING_PHASE);
+	#SetNetworkStatus(WARM_UP_PHASE);
+	SetNetworkStatus(TRAINING_PHASE);
 	
 	a = WillStart(0);
 	#print("train=", a);
@@ -79,7 +79,7 @@ while ( day_i < N_DAYS )
 		copy out_test;
 		paste out_prediction;
 
-		#ShowStatistics(0);
+		ShowStatistics(0);
 		train network;
 
 		if (a != 0) Increment(1);

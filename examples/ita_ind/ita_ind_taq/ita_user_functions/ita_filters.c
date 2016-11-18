@@ -1,3 +1,4 @@
+#include <filter.h>
 #include "ita_filters.h"
 #include "ita_user_functions.h"
 
@@ -443,4 +444,124 @@ apply_2d_kernel (float *kernel, int kernel_size,
 	}
 	//printf("rgb = [%f, %f, %f]\n",r_acc,g_acc,b_acc);
 	return PIXEL(((int)(r_acc+.5f)),((int)(g_acc+.5f)),((int)(b_acc+.5f)));
+}
+
+
+
+
+
+/*
+*********************************************************************************
+* Function: scale_nl_filter	             	 				*
+* Description: 			                        			*
+* Inputs: 				                  			*
+* Output: 				                			*
+*********************************************************************************
+*/
+
+void
+gaussian_1D_filter(FILTER_DESC *filter_desc)
+{
+	KERNEL *gaussian_kernel;
+	float *kernel_points;
+	PARAM_LIST *p_list = NULL;
+	NEURON_LAYER_LIST *n_list = NULL;
+	NEURON_LAYER *nl_output = NULL, *nl_input = NULL;
+	int nl_number, p_number;
+	int i, xi, yi, hi, wi, xo, yo, ho, wo;
+	float wi_wo_factor, hi_ho_factor, accumulator;
+	int input_line;
+	float *intensity;
+	float *intensity_line;
+	static int kernel_size, kernel_div_2;
+	NEURON *nv_input = NULL, *nv_output = NULL;
+	static float sigma;
+
+	if (filter_desc->private_state == NULL)
+	{
+		// Checks the Neuron Layers Number
+		for (nl_number = 0, n_list = filter_desc->neuron_layer_list; n_list != NULL; n_list = n_list->next, nl_number++)
+					;
+
+		// Checks the Parameters Number
+		for (p_number = 0, p_list = filter_desc->filter_params; p_list != NULL; p_list = p_list->next, p_number++)
+					;
+
+		if (--p_number != 2)
+		{
+			Erro ("Error: Wrong number of parameters. The gaussian_1D_filter has two parameters.", "", "");
+			return;
+		}
+
+		// Gets the Parameters
+		kernel_size	= filter_desc->filter_params->next->param.ival;
+		sigma	    = filter_desc->filter_params->next->next->param.fval;
+
+		gaussian_kernel = compute_gaussian_kernel2(kernel_size, sigma);
+		if ((filter_desc->private_state = (void *) gaussian_kernel) == NULL)
+		{
+			Erro ("Cannot create gaussian kernel (gaussian_1D_filter).", "", "");
+			return;
+		}
+	}
+	else
+		gaussian_kernel = (KERNEL *) filter_desc->private_state;
+
+	printf("kernel= ");
+	kernel_points = gaussian_kernel->kernel_points;
+	for ( i = 0; i < kernel_size; i++ )
+		printf("%f ", kernel_points[i]);
+	printf("\n");
+
+	// Gets the Input Neuron Layer
+	nl_input = filter_desc->neuron_layer_list->neuron_layer;
+	nv_input = nl_input->neuron_vector;
+	wi = nl_input->dimentions.x;
+	hi = nl_input->dimentions.y;
+
+	// Gets the Filter Output
+	nl_output = filter_desc->output;
+	nv_output = nl_output->neuron_vector;
+	wo = nl_output->dimentions.x;
+	ho = nl_output->dimentions.y;
+
+	//printf("wi=%d hi=%d wo=%d ho=%d ks=%d sigma=%lf\n", wi, hi, wo, ho, kernel_size, sigma);
+
+	wi_wo_factor = (float) wi / (float) wo;
+	hi_ho_factor = (float) hi / (float) ho;
+	kernel_div_2 = kernel_size >> 1;
+
+	intensity_line = (float *) alloc_mem (sizeof (float) * (wo + kernel_size));
+	for (i = 0; i < wo + kernel_size; i++)
+		intensity_line[i] = 0.0;
+
+	for (yo = 0; yo < ho; yo++)
+	{
+		yi = (int) ((float) yo * hi_ho_factor + .5f);
+		input_line = yi * wi;
+		intensity = &(intensity_line[kernel_div_2]);
+		for (xo = 0; xo < wo; xo++)
+		{
+			xi = (int) ((float) xo * wi_wo_factor + 0.5);
+
+			intensity[xo] = nv_input[input_line + xi].output.fval;
+		}
+
+		intensity = intensity_line;
+		for (xo = 0; xo < wo; xo++)
+		{
+			accumulator = 0.0;
+    		for (i = 0; i < kernel_size; i++)
+			{
+				// Accumulates the weighed intensity. The weight function depends of the position inside the kernel
+				accumulator += kernel_points[i] * intensity[i];
+			}
+
+			// Normalizes the result
+			accumulator *= 0.4023594;
+			nv_output[yo * wo + xo].output.fval = accumulator;
+			intensity = intensity + 1;
+		}
+	}
+	free (intensity_line);
 }

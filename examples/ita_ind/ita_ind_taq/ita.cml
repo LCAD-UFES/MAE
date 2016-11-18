@@ -18,10 +18,21 @@ RETURNS2WARM_UP = 0;
 
 int RETURNS2TEST;	
 int FIRST_RETURNS2TEST;	
-#FIRST_RETURNS2TEST = FIRST_RETURNS2TRAIN; # sanity test
-FIRST_RETURNS2TEST = FIRST_RETURNS2TRAIN + RETURNS2TRAIN + RETURNS2WARM_UP;
-#RETURNS2TEST = RETURNS2TRAIN; # sanity test
-RETURNS2TEST = 283 - FIRST_RETURNS2TEST;
+
+int sanity;
+sanity = 0;
+
+if (sanity == 1)
+{
+	FIRST_RETURNS2TEST = FIRST_RETURNS2TRAIN; # sanity test
+	RETURNS2TEST = RETURNS2TRAIN; # sanity test	
+}
+else
+{
+	FIRST_RETURNS2TEST = FIRST_RETURNS2TRAIN + RETURNS2TRAIN + RETURNS2WARM_UP;
+	RETURNS2TEST = 100 - FIRST_RETURNS2TEST;
+}
+
 
 
 /* Network Status */
@@ -64,7 +75,10 @@ while (i < RETURNS2TRAIN + FIRST_RETURNS2TRAIN)
 
 	
 /* Testing phase */
-#ResetStatistics(0);
+if (sanity == 1)
+{
+	ResetStatistics(0);
+}
 
 SetNetworkStatus(TESTING_PHASE);
 
@@ -90,4 +104,5 @@ while (i < RETURNS2TEST + FIRST_RETURNS2TEST)
 	i = i + 1;
 }
 
+ShowStatisticsExp(0);
 quit;
