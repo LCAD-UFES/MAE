@@ -470,7 +470,6 @@ gaussian_1D_filter(FILTER_DESC *filter_desc)
 	int nl_number, p_number;
 	int i, xi, yi, hi, wi, xo, yo, ho, wo;
 	float wi_wo_factor, hi_ho_factor, accumulator;
-	int input_line;
 	float *intensity;
 	float *intensity_line;
 	static int kernel_size, kernel_div_2;
@@ -507,11 +506,19 @@ gaussian_1D_filter(FILTER_DESC *filter_desc)
 	else
 		gaussian_kernel = (KERNEL *) filter_desc->private_state;
 
-	printf("kernel= ");
+	int kernel_i_init = kernel_size * (kernel_size / 2);
+	//printf("%d %d\n", kernel_i_init, kernel_i_init + kernel_size);
 	kernel_points = gaussian_kernel->kernel_points;
-	for ( i = 0; i < kernel_size; i++ )
-		printf("%f ", kernel_points[i]);
-	printf("\n");
+	int j = 0;
+
+/*	for ( i = 0; i < kernel_size; i++ )
+	{
+		for ( j = 0; j < kernel_size; j++ )
+			printf("%f ", kernel_points[i*kernel_size + j]);
+
+		printf("\n");
+	}
+	printf("\n");*/
 
 	// Gets the Input Neuron Layer
 	nl_input = filter_desc->neuron_layer_list->neuron_layer;
@@ -531,37 +538,76 @@ gaussian_1D_filter(FILTER_DESC *filter_desc)
 	hi_ho_factor = (float) hi / (float) ho;
 	kernel_div_2 = kernel_size >> 1;
 
-	intensity_line = (float *) alloc_mem (sizeof (float) * (wo + kernel_size));
-	for (i = 0; i < wo + kernel_size; i++)
+//	intensity_line = (float *) alloc_mem (sizeof (float) * (wo + kernel_size));
+//	for (i = 0; i < wo + kernel_size; i++)
+//		intensity_line[i] = 0.0;
+
+//	for (yo = 0; yo < ho; yo++)
+//	{
+//		yi = (int) ((float) yo * hi_ho_factor + .5f);
+//		input_line = yi * wi;
+//		intensity = &(intensity_line[kernel_div_2]);
+//		for (xo = 0; xo < wo; xo++)
+//		{
+//			xi = (int) ((float) xo * wi_wo_factor + 0.5);
+//
+//			intensity[xo] = nv_input[input_line + xi].output.fval;
+//		}
+//
+//		intensity = intensity_line;
+//		for (xo = 0; xo < wo; xo++)
+//		{
+//			accumulator = 0.0;
+//    		for (i = 0; i < kernel_size; i++)
+//			{
+//				// Accumulates the weighed intensity. The weight function depends of the position inside the kernel
+//				accumulator += kernel_points[i] * intensity[i];
+//			}
+//
+//			// Normalizes the result
+//			accumulator *= 0.4023594;
+//			nv_output[yo * wo + xo].output.fval = accumulator;
+//			intensity = intensity + 1;
+//		}
+//	}
+	intensity_line = (float *) alloc_mem (sizeof (float) * (ho + kernel_size));
+	for (i = 0; i < ho + kernel_size; i++)
 		intensity_line[i] = 0.0;
 
-	for (yo = 0; yo < ho; yo++)
+	for (xo = 0; xo < wo; xo++)
 	{
-		yi = (int) ((float) yo * hi_ho_factor + .5f);
-		input_line = yi * wi;
+		xi = (int) ((float) xo * wi_wo_factor + .5f);
+
 		intensity = &(intensity_line[kernel_div_2]);
-		for (xo = 0; xo < wo; xo++)
+		for (yo = 0; yo < ho; yo++)
 		{
-			xi = (int) ((float) xo * wi_wo_factor + 0.5);
+			//xi = (int) ((float) xo * wi_wo_factor + 0.5);
+			yi = (int) ((float) yo * hi_ho_factor + 0.5);
 
-			intensity[xo] = nv_input[input_line + xi].output.fval;
+			intensity[yo] = nv_input[yi * wi + xi].output.fval;
 		}
-
 		intensity = intensity_line;
-		for (xo = 0; xo < wo; xo++)
+/*		for (j = 0; j < ho + kernel_size; j++)
+			printf("%f ", intensity[j]);
+		printf("\n");*/
+		for (yo = 0; yo < ho; yo++)
 		{
+			j = 0;
 			accumulator = 0.0;
-    		for (i = 0; i < kernel_size; i++)
+			for (i = kernel_i_init; i < kernel_i_init + kernel_size; i++)
 			{
 				// Accumulates the weighed intensity. The weight function depends of the position inside the kernel
-				accumulator += kernel_points[i] * intensity[i];
+				accumulator += kernel_points[i] * intensity[yo + j];
+				//printf("%f * %f, i=%d yo=%d j=%d\n", kernel_points[i], intensity[yo + j], i, yo, j);
+				j++;
 			}
-
+			//printf("\n");
 			// Normalizes the result
 			accumulator *= 0.4023594;
 			nv_output[yo * wo + xo].output.fval = accumulator;
-			intensity = intensity + 1;
+			//intensity = intensity + 1;
 		}
+		//printf("\n\n");
 	}
 	free (intensity_line);
 }

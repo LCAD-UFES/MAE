@@ -14,14 +14,14 @@ const OUT_HEIGHT 	= 20;
 const F_WIDTH 		= 4;
 const F_HEIGHT 		= 20;
 
-const SYNAPSES 		= 256;
+const SYNAPSES 		= 128;
 
 const ALAVANCAGEM		= 1.0;
 const CUSTO_BOVESPA 	= 0.0; # (0.000061 + 0.000017);
 const CUSTO_CORRETORA	= 0.0;
 const CUSTO_CORRETORA_P	= 0.0; # 2.50;
 const CUSTO_TRASACAO 	= 0.0; # (CUSTO_BOVESPA + CUSTO_CORRETORA);
-const CERTAINTY = 65.;
+const CERTAINTY = 55.;
 const STATISTICS = 10;
 
 ############################################### Neuron Layers #########################################################
