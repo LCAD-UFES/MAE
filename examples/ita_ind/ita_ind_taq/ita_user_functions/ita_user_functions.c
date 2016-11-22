@@ -565,10 +565,11 @@ void
 input_generator(INPUT_DESC *input, int status)
 {
 	FILTER_DESC *filter;
-
+	//printf("2\n");
 	// Inicializacao executada apenas uma vez por janela
 	if (input->win == 0)
 	{
+		//printf("2.1\n");
 		init_ita(input);
 #ifdef NO_INTERFACE
 		input->win = 1;	
@@ -576,18 +577,37 @@ input_generator(INPUT_DESC *input, int status)
  	}
 	else
 	{
+		//printf("2.2\n");
 		if (status == MOVE)
 		{
+			//printf("2.3\n");
 			if (input->wxd < 0)
+			{
 				GetNewReturns(input, DIRECTION_REWIND);
+				//printf("2.4\n");
+			}
 			else if (input->wxd >= INPUT_WIDTH)
+			{
 				GetNewReturns(input, DIRECTION_FORWARD);
+				//printf("2.5\n");
+			}
 
+			//printf("g_sample=%d\n", g_sample);
 			// output_update(&out_ita_lp);
-			filter = get_filter_by_output(out_ita_lp_f.neuron_layer);
-			filter_update(filter);
-			output_update(&out_ita_lp_f);
+			//filter = get_filter_by_output(out_ita_lp_f.neuron_layer);
 
+			//filter_update(filter);
+			all_filters_update ();
+
+			//update neural layer
+			all_dendrites_update ();
+			all_neurons_update ();
+
+			//output_update(&out_ita_lp_f);
+			all_outputs_update();
+
+			ShowStatistics(NULL);
+			ShowStatisticsExp(NULL);
 #ifndef NO_INTERFACE			
 			glutSetWindow (input->win);
 			input_display ();
@@ -645,10 +665,12 @@ input_controler(INPUT_DESC *input, int status)
 {
 	char strCommand[128];
 
+	//printf("1\n");
 	if ((input->mouse_button == GLUT_RIGHT_BUTTON) &&
 	    (input->mouse_state == GLUT_DOWN) &&
 	    (draw_active == 1))
 	{
+		//printf("1.1\n");
 		sprintf (strCommand, "draw out_prediction based on ita move;");
 		interpreter(strCommand);
 	}
@@ -657,10 +679,12 @@ input_controler(INPUT_DESC *input, int status)
 	    (input->mouse_button == GLUT_LEFT_BUTTON) &&
 	    (input->mouse_state == GLUT_DOWN))
 	{
+		//printf("1.2\n");
 		sprintf (strCommand, "move %s to %d, %d;", input->name, input->wxd, input->wyd);
-		interpreter (strCommand);
+		interpreter(strCommand);
 	}
 
+	//printf("1.3\n");
 	input->mouse_button = -1;
 }
 
@@ -922,6 +946,8 @@ EvaluateOutput(OUTPUT_DESC *output)
 void
 output_handler(OUTPUT_DESC *output, int type_call, int mouse_button, int mouse_state)
 {
+	//printf("output_handler\n");
+
 #if !ITA_BUILD
 	if ((g_nStatus == TEST_PHASE) || (g_nStatus == WARM_UP_PHASE))
 	{
@@ -1125,7 +1151,8 @@ ShowStatisticsExp(PARAM_LIST *pParamList)
 
 				stat_day[day_i][stock][GI] = 100.0 *
 						(double) (3 * f_sum(net, stock, SS) - 3 * f_sum(net, stock, SD) - f_sum(net, stock, SN)) / (double) (3 * sum);
-			}else
+			}
+			else
 			{
 				//printf("gi   ---   ");
 				stat_day[day_i][stock][GI] = 0.0;
@@ -1139,7 +1166,8 @@ ShowStatisticsExp(PARAM_LIST *pParamList)
 
 				stat_day[day_i][stock][Gi] = 100.0 *
 						(double) (3 * f_sum(net, stock, DD) - 3 * f_sum(net, stock, DS) - f_sum(net, stock, DN)) / (double) (3 * sum);
-			}else
+			}
+			else
 			{
 				//printf("g!   ---  ");
 				stat_day[day_i][stock][Gi] = 0.0;
@@ -1153,7 +1181,8 @@ ShowStatisticsExp(PARAM_LIST *pParamList)
 
 				//stat_day[day_i][stock][HITS] = 100.0 * (double) f_sum(net, stock, HITS) / (double) (g_buy_sell_count[net][stock] + g_sell_buy_count[net][stock]);
 				stat_day[day_i][stock][HITS] = (double) f_sum(net, stock, HITS) ;
-			}else
+			}
+			else
 			{
 				//printf("buy_sell_count = %2d, sell_buy_count = %2d, capital = %.2lf, hit_rate = ---\n",
 				//		g_buy_sell_count[net][stock], g_sell_buy_count[net][stock], g_capital[net][stock]);
