@@ -112,7 +112,8 @@ double g_mean_correct_positive_pred[2][INPUT_WIDTH], g_mean_correct_negative_pre
 double g_mean_reverse_positive_pred[2][INPUT_WIDTH], g_mean_reverse_negative_pred[2][INPUT_WIDTH];
 
 double g_confidence_up[2][INPUT_WIDTH], g_confidence_down[2][INPUT_WIDTH];
-int use_confiance = 1;
+int g_use_confiance = ! USE_STATISTICS;
+int g_use_prc = USE_PRC;
 
 char days_file_name[257];
 /*
@@ -200,6 +201,8 @@ LoadReturnsToInput(INPUT_DESC *input, int net, int displacement)
 //	printf("reading returns %d, time %s\n", returns[net][g_sample].id + displacement, returns[net][g_sample + displacement].time);
 //#endif
 
+	float r_i, p_i, p_i_1;
+	int height = input->neuron_layer->dimentions.y -1;
 	for (y = 0; y < input->neuron_layer->dimentions.y; y++)
 	{
 		for (x = 0; x < input->neuron_layer->dimentions.x; x++)
@@ -209,13 +212,76 @@ LoadReturnsToInput(INPUT_DESC *input, int net, int displacement)
 				printf("i=%d y=%d x=%d ", g_sample - y + displacement, y, x);
 				printf("%lf \n", returns[net][g_sample - y + displacement].WIN);
 			}*/
-			if (x == 0) input->neuron_layer->neuron_vector[y * input->neuron_layer->dimentions.x + x].output.fval = returns[net][g_sample - y + displacement].WIN;
-			if (x == 1) input->neuron_layer->neuron_vector[y * input->neuron_layer->dimentions.x + x].output.fval = returns[net][g_sample - y + displacement].IND;
-			if (x == 2) input->neuron_layer->neuron_vector[y * input->neuron_layer->dimentions.x + x].output.fval = returns[net][g_sample - y + displacement].WDO;
-			if (x == 3) input->neuron_layer->neuron_vector[y * input->neuron_layer->dimentions.x + x].output.fval = returns[net][g_sample - y + displacement].DOL;
+			if ( g_use_prc == 0 )
+			{
+				if (x == 0) input->neuron_layer->neuron_vector[y * input->neuron_layer->dimentions.x + x].output.fval = returns[net][g_sample - y + displacement].WIN;
+				if (x == 1) input->neuron_layer->neuron_vector[y * input->neuron_layer->dimentions.x + x].output.fval = returns[net][g_sample - y + displacement].IND;
+				if (x == 2) input->neuron_layer->neuron_vector[y * input->neuron_layer->dimentions.x + x].output.fval = returns[net][g_sample - y + displacement].WDO;
+				if (x == 3) input->neuron_layer->neuron_vector[y * input->neuron_layer->dimentions.x + x].output.fval = returns[net][g_sample - y + displacement].DOL;
+			}
+			else
+			{
+				if (x == 0)
+				{
+					r_i = returns[net][g_sample - height + y + displacement].WIN;
+					if (y == 0)
+						p_i_1 = 1.0;
+					else
+						p_i_1 = input->neuron_layer->neuron_vector[(height - y + 1) * input->neuron_layer->dimentions.x + x].output.fval;//returns[net][g_sample - height + y - 1 + displacement].WIN;
+					p_i = r_i * p_i_1 + p_i_1;
+
+					input->neuron_layer->neuron_vector[(height - y) * input->neuron_layer->dimentions.x + x].output.fval = p_i;
+				}
+				if (x == 1)
+				{
+					r_i = returns[net][g_sample - height + y + displacement].IND;
+					if (y == 0)
+						p_i_1 = 1.0;
+					else
+						p_i_1 = input->neuron_layer->neuron_vector[(height - y + 1) * input->neuron_layer->dimentions.x + x].output.fval;//returns[net][g_sample - height + y - 1 + displacement].IND;
+					p_i = r_i * p_i_1 + p_i_1;
+
+					input->neuron_layer->neuron_vector[(height - y) * input->neuron_layer->dimentions.x + x].output.fval = p_i;
+				}
+				if (x == 2)
+				{
+					r_i = returns[net][g_sample - height + y + displacement].WDO;
+					if (y == 0)
+						p_i_1 = 1.0;
+					else
+						p_i_1 = input->neuron_layer->neuron_vector[(height - y + 1) * input->neuron_layer->dimentions.x + x].output.fval;//returns[net][g_sample - height + y - 1 + displacement].WDO;
+					p_i = r_i * p_i_1 + p_i_1;
+
+					input->neuron_layer->neuron_vector[(height - y) * input->neuron_layer->dimentions.x + x].output.fval = p_i;
+				}
+				if (x == 3)
+				{
+					r_i = returns[net][g_sample - height + y + displacement].DOL;
+					if (y == 0)
+						p_i_1 = 1.0;
+					else
+						p_i_1 = input->neuron_layer->neuron_vector[(height - y + 1) * input->neuron_layer->dimentions.x + x].output.fval;//returns[net][g_sample - height + y - 1 + displacement].DOL;
+					p_i = r_i * p_i_1 + p_i_1;
+
+					input->neuron_layer->neuron_vector[(height - y) * input->neuron_layer->dimentions.x + x].output.fval = p_i;
+				}
+			}
 		}
 	}
 	
+	if (g_use_prc == 1)
+	{
+		for (y = 0; y < input->neuron_layer->dimentions.y; y++)
+		{
+			for (x = 0; x < input->neuron_layer->dimentions.x; x++)
+			{
+				input->neuron_layer->neuron_vector[y * input->neuron_layer->dimentions.x + x].output.fval -= 1.0;
+				//if (x == 0) printf("%f ", input->neuron_layer->neuron_vector[y * input->neuron_layer->dimentions.x + x].output.fval);
+
+			}
+		}
+		//printf("\n");
+	}
 	return (0);
 }
 
@@ -239,7 +305,11 @@ LoadReturnsToOutput(OUTPUT_DESC *output, int net)
 	{
 		for (x = 0; x < output->neuron_layer->dimentions.x; x++)
 		{
-			if (x == 0) output->neuron_layer->neuron_vector[y * output->neuron_layer->dimentions.x + x].output.fval = returns[net][g_sample].WIN;
+			if (x == 0)
+			{
+				//printf("%f \n", returns[net][g_sample].WIN);
+				output->neuron_layer->neuron_vector[y * output->neuron_layer->dimentions.x + x].output.fval = returns[net][g_sample].WIN;
+			}
 			if (x == 1) output->neuron_layer->neuron_vector[y * output->neuron_layer->dimentions.x + x].output.fval = returns[net][g_sample].IND;
 			if (x == 2) output->neuron_layer->neuron_vector[y * output->neuron_layer->dimentions.x + x].output.fval = returns[net][g_sample].WDO;
 			if (x == 3) output->neuron_layer->neuron_vector[y * output->neuron_layer->dimentions.x + x].output.fval = returns[net][g_sample].DOL;
@@ -752,10 +822,11 @@ compute_capital_evolution(int net, int n, OUTPUT_DESC *neural_prediction, OUTPUT
 					CUSTO_TRASACAO * (2.0 * a_capital - r * a_capital) - 2.0 * CUSTO_CORRETORA_P;
 		}
 
+		//printf("%d\n", g_use_confiance);
 		if (g_LongShort == 1)
 		{
-			if ( ( g_runing_sum_size > 0 && (s1 == 0) && (expected_result_buy_sell > 0.0) && (g_confidence_up[net][i] > CERTAINTY) && (use_confiance = 1) ) ||
-				 ( g_runing_sum_size > 0 && (s1 == 0) && (expected_result_buy_sell > 0.0) && (g_mean_correct_positive_pred[net][i] > CERTAINTY) && (use_confiance = 0) ) ||
+			if ( ( g_runing_sum_size > 0 && (s1 == 0) && (expected_result_buy_sell > 0.0) && (g_confidence_up[net][i] > CERTAINTY) && (g_use_confiance == 1) ) ||
+				 ( g_runing_sum_size > 0 && (s1 == 0) && (expected_result_buy_sell > 0.0) && (g_mean_correct_positive_pred[net][i] > CERTAINTY) && (g_use_confiance == 0) ) ||
 				 ( g_runing_sum_size == 0 && (s1 == 0) && (expected_result_buy_sell > 0.0) ) 
 				)
 			{
@@ -772,8 +843,8 @@ compute_capital_evolution(int net, int n, OUTPUT_DESC *neural_prediction, OUTPUT
 		}
 		else
 		{
-			if ( ( g_runing_sum_size > 0 &&  (s1 == 1) && (expected_result_sell_buy > 0.0) && (g_confidence_up[net][i] > CERTAINTY) && (use_confiance = 1) ) ||
-				 ( g_runing_sum_size > 0 &&  (s1 == 1) && (expected_result_sell_buy > 0.0) && (g_mean_correct_negative_pred[net][i] > CERTAINTY) && (use_confiance = 0) ) ||
+			if ( ( g_runing_sum_size > 0 &&  (s1 == 1) && (expected_result_sell_buy > 0.0) && (g_confidence_up[net][i] > CERTAINTY) && (g_use_confiance == 1) ) ||
+				 ( g_runing_sum_size > 0 &&  (s1 == 1) && (expected_result_sell_buy > 0.0) && (g_mean_correct_negative_pred[net][i] > CERTAINTY) && (g_use_confiance == 0) ) ||
 				 ( g_runing_sum_size == 0 && (s1 == 0) && (expected_result_sell_buy > 0.0) )
 				)
 			{
@@ -1500,6 +1571,7 @@ LoadReturns_(char *returns_file_name)
 	if (returns_file == NULL)
 		Erro("Error: cannot open file in LoadReturns(). returns_file_name = ", returns_file_name, "");
 
+//	float r_i, p_i, p_i_1;
 	int numlines = 0;
 	char file_line[257];
 	char *aux = fgets(file_line, 256, returns_file); // read header
@@ -1518,6 +1590,39 @@ LoadReturns_(char *returns_file_name)
 					returns[net][numlines].WIN, returns[net][numlines].result_WIN, returns[net][numlines].IND, returns[net][numlines].result_IND, returns[net][numlines].WDO, returns[net][numlines].result_WDO, returns[net][numlines].DOL, returns[net][numlines].result_DOL);
 			Erro("Could not read returns, in LoadReturns(), from file: ", returns_file_name, "");
 		}
+
+//		r_i = returns[net][numlines].WIN;
+//		if (numlines == 0)
+//			p_i_1 = 1.0;
+//		else
+//			p_i_1 = returns[net][numlines - 1].WIN;
+//		p_i = r_i * p_i_1 + p_i_1;
+//		returns[net][numlines].WIN = p_i;
+//
+//		r_i = returns[net][numlines].IND;
+//		if (numlines == 0)
+//			p_i_1 = 1.0;
+//		else
+//			p_i_1 = returns[net][numlines - 1].IND;
+//		p_i = r_i * p_i_1 + p_i_1;
+//		returns[net][numlines].IND = p_i;
+//
+//		r_i = returns[net][numlines].WDO;
+//		if (numlines == 0)
+//			p_i_1 = 1.0;
+//		else
+//			p_i_1 = returns[net][numlines - 1].WDO;
+//		p_i = r_i * p_i_1 + p_i_1;
+//		returns[net][numlines].WDO = p_i;
+//
+//		r_i = returns[net][numlines].DOL;
+//		if (numlines == 0)
+//			p_i_1 = 1.0;
+//		else
+//			p_i_1 = returns[net][numlines - 1].DOL;
+//		p_i = r_i * p_i_1 + p_i_1;
+//		returns[net][numlines].DOL = p_i;
+
 //		printf("%d; %s %s %s %lf; %lf; %lf; %lf;\n",
 //				returns[net][numlines].id, date, returns[net][numlines].time, BRT,
 //				returns[net][numlines].WIN, returns[net][numlines].IND, returns[net][numlines].WDO, returns[net][numlines].DOL);

@@ -20,7 +20,7 @@ int RETURNS2TEST;
 int FIRST_RETURNS2TEST;	
 
 int sanity;
-sanity = 0;
+sanity = 1;
 
 if (sanity == 1)
 {

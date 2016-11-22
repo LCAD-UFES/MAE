@@ -601,13 +601,13 @@ gaussian_1D_filter(FILTER_DESC *filter_desc)
 				//printf("%f * %f, i=%d yo=%d j=%d\n", kernel_points[i], intensity[yo + j], i, yo, j);
 				j++;
 			}
-			//printf("\n");
+//			printf("\n");
 			// Normalizes the result
 			accumulator *= 0.4023594;
 			nv_output[yo * wo + xo].output.fval = accumulator;
 			//intensity = intensity + 1;
 		}
-		//printf("\n\n");
+//		printf("\n\n");
 	}
 	free (intensity_line);
 }
