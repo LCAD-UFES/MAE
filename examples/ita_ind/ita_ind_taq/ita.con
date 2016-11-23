@@ -92,3 +92,4 @@ int WillTrain("%d");
 int WillTest("%d");
 int Increment("%d");
 int GetInputHeight("%d");
+int ShowNeuronsMemory("%d");

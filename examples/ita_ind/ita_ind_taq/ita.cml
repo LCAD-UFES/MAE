@@ -9,7 +9,7 @@ LoadReturns2_("DATA_64_TAQ/20160301_64_LONG_TAQ.csv");
 int RETURNS2TRAIN;
 int FIRST_RETURNS2TRAIN;
 FIRST_RETURNS2TRAIN = 30;
-RETURNS2TRAIN = 60;
+RETURNS2TRAIN = 50;
 
 int RETURNS2WARM_UP;	
 int FIRST_RETURNS2WARM_UP;	
@@ -87,7 +87,7 @@ while (i < RETURNS2TEST + FIRST_RETURNS2TEST)
 {
 	print("test ", 0);
 	GetRandomReturns(i);
-	print("test ", i);
+	print("test ", i-FIRST_RETURNS2TEST);
 
 	forward filters;
 	forward neural_layers;
@@ -95,14 +95,22 @@ while (i < RETURNS2TEST + FIRST_RETURNS2TEST)
 
 	/* Draws the landmark neuron layer output */
 #	draw out_prediction based on ita move;
-	copy out_test;
-	paste out_prediction;
 
 	ShowStatistics(0);
-	train network;
+	if (sanity == 0)
+	{
+		copy out_test;
+		paste out_prediction;
+		train network;
+	}
+	else
+	{
+		ShowNeuronsMemory(0);
+	}
 
 	i = i + 1;
+	
 }
 
 ShowStatisticsExp(0);
-quit;
+#quit;

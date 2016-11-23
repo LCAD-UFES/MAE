@@ -564,7 +564,7 @@ GetNewReturns(INPUT_DESC *input, int nDirection)
 void
 input_generator(INPUT_DESC *input, int status)
 {
-	FILTER_DESC *filter;
+	//FILTER_DESC *filter;
 	//printf("2\n");
 	// Inicializacao executada apenas uma vez por janela
 	if (input->win == 0)
@@ -608,6 +608,8 @@ input_generator(INPUT_DESC *input, int status)
 
 			ShowStatistics(NULL);
 			ShowStatisticsExp(NULL);
+
+			ShowNeuronsMemory(NULL);
 #ifndef NO_INTERFACE			
 			glutSetWindow (input->win);
 			input_display ();
@@ -971,10 +973,36 @@ output_handler(OUTPUT_DESC *output, int type_call, int mouse_button, int mouse_s
 // Saida: Nenhuma
 // ----------------------------------------------------
 
+NEURON_OUTPUT
+ShowNeuronsMemory(PARAM_LIST *pParamList)
+{
+	NEURON_OUTPUT out;
+
+	int y, x;
+	OUTPUT_DESC* output = NULL;
+	output = get_output_by_name(out_prediction.name);
+	for(x = 0; x < output->neuron_layer->dimentions.x; x++)
+	{
+		for (y = 0; y < output->neuron_layer->dimentions.y; y++)
+		{
+			printf("%d ", output->neuron_layer->neuron_vector[y * output->neuron_layer->dimentions.x + x ].last_best_pattern);
+		}
+		printf("\n");
+	}
+	printf("\n");
+	fflush(stdout);
+
+	out.ival = 0;
+	return out;
+}
+
+
 void
 f_keyboard(char *key_value)
 {
 	char key;
+	int y, x;
+	OUTPUT_DESC* output = NULL;
 
 	key = key_value[0];
 	switch (key)
@@ -982,6 +1010,20 @@ f_keyboard(char *key_value)
 		// Moves the input to the next photo
 		case 'n':
 			GetNewReturns(&ita, DIRECTION_FORWARD);
+			break;
+
+		case 'p':
+			output = get_output_by_name(out_prediction.name);
+			for(x = 0; x < output->neuron_layer->dimentions.x; x++)
+			{
+				for (y = 0; y < output->neuron_layer->dimentions.y; y++)
+				{
+					printf("%d ", output->neuron_layer->neuron_vector[y * output->neuron_layer->dimentions.x + x ].last_best_pattern);
+				}
+				printf("\n");
+			}
+			printf("\n");
+			fflush(stdout);
 			break;
 	}
 }
