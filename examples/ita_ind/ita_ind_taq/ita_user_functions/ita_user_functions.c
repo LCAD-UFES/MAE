@@ -12,15 +12,15 @@ struct _returns
 {
 	int id;
 	char time[256];
-	float WIN;
-	float IND;
-	float WDO;
-	float DOL;
+	double WIN;
+	double IND;
+	double WDO;
+	double DOL;
 
-	float result_WIN;
-	float result_IND;
-	float result_WDO;
-	float result_DOL;
+	double result_WIN;
+	double result_IND;
+	double result_WDO;
+	double result_DOL;
 };
 
 typedef struct _returns RETURNS;
@@ -201,87 +201,170 @@ LoadReturnsToInput(INPUT_DESC *input, int net, int displacement)
 //	printf("reading returns %d, time %s\n", returns[net][g_sample].id + displacement, returns[net][g_sample + displacement].time);
 //#endif
 
-	float r_i, p_i, p_i_1;
-	int height = input->neuron_layer->dimentions.y -1;
-	for (y = 0; y < input->neuron_layer->dimentions.y; y++)
+	double r_i, p_i, p_i_1;
+	double mult = 1.0;
+
+	int y_dimention = input->neuron_layer->dimentions.y;
+	int x_dimention = input->neuron_layer->dimentions.x;
+	double* neuron_layer_aux = (double*)calloc(y_dimention * x_dimention, sizeof(double));
+
+	int height = y_dimention -1;
+
+	for (y = 0; y < y_dimention; y++)
 	{
-		for (x = 0; x < input->neuron_layer->dimentions.x; x++)
+		for (x = 0; x < x_dimention; x++)
 		{
-			/*if (x == 0)
-			{
-				printf("i=%d y=%d x=%d ", g_sample - y + displacement, y, x);
-				printf("%lf \n", returns[net][g_sample - y + displacement].WIN);
-			}*/
 			if ( g_use_prc == 0 )
 			{
-				if (x == 0) input->neuron_layer->neuron_vector[y * input->neuron_layer->dimentions.x + x].output.fval = returns[net][g_sample - y + displacement].WIN;
-				if (x == 1) input->neuron_layer->neuron_vector[y * input->neuron_layer->dimentions.x + x].output.fval = returns[net][g_sample - y + displacement].IND;
-				if (x == 2) input->neuron_layer->neuron_vector[y * input->neuron_layer->dimentions.x + x].output.fval = returns[net][g_sample - y + displacement].WDO;
-				if (x == 3) input->neuron_layer->neuron_vector[y * input->neuron_layer->dimentions.x + x].output.fval = returns[net][g_sample - y + displacement].DOL;
+				if (x == 0) input->neuron_layer->neuron_vector[y * input->neuron_layer->dimentions.x + x].output.fval = mult * returns[net][g_sample - y + displacement].WIN;
+				if (x == 1) input->neuron_layer->neuron_vector[y * input->neuron_layer->dimentions.x + x].output.fval = mult * returns[net][g_sample - y + displacement].IND;
+				if (x == 2) input->neuron_layer->neuron_vector[y * input->neuron_layer->dimentions.x + x].output.fval = mult * returns[net][g_sample - y + displacement].WDO;
+				if (x == 3) input->neuron_layer->neuron_vector[y * input->neuron_layer->dimentions.x + x].output.fval = mult * returns[net][g_sample - y + displacement].DOL;
 			}
 			else
 			{
 				if (x == 0)
 				{
-					r_i = returns[net][g_sample - height + y + displacement].WIN;
+					r_i = mult * returns[net][g_sample - height + y + displacement].WIN;
 					if (y == 0)
 						p_i_1 = 1.0;
 					else
-						p_i_1 = input->neuron_layer->neuron_vector[(height - y + 1) * input->neuron_layer->dimentions.x + x].output.fval;//returns[net][g_sample - height + y - 1 + displacement].WIN;
+						p_i_1 = neuron_layer_aux[(height - y + 1) * x_dimention + x];
 					p_i = r_i * p_i_1 + p_i_1;
 
-					input->neuron_layer->neuron_vector[(height - y) * input->neuron_layer->dimentions.x + x].output.fval = p_i;
+					neuron_layer_aux[(height - y) * x_dimention + x] = p_i;
 				}
 				if (x == 1)
 				{
-					r_i = returns[net][g_sample - height + y + displacement].IND;
+					r_i = mult * returns[net][g_sample - height + y + displacement].IND;
 					if (y == 0)
 						p_i_1 = 1.0;
 					else
-						p_i_1 = input->neuron_layer->neuron_vector[(height - y + 1) * input->neuron_layer->dimentions.x + x].output.fval;//returns[net][g_sample - height + y - 1 + displacement].IND;
+						p_i_1 = neuron_layer_aux[(height - y + 1) * x_dimention + x];
 					p_i = r_i * p_i_1 + p_i_1;
 
-					input->neuron_layer->neuron_vector[(height - y) * input->neuron_layer->dimentions.x + x].output.fval = p_i;
+					neuron_layer_aux[(height - y) * x_dimention + x] = p_i;
 				}
 				if (x == 2)
 				{
-					r_i = returns[net][g_sample - height + y + displacement].WDO;
+					r_i = mult * returns[net][g_sample - height + y + displacement].WDO;
 					if (y == 0)
 						p_i_1 = 1.0;
 					else
-						p_i_1 = input->neuron_layer->neuron_vector[(height - y + 1) * input->neuron_layer->dimentions.x + x].output.fval;//returns[net][g_sample - height + y - 1 + displacement].WDO;
+						p_i_1 = neuron_layer_aux[(height - y + 1) * x_dimention + x];
 					p_i = r_i * p_i_1 + p_i_1;
 
-					input->neuron_layer->neuron_vector[(height - y) * input->neuron_layer->dimentions.x + x].output.fval = p_i;
+					neuron_layer_aux[(height - y) * x_dimention + x] = p_i;
 				}
 				if (x == 3)
 				{
-					r_i = returns[net][g_sample - height + y + displacement].DOL;
+					r_i = mult * returns[net][g_sample - height + y + displacement].DOL;
 					if (y == 0)
 						p_i_1 = 1.0;
 					else
-						p_i_1 = input->neuron_layer->neuron_vector[(height - y + 1) * input->neuron_layer->dimentions.x + x].output.fval;//returns[net][g_sample - height + y - 1 + displacement].DOL;
+						p_i_1 = neuron_layer_aux[(height - y + 1) * x_dimention + x];
 					p_i = r_i * p_i_1 + p_i_1;
 
-					input->neuron_layer->neuron_vector[(height - y) * input->neuron_layer->dimentions.x + x].output.fval = p_i;
+					neuron_layer_aux[(height - y) * x_dimention + x] = p_i;
 				}
 			}
 		}
 	}
-	
+
 	if (g_use_prc == 1)
 	{
-		for (y = 0; y < input->neuron_layer->dimentions.y; y++)
+		for (y = 0; y < y_dimention; y++)
 		{
-			for (x = 0; x < input->neuron_layer->dimentions.x; x++)
+			for (x = 0; x < x_dimention; x++)
 			{
-				input->neuron_layer->neuron_vector[y * input->neuron_layer->dimentions.x + x].output.fval -= 1.0;
+				neuron_layer_aux[y * x_dimention + x] -= 1.0;
 				//if (x == 0) printf("%f ", input->neuron_layer->neuron_vector[y * input->neuron_layer->dimentions.x + x].output.fval);
-
+				input->neuron_layer->neuron_vector[y * x_dimention + x].output.fval = neuron_layer_aux[y * x_dimention + x];
 			}
 		}
 		//printf("\n");
 	}
+	free(neuron_layer_aux);
+
+//	for (y = 0; y < input->neuron_layer->dimentions.y; y++)
+//	{
+//		for (x = 0; x < input->neuron_layer->dimentions.x; x++)
+//		{
+//			/*if (x == 0)
+//			{
+//				printf("i=%d y=%d x=%d ", g_sample - y + displacement, y, x);
+//				printf("%lf \n", returns[net][g_sample - y + displacement].WIN);
+//			}*/
+//			if ( g_use_prc == 0 )
+//			{
+//				if (x == 0) input->neuron_layer->neuron_vector[y * input->neuron_layer->dimentions.x + x].output.fval = 100.0 * returns[net][g_sample - y + displacement].WIN;
+//				if (x == 1) input->neuron_layer->neuron_vector[y * input->neuron_layer->dimentions.x + x].output.fval = 100.0 * returns[net][g_sample - y + displacement].IND;
+//				if (x == 2) input->neuron_layer->neuron_vector[y * input->neuron_layer->dimentions.x + x].output.fval = 100.0 * returns[net][g_sample - y + displacement].WDO;
+//				if (x == 3) input->neuron_layer->neuron_vector[y * input->neuron_layer->dimentions.x + x].output.fval = 100.0 * returns[net][g_sample - y + displacement].DOL;
+//			}
+//			else
+//			{
+//				if (x == 0)
+//				{
+//					r_i = 100.0 * returns[net][g_sample - height + y + displacement].WIN;
+//					if (y == 0)
+//						p_i_1 = 1.0;
+//					else
+//						p_i_1 = input->neuron_layer->neuron_vector[(height - y + 1) * input->neuron_layer->dimentions.x + x].output.fval;//returns[net][g_sample - height + y - 1 + displacement].WIN;
+//					p_i = r_i * p_i_1 + p_i_1;
+//
+//					input->neuron_layer->neuron_vector[(height - y) * input->neuron_layer->dimentions.x + x].output.fval = p_i;
+//				}
+//				if (x == 1)
+//				{
+//					r_i = 100.0 * returns[net][g_sample - height + y + displacement].IND;
+//					if (y == 0)
+//						p_i_1 = 1.0;
+//					else
+//						p_i_1 = input->neuron_layer->neuron_vector[(height - y + 1) * input->neuron_layer->dimentions.x + x].output.fval;//returns[net][g_sample - height + y - 1 + displacement].IND;
+//					p_i = r_i * p_i_1 + p_i_1;
+//
+//					input->neuron_layer->neuron_vector[(height - y) * input->neuron_layer->dimentions.x + x].output.fval = p_i;
+//				}
+//				if (x == 2)
+//				{
+//					r_i = 100.0 * returns[net][g_sample - height + y + displacement].WDO;
+//					if (y == 0)
+//						p_i_1 = 1.0;
+//					else
+//						p_i_1 = input->neuron_layer->neuron_vector[(height - y + 1) * input->neuron_layer->dimentions.x + x].output.fval;//returns[net][g_sample - height + y - 1 + displacement].WDO;
+//					p_i = r_i * p_i_1 + p_i_1;
+//
+//					input->neuron_layer->neuron_vector[(height - y) * input->neuron_layer->dimentions.x + x].output.fval = p_i;
+//				}
+//				if (x == 3)
+//				{
+//					r_i = 100.0 * returns[net][g_sample - height + y + displacement].DOL;
+//					if (y == 0)
+//						p_i_1 = 1.0;
+//					else
+//						p_i_1 = input->neuron_layer->neuron_vector[(height - y + 1) * input->neuron_layer->dimentions.x + x].output.fval;//returns[net][g_sample - height + y - 1 + displacement].DOL;
+//					p_i = r_i * p_i_1 + p_i_1;
+//
+//					input->neuron_layer->neuron_vector[(height - y) * input->neuron_layer->dimentions.x + x].output.fval = p_i;
+//				}
+//			}
+//		}
+//	}
+//
+//	if (g_use_prc == 1)
+//	{
+//		for (y = 0; y < input->neuron_layer->dimentions.y; y++)
+//		{
+//			for (x = 0; x < input->neuron_layer->dimentions.x; x++)
+//			{
+//				input->neuron_layer->neuron_vector[y * input->neuron_layer->dimentions.x + x].output.fval -= 1.0;
+//				//if (x == 0) printf("%f ", input->neuron_layer->neuron_vector[y * input->neuron_layer->dimentions.x + x].output.fval);
+//
+//			}
+//		}
+//		//printf("\n");
+//	}
 	return (0);
 }
 
@@ -990,6 +1073,15 @@ ShowNeuronsMemory(PARAM_LIST *pParamList)
 		printf("\n");
 	}
 	printf("\n");
+	OUTPUT_DESC* filter_out = get_output_by_name(out_ita_lp_f.name);
+	for(x = 0; x < filter_out->neuron_layer->dimentions.x; x++)
+	{
+		for (y = 0; y < filter_out->neuron_layer->dimentions.y; y++)
+		{
+			printf("%f ", filter_out->neuron_layer->neuron_vector[y * filter_out->neuron_layer->dimentions.x + x ].output.fval);
+		}
+		printf("\n");
+	}
 	fflush(stdout);
 
 	out.ival = 0;
@@ -1602,11 +1694,11 @@ LoadReturns2_(PARAM_LIST *pParamList)
 	int net = 0;
 	while(fgets(file_line, 256, returns_file) != NULL)
 	{
-		if (sscanf(file_line, "%d; %s %s %s %f; %f; %f; %f; %f; %f; %f; %f;\n",
+		if (sscanf(file_line, "%d; %s %s %s %lf; %lf; %lf; %lf; %lf; %lf; %lf; %lf;\n",
 				&returns[net][numlines].id, date, returns[net][numlines].time, BRT,
 				&returns[net][numlines].WIN, &returns[net][numlines].result_WIN, &returns[net][numlines].IND, &returns[net][numlines].result_IND, &returns[net][numlines].WDO, &returns[net][numlines].result_WDO, &returns[net][numlines].DOL, &returns[net][numlines].result_DOL) != 12)
 		{
-			printf("%d; %s %s %s %f; %f; %f; %f; %f; %f; %f; %f;\n",
+			printf("%d; %s %s %s %lf; %lf; %lf; %lf; %lf; %lf; %lf; %lf;\n",
 					returns[net][numlines].id, date, returns[net][numlines].time, BRT,
 					returns[net][numlines].WIN, returns[net][numlines].result_WIN, returns[net][numlines].IND, returns[net][numlines].result_IND, returns[net][numlines].WDO, returns[net][numlines].result_WDO, returns[net][numlines].DOL, returns[net][numlines].result_DOL);
 			Erro("Could not read returns, in LoadReturns(), from file: ", returns_file_name, "");
@@ -1652,11 +1744,11 @@ LoadReturns_(char *returns_file_name)
 	int net = 0;
 	while(fgets(file_line, 256, returns_file) != NULL)
 	{
-		if (sscanf(file_line, "%d; %s %s %s %f; %f; %f; %f; %f; %f; %f; %f;\n",
+		if (sscanf(file_line, "%d; %s %s %s %lf; %lf; %lf; %lf; %lf; %lf; %lf; %lf;\n",
 				&returns[net][numlines].id, date, returns[net][numlines].time, BRT,
 				&returns[net][numlines].WIN, &returns[net][numlines].result_WIN, &returns[net][numlines].IND, &returns[net][numlines].result_IND, &returns[net][numlines].WDO, &returns[net][numlines].result_WDO, &returns[net][numlines].DOL, &returns[net][numlines].result_DOL) != 12)
 		{
-			printf("%d; %s %s %s %f; %f; %f; %f; %f; %f; %f; %f;\n",
+			printf("%d; %s %s %s %lf; %lf; %lf; %lf; %lf; %lf; %lf; %lf;\n",
 					returns[net][numlines].id, date, returns[net][numlines].time, BRT,
 					returns[net][numlines].WIN, returns[net][numlines].result_WIN, returns[net][numlines].IND, returns[net][numlines].result_IND, returns[net][numlines].WDO, returns[net][numlines].result_WDO, returns[net][numlines].DOL, returns[net][numlines].result_DOL);
 			Erro("Could not read returns, in LoadReturns(), from file: ", returns_file_name, "");
@@ -1805,11 +1897,11 @@ LoadReturns(PARAM_LIST *pParamList)
 	int net = 0;
 	while(fgets(file_line, 256, returns_file) != NULL)
 	{
-		if (sscanf(file_line, "%d; %s %s %s %f; %f; %f; %f;\n",
+		if (sscanf(file_line, "%d; %s %s %s %lf; %lf; %lf; %lf;\n",
 				&returns[net][numlines].id, date, returns[net][numlines].time, BRT,
 				&returns[net][numlines].WIN, &returns[net][numlines].IND, &returns[net][numlines].WDO, &returns[net][numlines].DOL) != 8)
 		{
-			printf("%d; %s %s %s %f; %f; %f; %f;\n",
+			printf("%d; %s %s %s %lf; %lf; %lf; %lf;\n",
 					returns[net][numlines].id, date, returns[net][numlines].time, BRT,
 					returns[net][numlines].WIN, returns[net][numlines].IND, returns[net][numlines].WDO, returns[net][numlines].DOL);
 			Erro("Could not read returns, in LoadReturns(), from file: ", returns_file_name, "");
