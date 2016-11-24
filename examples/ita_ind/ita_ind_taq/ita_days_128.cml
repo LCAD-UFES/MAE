@@ -32,8 +32,8 @@ while ( day_i < N_DAYS )
 	Increment(input_height+1);
 
 	/* Training Phase */
-	SetNetworkStatus(WARM_UP_PHASE);
-	#SetNetworkStatus(TRAINING_PHASE);
+	#SetNetworkStatus(WARM_UP_PHASE);
+	SetNetworkStatus(TRAINING_PHASE);
 	
 	a = WillStart(0);
 	#print("train=", a);

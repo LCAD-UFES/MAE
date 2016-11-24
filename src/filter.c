@@ -3701,6 +3701,7 @@ KERNEL *compute_gaussian_kernel2 (int kernel_size, float sigma)
 		return NULL;
 	}
 
+	//TODO: k1 nao tem sqrt no kernel 2D
 	k1 = 1.0 / sqrt (2.0 * pi * sigma * sigma);
 	k2 = -1.0 / (2.0 * (sigma * sigma));
 	radius = kernel_size / 2.0;

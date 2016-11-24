@@ -11,17 +11,19 @@
 
 // Definitions
 #define INPUT_WIDTH (4)
-#define INPUT_HEIGHT (20)
+#define INPUT_HEIGHT (10)
 #define OUT_WIDTH (4)
-#define OUT_HEIGHT (33)
+#define OUT_HEIGHT (21)
 #define SYNAPSES (256)
 #define ALAVANCAGEM (1.0)
 #define CUSTO_BOVESPA (0.0)
 #define CUSTO_CORRETORA (0.0)
 #define CUSTO_CORRETORA_P (0.0)
 #define CUSTO_TRASACAO (0.0)
-#define CERTAINTY (30)
+#define CERTAINTY (65)
 #define STATISTICS (10)
+#define USE_STATISTICS (0)
+#define USE_PRC (1)
 
 // Macros
 
@@ -53,22 +55,18 @@ extern "C" NEURON_OUTPUT WillTrain (PARAM_LIST *);
 extern "C" NEURON_OUTPUT WillTest (PARAM_LIST *);
 extern "C" NEURON_OUTPUT Increment (PARAM_LIST *);
 extern "C" NEURON_OUTPUT GetInputHeight (PARAM_LIST *);
+extern "C" NEURON_OUTPUT ShowNeuronsMemory (PARAM_LIST *);
 
 // Global Variables
 extern "C" NEURON_LAYER nl_ita_lp_f;
 extern "C" NEURON_LAYER nl_prediction;
 extern "C" NEURON_LAYER nl_test;
 extern "C" NEURON_LAYER nl_result;
-extern "C" NEURON_LAYER nl_ita2_lp_f;
-extern "C" NEURON_LAYER nl_prediction2;
 extern "C" INPUT_DESC ita;
-extern "C" INPUT_DESC ita2;
 extern "C" OUTPUT_DESC out_ita_lp_f;
 extern "C" OUTPUT_DESC out_prediction;
 extern "C" OUTPUT_DESC out_test;
 extern "C" OUTPUT_DESC out_result;
-extern "C" OUTPUT_DESC out_ita2_lp_f;
-extern "C" OUTPUT_DESC out_prediction2;
 
 #else
 
@@ -94,22 +92,18 @@ extern NEURON_OUTPUT WillTrain (PARAM_LIST *);
 extern NEURON_OUTPUT WillTest (PARAM_LIST *);
 extern NEURON_OUTPUT Increment (PARAM_LIST *);
 extern NEURON_OUTPUT GetInputHeight (PARAM_LIST *);
+extern NEURON_OUTPUT ShowNeuronsMemory (PARAM_LIST *);
 
 // Global Variables
 NEURON_LAYER nl_ita_lp_f;
 NEURON_LAYER nl_prediction;
 NEURON_LAYER nl_test;
 NEURON_LAYER nl_result;
-NEURON_LAYER nl_ita2_lp_f;
-NEURON_LAYER nl_prediction2;
 INPUT_DESC ita;
-INPUT_DESC ita2;
 OUTPUT_DESC out_ita_lp_f;
 OUTPUT_DESC out_prediction;
 OUTPUT_DESC out_test;
 OUTPUT_DESC out_result;
-OUTPUT_DESC out_ita2_lp_f;
-OUTPUT_DESC out_prediction2;
 
 #endif
 
