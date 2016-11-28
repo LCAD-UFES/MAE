@@ -83,7 +83,7 @@ while ( day_i < N_DAYS )
 		copy out_test;
 		paste out_prediction;
 
-		#ShowStatistics(0);
+		ShowStatistics(0);
 		train network;
 
 		if (a != 0) Increment(1);
@@ -96,7 +96,7 @@ while ( day_i < N_DAYS )
 	day_i = day_i + 1;
 
 	# save day result in file
-	#ShowStatisticsExp(0);
+	ShowStatisticsExp(0);
 }
 
 #MeanStatisticsExp(0);

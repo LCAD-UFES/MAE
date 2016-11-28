@@ -934,7 +934,7 @@ compute_capital_evolution(int net, int n, OUTPUT_DESC *neural_prediction, OUTPUT
 		//printf("%d\n", g_use_confiance);
 		if (g_LongShort == 1)
 		{
-			if ( ( g_runing_sum_size > 0 && (s1 == 0) && (expected_result_buy_sell > 0.0) && (g_confidence_up[net][i] > CERTAINTY) && (g_use_confiance == 1) ) ||
+			if ( ( (s1 == 0) && (expected_result_buy_sell > 0.0) && (g_confidence_up[net][i] > CERTAINTY) && (g_use_confiance == 1) ) ||
 				 ( g_runing_sum_size > 0 && (s1 == 0) && (expected_result_buy_sell > 0.0) && (g_mean_correct_positive_pred[net][i] > CERTAINTY) && (g_use_confiance == 0) ) ||
 				 ( g_runing_sum_size == 0 && (s1 == 0) && (expected_result_buy_sell > 0.0) ) 
 				)
@@ -952,7 +952,7 @@ compute_capital_evolution(int net, int n, OUTPUT_DESC *neural_prediction, OUTPUT
 		}
 		else
 		{
-			if ( ( g_runing_sum_size > 0 &&  (s1 == 1) && (expected_result_sell_buy > 0.0) && (g_confidence_up[net][i] > CERTAINTY) && (g_use_confiance == 1) ) ||
+			if ( ( (s1 == 1) && (expected_result_sell_buy > 0.0) && (g_confidence_up[net][i] > CERTAINTY) && (g_use_confiance == 1) ) ||
 				 ( g_runing_sum_size > 0 &&  (s1 == 1) && (expected_result_sell_buy > 0.0) && (g_mean_correct_negative_pred[net][i] > CERTAINTY) && (g_use_confiance == 0) ) ||
 				 ( g_runing_sum_size == 0 && (s1 == 0) && (expected_result_sell_buy > 0.0) )
 				)

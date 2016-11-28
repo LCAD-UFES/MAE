@@ -67,7 +67,13 @@ associate	nl_prediction		with	nl_prediction;
 #associate	nl_prediction2		with	nl_prediction2;
 
 ################################################ Connections ####################################################
-connect			nl_ita_lp_f	to nl_prediction 	with SYNAPSES random inputs per neuron and gaussian distribution with radii 0.0 and 9.32433 and angle 0.0;
+#connect			nl_ita_lp_f	to nl_prediction 	with SYNAPSES random inputs per neuron and gaussian distribution with radii 0.0 and 9.32433 and angle 0.0;
+
+connect		nl_ita_lp_f, within [0][0] and [0][INPUT_HEIGHT-1], to nl_prediction , within [0][0] and [0][OUT_HEIGHT-1],	with SYNAPSES random inputs per neuron;# and gaussian distribution with radii 0.0 and 9.32433 and angle 0.0;
+connect		nl_ita_lp_f, within [1][0] and [1][INPUT_HEIGHT-1], to nl_prediction , within [1][0] and [1][OUT_HEIGHT-1],	with SYNAPSES random inputs per neuron;# and gaussian distribution with radii 0.0 and 9.32433 and angle 0.0;
+connect		nl_ita_lp_f, within [2][0] and [2][INPUT_HEIGHT-1], to nl_prediction , within [2][0] and [2][OUT_HEIGHT-1],	with SYNAPSES random inputs per neuron;# and gaussian distribution with radii 0.0 and 9.32433 and angle 0.0;
+connect		nl_ita_lp_f, within [3][0] and [3][INPUT_HEIGHT-1], to nl_prediction , within [3][0] and [3][OUT_HEIGHT-1],	with SYNAPSES random inputs per neuron;# and gaussian distribution with radii 0.0 and 9.32433 and angle 0.0;
+
 #connect		nl_ita_lp_f, within [0][0] and [0][5], to nl_prediction , within [0][0] and [0][0],	with SYNAPSES random inputs per neuron;
 #connect		nl_ita_lp_f	to nl_prediction 	with SYNAPSES random inputs per neuron and gaussian distribution with radius 10.0;
 #connect		nl_ita_lp_f	to nl_prediction 	with SYNAPSES random inputs per neuron;

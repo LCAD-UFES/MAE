@@ -93,7 +93,7 @@ while ( i < 2 )
 			#copy out_test;
 			#paste out_prediction;
 	
-			#ShowStatistics(0);
+			ShowStatistics(0);
 			#train network;
 	
 			if (a != 0) Increment(1);
@@ -101,14 +101,14 @@ while ( i < 2 )
 			a = WillTrain(0);
 			#print("test=", a);
 		}
+		
+		# save day result in file
+		ShowStatisticsExp(0);
 	}
 	
 	i = i + 1;
 	#clear network memory;
 	#day_i = day_i + 1;
-
-	# save day result in file
-	#ShowStatisticsExp(0);
 }
 
 #MeanStatisticsExp(0);
