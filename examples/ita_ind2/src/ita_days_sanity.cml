@@ -65,7 +65,7 @@ while ( i < 2 )
 	}
 	else
 	{
-		Increment(0); #g_sample = 0
+		#Increment(0); #g_sample = 0
 		ResetStatistics(0);
 		SetNetworkStatus(TESTING_PHASE);
 		
@@ -86,7 +86,7 @@ while ( i < 2 )
 			forward neural_layers;
 			forward outputs;
 	
-			ShowNeuronsMemory(0);
+			#ShowNeuronsMemory(0);
 			
 			/* Draws the landmark neuron layer output */
 			#draw out_prediction based on ita move;

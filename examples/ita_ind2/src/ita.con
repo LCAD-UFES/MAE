@@ -23,6 +23,7 @@ const STATISTICS = 10;
 const USE_STATISTICS = 0;
 const USE_PRC = 1;
 const PERIOD = 64; # in seconds
+const USE_SPREAD = 0;
 
 ############################################### Neuron Layers #########################################################
 neuronlayer	nl_ita_lp_f[INPUT_WIDTH][INPUT_HEIGHT]	with greyscale_float outputs;

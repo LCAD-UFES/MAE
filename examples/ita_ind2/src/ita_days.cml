@@ -76,7 +76,7 @@ while ( day_i < N_DAYS )
 		forward neural_layers;
 		forward outputs;
 
-		ShowNeuronsMemory(0);
+		#ShowNeuronsMemory(0);
 		
 		/* Draws the landmark neuron layer output */
 		#draw out_prediction based on ita move;
@@ -99,6 +99,6 @@ while ( day_i < N_DAYS )
 	ShowStatisticsExp(0);
 }
 
-#MeanStatisticsExp(0);
+MeanStatisticsExp(0);
 
 #quit;
