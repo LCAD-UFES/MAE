@@ -1,0 +1,51 @@
+LIBMAE =-L$(MAEHOME)/lib
+LIBPATH =-L/usr/local/lib -L/usr/X11R6/lib $(LIBMAE)
+AR = ar
+ARFLAGS = -rc
+CC=gcc
+CCFLAGS=-D NO_INTERFACE -g -Wall -fopenmp
+LIBRARYS=-lnet_conn -lforms -lGA -lX11 -lglut -lGLU -lGL -lm -lfl
+ 
+##########################################################
+
+EXECUTABLE = ita
+LIBRARY = libita.a
+OBJECTS = ita.o \
+	  ita_user_functions/ita_user_functions.o \
+	  ita_user_functions/ita_filters.o \
+	  ita_user_functions/ita_api.o
+
+##########################################################
+
+.c.o:
+	@echo OK
+	$(CC) $(CCFLAGS) -c -I$(MAEHOME)/include -o $@ $*.c
+
+##########################################################
+
+build: $(EXECUTABLE) $(LIBRARY)
+	@echo OK
+
+$(EXECUTABLE): $(OBJECTS)
+	$(CC) $(CCFLAGS) -o $(EXECUTABLE) $(OBJECTS) $(LIBPATH) $(LIBRARYS)
+
+$(LIBRARY): $(OBJECTS)
+	$(AR) $(ARFLAGS) $(LIBRARY) $(OBJECTS)
+	ranlib $(LIBRARY) 
+
+##########################################################
+
+ita_user_functions.o : ../ita.h
+
+##########################################################
+
+ita.o:
+	$(MAEHOME)/bin/netcomp -o $* < $*.con	
+	$(CC) $(CCFLAGS) -c -I$(MAEHOME)/include -o $@ $*.c
+
+##########################################################
+clean:
+	rm -f *.o ita_user_functions/*.o
+	rm -f ita ita.c ita.h
+	rm -f *.out
+	rm -f $(LIBRARY)

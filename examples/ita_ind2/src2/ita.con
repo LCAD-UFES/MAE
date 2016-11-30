@@ -1,0 +1,102 @@
+################################################ Set Global Variables #################################################
+set NEURON_MEMORY_SIZE = 43200;
+#set NEURON_MEMORY_SIZE = 1;
+set TYPE_SHOW = SHOW_FRAME;
+set TYPE_MOVING_FRAME = STOP;
+######################################################## Constants ####################################################
+ 
+const INPUT_WIDTH 	= 4;
+const INPUT_HEIGHT = 10;
+
+const OUT_WIDTH		= 4;
+const OUT_HEIGHT = 21;
+
+const SYNAPSES = 256;
+
+const ALAVANCAGEM		= 1.0;
+const CUSTO_BOVESPA 	= 0.0; # (0.000061 + 0.000017);
+const CUSTO_CORRETORA	= 0.0;
+const CUSTO_CORRETORA_P	= 0.0; # 2.50;
+const CUSTO_TRASACAO 	= 0.0; # (CUSTO_BOVESPA + CUSTO_CORRETORA);
+const CERTAINTY = 65.;
+const STATISTICS = 10;
+const USE_STATISTICS = 0;
+const PERIOD = 64; # in seconds
+const USE_SPREAD = 0;
+const STOP_N_PERIODS = 5;
+const USE_STOP = 0;
+
+############################################### Neuron Layers #########################################################
+neuronlayer	nl_ita_lp_f[INPUT_WIDTH][INPUT_HEIGHT]	with greyscale_float outputs;
+neuronlayer	nl_prediction[OUT_WIDTH][OUT_HEIGHT]	of minchinton neurons greyscale_float sensitive with greyscale_float outputs;
+neuronlayer	nl_test[OUT_WIDTH][OUT_HEIGHT]			of minchinton neurons greyscale_float sensitive with greyscale_float outputs;
+neuronlayer	nl_result[OUT_WIDTH][OUT_HEIGHT]		of minchinton neurons greyscale_float sensitive with greyscale_float outputs;
+
+#neuronlayer	nl_ita2_lp_f[INPUT_WIDTH][INPUT_HEIGHT]	with greyscale_float outputs;
+#neuronlayer	nl_prediction2[OUT_WIDTH][OUT_HEIGHT]	of minchinton neurons greyscale_float sensitive with greyscale_float outputs;
+
+############################################### Outputs #########################################################
+output		out_ita_lp_f[INPUT_WIDTH][INPUT_HEIGHT];
+output		out_prediction[OUT_WIDTH][OUT_HEIGHT] 	handled by output_handler();
+output		out_test[OUT_WIDTH][OUT_HEIGHT];
+output		out_result[OUT_WIDTH][OUT_HEIGHT];
+
+#output		out_ita2_lp_f[INPUT_WIDTH][INPUT_HEIGHT];
+#output		out_prediction2[OUT_WIDTH][OUT_HEIGHT] 	handled by output_handler();
+
+################################################## Inputs #############################################################
+input 		ita[INPUT_WIDTH][INPUT_HEIGHT]	with greyscale_float outputs produced by input_generator() controled by input_controler();
+
+#input 		ita2[INPUT_WIDTH][INPUT_HEIGHT]	with greyscale_float outputs produced by input_generator() controled by input_controler();
+
+############################################### Filters #########################################################
+#filter		ita 		with gaussian_1D_filter ("%d %f", 3, 1.0) producing nl_ita_lp_f;
+filter		ita 		with copy_nl_filter ("") producing nl_ita_lp_f;
+
+#filter		ita2 		with copy_nl_filter ("") producing nl_ita2_lp_f;
+
+################################## Connect Neuron Layers to Outputs #############################################
+outputconnect	nl_ita_lp_f 	to out_ita_lp_f;
+outputconnect	nl_prediction	to out_prediction;
+outputconnect	nl_test			to out_test;
+outputconnect	nl_result		to out_result;
+
+#outputconnect	nl_ita2_lp_f 	to out_ita2_lp_f;
+#outputconnect	nl_prediction2	to out_prediction2;
+
+############################################### Associations ####################################################
+associate	nl_prediction		with	nl_prediction;
+
+#associate	nl_prediction2		with	nl_prediction2;
+
+################################################ Connections ####################################################
+#connect			nl_ita_lp_f	to nl_prediction 	with SYNAPSES random inputs per neuron and gaussian distribution with radii 0.0 and 9.32433 and angle 0.0;
+
+connect		nl_ita_lp_f, within [0][0] and [0][INPUT_HEIGHT-1], to nl_prediction , within [0][0] and [0][OUT_HEIGHT-1],	with SYNAPSES random inputs per neuron;# and gaussian distribution with radii 0.0 and 9.32433 and angle 0.0;
+connect		nl_ita_lp_f, within [1][0] and [1][INPUT_HEIGHT-1], to nl_prediction , within [1][0] and [1][OUT_HEIGHT-1],	with SYNAPSES random inputs per neuron;# and gaussian distribution with radii 0.0 and 9.32433 and angle 0.0;
+connect		nl_ita_lp_f, within [2][0] and [2][INPUT_HEIGHT-1], to nl_prediction , within [2][0] and [2][OUT_HEIGHT-1],	with SYNAPSES random inputs per neuron;# and gaussian distribution with radii 0.0 and 9.32433 and angle 0.0;
+connect		nl_ita_lp_f, within [3][0] and [3][INPUT_HEIGHT-1], to nl_prediction , within [3][0] and [3][OUT_HEIGHT-1],	with SYNAPSES random inputs per neuron;# and gaussian distribution with radii 0.0 and 9.32433 and angle 0.0;
+
+#connect		nl_ita_lp_f, within [0][0] and [0][5], to nl_prediction , within [0][0] and [0][0],	with SYNAPSES random inputs per neuron;
+#connect		nl_ita_lp_f	to nl_prediction 	with SYNAPSES random inputs per neuron and gaussian distribution with radius 10.0;
+#connect		nl_ita_lp_f	to nl_prediction 	with SYNAPSES random inputs per neuron;
+#connect		nl_ita_lp_f, within [0][5] and [INPUT_WIDTH-1][INPUT_HEIGHT-1], to nl_prediction with SYNAPSES random inputs per neuron;
+
+#connect			nl_ita2_lp_f	to nl_prediction2 	with SYNAPSES random inputs per neuron and gaussian distribution with radii 0.0 and 9.32433 and angle 0.0;
+
+################################################ User Functions #################################################
+#int GetRandomReturns("%d");
+int ShowStatistics ("%d");
+int ResetStatistics ("%d");
+int SetNetworkStatus ("%d");
+int LoadDayFileName("%s");
+int LoadDay("%d");
+int ShowStatisticsExp("%d");
+int MeanStatisticsExp("%d");
+int SetLongShort ("%d");
+int WillStart("%d");
+int WillTrain("%d");
+int WillTest("%d");
+int Increment("%d");
+int GetInputHeight("%d");
+int ShowNeuronsMemory("%d");
