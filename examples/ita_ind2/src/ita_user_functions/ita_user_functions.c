@@ -52,24 +52,10 @@ typedef struct _data
 
 #define MAX_DATA_SAMPLES 43200 // 12h = 12 * 60 * 60
 DATA data[MAX_DATA_SAMPLES];
-double g_anchor[4];
-
-struct _returns
-{
-	int id;
-	char time[256];
-	double WIN;
-	double IND;
-	double WDO;
-	double DOL;
-
-	double result_WIN;
-	double result_IND;
-	double result_WDO;
-	double result_DOL;
-};
-
-typedef struct _returns RETURNS;
+double g_anchor[INPUT_WIDTH];
+int g_enable_operation[INPUT_WIDTH];
+int g_last_close_operation_sample[INPUT_WIDTH];
+int g_n_ops[INPUT_WIDTH], g_n_hits[INPUT_WIDTH], g_n_miss[INPUT_WIDTH];
 
 typedef struct _statistics_exp
 {
@@ -85,8 +71,6 @@ typedef struct _statistics_exp
 	double capital_dol;
 	int	n_ops_dol;	
 } STATISTICS_EXP;
-
-#define MAX_RETURN_SAMPLES 5000
 
 #define SS 0
 #define SD 1
@@ -137,7 +121,6 @@ int day_i = 0;
 int g_use_results = 0;
 char date[256];
 
-RETURNS returns[2][MAX_RETURN_SAMPLES];
 int g_sample = 0;
 int g_sample_statistics = 0;
 int g_nStatus;
@@ -151,7 +134,7 @@ int gcc_no_complain;
 char *gcc_no_complain_c;
 
 // Variaveis utilizadas no procedimento de teste
-int g_results[2][MAX_RETURN_SAMPLES][INPUT_WIDTH][13];
+int g_results[2][MAX_DATA_SAMPLES][INPUT_WIDTH][13];
 int g_buy_sell_count[2][INPUT_WIDTH];
 int g_sell_buy_count[2][INPUT_WIDTH];
 double g_capital[2][INPUT_WIDTH];
@@ -160,45 +143,44 @@ double g_mean_reverse_positive_pred[2][INPUT_WIDTH], g_mean_reverse_negative_pre
 
 double g_confidence_up[2][INPUT_WIDTH], g_confidence_down[2][INPUT_WIDTH];
 int g_use_confiance = ! USE_STATISTICS;
-int g_use_prc = USE_PRC;
 
 char days_file_name[257];
 
-int
-GetMAESampleIndex(void)
-{
-	return (g_sample);
-}
-
-
-void
-SetSymbolReturn(int symbol, float symbol_return, int net, int displacement)
-{
-	if (symbol == 0) returns[net][g_sample + displacement].WIN = symbol_return;
-	if (symbol == 1) returns[net][g_sample + displacement].IND = symbol_return;
-	if (symbol == 2) returns[net][g_sample + displacement].WDO = symbol_return;
-	if (symbol == 3) returns[net][g_sample + displacement].DOL = symbol_return;
-}
-
-
-void
-SetSampleIdAndTime(int net, int displacement, int id, char *time)
-{
-	returns[net][g_sample + displacement].id = id;
-	strcpy(returns[net][g_sample + displacement].time, time);
-}
-
-
-double
-GetSymbolReturn(int symbol, int net, int displacement)
-{
-	if (symbol == 0) return ((double) returns[net][g_sample + displacement].WIN);
-	if (symbol == 1) return ((double) returns[net][g_sample + displacement].IND);
-	if (symbol == 2) return ((double) returns[net][g_sample + displacement].WDO);
-	if (symbol == 3) return ((double) returns[net][g_sample + displacement].DOL);
-
-	return (0.0); // This should never occur.
-}
+//int
+//GetMAESampleIndex(void)
+//{
+//	return (g_sample);
+//}
+//
+//
+//void
+//SetSymbolReturn(int symbol, float symbol_return, int net, int displacement)
+//{
+//	if (symbol == 0) returns[net][g_sample + displacement].WIN = symbol_return;
+//	if (symbol == 1) returns[net][g_sample + displacement].IND = symbol_return;
+//	if (symbol == 2) returns[net][g_sample + displacement].WDO = symbol_return;
+//	if (symbol == 3) returns[net][g_sample + displacement].DOL = symbol_return;
+//}
+//
+//
+//void
+//SetSampleIdAndTime(int net, int displacement, int id, char *time)
+//{
+//	returns[net][g_sample + displacement].id = id;
+//	strcpy(returns[net][g_sample + displacement].time, time);
+//}
+//
+//
+//double
+//GetSymbolReturn(int symbol, int net, int displacement)
+//{
+//	if (symbol == 0) return ((double) returns[net][g_sample + displacement].WIN);
+//	if (symbol == 1) return ((double) returns[net][g_sample + displacement].IND);
+//	if (symbol == 2) return ((double) returns[net][g_sample + displacement].WDO);
+//	if (symbol == 3) return ((double) returns[net][g_sample + displacement].DOL);
+//
+//	return (0.0); // This should never occur.
+//}
 
 double
 GetTimeInSeconds(TIME t)
@@ -575,7 +557,7 @@ init_ita(INPUT_DESC *input)
 
 	int i, j, k, l;
 	for (l = 0; l < 2; l++)
-		for (k = 0; k < MAX_RETURN_SAMPLES; k++)
+		for (k = 0; k < MAX_DATA_SAMPLES; k++)
 			for (j = 0; j < INPUT_WIDTH; j++)
 				for (i = 0; i < 13; i++)
 					g_results[l][k][j][i] = 0;
@@ -1058,7 +1040,8 @@ compute_capital_evolution(int net, int n, OUTPUT_DESC *neural_prediction, OUTPUT
 		}
 		else
 		{
-			r = compute_operation(0, i);
+			if (g_LongShort == 1) r = compute_operation(0, i);
+			else r = compute_operation(1, i);
 		}
 		/*
 		result_buy_sell = r * a_capital -
@@ -1711,10 +1694,17 @@ ResetStatistics(PARAM_LIST *pParamList)
 			g_capital[l][j] = 125000.0;
 			g_buy_sell_count[l][j] = 0;
 			g_sell_buy_count[l][j] = 0;
-			for (k = 0; k < MAX_RETURN_SAMPLES; k++)
+			for (k = 0; k < MAX_DATA_SAMPLES; k++)
 				for (i = 0; i < 13; i++)
 					g_results[l][k][j][i] = 0;
 		}
+
+		g_anchor[j] = 0.0;
+		g_enable_operation[j] = 1;
+		g_last_close_operation_sample[j] = 0;
+		g_n_ops[j]= 0;
+		g_n_hits[j] = 0;
+		g_n_miss[j] = 0;
 	}
 
 	g_sample = POSE_MIN = 0; // ita.wh;
@@ -1828,151 +1818,6 @@ LoadDayFileName(PARAM_LIST *pParamList)
 
 	output.ival = 0;
 	return output;
-}
-
-/*
-***********************************************************
-* Function: LoadReturns_
-* Description:
-* Inputs:
-* Output:
-***********************************************************
-*/
-NEURON_OUTPUT
-LoadReturns2_(PARAM_LIST *pParamList)
-{
-	NEURON_OUTPUT output;
-	char *returns_file_name = pParamList->next->param.sval;
-
-	returns_file_name = returns_file_name + 1; // tira uma aspas no inicio
-	returns_file_name[strlen(returns_file_name) - 1] = '\0'; // tira aspas do fim
-
-	FILE *returns_file;
-
-	g_use_results = 1;
-	//printf("%s\n", returns_file_name);
-
-	returns_file = fopen(returns_file_name, "r");
-
-	if (returns_file == NULL)
-		Erro("Error: cannot open file in LoadReturns(). returns_file_name = ", returns_file_name, "");
-
-	int numlines = 0;
-	char file_line[257];
-	char *aux = fgets(file_line, 256, returns_file); // read header
-	aux = aux;
-	//char date[256];
-	char BRT[256];
-	int net = 0;
-	while(fgets(file_line, 256, returns_file) != NULL)
-	{
-		if (sscanf(file_line, "%d; %s %s %s %lf; %lf; %lf; %lf; %lf; %lf; %lf; %lf;\n",
-				&returns[net][numlines].id, date, returns[net][numlines].time, BRT,
-				&returns[net][numlines].WIN, &returns[net][numlines].result_WIN, &returns[net][numlines].IND, &returns[net][numlines].result_IND, &returns[net][numlines].WDO, &returns[net][numlines].result_WDO, &returns[net][numlines].DOL, &returns[net][numlines].result_DOL) != 12)
-		{
-			printf("%d; %s %s %s %lf; %lf; %lf; %lf; %lf; %lf; %lf; %lf;\n",
-					returns[net][numlines].id, date, returns[net][numlines].time, BRT,
-					returns[net][numlines].WIN, returns[net][numlines].result_WIN, returns[net][numlines].IND, returns[net][numlines].result_IND, returns[net][numlines].WDO, returns[net][numlines].result_WDO, returns[net][numlines].DOL, returns[net][numlines].result_DOL);
-			Erro("Could not read returns, in LoadReturns(), from file: ", returns_file_name, "");
-		}
-//		printf("%d; %s %s %s %lf; %lf; %lf; %lf;\n",
-//				returns[net][numlines].id, date, returns[net][numlines].time, BRT,
-//				returns[net][numlines].WIN, returns[net][numlines].IND, returns[net][numlines].WDO, returns[net][numlines].DOL);
-		numlines++;
-		if (numlines >= MAX_RETURN_SAMPLES)
-			Erro("numlines >= MAX_RETURN_SAMPLES in LoadReturns().", "", "");
-	}
-
-	POSE_MAX = numlines - 1;
-
-//	INPUT_DESC *input;
-//	input = get_input_by_name("ita");
-	g_sample = POSE_MIN = 0; // input->wh;
-
-	output.ival = 0;
-	return output;
-}
-
-int
-LoadReturns_(char *returns_file_name)
-{
-	FILE *returns_file;
-
-	g_use_results = 1;
-	//printf("%s\n", returns_file_name);
-
-	returns_file = fopen(returns_file_name, "r");
-
-	if (returns_file == NULL)
-		Erro("Error: cannot open file in LoadReturns(). returns_file_name = ", returns_file_name, "");
-
-//	float r_i, p_i, p_i_1;
-	int numlines = 0;
-	char file_line[257];
-	char *aux = fgets(file_line, 256, returns_file); // read header
-	aux = aux;
-	//char date[256];
-	char BRT[256];
-	int net = 0;
-	while(fgets(file_line, 256, returns_file) != NULL)
-	{
-		if (sscanf(file_line, "%d; %s %s %s %lf; %lf; %lf; %lf; %lf; %lf; %lf; %lf;\n",
-				&returns[net][numlines].id, date, returns[net][numlines].time, BRT,
-				&returns[net][numlines].WIN, &returns[net][numlines].result_WIN, &returns[net][numlines].IND, &returns[net][numlines].result_IND, &returns[net][numlines].WDO, &returns[net][numlines].result_WDO, &returns[net][numlines].DOL, &returns[net][numlines].result_DOL) != 12)
-		{
-			printf("%d; %s %s %s %lf; %lf; %lf; %lf; %lf; %lf; %lf; %lf;\n",
-					returns[net][numlines].id, date, returns[net][numlines].time, BRT,
-					returns[net][numlines].WIN, returns[net][numlines].result_WIN, returns[net][numlines].IND, returns[net][numlines].result_IND, returns[net][numlines].WDO, returns[net][numlines].result_WDO, returns[net][numlines].DOL, returns[net][numlines].result_DOL);
-			Erro("Could not read returns, in LoadReturns(), from file: ", returns_file_name, "");
-		}
-
-//		r_i = returns[net][numlines].WIN;
-//		if (numlines == 0)
-//			p_i_1 = 1.0;
-//		else
-//			p_i_1 = returns[net][numlines - 1].WIN;
-//		p_i = r_i * p_i_1 + p_i_1;
-//		returns[net][numlines].WIN = p_i;
-//
-//		r_i = returns[net][numlines].IND;
-//		if (numlines == 0)
-//			p_i_1 = 1.0;
-//		else
-//			p_i_1 = returns[net][numlines - 1].IND;
-//		p_i = r_i * p_i_1 + p_i_1;
-//		returns[net][numlines].IND = p_i;
-//
-//		r_i = returns[net][numlines].WDO;
-//		if (numlines == 0)
-//			p_i_1 = 1.0;
-//		else
-//			p_i_1 = returns[net][numlines - 1].WDO;
-//		p_i = r_i * p_i_1 + p_i_1;
-//		returns[net][numlines].WDO = p_i;
-//
-//		r_i = returns[net][numlines].DOL;
-//		if (numlines == 0)
-//			p_i_1 = 1.0;
-//		else
-//			p_i_1 = returns[net][numlines - 1].DOL;
-//		p_i = r_i * p_i_1 + p_i_1;
-//		returns[net][numlines].DOL = p_i;
-
-//		printf("%d; %s %s %s %lf; %lf; %lf; %lf;\n",
-//				returns[net][numlines].id, date, returns[net][numlines].time, BRT,
-//				returns[net][numlines].WIN, returns[net][numlines].IND, returns[net][numlines].WDO, returns[net][numlines].DOL);
-		numlines++;
-		if (numlines >= MAX_RETURN_SAMPLES)
-			Erro("numlines >= MAX_RETURN_SAMPLES in LoadReturns().", "", "");
-	}
-
-	POSE_MAX = numlines - 1;
-
-//	INPUT_DESC *input;
-//	input = get_input_by_name("ita");
-	g_sample = POSE_MIN = 0; // input->wh;
-
-	return 0;
 }
 
 /*

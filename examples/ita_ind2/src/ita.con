@@ -1,5 +1,5 @@
 ################################################ Set Global Variables #################################################
-set NEURON_MEMORY_SIZE = 10000;
+set NEURON_MEMORY_SIZE = 43200;
 #set NEURON_MEMORY_SIZE = 1;
 set TYPE_SHOW = SHOW_FRAME;
 set TYPE_MOVING_FRAME = STOP;
@@ -21,9 +21,10 @@ const CUSTO_TRASACAO 	= 0.0; # (CUSTO_BOVESPA + CUSTO_CORRETORA);
 const CERTAINTY = 65.;
 const STATISTICS = 10;
 const USE_STATISTICS = 0;
-const USE_PRC = 1;
 const PERIOD = 64; # in seconds
 const USE_SPREAD = 0;
+const STOP_N_PERIODS = 5;
+const USE_STOP = 0;
 
 ############################################### Neuron Layers #########################################################
 neuronlayer	nl_ita_lp_f[INPUT_WIDTH][INPUT_HEIGHT]	with greyscale_float outputs;
@@ -84,12 +85,10 @@ connect		nl_ita_lp_f, within [3][0] and [3][INPUT_HEIGHT-1], to nl_prediction , 
 #connect			nl_ita2_lp_f	to nl_prediction2 	with SYNAPSES random inputs per neuron and gaussian distribution with radii 0.0 and 9.32433 and angle 0.0;
 
 ################################################ User Functions #################################################
-int GetRandomReturns("%d");
+#int GetRandomReturns("%d");
 int ShowStatistics ("%d");
 int ResetStatistics ("%d");
 int SetNetworkStatus ("%d");
-#int LoadReturns ("%s");
-int LoadReturns2_ ("%s");
 int LoadDayFileName("%s");
 int LoadDay("%d");
 int ShowStatisticsExp("%d");
