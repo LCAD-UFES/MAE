@@ -12,105 +12,104 @@ TESTING_PHASE = 2;
 int WARM_UP_PHASE;
 WARM_UP_PHASE = 3;
 
-int input_height;
-input_height = GetInputHeight(0);
-#print("input_height=", input_height);
+/* Counters */
+int day_i;
+int tick;
+int loaded;
+int i;
 
+day_i = 0;
 clear out_result;
 
-/* Counters */
-int i;
-i = 0;
-int day_i;
-int a;
-a = 0;
-
-ResetStatistics(0);
-LoadDay(day_i);
-
-while ( i < 2 )
+while ( day_i < N_DAYS )
 {
-	Increment(input_height+1);
+	i = 0;
+	ResetStatistics(0);
+	LoadDay(day_i);
+	
+	while ( i < 2 )
+	{	
+		/* Training Phase */
+		if (i == 0)
+		{
+			tick = TimeToStart(0);
+			
+			while (tick == 0)
+			{
+				Move1Tick(0);
+				tick = TimeToStart(0);
+			}		
+		
+			while(tick != 0)
+			{
+				loaded = LoadInput(0);
+		
+				#print("loaded=", loaded);
+				if (loaded == 1)
+				{
+					forward filters;
+					forward neural_layers;
+					forward outputs;
+			
+					#ShowStatistics(0);
+			
+					/* Draws the landmark neuron layer output */
+					draw out_prediction based on ita move;
+					train network;
+				}
+				Move1Tick(loaded);
+						
+				tick = TimeToTrain(0);
+				#print("train=", tick);		
+			}
+		}
+		else
+		{
+			ResetStatistics(0);
+			SetNetworkStatus(TESTING_PHASE);
+			
+			tick = TimeToStart(0);
+		
+			while (tick == 0)
+			{
+				Move1Tick(0);
+				tick = TimeToStart(0);
+			}	
+			
+			while(tick != 0)
+			{
+				loaded = LoadInput(0);
+				
+				#print("loaded=", loaded);
+				if (loaded == 1)
+				{
+					print("test=", tick);	
+					
+					forward filters;
+					forward neural_layers;
+					forward outputs;
+			
+					#ShowNeuronsMemory(0);
+					ShowStatistics(0);
+				}
+				Move1Tick(loaded);
+				
+				tick = TimeToTrain(0);	
+				#print("test=", tick);	
+			}	
+			PrintCapital(0);
 
-	/* Training Phase */
-	if (i == 0)
-	{
-		SetNetworkStatus(TRAINING_PHASE);
-		a = WillStart(0);
-		#print("train=", a);
-	
-		while (a == 0)
-		{
-			if (a == 0) Increment(1);
-			a = WillStart(0);
-		}		
-	
-		while(a != 0)
-		{
-			forward filters;
-			forward neural_layers;
-			forward outputs;
-	
-			#ShowStatistics(0);
-	
-			/* Draws the landmark neuron layer output */
-			draw out_prediction based on ita move;
-			train network;
-	
-			if (a != 0) Increment(1);
-			
-			a = WillTrain(0);
-			#print("train=", a);
-		}
-	}
-	else
-	{
-		#Increment(0); #g_sample = 0
-		ResetStatistics(0);
-		SetNetworkStatus(TESTING_PHASE);
-		
-		a = WillStart(0);
-		#print("train=", a);
-	
-		while (a == 0)
-		{
-			if (a == 0) Increment(1);
-			a = WillStart(0);
-		}	
-		
-		a = WillTrain(0);
-		#print("test=", a);
-		while(a != 0)
-		{
-			forward filters;
-			forward neural_layers;
-			forward outputs;
-	
-			#ShowNeuronsMemory(0);
-			
-			/* Draws the landmark neuron layer output */
-			#draw out_prediction based on ita move;
-			#copy out_test;
-			#paste out_prediction;
-	
-			ShowStatistics(0);
-			#train network;
-	
-			if (a != 0) Increment(1);
-			
-			a = WillTrain(0);
-			#print("test=", a);
+			# save day result in file
+			ShowStatisticsExp(0);
 		}
 		
-		# save day result in file
-		ShowStatisticsExp(0);
+		i = i + 1;
 	}
 	
-	i = i + 1;
-	#clear network memory;
-	#day_i = day_i + 1;
+	clear network memory;
+	day_i = day_i + 1;
 }
 
-#MeanStatisticsExp(0);
+MeanStatisticsExp(0);
 
-#quit;
+quit;

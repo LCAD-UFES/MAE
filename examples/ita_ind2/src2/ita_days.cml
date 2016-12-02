@@ -56,8 +56,7 @@ while ( day_i < N_DAYS )
 		}
 		Move1Tick(loaded);
 		
-		tick = TimeToTrain(0);
-		
+		tick = TimeToTrain(0);	
 		#print("train=", tick);		
 	}
 
@@ -83,7 +82,7 @@ while ( day_i < N_DAYS )
 			copy out_test;
 			paste out_prediction;
 	
-			#ShowStatistics(0);
+			ShowStatistics(0);
 			train network;
 		}
 		
@@ -92,14 +91,13 @@ while ( day_i < N_DAYS )
 		tick = TimeToTest(0);
 		#print("test=", tick);
 	}
+	PrintCapital(0);
 	
 	clear network memory;
 	day_i = day_i + 1;
 
-	PrintCapital(0);
-
 	# save day result in file
-	#ShowStatisticsExp(0);
+	ShowStatisticsExp(0);
 }
 
 #MeanStatisticsExp(0);

@@ -24,7 +24,7 @@ const USE_STATISTICS = 0;
 const PERIOD = 64; # in seconds
 const USE_SPREAD = 0;
 const N_ENTER_PERIODS = 1;
-const N_EXIT_PERIODS = 4;
+const N_EXIT_PERIODS = 1;
 
 ############################################### Neuron Layers #########################################################
 neuronlayer	nl_ita_lp_f[INPUT_WIDTH][INPUT_HEIGHT]	with greyscale_float outputs;

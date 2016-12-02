@@ -71,6 +71,7 @@ int g_current_sample = 0;
 int g_last_sample = 0;
 int g_current_state = -1;
 double g_predction[INPUT_WIDTH];
+double g_last_predction[INPUT_WIDTH];
 double g_confidence[INPUT_WIDTH];
 int g_n_ops[INPUT_WIDTH];
 int g_n_hits[INPUT_WIDTH];
@@ -1172,8 +1173,8 @@ EvaluateOutput(OUTPUT_DESC *output)
 
 	copy_neural_prediction(output);
 
-	//int n_stocks = output->ww;
-	//compute_prediction_statistics(0, n_stocks, output, actual_result);
+	int n_stocks = output->ww;
+	compute_prediction_statistics(0, n_stocks, output, actual_result);
 	//if (g_nStatus == TEST_PHASE)
 	//	compute_capital_evolution(0, n_stocks, output, actual_result);
 }
@@ -1315,8 +1316,8 @@ ShowStatistics(PARAM_LIST *pParamList)
 
 	//printf("%s %s\n", date, returns[0][g_sample].time);
 	printf("%04d-%02d-%02d %02d:%02d:%02d\n",
-			data[g_sample].time.year, data[g_sample].time.month, data[g_sample].time.day,
-			data[g_sample].time.hour, data[g_sample].time.min, data[g_sample].time.sec);
+			data[g_current_sample].time.year, data[g_current_sample].time.month, data[g_current_sample].time.day,
+			data[g_current_sample].time.hour, data[g_current_sample].time.min, data[g_current_sample].time.sec);
 
 	for (stock = 0; stock < n_stocks; stock++)
 	{
@@ -1324,7 +1325,7 @@ ShowStatistics(PARAM_LIST *pParamList)
 		for (k = 0; k < g_runing_sum_size; k++)
 		//for (k = 0; k < g_sample_statistics; k++)
 			for (i = 0; i < 9; i++)
-				if ((g_sample - k) >= 0)
+				if ((g_current_sample - k) >= 0)
 					total_tested += g_results[net][k][stock][i];
 
 		if (total_tested > 0)
@@ -1722,6 +1723,7 @@ ResetStatistics(PARAM_LIST *pParamList)
 		g_n_hits[j] = 0;
 		g_n_miss[j] = 0;
 		g_predction[j] = 0.0;
+		g_last_predction[j] = 0.0;
 		g_confidence[j] = 0.0;
 	}
 
@@ -1729,6 +1731,9 @@ ResetStatistics(PARAM_LIST *pParamList)
 	g_sample_statistics = 0;
 
 	g_current_sample = POSE_MIN = 0;
+	g_last_sample = 0;
+	g_last_sample_enter = 0;
+	g_last_sample_exit = 0;
 	//POSE_MAX = 10000;
 	g_current_state = INITIALIZE;
 
@@ -2066,6 +2071,10 @@ TimeToTrain(PARAM_LIST *pParamList)
 	//printf("g_sample=%d min=%d max=%d\n", g_sample, POSE_MIN, POSE_MAX);
 
 	int ret = 0;
+
+	if (( g_current_state != INITIALIZE ) && ((hour < TRAIN_HOUR) || (hour == TRAIN_HOUR && min < TRAIN_MIN)) )
+		ret = 1;
+
 	if (
 		( ( hour == TRAIN_HOUR && min >= TRAIN_MIN ) ||
 		( hour > TRAIN_HOUR && hour < TEST_HOUR ) ||
@@ -2111,7 +2120,7 @@ TimeToTest(PARAM_LIST *pParamList)
 	//printf("g_state=%d\n", g_current_state);
 	int ret = 0;
 
-	if (( g_current_state != INITIALIZE ) && (hour <= TEST_HOUR && min < TEST_MIN))
+	if (( g_current_state != INITIALIZE ) && ((hour < TEST_HOUR) ||(hour == TEST_HOUR && min < TEST_MIN)) )
 		ret = 1;
 
 	if (
@@ -2184,21 +2193,23 @@ GetInputHeight(PARAM_LIST *pParamList)
 int choose_best_prediction(void)
 {
 	int i;
-	int best_i = -1;
-	double pred = g_predction[0];
-	double conf = g_confidence[0];
-	double pred_conf = pred * conf;
+	int best_i = 0;
+	double pred = g_predction[best_i];
+	//double conf = g_confidence[best_i];
+	//double pred_conf = pred * conf;
 	int ret = 0;
 
 	for (i = 0; i < INPUT_WIDTH; i++)
 	{
-		if (g_LongShort == 1 && (g_predction[i] * g_confidence[i]) > pred_conf) //LONG
+		if (g_LongShort == 1 && g_predction[i] > pred) //LONG
+		//if (g_LongShort == 1 && (g_predction[i] * g_confidence[i]) > pred_conf) //LONG
 		{
 			best_i = i;
 			pred = g_predction[i];
 		}
 
-		if (g_LongShort == 0 && (g_predction[i] * g_confidence[i]) < pred) //SHORT
+		if (g_LongShort == 0 && g_predction[i] < pred) //SHORT
+		//if (g_LongShort == 0 && (g_predction[i] * g_confidence[i]) < pred_conf) //SHORT
 		{
 			best_i = i;
 			pred = g_predction[i];
@@ -2206,14 +2217,14 @@ int choose_best_prediction(void)
 	}
 //	pred = g_predction[0];
 //	best_i = 0;
-//	printf("best_i=%d pred=%2.lf\n",best_i, pred);
+	printf("best_i=%d pred=%2.lf\n",best_i, pred);
 
-	if (g_LongShort == 1 && pred > 0) //LONG
+	if (g_LongShort == 1 && pred > 0 && g_use_confiance == 1 && g_confidence[best_i] >= CERTAINTY) //LONG
 	{
 		g_best_stock_pred_i = best_i;
 		ret = 1;
 	}
-	if (g_LongShort == 0 && pred < 0) //SHORT
+	if (g_LongShort == 0 && pred < 0 && g_use_confiance == 1 && g_confidence[best_i] >= CERTAINTY) //SHORT
 	{
 		g_best_stock_pred_i = best_i;
 		ret = 1;
@@ -2300,32 +2311,73 @@ int try_to_exit_operation(void)
 	{
 		if (g_LongShort == 1 && diff_prc > 0)
 			g_n_hits[g_best_stock_pred_i] += 1;
-		else if (g_LongShort == 1 && diff_prc < 0)
+		else if (g_LongShort == 1 && diff_prc <= 0)
 			g_n_miss[g_best_stock_pred_i] += 1;
 
 		if (g_LongShort == 0 && diff_prc < 0)
 			g_n_hits[g_best_stock_pred_i] += 1;
-		else if (g_LongShort == 0 && diff_prc > 0)
+		else if (g_LongShort == 0 && diff_prc >= 0)
 			g_n_miss[g_best_stock_pred_i] += 1;
 
-		g_capital[0][g_best_stock_pred_i] += delta_capital;
+		if (g_LongShort == 1)
+			g_capital[0][g_best_stock_pred_i] += delta_capital;
+		else
+			g_capital[0][g_best_stock_pred_i] -= delta_capital; // Estou considerando sempre Venda - Compra
+
 		return (1); // estourou o tempo de sair e deve sair de qualquer jeito
 	}
 
-	if (g_LongShort == 1 && diff_prc > 0) //LONG
+	if (g_LongShort == 1 && diff_prc > 0 && diff_prc >= 0.7 * g_last_predction[g_best_stock_pred_i]) //LONG
 	{
 		g_capital[0][g_best_stock_pred_i] += delta_capital;
 		g_n_hits[g_best_stock_pred_i] += 1;
 		return (1);//vou comprar
 	}
-	else if (g_LongShort == 0 && diff_prc < 0)
+	else if (g_LongShort == 0 && diff_prc < 0 && diff_prc <= 0.7 * g_last_predction[g_best_stock_pred_i])
 	{
-		g_capital[0][g_best_stock_pred_i] += delta_capital;
+		g_capital[0][g_best_stock_pred_i] -= delta_capital;
 		g_n_hits[g_best_stock_pred_i] += 1;
 		return (1);//vou vender
 	}
 
 	return 0;
+}
+
+int
+calculate_limits_sample_enter_exit(void)
+{
+	int ret = 1;
+	int i;
+	int sample_enter = g_current_sample;
+	int sample_exit = g_current_sample;
+
+	for (i = 0; i < N_ENTER_PERIODS; i++)
+	{
+		sample_enter = SampleNextPeriod(sample_enter);
+	}
+	for (i = 0; i < N_EXIT_PERIODS; i++)
+	{
+		sample_exit = SampleNextPeriod(sample_exit);
+	}
+
+	g_last_sample_enter = sample_enter;
+	g_last_sample_exit = sample_exit;
+
+	int last_enter_time_h = data[g_last_sample_enter].time.hour;
+	int last_enter_time_m = data[g_last_sample_enter].time.min;
+	//int last_enter_time_s = data[g_last_sample_enter].time.sec;
+
+	int last_exit_time_h = data[g_last_sample_exit].time.hour;
+	int last_exit_time_m = data[g_last_sample_exit].time.min;
+	//int last_exit_time_s = data[g_last_sample_exit].time.sec;
+
+	if ( (last_enter_time_h > TEST_END_HOUR  || last_exit_time_h > TEST_END_HOUR) ||
+		 (last_enter_time_h == TEST_END_HOUR && last_enter_time_m >= TEST_END_MIN) ||
+		 (last_exit_time_h == TEST_END_HOUR  && last_exit_time_m >= TEST_END_MIN))
+	{
+		ret = 0;
+	}
+	return ret;
 }
 
 void
@@ -2334,7 +2386,6 @@ trading_state_machine(int loaded)
 	int state = INITIALIZE;
 	int change_state = 0;
 
-//	printf("loaded=%d state=%d\n", loaded, g_current_state);
 	if (g_current_state == INITIALIZE)
 	{
 		g_current_state = BEGIN_PREDICTION;
@@ -2346,34 +2397,35 @@ trading_state_machine(int loaded)
 			double pred = choose_best_prediction();
 			if (pred == 1)
 			{
-			//	printf("BEGIN_PREDICTION com pred 1\n");
+				//save last predction
+				int i;
+				for (i = 0; i < INPUT_WIDTH; i++)
+					g_last_predction[i] = g_predction[i];
+
 				g_current_sample = SamplePreviousPeriod(g_current_sample);
 				if (g_best_stock_pred_i == 0) g_reference_prc_enter = data[g_current_sample].WIN.mid;
 				if (g_best_stock_pred_i == 1) g_reference_prc_enter = data[g_current_sample].IND.mid;
 				if (g_best_stock_pred_i == 2) g_reference_prc_enter = data[g_current_sample].WDO.mid;
 				if (g_best_stock_pred_i == 3) g_reference_prc_enter = data[g_current_sample].DOL.mid;
-				state = TRY_TO_ENTER;
-				change_state = 1;
-				//TODO: calcular os sample max pra entrar e sair
-				int i;
-				int sample_enter = g_current_sample;
-				int sample_exit = g_current_sample;
 
-				for (i = 0; i < N_ENTER_PERIODS; i++)
+				int has_time = calculate_limits_sample_enter_exit();
+				change_state = 1;
+//				state = TRY_TO_ENTER;
+
+				if (has_time == 1)
 				{
-					sample_enter = SampleNextPeriod(sample_enter);
+					state = TRY_TO_ENTER;
+					printf("best_i=%d ref_prc_enter=%.2lf s_enter=%d s_exit=%d s_current=%d \n",
+							g_best_stock_pred_i, g_reference_prc_enter, g_last_sample_enter, g_last_sample_exit, g_current_sample);
 				}
-				for (i = 0; i < N_EXIT_PERIODS; i++)
+				else
 				{
-					sample_exit = SampleNextPeriod(sample_exit);
+					state = END;
 				}
-				g_last_sample_enter = sample_enter;
-				g_last_sample_exit = sample_exit;
-				//printf("best_i=%d ref_prc_enter=%.2lf s_enter=%d s_exit=%d s_current=%d ",
-				//		g_best_stock_pred_i, g_reference_prc_enter, sample_enter, sample_exit, g_current_sample);
 			}
 			else
 			{
+				printf("pred neg\n");
 				state = END;
 				change_state = 1;
 			}
@@ -2392,10 +2444,11 @@ trading_state_machine(int loaded)
 			g_n_ops[g_best_stock_pred_i] += 1;
 			state = TRY_TO_EXIT;
 			change_state = 1;
-			//printf("g_reference_prc_exit=%.2lf\n", g_reference_prc_exit);
+			printf("g_reference_prc_exit=%.2lf\n", g_reference_prc_exit);
 		}
 		if (entered == -1)
 		{
+			printf("NAO ENTROU\n\n");
 			//TODO: Acertar os g_current_sample e last_sample
 			state = END;
 			change_state = 1;
@@ -2406,8 +2459,8 @@ trading_state_machine(int loaded)
 		int exited = try_to_exit_operation();
 		if (exited == 1)
 		{
-			PrintCapital(NULL);
-			printf("\n");
+			//PrintCapital(NULL);
+			//printf("\n");
 			state = END;
 			change_state = 1;
 		}
@@ -2419,7 +2472,6 @@ trading_state_machine(int loaded)
 	}
 	if (change_state == 1)
 		g_current_state = state;
-//	printf("loaded=%d state=%d\n", loaded, g_current_state);
 }
 
 /*
