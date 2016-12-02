@@ -53,9 +53,33 @@ typedef struct _data
 #define MAX_DATA_SAMPLES 43200 // 12h = 12 * 60 * 60
 DATA data[MAX_DATA_SAMPLES];
 double g_anchor[INPUT_WIDTH];
-int g_enable_operation[INPUT_WIDTH];
-int g_last_close_operation_sample[INPUT_WIDTH];
-int g_n_ops[INPUT_WIDTH], g_n_hits[INPUT_WIDTH], g_n_miss[INPUT_WIDTH];
+
+//int g_enable_operation[INPUT_WIDTH];
+//int g_last_close_operation_sample[INPUT_WIDTH];
+//int g_n_ops[INPUT_WIDTH], g_n_hits[INPUT_WIDTH], g_n_miss[INPUT_WIDTH];
+
+enum STATE_NAME
+{
+	INITIALIZE,
+	BEGIN_PREDICTION,
+	TRY_TO_ENTER,
+	TRY_TO_EXIT,
+	END
+};
+
+int g_current_sample = 0;
+int g_last_sample = 0;
+int g_current_state = -1;
+double g_predction[INPUT_WIDTH];
+double g_confidence[INPUT_WIDTH];
+int g_n_ops[INPUT_WIDTH];
+int g_n_hits[INPUT_WIDTH];
+int g_n_miss[INPUT_WIDTH];
+int g_best_stock_pred_i = 0;
+double g_reference_prc_enter = 0.0;
+double g_reference_prc_exit = 0.0;
+int g_last_sample_enter = 0;
+int g_last_sample_exit = 0;
 
 typedef struct _statistics_exp
 {
@@ -118,8 +142,6 @@ typedef struct _statistics_exp
 STATISTICS_EXP stat_exp[MAX_DAYS];
 double stat_day[MAX_DAYS][INPUT_WIDTH][13];
 int day_i = 0;
-int g_use_results = 0;
-char date[256];
 
 int g_sample = 0;
 int g_sample_statistics = 0;
@@ -146,41 +168,14 @@ int g_use_confiance = ! USE_STATISTICS;
 
 char days_file_name[257];
 
-//int
-//GetMAESampleIndex(void)
-//{
-//	return (g_sample);
-//}
-//
-//
-//void
-//SetSymbolReturn(int symbol, float symbol_return, int net, int displacement)
-//{
-//	if (symbol == 0) returns[net][g_sample + displacement].WIN = symbol_return;
-//	if (symbol == 1) returns[net][g_sample + displacement].IND = symbol_return;
-//	if (symbol == 2) returns[net][g_sample + displacement].WDO = symbol_return;
-//	if (symbol == 3) returns[net][g_sample + displacement].DOL = symbol_return;
-//}
-//
-//
-//void
-//SetSampleIdAndTime(int net, int displacement, int id, char *time)
-//{
-//	returns[net][g_sample + displacement].id = id;
-//	strcpy(returns[net][g_sample + displacement].time, time);
-//}
-//
-//
-//double
-//GetSymbolReturn(int symbol, int net, int displacement)
-//{
-//	if (symbol == 0) return ((double) returns[net][g_sample + displacement].WIN);
-//	if (symbol == 1) return ((double) returns[net][g_sample + displacement].IND);
-//	if (symbol == 2) return ((double) returns[net][g_sample + displacement].WDO);
-//	if (symbol == 3) return ((double) returns[net][g_sample + displacement].DOL);
-//
-//	return (0.0); // This should never occur.
-//}
+/*
+***********************************************************
+* Function: GetTimeInSeconds
+* Description:
+* Inputs:
+* Output:
+***********************************************************
+*/
 
 double
 GetTimeInSeconds(TIME t)
@@ -292,7 +287,7 @@ LoadDataToInput(INPUT_DESC *input)
 	int x, y;
 	int y_dimention = input->neuron_layer->dimentions.y;
 	int x_dimention = input->neuron_layer->dimentions.x;
-	int sample = g_sample;
+	int sample = g_current_sample;
 	//double div_const = 100.0;
 
 	for (y = 0; y < y_dimention; y++)
@@ -355,7 +350,7 @@ LoadDataToOutput(OUTPUT_DESC *output)
 	int y_dimention = output->neuron_layer->dimentions.y;
 	int x_dimention = output->neuron_layer->dimentions.x;
 	//double div_const = 100.0;
-	int sample = SamplePreviousPeriod(g_sample);
+	int sample = SamplePreviousPeriod(g_current_sample);
 
 	//printf("%02d:%02d:%02d.%03d \n", data[g_sample].time.hour, data[g_sample].time.min, data[g_sample].time.sec, data[g_sample].time.msec);
 	for (y = 0; y < y_dimention; y++)
@@ -365,7 +360,7 @@ LoadDataToOutput(OUTPUT_DESC *output)
 			if (x == 0)
 			{
 				output->neuron_layer->neuron_vector[y * x_dimention + x].output.fval =
-						data[g_sample].WIN.mid;
+						data[g_current_sample].WIN.mid;
 
 				//TODO: ta computando o retorno de operacoes long
 				output->neuron_layer->neuron_vector[y * x_dimention + x].output.fval -= data[sample].WIN.mid;
@@ -374,7 +369,7 @@ LoadDataToOutput(OUTPUT_DESC *output)
 			if (x == 1)
 			{
 				output->neuron_layer->neuron_vector[y * x_dimention + x].output.fval =
-						data[g_sample].IND.mid;
+						data[g_current_sample].IND.mid;
 
 				output->neuron_layer->neuron_vector[y * x_dimention + x].output.fval -= data[sample].IND.mid;
 				//output->neuron_layer->neuron_vector[y * x_dimention + x].output.fval /= 1000.0;//*= 1000.0 / data[sample].IND.mid;
@@ -382,7 +377,7 @@ LoadDataToOutput(OUTPUT_DESC *output)
 			if (x == 2)
 			{
 				output->neuron_layer->neuron_vector[y * x_dimention + x].output.fval =
-						data[g_sample].WDO.mid;
+						data[g_current_sample].WDO.mid;
 
 				output->neuron_layer->neuron_vector[y * x_dimention + x].output.fval -= data[sample].WDO.mid;
 				//output->neuron_layer->neuron_vector[y * x_dimention + x].output.fval /= 1000.0;//*= 1000.0 / data[sample].WDO.mid;
@@ -390,7 +385,7 @@ LoadDataToOutput(OUTPUT_DESC *output)
 			if (x == 3)
 			{
 				output->neuron_layer->neuron_vector[y * x_dimention + x].output.fval =
-						data[g_sample].DOL.mid;
+						data[g_current_sample].DOL.mid;
 
 				output->neuron_layer->neuron_vector[y * x_dimention + x].output.fval -= data[sample].DOL.mid;
 				//output->neuron_layer->neuron_vector[y * x_dimention + x].output.fval /= 1000.0;//*= 1000.0 / data[sample].DOL.mid;
@@ -401,6 +396,9 @@ LoadDataToOutput(OUTPUT_DESC *output)
 			//if ( y == 0 ) printf("%f ", output->neuron_layer->neuron_vector[y * x_dimention + x].output.fval);
 		}
 	}
+
+	g_last_sample = g_current_sample;
+
 	//printf("\n");
 	return (0);
 }
@@ -478,12 +476,12 @@ GetNeuronsOutputConfidence(OUTPUT_DESC *output, int x)
 		result = 0.0;
 */
 
-	if (n_up == 0)
+	if (n_up == 0 || (n_up < n_down))
 		g_confidence_up[0][x] = 0.0;
 	else
 		g_confidence_up[0][x] = 100. * (n_up - n_down) / n_up;
 
-	if (n_down == 0)
+	if (n_down == 0 || (n_down < n_up))
 		g_confidence_down[0][x] = 0.0;
 	else
 		g_confidence_down[0][x] = 100. * (n_down - n_up) / n_down;
@@ -703,7 +701,7 @@ input_generator(INPUT_DESC *input, int status)
 			//ShowStatistics(NULL);
 			//ShowStatisticsExp(NULL);
 
-			ShowNeuronsMemory(NULL);
+//			ShowNeuronsMemory(NULL);
 #ifndef NO_INTERFACE			
 			glutSetWindow (input->win);
 			input_display ();
@@ -1138,6 +1136,22 @@ buy_or_sell(int net, int stock, double *neural_prediction)
 }
 
 
+int
+copy_neural_prediction(OUTPUT_DESC *output)
+{
+	int i;
+	for (i = 0; i < INPUT_WIDTH; i++)
+	{
+		float pred = GetNeuronsOutput(output, i);
+		g_predction[i] = pred;
+
+		GetNeuronsOutputConfidence(output, i);
+		g_confidence[i] = g_confidence_up[0][i];
+	}
+
+	return (0);
+}
+
 /*
 ***********************************************************
 * Function: EvaluateOutput
@@ -1156,10 +1170,12 @@ EvaluateOutput(OUTPUT_DESC *output)
 	actual_result = get_output_by_name("out_test");
 	read_current_desired_returns_to_output(actual_result);
 
-	int n_stocks = output->ww;
-	compute_prediction_statistics(0, n_stocks, output, actual_result);
-	if (g_nStatus == TEST_PHASE)
-		compute_capital_evolution(0, n_stocks, output, actual_result);
+	copy_neural_prediction(output);
+
+	//int n_stocks = output->ww;
+	//compute_prediction_statistics(0, n_stocks, output, actual_result);
+	//if (g_nStatus == TEST_PHASE)
+	//	compute_capital_evolution(0, n_stocks, output, actual_result);
 }
 #endif
 
@@ -1249,7 +1265,7 @@ f_keyboard(char *key_value)
 	{
 		// Moves the input to the next photo
 		case 'n':
-			GetNewReturns(&ita, DIRECTION_FORWARD);
+			//GetNewReturns(&ita, DIRECTION_FORWARD);
 			break;
 
 		case 'p':
@@ -1700,16 +1716,21 @@ ResetStatistics(PARAM_LIST *pParamList)
 		}
 
 		g_anchor[j] = 0.0;
-		g_enable_operation[j] = 1;
-		g_last_close_operation_sample[j] = 0;
+		//g_enable_operation[j] = 1;
+		//g_last_close_operation_sample[j] = 0;
 		g_n_ops[j]= 0;
 		g_n_hits[j] = 0;
 		g_n_miss[j] = 0;
+		g_predction[j] = 0.0;
+		g_confidence[j] = 0.0;
 	}
 
 	g_sample = POSE_MIN = 0; // ita.wh;
 	g_sample_statistics = 0;
+
+	g_current_sample = POSE_MIN = 0;
 	//POSE_MAX = 10000;
+	g_current_state = INITIALIZE;
 
 	output.ival = 0;
 	return (output);
@@ -1888,6 +1909,7 @@ LoadData(char *f_name)
 
 	POSE_MAX = numlines - 1;
 	g_sample = POSE_MIN = 0;
+	g_current_sample = 0;
 
 	return 0;
 }
@@ -1969,7 +1991,7 @@ SetLongShort(PARAM_LIST *pParamList)
 
 /*
 ***********************************************************
-* Function: WillStart
+* Function: TimeToStart
 * Description:
 * Inputs:
 * Output:
@@ -1977,7 +1999,7 @@ SetLongShort(PARAM_LIST *pParamList)
 */
 
 NEURON_OUTPUT
-WillStart(PARAM_LIST *pParamList)
+TimeToStart(PARAM_LIST *pParamList)
 {
 	NEURON_OUTPUT output;
 	//TODO:
@@ -1987,8 +2009,8 @@ WillStart(PARAM_LIST *pParamList)
 	//printf("%s\n", returns[net][g_sample].time);
 	//fflush(stdout);
 
-	int hour = data[g_sample].time.hour;
-	int min = data[g_sample].time.min;
+	int hour = data[g_current_sample].time.hour;
+	int min = data[g_current_sample].time.min;
 	//int sec = data[g_sample].time.sec;
 	//sscanf(returns[net][g_sample].time, "%d:%d:%f", &hour, &min, &sec);
 
@@ -1999,16 +2021,16 @@ WillStart(PARAM_LIST *pParamList)
 	if (
 		( ( hour == TRAIN_HOUR && min >= TRAIN_MIN ) ||
 		( hour > TRAIN_HOUR ) )  &&
-		g_sample <= POSE_MAX && g_sample >= POSE_MIN
+		g_current_sample <= POSE_MAX && g_current_sample >= POSE_MIN
 		)
 	{
 		ret = 1;
-		//LoadReturnsToInput(&ita, 0, -1);
-		LoadDataToInput(&ita);
-
-		check_input_bounds(&ita, ita.wx + ita.ww/2, ita.wy + ita.wh/2);
-		ita.up2date = 0;
-		update_input_image(&ita);
+//		//LoadReturnsToInput(&ita, 0, -1);
+//		LoadDataToInput(&ita);
+//
+//		check_input_bounds(&ita, ita.wx + ita.ww/2, ita.wy + ita.wh/2);
+//		ita.up2date = 0;
+//		update_input_image(&ita);
 	}
 
 	output.ival = ret;
@@ -2017,7 +2039,7 @@ WillStart(PARAM_LIST *pParamList)
 
 /*
 ***********************************************************
-* Function: WillTrain
+* Function: TimeToTrain
 * Description:
 * Inputs:
 * Output:
@@ -2025,7 +2047,7 @@ WillStart(PARAM_LIST *pParamList)
 */
 
 NEURON_OUTPUT
-WillTrain(PARAM_LIST *pParamList)
+TimeToTrain(PARAM_LIST *pParamList)
 {
 	NEURON_OUTPUT output;
 	//TODO:
@@ -2035,8 +2057,8 @@ WillTrain(PARAM_LIST *pParamList)
 	//printf("%s\n", returns[net][g_sample].time);
 	//fflush(stdout);
 
-	int hour = data[g_sample].time.hour;
-	int min = data[g_sample].time.min;
+	int hour = data[g_current_sample].time.hour;
+	int min = data[g_current_sample].time.min;
 	//float sec = 0.0;
 	//sscanf(returns[net][g_sample].time, "%d:%d:%f", &hour, &min, &sec);
 
@@ -2048,16 +2070,10 @@ WillTrain(PARAM_LIST *pParamList)
 		( ( hour == TRAIN_HOUR && min >= TRAIN_MIN ) ||
 		( hour > TRAIN_HOUR && hour < TEST_HOUR ) ||
 		( hour == TEST_HOUR && min < TEST_MIN ) ) &&
-		g_sample <= POSE_MAX && g_sample >= POSE_MIN
+		g_current_sample <= POSE_MAX && g_current_sample >= POSE_MIN
 		)
 	{
 		ret = 1;
-		//LoadReturnsToInput(&ita, 0, -1);
-		LoadDataToInput(&ita);
-
-		check_input_bounds(&ita, ita.wx + ita.ww/2, ita.wy + ita.wh/2);
-		ita.up2date = 0;
-		update_input_image(&ita);
 	}
 
 	output.ival = ret;
@@ -2066,7 +2082,7 @@ WillTrain(PARAM_LIST *pParamList)
 
 /*
 ***********************************************************
-* Function: WillTest
+* Function: TimeToTest
 * Description:
 * Inputs:
 * Output:
@@ -2074,7 +2090,7 @@ WillTrain(PARAM_LIST *pParamList)
 */
 
 NEURON_OUTPUT
-WillTest(PARAM_LIST *pParamList)
+TimeToTest(PARAM_LIST *pParamList)
 {
 	NEURON_OUTPUT output;
 	//TODO:
@@ -2084,30 +2100,29 @@ WillTest(PARAM_LIST *pParamList)
 	//printf("%s\n", returns[net][g_sample].time);
 	//fflush(stdout);
 
-	int hour = data[g_sample].time.hour;
-	int min = data[g_sample].time.min;
+	int hour = data[g_current_sample].time.hour;
+	int min = data[g_current_sample].time.min;
 	//float sec = 0.0;
 	//sscanf(returns[net][g_sample].time, "%d:%d:%f", &hour, &min, &sec);
 
 	//printf("h=%d m=%d sec=%f\n", hour, min, sec);
 	//printf("g_sample=%d min=%d max=%d\n", g_sample, POSE_MIN, POSE_MAX);
 
+	//printf("g_state=%d\n", g_current_state);
 	int ret = 0;
+
+	if (( g_current_state != INITIALIZE ) && (hour <= TEST_HOUR && min < TEST_MIN))
+		ret = 1;
+
 	if (
 		( ( hour == TEST_HOUR && min >= TEST_MIN ) ||
 		  ( hour > TEST_HOUR && hour < TEST_END_HOUR ) ||
 		  ( hour == TEST_END_HOUR && min <= TEST_END_MIN )
-			) &&
-		g_sample <= POSE_MAX && g_sample >= POSE_MIN
+		) &&
+			g_current_sample <= POSE_MAX && g_current_sample >= POSE_MIN
 		)
 	{
 		ret = 1;
-		//LoadReturnsToInput(&ita, 0, -1);
-		LoadDataToInput(&ita);
-
-		check_input_bounds(&ita, ita.wx + ita.ww/2, ita.wy + ita.wh/2);
-		ita.up2date = 0;
-		update_input_image(&ita);
 	}
 
 	output.ival = ret;
@@ -2116,32 +2131,34 @@ WillTest(PARAM_LIST *pParamList)
 
 /*
 ***********************************************************
-* Function: Increment
+* Function: LoadInput
 * Description:
 * Inputs:
-* Output:
+* Output: 1 if OK, 0 otherwise
 ***********************************************************
 */
 
 NEURON_OUTPUT
-Increment(PARAM_LIST *pParamList)
+LoadInput(PARAM_LIST *pParamList)
 {
 	NEURON_OUTPUT output;
-	int param = pParamList->next->param.ival;
-	int i;
 
-	if (param <= 0)
+	double current_time = data[g_current_sample].time.tstamp;
+	double last_time = data[g_last_sample].time.tstamp;
+	//printf("current_time=%2d:%2d:%2d last_time=%2d:%2d:%2d\n", data[g_current_sample].time.hour, data[g_current_sample].time.min, data[g_current_sample].time.sec,
+	//		data[g_last_sample].time.hour, data[g_last_sample].time.min, data[g_last_sample].time.sec);
+	if (current_time >= last_time + PERIOD)
 	{
-		g_sample = 0;
+		if (LoadDataToInput(&ita))
+			output.ival = 0;
+		else
+			output.ival = 1;
 	}
 	else
 	{
-		for (i = 0; i < param; i++)
-			g_sample = SampleNextPeriod(g_sample);
+		output.ival = 0;
 	}
 
-	//printf("g_sample=%d\n", g_sample);
-	output.ival = 0;
 	return (output);
 }
 
@@ -2161,5 +2178,329 @@ GetInputHeight(PARAM_LIST *pParamList)
 
 	output.ival = INPUT_HEIGHT;
 
+	return (output);
+}
+
+int choose_best_prediction(void)
+{
+	int i;
+	int best_i = -1;
+	double pred = g_predction[0];
+	double conf = g_confidence[0];
+	double pred_conf = pred * conf;
+	int ret = 0;
+
+	for (i = 0; i < INPUT_WIDTH; i++)
+	{
+		if (g_LongShort == 1 && (g_predction[i] * g_confidence[i]) > pred_conf) //LONG
+		{
+			best_i = i;
+			pred = g_predction[i];
+		}
+
+		if (g_LongShort == 0 && (g_predction[i] * g_confidence[i]) < pred) //SHORT
+		{
+			best_i = i;
+			pred = g_predction[i];
+		}
+	}
+//	pred = g_predction[0];
+//	best_i = 0;
+//	printf("best_i=%d pred=%2.lf\n",best_i, pred);
+
+	if (g_LongShort == 1 && pred > 0) //LONG
+	{
+		g_best_stock_pred_i = best_i;
+		ret = 1;
+	}
+	if (g_LongShort == 0 && pred < 0) //SHORT
+	{
+		g_best_stock_pred_i = best_i;
+		ret = 1;
+	}
+
+	return ret;
+}
+
+int try_to_enter_operation(void)
+{
+
+	//printf("g_current=%d\n", g_current_sample);
+	if (g_current_sample >= g_last_sample_enter)
+		return (-1); // estourou o tempo de entrar
+
+	double current_prc = 0;
+	double diff_prc = 0;
+
+	if (g_best_stock_pred_i == 0) current_prc = data[g_current_sample].WIN.mid;
+	if (g_best_stock_pred_i == 1) current_prc = data[g_current_sample].IND.mid;
+	if (g_best_stock_pred_i == 2) current_prc = data[g_current_sample].WDO.mid;
+	if (g_best_stock_pred_i == 3) current_prc = data[g_current_sample].DOL.mid;
+
+	diff_prc = current_prc - g_reference_prc_enter;
+
+	//printf("g_current=%d diff_prc=%.2lf\n", g_current_sample, diff_prc);
+	if (g_LongShort == 1) //LONG
+	{
+		if (diff_prc > 0)
+		{
+			g_buy_sell_count[0][g_best_stock_pred_i] += 1;
+			return (1);//vou comprar
+		}
+	}
+	else if (g_LongShort == 0)
+	{
+		if (diff_prc < 0)
+		{
+			g_sell_buy_count[0][g_best_stock_pred_i] += 1;
+			return (1);//vou vender
+		}
+	}
+
+	return 0;
+}
+
+int try_to_exit_operation(void)
+{
+	double current_prc = 0;
+	double diff_prc = 0;
+	double qty = 0;
+	double point_value = 0;
+	double delta_capital = 0;
+
+	if (g_best_stock_pred_i == 0)
+	{
+		current_prc = data[g_current_sample].WIN.mid;
+		qty = WIN_QTY;
+		point_value = WIN_POINT_VALUE;
+	}
+	if (g_best_stock_pred_i == 1)
+	{
+		current_prc = data[g_current_sample].IND.mid;
+		qty = IND_QTY;
+		point_value = IND_POINT_VALUE;
+	}
+	if (g_best_stock_pred_i == 2)
+	{
+		current_prc = data[g_current_sample].WDO.mid;
+		qty = WDO_QTY;
+		point_value = WDO_POINT_VALUE;
+	}
+	if (g_best_stock_pred_i == 3)
+	{
+		current_prc = data[g_current_sample].DOL.mid;
+		qty = DOL_QTY;
+		point_value = DOL_POINT_VALUE;
+	}
+
+	diff_prc = current_prc - g_reference_prc_exit;
+	delta_capital = diff_prc * qty * point_value;
+
+	if (g_current_sample >= g_last_sample_exit)
+	{
+		if (g_LongShort == 1 && diff_prc > 0)
+			g_n_hits[g_best_stock_pred_i] += 1;
+		else if (g_LongShort == 1 && diff_prc < 0)
+			g_n_miss[g_best_stock_pred_i] += 1;
+
+		if (g_LongShort == 0 && diff_prc < 0)
+			g_n_hits[g_best_stock_pred_i] += 1;
+		else if (g_LongShort == 0 && diff_prc > 0)
+			g_n_miss[g_best_stock_pred_i] += 1;
+
+		g_capital[0][g_best_stock_pred_i] += delta_capital;
+		return (1); // estourou o tempo de sair e deve sair de qualquer jeito
+	}
+
+	if (g_LongShort == 1 && diff_prc > 0) //LONG
+	{
+		g_capital[0][g_best_stock_pred_i] += delta_capital;
+		g_n_hits[g_best_stock_pred_i] += 1;
+		return (1);//vou comprar
+	}
+	else if (g_LongShort == 0 && diff_prc < 0)
+	{
+		g_capital[0][g_best_stock_pred_i] += delta_capital;
+		g_n_hits[g_best_stock_pred_i] += 1;
+		return (1);//vou vender
+	}
+
+	return 0;
+}
+
+void
+trading_state_machine(int loaded)
+{
+	int state = INITIALIZE;
+	int change_state = 0;
+
+//	printf("loaded=%d state=%d\n", loaded, g_current_state);
+	if (g_current_state == INITIALIZE)
+	{
+		g_current_state = BEGIN_PREDICTION;
+	}
+	if (g_current_state == BEGIN_PREDICTION)
+	{
+		if (loaded == 1)
+		{
+			double pred = choose_best_prediction();
+			if (pred == 1)
+			{
+			//	printf("BEGIN_PREDICTION com pred 1\n");
+				g_current_sample = SamplePreviousPeriod(g_current_sample);
+				if (g_best_stock_pred_i == 0) g_reference_prc_enter = data[g_current_sample].WIN.mid;
+				if (g_best_stock_pred_i == 1) g_reference_prc_enter = data[g_current_sample].IND.mid;
+				if (g_best_stock_pred_i == 2) g_reference_prc_enter = data[g_current_sample].WDO.mid;
+				if (g_best_stock_pred_i == 3) g_reference_prc_enter = data[g_current_sample].DOL.mid;
+				state = TRY_TO_ENTER;
+				change_state = 1;
+				//TODO: calcular os sample max pra entrar e sair
+				int i;
+				int sample_enter = g_current_sample;
+				int sample_exit = g_current_sample;
+
+				for (i = 0; i < N_ENTER_PERIODS; i++)
+				{
+					sample_enter = SampleNextPeriod(sample_enter);
+				}
+				for (i = 0; i < N_EXIT_PERIODS; i++)
+				{
+					sample_exit = SampleNextPeriod(sample_exit);
+				}
+				g_last_sample_enter = sample_enter;
+				g_last_sample_exit = sample_exit;
+				//printf("best_i=%d ref_prc_enter=%.2lf s_enter=%d s_exit=%d s_current=%d ",
+				//		g_best_stock_pred_i, g_reference_prc_enter, sample_enter, sample_exit, g_current_sample);
+			}
+			else
+			{
+				state = END;
+				change_state = 1;
+			}
+		}
+	}
+	if (g_current_state == TRY_TO_ENTER)
+	{
+		int entered = try_to_enter_operation();
+		if (entered == 1)
+		{
+			//g_reference_prc_exit = data[g_current_sample].WIN.mid; // preco de ref saida
+			if (g_best_stock_pred_i == 0) g_reference_prc_exit = data[g_current_sample].WIN.mid;
+			if (g_best_stock_pred_i == 1) g_reference_prc_exit = data[g_current_sample].IND.mid;
+			if (g_best_stock_pred_i == 2) g_reference_prc_exit = data[g_current_sample].WDO.mid;
+			if (g_best_stock_pred_i == 3) g_reference_prc_exit = data[g_current_sample].DOL.mid;
+			g_n_ops[g_best_stock_pred_i] += 1;
+			state = TRY_TO_EXIT;
+			change_state = 1;
+			//printf("g_reference_prc_exit=%.2lf\n", g_reference_prc_exit);
+		}
+		if (entered == -1)
+		{
+			//TODO: Acertar os g_current_sample e last_sample
+			state = END;
+			change_state = 1;
+		}
+	}
+	if (g_current_state == TRY_TO_EXIT)
+	{
+		int exited = try_to_exit_operation();
+		if (exited == 1)
+		{
+			PrintCapital(NULL);
+			printf("\n");
+			state = END;
+			change_state = 1;
+		}
+	}
+	if (g_current_state == END)
+	{
+		state = BEGIN_PREDICTION;
+		change_state = 1;
+	}
+	if (change_state == 1)
+		g_current_state = state;
+//	printf("loaded=%d state=%d\n", loaded, g_current_state);
+}
+
+/*
+***********************************************************
+* Function: Move1Tick
+* Description:
+* Inputs:
+* Output:
+***********************************************************
+*/
+
+NEURON_OUTPUT
+Move1Tick(PARAM_LIST *pParamList)
+{
+	NEURON_OUTPUT output;
+	int loaded = pParamList->next->param.ival;
+
+	if (g_nStatus == TEST_PHASE)
+	{
+		trading_state_machine(loaded);
+		if (g_current_state == END)
+		{
+			if (g_current_sample <= g_last_sample)
+			{
+				g_current_sample = g_last_sample + 1;
+			}
+//			else
+//			{
+//				//TODO: Acho que nao precisa desse else
+//				int sample = g_last_sample;
+//				while (sample < g_current_sample)
+//				{
+//					sample = SampleNextPeriod(sample);
+//				}
+//				g_current_sample = sample;
+//			}
+		}
+		else
+		{
+			if (g_current_sample >= POSE_MIN && g_current_sample < POSE_MAX)
+				g_current_sample++;
+			else
+				g_current_sample = POSE_MIN;
+		}
+	}
+	else
+	{
+		if (g_current_sample >= POSE_MIN && g_current_sample < POSE_MAX)
+			g_current_sample++;
+		else
+			g_current_sample = POSE_MIN;
+	}
+	output.ival = 0;
+	return (output);
+}
+
+/*
+***********************************************************
+* Function: PrintCapital
+* Description:
+* Inputs:
+* Output:
+***********************************************************
+*/
+
+NEURON_OUTPUT
+PrintCapital(PARAM_LIST *pParamList)
+{
+
+	NEURON_OUTPUT output;
+	int i;
+	double acc = 0.0;
+
+	for (i = 0; i < INPUT_WIDTH; i++)
+	{
+		acc = (1.0 * g_n_hits[i]) / g_n_ops[i];
+		printf("capital[%d]=%.2lf longs=%d shorts=%d ops=%d hits=%d miss=%d acc=%.2lf\n",
+				i, g_capital[0][i], g_buy_sell_count[0][i], g_sell_buy_count[0][i],
+				g_n_ops[i], g_n_hits[i], g_n_miss[i], acc);
+	}
+
+	output.ival = 0;
 	return (output);
 }

@@ -23,8 +23,8 @@ const STATISTICS = 10;
 const USE_STATISTICS = 0;
 const PERIOD = 64; # in seconds
 const USE_SPREAD = 0;
-const STOP_N_PERIODS = 5;
-const USE_STOP = 0;
+const N_ENTER_PERIODS = 1;
+const N_EXIT_PERIODS = 4;
 
 ############################################### Neuron Layers #########################################################
 neuronlayer	nl_ita_lp_f[INPUT_WIDTH][INPUT_HEIGHT]	with greyscale_float outputs;
@@ -85,6 +85,12 @@ connect		nl_ita_lp_f, within [3][0] and [3][INPUT_HEIGHT-1], to nl_prediction , 
 #connect			nl_ita2_lp_f	to nl_prediction2 	with SYNAPSES random inputs per neuron and gaussian distribution with radii 0.0 and 9.32433 and angle 0.0;
 
 ################################################ User Functions #################################################
+int TimeToStart("%d");
+int TimeToTrain("%d");
+int TimeToTest("%d");
+int PrintCapital("%d");
+int Move1Tick("%d");
+int LoadInput("%d");
 #int GetRandomReturns("%d");
 int ShowStatistics ("%d");
 int ResetStatistics ("%d");
@@ -94,9 +100,9 @@ int LoadDay("%d");
 int ShowStatisticsExp("%d");
 int MeanStatisticsExp("%d");
 int SetLongShort ("%d");
-int WillStart("%d");
-int WillTrain("%d");
-int WillTest("%d");
-int Increment("%d");
+#int WillStart("%d");
+#int WillTrain("%d");
+#int WillTest("%d");
+#int Increment("%d");
 int GetInputHeight("%d");
-int ShowNeuronsMemory("%d");
+#int ShowNeuronsMemory("%d");
