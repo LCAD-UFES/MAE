@@ -353,6 +353,60 @@ LoadDataToOutput(OUTPUT_DESC *output)
 	//double div_const = 100.0;
 	int sample = SamplePreviousPeriod(g_current_sample);
 
+	double mean_prc[INPUT_WIDTH];
+	double min_prc[INPUT_WIDTH];
+	double max_prc[INPUT_WIDTH];
+
+	for (x = 0; x < x_dimention; x++)
+		mean_prc[x] = 0.0;
+
+	min_prc[0] = data[sample + 1].WIN.mid;
+	min_prc[1] = data[sample + 1].IND.mid;
+	min_prc[2] = data[sample + 1].WDO.mid;
+	min_prc[3] = data[sample + 1].DOL.mid;
+
+	max_prc[0] = data[sample + 1].WIN.mid;
+	max_prc[1] = data[sample + 1].IND.mid;
+	max_prc[2] = data[sample + 1].WDO.mid;
+	max_prc[3] = data[sample + 1].DOL.mid;
+
+	for (y = sample + 1; y < g_current_sample; y++)
+	{
+		if (data[y].WIN.mid < min_prc[0])
+			min_prc[0] = data[y].WIN.mid;
+
+		if (data[y].WIN.mid < min_prc[1])
+			min_prc[1] = data[y].IND.mid;
+
+		if (data[y].WIN.mid < min_prc[2])
+			min_prc[2] = data[y].WDO.mid;
+
+		if (data[y].WIN.mid < min_prc[3])
+			min_prc[3] = data[y].DOL.mid;
+
+		if (data[y].WIN.mid > max_prc[0])
+			max_prc[0] = data[y].WIN.mid;
+
+		if (data[y].WIN.mid > max_prc[1])
+			max_prc[1] = data[y].IND.mid;
+
+		if (data[y].WIN.mid > max_prc[2])
+			max_prc[2] = data[y].WDO.mid;
+
+		if (data[y].WIN.mid > max_prc[3])
+			max_prc[3] = data[y].DOL.mid;
+
+		mean_prc[0] += data[y].WIN.mid;
+		mean_prc[1] += data[y].IND.mid;
+		mean_prc[2] += data[y].WDO.mid;
+		mean_prc[3] += data[y].DOL.mid;
+	}
+
+	for (x = 0; x < x_dimention; x++)
+	{
+		mean_prc[x] /= (g_current_sample - sample - 1);
+	}
+
 	//printf("%02d:%02d:%02d.%03d \n", data[g_sample].time.hour, data[g_sample].time.min, data[g_sample].time.sec, data[g_sample].time.msec);
 	for (y = 0; y < y_dimention; y++)
 	{
@@ -364,7 +418,7 @@ LoadDataToOutput(OUTPUT_DESC *output)
 						data[g_current_sample].WIN.mid;
 
 				//TODO: ta computando o retorno de operacoes long
-				output->neuron_layer->neuron_vector[y * x_dimention + x].output.fval -= data[sample].WIN.mid;
+				output->neuron_layer->neuron_vector[y * x_dimention + x].output.fval -= mean_prc[x];//data[sample].WIN.mid;
 				//output->neuron_layer->neuron_vector[y * x_dimention + x].output.fval /= 1000.0;//*= 1000.0 / data[sample].WIN.mid;
 			}
 			if (x == 1)
@@ -372,7 +426,7 @@ LoadDataToOutput(OUTPUT_DESC *output)
 				output->neuron_layer->neuron_vector[y * x_dimention + x].output.fval =
 						data[g_current_sample].IND.mid;
 
-				output->neuron_layer->neuron_vector[y * x_dimention + x].output.fval -= data[sample].IND.mid;
+				output->neuron_layer->neuron_vector[y * x_dimention + x].output.fval -= mean_prc[x];//data[sample].IND.mid;
 				//output->neuron_layer->neuron_vector[y * x_dimention + x].output.fval /= 1000.0;//*= 1000.0 / data[sample].IND.mid;
 			}
 			if (x == 2)
@@ -380,7 +434,7 @@ LoadDataToOutput(OUTPUT_DESC *output)
 				output->neuron_layer->neuron_vector[y * x_dimention + x].output.fval =
 						data[g_current_sample].WDO.mid;
 
-				output->neuron_layer->neuron_vector[y * x_dimention + x].output.fval -= data[sample].WDO.mid;
+				output->neuron_layer->neuron_vector[y * x_dimention + x].output.fval -= mean_prc[x];//data[sample].WDO.mid;
 				//output->neuron_layer->neuron_vector[y * x_dimention + x].output.fval /= 1000.0;//*= 1000.0 / data[sample].WDO.mid;
 			}
 			if (x == 3)
@@ -388,7 +442,7 @@ LoadDataToOutput(OUTPUT_DESC *output)
 				output->neuron_layer->neuron_vector[y * x_dimention + x].output.fval =
 						data[g_current_sample].DOL.mid;
 
-				output->neuron_layer->neuron_vector[y * x_dimention + x].output.fval -= data[sample].DOL.mid;
+				output->neuron_layer->neuron_vector[y * x_dimention + x].output.fval -= mean_prc[x];//data[sample].DOL.mid;
 				//output->neuron_layer->neuron_vector[y * x_dimention + x].output.fval /= 1000.0;//*= 1000.0 / data[sample].DOL.mid;
 			}
 			//output->neuron_layer->neuron_vector[y * x_dimention + x].output.fval -= g_anchor[x];
@@ -2190,34 +2244,108 @@ GetInputHeight(PARAM_LIST *pParamList)
 	return (output);
 }
 
+void
+prc_plot_curvature(int reset, double prc, int enter, int exit)
+{
+	static FILE *gnuplot_pipe;
+
+	static double y_values[PERIOD];
+	static int x_values[PERIOD];
+	static int i = 0;
+	static int first_time = 1;
+	static int enter_pos = 0;
+	static int exit_pos = 0;
+
+	if (first_time == 1)
+	{
+		first_time = 0;
+		i = 0;
+		gnuplot_pipe = popen("gnuplot -persist", "w"); //("gnuplot -persist", "w") to keep last plot after program closes
+		fprintf(gnuplot_pipe, "set xrange [0:70]\n");
+		fprintf(gnuplot_pipe, "set yrange [-50:50]\n");
+	}
+
+	if (reset == 1)
+	{
+		i = 0;
+		fprintf(gnuplot_pipe, "set xrange [%d:%d]\n", g_current_sample, g_last_sample_exit+1);
+		fprintf(gnuplot_pipe, "set yrange [-50:50]\n");
+		//fprintf(gnuplot_pipe, "set yrange [%d:%d]\n", (int)data[g_current_sample].WIN.mid, (int)data[g_last_sample_exit].WIN.mid);
+	}
+
+	//if (enter == 0 && exit == 0)
+	{
+		y_values[i] = prc;
+		x_values[i] = g_current_sample;
+		i++;
+	}
+	if (enter == 1)
+	{
+		enter_pos = x_values[i-1];
+	}
+	else if (exit == 1)
+	{
+		exit_pos = x_values[i-1];
+	}
+
+	FILE *gnuplot_data_file = fopen("gnuplot_data.txt", "w");
+
+	int k;
+	for (k = 0; k < i; k++)
+		fprintf(gnuplot_data_file, "%d %lf\n", x_values[k], y_values[k]);
+
+	fclose(gnuplot_data_file);
+
+	if (enter == 1)
+	{
+		fprintf(gnuplot_pipe, "unset arrow\nset arrow from %d, %lf to %d, %lf nohead\n", enter_pos, -50.0, enter_pos, 50.0);
+	}
+	if (exit == 1)
+	{
+		fprintf(gnuplot_pipe, "set arrow from %d, %lf to %d, %lf nohead\n", exit_pos, -50.0, exit_pos, 50.0);
+	}
+
+	fprintf(gnuplot_pipe, "plot "
+			"'./gnuplot_data.txt' using 1:2 with lines title 'prc'\n");
+
+	fflush(gnuplot_pipe);
+	usleep(100 * 1000);
+
+	if (exit == 1)
+	{
+		printf("\n");
+		usleep(500 * 1000);
+	}
+}
+
 int choose_best_prediction(void)
 {
-	int i;
+//	int i;
 	int best_i = 0;
 	double pred = g_predction[best_i];
 	//double conf = g_confidence[best_i];
 	//double pred_conf = pred * conf;
 	int ret = 0;
 
-	for (i = 0; i < INPUT_WIDTH; i++)
-	{
-		if (g_LongShort == 1 && g_predction[i] > pred) //LONG
-		//if (g_LongShort == 1 && (g_predction[i] * g_confidence[i]) > pred_conf) //LONG
-		{
-			best_i = i;
-			pred = g_predction[i];
-		}
-
-		if (g_LongShort == 0 && g_predction[i] < pred) //SHORT
-		//if (g_LongShort == 0 && (g_predction[i] * g_confidence[i]) < pred_conf) //SHORT
-		{
-			best_i = i;
-			pred = g_predction[i];
-		}
-	}
-//	pred = g_predction[0];
-//	best_i = 0;
-	printf("best_i=%d pred=%2.lf\n",best_i, pred);
+//	for (i = 0; i < INPUT_WIDTH; i++)
+//	{
+//		if (g_LongShort == 1 && g_predction[i] > pred) //LONG
+//		//if (g_LongShort == 1 && (g_predction[i] * g_confidence[i]) > pred_conf) //LONG
+//		{
+//			best_i = i;
+//			pred = g_predction[i];
+//		}
+//
+//		if (g_LongShort == 0 && g_predction[i] < pred) //SHORT
+//		//if (g_LongShort == 0 && (g_predction[i] * g_confidence[i]) < pred_conf) //SHORT
+//		{
+//			best_i = i;
+//			pred = g_predction[i];
+//		}
+//	}
+	pred = g_predction[0];
+	best_i = 0;
+//	printf("best_i=%d pred=%2.lf\n",best_i, pred);
 
 	if (g_LongShort == 1 && pred > 0 && g_use_confiance == 1 && g_confidence[best_i] >= CERTAINTY) //LONG
 	{
@@ -2238,25 +2366,52 @@ int try_to_enter_operation(void)
 
 	//printf("g_current=%d\n", g_current_sample);
 	if (g_current_sample >= g_last_sample_enter)
+	{
+		prc_plot_curvature(0, 0, 0, 0);
 		return (-1); // estourou o tempo de entrar
+	}
 
 	double current_prc = 0;
+	double previous_prc = 0;
 	double diff_prc = 0;
 
-	if (g_best_stock_pred_i == 0) current_prc = data[g_current_sample].WIN.mid;
-	if (g_best_stock_pred_i == 1) current_prc = data[g_current_sample].IND.mid;
-	if (g_best_stock_pred_i == 2) current_prc = data[g_current_sample].WDO.mid;
-	if (g_best_stock_pred_i == 3) current_prc = data[g_current_sample].DOL.mid;
+	if (g_best_stock_pred_i == 0)
+	{
+		current_prc = data[g_current_sample].WIN.mid;
+		previous_prc = data[g_current_sample - 1].WIN.mid;
+	}
+	if (g_best_stock_pred_i == 1)
+	{
+		current_prc = data[g_current_sample].IND.mid;
+		previous_prc = data[g_current_sample - 1].IND.mid;
+	}
+	if (g_best_stock_pred_i == 2)
+	{
+		current_prc = data[g_current_sample].WDO.mid;
+		previous_prc = data[g_current_sample - 1].WDO.mid;
+	}
+	if (g_best_stock_pred_i == 3)
+	{
+		current_prc = data[g_current_sample].DOL.mid;
+		previous_prc = data[g_current_sample - 1].DOL.mid;
+	}
 
-	diff_prc = current_prc - g_reference_prc_enter;
+	diff_prc = current_prc - previous_prc;//g_reference_prc_enter;
+	//prc_plot_curvature(0, diff_prc, 0, 0);
 
-	//printf("g_current=%d diff_prc=%.2lf\n", g_current_sample, diff_prc);
+	printf("enter g_sample=%d diff_prc=%.2lf current=%.2lf reference=%.2lf\n",
+			g_current_sample, diff_prc, current_prc, previous_prc);
 	if (g_LongShort == 1) //LONG
 	{
 		if (diff_prc > 0)
 		{
 			g_buy_sell_count[0][g_best_stock_pred_i] += 1;
+			prc_plot_curvature(0, diff_prc, 1, 0);
 			return (1);//vou comprar
+		}
+		else
+		{
+			prc_plot_curvature(0, diff_prc, 0, 0);
 		}
 	}
 	else if (g_LongShort == 0)
@@ -2264,7 +2419,12 @@ int try_to_enter_operation(void)
 		if (diff_prc < 0)
 		{
 			g_sell_buy_count[0][g_best_stock_pred_i] += 1;
+			prc_plot_curvature(0, diff_prc, 1, 0);
 			return (1);//vou vender
+		}
+		else
+		{
+			prc_plot_curvature(0, diff_prc, 0, 0);
 		}
 	}
 
@@ -2305,7 +2465,10 @@ int try_to_exit_operation(void)
 	}
 
 	diff_prc = current_prc - g_reference_prc_exit;
+	printf("exit g_sample=%d diff_prc=%.2lf current=%.2lf reference=%.2lf\n",
+			g_current_sample, diff_prc, current_prc, g_reference_prc_exit);
 	delta_capital = diff_prc * qty * point_value;
+	//prc_plot_curvature(0, diff_prc, 0, 0);
 
 	if (g_current_sample >= g_last_sample_exit)
 	{
@@ -2324,22 +2487,43 @@ int try_to_exit_operation(void)
 		else
 			g_capital[0][g_best_stock_pred_i] -= delta_capital; // Estou considerando sempre Venda - Compra
 
+		prc_plot_curvature(0, diff_prc, 0, 1);
 		return (1); // estourou o tempo de sair e deve sair de qualquer jeito
 	}
 
-	if (g_LongShort == 1 && diff_prc > 0 && diff_prc >= 0.7 * g_last_predction[g_best_stock_pred_i]) //LONG
+	if (g_LongShort == 1 && diff_prc > 0 && diff_prc >= 0.5 * g_last_predction[g_best_stock_pred_i]) //LONG
 	{
 		g_capital[0][g_best_stock_pred_i] += delta_capital;
 		g_n_hits[g_best_stock_pred_i] += 1;
+		prc_plot_curvature(0, diff_prc, 0, 1);
 		return (1);//vou comprar
 	}
-	else if (g_LongShort == 0 && diff_prc < 0 && diff_prc <= 0.7 * g_last_predction[g_best_stock_pred_i])
+	else if (g_LongShort == 0 && diff_prc < 0 && diff_prc <= 0.5 * g_last_predction[g_best_stock_pred_i])
 	{
 		g_capital[0][g_best_stock_pred_i] -= delta_capital;
 		g_n_hits[g_best_stock_pred_i] += 1;
+		prc_plot_curvature(0, diff_prc, 0, 1);
 		return (1);//vou vender
 	}
-
+	else
+	{
+		prc_plot_curvature(0, diff_prc, 0, 0);
+	}
+////TODO: Tem que ver como fazer essas constantes
+//	else if (g_LongShort == 1 && diff_prc < 0 && diff_prc <= -0.5 * g_last_predction[g_best_stock_pred_i]) //LONG
+//	{
+//		g_capital[0][g_best_stock_pred_i] += delta_capital;
+//		g_n_miss[g_best_stock_pred_i] += 1;
+//		prc_plot_curvature(0, diff_prc, 0, 1);
+//		return (1);//vou comprar
+//	}
+//	else if (g_LongShort == 0 && diff_prc > 0 && diff_prc >= -0.5 * g_last_predction[g_best_stock_pred_i])
+//	{
+//		g_capital[0][g_best_stock_pred_i] -= delta_capital;
+//		g_n_miss[g_best_stock_pred_i] += 1;
+//		prc_plot_curvature(0, diff_prc, 0, 1);
+//		return (1);//vou vender
+//	}
 	return 0;
 }
 
@@ -2415,8 +2599,9 @@ trading_state_machine(int loaded)
 				if (has_time == 1)
 				{
 					state = TRY_TO_ENTER;
-					printf("best_i=%d ref_prc_enter=%.2lf s_enter=%d s_exit=%d s_current=%d \n",
-							g_best_stock_pred_i, g_reference_prc_enter, g_last_sample_enter, g_last_sample_exit, g_current_sample);
+					prc_plot_curvature(1, 0, 0, 0);
+					//printf("best_i=%d ref_prc_enter=%.2lf s_enter=%d s_exit=%d s_current=%d \n",
+					//		g_best_stock_pred_i, g_reference_prc_enter, g_last_sample_enter, g_last_sample_exit, g_current_sample);
 				}
 				else
 				{
@@ -2425,7 +2610,7 @@ trading_state_machine(int loaded)
 			}
 			else
 			{
-				printf("pred neg\n");
+				//printf("pred neg\n");
 				state = END;
 				change_state = 1;
 			}
@@ -2444,11 +2629,11 @@ trading_state_machine(int loaded)
 			g_n_ops[g_best_stock_pred_i] += 1;
 			state = TRY_TO_EXIT;
 			change_state = 1;
-			printf("g_reference_prc_exit=%.2lf\n", g_reference_prc_exit);
+			//printf("g_reference_prc_exit=%.2lf\n", g_reference_prc_exit);
 		}
 		if (entered == -1)
 		{
-			printf("NAO ENTROU\n\n");
+			//printf("NAO ENTROU\n\n");
 			//TODO: Acertar os g_current_sample e last_sample
 			state = END;
 			change_state = 1;
@@ -2471,7 +2656,9 @@ trading_state_machine(int loaded)
 		change_state = 1;
 	}
 	if (change_state == 1)
+	{
 		g_current_state = state;
+	}
 }
 
 /*

@@ -82,7 +82,7 @@ while ( day_i < N_DAYS )
 			copy out_test;
 			paste out_prediction;
 	
-			ShowStatistics(0);
+			#ShowStatistics(0);
 			train network;
 		}
 		
@@ -90,6 +90,7 @@ while ( day_i < N_DAYS )
 		
 		tick = TimeToTest(0);
 		#print("test=", tick);
+		#pause;
 	}
 	PrintCapital(0);
 	
@@ -100,6 +101,6 @@ while ( day_i < N_DAYS )
 	ShowStatisticsExp(0);
 }
 
-#MeanStatisticsExp(0);
+MeanStatisticsExp(0);
 
 #quit;
