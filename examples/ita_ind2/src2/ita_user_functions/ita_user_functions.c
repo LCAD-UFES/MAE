@@ -162,12 +162,12 @@ char *gcc_no_complain_c;
 int g_results[2][MAX_DATA_SAMPLES][INPUT_WIDTH][13];
 int g_buy_sell_count[2][INPUT_WIDTH];
 int g_sell_buy_count[2][INPUT_WIDTH];
-double g_capital[2][INPUT_WIDTH];
+double g_capital[2][INPUT_WIDTH+1];
 double g_mean_correct_positive_pred[2][INPUT_WIDTH], g_mean_correct_negative_pred[2][INPUT_WIDTH];
 double g_mean_reverse_positive_pred[2][INPUT_WIDTH], g_mean_reverse_negative_pred[2][INPUT_WIDTH];
 
 double g_confidence_up[2][INPUT_WIDTH], g_confidence_down[2][INPUT_WIDTH];
-int g_use_confiance = ! USE_STATISTICS;
+//int g_use_confiance = ! USE_STATISTICS;
 
 char days_file_name[257];
 
@@ -972,204 +972,204 @@ compute_prediction_statistics(int net, int n_stocks, OUTPUT_DESC *neural_predict
 	}
 }
 
-double
-compute_operation(int op_type, int stock)
-{
-	double r = 0;
-
-	double prc_buy = 0;
-	double prc_sell = 0;
-	int sample, sample_buy, sample_sell;
-
-	sample = SamplePreviousPeriod(g_sample);
-
-	if (op_type == 0)// Long
-	{
-		sample_buy = sample;
-		sample_sell = g_sample;
-	}
-	else
-	{
-		sample_buy = g_sample;
-		sample_sell = sample;
-	}
-
-	if (stock == 0) // win
-	{
-		prc_buy = data[sample_buy].WIN.buy;
-		prc_sell = data[sample_sell].WIN.sell;
-	}
-	else if (stock == 1) // ind
-	{
-		prc_buy = data[sample_buy].IND.buy;
-		prc_sell = data[sample_sell].IND.sell;
-	}
-	if (stock == 2) // wdo
-	{
-		prc_buy = data[sample_buy].WDO.buy;
-		prc_sell = data[sample_sell].WDO.sell;
-	}
-	if (stock == 3) // dol
-	{
-		prc_buy = data[sample_buy].DOL.buy;
-		prc_sell = data[sample_sell].DOL.sell;
-	}
-
-	r = (prc_sell - prc_buy);
-	return r;
-}
-
-double
-compute_operation_mid(int op_type, int stock)
-{
-	double r = 0;
-
-	double prc_buy = 0;
-	double prc_sell = 0;
-	int sample, sample_buy, sample_sell;
-
-	sample = SamplePreviousPeriod(g_sample);
-
-	if (op_type == 0)// Long
-	{
-		sample_buy = sample;
-		sample_sell = g_sample;
-	}
-	else
-	{
-		sample_buy = g_sample;
-		sample_sell = sample;
-	}
-
-	if (stock == 0) // win
-	{
-		prc_buy = data[sample_buy].WIN.mid;
-		prc_sell = data[sample_sell].WIN.mid;
-	}
-	else if (stock == 1) // ind
-	{
-		prc_buy = data[sample_buy].IND.mid;
-		prc_sell = data[sample_sell].IND.mid;
-	}
-	if (stock == 2) // wdo
-	{
-		prc_buy = data[sample_buy].WDO.mid;
-		prc_sell = data[sample_sell].WDO.mid;
-	}
-	if (stock == 3) // dol
-	{
-		prc_buy = data[sample_buy].DOL.mid;
-		prc_sell = data[sample_sell].DOL.mid;
-	}
-
-	r = (prc_sell - prc_buy);
-	return r;
-}
-
-void
-compute_capital_evolution(int net, int n, OUTPUT_DESC *neural_prediction, OUTPUT_DESC *actual_result)
-{
-	int i;
-
-	for (i = 0; i < n; i++)
-	{
-		int s1;
-		double r = GetNeuronsOutput(neural_prediction, i);
-		s1 = signal_of_val(r);
-		GetNeuronsOutputConfidence(neural_prediction, i);
-
-		double a_capital = 1.0;//ALAVANCAGEM * g_capital[net][i];
-
-		double expected_result_buy_sell = r * a_capital -
-				CUSTO_TRASACAO * (2.0 * a_capital + r * a_capital) - 2.0 * CUSTO_CORRETORA_P;
-		double expected_result_sell_buy = -r * a_capital -
-				CUSTO_TRASACAO * (2.0 * a_capital - r * a_capital) - 2.0 * CUSTO_CORRETORA_P;
-
-		double result_buy_sell = 0.0;
-		double result_sell_buy = 0.0;
-
-		if (USE_SPREAD == 0)
-		{
-			r = GetNeuronsOutput(actual_result, i);
-			//r = compute_operation_mid(0, i);
-		}
-		else
-		{
-			if (g_LongShort == 1) r = compute_operation(0, i);
-			else r = compute_operation(1, i);
-		}
-		/*
-		result_buy_sell = r * a_capital -
-				CUSTO_TRASACAO * (2.0 * a_capital + r * a_capital) - 2.0 * CUSTO_CORRETORA_P;
-		result_sell_buy = -r * a_capital -
-				CUSTO_TRASACAO * (2.0 * a_capital - r * a_capital) - 2.0 * CUSTO_CORRETORA_P;
-		*/
-		double point_value = 0.0;
-		int qty = 0;
-
-		if (i == 0)
-		{
-			point_value = WIN_POINT_VALUE;
-			qty = WIN_QTY;
-		}
-		if (i == 1)
-		{
-			point_value = IND_POINT_VALUE;
-			qty = IND_QTY;
-		}
-		if (i == 2)
-		{
-			point_value = WDO_POINT_VALUE;
-			qty = WDO_QTY;
-		}
-		if (i == 3)
-		{
-			point_value = DOL_POINT_VALUE;
-			qty = DOL_QTY;
-		}
-
-		result_buy_sell = r * point_value * qty * ALAVANCAGEM;
-		result_sell_buy = r * point_value * qty * ALAVANCAGEM;
-
-		//printf("%d\n", g_use_confiance);
-		if (g_LongShort == 1)
-		{
-			if ( ( (s1 == 0) && (expected_result_buy_sell > 0.0) && (g_confidence_up[net][i] > CERTAINTY) && (g_use_confiance == 1) ) ||
-				 ( g_runing_sum_size > 0 && (s1 == 0) && (expected_result_buy_sell > 0.0) && (g_mean_correct_positive_pred[net][i] > CERTAINTY) && (g_use_confiance == 0) ) ||
-				 ( g_runing_sum_size == 0 && (s1 == 0) && (expected_result_buy_sell > 0.0) ) 
-				)
-			{
-				double previous_capital = g_capital[net][i];
-				g_capital[net][i] += result_buy_sell;
-				if (g_capital[net][i] > previous_capital)
-					g_results[net][g_sample_statistics-1][i][HITS] += 1;
-
-				g_buy_sell_count[net][i] += 1;
-				g_results[net][g_sample_statistics-1][i][INVEST] = 1;
-			}
-			else
-				g_results[net][g_sample_statistics-1][i][INVEST] = 0;
-		}
-		else
-		{
-			if ( ( (s1 == 1) && (expected_result_sell_buy > 0.0) && (g_confidence_up[net][i] > CERTAINTY) && (g_use_confiance == 1) ) ||
-				 ( g_runing_sum_size > 0 &&  (s1 == 1) && (expected_result_sell_buy > 0.0) && (g_mean_correct_negative_pred[net][i] > CERTAINTY) && (g_use_confiance == 0) ) ||
-				 ( g_runing_sum_size == 0 && (s1 == 0) && (expected_result_sell_buy > 0.0) )
-				)
-			{
-				double previous_capital = g_capital[net][i];
-				g_capital[net][i] += result_sell_buy;
-				if (g_capital[net][i] > previous_capital)
-					g_results[net][g_sample_statistics-1][i][HITS] += 1;
-
-				g_sell_buy_count[net][i] += 1;
-				g_results[net][g_sample_statistics-1][i][INVEST] = 1;
-			}
-			else
-				g_results[net][g_sample_statistics-1][i][INVEST] = 0;
-		}
-	}
-}
+//double
+//compute_operation(int op_type, int stock)
+//{
+//	double r = 0;
+//
+//	double prc_buy = 0;
+//	double prc_sell = 0;
+//	int sample, sample_buy, sample_sell;
+//
+//	sample = SamplePreviousPeriod(g_sample);
+//
+//	if (op_type == 0)// Long
+//	{
+//		sample_buy = sample;
+//		sample_sell = g_sample;
+//	}
+//	else
+//	{
+//		sample_buy = g_sample;
+//		sample_sell = sample;
+//	}
+//
+//	if (stock == 0) // win
+//	{
+//		prc_buy = data[sample_buy].WIN.buy;
+//		prc_sell = data[sample_sell].WIN.sell;
+//	}
+//	else if (stock == 1) // ind
+//	{
+//		prc_buy = data[sample_buy].IND.buy;
+//		prc_sell = data[sample_sell].IND.sell;
+//	}
+//	if (stock == 2) // wdo
+//	{
+//		prc_buy = data[sample_buy].WDO.buy;
+//		prc_sell = data[sample_sell].WDO.sell;
+//	}
+//	if (stock == 3) // dol
+//	{
+//		prc_buy = data[sample_buy].DOL.buy;
+//		prc_sell = data[sample_sell].DOL.sell;
+//	}
+//
+//	r = (prc_sell - prc_buy);
+//	return r;
+//}
+//
+//double
+//compute_operation_mid(int op_type, int stock)
+//{
+//	double r = 0;
+//
+//	double prc_buy = 0;
+//	double prc_sell = 0;
+//	int sample, sample_buy, sample_sell;
+//
+//	sample = SamplePreviousPeriod(g_sample);
+//
+//	if (op_type == 0)// Long
+//	{
+//		sample_buy = sample;
+//		sample_sell = g_sample;
+//	}
+//	else
+//	{
+//		sample_buy = g_sample;
+//		sample_sell = sample;
+//	}
+//
+//	if (stock == 0) // win
+//	{
+//		prc_buy = data[sample_buy].WIN.mid;
+//		prc_sell = data[sample_sell].WIN.mid;
+//	}
+//	else if (stock == 1) // ind
+//	{
+//		prc_buy = data[sample_buy].IND.mid;
+//		prc_sell = data[sample_sell].IND.mid;
+//	}
+//	if (stock == 2) // wdo
+//	{
+//		prc_buy = data[sample_buy].WDO.mid;
+//		prc_sell = data[sample_sell].WDO.mid;
+//	}
+//	if (stock == 3) // dol
+//	{
+//		prc_buy = data[sample_buy].DOL.mid;
+//		prc_sell = data[sample_sell].DOL.mid;
+//	}
+//
+//	r = (prc_sell - prc_buy);
+//	return r;
+//}
+//
+//void
+//compute_capital_evolution(int net, int n, OUTPUT_DESC *neural_prediction, OUTPUT_DESC *actual_result)
+//{
+//	int i;
+//
+//	for (i = 0; i < n; i++)
+//	{
+//		int s1;
+//		double r = GetNeuronsOutput(neural_prediction, i);
+//		s1 = signal_of_val(r);
+//		GetNeuronsOutputConfidence(neural_prediction, i);
+//
+//		double a_capital = 1.0;//ALAVANCAGEM * g_capital[net][i];
+//
+//		double expected_result_buy_sell = r * a_capital -
+//				CUSTO_TRASACAO * (2.0 * a_capital + r * a_capital) - 2.0 * CUSTO_CORRETORA_P;
+//		double expected_result_sell_buy = -r * a_capital -
+//				CUSTO_TRASACAO * (2.0 * a_capital - r * a_capital) - 2.0 * CUSTO_CORRETORA_P;
+//
+//		double result_buy_sell = 0.0;
+//		double result_sell_buy = 0.0;
+//
+//		if (USE_SPREAD == 0)
+//		{
+//			r = GetNeuronsOutput(actual_result, i);
+//			//r = compute_operation_mid(0, i);
+//		}
+//		else
+//		{
+//			if (g_LongShort == 1) r = compute_operation(0, i);
+//			else r = compute_operation(1, i);
+//		}
+//		/*
+//		result_buy_sell = r * a_capital -
+//				CUSTO_TRASACAO * (2.0 * a_capital + r * a_capital) - 2.0 * CUSTO_CORRETORA_P;
+//		result_sell_buy = -r * a_capital -
+//				CUSTO_TRASACAO * (2.0 * a_capital - r * a_capital) - 2.0 * CUSTO_CORRETORA_P;
+//		*/
+//		double point_value = 0.0;
+//		int qty = 0;
+//
+//		if (i == 0)
+//		{
+//			point_value = WIN_POINT_VALUE;
+//			qty = WIN_QTY;
+//		}
+//		if (i == 1)
+//		{
+//			point_value = IND_POINT_VALUE;
+//			qty = IND_QTY;
+//		}
+//		if (i == 2)
+//		{
+//			point_value = WDO_POINT_VALUE;
+//			qty = WDO_QTY;
+//		}
+//		if (i == 3)
+//		{
+//			point_value = DOL_POINT_VALUE;
+//			qty = DOL_QTY;
+//		}
+//
+//		result_buy_sell = r * point_value * qty * ALAVANCAGEM;
+//		result_sell_buy = r * point_value * qty * ALAVANCAGEM;
+//
+//		//printf("%d\n", g_use_confiance);
+//		if (g_LongShort == 1)
+//		{
+//			if ( ( (s1 == 0) && (expected_result_buy_sell > 0.0) && (g_confidence_up[net][i] > CERTAINTY) && (g_use_confiance == 1) ) ||
+//				 ( g_runing_sum_size > 0 && (s1 == 0) && (expected_result_buy_sell > 0.0) && (g_mean_correct_positive_pred[net][i] > CERTAINTY) && (g_use_confiance == 0) ) ||
+//				 ( g_runing_sum_size == 0 && (s1 == 0) && (expected_result_buy_sell > 0.0) )
+//				)
+//			{
+//				double previous_capital = g_capital[net][i];
+//				g_capital[net][i] += result_buy_sell;
+//				if (g_capital[net][i] > previous_capital)
+//					g_results[net][g_sample_statistics-1][i][HITS] += 1;
+//
+//				g_buy_sell_count[net][i] += 1;
+//				g_results[net][g_sample_statistics-1][i][INVEST] = 1;
+//			}
+//			else
+//				g_results[net][g_sample_statistics-1][i][INVEST] = 0;
+//		}
+//		else
+//		{
+//			if ( ( (s1 == 1) && (expected_result_sell_buy > 0.0) && (g_confidence_up[net][i] > CERTAINTY) && (g_use_confiance == 1) ) ||
+//				 ( g_runing_sum_size > 0 &&  (s1 == 1) && (expected_result_sell_buy > 0.0) && (g_mean_correct_negative_pred[net][i] > CERTAINTY) && (g_use_confiance == 0) ) ||
+//				 ( g_runing_sum_size == 0 && (s1 == 0) && (expected_result_sell_buy > 0.0) )
+//				)
+//			{
+//				double previous_capital = g_capital[net][i];
+//				g_capital[net][i] += result_sell_buy;
+//				if (g_capital[net][i] > previous_capital)
+//					g_results[net][g_sample_statistics-1][i][HITS] += 1;
+//
+//				g_sell_buy_count[net][i] += 1;
+//				g_results[net][g_sample_statistics-1][i][INVEST] = 1;
+//			}
+//			else
+//				g_results[net][g_sample_statistics-1][i][INVEST] = 0;
+//		}
+//	}
+//}
 
 
 int
@@ -1194,7 +1194,7 @@ buy_or_sell(int net, int stock, double *neural_prediction)
 
 
 int
-copy_neural_prediction(OUTPUT_DESC *output)
+copy_neural_prediction_confidence(OUTPUT_DESC *output)
 {
 	int i;
 	for (i = 0; i < INPUT_WIDTH; i++)
@@ -1205,11 +1205,15 @@ copy_neural_prediction(OUTPUT_DESC *output)
 		GetNeuronsOutputConfidence(output, i);
 		if (g_LongShort == 1) //LONG
 		{
-			g_confidence[i] = g_confidence_up[0][i];
+			     if (CONFIANCE_MODE == 0) g_confidence[i] = g_mean_correct_positive_pred[0][i];
+			else if (CONFIANCE_MODE == 1) g_confidence[i] = g_confidence_up[0][i];
+			else if (CONFIANCE_MODE == 2) g_confidence[i] = g_confidence_up[0][i] * g_mean_correct_positive_pred[0][i] / 100.0;
 		}
 		else //SHORT
 		{
-			g_confidence[i] = g_confidence_down[0][i];
+			     if (CONFIANCE_MODE == 0) g_confidence[i] = g_mean_correct_negative_pred[0][i];
+			else if (CONFIANCE_MODE == 1) g_confidence[i] = g_confidence_down[0][i];
+			else if	(CONFIANCE_MODE == 2) g_confidence[i] = g_confidence_down[0][i] * g_mean_correct_negative_pred[0][i] / 100.0;
 		}
 
 	}
@@ -1235,10 +1239,11 @@ EvaluateOutput(OUTPUT_DESC *output)
 	actual_result = get_output_by_name("out_test");
 	read_current_desired_returns_to_output(actual_result);
 
-	copy_neural_prediction(output);
-
 	int n_stocks = output->ww;
 	compute_prediction_statistics(0, n_stocks, output, actual_result);
+
+	copy_neural_prediction_confidence(output);
+
 	//if (g_nStatus == TEST_PHASE)
 	//	compute_capital_evolution(0, n_stocks, output, actual_result);
 }
@@ -1790,6 +1795,8 @@ ResetStatistics(PARAM_LIST *pParamList)
 		g_last_predction[j] = 0.0;
 		g_confidence[j] = 0.0;
 	}
+	g_capital[0][INPUT_WIDTH] = 125000.0;
+	g_capital[1][INPUT_WIDTH] = 125000.0;
 
 	g_sample = POSE_MIN = 0; // ita.wh;
 	g_sample_statistics = 0;
@@ -2255,6 +2262,46 @@ GetInputHeight(PARAM_LIST *pParamList)
 }
 
 void
+capital_plot_curvature(void)
+{
+	static FILE *gnuplot_pipe;
+
+	static double y_values[MAX_DATA_SAMPLES/(PERIOD * N_EXIT_PERIODS) + 1];
+	static int x_values[MAX_DATA_SAMPLES/(PERIOD * N_EXIT_PERIODS) + 1];
+	static int i = 0;
+	static int first_time = 1;
+
+	if (first_time == 1)
+	{
+		first_time = 0;
+		gnuplot_pipe = popen("gnuplot -persist", "w"); //("gnuplot -persist", "w") to keep last plot after program closes
+		fprintf(gnuplot_pipe, "set autoscale\n");
+		//fprintf(gnuplot_pipe, "set xrange [%d:%d]\n", 0, MAX_DATA_SAMPLES/(PERIOD * N_EXIT_PERIODS) + 1);
+		//fprintf(gnuplot_pipe, "set yrange [-10000.0:10000.0]\n");
+	}
+
+	// save values
+	y_values[i] = g_capital[0][INPUT_WIDTH];// - 125000.0;
+	x_values[i] = i;
+	i++;
+
+	FILE *gnuplot_data_file = fopen("gnuplot_data.txt", "w");
+	int k;
+	for (k = 0; k < i; k++)
+		fprintf(gnuplot_data_file, "%d %lf\n", x_values[k], y_values[k]);
+
+	fclose(gnuplot_data_file);
+
+	fprintf(gnuplot_pipe, "plot "
+			"'./gnuplot_data.txt' using 1:2 with lines title 'CAPITAL'\n");
+
+	fflush(gnuplot_pipe);
+
+	// sleep 100ms to update graph
+	usleep(100 * 1000);
+}
+
+void
 prc_plot_curvature(int reset, double prc, int enter, int exit, int exited)
 {
 	static FILE *gnuplot_pipe;
@@ -2271,8 +2318,8 @@ prc_plot_curvature(int reset, double prc, int enter, int exit, int exited)
 	char symbol[256];
 	if (g_best_stock_pred_i == 0) sprintf(symbol,"WIN");
 	if (g_best_stock_pred_i == 1) sprintf(symbol,"IND");
-	if (g_best_stock_pred_i == 2) { sprintf(symbol,"WDO"); div_value = 10.0; }
-	if (g_best_stock_pred_i == 3) { sprintf(symbol,"DOL"); div_value = 10.0; }
+	if (g_best_stock_pred_i == 2) { sprintf(symbol,"WDO"); div_value = 12.5; }
+	if (g_best_stock_pred_i == 3) { sprintf(symbol,"DOL"); div_value = 12.5; }
 
 	if (first_time == 1)
 	{
@@ -2284,7 +2331,7 @@ prc_plot_curvature(int reset, double prc, int enter, int exit, int exited)
 	{
 		i = 0;
 		fprintf(gnuplot_pipe, "set xrange [%d:%d]\n", g_current_sample, g_last_sample_exit + 1);
-		fprintf(gnuplot_pipe, "set yrange [-50.0/%lf:50.0/%lf]\n", div_value, div_value);
+		fprintf(gnuplot_pipe, "set yrange [-100.0/%lf:100.0/%lf]\n", div_value, div_value);
 	}
 
 	// save values
@@ -2329,7 +2376,6 @@ int choose_best_prediction(void)
 {
 	int best_i = 0;
 	double pred = g_predction[best_i];
-	//double conf = g_confidence[best_i];
 	//double pred_conf = pred * conf;
 	int ret = 0;
 
@@ -2354,18 +2400,179 @@ int choose_best_prediction(void)
 //	best_i = 0;
 //	printf("best_i=%d pred=%2.lf\n",best_i, pred);
 
-	if (g_LongShort == 1 && pred > 0 && g_use_confiance == 1 && g_confidence[best_i] >= CERTAINTY) //LONG
+	if (g_LongShort == 1 && pred > 0 /*&& g_use_confiance == 1*/ && g_confidence[best_i] >= CERTAINTY) //LONG
 	{
+		//printf("best_i=%d conf_vector[best_i]=%.2lf\n\n", best_i, g_confidence[best_i]);
 		g_best_stock_pred_i = best_i;
 		ret = 1;
 	}
-	if (g_LongShort == 0 && pred < 0 && g_use_confiance == 1 && g_confidence[best_i] >= CERTAINTY) //SHORT
+	if (g_LongShort == 0 && pred < 0 /*&& g_use_confiance == 1*/ && g_confidence[best_i] >= CERTAINTY) //SHORT
 	{
 		g_best_stock_pred_i = best_i;
 		ret = 1;
 	}
 
 	return ret;
+}
+
+int get_symbol_values(int symbol, int side, double *current_prc, double *previous_prc, int *qty, double *pt_value)
+{
+	double c_prc = 0;
+	double p_prc = 0;
+	int q = 0;
+	double pt_v = 0;
+
+	if (symbol == 0)
+	{
+		if (USE_SPREAD == 0)
+		{
+			c_prc = data[g_current_sample].WIN.mid;
+			p_prc = data[g_current_sample - 1].WIN.mid;
+		}
+		else if (g_LongShort == 1)
+		{
+			if (side == 1)//ENTER
+			{
+				c_prc = data[g_current_sample].WIN.buy;
+				p_prc = data[g_current_sample - 1].WIN.buy;
+			}
+			else
+			{
+				c_prc = data[g_current_sample].WIN.sell;
+				p_prc = data[g_current_sample - 1].WIN.sell;
+			}
+		}
+		else
+		{
+			if (side == 1)//ENTER
+			{
+				c_prc = data[g_current_sample].WIN.sell;
+				p_prc = data[g_current_sample - 1].WIN.sell;
+			}
+			else
+			{
+				c_prc = data[g_current_sample].WIN.buy;
+				p_prc = data[g_current_sample - 1].WIN.buy;
+			}
+		}
+		q = WIN_QTY;
+		pt_v = WIN_POINT_VALUE;
+	}
+	else if (symbol == 1)
+	{
+		if (USE_SPREAD == 0)
+		{
+			c_prc = data[g_current_sample].IND.mid;
+			p_prc = data[g_current_sample - 1].IND.mid;
+		}
+		else if (g_LongShort == 1)
+		{
+			if (side == 1)//ENTER
+			{
+				c_prc = data[g_current_sample].IND.buy;
+				p_prc = data[g_current_sample - 1].IND.buy;
+			}
+			else
+			{
+				c_prc = data[g_current_sample].IND.sell;
+				p_prc = data[g_current_sample - 1].IND.sell;
+			}
+		}
+		else
+		{
+			if (side == 1)//ENTER
+			{
+				c_prc = data[g_current_sample].IND.sell;
+				p_prc = data[g_current_sample - 1].IND.sell;
+			}
+			else
+			{
+				c_prc = data[g_current_sample].IND.buy;
+				p_prc = data[g_current_sample - 1].IND.buy;
+			}
+		}
+		q = IND_QTY;
+		pt_v = IND_POINT_VALUE;
+	}
+	else if (symbol == 2)
+	{
+		if (USE_SPREAD == 0)
+		{
+			c_prc = data[g_current_sample].WDO.mid;
+			p_prc = data[g_current_sample - 1].WDO.mid;
+		}
+		else if (g_LongShort == 1)
+		{
+			if (side == 1)//ENTER
+			{
+				c_prc = data[g_current_sample].WDO.buy;
+				p_prc = data[g_current_sample - 1].WDO.buy;
+			}
+			else
+			{
+				c_prc = data[g_current_sample].WDO.sell;
+				p_prc = data[g_current_sample - 1].WDO.sell;
+			}
+		}
+		else
+		{
+			if (side == 1)//ENTER
+			{
+				c_prc = data[g_current_sample].WDO.sell;
+				p_prc = data[g_current_sample - 1].WDO.sell;
+			}
+			else
+			{
+				c_prc = data[g_current_sample].WDO.buy;
+				p_prc = data[g_current_sample - 1].WDO.buy;
+			}
+		}
+		q = WDO_QTY;
+		pt_v = WDO_POINT_VALUE;
+	}
+	else if (symbol == 3)
+	{
+		if (USE_SPREAD == 0)
+		{
+			c_prc = data[g_current_sample].DOL.mid;
+			p_prc = data[g_current_sample - 1].DOL.mid;
+		}
+		else if (g_LongShort == 1)
+		{
+			if (side == 1)//ENTER
+			{
+				c_prc = data[g_current_sample].DOL.buy;
+				p_prc = data[g_current_sample - 1].DOL.buy;
+			}
+			else
+			{
+				c_prc = data[g_current_sample].DOL.sell;
+				p_prc = data[g_current_sample - 1].DOL.sell;
+			}
+		}
+		else
+		{
+			if (side == 1)//ENTER
+			{
+				c_prc = data[g_current_sample].DOL.sell;
+				p_prc = data[g_current_sample - 1].DOL.sell;
+			}
+			else
+			{
+				c_prc = data[g_current_sample].DOL.buy;
+				p_prc = data[g_current_sample - 1].DOL.buy;
+			}
+		}
+		q = DOL_QTY;
+		pt_v = DOL_POINT_VALUE;
+	}
+
+	if (current_prc  != NULL) *current_prc = c_prc;
+	if (previous_prc != NULL) *previous_prc = p_prc;
+	if (qty 		 != NULL) *qty = q;
+	if (pt_value 	 != NULL) *pt_value = pt_v;
+
+	return (0);
 }
 
 int try_to_enter_operation(void)
@@ -2379,26 +2586,27 @@ int try_to_enter_operation(void)
 	double previous_prc = 0;
 	double diff_prc = 0;
 
-	if (g_best_stock_pred_i == 0)
-	{
-		current_prc = data[g_current_sample].WIN.mid;
-		previous_prc = data[g_current_sample - 1].WIN.mid;
-	}
-	if (g_best_stock_pred_i == 1)
-	{
-		current_prc = data[g_current_sample].IND.mid;
-		previous_prc = data[g_current_sample - 1].IND.mid;
-	}
-	if (g_best_stock_pred_i == 2)
-	{
-		current_prc = data[g_current_sample].WDO.mid;
-		previous_prc = data[g_current_sample - 1].WDO.mid;
-	}
-	if (g_best_stock_pred_i == 3)
-	{
-		current_prc = data[g_current_sample].DOL.mid;
-		previous_prc = data[g_current_sample - 1].DOL.mid;
-	}
+//	if (g_best_stock_pred_i == 0)
+//	{
+//		current_prc = data[g_current_sample].WIN.mid;
+//		previous_prc = data[g_current_sample - 1].WIN.mid;
+//	}
+//	if (g_best_stock_pred_i == 1)
+//	{
+//		current_prc = data[g_current_sample].IND.mid;
+//		previous_prc = data[g_current_sample - 1].IND.mid;
+//	}
+//	if (g_best_stock_pred_i == 2)
+//	{
+//		current_prc = data[g_current_sample].WDO.mid;
+//		previous_prc = data[g_current_sample - 1].WDO.mid;
+//	}
+//	if (g_best_stock_pred_i == 3)
+//	{
+//		current_prc = data[g_current_sample].DOL.mid;
+//		previous_prc = data[g_current_sample - 1].DOL.mid;
+//	}
+	get_symbol_values(g_best_stock_pred_i, 1, &current_prc, &previous_prc, NULL, NULL);
 
 	diff_prc = current_prc - previous_prc;
 
@@ -2422,45 +2630,83 @@ int try_to_enter_operation(void)
 	return 0;
 }
 
+int compute_capital_evolution_st(double ret_prc, double ret_capital)
+{
+	if (g_LongShort == 1 && ret_prc > 0)
+	{
+		g_n_hits[g_best_stock_pred_i] += 1;
+		g_results[0][g_sample_statistics - 1][g_best_stock_pred_i][HITS] += 1;
+	}
+	else if (g_LongShort == 1 && ret_prc <= 0)
+	{
+		g_n_miss[g_best_stock_pred_i] += 1;
+	}
+
+	if (g_LongShort == 0 && ret_prc < 0)
+	{
+		g_n_hits[g_best_stock_pred_i] += 1;
+		g_results[0][g_sample_statistics - 1][g_best_stock_pred_i][HITS] += 1;
+	}
+	else if (g_LongShort == 0 && ret_prc >= 0)
+	{
+		g_n_miss[g_best_stock_pred_i] += 1;
+	}
+
+	if (g_LongShort == 1)
+	{
+		g_capital[0][g_best_stock_pred_i] += ret_capital;
+		g_capital[0][INPUT_WIDTH] += ret_capital;
+	}
+	else
+	{
+		g_capital[0][g_best_stock_pred_i] -= ret_capital;
+		g_capital[0][INPUT_WIDTH] -= ret_capital;
+	}
+
+	return (0);
+}
+
 int try_to_exit_operation(void)
 {
 	double current_prc = 0;
 	double previous_prc = 0;
 	double ret_prc = 0; // Return in pts
-	double qty = 0;
+	int qty = 0;
 	double point_value = 0;
 	double ret_capital = 0;
 
 	static int exit_enable = 0;
 
-	if (g_best_stock_pred_i == 0)
-	{
-		current_prc = data[g_current_sample].WIN.mid;
-		previous_prc = data[g_current_sample - 1].WIN.mid;
-		qty = WIN_QTY;
-		point_value = WIN_POINT_VALUE;
-	}
-	if (g_best_stock_pred_i == 1)
-	{
-		current_prc = data[g_current_sample].IND.mid;
-		previous_prc = data[g_current_sample - 1].IND.mid;
-		qty = IND_QTY;
-		point_value = IND_POINT_VALUE;
-	}
-	if (g_best_stock_pred_i == 2)
-	{
-		current_prc = data[g_current_sample].WDO.mid;
-		previous_prc = data[g_current_sample - 1].WDO.mid;
-		qty = WDO_QTY;
-		point_value = WDO_POINT_VALUE;
-	}
-	if (g_best_stock_pred_i == 3)
-	{
-		current_prc = data[g_current_sample].DOL.mid;
-		previous_prc = data[g_current_sample - 1].DOL.mid;
-		qty = DOL_QTY;
-		point_value = DOL_POINT_VALUE;
-	}
+//	if (g_best_stock_pred_i == 0)
+//	{
+//		current_prc = data[g_current_sample].WIN.mid;
+//		previous_prc = data[g_current_sample - 1].WIN.mid;
+//		qty = WIN_QTY;
+//		point_value = WIN_POINT_VALUE;
+//	}
+//	if (g_best_stock_pred_i == 1)
+//	{
+//		current_prc = data[g_current_sample].IND.mid;
+//		previous_prc = data[g_current_sample - 1].IND.mid;
+//		qty = IND_QTY;
+//		point_value = IND_POINT_VALUE;
+//	}
+//	if (g_best_stock_pred_i == 2)
+//	{
+//		current_prc = data[g_current_sample].WDO.mid;
+//		previous_prc = data[g_current_sample - 1].WDO.mid;
+//		qty = WDO_QTY;
+//		point_value = WDO_POINT_VALUE;
+//	}
+//	if (g_best_stock_pred_i == 3)
+//	{
+//		current_prc = data[g_current_sample].DOL.mid;
+//		previous_prc = data[g_current_sample - 1].DOL.mid;
+//		qty = DOL_QTY;
+//		point_value = DOL_POINT_VALUE;
+//	}
+
+	get_symbol_values(g_best_stock_pred_i, 2, &current_prc, &previous_prc, &qty, &point_value);
 
 	ret_prc = current_prc - g_reference_prc_exit;
 	ret_capital = ret_prc * qty * point_value;
@@ -2470,30 +2716,14 @@ int try_to_exit_operation(void)
 		double diff_prc = current_prc - previous_prc;
 		if (g_LongShort == 1 && diff_prc <= 0) // Comecou a cair
 		{
-			if (ret_prc > 0)
-			{
-				g_n_hits[g_best_stock_pred_i] += 1;
-			}
-			else
-			{
-				g_n_miss[g_best_stock_pred_i] += 1;
-			}
+			compute_capital_evolution_st(ret_prc, ret_capital);
 			exit_enable = 0;
-			g_capital[0][g_best_stock_pred_i] += ret_capital;
 			return (1);
 		}
 		if (g_LongShort == 0 && diff_prc >= 0)
 		{
-			if (ret_prc < 0)
-			{
-				g_n_hits[g_best_stock_pred_i] += 1;
-			}
-			else
-			{
-				g_n_miss[g_best_stock_pred_i] += 1;
-			}
+			compute_capital_evolution_st(ret_prc, ret_capital);
 			exit_enable = 0;
-			g_capital[0][g_best_stock_pred_i] -= ret_capital;
 			return (1);
 		}
 	}
@@ -2501,21 +2731,7 @@ int try_to_exit_operation(void)
 	// stop time
 	if (g_current_sample >= g_last_sample_exit)
 	{
-		if (g_LongShort == 1 && ret_prc > 0)
-			g_n_hits[g_best_stock_pred_i] += 1;
-		else if (g_LongShort == 1 && ret_prc <= 0)
-			g_n_miss[g_best_stock_pred_i] += 1;
-
-		if (g_LongShort == 0 && ret_prc < 0)
-			g_n_hits[g_best_stock_pred_i] += 1;
-		else if (g_LongShort == 0 && ret_prc >= 0)
-			g_n_miss[g_best_stock_pred_i] += 1;
-
-		if (g_LongShort == 1)
-			g_capital[0][g_best_stock_pred_i] += ret_capital;
-		else
-			g_capital[0][g_best_stock_pred_i] -= ret_capital;
-
+		compute_capital_evolution_st(ret_prc, ret_capital);
 		return (1);
 	}
 
@@ -2525,14 +2741,12 @@ int try_to_exit_operation(void)
 	// stop loss
 	if (g_LongShort == 1 && ret_prc < 0 && ret_prc <= -const_mult_loss * g_last_predction[g_best_stock_pred_i]) //LONG
 	{
-		g_capital[0][g_best_stock_pred_i] += ret_capital;
-		g_n_miss[g_best_stock_pred_i] += 1;
+		compute_capital_evolution_st(ret_prc, ret_capital);
 		return (1);
 	}
 	else if (g_LongShort == 0 && ret_prc > 0 && ret_prc >= -const_mult_loss * g_last_predction[g_best_stock_pred_i])
 	{
-		g_capital[0][g_best_stock_pred_i] -= ret_capital;
-		g_n_miss[g_best_stock_pred_i] += 1;
+		compute_capital_evolution_st(ret_prc, ret_capital);
 		return (1);
 	}
 
@@ -2599,11 +2813,13 @@ trading_state_machine(int loaded)
 	int exited_flag = 0;
 	int reset_flag = 0;
 
-	static int will_plot = 1;
-
 	if (g_current_state == INITIALIZE)
 	{
 		g_current_state = BEGIN_PREDICTION;
+		if (PLOT_GRAPH == 1)
+		{
+			capital_plot_curvature();
+		}
 	}
 	if (g_current_state == BEGIN_PREDICTION)
 	{
@@ -2618,10 +2834,11 @@ trading_state_machine(int loaded)
 					g_last_predction[i] = g_predction[i];
 
 				g_current_sample = SamplePreviousPeriod(g_current_sample);
-				if (g_best_stock_pred_i == 0) g_reference_prc_enter = data[g_current_sample].WIN.mid;
-				if (g_best_stock_pred_i == 1) g_reference_prc_enter = data[g_current_sample].IND.mid;
-				if (g_best_stock_pred_i == 2) g_reference_prc_enter = data[g_current_sample].WDO.mid;
-				if (g_best_stock_pred_i == 3) g_reference_prc_enter = data[g_current_sample].DOL.mid;
+//				if (g_best_stock_pred_i == 0) g_reference_prc_enter = data[g_current_sample].WIN.mid;
+//				if (g_best_stock_pred_i == 1) g_reference_prc_enter = data[g_current_sample].IND.mid;
+//				if (g_best_stock_pred_i == 2) g_reference_prc_enter = data[g_current_sample].WDO.mid;
+//				if (g_best_stock_pred_i == 3) g_reference_prc_enter = data[g_current_sample].DOL.mid;
+				get_symbol_values(g_best_stock_pred_i, 1, &g_reference_prc_enter, NULL, NULL, NULL);
 
 				int has_time = calculate_limits_sample_enter_exit();
 				change_state = 1;
@@ -2653,10 +2870,11 @@ trading_state_machine(int loaded)
 		if (entered == 1)
 		{
 			// preco na hora que entrou na operacao
-			if (g_best_stock_pred_i == 0) g_reference_prc_exit = data[g_current_sample].WIN.mid;
-			if (g_best_stock_pred_i == 1) g_reference_prc_exit = data[g_current_sample].IND.mid;
-			if (g_best_stock_pred_i == 2) g_reference_prc_exit = data[g_current_sample].WDO.mid;
-			if (g_best_stock_pred_i == 3) g_reference_prc_exit = data[g_current_sample].DOL.mid;
+//			if (g_best_stock_pred_i == 0) g_reference_prc_exit = data[g_current_sample].WIN.mid;
+//			if (g_best_stock_pred_i == 1) g_reference_prc_exit = data[g_current_sample].IND.mid;
+//			if (g_best_stock_pred_i == 2) g_reference_prc_exit = data[g_current_sample].WDO.mid;
+//			if (g_best_stock_pred_i == 3) g_reference_prc_exit = data[g_current_sample].DOL.mid;
+			get_symbol_values(g_best_stock_pred_i, 1, &g_reference_prc_exit, NULL, NULL, NULL);
 
 			g_n_ops[g_best_stock_pred_i] += 1;
 			state = TRY_TO_EXIT;
@@ -2689,12 +2907,16 @@ trading_state_machine(int loaded)
 	}
 	if (g_current_state == END)
 	{
-		if (will_plot == 1 && hold_1s == 1)
+		if (PLOT_GRAPH == 1)
 		{
+			capital_plot_curvature();
 			// espera 1s para dar pra visualziar melhor o grafico
-			printf("\n");
-			usleep(1000 * 1000);
-			hold_1s = 0;
+			if (hold_1s == 1)
+			{
+				printf("\n");
+				usleep(1000 * 1000);
+				hold_1s = 0;
+			}
 		}
 
 		state = BEGIN_PREDICTION;
@@ -2710,15 +2932,16 @@ trading_state_machine(int loaded)
 		}
 		//TODO: Fazer uma funcao pra isso
 		//TODO: Talvez computar um capital soh e plotar o grafico ao final de cada operacao
-		if (will_plot == 1)
+		if (PLOT_GRAPH == 1)
 		{
 			double current_prc = 0;
 			double delta_prc = 0.0;
 
-			if (g_best_stock_pred_i == 0) current_prc = data[g_current_sample].WIN.mid;
-			if (g_best_stock_pred_i == 1) current_prc = data[g_current_sample].IND.mid;
-			if (g_best_stock_pred_i == 2) current_prc = data[g_current_sample].WDO.mid;
-			if (g_best_stock_pred_i == 3) current_prc = data[g_current_sample].DOL.mid;
+//			if (g_best_stock_pred_i == 0) current_prc = data[g_current_sample].WIN.mid;
+//			if (g_best_stock_pred_i == 1) current_prc = data[g_current_sample].IND.mid;
+//			if (g_best_stock_pred_i == 2) current_prc = data[g_current_sample].WDO.mid;
+//			if (g_best_stock_pred_i == 3) current_prc = data[g_current_sample].DOL.mid;
+			get_symbol_values(g_best_stock_pred_i, 2, &current_prc, NULL, NULL, NULL);
 
 			delta_prc = current_prc - g_reference_prc_enter;
 			prc_plot_curvature(reset_flag, delta_prc, enter_flag, exit_flag, exited_flag);
@@ -2843,14 +3066,30 @@ PrintCapital(PARAM_LIST *pParamList)
 	NEURON_OUTPUT output;
 	int i;
 	double acc = 0.0;
+	int total_hits = 0;
+	int total_miss = 0;
+	int total_ops = 0;
+	int total_longs = 0;
+	int total_shorts = 0;
 
 	for (i = 0; i < INPUT_WIDTH; i++)
 	{
-		acc = (1.0 * g_n_hits[i]) / g_n_ops[i];
-		printf("capital[%d]=%.2lf longs=%d shorts=%d ops=%d hits=%d miss=%d acc=%.2lf\n",
+		total_hits += g_n_hits[i];
+		total_miss += g_n_miss[i];
+		total_ops  += g_n_ops[i];
+		total_longs += g_buy_sell_count[0][i];
+		total_shorts += g_sell_buy_count[0][i];
+
+		acc = (100.0 * g_n_hits[i]) / g_n_ops[i];
+		printf("capital[%d]=%.2lf longs=%d shorts=%d ops=%d hits=%d miss=%d acc=%.1lf\n",
 				i, g_capital[0][i], g_buy_sell_count[0][i], g_sell_buy_count[0][i],
 				g_n_ops[i], g_n_hits[i], g_n_miss[i], acc);
 	}
+
+	acc = (100.0 * total_hits) / total_ops;
+	printf("capital[%d]=%.2lf longs=%d shorts=%d ops=%d hits=%d miss=%d acc=%.1lf\n",
+			i, g_capital[0][INPUT_WIDTH], total_longs, total_shorts,
+			total_ops, total_hits, total_miss, acc);
 
 	output.ival = 0;
 	return (output);

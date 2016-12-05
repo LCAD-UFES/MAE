@@ -20,12 +20,12 @@ const CUSTO_CORRETORA_P	= 0.0; # 2.50;
 const CUSTO_TRASACAO 	= 0.0; # (CUSTO_BOVESPA + CUSTO_CORRETORA);
 const CERTAINTY = 65.;
 const STATISTICS = 10;
-const USE_STATISTICS = 0;
+const CONFIANCE_MODE = 0; # 0 - Use Statistics; 1 - Use Neuros confidence; 2 - Use Statistics * Neuros confidence
 const PERIOD = 64; # in seconds
 const USE_SPREAD = 0;
 const N_ENTER_PERIODS = 1;
 const N_EXIT_PERIODS = 1;
-
+const PLOT_GRAPH = 0;
 ############################################### Neuron Layers #########################################################
 neuronlayer	nl_ita_lp_f[INPUT_WIDTH][INPUT_HEIGHT]	with greyscale_float outputs;
 neuronlayer	nl_prediction[OUT_WIDTH][OUT_HEIGHT]	of minchinton neurons greyscale_float sensitive with greyscale_float outputs;

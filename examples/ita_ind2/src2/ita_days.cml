@@ -87,7 +87,7 @@ while ( day_i < N_DAYS )
 		}
 		
 		Move1Tick(loaded);
-		
+				
 		tick = TimeToTest(0);
 		#print("test=", tick);
 		#pause;
