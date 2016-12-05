@@ -2285,7 +2285,7 @@ capital_plot_curvature(void)
 	x_values[i] = i;
 	i++;
 
-	FILE *gnuplot_data_file = fopen("gnuplot_data.txt", "w");
+	FILE *gnuplot_data_file = fopen("gnuplot_data2.txt", "w");
 	int k;
 	for (k = 0; k < i; k++)
 		fprintf(gnuplot_data_file, "%d %lf\n", x_values[k], y_values[k]);
@@ -2293,7 +2293,7 @@ capital_plot_curvature(void)
 	fclose(gnuplot_data_file);
 
 	fprintf(gnuplot_pipe, "plot "
-			"'./gnuplot_data.txt' using 1:2 with lines title 'CAPITAL'\n");
+			"'./gnuplot_data2.txt' using 1:2 with lines title 'CAPITAL'\n");
 
 	fflush(gnuplot_pipe);
 
