@@ -1205,15 +1205,15 @@ copy_neural_prediction_confidence(OUTPUT_DESC *output)
 		GetNeuronsOutputConfidence(output, i);
 		if (g_LongShort == 1) //LONG
 		{
-			     if (CONFIANCE_MODE == 0) g_confidence[i] = g_mean_correct_positive_pred[0][i];
-			else if (CONFIANCE_MODE == 1) g_confidence[i] = g_confidence_up[0][i];
-			else if (CONFIANCE_MODE == 2) g_confidence[i] = g_confidence_up[0][i] * g_mean_correct_positive_pred[0][i] / 100.0;
+			     if (CONFIDENCE_MODE == 0) g_confidence[i] = g_mean_correct_positive_pred[0][i];
+			else if (CONFIDENCE_MODE == 1) g_confidence[i] = g_confidence_up[0][i];
+			else if (CONFIDENCE_MODE == 2) g_confidence[i] = g_confidence_up[0][i] * g_mean_correct_positive_pred[0][i] / 100.0;
 		}
 		else //SHORT
 		{
-			     if (CONFIANCE_MODE == 0) g_confidence[i] = g_mean_correct_negative_pred[0][i];
-			else if (CONFIANCE_MODE == 1) g_confidence[i] = g_confidence_down[0][i];
-			else if	(CONFIANCE_MODE == 2) g_confidence[i] = g_confidence_down[0][i] * g_mean_correct_negative_pred[0][i] / 100.0;
+			     if (CONFIDENCE_MODE == 0) g_confidence[i] = g_mean_correct_negative_pred[0][i];
+			else if (CONFIDENCE_MODE == 1) g_confidence[i] = g_confidence_down[0][i];
+			else if	(CONFIDENCE_MODE == 2) g_confidence[i] = g_confidence_down[0][i] * g_mean_correct_negative_pred[0][i] / 100.0;
 		}
 
 	}

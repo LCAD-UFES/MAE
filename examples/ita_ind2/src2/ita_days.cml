@@ -103,4 +103,4 @@ while ( day_i < N_DAYS )
 
 MeanStatisticsExp(0);
 
-#quit;
+quit;
