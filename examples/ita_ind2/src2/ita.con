@@ -9,18 +9,20 @@ const INPUT_WIDTH 	= 4;
 const INPUT_HEIGHT = 10;
 
 const OUT_WIDTH		= 4;
-const OUT_HEIGHT = 21;
+const OUT_HEIGHT = 9;
 
-const SYNAPSES = 256;
+const SYNAPSES = 64;
 
 const ALAVANCAGEM		= 1.0;
-const CUSTO_BOVESPA 	= 0.0; # (0.000061 + 0.000017);
-const CUSTO_CORRETORA	= 0.0;
-const CUSTO_CORRETORA_P	= 0.0; # 2.50;
-const CUSTO_TRASACAO 	= 0.0; # (CUSTO_BOVESPA + CUSTO_CORRETORA);
-const CERTAINTY = 65.;
-const STATISTICS = 10;
-const CONFIDENCE_MODE = 1; # 0 - Use Statistics; 1 - Use Neuros confidence; 2 - Use Statistics * Neuros confidence
+#const CUSTO_BOVESPA 	= 0.0; # (0.000061 + 0.000017);
+#const CUSTO_CORRETORA	= 0.0;
+#const CUSTO_CORRETORA_P	= 0.0; # 2.50;
+#const CUSTO_TRASACAO 	= 0.0; # (CUSTO_BOVESPA + CUSTO_CORRETORA);
+const COST_QTY_WIN_WDO = 0.0;#0.61;
+const COST_QTY_IND_DOL = 0.0;#4.43;
+const CERTAINTY = 55.;
+const STATISTICS = 3;
+const CONFIDENCE_MODE = 0; # 0 - Use Statistics; 1 - Use Neuros confidence; 2 - Use Statistics e Neuros confidence
 const PERIOD = 64; # in seconds
 const USE_SPREAD = 0;
 const N_ENTER_PERIODS = 1;
@@ -105,4 +107,4 @@ int SetLongShort ("%d");
 #int WillTest("%d");
 #int Increment("%d");
 int GetInputHeight("%d");
-#int ShowNeuronsMemory("%d");
+int ShowNeuronsMemory("%d");

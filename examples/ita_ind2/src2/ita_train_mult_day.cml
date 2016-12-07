@@ -1,0 +1,130 @@
+SetLongShort(1); # Long
+LoadDayFileName("data.txt");
+
+int N_DAYS;
+N_DAYS = 30;
+int N_DAYS_TRAIN;
+int N_DAYS_TEST;
+N_DAYS_TRAIN = 10;
+N_DAYS_TEST = 20;
+int FIRST_DAY_TEST;
+FIRST_DAY_TEST = N_DAYS_TRAIN;
+
+/* Network Status */
+int TRAINING_PHASE;
+TRAINING_PHASE = 1;
+int TESTING_PHASE;
+TESTING_PHASE = 2;
+int WARM_UP_PHASE;
+WARM_UP_PHASE = 3;
+
+/* Counters */
+int day_i;
+int tick;
+int loaded;
+
+#ResetStatistics(0);
+clear out_result;
+while ( day_i < N_DAYS )
+{
+	ResetStatistics(0);
+
+	LoadDay(day_i);
+
+	if (day_i < FIRST_DAY_TEST)
+	{ 
+		/* Training Phase */
+		SetNetworkStatus(TRAINING_PHASE);
+	
+		#print("start=", tick);
+		tick = TimeToStart(0);
+		#print("start=", tick);
+	
+		while (tick == 0)
+		{
+			Move1Tick(0);
+			tick = TimeToStart(0);
+		}		
+	
+		while(tick != 0)
+		{
+			loaded = LoadInput(0);
+			
+			#print("loaded=", loaded);
+			if (loaded == 1)
+			{
+				forward filters;
+				forward neural_layers;
+				forward outputs;
+		
+				#ShowStatistics(0);
+		
+				/* Draws the landmark neuron layer output */
+				draw out_prediction based on ita move;
+				train network;
+			}
+			Move1Tick(loaded);
+			
+			tick = TimeToTrain(0);	
+			#print("train=", tick);		
+		}
+	}
+	else 
+	{
+		/* Testing phase */
+		#ResetStatistics(0);
+		SetNetworkStatus(TESTING_PHASE);
+		
+		#print("start=", tick);
+		tick = TimeToStart(0);
+		#print("start=", tick);
+	
+		while (tick == 0)
+		{
+			Move1Tick(0);
+			tick = TimeToStart(0);
+		}	
+		
+		#tick = TimeToTest(0);
+		#print("test=", tick);
+		while(tick != 0)
+		{
+			loaded = LoadInput(0);
+		
+			if (loaded == 1)
+			{
+				forward filters;
+				forward neural_layers;
+				forward outputs;
+		
+				#ShowNeuronsMemory(0);
+				
+				/* Draws the landmark neuron layer output */
+				copy out_test;
+				paste out_prediction;
+		
+				#ShowStatistics(0);
+				train network;
+				
+				#pause;
+			}
+			
+			Move1Tick(loaded);
+					
+			tick = TimeToTrain(0);
+			#print("test=", tick);
+			#pause;
+		}
+		PrintCapital(0);
+		
+		# save day result in file
+		ShowStatisticsExp(0);
+	}
+	
+	##clear network memory;
+	day_i = day_i + 1;
+}
+
+MeanStatisticsExp(N_DAYS_TEST);
+
+quit;
