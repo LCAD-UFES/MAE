@@ -28,6 +28,7 @@ const USE_SPREAD = 0;
 const N_ENTER_PERIODS = 1;
 const N_EXIT_PERIODS = 1;
 const PLOT_GRAPH = 0;
+const PERIOD_MEAN = 0; # in seconds
 ############################################### Neuron Layers #########################################################
 neuronlayer	nl_ita_lp_f[INPUT_WIDTH][INPUT_HEIGHT]	with greyscale_float outputs;
 neuronlayer	nl_prediction[OUT_WIDTH][OUT_HEIGHT]	of minchinton neurons greyscale_float sensitive with greyscale_float outputs;

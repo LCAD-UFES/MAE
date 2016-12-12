@@ -141,22 +141,22 @@ typedef struct _statistics_exp
 */
 
 // Testes intra day
-/*
 #define TRAIN_HOUR 12
 #define TRAIN_MIN 00
 #define TEST_HOUR 13
 #define TEST_MIN 30//00
 #define TEST_END_HOUR 16
 #define TEST_END_MIN 45
-*/
 
 // treino com varios dias
-#define TRAIN_HOUR 11
+/*
+#define TRAIN_HOUR 10
 #define TRAIN_MIN 00
 #define TEST_HOUR 16
 #define TEST_MIN 45//00
 #define TEST_END_HOUR 16
 #define TEST_END_MIN 45
+*/
 
 #define MAX_DAYS 200
 // Global Variables
@@ -261,6 +261,43 @@ SampleNextPeriod(int initial_sample)
 	return (-1);
 }
 
+int
+SampleMeanPrc(int initial_sample, double *mean_prc_win, double *mean_prc_ind, double *mean_prc_wdo, double *mean_prc_dol)
+{
+	int i;
+	double initial_time = GetTimeInSeconds(data[initial_sample].time);
+	double current_time = 0.0;
+	double m_prc_win = 0.0;
+	double m_prc_ind = 0.0;
+	double m_prc_wdo = 0.0;
+	double m_prc_dol = 0.0;
+	int n = 0;
+
+	for (i = initial_sample; i > POSE_MIN; i--)
+	{
+
+		n++;
+		m_prc_win += data[i].WIN.mid;
+		m_prc_ind += data[i].IND.mid;
+		m_prc_wdo += data[i].WDO.mid;
+		m_prc_dol += data[i].DOL.mid;
+
+		current_time = data[i].time.tstamp;//GetTimeInSeconds(data[i].time);
+		if (current_time <= initial_time - PERIOD_MEAN)
+		{
+			if (mean_prc_win != NULL) *mean_prc_win = m_prc_win/n;
+			if (mean_prc_ind != NULL) *mean_prc_ind = m_prc_ind/n;
+			if (mean_prc_wdo != NULL) *mean_prc_wdo = m_prc_wdo/n;
+			if (mean_prc_dol != NULL) *mean_prc_dol = m_prc_dol/n;
+
+			//printf("intial_time[%d]=%.3lf current_time[%d]=%.3lf\n", initial_sample, initial_time, i, current_time);
+			//printf("mean_win=%.2lf first_win=%.2lf last_win=%.2lf\n", *mean_prc_win, data[initial_sample].WIN.mid, data[i].WIN.mid);
+
+			return (i);
+		}
+	}
+	return (-1);
+}
 /*
 ***********************************************************
 * Function: GetNextReturns
@@ -310,11 +347,16 @@ LoadDataToInput(INPUT_DESC *input)
 	int x_dimention = input->neuron_layer->dimentions.x;
 	int sample = g_current_sample;
 	//double div_const = 100.0;
+	double mean_prc_win = 0.0;
+	double mean_prc_ind = 0.0;
+	double mean_prc_wdo = 0.0;
+	double mean_prc_dol = 0.0;
 
 	for (y = 0; y < y_dimention; y++)
 	{
 		//sample = SampleNextPeriod(sample);
 		sample = SamplePreviousPeriod(sample);
+		SampleMeanPrc(sample, &mean_prc_win, &mean_prc_ind, &mean_prc_wdo, &mean_prc_dol);
 		if (sample < 0)
 		{
 			//printf("ERROR\n");
@@ -327,16 +369,20 @@ LoadDataToInput(INPUT_DESC *input)
 		{
 			if (x == 0)
 				input->neuron_layer->neuron_vector[y * x_dimention + x].output.fval =
-					data[sample].WIN.mid;
+						mean_prc_win;
+						//data[sample].WIN.mid;
 			if (x == 1)
 				input->neuron_layer->neuron_vector[y * x_dimention + x].output.fval =
-					data[sample].IND.mid;
+						mean_prc_ind;
+						//data[sample].IND.mid;
 			if (x == 2)
 				input->neuron_layer->neuron_vector[y * x_dimention + x].output.fval =
-					data[sample].WDO.mid;
+						mean_prc_wdo;
+						//data[sample].WDO.mid;
 			if (x == 3)
 				input->neuron_layer->neuron_vector[y * x_dimention + x].output.fval =
-					data[sample].DOL.mid;
+						mean_prc_dol;
+						//data[sample].DOL.mid;
 		}
 	}
 
@@ -349,6 +395,7 @@ LoadDataToInput(INPUT_DESC *input)
 		{
 			input->neuron_layer->neuron_vector[y * x_dimention + x].output.fval -= input->neuron_layer->neuron_vector[(y_dimention - 1) * x_dimention + x].output.fval;
 			//input->neuron_layer->neuron_vector[y * x_dimention + x].output.fval *= 1000.0 / g_anchor[x];
+			//if (x == 0) printf("%f ", input->neuron_layer->neuron_vector[y * x_dimention + x].output.fval);
 		}
 	}
 	//printf("\n");
@@ -470,7 +517,7 @@ LoadDataToOutput(OUTPUT_DESC *output)
 			//output->neuron_layer->neuron_vector[y * x_dimention + x].output.fval -= g_anchor[x];
 			//output->neuron_layer->neuron_vector[y * x_dimention + x].output.fval *= 1000.0 / g_anchor[x];
 
-			//if ( y == 0 ) printf("%f ", output->neuron_layer->neuron_vector[y * x_dimention + x].output.fval);
+			//if ( y == 0 && x == 0 ) printf("%f ", output->neuron_layer->neuron_vector[y * x_dimention + x].output.fval);
 		}
 	}
 
@@ -2840,7 +2887,7 @@ int try_to_exit_operation(void)
 	// stop loss
 	if (g_LongShort == 1 && ret_prc < 0 && ret_prc <= -const_mult_loss * g_last_predction[g_best_stock_pred_i]) //LONG
 	{
-		printf("STOP LOSS\n");
+		//printf("STOP LOSS\n");
 		compute_capital_evolution_st(ret_prc, ret_capital, cost);
 		return (1);
 	}
