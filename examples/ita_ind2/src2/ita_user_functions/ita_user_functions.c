@@ -425,7 +425,7 @@ CalculatePeriodReturn(int stock)
 
 //	double delta_prc = 0;
 	double diff_prc = 0;
-	double ref_prc = 0;
+//	double ref_prc = 0;
 	double curr_prc = 0;
 	double prev_prc = 0;
 	double enter_prc = 0;
@@ -439,12 +439,12 @@ CalculatePeriodReturn(int stock)
 	if ( g_LongShort == 0 ) mult = -1.0;
 	double cost_pts = 0;
 
-	if ( stock == 0 ) { ref_prc = data[sample].WIN.mid; cost_pts = COST_QTY_WIN_WDO / WIN_POINT_VALUE; }
-	if ( stock == 1 ) { ref_prc = data[sample].IND.mid; cost_pts = COST_QTY_IND_DOL / IND_POINT_VALUE; }
-	if ( stock == 2 ) { ref_prc = data[sample].WDO.mid; cost_pts = COST_QTY_WIN_WDO / WDO_POINT_VALUE; }
-	if ( stock == 3 ) { ref_prc = data[sample].DOL.mid; cost_pts = COST_QTY_IND_DOL / DOL_POINT_VALUE; }
+	if ( stock == 0 ) { /*ref_prc = data[sample].WIN.mid; */cost_pts = COST_QTY_WIN_WDO / WIN_POINT_VALUE; }
+	if ( stock == 1 ) { /*ref_prc = data[sample].IND.mid; */cost_pts = COST_QTY_IND_DOL / IND_POINT_VALUE; }
+	if ( stock == 2 ) { /*ref_prc = data[sample].WDO.mid; */cost_pts = COST_QTY_WIN_WDO / WDO_POINT_VALUE; }
+	if ( stock == 3 ) { /*ref_prc = data[sample].DOL.mid; */cost_pts = COST_QTY_IND_DOL / DOL_POINT_VALUE; }
 
-	//prc_output_plot_curvature(stock, sample, g_current_sample, sample, 1, 0, entered, exit, exited);
+//	prc_output_plot_curvature(stock, sample, g_current_sample, sample, 1, 0, entered, exit, exited);
 
 	int i;
 	for (i = sample+1; i < g_current_sample; i++)
@@ -539,9 +539,9 @@ LoadDataToOutput(OUTPUT_DESC *output)
 	int y_dimention = output->neuron_layer->dimentions.y;
 	int x_dimention = output->neuron_layer->dimentions.x;
 	//double div_const = 100.0;
-	int sample = SamplePreviousPeriod(g_current_sample);
-	double mult = 1.0;
-	if (g_LongShort == 0) mult = -1.0;
+//	int sample = SamplePreviousPeriod(g_current_sample);
+//	double mult = 1.0;
+//	if (g_LongShort == 0) mult = -1.0;
 //
 //	double mean_prc[INPUT_WIDTH];
 //	double min_prc[INPUT_WIDTH];
@@ -1793,7 +1793,7 @@ ShowStatisticsExp(PARAM_LIST *pParamList)
 	stat_exp[day_i].day = day_i;
 	stat_exp[day_i].avg_capital = total_capital/(double)n_stocks;
 	stat_exp[day_i].geral_capital = g_capital[0][INPUT_WIDTH];
-	stat_exp[day_i].n_ops = total_buy_sell;
+	stat_exp[day_i].n_ops = g_LongShort == 1 ? total_buy_sell : total_sell_buy;
 	stat_exp[day_i].total_hits = total_hits;
 
 	printf("day_i=%d; avg_capital=%.2lf; geral_capital=%.2lf; n_ops=%d; hit_rate=%.1lf; ",
@@ -1824,25 +1824,44 @@ ShowStatisticsExp(PARAM_LIST *pParamList)
 		printf("%s===%.2lf; ", symbol, stat_day[day_i][stock][ACC]);
 		printf("%sgi=%.1lf; ",symbol, stat_day[day_i][stock][GI]);
 		printf("%sg!=%.1lf; ",symbol,  stat_day[day_i][stock][Gi]);
-		if (g_buy_sell_count[net][stock] > 0)
+		if (g_LongShort == 1 && g_buy_sell_count[net][stock] > 0)
 			printf("%shit_rate=%.1lf; ",symbol,  100.0 * stat_day[day_i][stock][HITS]/g_buy_sell_count[net][stock]);
-		else
+		else if (g_LongShort == 1)
 			printf("%shit_rate=--; ",symbol);
+
+		if (g_LongShort == 0 && g_sell_buy_count[net][stock] > 0)
+			printf("%shit_rate=%.1lf; ",symbol,  100.0 * stat_day[day_i][stock][HITS]/g_sell_buy_count[net][stock]);
+		else if (g_LongShort == 0)
+			printf("%shit_rate=--; ",symbol);
+
 		printf("%scapital=%.1lf; ",symbol,  g_capital[net][stock]);
-		printf("%sn_ops=%d; ",symbol,  g_buy_sell_count[net][stock]);
+		if (g_LongShort == 1)
+			printf("%sn_ops=%d; ",symbol,  g_buy_sell_count[net][stock]);
+		else
+			printf("%sn_ops=%d; ",symbol,  g_sell_buy_count[net][stock]);
 	}
 	printf("\n");
 
 
 	stat_exp[day_i].capital_win = g_capital[net][0];
-	stat_exp[day_i].n_ops_win = g_buy_sell_count[net][0];
 	stat_exp[day_i].capital_ind = g_capital[net][1];
-	stat_exp[day_i].n_ops_ind = g_buy_sell_count[net][1];
 	stat_exp[day_i].capital_wdo = g_capital[net][2];
-	stat_exp[day_i].n_ops_wdo = g_buy_sell_count[net][2];
 	stat_exp[day_i].capital_dol = g_capital[net][3];
-	stat_exp[day_i].n_ops_dol = g_buy_sell_count[net][3];
 
+	if (g_LongShort == 1)
+	{
+		stat_exp[day_i].n_ops_ind = g_buy_sell_count[net][1];
+		stat_exp[day_i].n_ops_win = g_buy_sell_count[net][0];
+		stat_exp[day_i].n_ops_wdo = g_buy_sell_count[net][2];
+		stat_exp[day_i].n_ops_dol = g_buy_sell_count[net][3];
+	}
+	else
+	{
+		stat_exp[day_i].n_ops_ind = g_sell_buy_count[net][1];
+		stat_exp[day_i].n_ops_win = g_sell_buy_count[net][0];
+		stat_exp[day_i].n_ops_wdo = g_sell_buy_count[net][2];
+		stat_exp[day_i].n_ops_dol = g_sell_buy_count[net][3];
+	}
 	/*
 	printf("day_i=%d; avg_capital=%.2lf; n_ops=%d; WIN_capital=%.2lf; WIN_n_ops=%d; IND_capital=%.2lf; IND_n_ops=%d; WDO_capital=%.2lf;"
 			" WDO_n_ops=%d; DOL_capital=%.2lf; DOL_n_ops=%d;\n", stat_exp[day_i].day, stat_exp[day_i].avg_capital,
@@ -3128,7 +3147,7 @@ int try_to_exit_operation(void)
 
 	//TODO: CONSTS
 	double const_mult_loss = 10.0;
-	double const_mult_gain = 0.5;
+//	double const_mult_gain = 0.5;
 	// stop loss
 	if (g_LongShort == 1 && ret_prc <= 2 * pt_cost && ret_prc <= -const_mult_loss * g_last_predction[g_best_stock_pred_i]) //LONG
 	{
