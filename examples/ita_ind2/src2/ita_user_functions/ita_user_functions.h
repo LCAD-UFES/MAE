@@ -37,4 +37,10 @@ float GetNeuronsOutput(OUTPUT_DESC *output, int out_index);
 int GetMAESampleIndex(void);
 #endif
 
+void
+prc_plot_curvature(int reset, double prc, int enter, int exit, int exited);
+
+void
+prc_output_plot_curvature(int stock, int first_sample, int last_sample, int i_sample, int reset, double prc, int enter, int exit, int exited);
+
 #endif

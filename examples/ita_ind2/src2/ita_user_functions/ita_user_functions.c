@@ -79,6 +79,7 @@ int g_last_sample = 0;
 int g_current_state = -1;
 double g_predction[INPUT_WIDTH];
 double g_last_predction[INPUT_WIDTH];
+double g_current_result[INPUT_WIDTH]; // Auxiliar para guardar o resultado que ira acontecer
 double g_confidence[2][INPUT_WIDTH]; // Uma posicao pra confianca dos neuronios e outra pras estatisticas
 int g_n_ops[INPUT_WIDTH];
 int g_n_hits[INPUT_WIDTH];
@@ -88,6 +89,11 @@ double g_reference_prc_enter = 0.0;
 double g_reference_prc_exit = 0.0;
 int g_last_sample_enter = 0;
 int g_last_sample_exit = 0;
+
+double tp[INPUT_WIDTH];
+double fp[INPUT_WIDTH];
+double tn[INPUT_WIDTH];
+double fn[INPUT_WIDTH];
 
 typedef struct _statistics_exp
 {
@@ -411,6 +417,121 @@ LoadDataToInput(INPUT_DESC *input)
 ***********************************************************
 */
 
+double
+CalculatePeriodReturn(int stock)
+{
+	double ret = 0;
+	int sample = SamplePreviousPeriod(g_current_sample);
+
+//	double delta_prc = 0;
+	double diff_prc = 0;
+	double ref_prc = 0;
+	double curr_prc = 0;
+	double prev_prc = 0;
+	double enter_prc = 0;
+	double exit_prc = 0;
+	double ret_prc = 0;
+	int entered = 0;
+	int exit = 0;
+	int exited = 0;
+
+	double mult = 1.0;
+	if ( g_LongShort == 0 ) mult = -1.0;
+	double cost_pts = 0;
+
+	if ( stock == 0 ) { ref_prc = data[sample].WIN.mid; cost_pts = COST_QTY_WIN_WDO / WIN_POINT_VALUE; }
+	if ( stock == 1 ) { ref_prc = data[sample].IND.mid; cost_pts = COST_QTY_IND_DOL / IND_POINT_VALUE; }
+	if ( stock == 2 ) { ref_prc = data[sample].WDO.mid; cost_pts = COST_QTY_WIN_WDO / WDO_POINT_VALUE; }
+	if ( stock == 3 ) { ref_prc = data[sample].DOL.mid; cost_pts = COST_QTY_IND_DOL / DOL_POINT_VALUE; }
+
+	//prc_output_plot_curvature(stock, sample, g_current_sample, sample, 1, 0, entered, exit, exited);
+
+	int i;
+	for (i = sample+1; i < g_current_sample; i++)
+	{
+		if ( stock == 0 )
+		{
+			curr_prc = data[i].WIN.mid;
+			prev_prc = data[i - 1].WIN.mid;
+		}
+		if ( stock == 1 )
+		{
+			curr_prc = data[i].IND.mid;
+			prev_prc = data[i - 1].IND.mid;
+		}
+		if ( stock == 2 )
+		{
+			curr_prc = data[i].WDO.mid;
+			prev_prc = data[i - 1].WDO.mid;
+		}
+		if ( stock == 3 )
+		{
+			curr_prc = data[i].DOL.mid;
+			prev_prc = data[i - 1].DOL.mid;
+		}
+
+		//delta_prc = curr_prc - ref_prc;
+		diff_prc = curr_prc - prev_prc;
+		ret_prc = curr_prc - enter_prc;
+
+		if ( g_LongShort == 1 && exited == 0 && entered == 1 && exit == 1 && diff_prc <= 0 )
+		{
+			exit_prc = curr_prc;
+			exited = 1;
+			//break;
+		}
+
+		if ( g_LongShort == 1 && entered == 1 && exit == 0 && ret_prc > 2 * cost_pts )
+		{
+			exit = 1;
+		}
+
+		if (  g_LongShort == 1 && entered == 0 && diff_prc > 0 )
+		{
+			enter_prc = curr_prc;
+			entered = 1;
+		}
+
+		if ( g_LongShort == 0 && exited == 0 && entered == 1 && exit == 1 && diff_prc >= 0 )
+		{
+			exit_prc = curr_prc;
+			exited = 1;
+			//break;
+		}
+
+		if ( g_LongShort == 0 && entered == 1 && exit == 0 && ret_prc < -2 * cost_pts )
+		{
+			exit = 1;
+		}
+
+		if (  g_LongShort == 0 && entered == 0 && diff_prc < 0 )
+		{
+			enter_prc = curr_prc;
+			entered = 1;
+		}
+
+		//prc_output_plot_curvature(stock, sample, g_current_sample, i, 0, delta_prc, entered, exit, exited);
+	}
+
+	if ( exited == 0 )
+	{
+		if ( stock == 0 ) curr_prc = data[g_current_sample].WIN.mid;
+		if ( stock == 1 ) curr_prc = data[g_current_sample].IND.mid;
+		if ( stock == 2 ) curr_prc = data[g_current_sample].WDO.mid;
+		if ( stock == 3 ) curr_prc = data[g_current_sample].DOL.mid;
+
+		exited = 1;
+		exit_prc = curr_prc;
+		//delta_prc = curr_prc - ref_prc;
+	}
+
+	//prc_output_plot_curvature(stock, sample, g_current_sample, g_current_sample, 0, delta_prc, entered, exit, exited);
+
+	ret = exit_prc - enter_prc - 2 * mult * cost_pts;
+	return ret;
+}
+
+
 int
 LoadDataToOutput(OUTPUT_DESC *output)
 {
@@ -421,60 +542,74 @@ LoadDataToOutput(OUTPUT_DESC *output)
 	int sample = SamplePreviousPeriod(g_current_sample);
 	double mult = 1.0;
 	if (g_LongShort == 0) mult = -1.0;
+//
+//	double mean_prc[INPUT_WIDTH];
+//	double min_prc[INPUT_WIDTH];
+//	double max_prc[INPUT_WIDTH];
+//
+//	for (x = 0; x < x_dimention; x++)
+//		mean_prc[x] = 0.0;
+//
+//	min_prc[0] = data[sample + 1].WIN.mid;
+//	min_prc[1] = data[sample + 1].IND.mid;
+//	min_prc[2] = data[sample + 1].WDO.mid;
+//	min_prc[3] = data[sample + 1].DOL.mid;
+//
+//	max_prc[0] = data[sample + 1].WIN.mid;
+//	max_prc[1] = data[sample + 1].IND.mid;
+//	max_prc[2] = data[sample + 1].WDO.mid;
+//	max_prc[3] = data[sample + 1].DOL.mid;
+//
+//	for (y = sample + 1; y < g_current_sample; y++)
+//	{
+//		if (data[y].WIN.mid < min_prc[0])
+//			min_prc[0] = data[y].WIN.mid;
+//
+//		if (data[y].WIN.mid < min_prc[1])
+//			min_prc[1] = data[y].IND.mid;
+//
+//		if (data[y].WIN.mid < min_prc[2])
+//			min_prc[2] = data[y].WDO.mid;
+//
+//		if (data[y].WIN.mid < min_prc[3])
+//			min_prc[3] = data[y].DOL.mid;
+//
+//		if (data[y].WIN.mid > max_prc[0])
+//			max_prc[0] = data[y].WIN.mid;
+//
+//		if (data[y].WIN.mid > max_prc[1])
+//			max_prc[1] = data[y].IND.mid;
+//
+//		if (data[y].WIN.mid > max_prc[2])
+//			max_prc[2] = data[y].WDO.mid;
+//
+//		if (data[y].WIN.mid > max_prc[3])
+//			max_prc[3] = data[y].DOL.mid;
+//
+//		mean_prc[0] += data[y].WIN.mid;
+//		mean_prc[1] += data[y].IND.mid;
+//		mean_prc[2] += data[y].WDO.mid;
+//		mean_prc[3] += data[y].DOL.mid;
+//	}
+//
+//	for (x = 0; x < x_dimention; x++)
+//	{
+//		mean_prc[x] /= (g_current_sample - sample - 1);
+//	}
 
-	double mean_prc[INPUT_WIDTH];
-	double min_prc[INPUT_WIDTH];
-	double max_prc[INPUT_WIDTH];
+	double win_ret = 0;
+	double ind_ret = 0;
+	double wdo_ret = 0;
+	double dol_ret = 0;
 
-	for (x = 0; x < x_dimention; x++)
-		mean_prc[x] = 0.0;
-
-	min_prc[0] = data[sample + 1].WIN.mid;
-	min_prc[1] = data[sample + 1].IND.mid;
-	min_prc[2] = data[sample + 1].WDO.mid;
-	min_prc[3] = data[sample + 1].DOL.mid;
-
-	max_prc[0] = data[sample + 1].WIN.mid;
-	max_prc[1] = data[sample + 1].IND.mid;
-	max_prc[2] = data[sample + 1].WDO.mid;
-	max_prc[3] = data[sample + 1].DOL.mid;
-
-	for (y = sample + 1; y < g_current_sample; y++)
-	{
-		if (data[y].WIN.mid < min_prc[0])
-			min_prc[0] = data[y].WIN.mid;
-
-		if (data[y].WIN.mid < min_prc[1])
-			min_prc[1] = data[y].IND.mid;
-
-		if (data[y].WIN.mid < min_prc[2])
-			min_prc[2] = data[y].WDO.mid;
-
-		if (data[y].WIN.mid < min_prc[3])
-			min_prc[3] = data[y].DOL.mid;
-
-		if (data[y].WIN.mid > max_prc[0])
-			max_prc[0] = data[y].WIN.mid;
-
-		if (data[y].WIN.mid > max_prc[1])
-			max_prc[1] = data[y].IND.mid;
-
-		if (data[y].WIN.mid > max_prc[2])
-			max_prc[2] = data[y].WDO.mid;
-
-		if (data[y].WIN.mid > max_prc[3])
-			max_prc[3] = data[y].DOL.mid;
-
-		mean_prc[0] += data[y].WIN.mid;
-		mean_prc[1] += data[y].IND.mid;
-		mean_prc[2] += data[y].WDO.mid;
-		mean_prc[3] += data[y].DOL.mid;
-	}
-
-	for (x = 0; x < x_dimention; x++)
-	{
-		mean_prc[x] /= (g_current_sample - sample - 1);
-	}
+//	win_ret = data[g_current_sample].WIN.mid - data[sample].WIN.mid - 2 * mult * (COST_QTY_WIN_WDO / WIN_POINT_VALUE);
+//	ind_ret = data[g_current_sample].IND.mid - data[sample].IND.mid - 2 * mult * (COST_QTY_IND_DOL / IND_POINT_VALUE);
+//	wdo_ret = data[g_current_sample].WDO.mid - data[sample].WDO.mid - 2 * mult * (COST_QTY_WIN_WDO / WDO_POINT_VALUE);
+//	dol_ret = data[g_current_sample].DOL.mid - data[sample].DOL.mid - 2 * mult * (COST_QTY_IND_DOL / DOL_POINT_VALUE);
+	win_ret = CalculatePeriodReturn(0);
+	ind_ret = CalculatePeriodReturn(1);
+	wdo_ret = CalculatePeriodReturn(2);
+	dol_ret = CalculatePeriodReturn(3);
 
 	//printf("%02d:%02d:%02d.%03d \n", data[g_sample].time.hour, data[g_sample].time.min, data[g_sample].time.sec, data[g_sample].time.msec);
 	for (y = 0; y < y_dimention; y++)
@@ -483,47 +618,27 @@ LoadDataToOutput(OUTPUT_DESC *output)
 		{
 			if (x == 0)
 			{
-				output->neuron_layer->neuron_vector[y * x_dimention + x].output.fval =
-						(data[g_current_sample].WIN.mid - data[sample].WIN.mid) - mult * (COST_QTY_WIN_WDO/WIN_POINT_VALUE);
-
-				//TODO: ta computando o retorno de operacoes long
-				//output->neuron_layer->neuron_vector[y * x_dimention + x].output.fval -= data[sample].WIN.mid;//mean_prc[x];//
-				//output->neuron_layer->neuron_vector[y * x_dimention + x].output.fval /= 1000.0;//*= 1000.0 / data[sample].WIN.mid;
+				output->neuron_layer->neuron_vector[y * x_dimention + x].output.fval = win_ret;
 			}
 			if (x == 1)
 			{
-				output->neuron_layer->neuron_vector[y * x_dimention + x].output.fval =
-						(data[g_current_sample].IND.mid - data[sample].IND.mid) - mult * (COST_QTY_IND_DOL/IND_POINT_VALUE);
-
-				//output->neuron_layer->neuron_vector[y * x_dimention + x].output.fval -= data[sample].IND.mid;//mean_prc[x];//
-				//output->neuron_layer->neuron_vector[y * x_dimention + x].output.fval /= 1000.0;//*= 1000.0 / data[sample].IND.mid;
+				output->neuron_layer->neuron_vector[y * x_dimention + x].output.fval = ind_ret;
 			}
 			if (x == 2)
 			{
-				output->neuron_layer->neuron_vector[y * x_dimention + x].output.fval =
-						(data[g_current_sample].WDO.mid - data[sample].WDO.mid) - mult * (COST_QTY_WIN_WDO/WDO_POINT_VALUE);
-
-				//output->neuron_layer->neuron_vector[y * x_dimention + x].output.fval -= data[sample].WDO.mid;//mean_prc[x];//
-				//output->neuron_layer->neuron_vector[y * x_dimention + x].output.fval /= 1000.0;//*= 1000.0 / data[sample].WDO.mid;
+				output->neuron_layer->neuron_vector[y * x_dimention + x].output.fval = wdo_ret;
 			}
 			if (x == 3)
 			{
-				output->neuron_layer->neuron_vector[y * x_dimention + x].output.fval =
-						(data[g_current_sample].DOL.mid - data[sample].DOL.mid) - mult * (COST_QTY_IND_DOL/DOL_POINT_VALUE);
-
-				//output->neuron_layer->neuron_vector[y * x_dimention + x].output.fval -= data[sample].DOL.mid;//mean_prc[x];//
-				//output->neuron_layer->neuron_vector[y * x_dimention + x].output.fval /= 1000.0;//*= 1000.0 / data[sample].DOL.mid;
+				output->neuron_layer->neuron_vector[y * x_dimention + x].output.fval = dol_ret;
 			}
-			//output->neuron_layer->neuron_vector[y * x_dimention + x].output.fval -= g_anchor[x];
-			//output->neuron_layer->neuron_vector[y * x_dimention + x].output.fval *= 1000.0 / g_anchor[x];
-
-			//if ( y == 0 && x == 0 ) printf("%f ", output->neuron_layer->neuron_vector[y * x_dimention + x].output.fval);
+//			if ( y == 0 ) printf("x[%d]=%f ", x, output->neuron_layer->neuron_vector[y * x_dimention + x].output.fval);
 		}
 	}
 
 	g_last_sample = g_current_sample;
 
-	//printf("\n");
+//	printf("\n");
 	return (0);
 }
 
@@ -1900,6 +2015,12 @@ ResetStatistics(PARAM_LIST *pParamList)
 		g_last_predction[j] = 0.0;
 		g_confidence[0][j] = 0.0;
 		g_confidence[1][j] = 0.0;
+
+		g_current_result[j] = 0;
+		tp[j] = 0;
+		tn[j] = 0;
+		fp[j] = 0;
+		fn[j] = 0;
 	}
 	g_capital[0][INPUT_WIDTH] = 125000.0;
 	g_capital[1][INPUT_WIDTH] = 125000.0;
@@ -2408,6 +2529,94 @@ capital_plot_curvature(void)
 }
 
 void
+prc_output_plot_curvature(int stock, int first_sample, int last_sample, int i_sample, int reset, double prc, int enter, int exit, int exited)
+{
+	static FILE *gnuplot_pipe;
+
+	static double y_values[PERIOD * N_EXIT_PERIODS];
+	static int x_values[PERIOD * N_EXIT_PERIODS];
+	static int i = 0;
+	static int first_time = 1;
+	static int enter_pos = 0;
+	static int exit_pos = 0;
+	static int exited_pos = 0;
+	double div_value = 1.0;
+
+	static int aux_enter = 0;
+	static int aux_exit = 0;
+	static int aux_exited = 0;
+
+	static double cost_pts = 0;
+	double mult = 1.0;
+	if ( g_LongShort == 0 ) mult = -1.0;
+
+	char symbol[256];
+	if (stock == 0) { sprintf(symbol,"WIN"); cost_pts = COST_QTY_WIN_WDO / WIN_POINT_VALUE; }
+	if (stock == 1) { sprintf(symbol,"IND"); cost_pts = COST_QTY_IND_DOL / IND_POINT_VALUE; }
+	if (stock == 2) { sprintf(symbol,"WDO"); div_value = 12.5; cost_pts = COST_QTY_WIN_WDO / WDO_POINT_VALUE; }
+	if (stock == 3) { sprintf(symbol,"DOL"); div_value = 12.5; cost_pts = COST_QTY_IND_DOL / DOL_POINT_VALUE; }
+
+	if (first_time == 1)
+	{
+		first_time = 0;
+		gnuplot_pipe = popen("gnuplot -persist", "w"); //("gnuplot -persist", "w") to keep last plot after program closes
+		//fprintf(gnuplot_pipe, "set autoscale\n");
+	}
+	if (reset == 1)
+	{
+		aux_enter = 0;
+		aux_exit = 0;
+		aux_exited = 0;
+
+		i = 0;
+		fprintf(gnuplot_pipe, "set xrange [%d:%d]\n", first_sample, last_sample + 1);
+		fprintf(gnuplot_pipe, "set yrange [-100.0/%lf:100.0/%lf]\n", div_value, div_value);
+	}
+
+	// save values
+	y_values[i] = prc;
+	x_values[i] = i_sample;
+	if (enter == 1 && aux_enter == 0)// as linhas continuam desenhadas pq escreve direto no pipe
+	{
+		aux_enter = 1;
+		enter_pos = x_values[i];
+		//To draw a vertical line from the bottom to the top of the graph at x=3, use:
+		//set arrow from 3, graph 0 to 3, graph 1 nohead
+		fprintf(gnuplot_pipe, "unset arrow\nset arrow from %d, graph 0 to %d, graph 1 nohead\n", enter_pos, enter_pos);
+
+		fprintf(gnuplot_pipe, "set arrow from %d,%lf to %d,%lf nohead lc rgb 'green'\n", first_sample, prc + mult * 2 * cost_pts, last_sample, prc + mult * 2 * cost_pts);
+	}
+	else if (exit == 1 && aux_exit == 0)
+	{
+		aux_exit = 1;
+		exit_pos = x_values[i];
+		fprintf(gnuplot_pipe, "set arrow from %d, graph 0 to %d, graph 1 nohead lc rgb 'blue'\n", exit_pos, exit_pos);
+	}
+	else if (exited == 1 && aux_exited == 0)
+	{
+		aux_exited = 1;
+		exited_pos = x_values[i];
+		fprintf(gnuplot_pipe, "set arrow from %d, graph 0 to %d, graph 1 nohead\n", exited_pos, exited_pos);
+	}
+	i++;
+
+	FILE *gnuplot_data_file = fopen("gnuplot_data.txt", "w");
+	int k;
+	for (k = 0; k < i; k++)
+		fprintf(gnuplot_data_file, "%d %lf\n", x_values[k], y_values[k]);
+
+	fclose(gnuplot_data_file);
+
+	fprintf(gnuplot_pipe, "plot "
+			"'./gnuplot_data.txt' using 1:2 with lines title 'DELTA PRC %s'\n", symbol);
+
+	fflush(gnuplot_pipe);
+
+	// sleep 100ms to update graph
+	usleep(100 * 1000);
+}
+
+void
 prc_plot_curvature(int reset, double prc, int enter, int exit, int exited)
 {
 	static FILE *gnuplot_pipe;
@@ -2421,11 +2630,17 @@ prc_plot_curvature(int reset, double prc, int enter, int exit, int exited)
 	static int exited_pos = 0;
 	double div_value = 1.0;
 
+	static int first_sample = 0;
+
+	static double cost_pts = 0;
+	double mult = 1.0;
+	if ( g_LongShort == 0 ) mult = -1.0;
+
 	char symbol[256];
-	if (g_best_stock_pred_i == 0) sprintf(symbol,"WIN");
-	if (g_best_stock_pred_i == 1) sprintf(symbol,"IND");
-	if (g_best_stock_pred_i == 2) { sprintf(symbol,"WDO"); div_value = 12.5; }
-	if (g_best_stock_pred_i == 3) { sprintf(symbol,"DOL"); div_value = 12.5; }
+	if (g_best_stock_pred_i == 0) { sprintf(symbol,"WIN"); cost_pts = COST_QTY_WIN_WDO / WIN_POINT_VALUE; }
+	if (g_best_stock_pred_i == 1) { sprintf(symbol,"IND"); cost_pts = COST_QTY_IND_DOL / IND_POINT_VALUE; }
+	if (g_best_stock_pred_i == 2) { sprintf(symbol,"WDO"); div_value = 12.5; cost_pts = COST_QTY_WIN_WDO / WDO_POINT_VALUE; }
+	if (g_best_stock_pred_i == 3) { sprintf(symbol,"DOL"); div_value = 12.5; cost_pts = COST_QTY_IND_DOL / DOL_POINT_VALUE; }
 
 	if (first_time == 1)
 	{
@@ -2438,6 +2653,7 @@ prc_plot_curvature(int reset, double prc, int enter, int exit, int exited)
 		i = 0;
 		fprintf(gnuplot_pipe, "set xrange [%d:%d]\n", g_current_sample, g_last_sample_exit + 1);
 		fprintf(gnuplot_pipe, "set yrange [-100.0/%lf:100.0/%lf]\n", div_value, div_value);
+		first_sample = g_current_sample;
 	}
 
 	// save values
@@ -2449,6 +2665,8 @@ prc_plot_curvature(int reset, double prc, int enter, int exit, int exited)
 		//To draw a vertical line from the bottom to the top of the graph at x=3, use:
 		//set arrow from 3, graph 0 to 3, graph 1 nohead
 		fprintf(gnuplot_pipe, "unset arrow\nset arrow from %d, graph 0 to %d, graph 1 nohead\n", enter_pos, enter_pos);
+
+		fprintf(gnuplot_pipe, "set arrow from %d,%lf to %d,%lf nohead lc rgb 'green'\n", first_sample, prc + mult * 2 * cost_pts, g_last_sample_exit + 1, prc + mult * 2 * cost_pts);
 	}
 	else if (exit == 1)
 	{
@@ -2511,11 +2729,13 @@ int choose_best_prediction(void)
 		//printf("best_i=%d conf_vector[best_i]=%.2lf\n\n", best_i, g_confidence[best_i]);
 		g_best_stock_pred_i = best_i;
 		ret = 1;
+		g_results[0][g_current_sample][g_best_stock_pred_i][INVEST] = 1;
 	}
 	if (g_LongShort == 0 && pred < 0 && g_confidence[0][best_i] >= CERTAINTY && g_confidence[1][best_i] >= CERTAINTY) //SHORT
 	{
 		g_best_stock_pred_i = best_i;
 		ret = 1;
+		g_results[0][g_current_sample][g_best_stock_pred_i][INVEST] = 1;
 	}
 
 	return ret;
@@ -2748,13 +2968,13 @@ int compute_capital_evolution_st(double ret_prc, double ret_capital, double cost
 
 	if (g_LongShort == 1)
 	{
-		g_capital[0][g_best_stock_pred_i] += ret_capital - cost;
-		g_capital[0][INPUT_WIDTH] += ret_capital - cost;
+		g_capital[0][g_best_stock_pred_i] += ret_capital - 2 * cost;
+		g_capital[0][INPUT_WIDTH] += ret_capital - 2 * cost;
 	}
 	else
 	{
-		g_capital[0][g_best_stock_pred_i] -= ret_capital + cost;
-		g_capital[0][INPUT_WIDTH] -= ret_capital + cost;
+		g_capital[0][g_best_stock_pred_i] -= ret_capital + 2 * cost;
+		g_capital[0][INPUT_WIDTH] -= ret_capital + 2 * cost;
 	}
 
 	if (g_capital[0][g_best_stock_pred_i] > previous_capital)
@@ -2810,39 +3030,10 @@ int try_to_exit_operation(void)
 	double point_value = 0;
 	double ret_capital = 0;
 	double cost = 0;
-	double mult = 1.0;
-	if (g_LongShort == 0) mult = -1.0;
+//	double mult = 1.0;
+//	if (g_LongShort == 0) mult = -1.0;
 
 	static int exit_enable = 0;
-
-//	if (g_best_stock_pred_i == 0)
-//	{
-//		current_prc = data[g_current_sample].WIN.mid;
-//		previous_prc = data[g_current_sample - 1].WIN.mid;
-//		qty = WIN_QTY;
-//		point_value = WIN_POINT_VALUE;
-//	}
-//	if (g_best_stock_pred_i == 1)
-//	{
-//		current_prc = data[g_current_sample].IND.mid;
-//		previous_prc = data[g_current_sample - 1].IND.mid;
-//		qty = IND_QTY;
-//		point_value = IND_POINT_VALUE;
-//	}
-//	if (g_best_stock_pred_i == 2)
-//	{
-//		current_prc = data[g_current_sample].WDO.mid;
-//		previous_prc = data[g_current_sample - 1].WDO.mid;
-//		qty = WDO_QTY;
-//		point_value = WDO_POINT_VALUE;
-//	}
-//	if (g_best_stock_pred_i == 3)
-//	{
-//		current_prc = data[g_current_sample].DOL.mid;
-//		previous_prc = data[g_current_sample - 1].DOL.mid;
-//		qty = DOL_QTY;
-//		point_value = DOL_POINT_VALUE;
-//	}
 
 	get_symbol_values(g_best_stock_pred_i, 2, &current_prc, &previous_prc,
 												&qty, &point_value, &cost);
@@ -2854,7 +3045,7 @@ int try_to_exit_operation(void)
 	if (g_best_stock_pred_i == 3) pt_cost = COST_QTY_IND_DOL/DOL_POINT_VALUE;
 
 	//TODO: Ter certeza que o custo funciona
-	ret_prc = current_prc - g_reference_prc_exit - mult * pt_cost;
+	ret_prc = current_prc - g_reference_prc_exit;// - mult * pt_cost;
 	ret_capital = (current_prc - g_reference_prc_exit) * qty * point_value;
 
 	if (exit_enable == 1)
@@ -2862,12 +3053,38 @@ int try_to_exit_operation(void)
 		double diff_prc = current_prc - previous_prc;
 		if (g_LongShort == 1 && diff_prc <= 0) // Comecou a cair
 		{
+			if (ret_prc > 2 * pt_cost && g_current_result[g_best_stock_pred_i] > 0)
+			{
+				tp[g_best_stock_pred_i] += 1;
+			}
+			else if (ret_prc <= 2 * pt_cost && g_current_result[g_best_stock_pred_i] <= 0)
+			{
+				fp[g_best_stock_pred_i] += 1;
+			}
+			else
+			{
+				printf("g_best=%d ret_prc=%lf current_res=%lf\n", g_best_stock_pred_i, ret_prc, g_current_result[g_best_stock_pred_i]);
+			}
+
 			compute_capital_evolution_st(ret_prc, ret_capital, cost);
 			exit_enable = 0;
 			return (1);
 		}
 		if (g_LongShort == 0 && diff_prc >= 0)
 		{
+			if (ret_prc < -2 * pt_cost && g_current_result[g_best_stock_pred_i] < 0)
+			{
+				tp[g_best_stock_pred_i] += 1;
+			}
+			else if (ret_prc >= -2 * pt_cost && g_current_result[g_best_stock_pred_i] >= 0)
+			{
+				fp[g_best_stock_pred_i] += 1;
+			}
+			else
+			{
+				printf("g_best=%d ret_prc=%lf current_res=%lf\n", g_best_stock_pred_i, ret_prc, g_current_result[g_best_stock_pred_i]);
+			}
+
 			compute_capital_evolution_st(ret_prc, ret_capital, cost);
 			exit_enable = 0;
 			return (1);
@@ -2877,6 +3094,34 @@ int try_to_exit_operation(void)
 	// stop time
 	if (g_current_sample >= g_last_sample_exit)
 	{
+		//LONG
+		if (g_LongShort == 1 && ret_prc > 2 * pt_cost && g_current_result[g_best_stock_pred_i] > 0)
+		{
+			tp[g_best_stock_pred_i] += 1;
+		}
+		else if (g_LongShort == 1 && ret_prc <= 2 * pt_cost && g_current_result[g_best_stock_pred_i] <= 0)
+		{
+			fp[g_best_stock_pred_i] += 1;
+		}
+		else if (g_LongShort == 1)
+		{
+			printf("g_best=%d ret_prc=%lf current_res=%lf\n", g_best_stock_pred_i, ret_prc, g_current_result[g_best_stock_pred_i]);
+		}
+
+		//SHORT
+		if (g_LongShort == 0 && ret_prc < -2 * pt_cost && g_current_result[g_best_stock_pred_i] < 0)
+		{
+			tp[g_best_stock_pred_i] += 1;
+		}
+		else if (g_LongShort == 0 && ret_prc >= -2 * pt_cost && g_current_result[g_best_stock_pred_i] >= 0)
+		{
+			fp[g_best_stock_pred_i] += 1;
+		}
+		else if (g_LongShort == 0)
+		{
+			printf("g_best=%d ret_prc=%lf current_res=%lf\n", g_best_stock_pred_i, ret_prc, g_current_result[g_best_stock_pred_i]);
+		}
+
 		compute_capital_evolution_st(ret_prc, ret_capital, cost);
 		return (1);
 	}
@@ -2885,25 +3130,28 @@ int try_to_exit_operation(void)
 	double const_mult_loss = 10.0;
 	double const_mult_gain = 0.5;
 	// stop loss
-	if (g_LongShort == 1 && ret_prc < 0 && ret_prc <= -const_mult_loss * g_last_predction[g_best_stock_pred_i]) //LONG
+	if (g_LongShort == 1 && ret_prc <= 2 * pt_cost && ret_prc <= -const_mult_loss * g_last_predction[g_best_stock_pred_i]) //LONG
 	{
+		fp[g_best_stock_pred_i] += 1;
 		//printf("STOP LOSS\n");
 		compute_capital_evolution_st(ret_prc, ret_capital, cost);
 		return (1);
 	}
-	else if (g_LongShort == 0 && ret_prc > 0 && ret_prc >= -const_mult_loss * g_last_predction[g_best_stock_pred_i])
+	else if (g_LongShort == 0 && ret_prc >= -2 * pt_cost && ret_prc >= -const_mult_loss * g_last_predction[g_best_stock_pred_i])
 	{
+		fp[g_best_stock_pred_i] += 1;
+
 		compute_capital_evolution_st(ret_prc, ret_capital, cost);
 		return (1);
 	}
 
 	// stop grain
-	if (exit_enable == 0 && g_LongShort == 1 && ret_prc > 0 && ret_prc >= const_mult_gain * g_last_predction[g_best_stock_pred_i]) //LONG
+	if (exit_enable == 0 && g_LongShort == 1 && ret_prc > 2 * pt_cost /*&& ret_prc >= const_mult_gain * g_last_predction[g_best_stock_pred_i]*/) //LONG
 	{
 		exit_enable = 1; // Atingiu o ponto com o retorno predito
 		return (-1);
 	}
-	else if (exit_enable == 0 && g_LongShort == 0 && ret_prc < 0 && ret_prc <= const_mult_gain * g_last_predction[g_best_stock_pred_i])
+	else if (exit_enable == 0 && g_LongShort == 0 && ret_prc < - 2 * pt_cost /*&& ret_prc <= const_mult_gain * g_last_predction[g_best_stock_pred_i]*/)
 	{
 		exit_enable = 1;
 		return (-1);
@@ -2972,6 +3220,14 @@ trading_state_machine(int loaded)
 	{
 		if (loaded == 1)
 		{
+			int i;
+			for (i = 0; i < INPUT_WIDTH; i++)
+			{
+				g_current_result[i] = CalculatePeriodReturn(i);
+//				printf("i[%d]=%lf ", i, g_current_result[i]);
+			}
+//			printf("\n");
+
 			double pred = choose_best_prediction();
 			if (pred == 1)
 			{
@@ -3008,6 +3264,20 @@ trading_state_machine(int loaded)
 			{
 				state = END;
 				change_state = 1;
+
+				int i;
+				for ( i = 0; i < INPUT_WIDTH; i++ )
+				{
+					if (g_LongShort == 1 && g_current_result[i] > 0) //LONG
+						fn[i] += 1;
+					else if (g_LongShort == 1 && g_current_result[i] <= 0) //LONG
+						tn[i] += 1;
+
+					if (g_LongShort == 0 && g_current_result[i] < 0) //SHORT
+						fn[i] += 1;
+					else if (g_LongShort == 0 && g_current_result[i] >= 0) //SHORT
+						tn[i] += 1;
+				}
 			}
 		}
 	}
@@ -3090,16 +3360,16 @@ trading_state_machine(int loaded)
 //			if (g_best_stock_pred_i == 3) current_prc = data[g_current_sample].DOL.mid;
 			get_symbol_values(g_best_stock_pred_i, 2, &current_prc, NULL, NULL, NULL, NULL);
 
-			double mult = 1.0;
-			if (g_LongShort == 0) mult = -1.0;
+//			double mult = 1.0;
+//			if (g_LongShort == 0) mult = -1.0;
+//
+//			double pt_cost = 0;
+//			if (g_best_stock_pred_i == 0) pt_cost = COST_QTY_WIN_WDO/WIN_POINT_VALUE;
+//			if (g_best_stock_pred_i == 1) pt_cost = COST_QTY_IND_DOL/IND_POINT_VALUE;
+//			if (g_best_stock_pred_i == 2) pt_cost = COST_QTY_WIN_WDO/WDO_POINT_VALUE;
+//			if (g_best_stock_pred_i == 3) pt_cost = COST_QTY_IND_DOL/DOL_POINT_VALUE;
 
-			double pt_cost = 0;
-			if (g_best_stock_pred_i == 0) pt_cost = COST_QTY_WIN_WDO/WIN_POINT_VALUE;
-			if (g_best_stock_pred_i == 1) pt_cost = COST_QTY_IND_DOL/IND_POINT_VALUE;
-			if (g_best_stock_pred_i == 2) pt_cost = COST_QTY_WIN_WDO/WDO_POINT_VALUE;
-			if (g_best_stock_pred_i == 3) pt_cost = COST_QTY_IND_DOL/DOL_POINT_VALUE;
-
-			delta_prc = current_prc - g_reference_prc_enter - mult * pt_cost;
+			delta_prc = current_prc - g_reference_prc_enter;// - mult * pt_cost;
 			prc_plot_curvature(reset_flag, delta_prc, enter_flag, exit_flag, exited_flag);
 
 			if (g_LongShort == 1)
@@ -3111,7 +3381,7 @@ trading_state_machine(int loaded)
 							"return=%.2lf\n",
 							enter_flag, exit_flag, exited_flag, g_current_sample,
 							delta_prc, current_prc, g_reference_prc_enter, g_reference_prc_exit,
-							current_prc - g_reference_prc_exit - mult * pt_cost);
+							current_prc - g_reference_prc_exit/* - mult * pt_cost*/);
 				}
 				else
 				{
@@ -3131,7 +3401,7 @@ trading_state_machine(int loaded)
 							"return=%.2lf\n",
 							enter_flag, exit_flag, exited_flag, g_current_sample,
 							delta_prc, current_prc, g_reference_prc_enter, g_reference_prc_exit,
-							g_reference_prc_exit - current_prc - mult * pt_cost);
+							g_reference_prc_exit - current_prc/* - mult * pt_cost*/);
 				}
 				else
 				{
@@ -3227,6 +3497,8 @@ PrintCapital(PARAM_LIST *pParamList)
 	int total_ops = 0;
 	int total_longs = 0;
 	int total_shorts = 0;
+	double predc = 0.0;
+	double recall = 0.0;
 
 	for (i = 0; i < INPUT_WIDTH; i++)
 	{
@@ -3240,6 +3512,11 @@ PrintCapital(PARAM_LIST *pParamList)
 		printf("capital[%d]=%.2lf longs=%d shorts=%d ops=%d hits=%d miss=%d acc=%.1lf\n",
 				i, g_capital[0][i], g_buy_sell_count[0][i], g_sell_buy_count[0][i],
 				g_n_ops[i], g_n_hits[i], g_n_miss[i], acc);
+
+		predc = 100.0 * tp[i] / (tp[i] + fp[i]);
+		recall = 100.0 * tp[i] / (tp[i] + fn[i]);
+
+		printf("tp=%1.1lf fp=%1.1lf tn=%1.1lf fn=%1.1lf predc=%.2lf rec=%.2lf\n", tp[i], fp[i], tn[i], fn[i], predc, recall);
 	}
 
 	acc = (100.0 * total_hits) / total_ops;
