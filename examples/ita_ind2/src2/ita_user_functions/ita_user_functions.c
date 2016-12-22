@@ -404,6 +404,9 @@ LoadDataToInput(INPUT_DESC *input)
 			//if (x == 0) printf("%f ", input->neuron_layer->neuron_vector[y * x_dimention + x].output.fval);
 		}
 	}
+
+	update_input_image(input);
+
 	//printf("\n");
 	return (0);
 }
@@ -474,36 +477,52 @@ CalculatePeriodReturn(int stock)
 		diff_prc = curr_prc - prev_prc;
 		ret_prc = curr_prc - enter_prc;
 
+		// stop loss
+		if ( g_LongShort == 1 && entered == 1 && exit == 0 && ret_prc <= -2 * cost_pts )
+		{
+			exit_prc = curr_prc;
+			exited = 1;
+			exit = 1;
+		}
+		// stop gain part 2
 		if ( g_LongShort == 1 && exited == 0 && entered == 1 && exit == 1 && diff_prc <= 0 )
 		{
 			exit_prc = curr_prc;
 			exited = 1;
 			//break;
 		}
-
+		// stop gain part 1
 		if ( g_LongShort == 1 && entered == 1 && exit == 0 && ret_prc > 2 * cost_pts )
 		{
 			exit = 1;
 		}
-
+		// enter
 		if (  g_LongShort == 1 && entered == 0 && diff_prc > 0 )
 		{
 			enter_prc = curr_prc;
 			entered = 1;
 		}
 
+		// stop loss
+		if ( g_LongShort == 0 && entered == 1 && exit == 0 && ret_prc >= 2 * cost_pts )
+		{
+			exit_prc = curr_prc;
+			exited = 1;
+			exit = 1;
+		}
+		// stop gain part 2
 		if ( g_LongShort == 0 && exited == 0 && entered == 1 && exit == 1 && diff_prc >= 0 )
 		{
 			exit_prc = curr_prc;
 			exited = 1;
 			//break;
 		}
-
+		// stop gain part 1
 		if ( g_LongShort == 0 && entered == 1 && exit == 0 && ret_prc < -2 * cost_pts )
 		{
 			exit = 1;
 		}
-
+		// enter
 		if (  g_LongShort == 0 && entered == 0 && diff_prc < 0 )
 		{
 			enter_prc = curr_prc;
@@ -2739,6 +2758,7 @@ int choose_best_prediction(void)
 			pred = g_predction[i];
 		}
 	}
+
 //	pred = g_predction[0];
 //	best_i = 0;
 //	printf("best_i=%d pred=%2.lf\n",best_i, pred);
@@ -3146,17 +3166,17 @@ int try_to_exit_operation(void)
 	}
 
 	//TODO: CONSTS
-	double const_mult_loss = 10.0;
+	double const_mult_loss = 1.0;
 //	double const_mult_gain = 0.5;
 	// stop loss
-	if (g_LongShort == 1 && ret_prc <= 2 * pt_cost && ret_prc <= -const_mult_loss * g_last_predction[g_best_stock_pred_i]) //LONG
+	if (g_LongShort == 1 && ret_prc <= -2 * pt_cost /*&& ret_prc <= -const_mult_loss * g_last_predction[g_best_stock_pred_i]*/) //LONG
 	{
 		fp[g_best_stock_pred_i] += 1;
 		//printf("STOP LOSS\n");
 		compute_capital_evolution_st(ret_prc, ret_capital, cost);
 		return (1);
 	}
-	else if (g_LongShort == 0 && ret_prc >= -2 * pt_cost && ret_prc >= -const_mult_loss * g_last_predction[g_best_stock_pred_i])
+	else if (g_LongShort == 0 && ret_prc >= 2 * pt_cost /*&& ret_prc >= -const_mult_loss * g_last_predction[g_best_stock_pred_i]*/)
 	{
 		fp[g_best_stock_pred_i] += 1;
 
@@ -3170,7 +3190,7 @@ int try_to_exit_operation(void)
 		exit_enable = 1; // Atingiu o ponto com o retorno predito
 		return (-1);
 	}
-	else if (exit_enable == 0 && g_LongShort == 0 && ret_prc < - 2 * pt_cost /*&& ret_prc <= const_mult_gain * g_last_predction[g_best_stock_pred_i]*/)
+	else if (exit_enable == 0 && g_LongShort == 0 && ret_prc < -2 * pt_cost /*&& ret_prc <= const_mult_gain * g_last_predction[g_best_stock_pred_i]*/)
 	{
 		exit_enable = 1;
 		return (-1);
@@ -3255,6 +3275,14 @@ trading_state_machine(int loaded)
 				for (i = 0; i < INPUT_WIDTH; i++)
 					g_last_predction[i] = g_predction[i];
 
+//				for (i = 0; i < INPUT_WIDTH; i++)
+//				{
+//					int pred = g_predction[i] > 0 ? 1 : 0;
+//					int act = g_current_result[i] > 0 ? 1 : 0;
+//					printf("act[%d]=%d; pred[%d]=%d; chose[%d]=%d; ", i, act, i, pred, i, (g_best_stock_pred_i == i) ? 1 : 0);
+//				}
+//				printf("\n");
+
 				g_current_sample = SamplePreviousPeriod(g_current_sample);
 //				if (g_best_stock_pred_i == 0) g_reference_prc_enter = data[g_current_sample].WIN.mid;
 //				if (g_best_stock_pred_i == 1) g_reference_prc_enter = data[g_current_sample].IND.mid;
@@ -3281,6 +3309,7 @@ trading_state_machine(int loaded)
 			}
 			else
 			{
+//				printf("---\n");
 				state = END;
 				change_state = 1;
 

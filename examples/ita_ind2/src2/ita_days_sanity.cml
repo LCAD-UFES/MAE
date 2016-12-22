@@ -2,7 +2,7 @@ SetLongShort(1); # Long
 LoadDayFileName("data.txt");
 
 int N_DAYS;
-N_DAYS = 1;
+N_DAYS = 30;
 
 /* Network Status */
 int TRAINING_PHASE;
@@ -83,14 +83,14 @@ while ( day_i < N_DAYS )
 				#print("loaded=", loaded);
 				if (loaded == 1)
 				{
-					print("test=", tick);	
+					#print("test=", tick);	
 					
 					forward filters;
 					forward neural_layers;
 					forward outputs;
 			
 					#ShowNeuronsMemory(0);
-					ShowStatistics(0);
+					#ShowStatistics(0);
 				}
 				Move1Tick(loaded);
 				
