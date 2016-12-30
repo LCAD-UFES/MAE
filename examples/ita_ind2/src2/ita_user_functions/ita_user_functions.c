@@ -2623,6 +2623,7 @@ prc_output_plot_curvature(int stock, int first_sample, int last_sample, int i_sa
 		fprintf(gnuplot_pipe, "unset arrow\nset arrow from %d, graph 0 to %d, graph 1 nohead\n", enter_pos, enter_pos);
 
 		fprintf(gnuplot_pipe, "set arrow from %d,%lf to %d,%lf nohead lc rgb 'green'\n", first_sample, prc + mult * 2 * cost_pts, last_sample, prc + mult * 2 * cost_pts);
+		fprintf(gnuplot_pipe, "set arrow from %d,%lf to %d,%lf nohead lc rgb 'purple'\n", first_sample, prc - mult * 2 * cost_pts, last_sample, prc - mult * 2 * cost_pts);
 	}
 	else if (exit == 1 && aux_exit == 0)
 	{
@@ -2705,6 +2706,7 @@ prc_plot_curvature(int reset, double prc, int enter, int exit, int exited)
 		fprintf(gnuplot_pipe, "unset arrow\nset arrow from %d, graph 0 to %d, graph 1 nohead\n", enter_pos, enter_pos);
 
 		fprintf(gnuplot_pipe, "set arrow from %d,%lf to %d,%lf nohead lc rgb 'green'\n", first_sample, prc + mult * 2 * cost_pts, g_last_sample_exit + 1, prc + mult * 2 * cost_pts);
+		fprintf(gnuplot_pipe, "set arrow from %d,%lf to %d,%lf nohead lc rgb 'purple'\n", first_sample, prc - mult * 2 * cost_pts, g_last_sample_exit + 1, prc - mult * 2 * cost_pts);
 	}
 	else if (exit == 1)
 	{
