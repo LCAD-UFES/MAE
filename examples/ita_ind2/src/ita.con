@@ -20,11 +20,12 @@ const CUSTO_CORRETORA_P	= 0.0; # 2.50;
 const CUSTO_TRASACAO 	= 0.0; # (CUSTO_BOVESPA + CUSTO_CORRETORA);
 const CERTAINTY = 65.;
 const STATISTICS = 10;
-const USE_STATISTICS = 0;
+const USE_STATISTICS = 1;
 const PERIOD = 64; # in seconds
 const USE_SPREAD = 0;
-const STOP_N_PERIODS = 5;
-const USE_STOP = 0;
+const COST_QTY_WIN_WDO = 0.61;
+const COST_QTY_IND_DOL = 4.43;
+const USE_COST = 1;
 
 ############################################### Neuron Layers #########################################################
 neuronlayer	nl_ita_lp_f[INPUT_WIDTH][INPUT_HEIGHT]	with greyscale_float outputs;

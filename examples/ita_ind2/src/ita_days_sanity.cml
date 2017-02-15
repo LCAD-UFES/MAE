@@ -93,7 +93,7 @@ while ( i < 2 )
 			#copy out_test;
 			#paste out_prediction;
 	
-			ShowStatistics(0);
+			#ShowStatistics(0);
 			#train network;
 	
 			if (a != 0) Increment(1);
