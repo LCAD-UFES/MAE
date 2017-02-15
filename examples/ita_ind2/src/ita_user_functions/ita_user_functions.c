@@ -61,7 +61,9 @@ typedef struct _statistics_exp
 {
 	int day;
 	double avg_capital;
+	double geral_capital;
 	int	n_ops;
+	double total_hits;
 	double capital_win;
 	int	n_ops_win;
 	double capital_ind;
@@ -137,7 +139,7 @@ char *gcc_no_complain_c;
 int g_results[2][MAX_DATA_SAMPLES][INPUT_WIDTH][13];
 int g_buy_sell_count[2][INPUT_WIDTH];
 int g_sell_buy_count[2][INPUT_WIDTH];
-double g_capital[2][INPUT_WIDTH];
+double g_capital[2][INPUT_WIDTH+1];
 double g_mean_correct_positive_pred[2][INPUT_WIDTH], g_mean_correct_negative_pred[2][INPUT_WIDTH];
 double g_mean_reverse_positive_pred[2][INPUT_WIDTH], g_mean_reverse_negative_pred[2][INPUT_WIDTH];
 
@@ -1145,6 +1147,8 @@ compute_capital_evolution(int net, int n, OUTPUT_DESC *neural_prediction, OUTPUT
 			{
 				double previous_capital = g_capital[net][i];
 				g_capital[net][i] += result_buy_sell;
+				g_capital[net][INPUT_WIDTH] += result_buy_sell;
+
 				if (g_capital[net][i] > previous_capital)
 					g_results[net][g_sample_statistics-1][i][HITS] += 1;
 
@@ -1163,6 +1167,8 @@ compute_capital_evolution(int net, int n, OUTPUT_DESC *neural_prediction, OUTPUT
 			{
 				double previous_capital = g_capital[net][i];
 				g_capital[net][i] += result_sell_buy;
+				g_capital[net][INPUT_WIDTH] += result_sell_buy;
+
 				if (g_capital[net][i] > previous_capital)
 					g_results[net][g_sample_statistics-1][i][HITS] += 1;
 
@@ -1454,6 +1460,7 @@ ShowStatisticsExp(PARAM_LIST *pParamList)
 
 	int i, stock, total_tested;
 	int n_stocks = INPUT_WIDTH;
+	double total_hits = 0;
 
 	for (stock = 0; stock < n_stocks; stock++)
 	{
@@ -1527,6 +1534,7 @@ ShowStatisticsExp(PARAM_LIST *pParamList)
 
 				//stat_day[day_i][stock][HITS] = 100.0 * (double) f_sum(net, stock, HITS) / (double) (g_buy_sell_count[net][stock] + g_sell_buy_count[net][stock]);
 				stat_day[day_i][stock][HITS] = (double) f_sum(net, stock, HITS) ;
+				total_hits += stat_day[day_i][stock][HITS];
 			}
 			else
 			{
@@ -1559,9 +1567,13 @@ ShowStatisticsExp(PARAM_LIST *pParamList)
 
 	stat_exp[day_i].day = day_i;
 	stat_exp[day_i].avg_capital = total_capital/(double)n_stocks;
+	stat_exp[day_i].geral_capital = g_capital[0][INPUT_WIDTH];
 	stat_exp[day_i].n_ops = total_buy_sell;
+	stat_exp[day_i].total_hits = total_hits;
 
-	printf("day_i=%d; avg_capital=%.2lf; n_ops=%d; ", day_i, stat_exp[day_i].avg_capital, stat_exp[day_i].n_ops);
+	printf("day_i=%d; avg_capital=%.2lf; geral_capital=%.2lf; n_ops=%d; hit_rate=%.1lf; ",
+			day_i, stat_exp[day_i].avg_capital, stat_exp[day_i].geral_capital, stat_exp[day_i].n_ops,
+			100.0 * stat_exp[day_i].total_hits / stat_exp[day_i].n_ops);
 
 	for (stock = 0; stock < n_stocks; stock++)
 	{
@@ -1623,12 +1635,19 @@ NEURON_OUTPUT
 MeanStatisticsExp(PARAM_LIST *pParamList)
 {
 	NEURON_OUTPUT output;
+	double n = (double)(1.0*day_i+1);
+	int param = pParamList->next->param.ival;
+	if (param != 0)
+		n = (double)(1.0 * param);
 
 	double total_capital = 0.0;
+	double total_geral_capital = 0.0;
 	double total_capital_win = 0.0;
 	double total_capital_ind = 0.0;
 	double total_capital_wdo = 0.0;
 	double total_capital_dol = 0.0;
+
+	double total_hits = 0.0;
 
 	int	n_ops = 0;
 	int	n_ops_win = 0;
@@ -1645,10 +1664,13 @@ MeanStatisticsExp(PARAM_LIST *pParamList)
 	for (i = 0; i <= day_i; i++)
 	{
 		total_capital	+= stat_exp[i].avg_capital;
+		total_geral_capital	+= stat_exp[i].geral_capital;
 		total_capital_win += stat_exp[i].capital_win;
 		total_capital_ind += stat_exp[i].capital_ind;
 		total_capital_wdo += stat_exp[i].capital_wdo;
 		total_capital_dol += stat_exp[i].capital_dol;
+
+		total_hits += stat_exp[i].total_hits;
 
 		n_ops	+= stat_exp[i].n_ops;
 		n_ops_win	+= stat_exp[i].n_ops_win;
@@ -1665,10 +1687,10 @@ MeanStatisticsExp(PARAM_LIST *pParamList)
 		}
 	}
 
-	double n = (double)(1.0*day_i+1);
 	char symbol[6];
 
-	printf("day_i=Mean; avg_capital=%.2lf; n_ops=%.2lf; ", total_capital/n, (1.0*n_ops)/n);
+	printf("day_i=Mean; avg_capital=%.2lf; avg_geral_capital=%.2lf; n_ops=%.2lf; hit_rate=%.1lf; ",
+			total_capital/n, total_geral_capital/n, (1.0*n_ops)/n, 100.0 * total_hits/n_ops);
 	for (stock = 0; stock < n_stocks; stock++)
 	{
 		if (stock == 0) strcpy(symbol, "WIN_");//printf("WIN: ");
@@ -1765,6 +1787,8 @@ ResetStatistics(PARAM_LIST *pParamList)
 		g_n_hits[j] = 0;
 		g_n_miss[j] = 0;
 	}
+	g_capital[0][INPUT_WIDTH] = 125000.0;
+	g_capital[1][INPUT_WIDTH] = 125000.0;
 
 	g_sample = POSE_MIN = 0; // ita.wh;
 	g_sample_statistics = 0;
