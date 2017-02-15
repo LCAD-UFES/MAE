@@ -195,6 +195,9 @@ double g_confidence_up[2][INPUT_WIDTH], g_confidence_down[2][INPUT_WIDTH];
 
 char days_file_name[257];
 
+double g_t[INPUT_WIDTH][MAX_DATA_SAMPLES];
+double g_y[INPUT_WIDTH][MAX_DATA_SAMPLES];
+int g_t_y_count = 0;
 /*
 ***********************************************************
 * Function: GetTimeInSeconds
@@ -546,7 +549,11 @@ CalculatePeriodReturn(int stock)
 
 	//prc_output_plot_curvature(stock, sample, g_current_sample, g_current_sample, 0, delta_prc, entered, exit, exited);
 
-	ret = exit_prc - enter_prc - 2 * mult * cost_pts;
+	if ( entered == 1 )
+		ret = exit_prc - enter_prc - 2 * mult * cost_pts;
+	else
+		ret = 0;
+
 	return ret;
 }
 
@@ -630,6 +637,11 @@ LoadDataToOutput(OUTPUT_DESC *output)
 	wdo_ret = CalculatePeriodReturn(2);
 	dol_ret = CalculatePeriodReturn(3);
 
+	g_t[0][g_t_y_count] = win_ret;
+	g_t[1][g_t_y_count] = ind_ret;
+	g_t[2][g_t_y_count] = wdo_ret;
+	g_t[3][g_t_y_count] = dol_ret;
+
 	//printf("%02d:%02d:%02d.%03d \n", data[g_sample].time.hour, data[g_sample].time.min, data[g_sample].time.sec, data[g_sample].time.msec);
 	for (y = 0; y < y_dimention; y++)
 	{
@@ -652,6 +664,8 @@ LoadDataToOutput(OUTPUT_DESC *output)
 				output->neuron_layer->neuron_vector[y * x_dimention + x].output.fval = dol_ret;
 			}
 //			if ( y == 0 ) printf("x[%d]=%f ", x, output->neuron_layer->neuron_vector[y * x_dimention + x].output.fval);
+
+			g_t[x][g_t_y_count] = output->neuron_layer->neuron_vector[y * x_dimention + x].output.fval;
 		}
 	}
 
@@ -1403,6 +1417,8 @@ copy_neural_prediction_confidence(OUTPUT_DESC *output)
 		float pred = GetNeuronsOutput(output, i);
 		g_predction[i] = pred;
 
+		g_y[i][g_t_y_count] = pred;
+
 		GetNeuronsOutputConfidence(output, i);
 		if (g_LongShort == 1) //LONG
 		{
@@ -1469,6 +1485,7 @@ EvaluateOutput(OUTPUT_DESC *output)
 
 	copy_neural_prediction_confidence(output);
 
+	g_t_y_count++;
 	//if (g_nStatus == TEST_PHASE)
 	//	compute_capital_evolution(0, n_stocks, output, actual_result);
 }
@@ -2013,6 +2030,16 @@ MeanStatisticsExp(PARAM_LIST *pParamList)
 */
 	fflush(stdout);
 
+
+	FILE* f = fopen("wnn2.csv", "w+");
+	fprintf(f, "WIN_T; WIN_Y; IND_T; IND_Y; WDO_T; WDO_Y; DOL_T; DOL_Y\n");
+	for (i = 0; i < g_t_y_count; i++)
+	{
+		fprintf(f, "%lf; %lf; %lf; %lf; %lf; %lf; %lf; %lf\n", g_t[0][i], g_y[0][i],
+				g_t[1][i], g_y[1][i], g_t[2][i], g_y[2][i], g_t[3][i], g_y[3][i]);
+	}
+	fclose(f);
+
 	output.ival = 0;
 	return output;
 }
@@ -2039,8 +2066,12 @@ ResetStatistics(PARAM_LIST *pParamList)
 			g_buy_sell_count[l][j] = 0;
 			g_sell_buy_count[l][j] = 0;
 			for (k = 0; k < MAX_DATA_SAMPLES; k++)
+			{
+				g_t[j][k] = 0;
+				g_y[j][k] = 0;
 				for (i = 0; i < 13; i++)
 					g_results[l][k][j][i] = 0;
+			}
 		}
 
 		g_anchor[j] = 0.0;
@@ -2761,8 +2792,10 @@ int choose_best_prediction(void)
 		}
 	}
 
-//	pred = g_predction[0];
-//	best_i = 0;
+//	pred = g_predction[3];
+//	best_i = 3;
+//	g_best_stock_pred_i = 3;
+//	ret = 1;
 //	printf("best_i=%d pred=%2.lf\n",best_i, pred);
 
 	if (g_LongShort == 1 && pred > 0 && g_confidence[0][best_i] >= CERTAINTY && g_confidence[1][best_i] >= CERTAINTY) //LONG
