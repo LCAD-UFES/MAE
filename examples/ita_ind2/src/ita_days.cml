@@ -1,8 +1,8 @@
 SetLongShort(1); # Long
-LoadDayFileName("data.txt");
+LoadDayFileName("data_test.txt");
 
 int N_DAYS;
-N_DAYS = 30;
+N_DAYS = 1;
 
 /* Network Status */
 int TRAINING_PHASE;

@@ -57,6 +57,10 @@ int g_enable_operation[INPUT_WIDTH];
 int g_last_close_operation_sample[INPUT_WIDTH];
 int g_n_ops[INPUT_WIDTH], g_n_hits[INPUT_WIDTH], g_n_miss[INPUT_WIDTH];
 
+double g_t[INPUT_WIDTH][MAX_DATA_SAMPLES];
+double g_y[INPUT_WIDTH][MAX_DATA_SAMPLES];
+int g_t_y_count = 0;
+
 typedef struct _statistics_exp
 {
 	int day;
@@ -919,6 +923,9 @@ compute_prediction_statistics(int net, int n_stocks, OUTPUT_DESC *neural_predict
 		float actu_ret = GetNeuronsOutput(actual_result, stock);
 #endif
 
+		g_y[stock][g_t_y_count] = pred_ret;
+		g_t[stock][g_t_y_count] = actu_ret;
+
 		//if (stock == 0) printf("%f; %f\n", actu_ret /*+ data[sample2].WIN.mid*/, pred_ret /*+ data[sample2].WIN.mid*/);
 
 		//printf("pred= %f act= %f \n", pred_ret, actu_ret);
@@ -1225,6 +1232,8 @@ EvaluateOutput(OUTPUT_DESC *output)
 	compute_prediction_statistics(0, n_stocks, output, actual_result);
 	if (g_nStatus == TEST_PHASE)
 		compute_capital_evolution(0, n_stocks, output, actual_result);
+
+	g_t_y_count++;
 }
 #endif
 
@@ -1750,6 +1759,15 @@ MeanStatisticsExp(PARAM_LIST *pParamList)
 */
 	fflush(stdout);
 
+	FILE* f = fopen("wnn_fixo_test_caco.csv", "w+");
+	fprintf(f, "WIN_T; WIN_Y; IND_T; IND_Y; WDO_T; WDO_Y; DOL_T; DOL_Y\n");
+	for (i = 0; i < g_t_y_count; i++)
+	{
+		fprintf(f, "%lf; %lf; %lf; %lf; %lf; %lf; %lf; %lf\n", g_t[0][i], g_y[0][i],
+				g_t[1][i], g_y[1][i], g_t[2][i], g_y[2][i], g_t[3][i], g_y[3][i]);
+	}
+	fclose(f);
+
 	output.ival = 0;
 	return output;
 }
@@ -1776,8 +1794,15 @@ ResetStatistics(PARAM_LIST *pParamList)
 			g_buy_sell_count[l][j] = 0;
 			g_sell_buy_count[l][j] = 0;
 			for (k = 0; k < MAX_DATA_SAMPLES; k++)
+			{
+				if ( g_t_y_count == 0 )
+				{
+					g_t[j][k] = 0;
+					g_y[j][k] = 0;
+				}
 				for (i = 0; i < 13; i++)
 					g_results[l][k][j][i] = 0;
+			}
 		}
 
 		g_anchor[j] = 0.0;
