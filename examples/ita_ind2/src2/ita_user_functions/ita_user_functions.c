@@ -665,7 +665,7 @@ LoadDataToOutput(OUTPUT_DESC *output)
 			}
 //			if ( y == 0 ) printf("x[%d]=%f ", x, output->neuron_layer->neuron_vector[y * x_dimention + x].output.fval);
 
-			g_t[x][g_t_y_count] = output->neuron_layer->neuron_vector[y * x_dimention + x].output.fval;
+			//g_t[x][g_t_y_count] = output->neuron_layer->neuron_vector[y * x_dimention + x].output.fval;
 		}
 	}
 
@@ -2031,7 +2031,7 @@ MeanStatisticsExp(PARAM_LIST *pParamList)
 	fflush(stdout);
 
 
-	FILE* f = fopen("wnn2.csv", "w+");
+	FILE* f = fopen("wnn2_test.csv", "w+");
 	fprintf(f, "WIN_T; WIN_Y; IND_T; IND_Y; WDO_T; WDO_Y; DOL_T; DOL_Y\n");
 	for (i = 0; i < g_t_y_count; i++)
 	{

@@ -1,5 +1,5 @@
 SetLongShort(1); # Long
-LoadDayFileName("data.txt");
+LoadDayFileName("data_test.txt");
 
 int N_DAYS;
 N_DAYS = 1;

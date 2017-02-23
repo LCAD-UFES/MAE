@@ -1759,7 +1759,7 @@ MeanStatisticsExp(PARAM_LIST *pParamList)
 */
 	fflush(stdout);
 
-	FILE* f = fopen("wnn_fixo_test_caco.csv", "w+");
+	FILE* f = fopen("wnn_fixo_test_1dia.csv", "w+");
 	fprintf(f, "WIN_T; WIN_Y; IND_T; IND_Y; WDO_T; WDO_Y; DOL_T; DOL_Y\n");
 	for (i = 0; i < g_t_y_count; i++)
 	{
@@ -2097,10 +2097,10 @@ WillStart(PARAM_LIST *pParamList)
 
 	int hour = data[g_sample].time.hour;
 	int min = data[g_sample].time.min;
-	//int sec = data[g_sample].time.sec;
+//	int sec = data[g_sample].time.sec;
 	//sscanf(returns[net][g_sample].time, "%d:%d:%f", &hour, &min, &sec);
 
-	//printf("h=%d m=%d sec=%f\n", hour, min, sec);
+//	printf("h=%d m=%d sec=%d\n", hour, min, sec);
 	//printf("g_sample=%d min=%d max=%d\n", g_sample, POSE_MIN, POSE_MAX);
 
 	int ret = 0;
@@ -2113,6 +2113,7 @@ WillStart(PARAM_LIST *pParamList)
 		ret = 1;
 		//LoadReturnsToInput(&ita, 0, -1);
 		LoadDataToInput(&ita);
+//		printf("g_current_sample=%d %02d:%02d:%02d\n", g_sample, hour, min, sec);
 
 		check_input_bounds(&ita, ita.wx + ita.ww/2, ita.wy + ita.wh/2);
 		ita.up2date = 0;
@@ -2145,7 +2146,7 @@ WillTrain(PARAM_LIST *pParamList)
 
 	int hour = data[g_sample].time.hour;
 	int min = data[g_sample].time.min;
-	//float sec = 0.0;
+//	int sec = data[g_sample].time.sec;
 	//sscanf(returns[net][g_sample].time, "%d:%d:%f", &hour, &min, &sec);
 
 	//printf("h=%d m=%d sec=%f\n", hour, min, sec);
@@ -2162,6 +2163,8 @@ WillTrain(PARAM_LIST *pParamList)
 		ret = 1;
 		//LoadReturnsToInput(&ita, 0, -1);
 		LoadDataToInput(&ita);
+
+//		printf("g_current_sample=%d %02d:%02d:%02d\n", g_sample, hour, min, sec);
 
 		check_input_bounds(&ita, ita.wx + ita.ww/2, ita.wy + ita.wh/2);
 		ita.up2date = 0;
@@ -2194,7 +2197,7 @@ WillTest(PARAM_LIST *pParamList)
 
 	int hour = data[g_sample].time.hour;
 	int min = data[g_sample].time.min;
-	//float sec = 0.0;
+//	int sec = data[g_sample].time.sec;
 	//sscanf(returns[net][g_sample].time, "%d:%d:%f", &hour, &min, &sec);
 
 	//printf("h=%d m=%d sec=%f\n", hour, min, sec);
@@ -2212,6 +2215,8 @@ WillTest(PARAM_LIST *pParamList)
 		ret = 1;
 		//LoadReturnsToInput(&ita, 0, -1);
 		LoadDataToInput(&ita);
+
+//		printf("g_current_sample=%d %02d:%02d:%02d\n", g_sample, hour, min, sec);
 
 		check_input_bounds(&ita, ita.wx + ita.ww/2, ita.wy + ita.wh/2);
 		ita.up2date = 0;
@@ -2250,6 +2255,7 @@ Increment(PARAM_LIST *pParamList)
 
 	//printf("g_sample=%d\n", g_sample);
 	output.ival = 0;
+
 	return (output);
 }
 
