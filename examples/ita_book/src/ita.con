@@ -1,0 +1,83 @@
+################################################ Set Global Variables #################################################
+set NEURON_MEMORY_SIZE = 43200;
+#set NEURON_MEMORY_SIZE = 1;
+set TYPE_SHOW = SHOW_FRAME;
+set TYPE_MOVING_FRAME = STOP;
+######################################################## Constants ####################################################
+
+const FILE_TRAIN = "win.txt";
+const FILE_TEST = "win_test.txt";
+const MAX_BOOK_DEPTH = 30;
+const USE_BOOK_DEPTH = 30;
+
+# Symbol specific parameters
+const STEP_PRC_MIN = 5; # in points
+const SYMBOL_COST = 0.61; # in $ per point
+const SYMBOL_POINT_VALUE = 0.2;
+const SYMBOL_QTY = 50;
+
+const INPUT_WIDTH 	= 2 * USE_BOOK_DEPTH;
+const INPUT_HEIGHT = 2 * 5 * USE_BOOK_DEPTH;
+
+const OUT_WIDTH	= 10;
+const OUT_HEIGHT = 5 * OUT_WIDTH;
+
+const SYNAPSES = 1024;
+
+const CERTAINTY = 65.;
+const STATISTICS = 20;
+const USE_STATISTICS = 1;
+const PERIOD = 64; # in seconds
+const COST_QTY_WIN_WDO = 0.61;
+const COST_QTY_IND_DOL = 4.43;
+const USE_COST = 1;
+const USE_SPREAD = 0; # not used
+
+############################################### Neuron Layers #########################################################
+neuronlayer	nl_ita_lp_f[INPUT_WIDTH][INPUT_HEIGHT]	with greyscale outputs;
+neuronlayer	nl_prediction[OUT_WIDTH][OUT_HEIGHT]	of minchinton neurons greyscale sensitive with greyscale_float outputs;
+neuronlayer	nl_test[OUT_WIDTH][OUT_HEIGHT]			of minchinton neurons greyscale sensitive with greyscale_float outputs;
+neuronlayer	nl_result[OUT_WIDTH][OUT_HEIGHT]		of minchinton neurons greyscale sensitive with greyscale_float outputs;
+
+############################################### Outputs #########################################################
+output		out_ita_lp_f[INPUT_WIDTH][INPUT_HEIGHT];
+output		out_prediction[OUT_WIDTH][OUT_HEIGHT] 	handled by output_handler();
+output		out_test[OUT_WIDTH][OUT_HEIGHT];
+output		out_result[OUT_WIDTH][OUT_HEIGHT];
+
+################################################## Inputs #############################################################
+input 		ita[INPUT_WIDTH][INPUT_HEIGHT]	with greyscale outputs produced by input_generator() controled by input_controler();
+
+############################################### Filters #########################################################
+filter		ita 		with copy_nl_filter ("") producing nl_ita_lp_f;
+
+################################## Connect Neuron Layers to Outputs #############################################
+outputconnect	nl_ita_lp_f 	to out_ita_lp_f;
+outputconnect	nl_prediction	to out_prediction;
+outputconnect	nl_test			to out_test;
+outputconnect	nl_result		to out_result;
+
+############################################### Associations ####################################################
+associate	nl_prediction		with	nl_prediction;
+
+################################################ Connections ####################################################
+connect			nl_ita_lp_f	to nl_prediction 	with SYNAPSES random inputs per neuron;
+
+################################################ User Functions #################################################
+int SetLongShort ("%d");
+int LoadDayFileName("%d");
+int LoadDay("%d");
+int SetNetworkStatus ("%d");
+
+int ShowStatistics ("%d");
+int ResetStatistics ("%d");
+
+int ShowStatisticsExp("%d");
+int MeanStatisticsExp("%d");
+
+int WillStart("%d");
+int WillTrain("%d");
+int WillTest("%d");
+int Increment("%d");
+#int GetInputHeight("%d");
+int ShowNeuronsMemory("%d");

@@ -1,0 +1,32 @@
+#!/bin/csh 
+
+rm -rf ita_results_days.csv
+
+#foreach NEURONS ( 1 )
+#	foreach SYNAPSES ( 32 )
+#		foreach WINDOW_SIZE ( 10 )
+#			foreach STATISTICS ( 32 )
+#				foreach CERTAINTY ( 15. )
+foreach NEURONS ( 1 3 5 9 17 33 )
+	foreach SYNAPSES ( 32 64 128 256 )
+		foreach WINDOW_SIZE ( 5 10 15 20 )
+#			foreach STATISTICS ( 3 5 10 15 20 )
+			foreach STATISTICS ( 1 )
+				foreach CERTAINTY ( 35. 45. 55. 65. 75. )
+
+					#echo "8; ${NEURONS}; ${SYNAPSES}; ${WINDOW_SIZE}; ${STATISTICS}; ${CERTAINTY};" `tail -n 1 ita_ind_${NEURONS}_${SYNAPSES}_${WINDOW_SIZE}_${STATISTICS}_${CERTAINTY}/ita_days_8.csv` >>  ita_results_days.csv
+
+					#echo "16; ${NEURONS}; ${SYNAPSES}; ${WINDOW_SIZE}; ${STATISTICS}; ${CERTAINTY};" `tail -n 1 ita_ind_${NEURONS}_${SYNAPSES}_${WINDOW_SIZE}_${STATISTICS}_${CERTAINTY}/ita_days_16.csv` >>  ita_results_days.csv
+
+					#echo "32; ${NEURONS}; ${SYNAPSES}; ${WINDOW_SIZE}; ${STATISTICS}; ${CERTAINTY};" `tail -n 1 ita_ind_${NEURONS}_${SYNAPSES}_${WINDOW_SIZE}_${STATISTICS}_${CERTAINTY}/ita_days_32.csv` >>  ita_results_days.csv
+
+					echo "64; ${NEURONS}; ${SYNAPSES}; ${WINDOW_SIZE}; ${STATISTICS}; ${CERTAINTY};" `tail -n 1 ita_ind_conf_${NEURONS}_${SYNAPSES}_${WINDOW_SIZE}_${STATISTICS}_${CERTAINTY}/ita_days_64.csv` >>  ita_results_days_fixo_custo_nostatcs.csv
+
+					#echo "128; ${NEURONS}; ${SYNAPSES}; ${WINDOW_SIZE}; ${STATISTICS}; ${CERTAINTY};" `tail -n 1 ita_ind_${NEURONS}_${SYNAPSES}_${WINDOW_SIZE}_${STATISTICS}_${CERTAINTY}/ita_days_128.csv` >>  ita_results_days.csv
+
+					#echo "256; ${NEURONS}; ${SYNAPSES}; ${WINDOW_SIZE}; ${STATISTICS}; ${CERTAINTY};" `tail -n 1 ita_ind_${NEURONS}_${SYNAPSES}_${WINDOW_SIZE}_${STATISTICS}_${CERTAINTY}/ita_days_256.csv` >>  ita_results_days.csv
+				end
+			end
+		end
+	end
+end
