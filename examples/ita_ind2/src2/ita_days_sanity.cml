@@ -91,7 +91,7 @@ while ( day_i < N_DAYS )
 					forward outputs;
 			
 					#ShowNeuronsMemory(0);
-					#ShowStatistics(0);
+					ShowStatistics(0);
 				}
 				Move1Tick(loaded);
 				

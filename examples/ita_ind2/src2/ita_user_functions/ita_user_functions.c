@@ -58,6 +58,11 @@ typedef struct _data
 
 #define MAX_DATA_SAMPLES 43200 // 12h = 12 * 60 * 60
 DATA data[MAX_DATA_SAMPLES];
+
+TIME TRAIN_TIME;
+TIME TEST_TIME;
+TIME TEST_END_TIME;
+
 double g_anchor[INPUT_WIDTH];
 
 //int g_enable_operation[INPUT_WIDTH];
@@ -2222,6 +2227,38 @@ LoadDayFileName(PARAM_LIST *pParamList)
 ***********************************************************
 */
 
+void
+update_time_vars(void)
+{
+	// update TRAIN_TIME, TEST_TIME and TEST_END_TIME variables
+	TRAIN_TIME.year = data[POSE_MIN].time.year;
+	TRAIN_TIME.month = data[POSE_MIN].time.month;
+	TRAIN_TIME.day = data[POSE_MIN].time.day;
+	TRAIN_TIME.hour = TRAIN_HOUR;
+	TRAIN_TIME.min = TRAIN_MIN;
+	TRAIN_TIME.sec = 0;
+	TRAIN_TIME.msec = 0;
+	TRAIN_TIME.tstamp = GetTimeInSeconds(TRAIN_TIME);
+
+	TEST_TIME.year = data[POSE_MIN].time.year;
+	TEST_TIME.month = data[POSE_MIN].time.month;
+	TEST_TIME.day = data[POSE_MIN].time.day;
+	TEST_TIME.hour = TEST_HOUR;
+	TEST_TIME.min = TEST_MIN;
+	TEST_TIME.sec = 0;
+	TEST_TIME.msec = 0;
+	TEST_TIME.tstamp = GetTimeInSeconds(TEST_TIME);
+
+	TEST_END_TIME.year = data[POSE_MIN].time.year;
+	TEST_END_TIME.month = data[POSE_MIN].time.month;
+	TEST_END_TIME.day = data[POSE_MIN].time.day;
+	TEST_END_TIME.hour = TEST_END_HOUR;
+	TEST_END_TIME.min = TEST_END_MIN;
+	TEST_END_TIME.sec = 0;
+	TEST_END_TIME.msec = 0;
+	TEST_END_TIME.tstamp = GetTimeInSeconds(TEST_END_TIME);
+}
+
 int
 LoadData(char *f_name)
 {
@@ -2282,6 +2319,8 @@ LoadData(char *f_name)
 	POSE_MAX = numlines - 1;
 	g_sample = POSE_MIN = 0;
 	g_current_sample = 0;
+
+	update_time_vars();
 
 	return 0;
 }
@@ -2374,27 +2413,21 @@ NEURON_OUTPUT
 TimeToStart(PARAM_LIST *pParamList)
 {
 	NEURON_OUTPUT output;
-	//TODO:
-	//int net = 0;
 
-	//printf("param=%d g_sample=%d\n", param, g_sample);
-	//printf("%s\n", returns[net][g_sample].time);
-	//fflush(stdout);
-
-	int hour = data[g_current_sample].time.hour;
-	int min = data[g_current_sample].time.min;
+	//int hour = data[g_current_sample].time.hour;
+	//int min = data[g_current_sample].time.min;
 	//int sec = data[g_sample].time.sec;
-	//sscanf(returns[net][g_sample].time, "%d:%d:%f", &hour, &min, &sec);
-
-	//printf("h=%d m=%d sec=%f\n", hour, min, sec);
-	//printf("g_sample=%d min=%d max=%d\n", g_sample, POSE_MIN, POSE_MAX);
 
 	int ret = 0;
-	if (
+	/*if (
 		( ( hour == TRAIN_HOUR && min >= TRAIN_MIN ) ||
 		( hour > TRAIN_HOUR ) )  &&
 		g_current_sample <= POSE_MAX && g_current_sample >= POSE_MIN
 		)
+	*/
+	if ( ( data[g_current_sample].time.tstamp >= TRAIN_TIME.tstamp ) &&
+		 ( g_current_sample <= POSE_MAX && g_current_sample >= POSE_MIN )
+	   )
 	{
 		ret = 1;
 //		//LoadReturnsToInput(&ita, 0, -1);
@@ -2422,32 +2455,27 @@ NEURON_OUTPUT
 TimeToTrain(PARAM_LIST *pParamList)
 {
 	NEURON_OUTPUT output;
-	//TODO:
-	//int net = 0;
-
-	//printf("param=%d g_sample=%d\n", param, g_sample);
-	//printf("%s\n", returns[net][g_sample].time);
-	//fflush(stdout);
 
 	int hour = data[g_current_sample].time.hour;
 	int min = data[g_current_sample].time.min;
 	//float sec = 0.0;
-	//sscanf(returns[net][g_sample].time, "%d:%d:%f", &hour, &min, &sec);
-
-	//printf("h=%d m=%d sec=%f\n", hour, min, sec);
-	//printf("g_sample=%d min=%d max=%d\n", g_sample, POSE_MIN, POSE_MAX);
 
 	int ret = 0;
 
 	if (( g_current_state != INITIALIZE ) && ((hour < TRAIN_HOUR) || (hour == TRAIN_HOUR && min < TRAIN_MIN)) )
 		ret = 1;
 
-	if (
+	if ( ( data[g_current_sample].time.tstamp >= TRAIN_TIME.tstamp ) &&
+		 ( data[g_current_sample].time.tstamp < TEST_TIME.tstamp ) &&
+		 ( g_current_sample <= POSE_MAX && g_current_sample >= POSE_MIN )
+	   )
+	/*if (
 		( ( hour == TRAIN_HOUR && min >= TRAIN_MIN ) ||
 		( hour > TRAIN_HOUR && hour < TEST_HOUR ) ||
 		( hour == TEST_HOUR && min < TEST_MIN ) ) &&
 		g_current_sample <= POSE_MAX && g_current_sample >= POSE_MIN
 		)
+	*/
 	{
 		ret = 1;
 	}
@@ -2469,34 +2497,28 @@ NEURON_OUTPUT
 TimeToTest(PARAM_LIST *pParamList)
 {
 	NEURON_OUTPUT output;
-	//TODO:
-	//int net = 0;
-
-	//printf("param=%d g_sample=%d\n", param, g_sample);
-	//printf("%s\n", returns[net][g_sample].time);
-	//fflush(stdout);
 
 	int hour = data[g_current_sample].time.hour;
 	int min = data[g_current_sample].time.min;
 	//float sec = 0.0;
-	//sscanf(returns[net][g_sample].time, "%d:%d:%f", &hour, &min, &sec);
 
-	//printf("h=%d m=%d sec=%f\n", hour, min, sec);
-	//printf("g_sample=%d min=%d max=%d\n", g_sample, POSE_MIN, POSE_MAX);
-
-	//printf("g_state=%d\n", g_current_state);
 	int ret = 0;
 
 	if (( g_current_state != INITIALIZE ) && ((hour < TEST_HOUR) ||(hour == TEST_HOUR && min < TEST_MIN)) )
 		ret = 1;
 
-	if (
+	/*if (
 		( ( hour == TEST_HOUR && min >= TEST_MIN ) ||
 		  ( hour > TEST_HOUR && hour < TEST_END_HOUR ) ||
 		  ( hour == TEST_END_HOUR && min <= TEST_END_MIN )
 		) &&
 			g_current_sample <= POSE_MAX && g_current_sample >= POSE_MIN
 		)
+	*/
+	if ( ( data[g_current_sample].time.tstamp >= TEST_TIME.tstamp ) &&
+		 ( data[g_current_sample].time.tstamp < TEST_END_TIME.tstamp ) &&
+		 ( g_current_sample <= POSE_MAX && g_current_sample >= POSE_MIN )
+	   )
 	{
 		ret = 1;
 	}
@@ -3201,8 +3223,8 @@ int try_to_exit_operation(void)
 	}
 
 	//TODO: CONSTS
-	double const_mult_loss = 1.0;
-//	double const_mult_gain = 0.5;
+	//double const_mult_loss = 1.0;
+	//double const_mult_gain = 0.5;
 	// stop loss
 	if (g_LongShort == 1 && ret_prc <= -2 * pt_cost /*&& ret_prc <= -const_mult_loss * g_last_predction[g_best_stock_pred_i]*/) //LONG
 	{

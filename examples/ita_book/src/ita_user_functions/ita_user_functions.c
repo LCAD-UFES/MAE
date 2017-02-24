@@ -31,8 +31,16 @@ typedef struct _book
 	PRC_QTY ask[MAX_BOOK_DEPTH];
 } BOOK;
 
+typedef struct _statistics_exp
+{
+	int day;
+	double capital;
+	int	n_ops;
+	double total_hits;
+} STATISTICS_EXP;
+
+#define MAX_DAYS 200
 #define MAX_DATA_SAMPLES 43200 // 12h = 12 * 60 * 60
-BOOK g_book_data[MAX_DATA_SAMPLES];
 
 //#define WIN_POINT_VALUE 0.2
 //#define IND_POINT_VALUE 1.0
@@ -43,20 +51,6 @@ BOOK g_book_data[MAX_DATA_SAMPLES];
 //#define IND_QTY 10//5
 //#define WDO_QTY 25//1
 //#define DOL_QTY 5
-
-int g_n_ops, g_n_hits, g_n_miss;
-
-double g_t[MAX_DATA_SAMPLES];
-double g_y[MAX_DATA_SAMPLES];
-int g_t_y_count = 0;
-
-typedef struct _statistics_exp
-{
-	int day;
-	double capital;
-	int	n_ops;
-	double total_hits;
-} STATISTICS_EXP;
 
 #define SS 0
 #define SD 1
@@ -81,16 +75,6 @@ typedef struct _statistics_exp
 #define DESCE 1
 #define NEUTR 2
 
-//TODO:
-// valores de hora pra ita.cml
-/*
-#define TRAIN_HOUR 10
-#define TRAIN_MIN 32
-#define TEST_HOUR 11
-#define TEST_MIN 36
-#define TEST_END_HOUR 15
-#define TEST_END_MIN 00
-*/
 #define TRAIN_HOUR 12
 #define TRAIN_MIN 00
 #define TEST_HOUR 13
@@ -98,10 +82,21 @@ typedef struct _statistics_exp
 #define TEST_END_HOUR 16
 #define TEST_END_MIN 45
 
-#define MAX_DAYS 200
 // Global Variables
-STATISTICS_EXP stat_exp[MAX_DAYS];
-double stat_day[MAX_DAYS][13];
+BOOK g_book_data[MAX_DATA_SAMPLES];
+
+TIME TRAIN_TIME;
+TIME TEST_TIME;
+TIME TEST_END_TIME;
+
+int g_n_ops, g_n_hits, g_n_miss;
+
+double g_t[MAX_DATA_SAMPLES];
+double g_y[MAX_DATA_SAMPLES];
+int g_t_y_count = 0;
+
+STATISTICS_EXP g_stat_exp[MAX_DAYS];
+double g_stat_day[MAX_DAYS][13];
 int day_i = 0;
 
 int g_sample = 0;
@@ -1184,7 +1179,7 @@ ShowStatisticsExp(PARAM_LIST *pParamList)
 {
 	NEURON_OUTPUT output;
 
-	//stat_day
+	//g_stat_day
 
 	//--------------- stat day
 
@@ -1199,41 +1194,41 @@ ShowStatisticsExp(PARAM_LIST *pParamList)
 	{
 		for (i = 0; i < 9; i++)
 		{
-			stat_day[day_i][i] =  100.0 * (double) f_sum(i) / (double) total_tested;
+			g_stat_day[day_i][i] =  100.0 * (double) f_sum(i) / (double) total_tested;
 		}
-		stat_day[day_i][ACC] = 100.0 * (double) (f_sum(SS) + f_sum(DD) + f_sum(NN)) / (double) total_tested;
+		g_stat_day[day_i][ACC] = 100.0 * (double) (f_sum(SS) + f_sum(DD) + f_sum(NN)) / (double) total_tested;
 
 		int sum = f_sum(SS) + f_sum(SD) + f_sum(SN);
 		if (sum != 0)
 		{
-			stat_day[day_i][GI] = 100.0 *
+			g_stat_day[day_i][GI] = 100.0 *
 					(double) (3 * f_sum(SS) - 3 * f_sum(SD) - f_sum(SN)) / (double) (3 * sum);
 		}
 		else
 		{
-			stat_day[day_i][GI] = 0.0;
+			g_stat_day[day_i][GI] = 0.0;
 		}
 
 		sum = f_sum(DD) + f_sum(DS) + f_sum(DN);
 		if (sum != 0)
 		{
-			stat_day[day_i][Gi] = 100.0 *
+			g_stat_day[day_i][Gi] = 100.0 *
 					(double) (3 * f_sum(DD) - 3 * f_sum(DS) - f_sum(DN)) / (double) (3 * sum);
 		}
 		else
 		{
 			//printf("g!   ---  ");
-			stat_day[day_i][Gi] = 0.0;
+			g_stat_day[day_i][Gi] = 0.0;
 		}
 
 		if ((g_buy_sell_count + g_sell_buy_count) > 0)
 		{
-			stat_day[day_i][HITS] = (double) f_sum(HITS) ;
-			total_hits += stat_day[day_i][HITS];
+			g_stat_day[day_i][HITS] = (double) f_sum(HITS) ;
+			total_hits += g_stat_day[day_i][HITS];
 		}
 		else
 		{
-			stat_day[day_i][HITS] = 0.0;
+			g_stat_day[day_i][HITS] = 0.0;
 		}
 	}
 
@@ -1243,14 +1238,14 @@ ShowStatisticsExp(PARAM_LIST *pParamList)
 
 	//printf("STAT DAY\n");
 
-	stat_exp[day_i].day = day_i;
-	stat_exp[day_i].capital = g_capital;
-	stat_exp[day_i].n_ops = g_LongShort == 1 ? g_buy_sell_count : g_sell_buy_count;
-	stat_exp[day_i].total_hits = total_hits;
+	g_stat_exp[day_i].day = day_i;
+	g_stat_exp[day_i].capital = g_capital;
+	g_stat_exp[day_i].n_ops = g_LongShort == 1 ? g_buy_sell_count : g_sell_buy_count;
+	g_stat_exp[day_i].total_hits = total_hits;
 
 	printf("day_i=%d; capital=%.2lf; n_ops=%d; hit_rate=%.1lf; ",
-			day_i, stat_exp[day_i].capital, stat_exp[day_i].n_ops,
-			100.0 * stat_exp[day_i].total_hits / stat_exp[day_i].n_ops);
+			day_i, g_stat_exp[day_i].capital, g_stat_exp[day_i].n_ops,
+			100.0 * g_stat_exp[day_i].total_hits / g_stat_exp[day_i].n_ops);
 
 	for (i = 0; i < 9; i++)
 	{
@@ -1264,13 +1259,13 @@ ShowStatisticsExp(PARAM_LIST *pParamList)
 		if ((i == 1) || (i == 4) || (i == 7)) ch2 = '!';
 		if ((i == 2) || (i == 5) || (i == 8)) ch2 = '-';
 
-		printf("%c%c=%.2lf; ", ch1, ch2, stat_day[day_i][i]);
+		printf("%c%c=%.2lf; ", ch1, ch2, g_stat_day[day_i][i]);
 	}
-	printf("===%.2lf; ", stat_day[day_i][ACC]);
-	printf("gi=%.1lf; ", stat_day[day_i][GI]);
-	printf("g!=%.1lf; ", stat_day[day_i][Gi]);
-	if (stat_exp[day_i].n_ops > 0)
-		printf("hit_rate=%.1lf; ", 100.0 * stat_day[day_i][HITS]/stat_exp[day_i].n_ops);
+	printf("===%.2lf; ", g_stat_day[day_i][ACC]);
+	printf("gi=%.1lf; ", g_stat_day[day_i][GI]);
+	printf("g!=%.1lf; ", g_stat_day[day_i][Gi]);
+	if (g_stat_exp[day_i].n_ops > 0)
+		printf("hit_rate=%.1lf; ", 100.0 * g_stat_day[day_i][HITS]/g_stat_exp[day_i].n_ops);
 	else
 		printf("hit_rate=--; ");
 
@@ -1301,13 +1296,13 @@ MeanStatisticsExp(PARAM_LIST *pParamList)
 
 	for (i = 0; i <= day_i; i++)
 	{
-		total_capital	+= stat_exp[i].capital;
-		total_hits += stat_exp[i].total_hits;
-		n_ops	+= stat_exp[i].n_ops;
+		total_capital	+= g_stat_exp[i].capital;
+		total_hits += g_stat_exp[i].total_hits;
+		n_ops	+= g_stat_exp[i].n_ops;
 
 		for (j = 0; j < 13; j++)
 		{
-			mean_stat_day[j] += stat_day[i][j];
+			mean_stat_day[j] += g_stat_day[i][j];
 		}
 	}
 
@@ -1502,6 +1497,37 @@ LoadDayFileName(PARAM_LIST *pParamList)
 * Output:
 ***********************************************************
 */
+void
+update_time_vars(void)
+{
+	// update TRAIN_TIME, TEST_TIME and TEST_END_TIME variables
+	TRAIN_TIME.year = g_book_data[POSE_MIN].time.year;
+	TRAIN_TIME.month = g_book_data[POSE_MIN].time.month;
+	TRAIN_TIME.day = g_book_data[POSE_MIN].time.day;
+	TRAIN_TIME.hour = TRAIN_HOUR;
+	TRAIN_TIME.min = TRAIN_MIN;
+	TRAIN_TIME.sec = 0;
+	TRAIN_TIME.msec = 0;
+	TRAIN_TIME.tstamp = get_time_in_seconds(TRAIN_TIME);
+
+	TEST_TIME.year = g_book_data[POSE_MIN].time.year;
+	TEST_TIME.month = g_book_data[POSE_MIN].time.month;
+	TEST_TIME.day = g_book_data[POSE_MIN].time.day;
+	TEST_TIME.hour = TEST_HOUR;
+	TEST_TIME.min = TEST_MIN;
+	TEST_TIME.sec = 0;
+	TEST_TIME.msec = 0;
+	TEST_TIME.tstamp = get_time_in_seconds(TEST_TIME);
+
+	TEST_END_TIME.year = g_book_data[POSE_MIN].time.year;
+	TEST_END_TIME.month = g_book_data[POSE_MIN].time.month;
+	TEST_END_TIME.day = g_book_data[POSE_MIN].time.day;
+	TEST_END_TIME.hour = TEST_END_HOUR;
+	TEST_END_TIME.min = TEST_END_MIN;
+	TEST_END_TIME.sec = 0;
+	TEST_END_TIME.msec = 0;
+	TEST_END_TIME.tstamp = get_time_in_seconds(TEST_END_TIME);
+}
 
 int
 load_book_data(char *f_name)
@@ -1585,6 +1611,8 @@ load_book_data(char *f_name)
 
 	POSE_MAX = numlines - 1;
 	g_sample = POSE_MIN = 0;
+
+	update_time_vars();
 
 	return 0;
 }
@@ -1679,17 +1707,21 @@ WillStart(PARAM_LIST *pParamList)
 {
 	NEURON_OUTPUT output;
 
-	int hour = g_book_data[g_sample].time.hour;
-	int min = g_book_data[g_sample].time.min;
+	//int hour = g_book_data[g_sample].time.hour;
+	//int min = g_book_data[g_sample].time.min;
 	//int sec = book_data[g_sample].time.sec;
 	//printf("g_sample=%d h=%d m=%d sec=%d\n", g_sample, hour, min, sec);
 
 	int ret = 0;
-	if (
+	/*if (
 		( ( hour == TRAIN_HOUR && min >= TRAIN_MIN ) ||
 		( hour > TRAIN_HOUR ) )  &&
 		g_sample <= POSE_MAX && g_sample >= POSE_MIN
 		)
+	*/
+	if ( ( g_book_data[g_sample].time.tstamp >= TRAIN_TIME.tstamp ) &&
+		 ( g_sample <= POSE_MAX && g_sample >= POSE_MIN )
+	   )
 	{
 		ret = 1;
 		LoadDataToInput(&ita);
@@ -1718,19 +1750,23 @@ WillTrain(PARAM_LIST *pParamList)
 {
 	NEURON_OUTPUT output;
 
-	int hour = g_book_data[g_sample].time.hour;
-	int min = g_book_data[g_sample].time.min;
+	//int hour = g_book_data[g_sample].time.hour;
+	//int min = g_book_data[g_sample].time.min;
 	//int sec = g_book_data[g_sample].time.sec;
 	//printf("h=%d m=%d sec=%f\n", hour, min, sec);
 
 	//TODO: REVER ESSES IFs NAS FUNCOES DE TEMPO PQ TEM PROBLEMA NELES
 	int ret = 0;
-	if (
-		( (( hour == TRAIN_HOUR && min >= TRAIN_MIN )/* && (hour <= TEST_HOUR && min <= TEST_MIN )*/ )||
-		( hour > TRAIN_HOUR && hour < TEST_HOUR ) ||
-		( hour == TEST_HOUR && min < TEST_MIN ) ) &&
-		g_sample <= POSE_MAX && g_sample >= POSE_MIN
-		)
+	//if (
+	//	( (( hour == TRAIN_HOUR && min >= TRAIN_MIN )/* && (hour <= TEST_HOUR && min <= TEST_MIN )*/ )||
+	//	( hour > TRAIN_HOUR && hour < TEST_HOUR ) ||
+	//	( hour == TEST_HOUR && min < TEST_MIN ) ) &&
+	//	g_sample <= POSE_MAX && g_sample >= POSE_MIN
+	//	)
+	if ( ( g_book_data[g_sample].time.tstamp >= TRAIN_TIME.tstamp ) &&
+		 ( g_book_data[g_sample].time.tstamp < TEST_TIME.tstamp ) &&
+		 ( g_sample <= POSE_MAX && g_sample >= POSE_MIN )
+	   )
 	{
 		ret = 1;
 		LoadDataToInput(&ita);
@@ -1759,19 +1795,23 @@ WillTest(PARAM_LIST *pParamList)
 {
 	NEURON_OUTPUT output;
 
-	int hour = g_book_data[g_sample].time.hour;
-	int min = g_book_data[g_sample].time.min;
-	int sec = g_book_data[g_sample].time.sec;
-	printf("h=%d m=%d sec=%d\n", hour, min, sec);
+	//int hour = g_book_data[g_sample].time.hour;
+	//int min = g_book_data[g_sample].time.min;
+	//int sec = g_book_data[g_sample].time.sec;
+	//printf("h=%d m=%d sec=%d\n", hour, min, sec);
 
 	int ret = 0;
-	if (
-		( (( hour == TEST_HOUR && min >= TEST_MIN )/* && ( hour < TEST_END_HOUR && min <= TEST_END_MIN )*/)||
-		  ( hour > TEST_HOUR && hour < TEST_END_HOUR ) ||
-		  ( hour == TEST_END_HOUR && min <= TEST_END_MIN )
-			) &&
-		g_sample <= POSE_MAX && g_sample >= POSE_MIN
-		)
+	//if (
+	//	( (( hour == TEST_HOUR && min >= TEST_MIN )/* && ( hour < TEST_END_HOUR && min <= TEST_END_MIN )*/)||
+	//	  ( hour > TEST_HOUR && hour < TEST_END_HOUR ) ||
+	//	  ( hour == TEST_END_HOUR && min <= TEST_END_MIN )
+	//		) &&
+	//	g_sample <= POSE_MAX && g_sample >= POSE_MIN
+	//	)
+	if ( ( g_book_data[g_sample].time.tstamp >= TEST_TIME.tstamp ) &&
+		 ( g_book_data[g_sample].time.tstamp < TEST_END_TIME.tstamp ) &&
+		 ( g_sample <= POSE_MAX && g_sample >= POSE_MIN )
+	   )
 	{
 		ret = 1;
 		LoadDataToInput(&ita);

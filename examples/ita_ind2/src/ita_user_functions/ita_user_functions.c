@@ -52,6 +52,11 @@ typedef struct _data
 
 #define MAX_DATA_SAMPLES 43200 // 12h = 12 * 60 * 60
 DATA data[MAX_DATA_SAMPLES];
+
+TIME TRAIN_TIME;
+TIME TEST_TIME;
+TIME TEST_END_TIME;
+
 double g_anchor[INPUT_WIDTH];
 int g_enable_operation[INPUT_WIDTH];
 int g_last_close_operation_sample[INPUT_WIDTH];
@@ -1092,8 +1097,6 @@ compute_capital_evolution(int net, int n, OUTPUT_DESC *neural_prediction, OUTPUT
 		s1 = signal_of_val(r);
 		GetNeuronsOutputConfidence(neural_prediction, i);
 
-		double a_capital = 1.0;//ALAVANCAGEM * g_capital[net][i];
-
 		double expected_result_buy_sell = r;
 		double expected_result_sell_buy = r;
 
@@ -1167,8 +1170,8 @@ compute_capital_evolution(int net, int n, OUTPUT_DESC *neural_prediction, OUTPUT
 		}
 		else
 		{
-			if ( ( (s1 == 1) && (expected_result_sell_buy > 0.0) && (g_confidence_up[net][i] > CERTAINTY) && (g_use_confiance == 1) ) ||
-				 ( g_runing_sum_size > 0 &&  (s1 == 1) && (expected_result_sell_buy > 0.0) && (g_mean_correct_negative_pred[net][i] > CERTAINTY) && (g_use_confiance == 0) ) ||
+			if ( ( (s1 == 0) && (expected_result_sell_buy > 0.0) && (g_confidence_up[net][i] > CERTAINTY) && (g_use_confiance == 1) ) ||
+				 ( g_runing_sum_size > 0 &&  (s1 == 0) && (expected_result_sell_buy > 0.0) && (g_mean_correct_negative_pred[net][i] > CERTAINTY) && (g_use_confiance == 0) ) ||
 				 ( g_runing_sum_size == 0 && (s1 == 0) && (expected_result_sell_buy > 0.0) )
 				)
 			{
@@ -1467,7 +1470,7 @@ ShowStatisticsExp(PARAM_LIST *pParamList)
 	//TODO: NET 0
 	int net = 0;
 
-	int i, stock, total_tested;
+	int i, j, stock, total_tested;
 	int n_stocks = INPUT_WIDTH;
 	double total_hits = 0;
 
@@ -1567,6 +1570,7 @@ ShowStatisticsExp(PARAM_LIST *pParamList)
 	//int stock;
 	//int n_stocks = 4;
 	char symbol[6];
+	int g_ops[2][INPUT_WIDTH];
 	for (stock = 0; stock < n_stocks; stock++)
 	{
 		total_capital += g_capital[0][stock];
@@ -1574,10 +1578,23 @@ ShowStatisticsExp(PARAM_LIST *pParamList)
 		total_sell_buy += g_sell_buy_count[0][stock];
 	}
 
+	if ( g_LongShort == 1 )
+	{
+		for ( i = 0; i < 2; i++ )
+			for ( j = 0; j < INPUT_WIDTH; j++ )
+				g_ops[i][j] = g_buy_sell_count[i][j];
+	}
+	else
+	{
+		for ( i = 0; i < 2; i++ )
+			for ( j = 0; j < INPUT_WIDTH; j++ )
+				g_ops[i][j] = g_sell_buy_count[i][j];
+	}
+
 	stat_exp[day_i].day = day_i;
 	stat_exp[day_i].avg_capital = total_capital/(double)n_stocks;
 	stat_exp[day_i].geral_capital = g_capital[0][INPUT_WIDTH];
-	stat_exp[day_i].n_ops = total_buy_sell;
+	stat_exp[day_i].n_ops = g_LongShort == 1 ? total_buy_sell : total_sell_buy;
 	stat_exp[day_i].total_hits = total_hits;
 
 	printf("day_i=%d; avg_capital=%.2lf; geral_capital=%.2lf; n_ops=%d; hit_rate=%.1lf; ",
@@ -1608,24 +1625,24 @@ ShowStatisticsExp(PARAM_LIST *pParamList)
 		printf("%s===%.2lf; ", symbol, stat_day[day_i][stock][ACC]);
 		printf("%sgi=%.1lf; ",symbol, stat_day[day_i][stock][GI]);
 		printf("%sg!=%.1lf; ",symbol,  stat_day[day_i][stock][Gi]);
-		if (g_buy_sell_count[net][stock] > 0)
-			printf("%shit_rate=%.1lf; ",symbol,  100.0 * stat_day[day_i][stock][HITS]/g_buy_sell_count[net][stock]);
+		if (g_ops[net][stock]/*g_buy_sell_count[net][stock]*/ > 0)
+			printf("%shit_rate=%.1lf; ",symbol,  100.0 * stat_day[day_i][stock][HITS]/ g_ops[net][stock]);
 		else
 			printf("%shit_rate=--; ",symbol);
 		printf("%scapital=%.1lf; ",symbol,  g_capital[net][stock]);
-		printf("%sn_ops=%d; ",symbol,  g_buy_sell_count[net][stock]);
+		printf("%sn_ops=%d; ",symbol, g_ops[net][stock]);
 	}
 	printf("\n");
 
 
 	stat_exp[day_i].capital_win = g_capital[net][0];
-	stat_exp[day_i].n_ops_win = g_buy_sell_count[net][0];
+	stat_exp[day_i].n_ops_win = g_ops[net][0];
 	stat_exp[day_i].capital_ind = g_capital[net][1];
-	stat_exp[day_i].n_ops_ind = g_buy_sell_count[net][1];
-	stat_exp[day_i].capital_wdo = g_capital[net][2];
-	stat_exp[day_i].n_ops_wdo = g_buy_sell_count[net][2];
+	stat_exp[day_i].n_ops_ind = g_ops[net][1];
+	stat_exp[day_i].capital_wdo = g_capital [net][2];
+	stat_exp[day_i].n_ops_wdo = g_ops[net][2];
 	stat_exp[day_i].capital_dol = g_capital[net][3];
-	stat_exp[day_i].n_ops_dol = g_buy_sell_count[net][3];
+	stat_exp[day_i].n_ops_dol = g_ops[net][3];
 
 	/*
 	printf("day_i=%d; avg_capital=%.2lf; n_ops=%d; WIN_capital=%.2lf; WIN_n_ops=%d; IND_capital=%.2lf; IND_n_ops=%d; WDO_capital=%.2lf;"
@@ -1937,6 +1954,38 @@ LoadDayFileName(PARAM_LIST *pParamList)
 ***********************************************************
 */
 
+void
+update_time_vars(void)
+{
+	// update TRAIN_TIME, TEST_TIME and TEST_END_TIME variables
+	TRAIN_TIME.year = data[POSE_MIN].time.year;
+	TRAIN_TIME.month = data[POSE_MIN].time.month;
+	TRAIN_TIME.day = data[POSE_MIN].time.day;
+	TRAIN_TIME.hour = TRAIN_HOUR;
+	TRAIN_TIME.min = TRAIN_MIN;
+	TRAIN_TIME.sec = 0;
+	TRAIN_TIME.msec = 0;
+	TRAIN_TIME.tstamp = GetTimeInSeconds(TRAIN_TIME);
+
+	TEST_TIME.year = data[POSE_MIN].time.year;
+	TEST_TIME.month = data[POSE_MIN].time.month;
+	TEST_TIME.day = data[POSE_MIN].time.day;
+	TEST_TIME.hour = TEST_HOUR;
+	TEST_TIME.min = TEST_MIN;
+	TEST_TIME.sec = 0;
+	TEST_TIME.msec = 0;
+	TEST_TIME.tstamp = GetTimeInSeconds(TEST_TIME);
+
+	TEST_END_TIME.year = data[POSE_MIN].time.year;
+	TEST_END_TIME.month = data[POSE_MIN].time.month;
+	TEST_END_TIME.day = data[POSE_MIN].time.day;
+	TEST_END_TIME.hour = TEST_END_HOUR;
+	TEST_END_TIME.min = TEST_END_MIN;
+	TEST_END_TIME.sec = 0;
+	TEST_END_TIME.msec = 0;
+	TEST_END_TIME.tstamp = GetTimeInSeconds(TEST_END_TIME);
+}
+
 int
 LoadData(char *f_name)
 {
@@ -1996,6 +2045,8 @@ LoadData(char *f_name)
 
 	POSE_MAX = numlines - 1;
 	g_sample = POSE_MIN = 0;
+
+	update_time_vars();
 
 	return 0;
 }
@@ -2088,32 +2139,26 @@ NEURON_OUTPUT
 WillStart(PARAM_LIST *pParamList)
 {
 	NEURON_OUTPUT output;
-	//TODO:
-	//int net = 0;
 
-	//printf("param=%d g_sample=%d\n", param, g_sample);
-	//printf("%s\n", returns[net][g_sample].time);
-	//fflush(stdout);
-
-	int hour = data[g_sample].time.hour;
-	int min = data[g_sample].time.min;
-//	int sec = data[g_sample].time.sec;
-	//sscanf(returns[net][g_sample].time, "%d:%d:%f", &hour, &min, &sec);
-
-//	printf("h=%d m=%d sec=%d\n", hour, min, sec);
-	//printf("g_sample=%d min=%d max=%d\n", g_sample, POSE_MIN, POSE_MAX);
+	//int hour = data[g_sample].time.hour;
+	//int min = data[g_sample].time.min;
+	//int sec = data[g_sample].time.sec;
 
 	int ret = 0;
-	if (
+	/*if (
 		( ( hour == TRAIN_HOUR && min >= TRAIN_MIN ) ||
 		( hour > TRAIN_HOUR ) )  &&
 		g_sample <= POSE_MAX && g_sample >= POSE_MIN
 		)
+	*/
+	if ( ( data[g_sample].time.tstamp >= TRAIN_TIME.tstamp ) &&
+		 ( g_sample <= POSE_MAX && g_sample >= POSE_MIN )
+	   )
 	{
 		ret = 1;
 		//LoadReturnsToInput(&ita, 0, -1);
 		LoadDataToInput(&ita);
-//		printf("g_current_sample=%d %02d:%02d:%02d\n", g_sample, hour, min, sec);
+		//printf("g_current_sample=%d %02d:%02d:%02d\n", g_sample, hour, min, sec);
 
 		check_input_bounds(&ita, ita.wx + ita.ww/2, ita.wy + ita.wh/2);
 		ita.up2date = 0;
@@ -2137,34 +2182,29 @@ NEURON_OUTPUT
 WillTrain(PARAM_LIST *pParamList)
 {
 	NEURON_OUTPUT output;
-	//TODO:
-	//int net = 0;
 
-	//printf("param=%d g_sample=%d\n", param, g_sample);
-	//printf("%s\n", returns[net][g_sample].time);
-	//fflush(stdout);
-
-	int hour = data[g_sample].time.hour;
-	int min = data[g_sample].time.min;
-//	int sec = data[g_sample].time.sec;
-	//sscanf(returns[net][g_sample].time, "%d:%d:%f", &hour, &min, &sec);
-
-	//printf("h=%d m=%d sec=%f\n", hour, min, sec);
-	//printf("g_sample=%d min=%d max=%d\n", g_sample, POSE_MIN, POSE_MAX);
+	//int hour = data[g_sample].time.hour;
+	//int min = data[g_sample].time.min;
+	//int sec = data[g_sample].time.sec;
 
 	int ret = 0;
-	if (
+	/*if (
 		( ( hour == TRAIN_HOUR && min >= TRAIN_MIN ) ||
 		( hour > TRAIN_HOUR && hour < TEST_HOUR ) ||
 		( hour == TEST_HOUR && min < TEST_MIN ) ) &&
 		g_sample <= POSE_MAX && g_sample >= POSE_MIN
 		)
+	*/
+	if ( ( data[g_sample].time.tstamp >= TRAIN_TIME.tstamp ) &&
+		 ( data[g_sample].time.tstamp < TEST_TIME.tstamp ) &&
+		 ( g_sample <= POSE_MAX && g_sample >= POSE_MIN )
+	   )
 	{
 		ret = 1;
 		//LoadReturnsToInput(&ita, 0, -1);
 		LoadDataToInput(&ita);
 
-//		printf("g_current_sample=%d %02d:%02d:%02d\n", g_sample, hour, min, sec);
+		//printf("g_current_sample=%d %02d:%02d:%02d\n", g_sample, hour, min, sec);
 
 		check_input_bounds(&ita, ita.wx + ita.ww/2, ita.wy + ita.wh/2);
 		ita.up2date = 0;
@@ -2188,35 +2228,30 @@ NEURON_OUTPUT
 WillTest(PARAM_LIST *pParamList)
 {
 	NEURON_OUTPUT output;
-	//TODO:
-	//int net = 0;
 
-	//printf("param=%d g_sample=%d\n", param, g_sample);
-	//printf("%s\n", returns[net][g_sample].time);
-	//fflush(stdout);
-
-	int hour = data[g_sample].time.hour;
-	int min = data[g_sample].time.min;
-//	int sec = data[g_sample].time.sec;
-	//sscanf(returns[net][g_sample].time, "%d:%d:%f", &hour, &min, &sec);
-
-	//printf("h=%d m=%d sec=%f\n", hour, min, sec);
-	//printf("g_sample=%d min=%d max=%d\n", g_sample, POSE_MIN, POSE_MAX);
+	//int hour = data[g_sample].time.hour;
+	//int min = data[g_sample].time.min;
+	//int sec = data[g_sample].time.sec;
 
 	int ret = 0;
-	if (
+	/*if (
 		( ( hour == TEST_HOUR && min >= TEST_MIN ) ||
 		  ( hour > TEST_HOUR && hour < TEST_END_HOUR ) ||
 		  ( hour == TEST_END_HOUR && min <= TEST_END_MIN )
 			) &&
 		g_sample <= POSE_MAX && g_sample >= POSE_MIN
 		)
+	*/
+	if ( ( data[g_sample].time.tstamp >= TEST_TIME.tstamp ) &&
+		 ( data[g_sample].time.tstamp < TEST_END_TIME.tstamp ) &&
+		 ( g_sample <= POSE_MAX && g_sample >= POSE_MIN )
+	   )
 	{
 		ret = 1;
 		//LoadReturnsToInput(&ita, 0, -1);
 		LoadDataToInput(&ita);
 
-//		printf("g_current_sample=%d %02d:%02d:%02d\n", g_sample, hour, min, sec);
+		//printf("g_current_sample=%d %02d:%02d:%02d\n", g_sample, hour, min, sec);
 
 		check_input_bounds(&ita, ita.wx + ita.ww/2, ita.wy + ita.wh/2);
 		ita.up2date = 0;
