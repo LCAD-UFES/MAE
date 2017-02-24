@@ -7,8 +7,8 @@ set TYPE_MOVING_FRAME = STOP;
 
 const FILE_TRAIN = "win.txt";
 const FILE_TEST = "win_test.txt";
-const MAX_BOOK_DEPTH = 30;
-const USE_BOOK_DEPTH = 30;
+const MAX_BOOK_DEPTH = 100;
+const USE_BOOK_DEPTH = 100;
 
 # Symbol specific parameters
 const STEP_PRC_MIN = 5; # in points
@@ -16,17 +16,17 @@ const SYMBOL_COST = 0.61; # in $ per point
 const SYMBOL_POINT_VALUE = 0.2;
 const SYMBOL_QTY = 50;
 
-const INPUT_WIDTH 	= 2 * USE_BOOK_DEPTH;
-const INPUT_HEIGHT = 2 * 5 * USE_BOOK_DEPTH;
+const INPUT_WIDTH 	= 50; #2 * USE_BOOK_DEPTH;
+const INPUT_HEIGHT = 2 * 4 * USE_BOOK_DEPTH;
 
 const OUT_WIDTH	= 10;
-const OUT_HEIGHT = 5 * OUT_WIDTH;
+const OUT_HEIGHT = 4 * OUT_WIDTH;
 
-const SYNAPSES = 1024;
+const SYNAPSES = 2048;
 
 const CERTAINTY = 65.;
-const STATISTICS = 20;
-const USE_STATISTICS = 1;
+const STATISTICS = 10;
+const USE_STATISTICS = 0;
 const PERIOD = 64; # in seconds
 const COST_QTY_WIN_WDO = 0.61;
 const COST_QTY_IND_DOL = 4.43;

@@ -236,6 +236,8 @@ LoadDataToInput(INPUT_DESC *input)
 	int x_dimension = input->neuron_layer->dimentions.x;
 	int sample = g_sample;
 
+	static int first_time = 1;
+
 	//printf("LOAD INPUT\n");
 	//fflush(stdout);
 
@@ -248,7 +250,7 @@ LoadDataToInput(INPUT_DESC *input)
 		}
 	}
 
-	double prc_ask_zero = 0;
+	static double prc_ask_zero = 0;
 	int ask_zero_pos = y_dimension / 2 + 1;
 	for ( x = 0; x < x_dimension; x++ )
 	{
@@ -260,8 +262,10 @@ LoadDataToInput(INPUT_DESC *input)
 			return (-1);
 		}
 
+		//if ( first_time == 1 )
 		if ( x == 0 ) // get anchor
 		{
+			first_time = 0;
             prc_ask_zero = g_book_data[sample].ask[0].prc;
             ask_zero_pos = y_dimension / 2 + 1;
 		}
@@ -274,11 +278,11 @@ LoadDataToInput(INPUT_DESC *input)
             int ask_id = ask_zero_pos + k_ask; // k_ask > 0 -> sobe k_ask linhas
             int bid_id = ask_zero_pos - k_bid; // k_bid < 0 -> desce k_bid linhas
 
-            if ( ask_id >= 0 && ask_id < y_dimension )
+            if ( ask_id >= 0 && ask_id < y_dimension && g_book_data[sample].ask[y].prc > 0.0 )
             {
     			input->neuron_layer->neuron_vector[ask_id * x_dimension + (x_dimension - 1 - x)].output.ival = g_book_data[sample].ask[y].qty;
             }
-            if ( bid_id >= 0 && bid_id < y_dimension )
+            if ( bid_id >= 0 && bid_id < y_dimension && g_book_data[sample].bid[y].prc > 0.0 )
             {
     			input->neuron_layer->neuron_vector[bid_id * x_dimension + (x_dimension - 1 - x)].output.ival = -g_book_data[sample].bid[y].qty;
             }
@@ -1332,14 +1336,13 @@ MeanStatisticsExp(PARAM_LIST *pParamList)
 
 	fflush(stdout);
 
-	//	FILE* f = fopen("wnn_fixo_test_1dia.csv", "w+");
-	//	fprintf(f, "WIN_T; WIN_Y; IND_T; IND_Y; WDO_T; WDO_Y; DOL_T; DOL_Y\n");
-	//	for (i = 0; i < g_t_y_count; i++)
-	//	{
-	//		fprintf(f, "%lf; %lf; %lf; %lf; %lf; %lf; %lf; %lf\n", g_t[0][i], g_y[0][i],
-	//				g_t[1][i], g_y[1][i], g_t[2][i], g_y[2][i], g_t[3][i], g_y[3][i]);
-	//	}
-	//	fclose(f);
+//	FILE* f = fopen("wnn_book_1dia_fix_anchor.csv", "w+");
+//	fprintf(f, "Target; Output;\n");
+//	for (i = 0; i < g_t_y_count; i++)
+//	{
+//		fprintf(f, "%lf; %lf;\n", g_t[i], g_y[i]);
+//	}
+//	fclose(f);
 
 	output.ival = 0;
 	return output;
@@ -1543,7 +1546,7 @@ load_book_data(char *f_name)
 
 	int i;
 	int numlines = 0;
-	char f_line[2049];
+	char f_line[MAX_BOOK_DEPTH * 100];
 	char BRT[257];
 
 	fscanf(fp, "%[^\n]s", f_line); // header
