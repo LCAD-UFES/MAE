@@ -6,10 +6,10 @@ set TYPE_MOVING_FRAME = STOP;
 ######################################################## Constants ####################################################
  
 const INPUT_WIDTH 	= 4;
-const INPUT_HEIGHT = 20;
+const INPUT_HEIGHT = 15;
 
 const OUT_WIDTH		= 4;
-const OUT_HEIGHT = 9;
+const OUT_HEIGHT = 33;
 
 const SYNAPSES = 32;
 
@@ -18,10 +18,10 @@ const CUSTO_BOVESPA 	= 0.0; # (0.000061 + 0.000017);
 const CUSTO_CORRETORA	= 0.0;
 const CUSTO_CORRETORA_P	= 0.0; # 2.50;
 const CUSTO_TRASACAO 	= 0.0; # (CUSTO_BOVESPA + CUSTO_CORRETORA);
-const CERTAINTY = 65.;
+const CERTAINTY = 75.;
 const STATISTICS = 20;
 const USE_STATISTICS = 1;
-const PERIOD = 64; # in seconds
+const PERIOD = 32; # in seconds
 const USE_SPREAD = 0;
 const COST_QTY_WIN_WDO = 0.61;
 const COST_QTY_IND_DOL = 4.43;
@@ -101,3 +101,4 @@ int WillTest("%d");
 int Increment("%d");
 int GetInputHeight("%d");
 int ShowNeuronsMemory("%d");
+int GetTime("%d");

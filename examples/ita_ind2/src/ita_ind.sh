@@ -12,11 +12,6 @@
 #--------------------------------
 # exemplo: (altere a partir daqui)
 
-#./ita ita_days_8.cml > ita_days_8.csv
-#./ita ita_days_16.cml > ita_days_16.csv
-#./ita ita_days_32.cml > ita_days_32.csv
-./ita ita_days.cml > ita_days_64.csv
-#./ita ita_days_128.cml > ita_days_128.csv
-#./ita ita_days_256.cml > ita_days_256.csv
+./ita ita_days.cml > ita_days.csv
 
 # Fim do script

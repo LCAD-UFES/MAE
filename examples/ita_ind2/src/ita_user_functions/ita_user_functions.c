@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <wchar.h>
 #include "ita_user_functions.h"
+#include <sys/time.h>
 
 #if ITA_BUILD
 #include "../ita_signal_driver_vg_ram.h"
@@ -116,13 +117,15 @@ typedef struct _statistics_exp
 #define TEST_END_HOUR 15
 #define TEST_END_MIN 00
 */
-#define TRAIN_HOUR 12
-#define TRAIN_MIN 00
-#define TEST_HOUR 13
-#define TEST_MIN 30//00
-#define TEST_END_HOUR 16
-#define TEST_END_MIN 45
 
+
+// PAPER SBPO 2017
+#define TRAIN_HOUR 9
+#define TRAIN_MIN 30
+#define TEST_HOUR 13
+#define TEST_MIN 30
+#define TEST_END_HOUR 17
+#define TEST_END_MIN 30
 
 #define MAX_DAYS 200
 // Global Variables
@@ -156,6 +159,11 @@ double g_confidence_up[2][INPUT_WIDTH], g_confidence_down[2][INPUT_WIDTH];
 int g_use_confiance = ! USE_STATISTICS;
 
 char days_file_name[257];
+
+int g_n_period_train[INPUT_WIDTH];
+int g_n_period_test[INPUT_WIDTH];
+int g_n_period_train_op[INPUT_WIDTH];
+int g_n_period_test_op[INPUT_WIDTH];
 
 //int
 //GetMAESampleIndex(void)
@@ -449,6 +457,14 @@ LoadDataToOutput(OUTPUT_DESC *output)
 	double dol_ret = CalculatePeriodReturn(3);
 
 	//printf("%02d:%02d:%02d.%03d \n", data[g_sample].time.hour, data[g_sample].time.min, data[g_sample].time.sec, data[g_sample].time.msec);
+
+//	FILE *fp = fopen("data_10_256s.csv", "a+");
+//	fprintf(fp, "%04d%02d%02d-%02d:%02d:%02d; %lf; %lf; %lf; %lf;\n",
+//			data[g_sample].time.year, data[g_sample].time.month, data[g_sample].time.day,
+//			data[g_sample].time.hour, data[g_sample].time.min, data[g_sample].time.sec,
+//			win_ret, ind_ret, wdo_ret, dol_ret);
+//	fclose(fp);
+
 	for (y = 0; y < y_dimention; y++)
 	{
 		for (x = 0; x < x_dimention; x++)
@@ -1147,6 +1163,8 @@ compute_capital_evolution(int net, int n, OUTPUT_DESC *neural_prediction, OUTPUT
 		result_buy_sell = ((r * point_value - 2 * cost) * qty) * ALAVANCAGEM;
 		result_sell_buy = ((r * point_value - 2 * cost) * qty) * ALAVANCAGEM;
 
+		g_n_period_test[i] += 1;
+
 		//printf("%d\n", g_use_confiance);
 		if (g_LongShort == 1)
 		{
@@ -1155,6 +1173,8 @@ compute_capital_evolution(int net, int n, OUTPUT_DESC *neural_prediction, OUTPUT
 				 ( g_runing_sum_size == 0 && (s1 == 0) && (expected_result_buy_sell > 0.0) ) 
 				)
 			{
+				g_n_period_test_op[i] += 1;
+
 				double previous_capital = g_capital[net][i];
 				g_capital[net][i] += result_buy_sell;
 				g_capital[net][INPUT_WIDTH] += result_buy_sell;
@@ -1171,10 +1191,12 @@ compute_capital_evolution(int net, int n, OUTPUT_DESC *neural_prediction, OUTPUT
 		else
 		{
 			if ( ( (s1 == 0) && (expected_result_sell_buy > 0.0) && (g_confidence_up[net][i] > CERTAINTY) && (g_use_confiance == 1) ) ||
-				 ( g_runing_sum_size > 0 &&  (s1 == 0) && (expected_result_sell_buy > 0.0) && (g_mean_correct_negative_pred[net][i] > CERTAINTY) && (g_use_confiance == 0) ) ||
+				 ( g_runing_sum_size > 0 &&  (s1 == 0) && (expected_result_sell_buy > 0.0) && (g_mean_correct_positive_pred[net][i] > CERTAINTY) && (g_use_confiance == 0) ) ||
 				 ( g_runing_sum_size == 0 && (s1 == 0) && (expected_result_sell_buy > 0.0) )
 				)
 			{
+				g_n_period_test_op[i] += 1;
+
 				double previous_capital = g_capital[net][i];
 				g_capital[net][i] += result_sell_buy;
 				g_capital[net][INPUT_WIDTH] += result_sell_buy;
@@ -1651,6 +1673,11 @@ ShowStatisticsExp(PARAM_LIST *pParamList)
 			stat_exp[day_i].n_ops_ind, stat_exp[day_i].capital_wdo, stat_exp[day_i].n_ops_wdo, stat_exp[day_i].capital_dol,
 			stat_exp[day_i].n_ops_dol);
 	 */
+
+	for ( i = 0; i < INPUT_WIDTH; i++ )
+		printf("%d - N Period=%d, N Period with Operation=%d, Operations/N_Period=%.2f\n", i, g_n_period_test[i], g_n_period_test_op[i],
+				(1.0 * g_n_period_test_op[i])/g_n_period_test[i]);
+
 	fflush(stdout);
 
 	output.ival = 0;
@@ -1774,16 +1801,22 @@ MeanStatisticsExp(PARAM_LIST *pParamList)
 			total_capital_win/n, (1.0*n_ops_win)/n, total_capital_ind/n,
 			(1.0*n_ops_ind)/n, total_capital_wdo/n, (1.0*n_ops_wdo)/n, total_capital_dol/n, (1.0*n_ops_dol)/n);
 */
+
+	printf("MEAN\n");
+	for ( i = 0; i < INPUT_WIDTH; i++ )
+		printf("%d - N Period=%d, N Period with Operation=%d, Operations/N_Period=%.2f\n", i, g_n_period_test[i], g_n_period_test_op[i],
+				(1.0 * g_n_period_test_op[i])/g_n_period_test[i]);
+
 	fflush(stdout);
 
-	FILE* f = fopen("wnn_fixo_test_1dia.csv", "w+");
-	fprintf(f, "WIN_T; WIN_Y; IND_T; IND_Y; WDO_T; WDO_Y; DOL_T; DOL_Y\n");
-	for (i = 0; i < g_t_y_count; i++)
-	{
-		fprintf(f, "%lf; %lf; %lf; %lf; %lf; %lf; %lf; %lf\n", g_t[0][i], g_y[0][i],
-				g_t[1][i], g_y[1][i], g_t[2][i], g_y[2][i], g_t[3][i], g_y[3][i]);
-	}
-	fclose(f);
+//	FILE* f = fopen("data_short_30_256s.csv", "w+");
+//	fprintf(f, "WIN_T; WIN_Y; IND_T; IND_Y; WDO_T; WDO_Y; DOL_T; DOL_Y\n");
+//	for (i = 0; i < g_t_y_count; i++)
+//	{
+//		fprintf(f, "%lf; %lf; %lf; %lf; %lf; %lf; %lf; %lf\n", g_t[0][i], g_y[0][i],
+//				g_t[1][i], g_y[1][i], g_t[2][i], g_y[2][i], g_t[3][i], g_y[3][i]);
+//	}
+//	fclose(f);
 
 	output.ival = 0;
 	return output;
@@ -1805,6 +1838,13 @@ ResetStatistics(PARAM_LIST *pParamList)
 	int i, j, k, l;
 	for (j = 0; j < INPUT_WIDTH; j++)
 	{
+		/*
+		g_n_period_train[j] = 0;
+		g_n_period_test[j] = 0;
+		g_n_period_train_op[j] = 0;
+		g_n_period_test_op[j] = 0;
+		*/
+
 		for (l = 0; l < 2; l++)
 		{
 			g_capital[l][j] = 125000.0;
@@ -2312,3 +2352,62 @@ GetInputHeight(PARAM_LIST *pParamList)
 
 	return (output);
 }
+
+/* Return 1 if the difference is negative, otherwise 0.  */
+int timeval_subtract(struct timeval *result, struct timeval *t2, struct timeval *t1)
+{
+    long int diff = (t2->tv_usec + 1000000 * t2->tv_sec) - (t1->tv_usec + 1000000 * t1->tv_sec);
+    result->tv_sec = diff / 1000000;
+    result->tv_usec = diff % 1000000;
+
+    return (diff<0);
+}
+
+void timeval_print(struct timeval *tv)
+{
+    char buffer[30];
+    time_t curtime;
+
+    printf("%ld.%06ld", tv->tv_sec, tv->tv_usec);
+    curtime = tv->tv_sec;
+    strftime(buffer, 30, "%m-%d-%Y  %T", localtime(&curtime));
+    printf(" = %s.%06ld\n", buffer, tv->tv_usec);
+}
+
+NEURON_OUTPUT
+GetTime(PARAM_LIST *pParamList)
+{
+	NEURON_OUTPUT output;
+
+    static struct timeval tvBegin, tvEnd, tvDiff;
+    static int n = 0;
+    static double val = 0;
+
+	int param = pParamList->next->param.ival;
+
+	if ( param == 0 )
+	{
+	    // begin
+	    gettimeofday(&tvBegin, NULL);
+	    timeval_print(&tvBegin);
+	}
+	else
+	{
+	    //end
+	    gettimeofday(&tvEnd, NULL);
+	    timeval_print(&tvEnd);
+
+	    // diff
+	    timeval_subtract(&tvDiff, &tvEnd, &tvBegin);
+	    printf("%ld.%06ld\n", tvDiff.tv_sec, tvDiff.tv_usec);
+
+	    val += tvDiff.tv_sec + tvDiff.tv_usec / 1000000.0;
+	    n += 1;
+
+	    printf("val=%.6lf\n", val / n);
+	}
+
+	output.ival = 0;
+	return (output);
+}
+

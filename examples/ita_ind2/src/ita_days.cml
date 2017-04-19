@@ -1,8 +1,8 @@
 SetLongShort(1); # Long
-LoadDayFileName("data_test.txt");
+LoadDayFileName("data.txt");
 
 int N_DAYS;
-N_DAYS = 1;
+N_DAYS = 30;
 
 /* Network Status */
 int TRAINING_PHASE;
@@ -56,7 +56,10 @@ while ( day_i < N_DAYS )
 
 		/* Draws the landmark neuron layer output */
 		draw out_prediction based on ita move;
+		
+		#GetTime(0);
 		train network;
+		#GetTime(1);
 
 		if (a != 0) Increment(1);
 		
