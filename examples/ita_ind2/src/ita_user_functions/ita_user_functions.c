@@ -118,6 +118,7 @@ typedef struct _statistics_exp
 #define TEST_END_MIN 00
 */
 
+#define BEGIN_CAPITAL 125000.0
 
 // PAPER SBPO 2017
 #define TRAIN_HOUR 9
@@ -1773,25 +1774,25 @@ MeanStatisticsExp(PARAM_LIST *pParamList)
 		{
 			if (n_ops_win > 0) printf("%shit_rate=%.1lf; ",symbol,  100.0 * mean_stat_day[stock][HITS]/n_ops_win);
 			else printf("%shit_rate=--; ",symbol);
-			printf("%scapital=%.2lf; %sn_ops=%.2lf; ", symbol, total_capital_win/n, symbol, (1.0*n_ops_win)/n);
+			printf("%scapital=%.2lf; %sn_ops=%.2lf; ", symbol, 100.0*(total_capital_win/n - BEGIN_CAPITAL)/BEGIN_CAPITAL, symbol, (1.0*n_ops_win)/n);
 		}
 		if (stock == 1)
 		{
 			if (n_ops_ind > 0) printf("%shit_rate=%.1lf; ",symbol,  100.0 * mean_stat_day[stock][HITS]/n_ops_ind);
 			else printf("%shit_rate=--; ",symbol);
-			printf("%scapital=%.2lf; %sn_ops=%.2lf; ", symbol, total_capital_ind/n, symbol, (1.0*n_ops_ind)/n);
+			printf("%scapital=%.2lf; %sn_ops=%.2lf; ", symbol, 100.0*(total_capital_ind/n - BEGIN_CAPITAL)/BEGIN_CAPITAL, symbol, (1.0*n_ops_ind)/n);
 		}
 		if (stock == 2)
 		{
 			if (n_ops_wdo > 0) printf("%shit_rate=%.1lf; ",symbol,  100.0 * mean_stat_day[stock][HITS]/n_ops_wdo);
 			else printf("%shit_rate=--; ",symbol);
-			printf("%scapital=%.2lf; %sn_ops=%.2lf; ", symbol, total_capital_wdo/n, symbol, (1.0*n_ops_wdo)/n);
+			printf("%scapital=%.2lf; %sn_ops=%.2lf; ", symbol, 100.0*(total_capital_wdo/n - BEGIN_CAPITAL)/BEGIN_CAPITAL, symbol, (1.0*n_ops_wdo)/n);
 		}
 		if (stock == 3)
 		{
 			if (n_ops_dol > 0) printf("%shit_rate=%.1lf; ",symbol,  100.0 * mean_stat_day[stock][HITS]/n_ops_dol);
 			else printf("%shit_rate=--; ",symbol);
-			printf("%scapital=%.2lf; %sn_ops=%.2lf; ", symbol, total_capital_dol/n, symbol, (1.0*n_ops_dol)/n);
+			printf("%scapital=%.2lf; %sn_ops=%.2lf; ", symbol, 100.0*(total_capital_dol/n - BEGIN_CAPITAL)/BEGIN_CAPITAL, symbol, (1.0*n_ops_dol)/n);
 		}
 	}
 	printf("\n");
@@ -1847,7 +1848,7 @@ ResetStatistics(PARAM_LIST *pParamList)
 
 		for (l = 0; l < 2; l++)
 		{
-			g_capital[l][j] = 125000.0;
+			g_capital[l][j] = BEGIN_CAPITAL;
 			g_buy_sell_count[l][j] = 0;
 			g_sell_buy_count[l][j] = 0;
 			for (k = 0; k < MAX_DATA_SAMPLES; k++)
@@ -1869,8 +1870,8 @@ ResetStatistics(PARAM_LIST *pParamList)
 		g_n_hits[j] = 0;
 		g_n_miss[j] = 0;
 	}
-	g_capital[0][INPUT_WIDTH] = 125000.0;
-	g_capital[1][INPUT_WIDTH] = 125000.0;
+	g_capital[0][INPUT_WIDTH] = BEGIN_CAPITAL;
+	g_capital[1][INPUT_WIDTH] = BEGIN_CAPITAL;
 
 	g_sample = POSE_MIN = 0; // ita.wh;
 	g_sample_statistics = 0;
