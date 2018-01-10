@@ -1,0 +1,93 @@
+################################################ Set Global Variables #################################################
+
+set NEURON_MEMORY_SIZE = 117;  
+set TYPE_SHOW = SHOW_FRAME;
+set TYPE_MOVING_FRAME = STOP;
+
+######################################################## Constants ####################################################
+
+# General settings
+
+# Architecture settings
+const IMAGE_WIDTH  = 640;
+const IMAGE_HEIGHT = 380;
+const IMAGE_HEIGHT_CROP = 364;
+
+const NL_WIDTH  = 96;
+const NL_HEIGHT = 54;
+
+const INPUTS_PER_NEURON = 64;
+const GAUSSIAN_RADIUS = 30.0;
+
+float	translation_filter_deltaX = IMAGE_WIDTH/2.0;
+float	translation_filter_deltaY = IMAGE_HEIGHT/2.0;
+
+const NUMBER_OF_TRAINING_FRAMES = 117;
+const NUMBER_OF_TEST_FRAMES = 117;
+
+const DATA_SET_FILE_TRAIN = "basepos-20161021-20171122-30m-30m.txt";
+const DATA_SET_FILE_TEST = "livepos-20161021-20171122-30m-30m.txt";
+
+############################################### Neuron Layers #########################################################
+
+neuronlayer    	nl_v1_pattern[NL_WIDTH][NL_HEIGHT]	       			of minchinton neurons color sensitive with greyscale outputs;
+
+neuronlayer    	in_pattern_gaussian[IMAGE_WIDTH][IMAGE_HEIGHT_CROP]		with color outputs;
+
+neuronlayer		in_pattern_translated[IMAGE_WIDTH][IMAGE_HEIGHT_CROP] 	with color outputs;
+
+neuronlayer		in_pattern_cropped[IMAGE_WIDTH][IMAGE_HEIGHT_CROP] with color outputs;
+
+neuronlayer		recall[IMAGE_WIDTH][IMAGE_HEIGHT] 	with color outputs;
+
+############################################### Outputs #########################################################
+
+output		    out_recall[IMAGE_WIDTH][IMAGE_HEIGHT];
+
+output			out_in_pattern_cropped[IMAGE_WIDTH][IMAGE_HEIGHT_CROP];
+
+output         	out_in_pattern_gaussian[IMAGE_WIDTH][IMAGE_HEIGHT_CROP];
+
+output         	out_nl_v1_pattern[NL_WIDTH][NL_HEIGHT] handled by output_handler("%s", "out_recall");
+
+################################################## Inputs #############################################################
+
+input	in_pattern[IMAGE_WIDTH][IMAGE_HEIGHT]	with color outputs	produced by input_generator()	controled by input_controler();
+
+############################################### Filters ###############################################################   
+
+#parameters:	crop_nl_filter("%f %f", rect_x, rect_y)
+filter	in_pattern	 					with crop_nl_filter("%d %d", 0, 16) producing in_pattern_cropped;
+
+#parameters:	translate_nl_filter("%f %f",Delta_X,Delta_Y)
+filter	in_pattern_cropped	 			with translate_nl_filter("%p %p", &translation_filter_deltaX, &translation_filter_deltaY) producing in_pattern_translated;
+
+#parameters: 	gaussian_filter ("%s %d", <kernel size>, <sigma>)
+filter	in_pattern_translated			with gaussian_filter ("%d %f", 33, 11.0)						producing in_pattern_gaussian;
+
+################################## Connect Neuron Layers to Outputs #############################################
+
+outputconnect	recall					to out_recall;
+
+outputconnect	in_pattern_cropped		to out_in_pattern_cropped;
+
+outputconnect	in_pattern_gaussian		to out_in_pattern_gaussian;
+
+outputconnect  	nl_v1_pattern 			to out_nl_v1_pattern;
+
+################################################ Connections ####################################################
+
+connect			in_pattern_translated  	to nl_v1_pattern 	with INPUTS_PER_NEURON random inputs per neuron;
+connect			in_pattern_translated  	to nl_v1_pattern 	with INPUTS_PER_NEURON random inputs per neuron and gaussian distribution with radius GAUSSIAN_RADIUS;
+
+############################################### Associations ####################################################
+
+associate	nl_v1_pattern			with		nl_v1_pattern;
+
+################################################# User Functions ################################################
+
+int set_network_status("%d");
+int get_frame("%d");
+int read_dataset("%d");
+int randomize("%p %d %d");
+int set_network_evaluate("%d");

@@ -1,0 +1,100 @@
+int TRAINING_PHASE;
+TRAINING_PHASE = 1;
+
+int RECALL_PHASE;
+RECALL_PHASE = 2;
+
+int MOVING_PHASE;
+MOVING_PHASE = 3;
+
+int NUMBER_OF_TRAINING_FRAMES;
+NUMBER_OF_TRAINING_FRAMES = 117;
+
+int NUMBER_OF_TEST_FRAMES;
+NUMBER_OF_TEST_FRAMES = 117;
+
+int TRAINING;
+TRAINING = 1;
+
+int i;
+int j;
+int k;
+int rand_x;
+int rand_y;
+
+/* Training phase */
+set_network_status (TRAINING_PHASE);
+read_dataset(0);
+
+i = 0;
+
+if(TRAINING != 1)
+{
+	destroy network;
+	reload from "ngl.mem";
+}
+else
+{
+	while (i < NUMBER_OF_TRAINING_FRAMES)
+	{	
+		get_frame(i);
+	
+		/* Move to default point */
+		move in_pattern to 320, 182;
+		
+		draw out_nl_v1_pattern based on in_pattern move;
+		
+		forward outputs;
+		train network;
+	
+		i = i + 1;
+	}
+	
+	unload to "ngl.mem";
+}
+
+
+/* Testing phase */
+
+set_network_status (MOVING_PHASE);
+read_dataset(0);
+
+i = 0;
+
+while (i < NUMBER_OF_TEST_FRAMES)
+{
+
+    get_frame(i);
+            
+    set_network_status (MOVING_PHASE);
+	move in_pattern to ((j+1) * 320), 182;
+			
+	set_network_status (RECALL_PHASE);
+	forward neural_layers;
+	forward outputs;
+
+	k = 0;
+	
+	while (k < 3)
+	{
+	    #randomize(rand_x, 3, 0);
+		#randomize(rand_y, 3, 1);
+		
+		set_network_status (MOVING_PHASE);
+        move in_pattern to ((j+1) * 320), 182;
+        #move in_pattern to (((j+1) * 320) + rand_x), (182 + rand_y);
+		
+		if (k == 2)
+		  set_network_evaluate(1);
+		
+		set_network_status (RECALL_PHASE);
+		forward neural_layers;
+		forward outputs;
+		
+		k = k + 1;		
+	}
+    
+	#pause;
+	
+	i = i + 1;
+}
