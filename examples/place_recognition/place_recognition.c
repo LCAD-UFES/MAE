@@ -31,7 +31,7 @@ memset((void *) &(out_nl_v1_pattern), 0, sizeof(OUTPUT_DESC));
 out_nl_v1_pattern.name = "out_nl_v1_pattern";
 
 __line = 3;
-NEURON_MEMORY_SIZE = 117;
+NEURON_MEMORY_SIZE = 3783;
 __line = 4;
 TYPE_SHOW = SHOW_FRAME;
 __line = 5;

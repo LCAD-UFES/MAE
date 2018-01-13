@@ -1,6 +1,6 @@
 ################################################ Set Global Variables #################################################
 
-set NEURON_MEMORY_SIZE = 117;  
+set NEURON_MEMORY_SIZE = 3783;  
 set TYPE_SHOW = SHOW_FRAME;
 set TYPE_MOVING_FRAME = STOP;
 
@@ -22,11 +22,11 @@ const GAUSSIAN_RADIUS = 30.0;
 float	translation_filter_deltaX = IMAGE_WIDTH/2.0;
 float	translation_filter_deltaY = IMAGE_HEIGHT/2.0;
 
-const NUMBER_OF_TRAINING_FRAMES = 117;
-const NUMBER_OF_TEST_FRAMES = 117;
+const NUMBER_OF_TRAINING_FRAMES = 3783;
+const NUMBER_OF_TEST_FRAMES = 2784;
 
-const DATA_SET_FILE_TRAIN = "basepos-20161021-20171122-30m-30m.txt";
-const DATA_SET_FILE_TEST = "livepos-20161021-20171122-30m-30m.txt";
+const DATA_SET_FILE_TRAIN = "basepos-UFES-TRAIN-LAPS-20171122-5m-1m.txt";
+const DATA_SET_FILE_TEST = "livepos-UFES-TRAIN-LAPS-20171122-5m-1m.txt";
 
 ############################################### Neuron Layers #########################################################
 

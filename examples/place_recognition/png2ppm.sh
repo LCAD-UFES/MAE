@@ -4,6 +4,7 @@
 END
 
 declare -a dirs=(
+"/dados/ufes/20140418"
 "/dados/ufes/20160825"
 "/dados/ufes/20160825-01"
 "/dados/ufes/20160825-02"
@@ -11,7 +12,8 @@ declare -a dirs=(
 "/dados/ufes/20161021"
 "/dados/ufes/20170119"
 "/dados/ufes/20171122"
-"/dados/ufes/20171205"
+"/dados/ufes/20180112"
+"/dados/ufes/20180112-02"
 )
 
 for i in "${!dirs[@]}"; do
