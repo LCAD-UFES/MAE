@@ -7,20 +7,35 @@ RECALL_PHASE = 2;
 int MOVING_PHASE;
 MOVING_PHASE = 3;
 
+/* Dataset Sizes */
 int NUMBER_OF_TRAINING_FRAMES;
-NUMBER_OF_TRAINING_FRAMES = 3783;
+NUMBER_OF_TRAINING_FRAMES = 4415;
 
 int NUMBER_OF_TEST_FRAMES;
 NUMBER_OF_TEST_FRAMES = 2784;
 
+/* Network Status */
 int TRAINING;
-TRAINING = 1;
+TRAINING = 0;
+int TESTING;
+TESTING = 1;
 
+/* Iterators */
 int i;
 int j;
 int k;
 int rand_x;
 int rand_y;
+
+/* Collision Counters */
+float average_collision_in_train;
+float average_collision_in_test;
+
+/* Time Counters */
+float time_loading;
+float time_testing;
+float time_testing_avg;
+float time_showing;
 
 /* Training phase */
 set_network_status (TRAINING_PHASE);
@@ -31,9 +46,10 @@ i = 0;
 if(TRAINING != 1)
 {
 	destroy network;
-	reload from "ngl.mem";
+	reload from "netmem.bin";
+    	#reload "nl_v1_pattern" from "/home/likewise-open/LCAD/avelino/deepslam/pyram/mae/netmem_mae.txt";
 }
-else
+else 
 {
 	while (i < NUMBER_OF_TRAINING_FRAMES)
 	{	
@@ -50,9 +66,13 @@ else
 		i = i + 1;
 	}
 	
-	unload to "ngl.mem";
+	unload to "netmem.bin";
 }
 
+if(TESTING != 1)
+{
+	quit;
+}
 
 /* Testing phase */
 
@@ -64,9 +84,9 @@ i = 0;
 while (i < NUMBER_OF_TEST_FRAMES)
 {
 
-    get_frame(i);
+    	get_frame(i);
             
-    set_network_status (MOVING_PHASE);
+    	set_network_status (MOVING_PHASE);
 	move in_pattern to ((j+1) * 320), 182;
 			
 	set_network_status (RECALL_PHASE);
@@ -75,16 +95,16 @@ while (i < NUMBER_OF_TEST_FRAMES)
 
 	k = 0;
 	
-	while (k < 3)
+	while (k < 1)
 	{
-	    #randomize(rand_x, 3, 0);
+	    	#randomize(rand_x, 3, 0);
 		#randomize(rand_y, 3, 1);
 		
 		set_network_status (MOVING_PHASE);
-        move in_pattern to ((j+1) * 320), 182;
-        #move in_pattern to (((j+1) * 320) + rand_x), (182 + rand_y);
+        	move in_pattern to ((j+1) * 320), 182;
+        	#move in_pattern to (((j+1) * 320) + rand_x), (182 + rand_y);
 		
-		if (k == 2)
+		if (k == 0)
 		  set_network_evaluate(1);
 		
 		set_network_status (RECALL_PHASE);

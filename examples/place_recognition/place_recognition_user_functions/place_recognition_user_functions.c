@@ -11,7 +11,7 @@
 ********************************************************
 */
 
-int g_outputFrameID[NUMBER_OF_TRAINING_FRAMES];
+int g_outputFrameID[NUMBER_OF_CLASSES];
 winner_t g_outputWinner[10];
 
 int init_user_functions ()
@@ -51,20 +51,23 @@ int read_dataset_file()
 {
 	int i, number_of_frames;
 	FILE* fd;
-	char *filename;
+	char filename[1024];
 	double timestamp;
 	frame_t* g_frame_list;
-
+	filename[0] = '\0';
 	if(g_network_status == TRAINING_PHASE)
 	{
 		g_frame_list = g_training_frame_list;
-		filename = DATA_SET_FILE_TRAIN;
+		strcat(filename, DATA_SET_FILE_PATH);
+		strcat(filename, DATA_SET_FILE_TRAIN);
+		printf("%s\n", filename);
 		number_of_frames = NUMBER_OF_TRAINING_FRAMES;
 	}
 	else
 	{
 		g_frame_list = g_test_frame_list;
-		filename = DATA_SET_FILE_TEST;
+		strcat(filename, DATA_SET_FILE_PATH);
+		strcat(filename, DATA_SET_FILE_TEST);
 		number_of_frames = NUMBER_OF_TEST_FRAMES;
 	}
 
@@ -79,6 +82,7 @@ int read_dataset_file()
 				&g_frame_list[i].pose.x, &g_frame_list[i].pose.y, &g_frame_list[i].pose.z,
 				&g_frame_list[i].pose.roll, &g_frame_list[i].pose.pitch, &g_frame_list[i].pose.yaw,
 				&timestamp);
+		strcpy(&(g_frame_list[i].imagename[strlen(g_frame_list[i].imagename)-3]), "ppm");
 	}
 
 	fclose(fd);
@@ -309,16 +313,16 @@ int evaluate_output(OUTPUT_DESC *output, float *confidence)
 
 	neuron_vector = output->neuron_layer->neuron_vector;
 
-	for (i = 0; i < NUMBER_OF_TRAINING_FRAMES; i++)
+	for (i = 0; i < NUMBER_OF_CLASSES; i++)
 		g_outputFrameID[i] = 0;
 
 	for (i = 0; i < (output->wh * output->ww); i++)
 	{
-		if ((neuron_vector[i].output.ival >= 0) && (neuron_vector[i].output.ival < NUMBER_OF_TRAINING_FRAMES))
+		if ((neuron_vector[i].output.ival >= 0) && (neuron_vector[i].output.ival < NUMBER_OF_CLASSES))
 			g_outputFrameID[neuron_vector[i].output.ival] += 1;
 	}
 
-	for (i = 0; i < NUMBER_OF_TRAINING_FRAMES; i++)
+	for (i = 0; i < NUMBER_OF_CLASSES; i++)
 	{
 		if (g_outputFrameID[i] > nMax1)
 		{
@@ -328,7 +332,7 @@ int evaluate_output(OUTPUT_DESC *output, float *confidence)
 		}
 	}
 
-	for (i = 0; i < NUMBER_OF_TRAINING_FRAMES; i++)
+	for (i = 0; i < NUMBER_OF_CLASSES; i++)
 	{
 		if (g_outputFrameID[i] > nMax2)
 			nMax2 = g_outputFrameID[i];
@@ -385,7 +389,7 @@ void output_handler (OUTPUT_DESC *output, int type_call, int mouse_button, int m
 	int winner_frame = 0;
 	static int frame_counter = 0;
 	static int hit_counter = 0;
-	char recall_filename[64];
+	char recall_filename[256];
 
 	if (g_network_status == RECALL_PHASE)
 	{
@@ -402,19 +406,19 @@ void output_handler (OUTPUT_DESC *output, int type_call, int mouse_button, int m
 
 			if(g_evaluate_output == 1)
 			{
-				winner_frame = get_output_winner(3);
+				winner_frame = get_output_winner(1);
 
-				strcpy(recall_filename, g_test_frame_list[winner_frame].imagename);
-				load_image_to_object(output->output_handler_params->next->param.sval, recall_filename);
+				//strcpy(recall_filename, g_test_frame_list[winner_frame].imagename);
+				//load_image_to_object(output->output_handler_params->next->param.sval, recall_filename);
 
 				g_evaluate_output = 0;
 				frame_counter = 0;
 
-				int hit = ((winner_frame == g_test_frame_list[g_test_frame_ID].correspondence ||
-						  (winner_frame == (g_test_frame_list[g_test_frame_ID].correspondence) + 1) ||
-						  (winner_frame == (g_test_frame_list[g_test_frame_ID].correspondence) - 1) ||
-						  (winner_frame == (g_test_frame_list[g_test_frame_ID].correspondence) + 2) ||
-						  (winner_frame == (g_test_frame_list[g_test_frame_ID].correspondence) - 2)) ? 1 : 0);
+				int hit = ((winner_frame == g_test_frame_list[g_test_frame_ID].correspondence));// ||
+						  //(winner_frame == (g_test_frame_list[g_test_frame_ID].correspondence) + 1) ||
+						  //(winner_frame == (g_test_frame_list[g_test_frame_ID].correspondence) - 1) ||
+						  //(winner_frame == (g_test_frame_list[g_test_frame_ID].correspondence) + 2) ||
+						  //(winner_frame == (g_test_frame_list[g_test_frame_ID].correspondence) - 2)) ? 1 : 0);
 
 				hit_counter += hit;
 
