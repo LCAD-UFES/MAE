@@ -47,7 +47,7 @@ if(TRAINING != 1)
 {
 	destroy network;
 	reload from "netmem.bin";
-    	#reload "nl_v1_pattern" from "/home/likewise-open/LCAD/avelino/deepslam/pyram/mae/netmem_mae.txt";
+    reload "nl_v1_pattern" from "/home/avelino/deepslam/pyram/mae/netmem_mae.txt";
 }
 else 
 {

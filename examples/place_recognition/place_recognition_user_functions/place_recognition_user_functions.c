@@ -389,7 +389,7 @@ void output_handler (OUTPUT_DESC *output, int type_call, int mouse_button, int m
 	int winner_frame = 0;
 	static int frame_counter = 0;
 	static int hit_counter = 0;
-	char recall_filename[256];
+	//char recall_filename[256];
 
 	if (g_network_status == RECALL_PHASE)
 	{

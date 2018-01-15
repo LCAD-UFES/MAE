@@ -26,7 +26,8 @@ float	translation_filter_deltaY = IMAGE_HEIGHT/2.0;
 const NUMBER_OF_CLASSES = 636;
 const NUMBER_OF_TRAINING_FRAMES = 4415;
 const NUMBER_OF_TEST_FRAMES = 2784;
-const DATA_SET_FILE_PATH  = "/home/likewise-open/LCAD/avelino/deepslam/data/ufes_wnn/";
+#const DATA_SET_FILE_PATH  = "/home/likewise-open/LCAD/avelino/deepslam/data/ufes_wnn/";
+const DATA_SET_FILE_PATH  = "/home/avelino/deepslam/data/ufes_wnn/";
 const DATA_SET_FILE_TRAIN = "basepos-UFES-TRAIN-LAPS-20171122-5m-1m.txt";
 const DATA_SET_FILE_TEST = "livepos-UFES-TRAIN-LAPS-20171122-5m-1m.txt";
 

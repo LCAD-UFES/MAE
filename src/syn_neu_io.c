@@ -583,6 +583,7 @@ reload_neuron_memory (NEURON_LAYER *neuron_layer, NEURON *neuron)
 			fprintf(stderr,"Erro na leitura\n");
 			exit(0);
 		}
+
 	}
 
 	return;
@@ -736,7 +737,7 @@ reload_neuron (void)
 		reload_neuron_memory_wisard (neuron_layer_dest, neuron_dest);
 
 	//Remakes the neuron hash for Fat-Fast type neurons (used only when neural layer is reloaded)
-#if 0
+#if 1
 	if( 	neuron_layer_dest->neuron_type == &minchinton_fat_fast  	||
 			neuron_layer_dest->neuron_type == &minchinton_fat_fast_rand )
 	{
@@ -751,10 +752,9 @@ reload_neuron (void)
 
 
 void
-reload_neuron_memory_only (void)
+reload_neuron_memory_only (NEURON_LAYER *neuron_layer_dest)
 {
 	int n_l_dest_id, n_dest_id;
-	NEURON_LAYER *neuron_layer_dest;
 	NEURON *neuron_dest;
 
 	if(fscanf(neural_connections, "%d\n", &n_l_dest_id) < 0)
@@ -769,7 +769,6 @@ reload_neuron_memory_only (void)
 		exit (0);
 	}
 
-	neuron_layer_dest = n_layer_vec[n_l_dest_id];
 	neuron_dest = &(neuron_layer_dest->neuron_vector[n_dest_id]);
 
 	//WiSARD Neurons would reload memory and then be freed
@@ -845,7 +844,7 @@ reload_neuron_layer_from_file (char *file_name, char *neuron_layer_name)
 
 	while(count_neurons)
 	{
-		reload_neuron_memory_only ();
+		reload_neuron_memory_only (neuron_layer);
 		count_neurons--;
 	}
 
