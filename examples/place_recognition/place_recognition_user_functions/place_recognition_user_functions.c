@@ -13,6 +13,8 @@
 
 int g_outputFrameID[NUMBER_OF_CLASSES];
 winner_t g_outputWinner[10];
+static int frame_counter = 0;
+static int hit_counter = 0;
 
 int init_user_functions ()
 {
@@ -387,8 +389,8 @@ void output_handler (OUTPUT_DESC *output, int type_call, int mouse_button, int m
 	int frame = 0;
 	float confidence = 0.0;
 	int winner_frame = 0;
-	static int frame_counter = 0;
-	static int hit_counter = 0;
+	frame_counter = 0;
+	hit_counter = 0;
 	//char recall_filename[256];
 
 	if (g_network_status == RECALL_PHASE)
@@ -421,12 +423,13 @@ void output_handler (OUTPUT_DESC *output, int type_call, int mouse_button, int m
 						  //(winner_frame == (g_test_frame_list[g_test_frame_ID].correspondence) - 2)) ? 1 : 0);
 
 				hit_counter += hit;
-
+#if VERBOSE
 				//printf("%d ", winner_frame);
 				//fflush(stdout);
 				printf("### winner frame: %d [%d] - %f ###\n", winner_frame, g_test_frame_list[g_test_frame_ID].correspondence , (hit_counter / ((double)NUMBER_OF_TEST_FRAMES)) * 100.0);
 				//printf("tested: %6.2f %6.2f %6.2f\n", g_test_frame_list[g_test_frame_ID].pose.x, g_test_frame_list[g_test_frame_ID].pose.y, g_test_frame_list[g_test_frame_ID].pose.z);
 				//printf("returned: %6.2f %6.2f %6.2f\n", g_training_frame_list[winner_frame].pose.x, g_training_frame_list[winner_frame].pose.y, g_training_frame_list[winner_frame].pose.z);
+#endif
 
 			}
 		}
@@ -572,3 +575,94 @@ NEURON_OUTPUT randomize (PARAM_LIST *pParamList)
 	output.ival = 0;
 	return (output);
 }
+
+
+/*
+***********************************************************
+* Function: Write test results to CSV file
+* Description:
+* Inputs:
+* Output:
+***********************************************************
+*/
+
+NEURON_OUTPUT
+WriteTestResultToCSV (PARAM_LIST *pParamList)
+{
+	NEURON_OUTPUT output;
+	FILE	*result_file;
+	float hit_percentage;
+
+	hit_percentage = (float) hit_counter / (float) (frame_counter);
+	result_file = fopen("place_recognition_result.csv","a");
+
+	fprintf(result_file,"%d,%d,%f,%f\n",NL_WIDTH,SYNAPSES,GAUSSIAN_RADIUS,hit_percentage);
+
+	fclose(result_file);
+
+	output.ival = 0;
+	return (output);
+}
+
+
+NEURON_OUTPUT
+PrintStatistics(PARAM_LIST *pParamList)
+{
+	float hit_percent;
+	NEURON_OUTPUT output;
+
+	hit_percent = (float) hit_counter / (float) (frame_counter);
+	printf("%4d %4d %3.2f\n", (frame_counter), hit_counter, hit_percent * 100.0);
+
+	fflush (stdout);
+
+	output.ival = 0;
+
+	return (output);
+}
+
+
+NEURON_OUTPUT
+ComputeAverageTimeForNeuronsFindingNearestPattern (PARAM_LIST *pParamList)
+{
+	int i;
+	NEURON_OUTPUT output;
+	output.fval = 0.0;
+
+	for (i = 0; i < nl_v1_pattern.num_neurons; i++)
+		output.fval += nl_v1_pattern.neuron_vector[i].time_metrics;
+
+	output.fval /= (float)nl_v1_pattern.num_neurons;
+
+	return (output);
+}
+
+
+NEURON_OUTPUT
+ComputeAverageNeuronLayerHashCollisionsInTrain (PARAM_LIST *pParamList)
+{
+	NEURON_OUTPUT output;
+
+	output.fval = (float) count_neuron_layer_average_hash_collisions (nl_v1_pattern.name);
+	output.fval /= (float) NEURON_MEMORY_SIZE;	// calculated per training sample
+
+	return (output);
+}
+
+
+NEURON_OUTPUT
+ComputeAverageNeuronLayerHashCollisionsInTest (PARAM_LIST *pParamList)
+{
+	int i;
+	NEURON_OUTPUT output;
+	output.fval = 0.0;
+
+	for (i = 0; i < nl_v1_pattern.num_neurons; i++)
+		output.fval += nl_v1_pattern.neuron_vector[i].hash_collisions;
+
+	output.fval /= (float)nl_v1_pattern.num_neurons;
+	output.fval /= (float)pParamList->next->param.ival;
+
+	return (output);
+}
+

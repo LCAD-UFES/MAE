@@ -1,0 +1,146 @@
+int TRAINING_PHASE;
+TRAINING_PHASE = 1;
+
+int RECALL_PHASE;
+RECALL_PHASE = 2;
+
+int MOVING_PHASE;
+MOVING_PHASE = 3;
+
+/* Dataset Sizes */
+int NUMBER_OF_TRAINING_FRAMES;
+NUMBER_OF_TRAINING_FRAMES = 4415;
+
+int NUMBER_OF_TEST_FRAMES;
+NUMBER_OF_TEST_FRAMES = 2784;
+
+/* Network Status */
+int TRAINING;
+TRAINING = 0;
+int TESTING;
+TESTING = 1;
+
+/* Iterators */
+int i;
+int j;
+int k;
+int rand_x;
+int rand_y;
+
+/* Collision Counters */
+float average_collision_in_train;
+float average_collision_in_test;
+
+/* Time Counters */
+float time_loading;
+float time_testing;
+float time_testing_avg;
+float time_showing;
+
+/* Training phase */
+set_network_status (TRAINING_PHASE);
+read_dataset(0);
+
+i = 0;
+
+if(TRAINING == 0)
+{
+    destroy network;
+
+    time;
+    print("Start timer:", 0);
+
+    reload from "netmem.bin";
+    reload "nl_v1_pattern" from "netmem_045.zip";
+
+    time_loading = time;
+    print("Load time in ms:", time_loading);
+}
+else 
+{
+    while (i < NUMBER_OF_TRAINING_FRAMES)
+    {   
+        get_frame(i);
+    
+        /* Move to default point */
+        move in_pattern to 320, 182;
+        
+        draw out_nl_v1_pattern based on in_pattern move;
+        
+        forward outputs;
+        train network;
+    
+        i = i + 1;
+    }
+    
+    unload to "netmem.bin";
+    unload "nl_v1_pattern" to "netmem.txt";
+}
+
+if(TESTING != 1)
+{
+    quit;
+}
+
+average_collision_in_train = ComputeAverageNeuronLayerHashCollisionsInTrain(0);
+
+/* Testing phase */
+
+set_network_status (MOVING_PHASE);
+read_dataset(0);
+
+i = 0;
+
+time_testing_avg = 0.0;
+
+while (i < NUMBER_OF_TEST_FRAMES)
+{
+
+    get_frame(i);
+            
+    set_network_status (MOVING_PHASE);
+    move in_pattern to ((j+1) * 320), 182;
+            
+    set_network_status (RECALL_PHASE);
+    forward neural_layers;
+    forward outputs;
+
+    k = 0;
+    
+    while (k < 1)
+    {
+        #randomize(rand_x, 3, 0);
+        #randomize(rand_y, 3, 1);
+        
+        set_network_status (MOVING_PHASE);
+        move in_pattern to ((j+1) * 320), 182;
+        #move in_pattern to (((j+1) * 320) + rand_x), (182 + rand_y);
+        
+        if (k == 0)
+          set_network_evaluate(1);
+        
+        set_network_status (RECALL_PHASE);
+        forward neural_layers;
+        forward outputs;
+        
+        k = k + 1;      
+    }
+    time_testing_avg = time_testing_avg + ComputeAverageTimeForNeuronsFindingNearestPattern(0);
+    
+    #pause;
+    
+    i = i + 1;
+}
+
+time_testing = time;
+
+average_collision_in_test = ComputeAverageNeuronLayerHashCollisionsInTest(NUM_CHAR_TEST);
+
+print("Average collision in train:", average_collision_in_train);
+print("Average collision in test:", average_collision_in_test);
+print("Average test time in ms:", time_testing_avg / NUM_CHAR_TEST);
+print("Total test time in ms:", time_testing - time_loading);
+
+PrintStatistics(0);
+
+quit;
