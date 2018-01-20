@@ -43,11 +43,11 @@ read_dataset(0);
 
 i = 0;
 
-if(TRAINING != 1)
+if(TRAINING == 0)
 {
 	destroy network;
 	reload from "netmem.bin";
-    reload "nl_v1_pattern" from "/home/avelino/deepslam/pyram/mae/netmem_mae.txt";
+    	reload "nl_v1_pattern" from "/dados/MAE/examples/place_recognition/netmem_mae.txt";
 }
 else 
 {

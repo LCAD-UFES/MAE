@@ -13,8 +13,8 @@
 
 int g_outputFrameID[NUMBER_OF_CLASSES];
 winner_t g_outputWinner[10];
-static int frame_counter = 0;
-static int hit_counter = 0;
+static int g_frame_counter = 0;
+static int g_hit_counter = 0;
 
 int init_user_functions ()
 {
@@ -76,14 +76,14 @@ int read_dataset_file()
 	if((fd = fopen(filename, "r")) == NULL)
 		return -1;
 
-	fscanf(fd, "%*[^\n]\n"); //skip header
+	if(fscanf(fd, "%*[^\n]\n")); //skip header
 	for(i = 0; i < number_of_frames; i++)
 	{
-		fscanf(fd, "%s %d %lf %lf %lf %lf %lf %lf %lf\n", g_frame_list[i].imagename,
+		if(fscanf(fd, "%s %d %lf %lf %lf %lf %lf %lf %lf\n", g_frame_list[i].imagename,
 				&g_frame_list[i].correspondence,
 				&g_frame_list[i].pose.x, &g_frame_list[i].pose.y, &g_frame_list[i].pose.z,
 				&g_frame_list[i].pose.roll, &g_frame_list[i].pose.pitch, &g_frame_list[i].pose.yaw,
-				&timestamp);
+				&timestamp));
 		strcpy(&(g_frame_list[i].imagename[strlen(g_frame_list[i].imagename)-3]), "ppm");
 	}
 
@@ -389,8 +389,8 @@ void output_handler (OUTPUT_DESC *output, int type_call, int mouse_button, int m
 	int frame = 0;
 	float confidence = 0.0;
 	int winner_frame = 0;
-	frame_counter = 0;
-	hit_counter = 0;
+	int frame_counter = 0;
+	int hit_counter = 0;
 	//char recall_filename[256];
 
 	if (g_network_status == RECALL_PHASE)
@@ -408,13 +408,14 @@ void output_handler (OUTPUT_DESC *output, int type_call, int mouse_button, int m
 
 			if(g_evaluate_output == 1)
 			{
+				g_evaluate_output = 0;
+				
+				g_frame_counter++;
+
 				winner_frame = get_output_winner(1);
 
 				//strcpy(recall_filename, g_test_frame_list[winner_frame].imagename);
 				//load_image_to_object(output->output_handler_params->next->param.sval, recall_filename);
-
-				g_evaluate_output = 0;
-				frame_counter = 0;
 
 				int hit = ((winner_frame == g_test_frame_list[g_test_frame_ID].correspondence));// ||
 						  //(winner_frame == (g_test_frame_list[g_test_frame_ID].correspondence) + 1) ||
@@ -423,13 +424,13 @@ void output_handler (OUTPUT_DESC *output, int type_call, int mouse_button, int m
 						  //(winner_frame == (g_test_frame_list[g_test_frame_ID].correspondence) - 2)) ? 1 : 0);
 
 				hit_counter += hit;
-#if VERBOSE
+				g_hit_counter += hit;
+				
 				//printf("%d ", winner_frame);
 				//fflush(stdout);
-				printf("### winner frame: %d [%d] - %f ###\n", winner_frame, g_test_frame_list[g_test_frame_ID].correspondence , (hit_counter / ((double)NUMBER_OF_TEST_FRAMES)) * 100.0);
+				//printf("### winner frame: %d [%d] - %f ###\n", winner_frame, g_test_frame_list[g_test_frame_ID].correspondence , (hit_counter / ((double)NUMBER_OF_TEST_FRAMES)) * 100.0);
 				//printf("tested: %6.2f %6.2f %6.2f\n", g_test_frame_list[g_test_frame_ID].pose.x, g_test_frame_list[g_test_frame_ID].pose.y, g_test_frame_list[g_test_frame_ID].pose.z);
 				//printf("returned: %6.2f %6.2f %6.2f\n", g_training_frame_list[winner_frame].pose.x, g_training_frame_list[winner_frame].pose.y, g_training_frame_list[winner_frame].pose.z);
-#endif
 
 			}
 		}
@@ -593,7 +594,7 @@ WriteTestResultToCSV (PARAM_LIST *pParamList)
 	FILE	*result_file;
 	float hit_percentage;
 
-	hit_percentage = (float) hit_counter / (float) (frame_counter);
+	hit_percentage = (float) g_hit_counter / (float) (g_frame_counter);
 	result_file = fopen("place_recognition_result.csv","a");
 
 	fprintf(result_file,"%d,%d,%f,%f\n",NL_WIDTH,SYNAPSES,GAUSSIAN_RADIUS,hit_percentage);
@@ -611,8 +612,8 @@ PrintStatistics(PARAM_LIST *pParamList)
 	float hit_percent;
 	NEURON_OUTPUT output;
 
-	hit_percent = (float) hit_counter / (float) (frame_counter);
-	printf("%4d %4d %3.2f\n", (frame_counter), hit_counter, hit_percent * 100.0);
+	hit_percent = (float) g_hit_counter / (float) (g_frame_counter);
+	printf("%4d %4d %3.2f\n", (g_frame_counter), g_hit_counter, hit_percent * 100.0);
 
 	fflush (stdout);
 
