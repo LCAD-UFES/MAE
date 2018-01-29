@@ -45,9 +45,16 @@ i = 0;
 
 if(TRAINING == 0)
 {
-	destroy network;
-	reload from "netmem.bin";
-    	reload "nl_v1_pattern" from "/dados/MAE/examples/place_recognition/netmem_mae.txt";
+    destroy network;
+
+    time;
+    print("Start timer:", 0);
+
+    reload from "netmem.bin";
+    reload "nl_v1_pattern" from "netmem.txt";
+
+    time_loading = time;
+    print("Load time in ms:", time_loading);
 }
 else 
 {
@@ -74,12 +81,16 @@ if(TESTING != 1)
 	quit;
 }
 
+average_collision_in_train = ComputeAverageNeuronLayerHashCollisionsInTrain(0);
+
 /* Testing phase */
 
 set_network_status (MOVING_PHASE);
 read_dataset(0);
 
 i = 0;
+
+time_testing_avg = 0.0;
 
 while (i < NUMBER_OF_TEST_FRAMES)
 {
@@ -95,26 +106,39 @@ while (i < NUMBER_OF_TEST_FRAMES)
 
 	k = 0;
 	
-	while (k < 1)
+	while (k < 3)
 	{
-	    	#randomize(rand_x, 3, 0);
-		#randomize(rand_y, 3, 1);
+		k = k + 1;		
+		
+	    	randomize(rand_x, 20, 0);
+		randomize(rand_y, 5, 1);
 		
 		set_network_status (MOVING_PHASE);
-        	move in_pattern to ((j+1) * 320), 182;
-        	#move in_pattern to (((j+1) * 320) + rand_x), (182 + rand_y);
+        	#move in_pattern to ((j+1) * 320), 182;
+        	move in_pattern to (((j+1) * 320) + rand_x), (182 + rand_y);
 		
-		if (k == 0)
+		if (k >= 3)
 		  set_network_evaluate(1);
 		
 		set_network_status (RECALL_PHASE);
 		forward neural_layers;
 		forward outputs;
-		
-		k = k + 1;		
 	}
     
 	#pause;
 	
 	i = i + 1;
 }
+
+time_testing = time;
+
+average_collision_in_test = ComputeAverageNeuronLayerHashCollisionsInTest(NUMBER_OF_TEST_FRAMES);
+
+print("Average collision in train:", average_collision_in_train);
+print("Average collision in test:", average_collision_in_test);
+print("Average test time in ms:", time_testing_avg / NUMBER_OF_TEST_FRAMES);
+print("Total test time in ms:", time_testing - time_loading);
+
+PrintStatistics(0);
+
+quit;

@@ -8,7 +8,7 @@ foreach result ($results)
 	cat $result | grep "Average collision in test" | awk -F ':' '{printf "%f;", $2}'
 	cat $result | grep "Average test time in ms" | awk -F ':' '{printf "%f;", $2}'
 	cat $result | grep Total | awk -F ':' '{printf "%f;", $2}'
-	cat $result | grep 10000 | awk -F ' ' '{printf "%f;", $3}'
+	cat $result | grep 2784 | awk -F ' ' '{printf "%f;", $3}'
 	echo $result
 end
 

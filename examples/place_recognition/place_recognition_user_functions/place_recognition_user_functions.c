@@ -404,7 +404,7 @@ void output_handler (OUTPUT_DESC *output, int type_call, int mouse_button, int m
 
 			frame_counter++;
 
-			//printf("output frame[%d]: %d (%f)\n", frame_counter, frame, confidence);
+			printf("output frame[%d]: %d (%f)\n", frame_counter, frame, confidence);
 
 			if(g_evaluate_output == 1)
 			{
@@ -412,25 +412,24 @@ void output_handler (OUTPUT_DESC *output, int type_call, int mouse_button, int m
 				
 				g_frame_counter++;
 
-				winner_frame = get_output_winner(1);
+				winner_frame = get_output_winner(3);
 
 				//strcpy(recall_filename, g_test_frame_list[winner_frame].imagename);
 				//load_image_to_object(output->output_handler_params->next->param.sval, recall_filename);
 
-				int hit = ((winner_frame == g_test_frame_list[g_test_frame_ID].correspondence));// ||
-						  //(winner_frame == (g_test_frame_list[g_test_frame_ID].correspondence) + 1) ||
-						  //(winner_frame == (g_test_frame_list[g_test_frame_ID].correspondence) - 1) ||
-						  //(winner_frame == (g_test_frame_list[g_test_frame_ID].correspondence) + 2) ||
-						  //(winner_frame == (g_test_frame_list[g_test_frame_ID].correspondence) - 2)) ? 1 : 0);
+				int hit = ((winner_frame == g_test_frame_list[g_test_frame_ID].correspondence) ? 1 : 0);
 
 				hit_counter += hit;
 				g_hit_counter += hit;
 				
-				//printf("%d ", winner_frame);
-				//fflush(stdout);
-				//printf("### winner frame: %d [%d] - %f ###\n", winner_frame, g_test_frame_list[g_test_frame_ID].correspondence , (hit_counter / ((double)NUMBER_OF_TEST_FRAMES)) * 100.0);
+				if (hit == 0)
+				{
+				printf("%d ", g_test_frame_ID);
+				fflush(stdout);
+				printf("### winner frame: %d [%d] - %f ###\n", winner_frame, g_test_frame_list[g_test_frame_ID].correspondence , (hit_counter / ((double)NUMBER_OF_TEST_FRAMES)) * 100.0);
 				//printf("tested: %6.2f %6.2f %6.2f\n", g_test_frame_list[g_test_frame_ID].pose.x, g_test_frame_list[g_test_frame_ID].pose.y, g_test_frame_list[g_test_frame_ID].pose.z);
 				//printf("returned: %6.2f %6.2f %6.2f\n", g_training_frame_list[winner_frame].pose.x, g_training_frame_list[winner_frame].pose.y, g_training_frame_list[winner_frame].pose.z);
+				}
 
 			}
 		}
