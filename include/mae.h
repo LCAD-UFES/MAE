@@ -875,13 +875,13 @@ void	create_interpreter_user_function (int return_type, NEURON_OUTPUT (* functio
 void	map_layers2id (void);
 void	count_num_neurons (void);
 void	get_wisard_table_size_and_log2_table_size_and_number_of_tables( int*, int*, int, NEURON*);
-inline	void	mae_fastrand_srand(int);
-inline	int	mae_fastrand();
+void	mae_fastrand_srand(int);
+int	mae_fastrand();
 
 // Synapse thresholding generation
 int	random_integer(int low, int high);
 float	random_float(float low,float high);
-inline float	evaluate_gaussian_function(float,float,float,float);
+float	evaluate_gaussian_function(float,float,float,float);
 float		evaluate_normal_distribution(float,float,float);
 
 // Build network function requires these prototypes
@@ -895,8 +895,8 @@ void create_filter (void (* filter) (FILTER_DESC *), NEURON_LAYER *output, int n
 void output_connect (NEURON_LAYER *neuron_layer_src, OUTPUT_DESC *output);
 
 //Prefetch functions headers
-inline void mae_long_prefetch_high_priority(void*,size_t); // len is the lenght in bytes
-inline void mae_long_prefetch_low_priority(void*,size_t);
+void mae_long_prefetch_high_priority(void*,size_t); // len is the lenght in bytes
+void mae_long_prefetch_low_priority(void*,size_t);
 
 // User functions requires these prototypes in some examples    
 int number_neurons_on (NEURON *n, int n0, int num_neurons);

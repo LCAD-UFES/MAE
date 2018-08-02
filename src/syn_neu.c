@@ -25,12 +25,15 @@ int		random_neuron_index_vector_size;
 */
 
 // Obtained from : http://software.intel.com/en-us/articles/fast-random-number-generator-on-the-intel-pentiumr-4-processor
-inline void mae_fastrand_srand(int seed)
+void 
+mae_fastrand_srand(int seed)
 {
 	g_seed = seed;
 }
 
-inline int mae_fastrand()
+
+int 
+mae_fastrand()
 {
 	g_seed = (214013*g_seed+2531011); 
 	return (g_seed>>16)&0x7FFF; 
@@ -43,7 +46,8 @@ inline int mae_fastrand()
 */
 
 // Obtained from http://gcc.gnu.org/onlinedocs/gcc/Other-Builtins.html
-inline void mae_long_prefetch_high_priority(void *addr, size_t len) // len is the lenght in bytes
+void 
+mae_long_prefetch_high_priority(void *addr, size_t len) // len is the lenght in bytes
 {
 	char *cp;
 	char *end = addr + len;
@@ -52,7 +56,8 @@ inline void mae_long_prefetch_high_priority(void *addr, size_t len) // len is th
 		__builtin_prefetch(cp,0,3);	//Read High Priority
 }
 
-inline void mae_long_prefetch_low_priority(void *addr, size_t len)
+void 
+mae_long_prefetch_low_priority(void *addr, size_t len)
 {
 	char *cp;
 	char *end = addr + len;
@@ -368,7 +373,7 @@ obtain_composed_color_synapse_weighted_value(SYNAPSE *synapse)
 *********************************************************************************
 */
 
-inline float
+float
 obtain_composed_color_synapse_weighted_value_color_2_grayscale(SYNAPSE *synapse)
 {
 	/*	Obtained from : "Color-to-Grayscale: Does the Method Matter in Image Recognition ?"
@@ -1145,7 +1150,7 @@ reinitialize_synapse (SYNAPSE *synapse, NEURON_LAYER *neuron_layer_src, NEURON *
 */
 
 
-inline float
+float
 evaluate_gaussian_function(float x, float a,float b,float c_square)
 {
 	//refer to http://en.wikipedia.org/wiki/Gaussian_curve for further details
